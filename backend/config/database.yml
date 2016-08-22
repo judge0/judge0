@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  host: <%= ENV['JUDGE0API_DATABASE_HOST'] %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: Judge0API_development
+
+test:
+  <<: *default
+  database: Judge0API_test
+
+production:
+  <<: *default
+  database: Judge0API_production
+  username: Judge0API
+  password: <%= ENV['JUDGE0API_DATABASE_PASSWORD'] %>

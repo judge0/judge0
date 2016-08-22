@@ -1,0 +1,17 @@
+version: '2'
+services:
+  backend:
+    build: .
+    image: hermanzdosilovic/judge0-backend
+    depends_on:
+      - db
+    links:
+      - db
+    ports:
+      - "3000:3000"
+    env_file: .env
+
+  db:
+    image: postgres
+    volumes:
+      - ./data:/var/lib/postgresql/data
