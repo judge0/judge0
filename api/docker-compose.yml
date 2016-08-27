@@ -1,17 +1,15 @@
 version: '2'
 services:
-  backend:
+  api:
     build: .
-    image: hermanzdosilovic/judge0-backend
+    image: hermanzdosilovic/judge0
     depends_on:
-      - db
+      - pg
     links:
-      - db
-    ports:
-      - "3000:3000"
+      - pg
     env_file: .env
 
-  db:
+  pg:
     image: postgres
     volumes:
       - ./data:/var/lib/postgresql/data

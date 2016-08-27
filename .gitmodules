@@ -1,3 +1,3 @@
-[submodule "cli/vendor/isolate"]
-	path = cli/vendor/isolate
-	url = https://github.com/ioi/isolate
+[submodule "backend/vendor/isolate"]
+	path = backend/vendor/isolate
+	url = https://github.com/ioi/isolate.git

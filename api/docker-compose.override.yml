@@ -1,0 +1,7 @@
+version: '2'
+services:
+  api:
+    volumes:
+      - .:/usr/src/judge0
+    ports:
+      - 3000:3000

@@ -2,6 +2,7 @@ FROM ubuntu:16.04
 
 RUN apt-get update && apt-get install -y \
   curl \
+  libpq-dev \
   git \
   make \
   software-properties-common \
@@ -113,4 +114,16 @@ RUN make install
 ENV BOX_ROOT /var/local/lib/isolate
 
 
-WORKDIR /
+################################################################################
+# Install Rails Environment
+################################################################################
+RUN echo "gem: --no-document" > /root/.gemrc && \
+  gem install \
+  rails:5.0 \
+  bundler \
+  pg
+
+COPY . /usr/src/judge0
+WORKDIR /usr/src/judge0
+RUN bundle
+CMD rails s -b 0.0.0.0

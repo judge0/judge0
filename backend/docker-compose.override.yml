@@ -1,5 +1,0 @@
-version: '2'
-services:
-  backend:
-    volumes:
-      - '.:/usr/src/judge0/backend'
