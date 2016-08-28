@@ -1,7 +1,14 @@
 version: '2'
 services:
   api:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+      args:
+        - DEV_USER=$DEV_USER
+        - DEV_USER_ID=$DEV_USER_ID
+    image: hermanzdosilovic/judge0-dev
     volumes:
-      - .:/usr/src/judge0
+      - .:/usr/src/api
     ports:
       - 3000:3000

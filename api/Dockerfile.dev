@@ -1,0 +1,10 @@
+FROM hermanzdosilovic/judge0
+
+RUN apt-get update && apt-get install -y \
+  sudo
+
+ARG DEV_USER
+ARG DEV_USER_ID
+RUN useradd -u $DEV_USER_ID -r $DEV_USER && \
+  echo "$DEV_USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers
+USER $DEV_USER

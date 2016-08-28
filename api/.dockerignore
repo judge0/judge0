@@ -5,3 +5,5 @@
 !/tmp/.keep
 .byebug_history
 data/
+Dockerfile*
+docker-compose.*

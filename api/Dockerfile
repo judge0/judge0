@@ -123,7 +123,7 @@ RUN echo "gem: --no-document" > /root/.gemrc && \
   bundler \
   pg
 
-COPY . /usr/src/judge0
-WORKDIR /usr/src/judge0
+COPY . /usr/src/api
+WORKDIR /usr/src/api
 RUN bundle
-CMD rails s -b 0.0.0.0
+CMD rm -f tmp/pids/server.pid && rails s -b 0.0.0.0

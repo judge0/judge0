@@ -7,9 +7,7 @@ services:
       - pg
     links:
       - pg
-    env_file: .env
+    env_file: .railsenv
 
   pg:
     image: postgres
-    volumes:
-      - ./data:/var/lib/postgresql/data
