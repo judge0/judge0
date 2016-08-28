@@ -1,0 +1,7 @@
+version: '2'
+services:
+  demo:
+    build: .
+    image: hermanzdosilovic/judge0-demo
+    ports:
+      - 80:80
