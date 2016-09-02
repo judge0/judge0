@@ -1,0 +1,13 @@
+version: '2'
+services:
+  api:
+    environment:
+      RAILS_ENV: production
+      JUDGE0API_DATABASE_HOST: pg
+      SECRET_KEY_BASE:
+      JUDGE0API_DATABASE_PASSWORD:
+    ports:
+      - 3000
+  pg:
+    volumes:
+      - /var/lib/judge0/data:/var/lib/postgresql/data/

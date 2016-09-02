@@ -5,10 +5,13 @@ services:
       context: .
       dockerfile: Dockerfile.dev
       args:
-        - DEV_USER=$DEV_USER
-        - DEV_USER_ID=$DEV_USER_ID
-    image: hermanzdosilovic/judge0-dev
+        DEV_USER: herman
+        DEV_USER_ID: 1000
+    image: judge0-dev
     volumes:
       - .:/usr/src/api
+    environment:
+      RAILS_ENV: development
+      JUDGE0API_DATABASE_HOST: pg
     ports:
       - 3000:3000

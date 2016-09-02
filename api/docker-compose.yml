@@ -7,7 +7,6 @@ services:
       - pg
     links:
       - pg
-    env_file: .railsenv
 
   pg:
     image: postgres
