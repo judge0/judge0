@@ -2,14 +2,22 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 5.0.0'
 gem 'pg', '~> 0.18'
+
+gem 'active_model_serializers', '~> 0.10.2'
 gem 'puma', '~> 3.0'
 
 group :development do
-  gem 'listen', '~> 3.1'
   gem 'annotate', '~> 2.7'
+  gem 'listen', '~> 3.1'
+end
+
+group :test do
+  gem 'database_cleaner', '~> 1.5'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.5'
   gem 'factory_girl_rails', '~> 4.7'
+  gem 'pry-byebug', '~> 3.4'
+  gem 'rspec-rails', '~> 3.5'
 end

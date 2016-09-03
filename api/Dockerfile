@@ -44,12 +44,6 @@ RUN echo | add-apt-repository ppa:webupd8team/java && \
     apt-get install -y oracle-java7-installer && \
     apt-get install -y oracle-java8-installer
 
-RUN echo "echo 1 | update-alternatives --config java &> /dev/null" >> /usr/bin/use-java-6 && \
-    echo "echo 2 | update-alternatives --config java &> /dev/null" >> /usr/bin/use-java-7 && \
-    echo "echo 3 | update-alternatives --config java &> /dev/null" >> /usr/bin/use-java-8 && \
-    chmod 755 /usr/bin/use-java-6 /usr/bin/use-java-7 /usr/bin/use-java-8
-
-
 ################################################################################
 # Install Ruby
 ################################################################################

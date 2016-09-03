@@ -19,5 +19,7 @@ module Judge0API
     config.generators do |g|
       g.factory_girl test_framework: :rspec
     end
+
+    ActiveModelSerializers.config.adapter = :json_api
   end
 end
