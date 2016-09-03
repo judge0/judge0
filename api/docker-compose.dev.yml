@@ -7,7 +7,7 @@ services:
       args:
         DEV_USER: herman
         DEV_USER_ID: 1000
-    image: judge0-dev
+    image: hermanzdosilovic/judge0-dev
     volumes:
       - .:/usr/src/api
     environment:
