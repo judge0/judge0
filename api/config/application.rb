@@ -16,5 +16,8 @@ Bundler.require(*Rails.groups)
 module Judge0API
   class Application < Rails::Application
     config.api_only = true
+    config.generators do |g|
+      g.factory_girl test_framework: :rspec
+    end
   end
 end
