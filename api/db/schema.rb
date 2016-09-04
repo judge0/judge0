@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160903140859) do
+ActiveRecord::Schema.define(version: 20160903211542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,17 @@ ActiveRecord::Schema.define(version: 20160903140859) do
     t.string "name"
     t.string "compile_cmd"
     t.string "run_cmd"
+  end
+
+  create_table "submissions", force: :cascade do |t|
+    t.text     "source_code"
+    t.integer  "language_id"
+    t.text     "input"
+    t.text     "expected_output"
+    t.text     "actual_output"
+    t.integer  "status_id"
+    t.datetime "created_at"
+    t.datetime "finished_at"
   end
 
 end

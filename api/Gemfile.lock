@@ -53,6 +53,10 @@ GEM
     concurrent-ruby (1.0.2)
     database_cleaner (1.5.3)
     diff-lcs (1.2.5)
+    enumerations (2.1.0)
+      activerecord
+      activesupport
+      i18n
     erubis (2.7.0)
     factory_girl (4.7.0)
       activesupport (>= 3.0.0)
@@ -167,6 +171,7 @@ DEPENDENCIES
   active_model_serializers (~> 0.10.2)
   annotate (~> 2.7)
   database_cleaner (~> 1.5)
+  enumerations (~> 2.1)
   factory_girl_rails (~> 4.7)
   listen (~> 3.1)
   pg (~> 0.18)
