@@ -14,13 +14,60 @@ function changeLanguage(e) {
 };
 
 function runSource() {
+  toggleControlsAndLoader();
+
   var source = sourceEditor.getValue();
   var input = inputEditor.getValue();
   var expectedOutput = expectedOutputEditor.getValue();
+  var language = $("#select-language").val();
 
-  toggleControlsAndLoader();
-  setTimeout(toggleControlsAndLoader, 2000); // Ajax call to API
+  var data = {
+    submission: {
+      source_code: source,
+      language_id: language,
+      input: input,
+      expected_output: expectedOutput
+    }
+  };
+
+  var submission_id;
+  $.ajax({
+      url: "http://localhost:3000/submissions",
+      type: "POST",
+      async: false,
+      contentType: "application/json",
+      data: JSON.stringify(data),
+      success: function(data, textStatus, jqXHR) {
+        submission_id = data.data.id;
+      }
+  });
+
+  setTimeout(fetchSubmission.bind(null, submission_id), 2000);
 };
+
+function fetchSubmission(submission_id) {
+  var status;
+  var time;
+  var actualOutput;
+  $.ajax({
+      url: "http://localhost:3000/submissions/" + submission_id,
+      type: "GET",
+      async: false,
+      success: function(data, textStatus, jqXHR) {
+        actualOutput = data.data.attributes["actual-output"];
+        status = data.data.attributes.status;
+        time = data.data.attributes.time;
+      }
+  });
+
+  if (status === null) {
+    setTimeout(fetchSubmission.bind(null, submission_id), 2000);
+  } else {
+    statusEditor.setValue("Time: " + time + "s\n" + status.attributes.name);
+    actualOutputEditor.setValue(actualOutput);
+    toggleControlsAndLoader();
+  }
+}
 
 $(document).ready(function() {
   sourceEditor = CodeMirror(document.getElementById("source-editor"), {
