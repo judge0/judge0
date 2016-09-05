@@ -13,5 +13,6 @@ services:
     environment:
       RAILS_ENV: development
       JUDGE0API_DATABASE_HOST: pg
+      JUDGE0API_REDIS_HOST: redis
     ports:
       - 3000:3000

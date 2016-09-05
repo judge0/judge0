@@ -8,6 +8,7 @@ class SubmissionsController < ApplicationController
     @submission = Submission.new(submission_params)
 
     if @submission.save
+      IsolateJob.perform_later(@submission)
       render json: @submission, status: :created, serializer: SubmissionCreateSerializer
     else
       render json: @submission.errors, status: :unprocessable_entity

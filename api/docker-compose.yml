@@ -5,9 +5,14 @@ services:
     image: hermanzdosilovic/judge0
     depends_on:
       - pg
+      - redis
     links:
       - pg
+      - redis
     privileged: true
 
   pg:
     image: postgres
+
+  redis:
+    image: redis

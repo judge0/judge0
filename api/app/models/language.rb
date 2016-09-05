@@ -6,8 +6,9 @@
 #  name        :string
 #  compile_cmd :string
 #  run_cmd     :string
+#  source_file :string
 #
 
 class Language < ApplicationRecord
-  validates :name, presence: true
+  validates :name, :source_file, presence: true
 end

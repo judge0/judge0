@@ -11,6 +11,7 @@
 #  status_id       :integer
 #  created_at      :datetime
 #  finished_at     :datetime
+#  time            :decimal(, )
 #
 
 class Submission < ApplicationRecord
