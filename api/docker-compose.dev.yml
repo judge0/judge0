@@ -10,9 +10,7 @@ services:
     image: hermanzdosilovic/judge0-dev
     volumes:
       - .:/usr/src/api
-    environment:
-      RAILS_ENV: development
-      JUDGE0API_DATABASE_HOST: pg
-      JUDGE0API_REDIS_HOST: redis
+    env_file: judge0-api.env
     ports:
       - 3000:3000
+    privileged: true

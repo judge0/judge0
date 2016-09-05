@@ -1,14 +1,19 @@
 version: '2'
 services:
   api:
-    environment:
-      RAILS_ENV: production
-      JUDGE0API_DATABASE_HOST: pg
-      JUDGE0API_REDIS_HOST: redis
-      SECRET_KEY_BASE:
-      JUDGE0API_DATABASE_PASSWORD:
+    env_file: judge0-api.env
     ports:
-      - 3000
+      - 3000:3000
+
+  worker:
+    build: .
+    image: hermanzdosilovic/judge0-api
+    env_file: judge0-api.env
+    command: rails resque:work QUEUE=*
+    privileged: true
+    links:
+      - pg
+      - redis
 
   pg:
     volumes:

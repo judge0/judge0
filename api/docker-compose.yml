@@ -2,14 +2,10 @@ version: '2'
 services:
   api:
     build: .
-    image: hermanzdosilovic/judge0
-    depends_on:
-      - pg
-      - redis
+    image: hermanzdosilovic/judge0-api
     links:
       - pg
       - redis
-    privileged: true
 
   pg:
     image: postgres
