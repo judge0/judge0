@@ -1,3 +1,4 @@
+var BASE_URL = "http://api.judge0.tk";
 var sourceEditor, inputEditor, expectedOutputEditor, actualOutputEditor, statusEditor;
 
 var controlsDisabled = false;
@@ -32,7 +33,7 @@ function runSource() {
 
   var submission_id;
   $.ajax({
-      url: "http://localhost:3000/submissions",
+      url: BASE_URL + "/submissions",
       type: "POST",
       async: false,
       contentType: "application/json",
@@ -50,7 +51,7 @@ function fetchSubmission(submission_id) {
   var time;
   var actualOutput;
   $.ajax({
-      url: "http://localhost:3000/submissions/" + submission_id,
+      url: BASE_URL + "/submissions/" + submission_id,
       type: "GET",
       async: false,
       success: function(data, textStatus, jqXHR) {
