@@ -1,12 +1,20 @@
 version: '2'
 services:
+  nginx:
+    image: nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    links:
+      - api
+    ports:
+      - 80:80
+
   api:
     env_file: judge0-api.env
     ports:
-      - 3000:3000
+      - 3000
 
   worker:
-    build: .
     image: hermanzdosilovic/judge0-api
     env_file: judge0-api.env
     command: rails resque:work QUEUE=*
@@ -18,3 +26,4 @@ services:
   pg:
     volumes:
       - /var/lib/judge0/data:/var/lib/postgresql/data/
+    env_file: judge0-api.env
