@@ -49,6 +49,7 @@ function runSource() {
 function fetchSubmission(submission_id) {
   var status;
   var time;
+  var memory;
   var actualOutput;
   $.ajax({
       url: BASE_URL + "/submissions/" + submission_id,
@@ -58,13 +59,17 @@ function fetchSubmission(submission_id) {
         actualOutput = data.data.attributes["actual-output"];
         status = data.data.attributes.status;
         time = data.data.attributes.time;
+        memory = data.data.attributes.memory;
       }
   });
 
+
+  time = (time === null ? "-" : time + "s");
+  memory = (memory === null ? "-" : memory + "KB");
   if (status === null) {
     setTimeout(fetchSubmission.bind(null, submission_id), 2000);
   } else {
-    statusEditor.setValue("Time: " + time + "s\n" + status.attributes.name);
+    statusEditor.setValue("Time: " + time + "\n" + "Memory: " + memory + "\n" + status.attributes.name);
     actualOutputEditor.setValue(actualOutput);
     toggleControlsAndLoader();
   }
