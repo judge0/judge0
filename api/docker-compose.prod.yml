@@ -17,7 +17,7 @@ services:
   worker:
     image: hermanzdosilovic/judge0-api
     env_file: judge0-api.conf
-    command: rails resque:work QUEUE=*
+    command: rails resque:work QUEUE=* COUNT=2
     privileged: true
     links:
       - pg
