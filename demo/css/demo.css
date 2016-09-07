@@ -28,6 +28,11 @@ a {
   font-size: 3.5em;
 }
 
+.headline h1 a {
+  color: #444;
+  text-decoration: none;
+}
+
 .headline h3, h4 {
   font-weight: normal;
 }
