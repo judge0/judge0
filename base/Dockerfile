@@ -4,7 +4,6 @@ RUN apt-get update && apt-get install -y \
   git \
   make \
   software-properties-common \
-  vim \
   wget
 
 
@@ -15,6 +14,15 @@ RUN apt-get update && apt-get install -y \
     gcc-4.9 \
     gcc-5 \
     gcc
+
+
+# Install Isolate
+WORKDIR /tmp
+RUN git clone https://github.com/ioi/isolate.git && \
+  cd isolate && \
+  make install
+
+ENV BOX_ROOT /var/local/lib/isolate
 
 
 # Install C++
@@ -54,7 +62,7 @@ WORKDIR /tmp
 RUN wget http://gd.tuwien.ac.at/languages/ruby/ruby-1.9-stable.tar.gz && \
     tar -xzf ruby-1.9-stable.tar.gz && \
     cd ruby-1.9.3-p448 && \
-    ./configure --prefix /opt/ruby/1.9.3 && \
+    ./configure --prefix /usr/lib/ruby/1.9.3 && \
     make && \
     make install
 
@@ -62,7 +70,7 @@ WORKDIR /tmp
 RUN wget https://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.5.tar.gz && \
     tar -xzf ruby-2.2.5.tar.gz && \
     cd ruby-2.2.5 && \
-    ./configure --prefix /opt/ruby/2.2.5 && \
+    ./configure --prefix /usr/lib/ruby/2.2.5 && \
     make && \
     make install
 
@@ -70,11 +78,11 @@ WORKDIR /tmp
 RUN wget http://ftp.ruby-lang.org/pub/ruby/2.3/ruby-2.3.1.tar.gz && \
     tar -xzf ruby-2.3.1.tar.gz && \
     cd ruby-2.3.1 && \
-    ./configure --prefix /opt/ruby/2.3.1 && \
+    ./configure --prefix /usr/lib/ruby/2.3.1 && \
     make && \
     make install
 
-ENV PATH /opt/ruby/2.3.1/bin:$PATH
+ENV PATH /usr/lib/ruby/2.3.1/bin:$PATH
 
 
 # Install Python
@@ -83,13 +91,7 @@ RUN apt-get install -y \
   python3
 
 
-# Install Isolate
-WORKDIR /opt
-RUN git clone https://github.com/ioi/isolate.git && \
-  cd isolate && \
-  make install
+# ADD HERE MORE COMPILERS ...
 
-ENV BOX_ROOT /var/local/lib/isolate
-
-
+RUN cd /tmp && rm -rf *
 WORKDIR /root
