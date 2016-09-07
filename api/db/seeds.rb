@@ -1,94 +1,94 @@
 languages = [
   {
     name: 'C (gcc 4.7)',
-    compile_cmd: 'gcc-4.7',
-    run_cmd: './a.out',
-    source_file: 'main.c'
+    source_file: 'main.c',
+    compile_cmd: '/usr/bin/gcc-4.7 main.c',
+    run_cmd: './a.out'
   },
   {
     name: 'C (gcc 4.8)',
-    compile_cmd: 'gcc-4.8',
-    run_cmd: './a.out',
-    source_file: 'main.c'
+    source_file: 'main.c',
+    compile_cmd: '/usr/bin/gcc-4.8 main.c',
+    run_cmd: './a.out'
   },
   {
     name: 'C (gcc 4.9)',
-    compile_cmd: 'gcc-4.9',
-    run_cmd: './a.out',
-    source_file: 'main.c'
+    source_file: 'main.c',
+    compile_cmd: '/usr/bin/gcc-4.9 main.c',
+    run_cmd: './a.out'
   },
   {
     name: 'C (gcc 5.4)',
-    compile_cmd: 'gcc-5',
-    run_cmd: './a.out',
-    source_file: 'main.c'
+    source_file: 'main.c',
+    compile_cmd: '/usr/bin/gcc-5 main.c',
+    run_cmd: './a.out'
   },
   {
     name: 'C++ (g++ 4.7)',
-    compile_cmd: 'g++-4.7',
-    run_cmd: './a.out',
-    source_file: 'main.cpp'
+    source_file: 'main.cpp',
+    compile_cmd: '/usr/bin/g++-4.7 main.c',
+    run_cmd: './a.out'
   },
   {
     name: 'C++ (g++ 4.8)',
-    compile_cmd: 'g++-4.8',
-    run_cmd: './a.out',
-    source_file: 'main.cpp'
+    source_file: 'main.cpp',
+    compile_cmd: '/usr/bin/g++-4.8 main.c',
+    run_cmd: './a.out'
   },
   {
     name: 'C++ (g++ 4.9)',
-    compile_cmd: 'g++-4.9',
-    run_cmd: './a.out',
-    source_file: 'main.cpp'
+    source_file: 'main.cpp',
+    compile_cmd: '/usr/bin/g++-4.9 main.c',
+    run_cmd: './a.out'
   },
   {
     name: 'C++ (g++ 5.4)',
-    compile_cmd: 'g++-5',
-    run_cmd: './a.out',
-    source_file: 'main.cpp'
+    source_file: 'main.cpp',
+    compile_cmd: '/usr/bin/g++-5 main.c',
+    run_cmd: './a.out'
   },
   {
     name: 'Java (SE 1.6)',
-    compile_cmd: '/usr/lib/jvm/java-6-oracle/bin/javac',
-    run_cmd: '/usr/lib/jvm/java-6-oracle/bin/java',
-    source_file: 'Main.java'
+    source_file: 'Main.java',
+    compile_cmd: '/usr/lib/jvm/java-6-oracle/bin/javac Main.java',
+    run_cmd: '/usr/lib/jvm/java-6-oracle/bin/java Main',
   },
   {
     name: 'Java (SE 1.7)',
-    compile_cmd: '/usr/lib/jvm/java-7-oracle/bin/javac',
-    run_cmd: '/usr/lib/jvm/java-7-oracle/bin/java',
-    source_file: 'Main.java'
+    source_file: 'Main.java',
+    compile_cmd: '/usr/lib/jvm/java-7-oracle/bin/javac Main.java',
+    run_cmd: '/usr/lib/jvm/java-7-oracle/bin/java Main',
   },
   {
     name: 'Java (SE 1.8)',
-    compile_cmd: '/usr/lib/jvm/java-8-oracle/bin/javac',
-    run_cmd: '/usr/lib/jvm/java-8-oracle/bin/java',
-    source_file: 'Main.java'
+    source_file: 'Main.java',
+    compile_cmd: '/usr/lib/jvm/java-8-oracle/bin/javac Main.java',
+    run_cmd: '/usr/lib/jvm/java-8-oracle/bin/java Main',
   },
   {
     name: 'Ruby (1.9.3)',
-    run_cmd: '/opt/ruby/1.9.3/bin/ruby',
-    source_file: 'main.rb'
+    source_file: 'main.rb',
+    run_cmd: '/usr/lib/ruby/1.9.3/bin/ruby main.rb'
   },
   {
     name: 'Ruby (2.2.5)',
-    run_cmd: '/opt/ruby/2.2.5/bin/ruby',
-    source_file: 'main.rb'
+    source_file: 'main.rb',
+    run_cmd: '/usr/lib/ruby/2.2.5/bin/ruby main.rb'
   },
   {
     name: 'Ruby (2.3.1)',
-    run_cmd: '/opt/ruby/2.3.1/bin/ruby',
-    source_file: 'main.rb'
+    source_file: 'main.rb',
+    run_cmd: '/usr/lib/ruby/2.3.1/bin/ruby main.rb'
   },
   {
     name: 'Python (2.7.12)',
-    run_cmd: 'python',
-    source_file: 'main.py'
+    source_file: 'main.py',
+    run_cmd: '/usr/bin/python2.7 main.py'
   },
   {
     name: 'Python (3.5.2)',
-    run_cmd: 'python3',
-    source_file: 'main.py'
+    source_file: 'main.py',
+    run_cmd: '/usr/bin/python3 main.py'
   }
 ]
 

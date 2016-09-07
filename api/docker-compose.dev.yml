@@ -10,7 +10,7 @@ services:
     image: hermanzdosilovic/judge0-dev
     volumes:
       - .:/usr/src/api
-    env_file: judge0-api.env
+    env_file: judge0-api.conf
     ports:
       - 3000:3000
     privileged: true

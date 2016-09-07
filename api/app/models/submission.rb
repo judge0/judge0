@@ -12,6 +12,7 @@
 #  created_at      :datetime
 #  finished_at     :datetime
 #  time            :decimal(, )
+#  memory          :integer
 #
 
 class Submission < ApplicationRecord

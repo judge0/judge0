@@ -10,13 +10,13 @@ services:
       - 80:80
 
   api:
-    env_file: judge0-api.env
+    env_file: judge0-api.conf
     ports:
       - 3000
 
   worker:
     image: hermanzdosilovic/judge0-api
-    env_file: judge0-api.env
+    env_file: judge0-api.conf
     command: rails resque:work QUEUE=*
     privileged: true
     links:
@@ -26,4 +26,4 @@ services:
   pg:
     volumes:
       - /var/lib/judge0/data:/var/lib/postgresql/data/
-    env_file: judge0-api.env
+    env_file: judge0-api.conf

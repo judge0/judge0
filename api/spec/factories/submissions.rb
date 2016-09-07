@@ -9,6 +9,8 @@ FactoryGirl.define do
   factory :submission, parent: :valid_submission do
     actual_output "hello, world"
     status_id 1
+    time 1.0
+    memory 256
   end
 
   factory :invalid_submission, class: Submission do
