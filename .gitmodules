@@ -1,3 +1,0 @@
-[submodule "api/vendor/isolate"]
-  path = api/vendor/isolate
-  url = https://github.com/ioi/isolate.git

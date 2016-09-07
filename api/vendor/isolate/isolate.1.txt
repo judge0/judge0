@@ -1,0 +1,300 @@
+ISOLATE(1)
+==========
+
+NAME
+----
+isolate - Isolate a process using Linux Containers
+
+SYNOPSIS
+--------
+*isolate* 'options' *--init*
+
+*isolate* 'options' *--run* +--+ 'program' 'arguments'
+
+*isolate* 'options' *--cleanup*
+
+DESCRIPTION
+-----------
+Run 'program' within a sandbox, so that it cannot communicate with the
+outside world and its resource consumption is limited. This can be used
+for example in a programming contest to run untrusted programs submitted
+by contestants in a controlled environment.
+
+The sandbox is used in the following way:
+
+* Run *isolate --init*, which initializes the sandbox, creates its working directory and
+prints its name to the standard output.
+
+* Populate the directory with the executable file of the program and its
+input files.
+
+* Call *isolate --run* to run the program. A single line describing the
+status of the program is written to the standard error stream.
+
+* Fetch the output of the program from the directory.
+
+* Run *isolate --cleanup* to remove temporary files.
+
+Please note that by default, the program is not allowed to start multiple
+processes of threads. If you need that, turn on the control group mode
+(see below).
+
+OPTIONS
+-------
+*-M, --meta=*'file'::
+	Output meta-data on the execution of the program to a given file.
+	See below for syntax of the meta-files.
+
+*-m, --mem=*'size'::
+	Limit address space of the program to 'size' kilobytes. If more processes
+	are allowed, this applies to each of them separately.
+
+*-t, --time=*'time'::
+	Limit run time of the program to 'time' seconds. Fractional numbers are allowed.
+	Time in which the OS assigns the processor to different tasks is not counted.
+
+*-w, --wall-time=*'time'::
+	Limit wall-clock time to 'time' seconds. Fractional values are allowed.
+	This clock measures the time from the start of the program to its exit,
+	so it does not stop when the program has lost the CPU or when it is waiting
+	for an external event. We recommend to use *--time* as the main limit,
+	but set *--wall-time* to a much higher value as a precaution against
+	sleeping programs.
+
+*-x, --extra-time=*'time'::
+	When a time limit is exceeded, wait for extra 'time' seconds before
+	killing the program. This has the advantage that the real execution time
+	is reported, even though it slightly exceeds the limit. Fractional
+	numbers are again allowed.
+
+*-b, --box-id=*'id'::
+	When you run multiple sandboxes in parallel, you have to assign each unique
+	IDs to them by this option. See the discussion on UIDs in the INSTALLATION
+	section. The ID defaults to 0.
+
+*-k, --stack=*'size'::
+	Limit process stack to 'size' kilobytes. By default, the whole address
+	space is available for the stack, but it is subject to the *--mem* limit.
+
+*-f, --fsize=*'size'::
+	Limit size of files created (or modified) by the program to 'size' kilobytes.
+	In most cases, it is better to restrict overall disk usage by a disk quota
+	(see below). This option can help in cases when quotas are not enabled
+	on the underlying filesystem.
+
+*-q, --quota=*'blocks'*,*'inodes'::
+	Set disk quota to a given number of blocks and inodes. This requires the
+	filesystem to be mounted with support for quotas.
+
+*-i, --stdin=*'file'::
+	Redirect standard input from 'file'. The 'file' has to be accessible
+	inside the sandbox. Otherwise, standard input is inherited from the
+	parent process.
+
+*-o, --stdout=*'file'::
+	Redirect standard output to 'file'. The 'file' has to be accessible
+	inside the sandbox. Otherwise, standard output is inherited from the
+	parent process and the sandbox manager does not write anything to it.
+
+*-r, --stderr=*'file'::
+	Redirect standard error output to 'file'. The 'file' has to be accessible
+	inside the sandbox. Otherwise, standard error output is inherited from
+	the parent process and both the sandboxed process and the sandbox manager
+	can write their status messages to it.
+
+*-c, --chdir=*'dir'::
+	Change directory to 'dir' before executing the program. This path must be
+	relative to the root of the sandbox.
+
+*-p, --processes*[*=*'max']::
+	Permit the program to create up to 'max' processes and/or threads. Please
+	keep in mind that time and memory limit do not work with multiple processes
+	unless you enable the control group mode. If 'max' is not given, an arbitrary
+	number of processes can be run. By default, only one process is permitted.
+
+*--share-net*::
+	By default, isolate creates a new network namespace for its child process.
+	This namespace contains no network devices except for a per-namespace loopback.
+	This prevents the program from communicating with the outside world. If you want
+	to permit communication, you can use this switch to keep the child process
+	in parent's network namespace.
+
+*-v, --verbose*::
+	Tell the sandbox manager to be verbose and report on what is going on.
+	Using *-v* multiple times produces even more jabber.
+
+*-s, --silent*::
+	Tell the sandbox manager to keep silence. No status messages are printed
+	to stderr except for fatal errors of the sandbox itself. The combination of
+	*--verbose* and *--silent* has an undefined effect.
+
+ENVIRONMENT RULES
+-----------------
+UNIX processes normally inherit all environment variables from their parent. The
+sandbox however passes only those variables which are explicitly requested by
+environment rules:
+
+*-E, --env=*'var'::
+	Inherit the variable 'var' from the parent.
+
+*-E, --env=*'var'*=*'value'::
+	Set the variable 'var' to 'value'. When the 'value' is empty, the
+	variable is removed from the environment.
+
+*-e, --full-env*::
+	Inherit all variables from the parent.
+
+The rules are applied in the order in which they were given, except for
+*--full-env*, which is applied first.
+
+The list of rules is automatically initialized with *-ELIBC_FATAL_STDERR_=1*.
+
+DIRECTORY RULES
+---------------
+The sandboxed process gets its own filesystem namespace, which contains only subtrees
+requested by directory rules:
+
+*-d, --dir=*'in'*=*'out'[*:*'options']::
+	Bind the directory 'out' as seen by the caller to the path 'in' inside the sandbox.
+	If there already was a directory rule for 'out', it is replaced.
+
+*-d, --dir=*'dir'[*:*'options']::
+	Bind the directory +/+'dir' to 'dir' inside the sandbox.
+	If there already was a directory rule for 'out', it is replaced.
+
+*-d, --dir=*'in'*=*::
+	Remove a directory rule for the path 'in' inside the sandbox.
+
+By default, all directories are bound read-only and restricted (no devices,
+no setuid binaries). This behavior can be modified using the 'options':
+
+*rw*::
+	Allow read-write access.
+
+*dev*::
+	Allow access to character and block devices.
+
+*noexec*::
+	Disallow execution of binaries.
+
+*maybe*::
+	Silently ignore the rule if the directory to be bound does not exist.
+
+*fs*::
+	Instead of binding a directory, mount a device-less filesystem called 'in'.
+	For example, this can be 'proc' or 'sysfs'.
+
+The default set of directory rules binds +/bin+, +/dev+ (with devices allowed), +/lib+,
++/lib64+ (if it exists), and +/usr+. It also binds the working directory to +/box+ (read-write)
+and mounts the proc filesystem at +/proc+.
+
+CONTROL GROUPS
+--------------
+Isolate can make use of system control groups provided by the kernel
+to constrain programs consisting of multiple processes. Please note
+that this feature needs special system setup described in the INSTALLATION
+section.
+
+*--cg*::
+	Enable use of control groups. This should be specified with *--init*,
+	*--run* and *--cleanup*.
+
+*--cg-mem=*'size'::
+	Limit total memory usage by the whole control group to 'size' kilobytes.
+	This should be specified with *--run*.
+
+*--cg-timing*::
+	Use control groups for timing, so that the *--time* switch affects the
+	total run time of all processes and threads in the control group.
+	This should be specified with *--run*.
+
+META-FILES
+----------
+The meta-file contains miscellaneous meta-information on execution of the
+program within the sandbox. It is a textual file consisting of lines
+of format 'key'*:*'value'. The following keys are defined:
+
+*cg-mem*::
+	When control groups are enabled, this is the total memory use
+	by the whole control group (in kilobytes).
+*csw-forced*::
+	Number of context switches forced by the kernel.
+*csw-voluntary*::
+	Number of context switches caused by the process giving up the CPU
+	voluntarily.
+*exitcode*::
+	The program has exited normally with this exit code.
+*exitsig*::
+	The program has exited after receiving this fatal signal.
+*killed*::
+	Present when the program was terminated by the sandbox
+	(e.g., because it has exceeded the time limit).
+*max-rss*::
+	Maximum resident set size of the process (in kilobytes).
+*message*::
+	Status message, not intended for machine processing.
+	E.g., "Time limit exceeded."
+*status*::
+	Two-letter status code:
+	* *RE* -- run-time error, i.e., exited with a non-zero exit code
+	* *SG* -- program died on a signal
+	* *TO* -- timed out
+	* *XX* -- internal error of the sandbox
+*time*::
+	Run time of the program in fractional seconds.
+*time-wall*::
+	Wall clock time of the program in fractional seconds.
+
+RETURN VALUE
+------------
+When the program inside the sandbox finishes correctly, the sandbox returns 0.
+If it finishes incorrectly, it returns 1.
+All other return codes signal an internal error.
+
+INSTALLATION
+------------
+Isolate depends on several advanced features of the Linux kernel. Please
+make sure that your kernel supports
+PID namespaces (+CONFIG_PID_NS+),
+IPC namespaces (+CONFIG_IPC_NS+), and
+network namespaces (+CONFIG_NET_NS+).
+If you want to use control groups, you need
+the cpusets (+CONFIG_CPUSETS+),
+CPU accounting controller (+CONFIG_CGROUP_CPUACCT+), and
+memory resource controller (+CONFIG_MEMCG+). If your machine has swap enabled,
+you should also enable the swap controller (+CONFIG_MEMCG_SWAP+).
+
+Debian 7.x and newer require enabling the memory and swap cgroup controllers by
+adding the parameters "cgroup_enable=memory swapaccount=1" to the kernel
+command-line, which can be set using +GRUB_CMDLINE_LINUX_DEFAULT+ in
+/etc/default/grub.
+
+Isolate is designed to run setuid to root. The sub-process inside the sandbox
+then switches to a non-privileged user ID (different for each *--box-id*).
+The range of UIDs available and several filesystem paths are set in a configuration
+file, by default located in /usr/local/etc/isolate.
+
+Before you run isolate with control groups, you need to ensure that the cgroup
+filesystem is enabled and mounted.  Most modern Linux distributions already
+provide cgroup support through a tmpfs mounted at /sys/fs/cgroup, with
+individual controllers mounted within subdirectories.
+
+REPRODUCIBILITY
+---------------
+
+The reproducibility of results can be improved by tuning some kernel
+parameters:
+
+* Disable address space randomization: +sysctl kernel.randomize_va_space=0+.
+Address space randomization can affect timing, memory usage, and program
+behavior. This setting can be made persistent through /etc/sysctl.d/.
+
+* Disable dynamic CPU frequency scaling. This requires setting the cpufreq
+scaling governor to +performance+. The process for doing this varies between
+distributions.
+
+LICENSE
+-------
+Isolate was written by Martin Mares and Bernard Blackham.
+It can be distributed and used under the terms of the GNU
+General Public License version 2 or any later version.
