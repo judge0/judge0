@@ -1,6 +1,0 @@
-Test: ptrace self
-Test: SIGSTOP
-Test: ping-pong timing attacks
-Test: big static memory
-Examine the use of taskstats for measuring memory
-Doc: mount -t cgroup none -o cpuset,cpuacct,memory /sys/fs/cgroup
