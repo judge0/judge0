@@ -1,7 +1,6 @@
 class SubmissionsController < ApplicationController
   def show
-    set_submission
-    render json: @submission
+    render json: Submission.find(params[:id])
   end
 
   def create
@@ -17,9 +16,6 @@ class SubmissionsController < ApplicationController
   end
 
   private
-  def set_submission
-    @submission = Submission.find(params[:id])
-  end
 
   def submission_params
     params.permit(
