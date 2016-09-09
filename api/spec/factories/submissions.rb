@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :valid_submission, class: Submission do
     source_code 'name = gets.strip; puts "hello, " + name'
-    language_id 14
+    language_id { create(:language).id }
     input "world"
     expected_output "hello, world"
   end

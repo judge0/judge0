@@ -27,6 +27,13 @@ RSpec.describe SubmissionsController, type: :controller do
         expect(response).to be_success
         expect(json).to have_serialized(Submission.first).with(SubmissionSerializer, { fields: [:id] })
       end
+
+      it "doesn't create new Submission because given Language doesn't exist" do
+        attributes = attributes_for(:valid_submission)
+        attributes[:language_id] = 42 # Language with id 42 doesn't exist
+        post :create, params: attributes
+        expect(response).to have_http_status(422)
+      end
     end
 
     context "with invalid params" do

@@ -11,10 +11,16 @@ RSpec.describe Submission, type: :model do
       submission = create(:submission, { language_id: language.id })
       expect(submission.language).to eq(language)
     end
+  end
 
-    it "raises an error because language doesn't exist" do
-      submission = create(:submission, { language_id: Language.all.size + 1 })
-      expect{ submission.language }.to raise_error(ActiveRecord::RecordNotFound)
-    end
+  it "is invalid because Language with given id doesn't exist" do
+    submission = build(:submission, { language_id: Language.all.size + 1 })
+    expect(submission).not_to be_valid
+  end
+
+  it "is valid because Language with given id exists" do
+    language = create(:language)
+    submission = build(:submission, { language_id: language.id })
+    expect(submission).to be_valid
   end
 end

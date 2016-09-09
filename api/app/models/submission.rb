@@ -17,9 +17,16 @@
 
 class Submission < ApplicationRecord
   validates :source_code, :language_id, presence: true
+  validate :language_existence
   enumeration :status
 
   def language
     @language ||= Language.find(language_id)
+  end
+
+  def language_existence
+    if Language.find_by_id(language_id).nil?
+      errors.add(:language_id, "language with id #{language_id} doesn't exist")
+    end
   end
 end

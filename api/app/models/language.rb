@@ -10,5 +10,5 @@
 #
 
 class Language < ApplicationRecord
-  validates :name, :source_file, presence: true
+  validates :name, :run_cmd, :source_file, presence: true
 end
