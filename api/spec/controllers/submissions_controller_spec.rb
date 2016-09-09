@@ -6,7 +6,7 @@ RSpec.describe SubmissionsController, type: :controller do
 
   describe "GET #show" do
     it "returns one submission" do
-      get :show, params: {id: submission.id}
+      get :show, params: { id: submission.id }
       json = JSON.parse(response.body)
       expect(response).to be_success
       expect(json).to have_serialized(submission).with(SubmissionSerializer)
@@ -17,15 +17,15 @@ RSpec.describe SubmissionsController, type: :controller do
     context "with valid params" do
       it "creates a new Submission" do
         expect {
-          post :create, params: { submission: attributes_for(:valid_submission) }
+          post :create, params: attributes_for(:valid_submission)
         }.to change(Submission, :count).by(1)
       end
 
       it "returns only id of new Submission" do
-        post :create, params: { submission: attributes_for(:valid_submission) }
+        post :create, params: attributes_for(:valid_submission)
         json = JSON.parse(response.body)
         expect(response).to be_success
-        expect(json).to have_serialized(Submission.first).with(SubmissionCreateSerializer)
+        expect(json).to have_serialized(Submission.first).with(SubmissionSerializer, { fields: [:id] })
       end
     end
 

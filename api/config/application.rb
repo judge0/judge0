@@ -22,8 +22,6 @@ module Judge0API
 
     config.active_job.queue_adapter = :resque
 
-    ActiveModelSerializers.config.adapter = :json_api
-
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins Rails.env.development? ? '*' : (ENV['ALLOW_ORIGIN'].presence || '*').split

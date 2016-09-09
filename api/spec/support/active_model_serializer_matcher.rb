@@ -1,9 +1,10 @@
 RSpec::Matchers.define :have_serialized do |unserialized|
-  chain :with do |serializer|
+  chain :with do |serializer, options = {}|
     @serializer = serializer
+    @options = options
   end
 
-  chain :wrap do |collection_serializer|
+  chain :wrap do |collection_serializer, options = {}|
     @collection_serializer = collection_serializer
   end
 
@@ -16,7 +17,7 @@ RSpec::Matchers.define :have_serialized do |unserialized|
       serializer = @serializer.new(object)
     end
 
-    json = ActiveModelSerializers::Adapter::JsonApi.new(serializer).to_json
+    json = ActiveModelSerializers::Adapter::Attributes.new(serializer, @options).to_json
     JSON.parse(json)
   end
 

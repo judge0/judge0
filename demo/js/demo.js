@@ -23,12 +23,10 @@ function runSource() {
   var language = $("#select-language").val();
 
   var data = {
-    submission: {
-      source_code: source,
-      language_id: language,
-      input: input,
-      expected_output: expectedOutput
-    }
+    source_code: source,
+    language_id: language,
+    input: input,
+    expected_output: expectedOutput
   };
 
   var submission_id;
@@ -39,7 +37,7 @@ function runSource() {
       contentType: "application/json",
       data: JSON.stringify(data),
       success: function(data, textStatus, jqXHR) {
-        submission_id = data.data.id;
+        submission_id = data.id;
       }
   });
 
@@ -56,20 +54,20 @@ function fetchSubmission(submission_id) {
       type: "GET",
       async: false,
       success: function(data, textStatus, jqXHR) {
-        actualOutput = data.data.attributes["actual-output"];
-        status = data.data.attributes.status;
-        time = data.data.attributes.time;
-        memory = data.data.attributes.memory;
+        actualOutput = data.actual_output;
+        status = data.status;
+        time = data.time;
+        memory = data.memory;
       }
   });
 
 
   time = (time === null ? "-" : time + "s");
   memory = (memory === null ? "-" : memory + "KB");
-  if (status === null) {
+  if (status.id === 1) {
     setTimeout(fetchSubmission.bind(null, submission_id), 2000);
   } else {
-    statusEditor.setValue("Time: " + time + "\n" + "Memory: " + memory + "\n" + status.attributes.name);
+    statusEditor.setValue("Time: " + time + "\n" + "Memory: " + memory + "\n" + status.description);
     actualOutputEditor.setValue(actualOutput);
     toggleControlsAndLoader();
   }

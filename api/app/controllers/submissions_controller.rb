@@ -6,10 +6,11 @@ class SubmissionsController < ApplicationController
 
   def create
     @submission = Submission.new(submission_params)
+    @submission.status = Status.in_queue
 
     if @submission.save
       IsolateJob.perform_later(@submission)
-      render json: @submission, status: :created, serializer: SubmissionCreateSerializer
+      render json: @submission, status: :created, fields: [:id]
     else
       render json: @submission.errors, status: :unprocessable_entity
     end
@@ -21,7 +22,7 @@ class SubmissionsController < ApplicationController
   end
 
   def submission_params
-    params.require(:submission).permit(
+    params.permit(
       :source_code,
       :language_id,
       :input,
