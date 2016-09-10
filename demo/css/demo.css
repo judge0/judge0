@@ -19,6 +19,14 @@ a {
   color: #888;
 }
 
+.footer #donate {
+  float: left;
+}
+
+.footer #copyright {
+  display: inline-block;
+}
+
 .headline {
   border-bottom: 1px solid #ccc;
   margin-bottom: 20px;
