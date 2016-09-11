@@ -1,0 +1,14 @@
+# https://bramp.github.io/js-sequence-diagrams/
+User->Rails backend: createNewSubmission(source_code, language_id, input, expected_output)
+Rails backend->PostgreSQL: Submission := createSubmission(source_code, language_id, input, expected_output)
+PostgreSQL-->>Rails backend: created
+Rails backend->>Redis: createNewJob(submission)
+Rails backend-->>User: created(id)
+Worker->Redis: * IsolateJob := getNextJob()
+Worker->Worker: runInSandbox(submission.source_code)
+Worker->Worker: determineStatus()
+Worker->PostgreSQL: updateSubmission(submission)
+User->Rails backend: getSubmission(id)
+Rails backend->PostgreSQL: Submission := findSubmission(id)
+PostgreSQL-->>Rails backend:
+Rails backend-->>User:
