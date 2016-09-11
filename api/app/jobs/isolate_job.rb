@@ -82,6 +82,7 @@ class IsolateJob < ApplicationJob
     submission.memory = parsed_meta["cg-mem"].to_i
     submission.actual_output = File.read(stdout)
     submission.status = determine_status
+    submission.finished_at = DateTime.now
     if !submission.status.ac? && !submission.status.wa?
       preappend = submission.actual_output.present? ? "\n" : ""
       submission.actual_output += preappend + File.read(stderr)

@@ -9,6 +9,12 @@ HOST: http://api.judge0.com
 
 Project source can be found at [Github](https://github.com/hermanzdosilovic/judge0).
 
+# Date and time formats
+
+[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) standard is used.
+
+Example: `2016-09-11T10:19:35Z`
+
 <br><br>
 
 ## Group Submissions
@@ -17,14 +23,16 @@ Project source can be found at [Github](https://github.com/hermanzdosilovic/judg
 
 A Submission object has the following attributes:
 
-+ source_code
-+ language_id
-+ input
-+ expected_output
-+ actual_output
-+ status
-+ time
-+ memory
++ `source_code`(required) - source code you want to run
++ `language_id`(required) - ID of [language](/#languages-and-statuses) in which code will be run
++ `input` - input which will be redirected to your program
++ `expected_output` - expected output of the program
++ `actual_output` - actual output of you program after it has been run
++ `status` - [status](#languages-and-statuses) or result of execution of your program
++ `created_at` - time and date denoting when your submission was created
++ `finished_at` - time and date denoting when your submission was processed and finished
++ `time` - time in seconds representing CPU time your program needed to finish
++ `memory` - memory in KB representing memory usage of your program
 
 ### Show [GET]
 
@@ -42,6 +50,8 @@ A Submission object has the following attributes:
           "description": "In Queue"
         },
         "actual_output": null,
+        "created_at": "2016-09-11T14:48:01.863Z",
+        "finished_at": null,
         "time": null,
         "memory": null
       }
@@ -55,6 +65,8 @@ A Submission object has the following attributes:
           "description": "Accepted"
         },
         "actual_output": "hello, world\n",
+        "created_at": "2016-09-11T14:48:01.863Z",
+        "finished_at": "2016-09-11T14:49:58.003Z",
         "time": "0.001",
         "memory": 292
       }
