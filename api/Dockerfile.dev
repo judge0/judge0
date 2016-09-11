@@ -1,8 +1,12 @@
 FROM hermanzdosilovic/judge0-api
 
 RUN apt-get update && apt-get install -y \
+  nodejs-legacy \
+  npm \
   sudo \
   vim
+
+RUN npm install -g aglio
 
 ARG DEV_USER
 ARG DEV_USER_ID
