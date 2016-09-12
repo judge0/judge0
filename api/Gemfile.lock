@@ -49,10 +49,13 @@ GEM
     arel (7.1.1)
     builder (3.2.2)
     byebug (9.0.5)
+    codeclimate-test-reporter (0.6.0)
+      simplecov (>= 0.7.1, < 1.0.0)
     coderay (1.1.1)
     concurrent-ruby (1.0.2)
     database_cleaner (1.5.3)
     diff-lcs (1.2.5)
+    docile (1.1.5)
     enumerations (2.1.0)
       activerecord
       activesupport
@@ -160,6 +163,11 @@ GEM
     ruby_dep (1.4.0)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
+    simplecov (0.12.0)
+      docile (~> 1.1.0)
+      json (>= 1.8, < 3)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.0)
     sinatra (1.0)
       rack (>= 1.0)
     slop (3.6.0)
@@ -186,6 +194,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers (~> 0.10.2)
   annotate (~> 2.7)
+  codeclimate-test-reporter (~> 0.6.0)
   database_cleaner (~> 1.5)
   enumerations (~> 2.1)
   factory_girl_rails (~> 4.7)
