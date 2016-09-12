@@ -5,25 +5,39 @@ Judge0 is an open source online judge API for code compilation and execution on 
 
 ## Content
 
-This project is designed to be easy to use in both development and production environment. That is achieved using [Docker](https://docs.docker.com/) and [Docker Compose](https://docs.docker.com/compose/). So you will need to install them on machines you wish to develop or host judge0.
-
-I will explain in detail how you can develop, configure and host your own instance of judge0.
-
-Please proceed with reading following content:
-
 1. [Project Organization](#project-organization)
-  * how this project is organized and what each component means in a _big picture_
+2. [Project Goals](#project-goals)
+3. [Future Plans](#future-plans)
+3. [Host Your judge0](#host-your-judge0)
+4. [Contributing](#contributing)
 
 ## Project Organization
 
-Judge0 project is organized in three major components:
+Project is organized in three major components:
 
-* [Base](https://github.com/hermanzdosilovic/judge0/tree/master/base)
-* [API](https://github.com/hermanzdosilovic/judge0/tree/master/api)
-* [Demo](https://github.com/hermanzdosilovic/judge0/tree/master/demo)
+* [judge0-base](https://github.com/hermanzdosilovic/judge0/tree/master/base)
+* [judge0-api](https://github.com/hermanzdosilovic/judge0/tree/master/api)
+* [judge0-demo](https://github.com/hermanzdosilovic/judge0/tree/master/demo)
 
-As I already said, judge0 is _Docker driven_ in both development and production. With that in mind, Base represents base Docker image on which API will be build. It installs different compilers, interpreters and sandbox environment which are necessary for the API.
+[judge0-base](https://github.com/hermanzdosilovic/judge0/tree/master/base) represents base Docker image on which judge0-api will be build. It installs different compilers, interpreters and sandbox environment which are necessary for judge0-api.
 
-API is, however, extension of Base environment. There lays core logic of judge0 which accepts requests, creates jobs and executes untrusted programs.
+[judge0-api](https://github.com/hermanzdosilovic/judge0/tree/master/api) is core logic of judge0 which accepts requests, creates background jobs and runs untrusted programs in sandboxed environment.
 
-Demo represents static demo webpage located at [www.judge0.com](http://www.judge0.com). It is irellevant if you want to host your own judge0, but it is useful when developing judge0 because it provides simple interface for running untrusted code. To be clear it is not necessary for judge0 development.
+[judge0-demo](https://github.com/hermanzdosilovic/judge0/tree/master/demo) represents static demo web page located at [www.judge0.com](http://www.judge0.com). It is irrelevant if you want to host your own judge0, but it is useful when developing judge0 because it provides simple interface for running untrusted code.
+
+## Project Goals
+
+My goal is to create configurable, robust, easy to use and fully documented online judge API service which can be used and hosted by anyone for free, and I was motivated to start this project when I saw [Sphere Engine](https://sphere-engine.com).
+
+In the future I would like to build full online judge service which will enable anybody to host their own competition, or it can be used by schools and universities for educational purposes, e.q. writing exams or solving programming exercises.
+
+## Host Your judge0
+
+Hosting your judge0 is easy thanks to [Docker](https://docs.docker.com/) and [Docker Compose](https://docs.docker.com/compose/). Minimal setup for hosting your judge0 is described here [here](https://github.com/hermanzdosilovic/judge0/tree/master/api#production)
+
+## Contributing
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request

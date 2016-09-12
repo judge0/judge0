@@ -1,6 +1,8 @@
 # judge0-base
 
-Base is simply one [Docker image](https://hub.docker.com/r/hermanzdosilovic/judge0-base/) which contains compilers, interpreters and sandbox environment.
+judge0-base is simply one [Docker image](https://hub.docker.com/r/hermanzdosilovic/judge0-base/) which contains compilers, interpreters and sandbox environment.
+
+[Isolate](https://github.com/ioi/isolate) is installed and used as sandbox environment for running untrusted programs.
 
 Following compilers and interpreters are installed:
 
@@ -21,11 +23,9 @@ Following compilers and interpreters are installed:
 * Python 2.7.12
 * Python 3.5.2
 
-[Isolate](https://github.com/ioi/isolate), as sandbox environment for running untrusted programs is also installed.
-
 ## Pulling official image
 
-Official image can be pulled from [Docker Hub](https://hub.docker.com/) with following command:
+Official image can be pulled from [Docker Hub](https://hub.docker.com/):
 
 ```
 $ docker pull hermanzdosilovic/judge0-base
@@ -33,10 +33,10 @@ $ docker pull hermanzdosilovic/judge0-base
 
 ## Building your own image
 
-If you want you can modify official [Dockerfile](https://github.com/hermanzdosilovic/judge0/blob/master/base/Dockerfile) and build your own base image which might contain different set of compilers and interpreters:
+If you want, you can modify official [Dockerfile](https://github.com/hermanzdosilovic/judge0/blob/master/base/Dockerfile) and build your own judge0-base image which might contain different set of compilers and interpreters:
 
 ```
-$ docker build -t <yourusername>/judge0-base .
+$ docker build -t <your name>/judge0-base .
 ```
 
-If you change Base image, then you will need to modify few things in API as well. Be sure to read documentation for [API](https://github.com/hermanzdosilovic/judge0/tree/master/api).
+If you change judge0-base image, then you will need to modify few things in [judge0-api](https://github.com/hermanzdosilovic/judge0/tree/master/api) as well.
