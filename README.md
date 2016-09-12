@@ -1,4 +1,5 @@
 # judge0
+[![Code Climate](https://codeclimate.com/github/hermanzdosilovic/judge0/badges/gpa.svg)](https://codeclimate.com/github/hermanzdosilovic/judge0) [![Test Coverage](https://codeclimate.com/github/hermanzdosilovic/judge0/badges/coverage.svg)](https://codeclimate.com/github/hermanzdosilovic/judge0/coverage) [![Build Status](https://travis-ci.org/hermanzdosilovic/judge0.svg?branch=master)](https://travis-ci.org/hermanzdosilovic/judge0) [![Hex.pm](https://img.shields.io/hexpm/l/plug.svg?maxAge=2592000)](https://github.com/hermanzdosilovic/judge0/blob/master/LICENSE)
 
 Judge0 is an open source online judge API for code compilation and execution on given test data. It provides extensive documentation for developing, configuring and hosting your own instance with ease. Currently supports 16 compilers and interpreters, and more of them can be added easly. It's powered by [Rails](http://rubyonrails.org/), you can use [Docker](https://www.docker.com/) in both development and production environment, and every untrusted code you run is sandboxed using [isolate](https://github.com/ioi/isolate).
 

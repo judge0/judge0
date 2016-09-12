@@ -1,6 +1,7 @@
 require 'codeclimate-test-reporter'
 
 CodeClimate::TestReporter.start
+CodeClimate::TestReporter.configuration.git_dir = ".."
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
