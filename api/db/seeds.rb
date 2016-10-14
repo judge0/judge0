@@ -26,25 +26,25 @@ languages = [
   {
     name: 'C++ (g++ 4.7)',
     source_file: 'main.cpp',
-    compile_cmd: '/usr/bin/g++-4.7 main.c',
+    compile_cmd: '/usr/bin/g++-4.7 main.cpp',
     run_cmd: './a.out'
   },
   {
     name: 'C++ (g++ 4.8)',
     source_file: 'main.cpp',
-    compile_cmd: '/usr/bin/g++-4.8 main.c',
+    compile_cmd: '/usr/bin/g++-4.8 main.cpp',
     run_cmd: './a.out'
   },
   {
     name: 'C++ (g++ 4.9)',
     source_file: 'main.cpp',
-    compile_cmd: '/usr/bin/g++-4.9 main.c',
+    compile_cmd: '/usr/bin/g++-4.9 main.cpp',
     run_cmd: './a.out'
   },
   {
     name: 'C++ (g++ 5.4)',
     source_file: 'main.cpp',
-    compile_cmd: '/usr/bin/g++-5 main.c',
+    compile_cmd: '/usr/bin/g++-5 main.cpp',
     run_cmd: './a.out'
   },
   {
