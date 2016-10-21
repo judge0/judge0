@@ -35,10 +35,14 @@
       Currently supports 16 compilers and interpreters, and more of them can be added easly.
       It's powered by <b>Rails</b>, you can use <b>Docker</b> in both development and production environment,
       and every untrusted code you run is sandboxed using <a href="https://github.com/ioi/isolate" target="_blank">isolate</a>.
+      You can find project source code <a href="https://github.com/hermanzdosilovic/judge0">here</a>.
     </p>
 
     <p>
-      <a href="http://api.judge0.com">API</a> for this demo page is run on one <a href="https://aws.amazon.com/ec2/instance-types/" target="_blank">EC2 t2.micro</a> instance and provides:
+      <a href="https://api.judge0.com">API</a> for this demo page is run on one <a href="https://aws.amazon.com/ec2/instance-types/" target="_blank">EC2 t2.micro</a> instance and provides:
+    </p>
+
+    <p>
     </p>
 
     <ul>
@@ -56,44 +60,22 @@
       <li>Only 2 different untrusted programs can be run at the same time, others wait in queue.</li>
     </ul>
 
-    <p>
-      <b>Wanna break it?</b> Sure, go ahead and crush <a href="http://t0.api.judge0.com">API</a>
-      for <a href="http://t0.judge0.com">t0.judge0.com</a> (configuration
-      described above) and when you are done,
-      please send me an email or open <a href="https://github.com/hermanzdosilovic/judge0/issues">Github issue</a>
-      so I can fix it and update subdomain counter.
-    </p>
-
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
         <h2>Source code</h2>
         <div id="source-editor">
         </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+      <div class="col-xs-4 col-sm-6 col-md-3 col-lg-3">
         <h2>Input</h2>
         <div id="input-editor">
         </div>
       </div>
 
-      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+      <div class="col-xs-8 col-sm-6 col-md-3 col-lg-3">
         <h2>Expected Output</h2>
         <div id="expected-output-editor">
-        </div>
-      </div>
-
-      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-        <h2>Actual Output</h2>
-        <div id="actual-output-editor">
-        </div>
-      </div>
-
-      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-        <h2>Status</h2>
-        <div id="status-editor">
         </div>
       </div>
     </div>
@@ -120,6 +102,20 @@
           <option value="16" mode="text/x-python">Python (3.5.2)</option>
         </select>
         <button id="run-button" onclick="runSource()">Run</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-8 col-sm-6 col-md-6 col-lg-3">
+        <h2>Actual Output</h2>
+        <div id="actual-output-editor">
+        </div>
+      </div>
+
+      <div class="col-xs-4 col-sm-6 col-md-6 col-lg-3">
+        <h2>Status</h2>
+        <div id="status-editor">
+        </div>
       </div>
     </div>
   </div>

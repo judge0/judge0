@@ -1,0 +1,12 @@
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var hostnames = document.body.getElementsByClassName("hostname");
+    for (var i = 0; i < hostnames.length; i++) {
+      hostnames[i].innerHTML = window.location.origin;
+    }
+
+    var host = document.body.getElementsByTagName("nav")[0].getElementsByTagName("p")[0]
+      .getElementsByTagName("a")[0];
+    host.innerHTML = window.location.origin;
+  });
+</script>

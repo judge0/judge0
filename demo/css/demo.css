@@ -1,7 +1,7 @@
 body {
   margin: 0 40px;
   background-color: #f0f0f0;
-  font-family: Chivo, "Helvetica Neue", Helvetica, Arial, serif;
+  font-family: Arial, Chivo, "Helvetica Neue", Helvetica, serif;
   color: #444;
 }
 
@@ -43,6 +43,7 @@ a {
 
 .controls {
   margin-top: 12px;
+  margin-bottom: 24px;
 }
 
 .controls select, button {

@@ -5,13 +5,22 @@ services:
       context: .
       dockerfile: Dockerfile.dev
       args:
-        DEV_USER: herman
-        DEV_USER_ID: 1000
-    image: hermanzdosilovic/judge0-dev
+        - DEV_USER=$USER
+        - DEV_USER_ID=$UID
+    image: hermanzdosilovic/judge0-api:dev
     volumes:
       - .:/usr/src/api
     env_file: judge0-api.conf
+    links:
+      - db
+      - redis
     ports:
       - 3000:3000
       - 3030:3030
     privileged: true
+
+  db:
+    image: postgres
+
+  redis:
+    image: redis

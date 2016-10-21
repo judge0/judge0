@@ -5,4 +5,5 @@
 !/tmp/.keep
 .byebug_history
 Dockerfile*
-docker-compose.*
+docker-compose*
+dev-*

@@ -1,1 +1,2 @@
-docker-compose -f docker-compose.yml -f docker-compose.dev.yml rm
+export USER && export UID
+docker-compose -f docker-compose.dev.yml rm

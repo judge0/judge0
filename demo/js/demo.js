@@ -1,4 +1,4 @@
-var BASE_URL = "http://api.judge0.com";
+var BASE_URL = "https://api.judge0.com";
 var sourceEditor, inputEditor, expectedOutputEditor, actualOutputEditor, statusEditor;
 
 var controlsDisabled = false;

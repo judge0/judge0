@@ -1,13 +1,17 @@
 FORMAT: 1A
-HOST: http://api.judge0.com
+HOST: https://api.judge0.com
 
 # judge0 API docs
+
+
+<!-- include(hostname.html) -->
+
 
 # About
 
 [Judge0](http://judge0.com) is an open source online judge API for code compilation and execution on given test data.
 
-Project source can be found at [Github](https://github.com/hermanzdosilovic/judge0).
+Project source can be found on [Github](https://github.com/hermanzdosilovic/judge0).
 
 # Date and time formats
 
@@ -271,3 +275,4 @@ Create new Submission, `source_code` and `language_id` are required.
       "name": "Python (3.5.2)"
     }
   ]
+
