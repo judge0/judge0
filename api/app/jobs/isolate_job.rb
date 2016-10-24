@@ -8,8 +8,9 @@ class IsolateJob < ApplicationJob
   MEMORY_LIMIT = ENV['MEM_LIMIT'].presence || 256000 # in KB
   STACK_LIMIT = ENV['STACK_LIMIT'].presence || 256000 # in KB
   MAX_PROCESSES_AND_OR_THREADS = ENV['MAX_PROCESSES_AND_OR_THREADS'].presence || 9
-  ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT = ENV['ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT'].present?
   ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT = ENV['ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT'].present? ? '' : '--cg-timing'
+  ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT = ENV['ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT'].present?
+  MAX_FILE_SIZE = ENV['MAX_FILE_SIZE'].presence || 1
 
   STDIN_FILE = 'stdin.txt'
   STDOUT_FILE = 'stdout.txt'
@@ -69,8 +70,9 @@ class IsolateJob < ApplicationJob
     -w #{WALL_TIME_LIMIT} \
     -k #{STACK_LIMIT} \
     -p#{MAX_PROCESSES_AND_OR_THREADS} \
-    #{ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT} \
     #{ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT ? "-m " : "--cg-mem="}#{MEMORY_LIMIT} \
+    #{ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT} \
+    --fsize=#{MAX_FILE_SIZE} \
     -E HOME=#{workdir} \
     --run \
     -- #{submission.language.run_cmd}`
