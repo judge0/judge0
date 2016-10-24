@@ -20,6 +20,7 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /tmp
 RUN git clone https://github.com/ioi/isolate.git && \
   cd isolate && \
+  echo "num_boxes = 2147483647" >> default.cf && \
   make install
 
 ENV BOX_ROOT /var/local/lib/isolate

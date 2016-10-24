@@ -18,7 +18,7 @@ class IsolateJob < ApplicationJob
   META_FILE = 'meta.txt'
 
   attr_reader :submission, :workdir, :box, :source, :stdin, :stdout, :stderr,
-              :meta, :parsed_meta
+              :meta, :parsed_meta, :id
 
   def perform(submission)
     @submission = submission
@@ -32,7 +32,8 @@ class IsolateJob < ApplicationJob
   private
 
   def init
-    @workdir = `isolate --cg -b #{submission.id} --init`.chomp
+    @id = submission.id%2147483647
+    @workdir = `isolate --cg -b #{id} --init`.chomp
     @box = workdir + "/box/"
 
     @source = box + "#{submission.language.source_file}"
@@ -60,7 +61,7 @@ class IsolateJob < ApplicationJob
   def run
     `isolate --cg \
     #{Rails.env.development? ? '-v' : ''} \
-    -b #{submission.id} \
+    -b #{id} \
     -i #{STDIN_FILE} \
     -o #{STDOUT_FILE} \
     -r #{STDERR_FILE} \
@@ -93,7 +94,7 @@ class IsolateJob < ApplicationJob
   end
 
   def clean
-    `isolate --cg -b #{submission.id} --cleanup`
+    `isolate --cg -b #{id} --cleanup`
   end
 
   def parse_meta
