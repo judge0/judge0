@@ -92,6 +92,11 @@ RUN apt-get install -y \
   python3
 
 
+# Install Pascal
+RUN apt-get install -y \
+  fp-compiler-3.0.0
+
+
 # ADD HERE MORE COMPILERS ...
 
 RUN cd /tmp && rm -rf *
