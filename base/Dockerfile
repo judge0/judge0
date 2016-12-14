@@ -20,6 +20,7 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /tmp
 RUN git clone https://github.com/ioi/isolate.git && \
   cd isolate && \
+  echo "num_boxes = 2147483647" >> default.cf && \
   make install
 
 ENV BOX_ROOT /var/local/lib/isolate
@@ -89,6 +90,11 @@ ENV PATH /usr/lib/ruby/2.3.1/bin:$PATH
 RUN apt-get install -y \
   python \
   python3
+
+
+# Install Pascal
+RUN apt-get install -y \
+  fp-compiler-3.0.0
 
 
 # ADD HERE MORE COMPILERS ...

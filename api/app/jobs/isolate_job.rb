@@ -8,8 +8,9 @@ class IsolateJob < ApplicationJob
   MEMORY_LIMIT = ENV['MEM_LIMIT'].presence || 256000 # in KB
   STACK_LIMIT = ENV['STACK_LIMIT'].presence || 256000 # in KB
   MAX_PROCESSES_AND_OR_THREADS = ENV['MAX_PROCESSES_AND_OR_THREADS'].presence || 9
-  ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT = ENV['ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT'].present?
   ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT = ENV['ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT'].present? ? '' : '--cg-timing'
+  ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT = ENV['ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT'].present?
+  MAX_FILE_SIZE = ENV['MAX_FILE_SIZE'].presence || 1
 
   STDIN_FILE = 'stdin.txt'
   STDOUT_FILE = 'stdout.txt'
@@ -17,7 +18,7 @@ class IsolateJob < ApplicationJob
   META_FILE = 'meta.txt'
 
   attr_reader :submission, :workdir, :box, :source, :stdin, :stdout, :stderr,
-              :meta, :parsed_meta
+              :meta, :parsed_meta, :id
 
   def perform(submission)
     @submission = submission
@@ -31,7 +32,8 @@ class IsolateJob < ApplicationJob
   private
 
   def init
-    @workdir = `isolate --cg -b #{submission.id} --init`.chomp
+    @id = submission.id%2147483647
+    @workdir = `isolate --cg -b #{id} --init`.chomp
     @box = workdir + "/box/"
 
     @source = box + "#{submission.language.source_file}"
@@ -59,7 +61,7 @@ class IsolateJob < ApplicationJob
   def run
     `isolate --cg \
     #{Rails.env.development? ? '-v' : ''} \
-    -b #{submission.id} \
+    -b #{id} \
     -i #{STDIN_FILE} \
     -o #{STDOUT_FILE} \
     -r #{STDERR_FILE} \
@@ -69,8 +71,9 @@ class IsolateJob < ApplicationJob
     -w #{WALL_TIME_LIMIT} \
     -k #{STACK_LIMIT} \
     -p#{MAX_PROCESSES_AND_OR_THREADS} \
-    #{ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT} \
     #{ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT ? "-m " : "--cg-mem="}#{MEMORY_LIMIT} \
+    #{ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT} \
+    --fsize=#{MAX_FILE_SIZE} \
     -E HOME=#{workdir} \
     --run \
     -- #{submission.language.run_cmd}`
@@ -91,7 +94,7 @@ class IsolateJob < ApplicationJob
   end
 
   def clean
-    `isolate --cg -b #{submission.id} --cleanup`
+    `isolate --cg -b #{id} --cleanup`
   end
 
   def parse_meta

@@ -89,6 +89,12 @@ languages = [
     name: 'Python (3.5.2)',
     source_file: 'main.py',
     run_cmd: '/usr/bin/python3 main.py'
+  },
+  {
+    name: 'Pascal (fpc 3.0.0)',
+    source_file: 'main.pas',
+    compile_cmd: '/usr/bin/fpc-3.0.0 -v0 main.pas',
+    run_cmd: './main'
   }
 ]
 
