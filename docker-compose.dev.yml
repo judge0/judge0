@@ -7,7 +7,7 @@ services:
       args:
         - DEV_USER=$USER
         - DEV_USER_ID=$UID
-    image: hermanzdosilovic/judge0-api:dev
+    image: judge0/api:dev
     volumes:
       - .:/usr/src/api
     env_file: judge0-api.conf

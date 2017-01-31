@@ -7,7 +7,7 @@ class IsolateJob < ApplicationJob
   WALL_TIME_LIMIT = ENV['WALL_TIME_LIMIT'].presence || 3
   MEMORY_LIMIT = ENV['MEM_LIMIT'].presence || 256000 # in KB
   STACK_LIMIT = ENV['STACK_LIMIT'].presence || 256000 # in KB
-  MAX_PROCESSES_AND_OR_THREADS = ENV['MAX_PROCESSES_AND_OR_THREADS'].presence || 9
+  MAX_PROCESSES_AND_OR_THREADS = ENV['MAX_PROCESSES_AND_OR_THREADS'].presence || 15
   ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT = ENV['ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT'].present? ? '' : '--cg-timing'
   ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT = ENV['ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT'].present?
   MAX_FILE_SIZE = ENV['MAX_FILE_SIZE'].presence || 1
@@ -26,6 +26,9 @@ class IsolateJob < ApplicationJob
     write
     run if compile == :success
     verify
+  rescue Exception => e
+    @submission.update(output: e.message, status: Status.boxerr)
+  ensure
     clean
   end
 
@@ -54,7 +57,7 @@ class IsolateJob < ApplicationJob
     errors = `cd #{box} && #{submission.language.compile_cmd} 2>&1`
     return :success if $?.success?
 
-    submission.update(actual_output: errors, status: Status.ce)
+    submission.update(output: errors, status: Status.ce)
     :failure
   end
 
@@ -73,22 +76,28 @@ class IsolateJob < ApplicationJob
     -p#{MAX_PROCESSES_AND_OR_THREADS} \
     #{ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT ? "-m " : "--cg-mem="}#{MEMORY_LIMIT} \
     #{ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT} \
-    --fsize=#{MAX_FILE_SIZE} \
+    -f #{MAX_FILE_SIZE} \
     -E HOME=#{workdir} \
+    -d '/etc':'noexec' \
     --run \
     -- #{submission.language.run_cmd}`
   end
 
   def verify
+    change_permissions
     parse_meta
     submission.time = parsed_meta["time"].to_f
     submission.memory = parsed_meta["cg-mem"].to_i
-    submission.actual_output = File.read(stdout)
+    submission.output = File.read(stdout)
     submission.status = determine_status
     submission.finished_at = DateTime.now
     if !submission.status.ac? && !submission.status.wa?
-      preappend = submission.actual_output.present? ? "\n" : ""
-      submission.actual_output += preappend + File.read(stderr)
+      preappend = submission.output.present? ? "\n" : ""
+      submission.output += preappend + File.read(stderr)
+      if submission.status.boxerr?
+        preappend = submission.output.present? ? "\n" : ""
+        submission.output += preappend + parsed_meta["message"]
+      end
     end
     submission.save
   end
@@ -96,11 +105,15 @@ class IsolateJob < ApplicationJob
   def clean
     `isolate --cg -b #{id} --cleanup`
   end
+  
+  def change_permissions
+    `sudo chown $(whoami): #{box} #{meta} #{stdout} #{stderr}` 
+  end
 
   def parse_meta
     meta_content = File.read(meta)
     @parsed_meta = meta_content.split("\n").collect do |e|
-      { e.split(":").first => e.split(":").second }
+      { e.split(":").first => e.split(":")[1..-1].join(":") }
     end.reduce({}, :merge)
   end
 
@@ -113,7 +126,7 @@ class IsolateJob < ApplicationJob
       return Status.nzec
     elsif parsed_meta['status'] == 'XX'
       return Status.boxerr
-    elsif strip_output(submission.expected_output) == strip_output(submission.actual_output)
+    elsif submission.expected_output.nil? || strip_output(submission.expected_output) == strip_output(submission.output)
       return Status.ac
     else
       return Status.wa

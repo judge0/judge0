@@ -1,10 +1,12 @@
-FROM hermanzdosilovic/judge0-base
+FROM judge0/api-base:0.1.0
 
 RUN apt-get update && apt-get install -y \
   libpq-dev \
   nodejs-legacy \
-  npm
+  npm \
+  sudo
 
+ENV PATH /usr/local/ruby-2.3.3/bin/:$PATH
 RUN echo "gem: --no-document" > /root/.gemrc && gem install \
   rails:5.0 \
   bundler \

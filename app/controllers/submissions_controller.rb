@@ -22,8 +22,7 @@ class SubmissionsController < ApplicationController
       :source_code,
       :language_id,
       :input,
-      :expected_output,
-      :actual_output
+      :expected_output
     )
   end
 end

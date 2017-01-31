@@ -7,7 +7,7 @@
 #  language_id     :integer
 #  input           :text
 #  expected_output :text
-#  actual_output   :text
+#  output          :text
 #  status_id       :integer
 #  created_at      :datetime
 #  finished_at     :datetime

@@ -1,7 +1,6 @@
-FROM hermanzdosilovic/judge0-api
+FROM judge0/api:0.1.0
 
 RUN apt-get update && apt-get install -y \
-  sudo \
   vim
 
 ENV TERM xterm
