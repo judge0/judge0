@@ -84,21 +84,22 @@ class IsolateJob < ApplicationJob
   end
 
   def verify
+    submission.finished_at = DateTime.now
+
     change_permissions
     parse_meta
+
     submission.time = parsed_meta["time"].to_f
     submission.memory = parsed_meta["cg-mem"].to_i
     submission.output = File.read(stdout)
+    submission.stderr = File.read(stderr)
     submission.status = determine_status
-    submission.finished_at = DateTime.now
-    if !submission.status.ac? && !submission.status.wa?
-      preappend = submission.output.present? ? "\n" : ""
-      submission.output += preappend + File.read(stderr)
-      if submission.status.boxerr?
-        preappend = submission.output.present? ? "\n" : ""
-        submission.output += preappend + parsed_meta["message"]
-      end
+
+    if submission.status.boxerr?
+      preappend = submission.stderr.present? ? "\n" : ""
+      submission.stderr += preappend + parsed_meta["message"]
     end
+
     submission.save
   end
 

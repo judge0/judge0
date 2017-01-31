@@ -13,6 +13,7 @@
 #  finished_at     :datetime
 #  time            :decimal(, )
 #  memory          :integer
+#  stderr          :text
 #
 
 class Submission < ApplicationRecord
