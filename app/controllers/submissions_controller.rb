@@ -1,6 +1,6 @@
 class SubmissionsController < ApplicationController
   def show
-    render json: Submission.find(params[:id])
+    render json: Submission.find_by(token: params[:token])
   end
 
   def create
@@ -9,7 +9,7 @@ class SubmissionsController < ApplicationController
 
     if @submission.save
       IsolateJob.perform_later(@submission)
-      render json: @submission, status: :created, fields: [:id]
+      render json: @submission, status: :created, fields: [:token]
     else
       render json: @submission.errors, status: :unprocessable_entity
     end

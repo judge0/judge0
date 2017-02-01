@@ -6,7 +6,7 @@ RSpec.describe SubmissionsController, type: :controller do
 
   describe "GET #show" do
     it "returns one submission" do
-      get :show, params: { id: submission.id }
+      get :show, params: { token: submission.token }
       json = JSON.parse(response.body)
       expect(response).to be_success
       expect(json).to have_serialized(submission).with(SubmissionSerializer)
@@ -25,7 +25,7 @@ RSpec.describe SubmissionsController, type: :controller do
         post :create, params: attributes_for(:valid_submission)
         json = JSON.parse(response.body)
         expect(response).to be_success
-        expect(json).to have_serialized(Submission.first).with(SubmissionSerializer, { fields: [:id] })
+        expect(json).to have_serialized(Submission.first).with(SubmissionSerializer, { fields: [:token] })
       end
 
       it "doesn't create new Submission because given Language doesn't exist" do

@@ -3,7 +3,8 @@ require "rails_helper"
 RSpec.describe SubmissionsController, type: :routing do
   describe "routing" do
     it "routes to #show" do
-      expect(:get => "/submissions/1").to route_to("submissions#show", :id => "1")
+      token = SecureRandom.uuid
+      expect(:get => "/submissions/#{token}").to route_to("submissions#show", token: token)
     end
 
     it "routes to #create" do
