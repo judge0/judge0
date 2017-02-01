@@ -27,7 +27,7 @@ class IsolateJob < ApplicationJob
     run if compile == :success
     verify
   rescue Exception => e
-    @submission.update(output: e.message, status: Status.boxerr)
+    @submission.update(stdout: e.message, status: Status.boxerr)
   ensure
     clean
   end
@@ -57,7 +57,7 @@ class IsolateJob < ApplicationJob
     errors = `cd #{box} && #{submission.language.compile_cmd} 2>&1`
     return :success if $?.success?
 
-    submission.update(output: errors, status: Status.ce)
+    submission.update(stdout: errors, status: Status.ce)
     :failure
   end
 
@@ -91,7 +91,7 @@ class IsolateJob < ApplicationJob
 
     submission.time = parsed_meta["time"].to_f
     submission.memory = parsed_meta["cg-mem"].to_i
-    submission.output = File.read(stdout)
+    submission.stdout = File.read(stdout)
     submission.stderr = File.read(stderr)
     submission.status = determine_status
 
@@ -106,9 +106,9 @@ class IsolateJob < ApplicationJob
   def clean
     `isolate --cg -b #{id} --cleanup`
   end
-  
+
   def change_permissions
-    `sudo chown $(whoami): #{box} #{meta} #{stdout} #{stderr}` 
+    `sudo chown $(whoami): #{box} #{meta} #{stdout} #{stderr}`
   end
 
   def parse_meta
@@ -127,7 +127,7 @@ class IsolateJob < ApplicationJob
       return Status.nzec
     elsif parsed_meta['status'] == 'XX'
       return Status.boxerr
-    elsif submission.expected_output.nil? || strip_output(submission.expected_output) == strip_output(submission.output)
+    elsif submission.expected_output.nil? || strip_output(submission.expected_output) == strip_output(submission.stdout)
       return Status.ac
     else
       return Status.wa

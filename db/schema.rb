@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20170131233631) do
     t.integer  "language_id"
     t.text     "input"
     t.text     "expected_output"
-    t.text     "output"
+    t.text     "stdout"
     t.integer  "status_id"
     t.datetime "created_at"
     t.datetime "finished_at"
