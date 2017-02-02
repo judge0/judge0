@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Judge0 Dummy Client</title>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+</head>
+
+<body style="padding: 0px 40px 40px 40px;">
+  <h1>Judge0 Dummy Client</h1>
+  <p>
+    Judge0 dummy client can be used to try and test features of Judge0 API. Data is not validated on client side.
+    Client first creates new submission and then fetches submission status every <code>1500ms</code>.
+    Client stops fetching submission status after recieving an error or when submission status is not <code>In Queue</code>.
+  </p>
+  <p>
+    Note that you need to define <strong>API URL</strong>. This is the base url of some Judge0 API host (e.g. <code>https://api.judge0.com</code>).
+    Description of network errors can be found in console of your browser, so check that for more information.
+  </p>
+
+  <hr>
+
+  <strong>API URL</strong><br>
+  <input type="url" name="apiUrl" placeholder="https://api.judge0.com"><br><br>
+  <strong>Source Code</strong>
+  <input type="checkbox" name="sourceCodeIsNull"><code>null</code><br>
+  <textarea name="sourceCode" rows="10" cols="50">
+#include <stdio.h>
+
+int main(void) {
+  char name[10];
+  scanf("%s", name);
+  printf("hello, %s\n", name);
+  return 0;
+}</textarea><br><br>
+  <strong>Language ID</strong>
+  <input type="checkbox" name="languageIdIsNull"><code>null</code><br>
+  <input type="number" name="languageId" value="3"><br><br>
+  <strong>Input</strong>
+  <input type="checkbox" name="inputIsNull"><code>null</code><br>
+  <textarea name="input" rows="5" cols="25">Judge0</textarea><br><br>
+  <strong>Expected Output</strong>
+  <input type="checkbox" name="expectedOutputIsNull"><code>null</code><br>
+  <textarea name="expectedOutput" rows="5" cols="25">hello, Judge0</textarea>
+  <div id="panel" style="position: fixed; bottom: 0px; padding: 20px; background-color: #00F20D; bottom: 20px; right: 20px; border: 1px solid #777">
+    <button type="button" id="run">Run</button>
+    <button type="button" id="stop" disabled>Stop</button>
+    <button type="button" id="clearLog">Clear Log</button>
+    <button type="button" id="backToTop">Back To Top</button>
+  </div>
+
+  <hr>
+
+  <h2>Request/Response Log</h2><br>
+  <pre id="log"></pre>
+
+  <script>
+    var stopFetch = false;
+
+    if (window.location.protocol !== "file:") {
+      $("input[name=apiUrl]").attr('value', window.location.origin);
+    }
+
+    function resetButtons() {
+      stopFetch = false;
+      $("#run").removeAttr("disabled");
+      $("#stop").prop("disabled", true);
+      $("#panel").css('background-color', '#00F20D');
+    }
+
+    function appendToLog(text) {
+      $("#log").html($("#log").html() + text + "\n");
+    }
+
+    function handleError(jqXHR, textStatus, errorThrown) {
+      appendToLog(`[Response]\n${JSON.stringify(jqXHR, null, 4)}\n\n\nDONE!`);
+      resetButtons();
+    }
+
+    function fetchSubmission(apiUrl, token) {
+      appendToLog(`[Request] GET ${apiUrl}/submissions/${token}`);
+      $.ajax({
+        url: apiUrl + "/submissions/" + token,
+        type: "GET",
+        async: true,
+        success: function(data, textStatus, jqXHR) {
+          appendToLog(`[Response]\n${JSON.stringify(data, null, 4)}\n\n\n`);
+          if (data.status.id === 1 && !stopFetch) {
+            setTimeout(fetchSubmission.bind(null, apiUrl, data.token), 1500);
+          } else if (!stopFetch) {
+            appendToLog("DONE!");
+            resetButtons();
+          } else {
+            appendToLog("STOPPED!");
+            resetButtons();
+          }
+        },
+        error: handleError
+      });
+    }
+
+    $("#run").click(function() {
+      $(this).prop("disabled", true);
+      $("#stop").removeAttr("disabled");
+      $("#panel").css('background-color', '#F2000D');
+
+      var apiUrl = $("input[name=apiUrl]").val();
+      var sourceCode = $("textarea[name=sourceCode]").val();
+      var languageId = $("input[name=languageId]").val();
+      var input = $("textarea[name=input]").val();
+      var expectedOutput = $("textarea[name=expectedOutput]").val();
+
+      if ($("input[name=sourceCodeIsNull]").is(":checked")) {
+        sourceCode = null;
+      }
+      if ($("input[name=languageIdIsNull]").is(":checked")) {
+        languageId = null;
+      }
+      if ($("input[name=inputIsNull]").is(":checked")) {
+        input = null;
+      }
+      if ($("input[name=expectedOutputIsNull]").is(":checked")) {
+        expectedOutput = null;
+      }
+
+      var data = {
+        source_code: sourceCode,
+        language_id: languageId,
+        input: input,
+        expected_output: expectedOutput
+      };
+
+      appendToLog(`[Request] POST ${apiUrl}/submissions\n${JSON.stringify(data, null, 4)}`);
+
+      $.ajax({
+        url: apiUrl + "/submissions",
+        type: "POST",
+        async: true,
+        contentType: "application/json",
+        data: JSON.stringify(data),
+        success: function(data, textStatus, jqXHR) {
+          appendToLog(`[Response]\n${JSON.stringify(data, null, 4)}\n\n\n`);
+          setTimeout(fetchSubmission.bind(null, apiUrl, data.token), 1500);
+        },
+        error: handleError
+      });
+    });
+
+    $("#stop").click(function() {
+      stopFetch = true;
+    });
+
+    $("#clearLog").click(function() {
+      $("#log").html("");
+    });
+
+    $("#backToTop").click(function() {
+      $('html, body').animate({
+		      scrollTop: 0
+	    }, 500);
+    });
+  </script>
+</body>
+</html>

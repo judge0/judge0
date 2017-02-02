@@ -11,6 +11,12 @@ RSpec.describe SubmissionsController, type: :controller do
       expect(response).to be_success
       expect(json).to have_serialized(submission).with(SubmissionSerializer)
     end
+
+    it "returns 404" do
+      expect {
+        get :show, params: { token: submission.token + " give me 404" }
+      }.to raise_error(ActiveRecord::RecordNotFound)
+    end
   end
 
   describe "POST #create" do

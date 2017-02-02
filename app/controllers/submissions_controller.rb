@@ -1,6 +1,6 @@
 class SubmissionsController < ApplicationController
   def show
-    render json: Submission.find_by(token: params[:token])
+    render json: Submission.find_by!(token: params[:token])
   end
 
   def create
