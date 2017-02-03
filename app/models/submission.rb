@@ -16,6 +16,10 @@
 #  stderr          :text
 #  token           :string
 #
+# Indexes
+#
+#  index_submissions_on_token  (token)
+#
 
 class Submission < ApplicationRecord
   validates :source_code, :language_id, presence: true

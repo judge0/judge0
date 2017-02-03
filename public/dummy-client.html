@@ -86,7 +86,7 @@ int main(void) {
         success: function(data, textStatus, jqXHR) {
           appendToLog(`[Response]\n${JSON.stringify(data, null, 4)}\n\n\n`);
           if (data.status.id <= 2 && !stopFetch) {
-            setTimeout(fetchSubmission.bind(null, apiUrl, data.token), 100);
+            setTimeout(fetchSubmission.bind(null, apiUrl, data.token), 1500);
           } else if (!stopFetch) {
             appendToLog("DONE!");
             resetButtons();
@@ -140,7 +140,7 @@ int main(void) {
         data: JSON.stringify(data),
         success: function(data, textStatus, jqXHR) {
           appendToLog(`[Response]\n${JSON.stringify(data, null, 4)}\n\n\n`);
-          setTimeout(fetchSubmission.bind(null, apiUrl, data.token), 100);
+          setTimeout(fetchSubmission.bind(null, apiUrl, data.token), 1500);
         },
         error: handleError
       });
