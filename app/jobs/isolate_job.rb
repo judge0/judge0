@@ -22,19 +22,41 @@ class IsolateJob < ApplicationJob
 
   def perform(submission)
     @submission = submission
-    init
-    write
-    (run && verify) if compile == :success
+    time = []
+    memory = []
+
+    submission.update(status: Status.process)
+    submission.number_of_runs.times do
+      init
+      write
+      if compile == :failure
+        clean
+        return
+      end
+      run
+      verify
+
+      time << submission.time
+      memory << submission.memory
+      
+      clean
+      break if submission.status != Status.ac
+    end
+
+    submission.time = time.inject(&:+).to_f / time.size
+    submission.memory = memory.inject(&:+).to_f / memory.size
+    submission.save
+
   rescue Exception => e
-    @submission.update(stderr: e.message, status: Status.boxerr)
-  ensure
+    submission.stderr = e.message
+    submission.status = Status.boxerr
+    submission.save
     clean
   end
 
   private
 
   def init
-    submission.update(status: Status.process)
     @id = submission.id%2147483647
     @workdir = `isolate --cg -b #{id} --init`.chomp
     @box = workdir + "/box/"
@@ -103,8 +125,6 @@ class IsolateJob < ApplicationJob
       preappend = submission.stderr.present? ? "\n" : ""
       submission.stderr += preappend + parsed_meta["message"]
     end
-
-    submission.save
   end
 
   def clean
