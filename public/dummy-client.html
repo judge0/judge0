@@ -35,7 +35,10 @@ int main(void) {
 }</textarea><br><br>
   <strong>Language ID</strong>
   <input type="checkbox" name="languageIdIsNull"><code>null</code><br>
-  <input type="number" name="languageId" value="3"><br><br>
+  <input type="text" name="languageId" value="3"><br><br>
+  <strong>Number Of Runs</strong>
+  <input type="checkbox" name="numberOfRunsIsNull"><code>null</code><br>
+  <input type="text" name="numberOfRuns" value="1"><br><br>
   <strong>Input</strong>
   <input type="checkbox" name="inputIsNull"><code>null</code><br>
   <textarea name="input" rows="5" cols="25">Judge0</textarea><br><br>
@@ -107,6 +110,7 @@ int main(void) {
       var apiUrl = $("input[name=apiUrl]").val();
       var sourceCode = $("textarea[name=sourceCode]").val();
       var languageId = $("input[name=languageId]").val();
+      var numberOfRuns = $("input[name=numberOfRuns]").val();
       var input = $("textarea[name=input]").val();
       var expectedOutput = $("textarea[name=expectedOutput]").val();
 
@@ -115,6 +119,9 @@ int main(void) {
       }
       if ($("input[name=languageIdIsNull]").is(":checked")) {
         languageId = null;
+      }
+      if ($("input[name=numberOfRunsIsNull]").is(":checked")) {
+        numberOfRuns = null;
       }
       if ($("input[name=inputIsNull]").is(":checked")) {
         input = null;
@@ -126,6 +133,7 @@ int main(void) {
       var data = {
         source_code: sourceCode,
         language_id: languageId,
+        number_of_runs: numberOfRuns,
         input: input,
         expected_output: expectedOutput
       };

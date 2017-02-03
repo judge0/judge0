@@ -5,7 +5,6 @@ class SubmissionsController < ApplicationController
 
   def create
     @submission = Submission.new(submission_params)
-    @submission.status = Status.in_queue
 
     if @submission.save
       IsolateJob.perform_later(@submission)
@@ -21,6 +20,7 @@ class SubmissionsController < ApplicationController
     params.permit(
       :source_code,
       :language_id,
+      :number_of_runs,
       :input,
       :expected_output
     )

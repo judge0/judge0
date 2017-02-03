@@ -3,6 +3,7 @@ FactoryGirl.define do
     sequence(:token) { |n| SecureRandom.uuid + "-#{n}" }
     source_code 'name = gets.strip; puts "hello, " + name'
     language_id { create(:language).id }
+    number_of_runs 1
     input "world"
     expected_output "hello, world"
   end
