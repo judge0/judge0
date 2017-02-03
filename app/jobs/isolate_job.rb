@@ -1,17 +1,6 @@
 class IsolateJob < ApplicationJob
   queue_as :default
 
-  # https://raw.githubusercontent.com/ioi/isolate/master/isolate.1.txt
-  CPU_TIME_LIMIT = ENV['CPU_TIME_LIMIT'].presence || 1
-  CPU_EXTRA_TIME = ENV['CPU_EXTRA_TIME'].presence || 0.5
-  WALL_TIME_LIMIT = ENV['WALL_TIME_LIMIT'].presence || 3
-  MEMORY_LIMIT = ENV['MEM_LIMIT'].presence || 256000 # in KB
-  STACK_LIMIT = ENV['STACK_LIMIT'].presence || 256000 # in KB
-  MAX_PROCESSES_AND_OR_THREADS = ENV['MAX_PROCESSES_AND_OR_THREADS'].presence || 15
-  ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT = ENV['ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT'].present? ? '' : '--cg-timing'
-  ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT = ENV['ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT'].present?
-  MAX_FILE_SIZE = ENV['MAX_FILE_SIZE'].presence || 1
-
   STDIN_FILE = 'stdin.txt'
   STDOUT_FILE = 'stdout.txt'
   STDERR_FILE = 'stderr.txt'
@@ -38,7 +27,7 @@ class IsolateJob < ApplicationJob
 
       time << submission.time
       memory << submission.memory
-      
+
       clean
       break if submission.status != Status.ac
     end
@@ -95,14 +84,14 @@ class IsolateJob < ApplicationJob
     -o #{STDOUT_FILE} \
     -r #{STDERR_FILE} \
     -M #{meta} \
-    -t #{CPU_TIME_LIMIT} \
-    -x #{CPU_EXTRA_TIME} \
-    -w #{WALL_TIME_LIMIT} \
-    -k #{STACK_LIMIT} \
-    -p#{MAX_PROCESSES_AND_OR_THREADS} \
-    #{ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT ? "-m " : "--cg-mem="}#{MEMORY_LIMIT} \
-    #{ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT} \
-    -f #{MAX_FILE_SIZE} \
+    -t #{Config::CPU_TIME_LIMIT} \
+    -x #{Config::CPU_EXTRA_TIME} \
+    -w #{Config::WALL_TIME_LIMIT} \
+    -k #{Config::STACK_LIMIT} \
+    -p#{Config::MAX_PROCESSES_AND_OR_THREADS} \
+    #{Config::ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT ? "-m " : "--cg-mem="}#{Config::MEMORY_LIMIT} \
+    #{Config::ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT ? "" : "--cg-timing"} \
+    -f #{Config::MAX_FILE_SIZE} \
     -E HOME=#{workdir} \
     -d '/etc':'noexec' \
     --run \
