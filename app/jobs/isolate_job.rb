@@ -34,6 +34,7 @@ class IsolateJob < ApplicationJob
   private
 
   def init
+    submission.update(status: Status.process)
     @id = submission.id%2147483647
     @workdir = `isolate --cg -b #{id} --init`.chomp
     @box = workdir + "/box/"
