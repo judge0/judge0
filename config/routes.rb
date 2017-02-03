@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :languages, only: [:index]
   resources :statuses, only: [:index]
   get 'system_info', to: 'application#system_info'
-  get 'default_config', to: 'application#default_config'
+  get 'config_info', to: 'application#config_info'
 end

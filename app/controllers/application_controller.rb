@@ -3,7 +3,7 @@ class ApplicationController < ActionController::API
     render json: SystemInfo.sys_info
   end
 
-  def default_config
-    render json: Config.default_config
+  def config_info
+    render json: Config.config_info
   end
 end
