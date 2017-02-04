@@ -39,6 +39,45 @@ int main(void) {
   <strong>Number Of Runs</strong>
   <input type="checkbox" name="numberOfRunsIsNull"><code>null</code><br>
   <input type="text" name="numberOfRuns" value="1"><br><br>
+
+  <strong>CPU Time Limit</strong>
+  <input type="checkbox" name="cpuTimeLimitIsNull"><code>null</code><br>
+  <input type="text" name="cpuTimeLimit" value="1"><br><br>
+
+  <strong>CPU Extra Time</strong>
+  <input type="checkbox" name="cpuExtraTimeIsNull"><code>null</code><br>
+  <input type="text" name="cpuExtraTime" value="0.5"><br><br>
+
+  <strong>Wall Time Limit</strong>
+  <input type="checkbox" name="wallTimeLimitIsNull"><code>null</code><br>
+  <input type="text" name="wallTimeLimit" value="10"><br><br>
+
+  <strong>Memory Limit</strong>
+  <input type="checkbox" name="memoryLimitIsNull"><code>null</code><br>
+  <input type="text" name="memoryLimit" value="128000"><br><br>
+
+  <strong>Stack Limit</strong>
+  <input type="checkbox" name="stackLimitIsNull"><code>null</code><br>
+  <input type="text" name="stackLimit" value="128000"><br><br>
+
+  <strong>Max Processes And Or Threads</strong>
+  <input type="checkbox" name="maxProcessesAndOrThreadsIsNull"><code>null</code><br>
+  <input type="text" name="maxProcessesAndOrThreads" value="15"><br><br>
+
+  <strong>Enable Per Process And Thread Time Limit</strong>
+  <input type="radio" name="enablePerProcessAndThreadTimeLimit" value="true"> <code>true</code>
+  <input type="radio" name="enablePerProcessAndThreadTimeLimit" value="false" checked> <code>false</code>
+  <input type="radio" name="enablePerProcessAndThreadTimeLimit" value="null"> <code>null</code><br><br>
+
+  <strong>Enable Per Process And Thread Memory Limit</strong>
+  <input type="radio" name="enablePerProcessAndThreadMemoryLimit" value="true"> <code>true</code>
+  <input type="radio" name="enablePerProcessAndThreadMemoryLimit" value="false" checked> <code>false</code>
+  <input type="radio" name="enablePerProcessAndThreadMemoryLimit" value="null"> <code>null</code><br><br>
+
+  <strong>Max File Size</strong>
+  <input type="checkbox" name="maxFileSizeIsNull"><code>null</code><br>
+  <input type="text" name="maxFileSize" value="1024"><br><br>
+
   <strong>Input</strong>
   <input type="checkbox" name="inputIsNull"><code>null</code><br>
   <textarea name="input" rows="5" cols="25">Judge0</textarea><br><br>
@@ -113,6 +152,14 @@ int main(void) {
       var numberOfRuns = $("input[name=numberOfRuns]").val();
       var input = $("textarea[name=input]").val();
       var expectedOutput = $("textarea[name=expectedOutput]").val();
+      var cpuTimeLimit = $("input[name=cpuTimeLimit]").val();
+      var cpuExtraTime = $("input[name=cpuExtraTime]").val();
+      var wallTimeLimit = $("input[name=wallTimeLimit]").val();
+      var memoryLimit = $("input[name=memoryLimit]").val();
+      var stackLimit = $("input[name=stackLimit]").val();
+      var enablePerProcessAndThreadTimeLimit = $("input[name=enablePerProcessAndThreadTimeLimit]:checked").val() === "true";
+      var enablePerProcessAndThreadMemoryLimit = $("input[name=enablePerProcessAndThreadMemoryLimit]:checked").val() === "true";
+      var maxFileSize = $("input[name=maxFileSize]").val();
 
       if ($("input[name=sourceCodeIsNull]").is(":checked")) {
         sourceCode = null;
@@ -129,13 +176,45 @@ int main(void) {
       if ($("input[name=expectedOutputIsNull]").is(":checked")) {
         expectedOutput = null;
       }
+      if ($("input[name=cpuTimeLimitIsNull]").is(":checked")) {
+        cpuTimeLimit = null;
+      }
+      if ($("input[name=cpuExtraTimeIsNull]").is(":checked")) {
+        cpuExtraTime = null;
+      }
+      if ($("input[name=wallTimeLimitIsNull]").is(":checked")) {
+        wallTimeLimit = null;
+      }
+      if ($("input[name=memoryLimitIsNull]").is(":checked")) {
+        memoryLimit = null;
+      }
+      if ($("input[name=stackLimitIsNull]").is(":checked")) {
+        stackLimit = null;
+      }
+      if ($("input[name=enablePerProcessAndThreadTimeLimit]:checked").val() === "null") {
+        enablePerProcessAndThreadTimeLimit = null;
+      }
+      if ($("input[name=enablePerProcessAndThreadMemoryLimit]:checked").val() === "null") {
+        enablePerProcessAndThreadMemoryLimit = null;
+      }
+      if ($("input[name=maxFileSizeIsNull]").is(":checked")) {
+        maxFileSize = null;
+      }
 
       var data = {
         source_code: sourceCode,
         language_id: languageId,
         number_of_runs: numberOfRuns,
         input: input,
-        expected_output: expectedOutput
+        expected_output: expectedOutput,
+        cpu_time_limit: cpuTimeLimit,
+        cpu_extra_time: cpuExtraTime,
+        wall_time_limit: wallTimeLimit,
+        memory_limit: memoryLimit,
+        stack_limit: stackLimit,
+        enable_per_process_and_thread_time_limit: enablePerProcessAndThreadTimeLimit,
+        enable_per_process_and_thread_memory_limit: enablePerProcessAndThreadMemoryLimit,
+        max_file_size: maxFileSize
       };
 
       appendToLog(`[Request] POST ${apiUrl}/submissions\n${JSON.stringify(data, null, 4)}`);

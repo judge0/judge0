@@ -84,14 +84,14 @@ class IsolateJob < ApplicationJob
     -o #{STDOUT_FILE} \
     -r #{STDERR_FILE} \
     -M #{meta} \
-    -t #{Config::CPU_TIME_LIMIT} \
-    -x #{Config::CPU_EXTRA_TIME} \
-    -w #{Config::WALL_TIME_LIMIT} \
-    -k #{Config::STACK_LIMIT} \
-    -p#{Config::MAX_PROCESSES_AND_OR_THREADS} \
-    #{Config::ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT ? "-m " : "--cg-mem="}#{Config::MEMORY_LIMIT} \
-    #{Config::ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT ? "" : "--cg-timing"} \
-    -f #{Config::MAX_FILE_SIZE} \
+    -t #{submission.cpu_time_limit} \
+    -x #{submission.cpu_extra_time} \
+    -w #{submission.wall_time_limit} \
+    -k #{submission.stack_limit} \
+    -p#{submission.max_processes_and_or_threads} \
+    #{submission.enable_per_process_and_thread_memory_limit ? "-m " : "--cg-mem="}#{submission.memory_limit} \
+    #{submission.enable_per_process_and_thread_time_limit ? "" : "--cg-timing"} \
+    -f #{submission.max_file_size} \
     -E HOME=#{workdir} \
     -d '/etc':'noexec' \
     --run \

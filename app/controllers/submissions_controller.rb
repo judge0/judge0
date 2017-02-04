@@ -22,7 +22,15 @@ class SubmissionsController < ApplicationController
       :language_id,
       :number_of_runs,
       :input,
-      :expected_output
+      :expected_output,
+      :cpu_time_limit,
+      :cpu_extra_time,
+      :wall_time_limit,
+      :memory_limit,
+      :stack_limit,
+      :enable_per_process_and_thread_time_limit,
+      :enable_per_process_and_thread_memory_limit,
+      :max_file_size
     )
   end
 end

@@ -74,8 +74,8 @@ module Config
   ALLOW_ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT = ENV['ALLOW_ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT'] != "false"
 
   # Limit size of files created (or modified) by the program in kilobytes.
-  # Default: 1
-  MAX_FILE_SIZE = ENV['MAX_FILE_SIZE'].presence || 1
+  # Default: 1024
+  MAX_FILE_SIZE = ENV['MAX_FILE_SIZE'].presence || 1024
 
   # Maximum custom, user defined file size.
   # Default: 4096
