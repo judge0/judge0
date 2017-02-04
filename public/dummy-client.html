@@ -115,7 +115,7 @@ int main(void) {
     }
 
     function handleError(jqXHR, textStatus, errorThrown) {
-      appendToLog(`[Response]\n${JSON.stringify(jqXHR, null, 4)}\n\n\nDONE!`);
+      appendToLog(`[Response] ${jqXHR.status} ${jqXHR.statusText}\n${JSON.stringify(jqXHR, null, 4)}\n\n\nDONE!`);
       resetButtons();
     }
 
@@ -126,7 +126,7 @@ int main(void) {
         type: "GET",
         async: true,
         success: function(data, textStatus, jqXHR) {
-          appendToLog(`[Response]\n${JSON.stringify(data, null, 4)}\n\n\n`);
+          appendToLog(`[Response] ${jqXHR.status} ${jqXHR.statusText}\n${JSON.stringify(data, null, 4)}\n\n\n`);
           if (data.status.id <= 2 && !stopFetch) {
             setTimeout(fetchSubmission.bind(null, apiUrl, data.token), 1500);
           } else if (!stopFetch) {
@@ -226,7 +226,7 @@ int main(void) {
         contentType: "application/json",
         data: JSON.stringify(data),
         success: function(data, textStatus, jqXHR) {
-          appendToLog(`[Response]\n${JSON.stringify(data, null, 4)}\n\n\n`);
+          appendToLog(`[Response] ${jqXHR.status} ${jqXHR.statusText}\n${JSON.stringify(data, null, 4)}\n\n\n`);
           setTimeout(fetchSubmission.bind(null, apiUrl, data.token), 1500);
         },
         error: handleError

@@ -34,7 +34,7 @@
 class Submission < ApplicationRecord
   validates :source_code, :language_id, presence: true
   validates :number_of_runs,
-            numericality: { greater_than: 0, only_integer: true }
+            numericality: { greater_than: 0, less_than_or_equal_to: Config::MAX_NUMBER_OF_RUNS }
   validates :cpu_time_limit,
             numericality: { greater_than: 0, less_than_or_equal_to: Config::MAX_CPU_TIME_LIMIT }
   validates :cpu_extra_time,
@@ -82,7 +82,7 @@ class Submission < ApplicationRecord
 
   def set_defaults
     self.status ||= Status.in_queue
-    self.number_of_runs ||= 1
+    self.number_of_runs ||= Config::NUMBER_OF_RUNS
     self.cpu_time_limit ||= Config::CPU_TIME_LIMIT
     self.cpu_extra_time ||= Config::CPU_EXTRA_TIME
     self.wall_time_limit ||= Config::WALL_TIME_LIMIT

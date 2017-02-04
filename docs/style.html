@@ -1,0 +1,16 @@
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function(event) {
+    document.body.style.padding = "0px 40px 40px 40px";
+
+    var container = document.getElementsByClassName("container")[0];
+    container.style.maxWidth = "none";
+
+    var content = document.getElementsByClassName("content")[0];
+    content.style.width = "auto";
+
+    var action = document.getElementsByClassName("action");
+    for (var i = 0; i < action.length; i++) {
+      action[i].style.overflowX = "auto";
+    }
+  });
+</script>

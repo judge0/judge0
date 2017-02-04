@@ -3,9 +3,7 @@ require 'rails_helper'
 RSpec.describe Submission, type: :model do
   it { should validate_presence_of(:source_code) }
   it { should validate_presence_of(:language_id) }
-  it { validate_numericality_of(:number_of_runs).is_greater_than(0) }
-  it { validate_numericality_of(:number_of_runs).only_integer }
-  
+
   describe "#language" do
     let(:language) { create(:language) }
 

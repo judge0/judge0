@@ -6,7 +6,7 @@ module Config
   # Default: 1
   CPU_TIME_LIMIT = ENV['CPU_TIME_LIMIT'].presence || 1
 
-  # Maximum custom, user defined time limit.
+  # Maximum custom CPU_TIME_LIMIT.
   # Default: 15
   MAX_CPU_TIME_LIMIT = ENV['MAX_CPU_TIME_LIMIT'].presence || 15
 
@@ -16,7 +16,7 @@ module Config
   # Default: 0.5
   CPU_EXTRA_TIME = ENV['CPU_EXTRA_TIME'].presence || 0.5
 
-  # Maximum custom, user defined extra time.
+  # Maximum custom CPU_EXTRA_TIME.
   # Default: 5
   MAX_CPU_EXTRA_TIME = ENV['MAX_CPU_EXTRA_TIME'].presence || 5
 
@@ -29,7 +29,7 @@ module Config
   # Default: 10
   WALL_TIME_LIMIT = ENV['WALL_TIME_LIMIT'].presence || 10
 
-  # Maximum custom, user defined wall time.
+  # Maximum custom WALL_TIME_LIMIT.
   # Default: 150
   MAX_WALL_TIME_LIMIT = ENV['MAX_WALL_TIME_LIMIT'].presence || 150
 
@@ -37,7 +37,7 @@ module Config
   # Default: 128000
   MEMORY_LIMIT = ENV['MEMORY_LIMIT'].presence || 128000 # in KB
 
-  # Maximum custom, user defined memory limit.
+  # Maximum custom MEMORY_LIMIT.
   # Default: 512000
   MAX_MEMORY_LIMIT = ENV['MAX_MEMORY_LIMIT'].presence || 512000
 
@@ -45,7 +45,7 @@ module Config
   # Default: 128000
   STACK_LIMIT = ENV['STACK_LIMIT'].presence || 128000 # in KB
 
-  # Maximum custom, user defined stack limit.
+  # Maximum custom STACK_LIMIT.
   # Default: 512000
   MAX_STACK_LIMIT = ENV['MAX_STACK_LIMIT'].presence || 512000
 
@@ -53,7 +53,7 @@ module Config
   # Default: 15
   MAX_PROCESSES_AND_OR_THREADS = ENV['MAX_PROCESSES_AND_OR_THREADS'].presence || 15
 
-  # Maximum custom, user defined number of processes and/or thread program can create.
+  # Maximum custom MAX_PROCESSES_AND_OR_THREADS.
   # Default: 30
   MAX_MAX_PROCESSES_AND_OR_THREADS = ENV['MAX_MAX_PROCESSES_AND_OR_THREADS'].presence || 30
 
@@ -61,7 +61,7 @@ module Config
   # Default false, i.e. CPU_TIME_LIMIT is set as a total limit for all processes and threads.
   ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT = ENV['ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT'] == "true"
 
-  # If false user won't be able to ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT.
+  # If false, user won't be able to set ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT.
   # Default: true
   ALLOW_ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT = ENV['ALLOW_ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT'] != "false"
 
@@ -69,7 +69,7 @@ module Config
   # Default: false, i.e. MEMORY_LIMIT is set as a total limit for all processes and threads.
   ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT = ENV['ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT'] == "true"
 
-  # If false user won't be able to ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT.
+  # If false, user won't be able to set ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT.
   # Default: true
   ALLOW_ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT = ENV['ALLOW_ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT'] != "false"
 
@@ -77,9 +77,17 @@ module Config
   # Default: 1024
   MAX_FILE_SIZE = ENV['MAX_FILE_SIZE'].presence || 1024
 
-  # Maximum custom, user defined file size.
+  # Maximum custom MAX_FILE_SIZE.
   # Default: 4096
   MAX_MAX_FILE_SIZE = ENV['MAX_MAX_FILE_SIZE'].presence || 4096
+
+  # Run each program that many times and take average of time and memory.
+  # Default: 1
+  NUMBER_OF_RUNS = ENV['NUMBER_OF_RUNS'].presence || 1
+
+  # Maximum custom NUMBER_OF_RUNS.
+  # Default: 20
+  MAX_NUMBER_OF_RUNS = ENV['MAX_NUMBER_OF_RUNS'].presence || 20
 
   def self.config_info
     @@default_confg ||= {
@@ -100,7 +108,9 @@ module Config
       "enable_per_process_and_thread_memory_limit": ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT,
       "allow_enable_per_process_and_thread_memory_limit": ALLOW_ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT,
       "max_file_size": MAX_FILE_SIZE,
-      "max_max_file_size": MAX_MAX_FILE_SIZE
+      "max_max_file_size": MAX_MAX_FILE_SIZE,
+      "number_of_runs": NUMBER_OF_RUNS,
+      "max_number_of_runs": MAX_NUMBER_OF_RUNS
     }
   end
 end
