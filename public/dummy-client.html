@@ -157,6 +157,7 @@ int main(void) {
       var wallTimeLimit = $("input[name=wallTimeLimit]").val();
       var memoryLimit = $("input[name=memoryLimit]").val();
       var stackLimit = $("input[name=stackLimit]").val();
+      var maxProcessesAndOrThreads = $("input[name=maxProcessesAndOrThreads]").val();
       var enablePerProcessAndThreadTimeLimit = $("input[name=enablePerProcessAndThreadTimeLimit]:checked").val() === "true";
       var enablePerProcessAndThreadMemoryLimit = $("input[name=enablePerProcessAndThreadMemoryLimit]:checked").val() === "true";
       var maxFileSize = $("input[name=maxFileSize]").val();
@@ -191,6 +192,9 @@ int main(void) {
       if ($("input[name=stackLimitIsNull]").is(":checked")) {
         stackLimit = null;
       }
+      if ($("input[name=maxProcessesAndOrThreadsIsNull]").is(":checked")) {
+        maxProcessesAndOrThreads = null;
+      }
       if ($("input[name=enablePerProcessAndThreadTimeLimit]:checked").val() === "null") {
         enablePerProcessAndThreadTimeLimit = null;
       }
@@ -212,6 +216,7 @@ int main(void) {
         wall_time_limit: wallTimeLimit,
         memory_limit: memoryLimit,
         stack_limit: stackLimit,
+        max_processes_and_or_threads: maxProcessesAndOrThreads,
         enable_per_process_and_thread_time_limit: enablePerProcessAndThreadTimeLimit,
         enable_per_process_and_thread_memory_limit: enablePerProcessAndThreadMemoryLimit,
         max_file_size: maxFileSize

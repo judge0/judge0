@@ -15,8 +15,11 @@ RUN echo "gem: --no-document" > /root/.gemrc && gem install \
 
 EXPOSE 3000
 
-COPY . /usr/src/api
 WORKDIR /usr/src/api
+COPY Gemfile* /usr/src/api/
+RUN bundle
+
+COPY . /usr/src/api
 RUN bundle && \
   aglio -i docs/API.md -o public/docs.html
 

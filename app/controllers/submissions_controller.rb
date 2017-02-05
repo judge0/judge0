@@ -28,6 +28,7 @@ class SubmissionsController < ApplicationController
       :wall_time_limit,
       :memory_limit,
       :stack_limit,
+      :max_processes_and_or_threads,
       :enable_per_process_and_thread_time_limit,
       :enable_per_process_and_thread_memory_limit,
       :max_file_size

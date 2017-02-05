@@ -6,7 +6,7 @@ class IsolateJob < ApplicationJob
   STDERR_FILE = 'stderr.txt'
   META_FILE = 'meta.txt'
 
-  attr_reader :submission, :workdir, :box, :source, :stdin, :stdout, :stderr,
+  attr_reader :submission, :workdir, :box, :cgroups, :source, :stdin, :stdout, :stderr,
               :meta, :parsed_meta, :id
 
   def perform(submission)
@@ -47,7 +47,8 @@ class IsolateJob < ApplicationJob
 
   def init
     @id = submission.id%2147483647
-    @workdir = `isolate --cg -b #{id} --init`.chomp
+    @cgroups = (submission.enable_per_process_and_thread_time_limit | submission.enable_per_process_and_thread_memory_limit ? "--cg" : "")
+    @workdir = `isolate #{cgroups} -b #{id} --init`.chomp
     @box = workdir + "/box/"
 
     @source = box + "#{submission.language.source_file}"
@@ -77,7 +78,7 @@ class IsolateJob < ApplicationJob
   end
 
   def run
-    `isolate --cg \
+    `isolate #{cgroups} \
     #{Rails.env.development? ? '-v' : ''} \
     -b #{id} \
     -i #{STDIN_FILE} \
@@ -105,7 +106,7 @@ class IsolateJob < ApplicationJob
     parse_meta
 
     submission.time = parsed_meta["time"].to_f
-    submission.memory = parsed_meta["cg-mem"].to_i
+    submission.memory = (cgroups == "" ? parsed_meta["max-rss"].to_i : parsed_meta["cg-mem"].to_i)
     submission.stdout = fix_encoding(File.read(stdout))
     submission.stderr = fix_encoding(File.read(stderr))
 
@@ -117,7 +118,7 @@ class IsolateJob < ApplicationJob
   end
 
   def clean
-    `isolate --cg -b #{id} --cleanup`
+    `isolate #{cgroups} -b #{id} --cleanup`
   end
 
   def change_permissions
