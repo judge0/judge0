@@ -1,9 +1,11 @@
-/.bundle
-/log/*
-/tmp/*
-!/log/.keep
-!/tmp/.keep
+.bundle
+log/*
+tmp/*
 .byebug_history
 Dockerfile*
 docker-compose*
-dev-*
+scripts
+.git
+.gitignore
+README.md
+LICENSE
