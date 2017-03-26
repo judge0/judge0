@@ -131,6 +131,16 @@ languages = [
     name: 'Ruby (2.1.9)',
     source_file: 'main.rb',
     run_cmd: '/usr/local/ruby-2.1.9/bin/ruby main.rb'
+  },
+  {
+    name: 'Node (6.10.1)',
+    source_file: 'main.js',
+    run_cmd: '/usr/local/node-6.10.1/bin/node main.js'
+  },
+  {
+    name: 'Node (4.8.1)',
+    source_file: 'main.js',
+    run_cmd: '/usr/local/node-4.8.1/bin/node main.js'
   }
 ]
 
