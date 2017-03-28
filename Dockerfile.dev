@@ -1,4 +1,4 @@
-FROM judge0/api:0.1.0
+FROM judge0/api:0.1.1
 
 RUN apt-get update && apt-get install -y \
   vim
