@@ -29,9 +29,9 @@ Setting up your development environment is easy thanks to [Docker](https://docs.
 
 Because we are running our development environent in Docker you don't need to have Ruby, Rails, PostgreSQL, Redis, etc. installed on your computer. You just need to:
 
-1. Pull [judge0/api:0.1.0](https://hub.docker.com/r/judge0/api/) image:
+1. Pull [judge0/api:0.1.1](https://hub.docker.com/r/judge0/api/) image:
     ```
-    $ docker pull judge0/api:0.1.0
+    $ docker pull judge0/api:0.1.1
     ```
 2. Run development shell (it will take a while only first time):
     ```
