@@ -1,5 +1,6 @@
 # Judge0 API
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
+[![Donate: PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.me/hermanzdosilovic)
 
 ## About
 *Judge0 API* is an API for code compilation and execution. Complete and detailed API documentation is available
@@ -128,3 +129,6 @@ Please before working with *Judge0* project, make yourself comfortable with Dock
 We will add extensive documentation in the future about how and why we are using Docker and Docker Compose here, but this documentation won't substitute your knowledge of this technologies.
 
 Feel free to ask us any questions in [Issues](https://github.com/judge0/api/issues) directly. :)
+
+## Donate
+If you really liked this project and you would like to help in any way, please consider supporing me with your donation to my [PayPal](https://www.paypal.me/hermanzdosilovic) account. Thanks a lot! 
