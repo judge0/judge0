@@ -78,7 +78,7 @@ class IsolateJob < ApplicationJob
   end
 
   def run
-    `isolate #{cgroups} \
+    command = "isolate #{cgroups} \
     #{Rails.env.development? ? '-v' : ''} \
     -b #{id} \
     -i #{STDIN_FILE} \
@@ -90,13 +90,15 @@ class IsolateJob < ApplicationJob
     -w #{submission.wall_time_limit} \
     -k #{submission.stack_limit} \
     -p#{submission.max_processes_and_or_threads} \
-    #{submission.enable_per_process_and_thread_memory_limit ? "-m " : "--cg-mem="}#{submission.memory_limit} \
-    #{submission.enable_per_process_and_thread_time_limit ? "" : "--cg-timing"} \
+    #{submission.enable_per_process_and_thread_memory_limit ? "--cg-mem=" : "-m "}#{submission.memory_limit} \
+    #{submission.enable_per_process_and_thread_time_limit ? "--cg-timing" : ""} \
     -f #{submission.max_file_size} \
     -E HOME=#{workdir} \
     -d '/etc':'noexec' \
     --run \
-    -- #{submission.language.run_cmd}`
+    -- #{submission.language.run_cmd}"
+    puts command.gsub(/\s+/, " ")
+    `#{command}`
   end
 
   def verify
