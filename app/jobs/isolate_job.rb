@@ -97,7 +97,10 @@ class IsolateJob < ApplicationJob
     -d '/etc':'noexec' \
     --run \
     -- #{submission.language.run_cmd}"
+
+    puts "[#{DateTime.now}] Running submission #{submission.token} (#{submission.id}):"
     puts command.gsub(/\s+/, " ")
+
     `#{command}`
   end
 
