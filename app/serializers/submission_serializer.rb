@@ -7,6 +7,14 @@ class SubmissionSerializer < ActiveModel::Serializer
              :enable_per_process_and_thread_time_limit, :enable_per_process_and_thread_memory_limit,
              :max_file_size
 
+  def stdout
+    instance_options[:base64_encode] ? object[:stdout] : object.stdout
+  end
+
+  def stderr
+    instance_options[:base64_encode] ? object[:stderr] : object.stderr
+  end
+  
   def status
     { id: object.status_id, description: object.status.name }
   end

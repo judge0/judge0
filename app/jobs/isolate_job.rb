@@ -110,10 +110,10 @@ class IsolateJob < ApplicationJob
     change_permissions
     parse_meta
 
-    submission.time = parsed_meta["time"].to_f
-    submission.memory = (cgroups == "" ? parsed_meta["max-rss"].to_i : parsed_meta["cg-mem"].to_i)
-    submission.stdout = fix_encoding(File.read(stdout))
-    submission.stderr = fix_encoding(File.read(stderr))
+    submission.time = parsed_meta["time"]
+    submission.memory = (cgroups == "" ? parsed_meta["max-rss"] : parsed_meta["cg-mem"])
+    submission.stdout = File.read(stdout)
+    submission.stderr = File.read(stderr)
 
     submission.status = determine_status
     if submission.status.boxerr?
@@ -128,11 +128,6 @@ class IsolateJob < ApplicationJob
 
   def change_permissions
     `sudo chown $(whoami): #{box} #{meta} #{stdout} #{stderr}`
-  end
-
-  def fix_encoding(text)
-    return text if text.valid_encoding?
-    text.encode("UTF-16", invalid: :replace, replace: '?').encode("UTF-8")
   end
 
   def parse_meta

@@ -1,6 +1,6 @@
 class SubmissionsController < ApplicationController
   def show
-    render json: Submission.find_by!(token: params[:token])
+    render json: Submission.find_by!(token: params[:token]), base64_encode: params.include?(:base64_encode)
   end
 
   def create
