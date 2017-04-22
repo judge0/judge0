@@ -1,6 +1,6 @@
 class SubmissionsController < ApplicationController
   def show
-    render json: Submission.find_by!(token: params[:token]), base64_encode: params.include?(:base64_encode)
+    render json: Submission.find_by!(token: params[:token]), base64: params.include?(:base64)
   end
 
   def create
@@ -34,7 +34,7 @@ class SubmissionsController < ApplicationController
       :max_file_size
     )
 
-    params.include?(:base64_encode) ? decode_params(submission_params) : submission_params
+    params.include?(:base64) ? decode_params(submission_params) : submission_params
   end
 
   def decode_params(params)

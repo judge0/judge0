@@ -81,9 +81,17 @@ int main(void) {
   <strong>Input</strong>
   <input type="checkbox" name="inputIsNull"><code>null</code><br>
   <textarea name="input" rows="5" cols="25">Judge0</textarea><br><br>
+  
   <strong>Expected Output</strong>
   <input type="checkbox" name="expectedOutputIsNull"><code>null</code><br>
-  <textarea name="expectedOutput" rows="5" cols="25">hello, Judge0</textarea>
+  <textarea name="expectedOutput" rows="5" cols="25">hello, Judge0</textarea><br><br>
+
+  <input type="checkbox" name="base64EncodedRequest">
+  <strong>Send request with Base64 encoded data</strong><br><br>
+
+  <input type="checkbox" name="base64EncodedResponse">
+  <strong>Accept response with Base64 encoded data</strong><br><br>
+
   <div id="panel" style="position: fixed; bottom: 0px; padding: 20px; background-color: #00F20D; bottom: 20px; right: 20px; border: 1px solid #777">
     <button type="button" id="run">Run</button>
     <button type="button" id="stop" disabled>Stop</button>
@@ -120,9 +128,13 @@ int main(void) {
     }
 
     function fetchSubmission(apiUrl, token) {
-      appendToLog(`[Request] GET ${apiUrl}/submissions/${token}`);
+      var base64QueryParameter = "";
+      if ($("input[name=base64EncodedResponse]").is(":checked")) {
+        base64QueryParameter = "?base64";
+      }
+      appendToLog(`[Request] GET ${apiUrl}/submissions/${token}${base64QueryParameter}`);
       $.ajax({
-        url: apiUrl + "/submissions/" + token,
+        url: apiUrl + "/submissions/" + token + base64QueryParameter,
         type: "GET",
         async: true,
         success: function(data, textStatus, jqXHR) {
@@ -162,6 +174,13 @@ int main(void) {
       var enablePerProcessAndThreadMemoryLimit = $("input[name=enablePerProcessAndThreadMemoryLimit]:checked").val() === "true";
       var maxFileSize = $("input[name=maxFileSize]").val();
 
+      var base64QueryParameter = "";
+      if ($("input[name=base64EncodedRequest]").is(":checked")) {
+        sourceCode = btoa(sourceCode);
+        input = btoa(input);
+        expectedOutput = btoa(expectedOutput);
+        base64QueryParameter = "?base64";
+      }
       if ($("input[name=sourceCodeIsNull]").is(":checked")) {
         sourceCode = null;
       }
@@ -222,10 +241,10 @@ int main(void) {
         max_file_size: maxFileSize
       };
 
-      appendToLog(`[Request] POST ${apiUrl}/submissions\n${JSON.stringify(data, null, 4)}`);
+      appendToLog(`[Request] POST ${apiUrl}/submissions${base64QueryParameter}\n${JSON.stringify(data, null, 4)}`);
 
       $.ajax({
-        url: apiUrl + "/submissions",
+        url: apiUrl + "/submissions" + base64QueryParameter,
         type: "POST",
         async: true,
         contentType: "application/json",

@@ -8,11 +8,11 @@ class SubmissionSerializer < ActiveModel::Serializer
              :max_file_size
 
   def stdout
-    instance_options[:base64_encode] ? object[:stdout] : object.stdout
+    instance_options[:base64] ? object[:stdout] : object.stdout
   end
 
   def stderr
-    instance_options[:base64_encode] ? object[:stderr] : object.stderr
+    instance_options[:base64] ? object[:stderr] : object.stderr
   end
   
   def status
