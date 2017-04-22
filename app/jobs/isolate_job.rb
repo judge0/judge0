@@ -37,9 +37,7 @@ class IsolateJob < ApplicationJob
     submission.save
 
   rescue Exception => e
-    submission.stderr = e.message
-    submission.status = Status.boxerr
-    submission.save
+    submission.update(stdout: nil, stderr: e.message, status: Status.boxerr)
     clean
   end
 
@@ -50,8 +48,7 @@ class IsolateJob < ApplicationJob
     @cgroups = (submission.enable_per_process_and_thread_time_limit | submission.enable_per_process_and_thread_memory_limit ? "--cg" : "")
     @workdir = `isolate #{cgroups} -b #{id} --init`.chomp
     @box = workdir + "/box/"
-
-    @source = box + "#{submission.language.source_file}"
+    @source = box + submission.language.source_file
     @stdin = box + STDIN_FILE
     @stdout = box + STDOUT_FILE
     @stderr = box + STDERR_FILE
