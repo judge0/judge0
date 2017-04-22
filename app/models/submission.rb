@@ -62,6 +62,61 @@ class Submission < ApplicationRecord
 
   enumeration :status
 
+  def source_code
+    return nil if super.nil?
+    @decoded_source_code ||= Base64.decode64(self[:source_code])
+  end
+
+  def source_code=(value)
+    super(value)
+    self[:source_code] = Base64.encode64(self[:source_code]) if self[:source_code]
+  end
+  
+
+  def input
+    return nil if super.nil?
+    @decoded_input ||= Base64.decode64(self[:input])
+  end
+
+  def input=(value)
+    super(value)
+    self[:input] = Base64.encode64(self[:input]) if self[:input]
+  end
+  
+
+  def stdout
+    return nil if super.nil?
+    @decoded_stdout ||= Base64.decode64(self[:stdout])
+  end
+  
+  def stdout=(value)
+    super(value)
+    self[:stdout] = Base64.encode64(self[:stdout]) if self[:stdout]
+  end
+  
+
+  def expected_output
+    return nil if super.nil?
+    @decoded_expected_output ||= Base64.decode64(self[:expected_output])
+  end
+
+  def expected_output=(value)
+    super(value)
+    self[:expected_output] = Base64.encode64(self[:expected_output]) if self[:expected_output]
+  end
+  
+
+  def stderr
+    return nil if super.nil?
+    @decoded_stderr ||= Base64.decode64(self[:stderr])
+  end
+  
+  def stderr=(value)
+    super(value)
+    self[:stderr] = Base64.encode64(self[:stderr]) if self[:stderr]
+  end
+  
+  
   def language
     @language ||= Language.find(language_id)
   end
