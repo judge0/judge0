@@ -8,8 +8,8 @@ services:
       - ./srv/nginx/html:/usr/share/nginx/html
       - ./srv/ssl_certs:/etc/nginx/certs:ro
     ports:
-      - 80:80
-      - 443:443
+      - "80:80"
+      - "443:443"
     restart: always
 
   nginx-lets-encrypt-companion:
@@ -24,9 +24,6 @@ services:
   api:
     image: judge0/api
     env_file: judge0-api.conf
-    links:
-      - db
-      - redis
     environment:
       - VIRTUAL_HOST=api.judge0.com
       - VIRTUAL_PORT=3000
@@ -39,18 +36,18 @@ services:
     env_file: judge0-api.conf
     command: rails resque:work
     privileged: true
-    links:
-      - db
-      - redis
     restart: always
 
   db:
     image: postgres
     env_file: judge0-api.conf
     volumes:
-      - ./srv/data:/var/lib/postgresql/data/
+      - ./srv/postgres-data:/var/lib/postgresql/data/
     restart: always
 
   redis:
     image: redis
+    command: redis-server --appendonly yes
+    volumes:
+      - ./srv/redis-data:/data
     restart: always

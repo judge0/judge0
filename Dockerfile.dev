@@ -1,6 +1,7 @@
 FROM judge0/api
+LABEL maintainer="Herman Zvonimir Došilović, hermanz.dosilovic@gmail.com"
 
-RUN apt-get update && apt-get install vim
+RUN apt-get update && apt-get install -y vim
 
 ENV TERM xterm
 CMD sleep infinity

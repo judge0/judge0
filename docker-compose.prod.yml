@@ -3,11 +3,8 @@ services:
   api:
     image: judge0/api
     env_file: judge0-api.conf
-    links:
-      - db
-      - redis
     ports:
-      - 3000:3000
+      - "3000:3000"
     restart: always
 
   worker:
@@ -15,18 +12,18 @@ services:
     env_file: judge0-api.conf
     command: rails resque:work
     privileged: true
-    links:
-      - db
-      - redis
     restart: always
 
   db:
     image: postgres
     env_file: judge0-api.conf
     volumes:
-      - ./srv/data:/var/lib/postgresql/data/
+      - ./srv/postgres-data:/var/lib/postgresql/data/
     restart: always
 
   redis:
     image: redis
+    command: redis-server --appendonly yes
+    volumes:
+      - ./srv/redis-data:/data
     restart: always

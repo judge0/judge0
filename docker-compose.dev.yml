@@ -11,16 +11,22 @@ services:
     volumes:
       - .:/usr/src/api
     env_file: judge0-api.conf
-    links:
-      - db
-      - redis
     ports:
-      - 3000:3000
-      - 3030:3030
+      - "3000:3000"
+      - "3030:3030"
     privileged: true
 
   db:
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./tmp/postgresql-data:/var/lib/postgresql/data/
     image: postgres
 
   redis:
+    command: redis-server --appendonly yes
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./tmp/redis-data:/data
     image: redis
