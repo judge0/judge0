@@ -1,8 +1,6 @@
-threads_count = ENV.fetch("RAILS_MAX_THREADS") { 5 }.to_i
+threads_count = (ENV['RAILS_MAX_THREADS'].presence || '5').to_i
 threads threads_count, threads_count
-
-port        ENV.fetch("PORT") { 3000 }
-
-environment ENV.fetch("RAILS_ENV") { "development" }
+port (ENV['PORT'].presence || '3000')
+environment (ENV['RAILS_ENV'].presence || 'development')
 
 plugin :tmp_restart
