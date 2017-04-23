@@ -1,11 +1,11 @@
-.bundle
+.*
 log/*
 tmp/*
-.byebug_history
 Dockerfile*
 docker-compose*
 scripts
-.git
-.gitignore
+!scripts/prod-gen-api-docs
 README.md
 LICENSE
+sequence-diagram*
+judge0-api.conf

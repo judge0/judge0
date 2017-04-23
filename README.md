@@ -16,7 +16,6 @@ on https://api.judge0.com.
 6. [Important Notes](#important-notes)
 
 ## Project Organization
-
 *Judge0 API* is a [Rails 5](http://weblog.rubyonrails.org/2016/6/30/Rails-5-0-final/) application organized in two major components:
 
 * [Rails API](https://github.com/rails-api/rails-api)
@@ -25,14 +24,12 @@ on https://api.judge0.com.
   * accepts new jobs and process them as they arrive. Worker has only one job - [IsolateJob](https://github.com/judge0/api/blob/master/app/jobs/isolate_job.rb), that job runs untrusted programs in sandboxed environment.
 
 ## Quick Development Setup
-
 Setting up your development environment is easy thanks to [Docker](https://docs.docker.com/) and [Docker Compose](https://docs.docker.com/compose/). So please install those before continuing.
 
 Because we are running our development environent in Docker you don't need to have Ruby, Rails, PostgreSQL, Redis, etc. installed on your computer. You just need to:
-
-1. Pull [judge0/api:0.1.1](https://hub.docker.com/r/judge0/api/) image:
+1. Pull [judge0/api](https://hub.docker.com/r/judge0/api/) image:
     ```
-    $ docker pull judge0/api:0.1.1
+    $ docker pull judge0/api
     ```
 2. Run development shell (it will take a while only first time):
     ```
@@ -53,14 +50,13 @@ You need to run Rails API and Worker in order to have *Judge0 API* fully operati
     ```
 2. Open new development shell again and in there run Worker process:
     ```
-    $ rails resque:work QUEUE=*
+    $ rails resque:work
     ```
 3. Open http://localhost:3000 in your browser.
 
 This is minimal setup for development environment, now you can open your favorite editor in your host and start developing *Judge0 API*.
 
 ## Quick Production Setup
-
 To host your own *Judge0 API* you need to install [Docker](https://docs.docker.com/) and [Docker Compose](https://docs.docker.com/compose/) on your server and after you are done proceed with the following:
 
 1. Copy [docker-compose.prod.yml](https://github.com/judge0/api/blob/master/docker-compose.prod.yml) on your server and save it as `docker-compose.yml`
@@ -83,6 +79,7 @@ To host your own *Judge0 API* you need to install [Docker](https://docs.docker.c
     ```
     $ docker-compose up -d
     ```
+
 6. Open `http://<IP OF YOUR SERVER>:3000` in your browser.
 
 ## About Docker Images
@@ -97,7 +94,6 @@ This project has two Dockerfiles:
 `judge0/api:dev` is your local development image built FROM `judge0/api:latest`. It is not pushed to Docker Hub. That is why you first need to pull `judge0/api:latest` before building your development environment.
 
 ## Adding New Compiler or Interpreter
-
 To add new compiler or interpreter you first need to install it into *Judge0 API Base* image. Instructions on how to do that can be found in documentation for [Judge0 API Base](https://github.com/judge0/api-base).
 
 After you have added your favorite compiler/interpreter to *Judge0 API Base* image you need to define how this compiler/interpreter is used.

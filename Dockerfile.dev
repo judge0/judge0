@@ -1,7 +1,6 @@
-FROM judge0/api:0.1.1
+FROM judge0/api
 
-RUN apt-get update && apt-get install -y \
-  vim
+RUN apt-get update && apt-get install vim
 
 ENV TERM xterm
 CMD sleep infinity

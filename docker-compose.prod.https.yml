@@ -22,7 +22,7 @@ services:
     restart: always
 
   api:
-    image: judge0/api:0.1.1
+    image: judge0/api
     env_file: judge0-api.conf
     links:
       - db
@@ -35,9 +35,9 @@ services:
     restart: always
 
   worker:
-    image: judge0/api:0.1.1
+    image: judge0/api
     env_file: judge0-api.conf
-    command: rails resque:work QUEUE=* COUNT=2
+    command: rails resque:work
     privileged: true
     links:
       - db
