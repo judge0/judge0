@@ -7,5 +7,4 @@ scripts
 !scripts/prod-gen-api-docs
 README.md
 LICENSE
-sequence-diagram*
 judge0-api.conf
