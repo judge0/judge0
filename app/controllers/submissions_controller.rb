@@ -1,16 +1,16 @@
 class SubmissionsController < ApplicationController
   def show
-    render json: Submission.find_by!(token: params[:token]), base64: params.include?(:base64)
+    render json: Submission.find_by!(token: params[:token]), base64_encoded: params[:base64_encoded] == "true"
   end
 
   def create
-    @submission = Submission.new(submission_params)
+    submission = Submission.new(submission_params)
 
-    if @submission.save
-      IsolateJob.perform_later(@submission)
-      render json: @submission, status: :created, fields: [:token]
+    if submission.save
+      IsolateJob.perform_later(submission)
+      render json: submission, status: :created, fields: [:token]
     else
-      render json: @submission.errors, status: :unprocessable_entity
+      render json: submission.errors, status: :unprocessable_entity
     end
   end
 
@@ -34,7 +34,7 @@ class SubmissionsController < ApplicationController
       :max_file_size
     )
 
-    params.include?(:base64) ? decode_params(submission_params) : submission_params
+    params[:base64_encoded] == "true" ? decode_params(submission_params) : submission_params
   end
 
   def decode_params(params)

@@ -130,7 +130,7 @@ int main(void) {
     function fetchSubmission(apiUrl, token) {
       var base64QueryParameter = "";
       if ($("input[name=base64EncodedResponse]").is(":checked")) {
-        base64QueryParameter = "?base64";
+        base64QueryParameter = "?base64_encoded=true";
       }
       appendToLog(`[Request] GET ${apiUrl}/submissions/${token}${base64QueryParameter}`);
       $.ajax({
@@ -179,7 +179,7 @@ int main(void) {
         sourceCode = btoa(sourceCode);
         input = btoa(input);
         expectedOutput = btoa(expectedOutput);
-        base64QueryParameter = "?base64";
+        base64QueryParameter = "?base64_encoded=true";
       }
       if ($("input[name=sourceCodeIsNull]").is(":checked")) {
         sourceCode = null;

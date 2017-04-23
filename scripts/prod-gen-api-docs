@@ -1,0 +1,1 @@
+aglio -i docs/api/docs.md -o public/docs.html
