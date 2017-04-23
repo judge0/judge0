@@ -27,7 +27,6 @@ COPY . /usr/src/api
 RUN bundle && \
     ./scripts/prod-gen-api-docs
 
-ENV QUEUE=* COUNT=1 INTERVAL=2
 CMD rm -f tmp/pids/server.pid && \
     rails db:create db:migrate db:seed && \
     rails s -b 0.0.0.0

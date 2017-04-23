@@ -20,7 +20,7 @@ services:
     image: ennexa/resque-web
     command: -r redis://redis:6379
     ports:
-      - "3080:5678"
+      - "3033:5678"
     restart: always
 
   db:
