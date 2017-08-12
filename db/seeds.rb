@@ -36,25 +36,25 @@ languages = [
   {
     name: 'C++ (g++ 6.3.0)',
     source_file: 'main.cpp',
-    compile_cmd: '/usr/local/gcc-6.3.0/bin/g++ main.cpp',
+    compile_cmd: '/usr/local/gcc-6.3.0/bin/g++ -Wl,-rpath,/usr/local/gcc-6.3.0/lib64 main.cpp',
     run_cmd: './a.out'
   },
   {
     name: 'C++ (g++ 5.4.0)',
     source_file: 'main.cpp',
-    compile_cmd: '/usr/local/gcc-5.4.0/bin/g++ main.cpp',
+    compile_cmd: '/usr/local/gcc-5.4.0/bin/g++ -Wl,-rpath,/usr/local/gcc-5.4.0/lib64 main.cpp',
     run_cmd: './a.out'
   },
   {
     name: 'C++ (g++ 4.9.4)',
     source_file: 'main.cpp',
-    compile_cmd: '/usr/local/gcc-4.9.4/bin/g++ main.cpp',
+    compile_cmd: '/usr/local/gcc-4.9.4/bin/g++ -Wl,-rpath,/usr/local/gcc-4.9.4/lib64 main.cpp',
     run_cmd: './a.out'
   },
   {
     name: 'C++ (g++ 4.8.5)',
     source_file: 'main.cpp',
-    compile_cmd: '/usr/local/gcc-4.8.5/bin/g++ main.cpp',
+    compile_cmd: '/usr/local/gcc-4.8.5/bin/g++ -Wl,-rpath,/usr/local/gcc-4.8.5/lib64 main.cpp',
     run_cmd: './a.out'
   },
   {
