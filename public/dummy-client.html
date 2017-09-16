@@ -22,6 +22,10 @@
 
   <strong>API URL</strong><br>
   <input type="url" name="apiUrl" placeholder="https://api.judge0.com"><br><br>
+  <strong>AUTH TOKEN KEY</strong><br>
+  <input type="text" name="authTokenKey" placeholder="X-Auth-Key" value="X-Auth-Key"><br><br>
+  <strong>AUTH TOKEN VALUE</strong><br>
+  <input type="text" name="authTokenValue"><br><br>
   <strong>Source Code</strong>
   <input type="checkbox" name="sourceCodeIsNull"><code>null</code><br>
   <textarea name="sourceCode" rows="10" cols="50">
@@ -111,6 +115,30 @@ int main(void) {
       $("input[name=apiUrl]").attr('value', window.location.origin);
     }
 
+    function createQueryParameters() {
+      var parameters = [];
+      if ($("input[name=base64EncodedRequest]").is(":checked")) {
+        parameters.push("base64_encoded=true");
+      }
+
+      var authTokenKey = $("input[name=authTokenKey]").val();
+      var authTokenValue = $("input[name=authTokenValue]").val();
+      if (authTokenValue.length != 0) {
+        parameters.push(`${authTokenKey}=${authTokenValue}`);
+      }
+
+      if (parameters.length == 0) {
+        return "";
+      }
+
+      var queryParameters = "?";
+      for (var i = 0; i < parameters.length - 1; i++) {
+        queryParameters += parameters[i] + "&";
+      }
+
+      return queryParameters + parameters[parameters.length - 1];
+    }
+
     function resetButtons() {
       stopFetch = false;
       $("#run").removeAttr("disabled");
@@ -119,33 +147,34 @@ int main(void) {
     }
 
     function appendToLog(text) {
-      $("#log").html($("#log").html() + text + "\n");
+      $("#log").text($("#log").text() + text + "\n");
+      $('html, body').animate({
+		      scrollTop: $("body")[0].scrollHeight
+	    }, 500);
     }
 
     function handleError(jqXHR, textStatus, errorThrown) {
-      appendToLog(`[Response] ${jqXHR.status} ${jqXHR.statusText}\n${JSON.stringify(jqXHR, null, 4)}\n\n\nDONE!`);
+      appendToLog(`[Response ${new Date().toLocaleString()}] ${jqXHR.status} ${jqXHR.statusText}\n${JSON.stringify(jqXHR, null, 4)}\n`);
+      appendToLog(`[DONE ${new Date().toLocaleString()}]\n\n\n`);
       resetButtons();
     }
 
     function fetchSubmission(apiUrl, token) {
-      var base64QueryParameter = "";
-      if ($("input[name=base64EncodedResponse]").is(":checked")) {
-        base64QueryParameter = "?base64_encoded=true";
-      }
-      appendToLog(`[Request] GET ${apiUrl}/submissions/${token}${base64QueryParameter}`);
+      var queryParameters = createQueryParameters();
+      appendToLog(`[Request ${new Date().toLocaleString()}] GET ${apiUrl}/submissions/${token}${queryParameters}`);
       $.ajax({
-        url: apiUrl + "/submissions/" + token + base64QueryParameter,
+        url: apiUrl + "/submissions/" + token + queryParameters,
         type: "GET",
         async: true,
         success: function(data, textStatus, jqXHR) {
-          appendToLog(`[Response] ${jqXHR.status} ${jqXHR.statusText}\n${JSON.stringify(data, null, 4)}\n\n\n`);
+          appendToLog(`[Response ${new Date().toLocaleString()}] ${jqXHR.status} ${jqXHR.statusText}\n${JSON.stringify(data, null, 4)}\n`);
           if (data.status.id <= 2 && !stopFetch) {
             setTimeout(fetchSubmission.bind(null, apiUrl, data.token), 1500);
           } else if (!stopFetch) {
-            appendToLog("DONE!");
+            appendToLog(`[DONE ${new Date().toLocaleString()}]\n\n\n`);
             resetButtons();
           } else {
-            appendToLog("STOPPED!");
+            appendToLog(`[STOPPED ${new Date().toLocaleString()}]\n\n\n`);
             resetButtons();
           }
         },
@@ -159,6 +188,8 @@ int main(void) {
       $("#panel").css('background-color', '#F2000D');
 
       var apiUrl = $("input[name=apiUrl]").val();
+      var authTokenKey = $("input[name=authTokenKey]").val();
+      var authTokenValue = $("input[name=authTokenValue]").val();
       var sourceCode = $("textarea[name=sourceCode]").val();
       var languageId = $("input[name=languageId]").val();
       var numberOfRuns = $("input[name=numberOfRuns]").val();
@@ -174,12 +205,11 @@ int main(void) {
       var enablePerProcessAndThreadMemoryLimit = $("input[name=enablePerProcessAndThreadMemoryLimit]:checked").val() === "true";
       var maxFileSize = $("input[name=maxFileSize]").val();
 
-      var base64QueryParameter = "";
+      var queryParameters = createQueryParameters();
       if ($("input[name=base64EncodedRequest]").is(":checked")) {
         sourceCode = btoa(sourceCode);
         input = btoa(input);
         expectedOutput = btoa(expectedOutput);
-        base64QueryParameter = "?base64_encoded=true";
       }
       if ($("input[name=sourceCodeIsNull]").is(":checked")) {
         sourceCode = null;
@@ -241,16 +271,16 @@ int main(void) {
         max_file_size: maxFileSize
       };
 
-      appendToLog(`[Request] POST ${apiUrl}/submissions${base64QueryParameter}\n${JSON.stringify(data, null, 4)}`);
+      appendToLog(`[Request ${new Date().toLocaleString()}] POST ${apiUrl}/submissions${queryParameters}\n${JSON.stringify(data, null, 4)}`);
 
       $.ajax({
-        url: apiUrl + "/submissions" + base64QueryParameter,
+        url: apiUrl + "/submissions" + queryParameters,
         type: "POST",
         async: true,
         contentType: "application/json",
         data: JSON.stringify(data),
         success: function(data, textStatus, jqXHR) {
-          appendToLog(`[Response] ${jqXHR.status} ${jqXHR.statusText}\n${JSON.stringify(data, null, 4)}\n\n\n`);
+          appendToLog(`[Response ${new Date().toLocaleString()}] ${jqXHR.status} ${jqXHR.statusText}\n${JSON.stringify(data, null, 4)}\n`);
           setTimeout(fetchSubmission.bind(null, apiUrl, data.token), 1500);
         },
         error: handleError
@@ -268,7 +298,7 @@ int main(void) {
     $("#backToTop").click(function() {
       $('html, body').animate({
 		      scrollTop: 0
-	    }, 500);
+	    }, 50);
     });
   </script>
 </body>

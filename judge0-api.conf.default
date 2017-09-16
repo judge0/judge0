@@ -3,7 +3,7 @@
 ###############################################################################
 # Specify Rails environment: production or development
 # Default: development
-RAILS_ENV=
+RAILS_ENV=production
 
 # Specify maximum number of concurrent Rails threads.
 # Default: 5
@@ -19,6 +19,25 @@ SECRET_KEY_BASE=
 # Example:
 # ALLOW_ORIGIN=www.judge0.com judge0.com www.example.com blog.example.com
 ALLOW_ORIGIN=
+
+
+###############################################################################
+# Authentication
+###############################################################################
+# You can protect your API with (AUTH_TOKEN_KEY, AUTH_TOKEN_VALUE) pair.
+# Each request then needs to have this pair either in headers or query parameters.
+# For example let AUTH_TOKEN_KEY=X-Judge0-Key and AUTH_TOKEN_VALUE=mySecretToken
+# Than user should authenticate self by sending this in headers or query parameters
+# in each request, e.g.:
+# https://api.judge0.com/system_info?AUTH_TOKEN_KEY=X-Judge0-Key&AUTH_TOKEN_VALUE=mySecretToken
+
+# Specify authentication key name.
+# Default: X-Auth-Key
+AUTH_TOKEN_KEY=
+
+# Specify whitelisted authentication token values.
+# Default: empty - authentication is disabled
+AUTH_TOKEN_VALUE=
 
 
 ###############################################################################

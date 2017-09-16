@@ -7,4 +7,4 @@ scripts
 !scripts/prod-gen-api-docs
 README.md
 LICENSE
-judge0-api.conf
+judge0-api.conf*

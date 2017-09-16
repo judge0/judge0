@@ -31,11 +31,12 @@ Because we are running our development environent in Docker you don't need to ha
     ```
     $ docker pull judge0/api
     ```
-2. Run development shell (it will take a while only first time):
+2. Copy `judge0-api.conf.default` to `judge0-api.conf`, open it and change `RAILS_ENV` to `development`.
+3. Run development shell (it will take a while only first time):
     ```
     $ ./scripts/dev-shell
     ```
-3. Create, migrate and seed the database:
+4. Create, migrate and seed the database:
     ```
     $ rails db:create db:migrate db:seed
     ```
@@ -64,23 +65,22 @@ To host your own *Judge0 API* you need to install [Docker](https://docs.docker.c
     $ wget https://raw.githubusercontent.com/judge0/api/master/docker-compose.prod.yml -O docker-compose.yml
     ```
 
-2. Copy [judge0-api.conf](https://github.com/judge0/api/blob/master/judge0-api.conf) to your server
+2. Save [judge0-api.conf.default](https://github.com/judge0/api/blob/master/judge0-api.conf.default) to your server as `judge0-api.conf`
     ```
-    $ wget https://raw.githubusercontent.com/judge0/api/master/judge0-api.conf
+    $ wget https://raw.githubusercontent.com/judge0/api/master/judge0-api.conf.default -O judge0-api.conf
     ```
 
-3. In `judge0-api.conf` change following variables: `RAILS_ENV` and `ALLOW_ORIGIN`.
-4. Run database:
+3. Run database:
     ```
     $ docker-compose up -d db
     ```
 
-5. Run all other services:
+4. Run all other services:
     ```
     $ docker-compose up -d
     ```
 
-6. Open `http://<IP OF YOUR SERVER>:3000` in your browser.
+5. Open `http://<IP OF YOUR SERVER>:3000` in your browser.
 
 ## About Docker Images
 This project has two Dockerfiles:

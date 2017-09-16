@@ -1,5 +1,14 @@
 version: '2'
 services:
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    environment:
+      - DEFAULT_HOST=api.judge0.local
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    ports:
+      - "3040:80"
+
   api:
     build:
       context: .
@@ -10,6 +19,9 @@ services:
     image: judge0/api:dev
     volumes:
       - .:/usr/src/api
+    environment:
+      - VIRTUAL_HOST=api.judge0.local
+      - VIRTUAL_PORT=3000
     env_file: judge0-api.conf
     ports:
       - "3000:3000"
