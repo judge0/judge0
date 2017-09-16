@@ -5,3 +5,4 @@
 !/tmp/.keep
 .byebug_history
 coverage/
+judge0-api.conf
