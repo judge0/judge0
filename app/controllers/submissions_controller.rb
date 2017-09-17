@@ -1,6 +1,15 @@
 class SubmissionsController < ApplicationController
   def show
-    render json: Submission.find_by!(token: params[:token]), base64_encoded: params[:base64_encoded] == "true"
+    requested_fields = params[:fields].to_s.split(",").collect(&:to_sym)
+    requested_fields.each do |field|
+      unless SubmissionSerializer._attributes.include?(field)
+        render json: { error: "invalid field #{field}" }, status: :bad_request
+        return
+      end
+    end
+
+    fields = requested_fields.presence || self.class.default_fields
+    render json: Submission.find_by!(token: params[:token]), base64_encoded: params[:base64_encoded] == "true", fields: fields
   end
 
   def create
@@ -42,5 +51,28 @@ class SubmissionsController < ApplicationController
     params[:input] = Base64.decode64(params[:input]) if params[:input]
     params[:expected_output] = Base64.decode64(params[:expected_output]) if params[:expected_output]
     params
+  end
+
+  def self.default_fields
+    @@default_fields = [
+      :stdout,
+      :status,
+      :created_at,
+      :finished_at,
+      :time,
+      :memory,
+      :stderr,
+      :token,
+      :number_of_runs,
+      :cpu_time_limit,
+      :cpu_extra_time,
+      :wall_time_limit,
+      :memory_limit,
+      :stack_limit,
+      :max_processes_and_or_threads,
+      :enable_per_process_and_thread_time_limit,
+      :enable_per_process_and_thread_memory_limit,
+      :max_file_size
+    ]
   end
 end

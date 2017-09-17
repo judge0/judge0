@@ -90,6 +90,9 @@ int main(void) {
   <input type="checkbox" name="expectedOutputIsNull"><code>null</code><br>
   <textarea name="expectedOutput" rows="5" cols="25">hello, Judge0</textarea><br><br>
 
+  <strong>Fields</strong><br>
+  <input type="text" name="fields"><br><br>
+
   <input type="checkbox" name="base64EncodedRequest">
   <strong>Send request with Base64 encoded data</strong><br><br>
 
@@ -115,10 +118,15 @@ int main(void) {
       $("input[name=apiUrl]").attr('value', window.location.origin);
     }
 
-    function createQueryParameters() {
+    function createQueryParameters(type = "Request") {
       var parameters = [];
-      if ($("input[name=base64EncodedRequest]").is(":checked")) {
+      if ($(`input[name=base64Encoded${type}]`).is(":checked")) {
         parameters.push("base64_encoded=true");
+      }
+
+      var fields = $("input[name=fields]").val();
+      if (fields.length != 0) {
+        parameters.push(`fields=${fields}`);
       }
 
       var authTokenKey = $("input[name=authTokenKey]").val();
@@ -160,7 +168,7 @@ int main(void) {
     }
 
     function fetchSubmission(apiUrl, token) {
-      var queryParameters = createQueryParameters();
+      var queryParameters = createQueryParameters("Response");
       appendToLog(`[Request ${new Date().toLocaleString()}] GET ${apiUrl}/submissions/${token}${queryParameters}`);
       $.ajax({
         url: apiUrl + "/submissions/" + token + queryParameters,
@@ -168,8 +176,8 @@ int main(void) {
         async: true,
         success: function(data, textStatus, jqXHR) {
           appendToLog(`[Response ${new Date().toLocaleString()}] ${jqXHR.status} ${jqXHR.statusText}\n${JSON.stringify(data, null, 4)}\n`);
-          if (data.status.id <= 2 && !stopFetch) {
-            setTimeout(fetchSubmission.bind(null, apiUrl, data.token), 1500);
+          if ((data.status === undefined || data.status.id <= 2) && (data.status_id === undefined || data.status_id <= 2) && !stopFetch) {
+            setTimeout(fetchSubmission.bind(null, apiUrl, token), 1500);
           } else if (!stopFetch) {
             appendToLog(`[DONE ${new Date().toLocaleString()}]\n\n\n`);
             resetButtons();
