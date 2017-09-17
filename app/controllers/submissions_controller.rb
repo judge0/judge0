@@ -1,23 +1,27 @@
 class SubmissionsController < ApplicationController
   def show
-    requested_fields = params[:fields].to_s.split(",").collect(&:to_sym)
-    requested_fields.each do |field|
-      unless SubmissionSerializer._attributes.include?(field)
-        render json: { error: "invalid field #{field}" }, status: :bad_request
-        return
-      end
-    end
-
-    fields = requested_fields.presence || self.class.default_fields
-    render json: Submission.find_by!(token: params[:token]), base64_encoded: params[:base64_encoded] == "true", fields: fields
+    render_invalid_field_error and return if has_invalid_field
+    render json: Submission.find_by!(token: params[:token]), base64_encoded: params[:base64_encoded] == "true", fields: requested_fields
   end
 
   def create
+    wait = params[:wait] == "true"
+    if wait && !Config::ENABLE_WAIT_RESULT
+      render json: { error: "wait result not enabled" }, status: :bad_request
+      return
+    end
+
     submission = Submission.new(submission_params)
 
     if submission.save
-      IsolateJob.perform_later(submission)
-      render json: submission, status: :created, fields: [:token]
+      if wait
+        render_invalid_field_error and return if has_invalid_field
+        IsolateJob.perform_now(submission)
+        render json: submission, status: :created, fields: requested_fields
+      else
+        IsolateJob.perform_later(submission)
+        render json: submission, status: :created, fields: [:token]
+      end
     else
       render json: submission.errors, status: :unprocessable_entity
     end
@@ -51,6 +55,32 @@ class SubmissionsController < ApplicationController
     params[:input] = Base64.decode64(params[:input]) if params[:input]
     params[:expected_output] = Base64.decode64(params[:expected_output]) if params[:expected_output]
     params
+  end
+
+  def has_invalid_field
+    return true if @invalid_field.present?
+    return false if @requested_fields.present?
+
+    fields = params[:fields].to_s.split(",").collect(&:to_sym)
+    fields.each do |field|
+      unless SubmissionSerializer._attributes.include?(field)
+        @invalid_field = field
+        return true
+      end
+    end
+
+    @requested_fields = fields.presence || self.class.default_fields
+
+    false
+  end
+
+  def requested_fields
+    has_invalid_field
+    @requested_fields
+  end
+
+  def render_invalid_field_error
+    render json: { error: "invalid field #{@invalid_field}" }, status: :bad_request if has_invalid_field
   end
 
   def self.default_fields

@@ -81,6 +81,12 @@ POSTGRES_PASSWORD=YourPasswordHere1234
 ###############################################################################
 # https://raw.githubusercontent.com/ioi/isolate/master/isolate.1.txt
 
+# If enabled user can request to synchronically wait for submission result.
+# By default user should asynchronically check for submission result and he cannot
+# request to synchronically wait for the result.
+# Default: false, i.e. user cannot request to wait for the result
+ENABLE_WAIT_RESULT=
+
 # Default runtime limit for every program (in seconds). Decimal numbers are allowed.
 # Time in which the OS assigns the processor to different tasks is not counted.
 # Default: 1

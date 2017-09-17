@@ -93,6 +93,9 @@ int main(void) {
   <strong>Fields</strong><br>
   <input type="text" name="fields"><br><br>
 
+  <input type="checkbox" name="waitResponse">
+  <strong>Wait for submission</strong><br><br>
+
   <input type="checkbox" name="base64EncodedRequest">
   <strong>Send request with Base64 encoded data</strong><br><br>
 
@@ -133,6 +136,10 @@ int main(void) {
       var authTokenValue = $("input[name=authTokenValue]").val();
       if (authTokenValue.length != 0) {
         parameters.push(`${authTokenKey}=${authTokenValue}`);
+      }
+
+      if ($("input[name=waitResponse]").is(":checked")) {
+        parameters.push("wait=true");
       }
 
       if (parameters.length == 0) {
@@ -212,6 +219,7 @@ int main(void) {
       var enablePerProcessAndThreadTimeLimit = $("input[name=enablePerProcessAndThreadTimeLimit]:checked").val() === "true";
       var enablePerProcessAndThreadMemoryLimit = $("input[name=enablePerProcessAndThreadMemoryLimit]:checked").val() === "true";
       var maxFileSize = $("input[name=maxFileSize]").val();
+      var wait = $("input[name=waitResponse]").is(":checked");
 
       var queryParameters = createQueryParameters();
       if ($("input[name=base64EncodedRequest]").is(":checked")) {
@@ -289,7 +297,12 @@ int main(void) {
         data: JSON.stringify(data),
         success: function(data, textStatus, jqXHR) {
           appendToLog(`[Response ${new Date().toLocaleString()}] ${jqXHR.status} ${jqXHR.statusText}\n${JSON.stringify(data, null, 4)}\n`);
-          setTimeout(fetchSubmission.bind(null, apiUrl, data.token), 1500);
+          if (!wait) {
+            setTimeout(fetchSubmission.bind(null, apiUrl, data.token), 1500);
+          } else {
+            appendToLog(`[DONE ${new Date().toLocaleString()}]\n\n\n`);
+            resetButtons();
+          }
         },
         error: handleError
       });
