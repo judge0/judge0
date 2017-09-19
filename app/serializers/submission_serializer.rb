@@ -20,6 +20,10 @@ class SubmissionSerializer < ActiveModel::Serializer
   def stderr
     object_decoder(:stderr)
   end
+
+  def compile_output
+    object_decoder(:compile_output)
+  end
   
   def status
     { id: object.status_id, description: object.status.name }
@@ -32,6 +36,6 @@ class SubmissionSerializer < ActiveModel::Serializer
   private
 
   def object_decoder(method)
-    instance_options[:base64_encoded] ? object[method] : Base64.decode64(object[method])
+    instance_options[:base64_encoded] ? object[method] : object.send(method)
   end
 end

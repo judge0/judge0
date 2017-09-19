@@ -63,11 +63,10 @@ class IsolateJob < ApplicationJob
   def compile
     return :success unless submission.language.compile_cmd
 
-    errors = `cd #{box} && #{submission.language.compile_cmd} 2>&1`
+    submission.compile_output = `cd #{box} && #{submission.language.compile_cmd} 2>&1`.presence
     return :success if $?.success?
 
     submission.update(
-      stderr: errors,
       status: Status.ce,
       finished_at: DateTime.now
     )
@@ -109,8 +108,8 @@ class IsolateJob < ApplicationJob
 
     submission.time = parsed_meta["time"]
     submission.memory = (cgroups == "" ? parsed_meta["max-rss"] : parsed_meta["cg-mem"])
-    submission.stdout = File.read(stdout)
-    submission.stderr = File.read(stderr)
+    submission.stdout = File.read(stdout).presence
+    submission.stderr = File.read(stderr).presence
 
     submission.status = determine_status
     if submission.status.boxerr?

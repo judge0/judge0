@@ -25,6 +25,7 @@
 #  enable_per_process_and_thread_time_limit   :boolean
 #  enable_per_process_and_thread_memory_limit :boolean
 #  max_file_size                              :integer
+#  compile_output                             :text
 #
 # Indexes
 #
@@ -116,6 +117,17 @@ class Submission < ApplicationRecord
     self[:stderr] = Base64.encode64(self[:stderr]) if self[:stderr]
   end
   
+
+  def compile_output
+    return nil if super.nil?
+    @decoded_compile_output ||= Base64.decode64(self[:compile_output])
+  end
+
+  def compile_output=(value)
+    super(value)
+    self[:compile_output] = Base64.encode64(self[:compile_output]) if self[:compile_output]
+  end
+
   
   def language
     @language ||= Language.find(language_id)

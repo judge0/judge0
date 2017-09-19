@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170422122148) do
+ActiveRecord::Schema.define(version: 20170919210318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20170422122148) do
     t.boolean  "enable_per_process_and_thread_time_limit"
     t.boolean  "enable_per_process_and_thread_memory_limit"
     t.integer  "max_file_size"
+    t.text     "compile_output"
     t.index ["token"], name: "index_submissions_on_token", using: :btree
   end
 
