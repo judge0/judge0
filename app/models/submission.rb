@@ -26,6 +26,9 @@
 #  enable_per_process_and_thread_memory_limit :boolean
 #  max_file_size                              :integer
 #  compile_output                             :text
+#  exit_code                                  :integer
+#  exit_signal                                :integer
+#  message                                    :text
 #
 # Indexes
 #

@@ -37,7 +37,7 @@ class IsolateJob < ApplicationJob
     submission.save
 
   rescue Exception => e
-    submission.update(stdout: nil, stderr: e.message, status: Status.boxerr)
+    submission.update(message: e.message, status: Status.boxerr)
     clean
   end
 
@@ -106,16 +106,14 @@ class IsolateJob < ApplicationJob
     change_permissions
     parse_meta
 
-    submission.time = parsed_meta["time"]
-    submission.memory = (cgroups == "" ? parsed_meta["max-rss"] : parsed_meta["cg-mem"])
+    submission.time = parsed_meta[:time]
+    submission.memory = (cgroups.present? ? parsed_meta[:"cg-mem"] : parsed_meta[:"max-rss"])
     submission.stdout = File.read(stdout).presence
     submission.stderr = File.read(stderr).presence
-
+    submission.exit_code = parsed_meta[:exitcode].try(:to_i)
+    submission.exit_signal = parsed_meta[:exitsig].try(:to_i)
+    submission.message = parsed_meta[:message]
     submission.status = determine_status
-    if submission.status.boxerr?
-      preappend = submission.stderr.present? ? "\n" : ""
-      submission.stderr += preappend + parsed_meta["message"]
-    end
   end
 
   def clean
@@ -129,20 +127,21 @@ class IsolateJob < ApplicationJob
   def parse_meta
     meta_content = File.read(meta)
     @parsed_meta = meta_content.split("\n").collect do |e|
-      { e.split(":").first => e.split(":")[1..-1].join(":") }
+      { e.split(":").first.to_sym => e.split(":")[1..-1].join(":") }
     end.reduce({}, :merge)
   end
 
   def determine_status
-    if parsed_meta['status'] == 'TO'
+    if parsed_meta[:status] == 'TO'
       return Status.tle
-    elsif parsed_meta['status'] == 'SG'
-      return Status.find_runtime_error_by_status_code(parsed_meta['exitsig'])
-    elsif parsed_meta['status'] == 'RE'
+    elsif parsed_meta[:status] == 'SG'
+      return Status.find_runtime_error_by_status_code(parsed_meta[:exitsig])
+    elsif parsed_meta[:status] == 'RE'
       return Status.nzec
-    elsif parsed_meta['status'] == 'XX'
+    elsif parsed_meta[:status] == 'XX'
       return Status.boxerr
-    elsif submission.expected_output.nil? || strip_output(submission.expected_output) == strip_output(submission.stdout)
+    elsif submission.expected_output.nil? ||
+          strip_output(submission.expected_output) == strip_output(submission.stdout)
       return Status.ac
     else
       return Status.wa
