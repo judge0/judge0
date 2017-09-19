@@ -1,5 +1,5 @@
 class Status < Enumerations::Base
-  values in_queue:  { id:  1, name: 'In Queue' },
+  values queue:     { id:  1, name: 'In Queue' },
          process:   { id:  2, name: 'Processing' },
          ac:        { id:  3, name: 'Accepted' },
          wa:        { id:  4, name: 'Wrong Answer' },

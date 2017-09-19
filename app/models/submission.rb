@@ -151,7 +151,7 @@ class Submission < ApplicationRecord
   end
 
   def set_defaults
-    self.status ||= Status.in_queue
+    self.status ||= Status.queue
     self.number_of_runs ||= Config::NUMBER_OF_RUNS
     self.cpu_time_limit ||= Config::CPU_TIME_LIMIT
     self.cpu_extra_time ||= Config::CPU_EXTRA_TIME
