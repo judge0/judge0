@@ -110,7 +110,7 @@ class IsolateJob < ApplicationJob
     submission.memory = (cgroups.present? ? parsed_meta[:"cg-mem"] : parsed_meta[:"max-rss"])
     submission.stdout = File.read(stdout).presence
     submission.stderr = File.read(stderr).presence
-    submission.exit_code = parsed_meta[:exitcode].try(:to_i)
+    submission.exit_code = parsed_meta[:exitcode].try(:to_i) || 0
     submission.exit_signal = parsed_meta[:exitsig].try(:to_i)
     submission.message = parsed_meta[:message]
     submission.status = determine_status
