@@ -2,16 +2,16 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Judge0 Dummy Client</title>
+  <title>Judge0 API Dummy Client</title>
   <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 </head>
 
 <body style="padding: 0px 40px 40px 40px;">
-  <h1>Judge0 Dummy Client</h1>
+  <h1>Judge0 API Dummy Client</h1>
   <p>
-    Judge0 dummy client can be used to try and test features of Judge0 API. Data is not validated on client side.
+    Judge0 API dummy client can be used to try and test features of Judge0 API. Data is not validated on client side.
     Client first creates new submission and then fetches submission status every <code>1500ms</code>.
-    Client stops fetching submission status after recieving an error or when submission status is not <code>In Queue</code>.
+    Client stops fetching submission status after recieving an error or when submission status is not <code>In Queue</code> or <code>Processing</code>.
   </p>
   <p>
     Note that you need to define <strong>API URL</strong>. This is the base url of some Judge0 API host (e.g. <code>https://api.judge0.com</code>).
@@ -20,12 +20,12 @@
 
   <hr>
 
-  <strong>API URL</strong><br>
-  <input type="url" name="apiUrl" placeholder="https://api.judge0.com"><br><br>
-  <strong>AUTH TOKEN KEY</strong><br>
-  <input type="text" name="authTokenKey" placeholder="X-Auth-Key" value="X-Auth-Key"><br><br>
-  <strong>AUTH TOKEN VALUE</strong><br>
-  <input type="text" name="authTokenValue"><br><br>
+  <strong>API URL</strong>&nbsp
+  <input type="url" name="apiUrl" size="31" placeholder="https://api.judge0.com"><br><br>
+  <strong>AUTHENTICATION HEADER</strong>&nbsp
+  <input type="text" name="authnHeader" size="31" placeholder="X-Auth-Token" value="X-Auth-Token"><br><br>
+  <strong>AUTHENTICATION TOKEN</strong>&nbsp
+  <input type="text" size="31" name="authnToken"><br><br>
   <strong>Source Code</strong>
   <input type="checkbox" name="sourceCodeIsNull"><code>null</code><br>
   <textarea name="sourceCode" rows="10" cols="50">
@@ -37,36 +37,36 @@ int main(void) {
   printf("hello, %s\n", name);
   return 0;
 }</textarea><br><br>
-  <strong>Language ID</strong>
-  <input type="checkbox" name="languageIdIsNull"><code>null</code><br>
-  <input type="text" name="languageId" value="3"><br><br>
-  <strong>Number Of Runs</strong>
-  <input type="checkbox" name="numberOfRunsIsNull"><code>null</code><br>
-  <input type="text" name="numberOfRuns" value="1"><br><br>
+  <strong>Language ID</strong>&nbsp
+  <input type="text" name="languageId" value="3">
+  <input type="checkbox" name="languageIdIsNull"><code>null</code><br><br>
+  <strong>Number Of Runs</strong>&nbsp
+  <input type="text" name="numberOfRuns" value="1">
+  <input type="checkbox" name="numberOfRunsIsNull"><code>null</code><br><br>
 
-  <strong>CPU Time Limit</strong>
-  <input type="checkbox" name="cpuTimeLimitIsNull"><code>null</code><br>
-  <input type="text" name="cpuTimeLimit" value="1"><br><br>
+  <strong>CPU Time Limit</strong>&nbsp
+  <input type="text" name="cpuTimeLimit" value="1">
+  <input type="checkbox" name="cpuTimeLimitIsNull"><code>null</code><br><br>
 
-  <strong>CPU Extra Time</strong>
-  <input type="checkbox" name="cpuExtraTimeIsNull"><code>null</code><br>
-  <input type="text" name="cpuExtraTime" value="0.5"><br><br>
+  <strong>CPU Extra Time</strong>&nbsp
+  <input type="text" name="cpuExtraTime" value="0.5">
+  <input type="checkbox" name="cpuExtraTimeIsNull"><code>null</code><br><br>
 
-  <strong>Wall Time Limit</strong>
-  <input type="checkbox" name="wallTimeLimitIsNull"><code>null</code><br>
-  <input type="text" name="wallTimeLimit" value="10"><br><br>
+  <strong>Wall Time Limit</strong>&nbsp
+  <input type="text" name="wallTimeLimit" value="10">
+  <input type="checkbox" name="wallTimeLimitIsNull"><code>null</code><br><br>
 
-  <strong>Memory Limit</strong>
-  <input type="checkbox" name="memoryLimitIsNull"><code>null</code><br>
-  <input type="text" name="memoryLimit" value="128000"><br><br>
+  <strong>Memory Limit</strong>&nbsp
+  <input type="text" name="memoryLimit" value="128000">
+  <input type="checkbox" name="memoryLimitIsNull"><code>null</code><br><br>
 
-  <strong>Stack Limit</strong>
-  <input type="checkbox" name="stackLimitIsNull"><code>null</code><br>
-  <input type="text" name="stackLimit" value="128000"><br><br>
+  <strong>Stack Limit</strong>&nbsp
+  <input type="text" name="stackLimit" value="128000">
+  <input type="checkbox" name="stackLimitIsNull"><code>null</code><br><br>
 
-  <strong>Max Processes And Or Threads</strong>
-  <input type="checkbox" name="maxProcessesAndOrThreadsIsNull"><code>null</code><br>
-  <input type="text" name="maxProcessesAndOrThreads" value="15"><br><br>
+  <strong>Max Processes And Or Threads</strong>&nbsp
+  <input type="text" name="maxProcessesAndOrThreads" value="15">
+  <input type="checkbox" name="maxProcessesAndOrThreadsIsNull"><code>null</code><br><br>
 
   <strong>Enable Per Process And Thread Time Limit</strong>
   <input type="radio" name="enablePerProcessAndThreadTimeLimit" value="true"> <code>true</code>
@@ -78,9 +78,9 @@ int main(void) {
   <input type="radio" name="enablePerProcessAndThreadMemoryLimit" value="false" checked> <code>false</code>
   <input type="radio" name="enablePerProcessAndThreadMemoryLimit" value="null"> <code>null</code><br><br>
 
-  <strong>Max File Size</strong>
-  <input type="checkbox" name="maxFileSizeIsNull"><code>null</code><br>
-  <input type="text" name="maxFileSize" value="1024"><br><br>
+  <strong>Max File Size</strong>&nbsp
+  <input type="text" name="maxFileSize" value="1024">
+  <input type="checkbox" name="maxFileSizeIsNull"><code>null</code><br><br>
 
   <strong>Input</strong>
   <input type="checkbox" name="inputIsNull"><code>null</code><br>
@@ -90,8 +90,8 @@ int main(void) {
   <input type="checkbox" name="expectedOutputIsNull"><code>null</code><br>
   <textarea name="expectedOutput" rows="5" cols="25">hello, Judge0</textarea><br><br>
 
-  <strong>Fields</strong><br>
-  <input type="text" name="fields"><br><br>
+  <strong>Fields</strong>&nbsp
+  <input type="text" size="50" name="fields"><br><br>
 
   <input type="checkbox" name="waitResponse">
   <strong>Wait for submission</strong><br><br>
@@ -132,10 +132,10 @@ int main(void) {
         parameters.push(`fields=${fields}`);
       }
 
-      var authTokenKey = $("input[name=authTokenKey]").val();
-      var authTokenValue = $("input[name=authTokenValue]").val();
-      if (authTokenValue.length != 0) {
-        parameters.push(`${authTokenKey}=${authTokenValue}`);
+      var authnHeader = $("input[name=authnHeader]").val();
+      var authnToken = $("input[name=authnToken]").val();
+      if (authnToken.length != 0) {
+        parameters.push(`${authnHeader}=${authnToken}`);
       }
 
       if ($("input[name=waitResponse]").is(":checked")) {
@@ -203,8 +203,6 @@ int main(void) {
       $("#panel").css('background-color', '#F2000D');
 
       var apiUrl = $("input[name=apiUrl]").val();
-      var authTokenKey = $("input[name=authTokenKey]").val();
-      var authTokenValue = $("input[name=authTokenValue]").val();
       var sourceCode = $("textarea[name=sourceCode]").val();
       var languageId = $("input[name=languageId]").val();
       var numberOfRuns = $("input[name=numberOfRuns]").val();

@@ -24,20 +24,20 @@ ALLOW_ORIGIN=
 ###############################################################################
 # Authentication
 ###############################################################################
-# You can protect your API with (AUTH_TOKEN_KEY, AUTH_TOKEN_VALUE) pair.
-# Each request then needs to have this pair either in headers or query parameters.
-# For example let AUTH_TOKEN_KEY=X-Judge0-Key and AUTH_TOKEN_VALUE=mySecretToken
-# Than user should authenticate self by sending this in headers or query parameters
-# in each request, e.g.:
-# https://api.judge0.com/system_info?AUTH_TOKEN_KEY=X-Judge0-Key&AUTH_TOKEN_VALUE=mySecretToken
+# You can protect your API with (AUTHN_HEADER, AUTHN_TOKEN) pair.
+# Each request then needs to have this pair either in headers or
+# query parameters. For example let AUTHN_HEADER=X-Judge0-Token and
+# AUTHN_TOKEN=mySecretToken. Then user should authenticate by sending this
+# in headers or query parameters in each request, e.g.:
+# https://api.judge0.com/system_info?X-Judge0-Token=mySecretToken
 
-# Specify authentication key name.
-# Default: X-Auth-Key
-AUTH_TOKEN_KEY=
+# Specify authentication header name.
+# Default: X-Auth-Token
+AUTHN_HEADER=
 
-# Specify whitelisted authentication token values.
+# Specify valid authentication tokens.
 # Default: empty - authentication is disabled
-AUTH_TOKEN_VALUE=
+AUTHN_TOKEN=
 
 
 ###############################################################################

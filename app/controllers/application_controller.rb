@@ -39,10 +39,10 @@ class ApplicationController < ActionController::API
   private
 
   def authenticate_request
-    return unless Rails.application.secrets.auth_token_value.present?
-    auth_token_value = (request.headers[Rails.application.secrets.auth_token_key] || params[Rails.application.secrets.auth_token_key]).to_s
-    Rails.application.secrets.auth_token_value.split.each do |value|
-      return if ActiveSupport::SecurityUtils.secure_compare(value, auth_token_value)
+    return unless Rails.application.secrets.authn_token.present?
+    authn_token = (request.headers[Rails.application.secrets.authn_header] || params[Rails.application.secrets.authn_header]).to_s
+    Rails.application.secrets.authn_token.split.each do |value|
+      return if ActiveSupport::SecurityUtils.secure_compare(value, authn_token)
     end
     head :unauthorized
   end
