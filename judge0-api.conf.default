@@ -41,6 +41,28 @@ AUTHN_TOKEN=
 
 
 ###############################################################################
+# Authorization
+###############################################################################
+# Protected API calls can be issued with (AUTHZ_HEADER, AUTHZ_TOKEN) pair.
+# To see exactly which API calls are protected with authorization tokens
+# please read the docs at https://api.judge0.com.
+# API authorization ensures that only specified users call protected API calls.
+# For example let AUTHZ_HEADER=X-Judge0-User and AUTHZ_TOKEN=mySecretToken.
+# Then user should authorize be sending this in headers or query parameters in
+# each request, e.g.: https://api.judge0.com/system_info?X-Judge0-User=mySecretToken
+# Note that if you enabled authentication, then user should also send valid
+# authentication token.
+
+# Specify authorization header name.
+# Default: X-Auth-User
+AUTHZ_HEADER=
+
+# Specify valid authorization tokens.
+# Default: empty - authorization is disabled, protected API calls cannot be issued
+AUTHZ_TOKEN=
+
+
+###############################################################################
 # Workers
 ###############################################################################
 # Specify polling frequency in seconds. Decimal numbers are allowed.

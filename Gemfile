@@ -8,6 +8,7 @@ gem 'enumerations', '~> 2.1'
 gem 'puma', '~> 3.0'
 gem 'rack-cors', require: 'rack/cors'
 gem 'resque', '~> 1.26'
+gem 'will_paginate', '~> 3.1'
 
 group :development do
   gem 'annotate', '~> 2.7'

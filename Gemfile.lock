@@ -185,6 +185,7 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    will_paginate (3.1.6)
 
 PLATFORMS
   ruby
@@ -205,6 +206,7 @@ DEPENDENCIES
   resque (~> 1.26)
   rspec-rails (~> 3.5)
   shoulda-matchers (~> 3.1)
+  will_paginate (~> 3.1)
 
 BUNDLED WITH
-   1.14.6
+   1.15.4

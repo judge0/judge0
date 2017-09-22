@@ -1,4 +1,31 @@
 class SubmissionsController < ApplicationController
+  before_action :authorize_request, only: [:index]
+
+  def index
+    render_invalid_field_error and return if has_invalid_field
+
+    page = params[:page].try(:to_i) || 1
+    per_page = params[:per_page].try(:to_i) || Submission.per_page
+
+    if page <= 0
+      render json: { error: "invalid page: #{page}" }, status: :bad_request
+      return
+    elsif per_page < 0
+      render json: { error: "invalid per_page: #{per_page}" }, status: :bad_request
+      return
+    end
+
+    submissions = Submission.paginate(page: page, per_page: per_page)
+    serializable_submissions = ActiveModelSerializers::SerializableResource.new(
+      submissions, { each_serializer: SubmissionSerializer, fields: requested_fields }
+    )
+
+    render json: {
+      submissions: serializable_submissions.as_json,
+      meta: pagination_dict(submissions)
+    }
+  end
+
   def show
     render_invalid_field_error and return if has_invalid_field
     render json: Submission.find_by!(token: params[:token]), base64_encoded: params[:base64_encoded] == "true", fields: requested_fields
@@ -85,24 +112,12 @@ class SubmissionsController < ApplicationController
 
   def self.default_fields
     @@default_fields = [
-      :stdout,
-      :status,
-      :created_at,
-      :finished_at,
+      :token,
       :time,
       :memory,
-      :stderr,
-      :token,
-      :number_of_runs,
-      :cpu_time_limit,
-      :cpu_extra_time,
-      :wall_time_limit,
-      :memory_limit,
-      :stack_limit,
-      :max_processes_and_or_threads,
-      :enable_per_process_and_thread_time_limit,
-      :enable_per_process_and_thread_memory_limit,
-      :max_file_size
+      :stdout,
+      :compile_output,
+      :status,
     ]
   end
 end

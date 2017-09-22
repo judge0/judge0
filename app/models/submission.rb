@@ -66,6 +66,10 @@ class Submission < ApplicationRecord
 
   enumeration :status
 
+  default_scope { order(created_at: :desc) }
+
+  self.per_page = 20
+
   def source_code
     return nil if super.nil?
     @decoded_source_code ||= Base64.decode64(self[:source_code])
