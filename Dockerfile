@@ -1,6 +1,6 @@
-FROM judge0/api-base
+FROM judge0/api-base:0.2.0
 #LABEL maintainer="Herman Zvonimir Došilović, hermanz.dosilovic@gmail.com" \
-#      version="0.1.2"
+#      version="0.2.0"
 
 RUN apt-get update && \
     apt-get install -y \
@@ -9,7 +9,8 @@ RUN apt-get update && \
       npm \
       sudo
 
-ENV PATH /usr/local/ruby-2.3.3/bin/:$PATH
+ENV PATH "/usr/local/ruby-2.3.3/bin/:/opt/.gem/bin/:$PATH"
+ENV GEM_HOME "/opt/.gem/"
 RUN echo "gem: --no-document" > /root/.gemrc && \
     gem install \
       rails:5.0 \
@@ -18,6 +19,7 @@ RUN echo "gem: --no-document" > /root/.gemrc && \
     npm install -g aglio
 
 EXPOSE 3000
+ENV RAILS_ENV production
 
 WORKDIR /usr/src/api
 COPY Gemfile* /usr/src/api/
@@ -32,4 +34,4 @@ CMD rm -f tmp/pids/server.pid && \
     rails s -b 0.0.0.0
 
 LABEL maintainer="Herman Zvonimir Došilović, hermanz.dosilovic@gmail.com" \
-      version="0.1.2"
+      version="0.2.0"

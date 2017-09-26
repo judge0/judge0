@@ -52,10 +52,10 @@ class Submission < ApplicationRecord
   validates :max_processes_and_or_threads,
             numericality: { greater_than: 0, less_than_or_equal_to: Config::MAX_MAX_PROCESSES_AND_OR_THREADS }
   validates :enable_per_process_and_thread_time_limit,
-            inclusion: { in: [false], message: 'this option cannot be enabled' },
+            inclusion: { in: [false], message: "this option cannot be enabled" },
             unless: "Config::ALLOW_ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT"
   validates :enable_per_process_and_thread_memory_limit,
-            inclusion: { in: [false], message: 'this option cannot be enabled' },
+            inclusion: { in: [false], message: "this option cannot be enabled" },
             unless: "Config::ALLOW_ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT"
   validates :max_file_size,
             numericality: { greater_than: 0, less_than_or_equal_to: Config::MAX_MAX_FILE_SIZE }
@@ -72,7 +72,7 @@ class Submission < ApplicationRecord
 
   def source_code
     return nil if super.nil?
-    @decoded_source_code ||= Base64.decode64(self[:source_code])
+    @decoded_source_code ||= Base64.decode64(self[:source_code]).force_encoding("UTF-8").encode
   end
 
   def source_code=(value)
@@ -83,7 +83,7 @@ class Submission < ApplicationRecord
 
   def input
     return nil if super.nil?
-    @decoded_input ||= Base64.decode64(self[:input])
+    @decoded_input ||= Base64.decode64(self[:input]).force_encoding("UTF-8").encode
   end
 
   def input=(value)
@@ -94,7 +94,7 @@ class Submission < ApplicationRecord
 
   def stdout
     return nil if super.nil?
-    @decoded_stdout ||= Base64.decode64(self[:stdout])
+    @decoded_stdout ||= Base64.decode64(self[:stdout]).force_encoding("UTF-8").encode
   end
   
   def stdout=(value)
@@ -105,7 +105,7 @@ class Submission < ApplicationRecord
 
   def expected_output
     return nil if super.nil?
-    @decoded_expected_output ||= Base64.decode64(self[:expected_output])
+    @decoded_expected_output ||= Base64.decode64(self[:expected_output]).force_encoding("UTF-8").encode
   end
 
   def expected_output=(value)
@@ -116,7 +116,7 @@ class Submission < ApplicationRecord
 
   def stderr
     return nil if super.nil?
-    @decoded_stderr ||= Base64.decode64(self[:stderr])
+    @decoded_stderr ||= Base64.decode64(self[:stderr]).force_encoding("UTF-8").encode
   end
   
   def stderr=(value)
@@ -127,7 +127,7 @@ class Submission < ApplicationRecord
 
   def compile_output
     return nil if super.nil?
-    @decoded_compile_output ||= Base64.decode64(self[:compile_output])
+    @decoded_compile_output ||= Base64.decode64(self[:compile_output]).force_encoding("UTF-8").encode
   end
 
   def compile_output=(value)

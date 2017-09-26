@@ -56,8 +56,8 @@ class IsolateJob < ApplicationJob
   end
 
   def write
-    File.open(source, 'w') { |f| f.write(submission.source_code) }
-    File.open(stdin, 'w') { |f| f.write(submission.input) }
+    File.open(source, 'w:UTF-8') { |f| f.write(submission.source_code) }
+    File.open(stdin, 'w:UTF-8') { |f| f.write(submission.input) }
   end
 
   def compile
@@ -108,6 +108,7 @@ class IsolateJob < ApplicationJob
 
     submission.time = parsed_meta[:time]
     submission.memory = (cgroups.present? ? parsed_meta[:"cg-mem"] : parsed_meta[:"max-rss"])
+    
     submission.stdout = File.read(stdout).presence
     submission.stderr = File.read(stderr).presence
     submission.exit_code = parsed_meta[:exitcode].try(:to_i) || 0

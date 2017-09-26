@@ -2,12 +2,12 @@ version: '2'
 services:
   nginx-proxy:
     image: jwilder/nginx-proxy
-    environment:
-      - DEFAULT_HOST=api.judge0.local
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
+    environment:
+      - DEFAULT_HOST=api.judge0.local
     ports:
-      - "3040:80"
+      - "8080:80"
 
   api:
     build:
@@ -32,20 +32,20 @@ services:
     image: ennexa/resque-web
     command: -r redis://redis:6379
     ports:
-      - "3033:5678"
+      - "5678:5678"
     restart: always
 
   db:
+    image: postgres
     ports:
       - "5432:5432"
     volumes:
       - ./tmp/postgres-data:/var/lib/postgresql/data/
-    image: postgres
 
   redis:
+    image: redis
     command: redis-server --appendonly yes
     ports:
       - "6379:6379"
     volumes:
       - ./tmp/redis-data:/data
-    image: redis
