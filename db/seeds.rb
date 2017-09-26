@@ -14,7 +14,7 @@ languages = [
   {
     name: "Basic (fbc 1.05.0)",
     source_file: "main.bas",
-    compile_cmd: "/usr/local/basic-1.05.0/bin/fbc main.bas",
+    compile_cmd: "/usr/local/fbc-1.05.0/bin/fbc main.bas",
     run_cmd: "./main"
   },
 
@@ -135,7 +135,7 @@ languages = [
   {
     name: "Erlang (OTP 20.0)",
     source_file: "main.erl",
-    compile_cmd: "/bin/sed -i \"1s/^/\n/\" main.erl",
+    compile_cmd: "/bin/sed -i \"s/^/\\n/\" main.erl",
     run_cmd: "/usr/local/erlang-20.0/bin/escript main.erl"
   },
 
@@ -265,6 +265,13 @@ languages = [
     source_file: "main.rs",
     compile_cmd: "/usr/local/rust-1.20.0/bin/rustc main.rs",
     run_cmd: "./main"
+  },
+
+
+  {
+    name: "Text (plain text)",
+    source_file: "source.txt",
+    run_cmd: "/bin/cat source.txt"
   }
 ]
 

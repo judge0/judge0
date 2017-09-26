@@ -2,7 +2,7 @@
 # Rails Environment
 ###############################################################################
 # Specify Rails environment: production or development
-# Default: production
+# Default: development
 RAILS_ENV=
 
 # Specify maximum number of concurrent Rails threads.

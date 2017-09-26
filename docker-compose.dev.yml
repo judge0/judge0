@@ -2,12 +2,14 @@ version: '2'
 services:
   nginx-proxy:
     image: jwilder/nginx-proxy
+    container_name: judge0-dev-nginx-proxy
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
     environment:
       - DEFAULT_HOST=api.judge0.local
     ports:
       - "8080:80"
+    restart: always
 
   api:
     build:
@@ -17,12 +19,12 @@ services:
         - DEV_USER=$USER
         - DEV_USER_ID=$UID
     image: judge0/api:dev
-    volumes:
-      - .:/usr/src/api
+    container_name: judge0-dev-api
     environment:
       - VIRTUAL_HOST=api.judge0.local
       - VIRTUAL_PORT=3000
-    env_file: judge0-api.conf
+    volumes:
+      - .:/usr/src/api
     ports:
       - "3000:3000"
       - "3030:3030"
@@ -30,6 +32,7 @@ services:
 
   resque-web:
     image: ennexa/resque-web
+    container_name: judge0-dev-resque-web
     command: -r redis://redis:6379
     ports:
       - "5678:5678"
@@ -37,15 +40,20 @@ services:
 
   db:
     image: postgres
-    ports:
-      - "5432:5432"
+    container_name: judge0-dev-db
+    env_file: judge0-api.conf
     volumes:
       - ./tmp/postgres-data:/var/lib/postgresql/data/
+    ports:
+      - "5432:5432"
+    restart: always
 
   redis:
     image: redis
+    container_name: judge0-dev-redis
     command: redis-server --appendonly yes
-    ports:
-      - "6379:6379"
     volumes:
       - ./tmp/redis-data:/data
+    ports:
+      - "6379:6379"
+    restart: always

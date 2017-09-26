@@ -9,7 +9,7 @@ RUN apt-get update && \
       npm \
       sudo
 
-ENV PATH "/usr/local/ruby-2.3.3/bin/:/opt/.gem/bin/:$PATH"
+ENV PATH "/usr/local/ruby-2.3.3/bin:/opt/.gem/bin:$PATH"
 ENV GEM_HOME "/opt/.gem/"
 RUN echo "gem: --no-document" > /root/.gemrc && \
     gem install \
@@ -19,14 +19,13 @@ RUN echo "gem: --no-document" > /root/.gemrc && \
     npm install -g aglio
 
 EXPOSE 3000
-ENV RAILS_ENV production
 
 WORKDIR /usr/src/api
 COPY Gemfile* /usr/src/api/
-RUN bundle
+RUN RAILS_ENV=production bundle
 
 COPY . /usr/src/api
-RUN bundle && \
+RUN RAILS_ENV=production bundle && \
     ./scripts/prod-gen-api-docs
 
 CMD rm -f tmp/pids/server.pid && \
