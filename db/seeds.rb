@@ -112,8 +112,7 @@ languages = [
   {
     name: "Clojure (1.8.0)",
     source_file: "main.clj",
-    run_cmd: "/usr/lib/jvm/java-8-openjdk-amd64/bin/java -cp \
-              /usr/local/clojure-1.8.0/clojure-1.8.0.jar clojure.main main.clj"
+    run_cmd: "/usr/bin/java -cp /usr/local/clojure-1.8.0/clojure-1.8.0.jar clojure.main main.clj"
   },
 
 
