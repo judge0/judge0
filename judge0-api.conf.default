@@ -158,11 +158,11 @@ STACK_LIMIT=
 MAX_STACK_LIMIT=
 
 # Maximum number of processes and/or threads program can create.
-# Default: 15
+# Default: 30
 MAX_PROCESSES_AND_OR_THREADS=
 
 # Maximum custom MAX_PROCESSES_AND_OR_THREADS.
-# Default: 30
+# Default: 60
 MAX_MAX_PROCESSES_AND_OR_THREADS=
 
 # If true then CPU_TIME_LIMIT will be used as per process and thread.
