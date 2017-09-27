@@ -25,6 +25,13 @@ class SubmissionSerializer < ActiveModel::Serializer
     object_decoder(:compile_output)
   end
   
+  def message
+    if instance_options[:base64_encoded] and object.message
+      return Base64.encode64(object.message)
+    end
+    object.message
+  end
+
   def status
     { id: object.status_id, description: object.status.name }
   end
