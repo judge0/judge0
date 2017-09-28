@@ -29,6 +29,7 @@
 #  exit_code                                  :integer
 #  exit_signal                                :integer
 #  message                                    :text
+#  wall_time                                  :decimal(, )
 #
 # Indexes
 #

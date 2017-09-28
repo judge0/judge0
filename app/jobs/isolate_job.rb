@@ -107,6 +107,7 @@ class IsolateJob < ApplicationJob
     parse_meta
 
     submission.time = parsed_meta[:time]
+    submission.wall_time = parsed_meta[:"time-wall"]
     submission.memory = (cgroups.present? ? parsed_meta[:"cg-mem"] : parsed_meta[:"max-rss"])
     submission.stdout = File.read(stdout).presence
     submission.stderr = File.read(stderr).presence
