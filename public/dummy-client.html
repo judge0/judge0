@@ -222,7 +222,7 @@ int main(void) {
       var queryParameters = createQueryParameters();
       if ($("input[name=base64EncodedRequest]").is(":checked")) {
         sourceCode = btoa(sourceCode);
-        input = btoa(input);
+        stdin = btoa(stdin);
         expectedOutput = btoa(expectedOutput);
       }
       if ($("input[name=sourceCodeIsNull]").is(":checked")) {

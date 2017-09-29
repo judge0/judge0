@@ -44,7 +44,7 @@ class SubmissionsController < ApplicationController
       if wait
         render_invalid_field_error and return if has_invalid_field
         IsolateJob.perform_now(submission)
-        render json: submission, status: :created, fields: requested_fields
+        render json: submission, status: :created, base64_encoded: params[:base64_encoded] == "true", fields: requested_fields
       else
         IsolateJob.perform_later(submission)
         render json: submission, status: :created, fields: [:token]
