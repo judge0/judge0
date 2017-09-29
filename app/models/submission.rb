@@ -5,7 +5,7 @@
 #  id                                         :integer          not null, primary key
 #  source_code                                :text
 #  language_id                                :integer
-#  input                                      :text
+#  stdin                                      :text
 #  expected_output                            :text
 #  stdout                                     :text
 #  status_id                                  :integer
@@ -82,14 +82,14 @@ class Submission < ApplicationRecord
   end
   
 
-  def input
+  def stdin
     return nil if super.nil?
-    @decoded_input ||= Base64.decode64(self[:input]).force_encoding("UTF-8").encode
+    @decoded_stdin ||= Base64.decode64(self[:stdin]).force_encoding("UTF-8").encode
   end
 
-  def input=(value)
+  def stdin=(value)
     super(value)
-    self[:input] = Base64.encode64(self[:input]) if self[:input]
+    self[:stdin] = Base64.encode64(self[:stdin]) if self[:stdin]
   end
   
 

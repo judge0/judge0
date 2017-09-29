@@ -5,8 +5,8 @@ class SubmissionSerializer < ActiveModel::Serializer
     object_decoder(:source_code)
   end
 
-  def input
-    object_decoder(:input)
+  def stdin
+    object_decoder(:stdin)
   end
 
   def expected_output

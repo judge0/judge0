@@ -57,7 +57,7 @@ class IsolateJob < ApplicationJob
 
   def write
     File.open(source, 'w:UTF-8') { |f| f.write(submission.source_code) }
-    File.open(stdin, 'w:UTF-8') { |f| f.write(submission.input) }
+    File.open(stdin, 'w:UTF-8') { |f| f.write(submission.stdin) }
   end
 
   def compile

@@ -61,7 +61,7 @@ class SubmissionsController < ApplicationController
       :source_code,
       :language_id,
       :number_of_runs,
-      :input,
+      :stdin,
       :expected_output,
       :cpu_time_limit,
       :cpu_extra_time,
@@ -79,7 +79,7 @@ class SubmissionsController < ApplicationController
 
   def decode_params(params)
     params[:source_code] = Base64.decode64(params[:source_code]).force_encoding("UTF-8").encode if params[:source_code]
-    params[:input] = Base64.decode64(params[:input]).force_encoding("UTF-8").encode if params[:input]
+    params[:stdin] = Base64.decode64(params[:stdin]).force_encoding("UTF-8").encode if params[:stdin]
     params[:expected_output] = Base64.decode64(params[:expected_output]).force_encoding("UTF-8").encode if params[:expected_output]
     params
   end

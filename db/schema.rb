@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170928174721) do
+ActiveRecord::Schema.define(version: 20170929175654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20170928174721) do
   create_table "submissions", force: :cascade do |t|
     t.text     "source_code"
     t.integer  "language_id"
-    t.text     "input"
+    t.text     "stdin"
     t.text     "expected_output"
     t.text     "stdout"
     t.integer  "status_id"

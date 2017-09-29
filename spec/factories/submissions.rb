@@ -4,7 +4,7 @@ FactoryGirl.define do
     source_code 'name = gets.strip; puts "hello, " + name'
     language_id { create(:language).id }
     number_of_runs 1
-    input "world"
+    stdin "world"
     expected_output "hello, world"
   end
 
@@ -18,7 +18,7 @@ FactoryGirl.define do
   factory :invalid_submission, class: Submission do
     source_code 'name = gets.strip; puts "hello, " + name'
     # language_id 14 # :language_id should be present
-    input "world"
+    stdin "world"
     expected_output "hello, world"
   end
 end

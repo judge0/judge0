@@ -38,7 +38,7 @@ int main(void) {
   return 0;
 }</textarea><br><br>
   <strong>Language ID</strong>&nbsp
-  <input type="text" name="languageId" value="3">
+  <input type="text" name="languageId" value="4">
   <input type="checkbox" name="languageIdIsNull"><code>null</code><br><br>
   <strong>Number Of Runs</strong>&nbsp
   <input type="text" name="numberOfRuns" value="1">
@@ -82,9 +82,9 @@ int main(void) {
   <input type="text" name="maxFileSize" value="1024">
   <input type="checkbox" name="maxFileSizeIsNull"><code>null</code><br><br>
 
-  <strong>Input</strong>
-  <input type="checkbox" name="inputIsNull"><code>null</code><br>
-  <textarea name="input" rows="5" cols="25">Judge0</textarea><br><br>
+  <strong>Stdin</strong>
+  <input type="checkbox" name="stdinIsNull"><code>null</code><br>
+  <textarea name="stdin" rows="5" cols="25">Judge0</textarea><br><br>
   
   <strong>Expected Output</strong>
   <input type="checkbox" name="expectedOutputIsNull"><code>null</code><br>
@@ -206,7 +206,7 @@ int main(void) {
       var sourceCode = $("textarea[name=sourceCode]").val();
       var languageId = $("input[name=languageId]").val();
       var numberOfRuns = $("input[name=numberOfRuns]").val();
-      var input = $("textarea[name=input]").val();
+      var stdin = $("textarea[name=stdin]").val();
       var expectedOutput = $("textarea[name=expectedOutput]").val();
       var cpuTimeLimit = $("input[name=cpuTimeLimit]").val();
       var cpuExtraTime = $("input[name=cpuExtraTime]").val();
@@ -234,8 +234,8 @@ int main(void) {
       if ($("input[name=numberOfRunsIsNull]").is(":checked")) {
         numberOfRuns = null;
       }
-      if ($("input[name=inputIsNull]").is(":checked")) {
-        input = null;
+      if ($("input[name=stdinIsNull]").is(":checked")) {
+        stdin = null;
       }
       if ($("input[name=expectedOutputIsNull]").is(":checked")) {
         expectedOutput = null;
@@ -272,7 +272,7 @@ int main(void) {
         source_code: sourceCode,
         language_id: languageId,
         number_of_runs: numberOfRuns,
-        input: input,
+        stdin: stdin,
         expected_output: expectedOutput,
         cpu_time_limit: cpuTimeLimit,
         cpu_extra_time: cpuExtraTime,
