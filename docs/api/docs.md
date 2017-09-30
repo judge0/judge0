@@ -32,3 +32,4 @@ If you like Judge0, please consider making a [donation](https://www.paypal.me/he
 <!-- include(submissions/submissions.md) -->
 <!-- include(statuses_and_languages/statuses_and_languages.md) -->
 <!-- include(system_and_configuration/system_and_configuration.md) -->
+<!-- include(health_check/health_check.md) -->

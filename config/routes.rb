@@ -8,8 +8,10 @@ Rails.application.routes.draw do
 
   get 'system_info', to: 'application#system_info'
   get 'config_info', to: 'application#config_info'
-  get 'workers', to: 'application#workers'
 
   post 'authenticate', to: 'application#authenticate'
   post 'authorize', to: 'application#authorize'
+
+
+  get 'workers', to: 'health#workers'
 end
