@@ -8,7 +8,7 @@ Submission model has **27** atributes. Attributes **1**-**14** (listed below) ar
 With attributes **5**-**14** you can configure submission runtime constraints. Those attributes are called *configuration attributes* or *configuration variables*. Please read more about them in [configuration](#system-and-configuration-configuration-info) section.
 
 Submission model has following attributes:
-|#  |Name|Type|Unit|Description|Default Value|
+|#    |Name |Type  |Unit  |Description |Default Value |
 |:---:|:----|:----:|:----:|:-----------|:-------------|
 |1|**`source_code`**|text||Program's source code.|No default. This attribute is **required**.|
 |2|**`language_id`**|integer||[Language](#statuses-and-languages-languages) ID.|No default. This attribute is **required**|
@@ -23,19 +23,19 @@ Submission model has following attributes:
 |11|`enable_per_process_and_thread_time_limit`|boolean||If `true` then `cpu_time_limit` will be used as per process and thread.|Depends on [configuration](#system-and-configuration-configuration-info).|
 |12|`enable_per_process_and_thread_memory_limit`|boolean||If `true` then `memory_limit` will be used as per process and thread.|Depends on [configuration](#system-and-configuration-configuration-info).|
 |13|`max_file_size`|integer|kilobyte|Limit file size created or modified by the program.|Depends on [configuration](#system-and-configuration-configuration-info).|
-|14|`number_of_runs`|integer||Run each program `number_of_runs` times and take average of time and memory.|Depends on [configuration](#system-and-configuration-configuration-info).|
+|14|`number_of_runs`|integer||Run each program `number_of_runs` times and take average of `time` and `memory`.|Depends on [configuration](#system-and-configuration-configuration-info).|
 |15|`stdout`|text||Standard output of the program after execution.||
 |16|`stderr`|text||Standard error of the program after execution.||
 |17|`compile_output`|text||Compiler output after compilation.||
-|18|`message`|text||Sandbox's message. Can contains error messages.||
+|18|`message`|text||Sandbox's message. Can contain error messages.||
 |19|`exit_code`|integer||The program's exit code.||
 |20|`exit_signal`|integer||Signal code that the program recieved before exiting.||
-|21|`status`|object||[Status](#statuses-and-languages-statuses) of submission.||
+|21|`status`|object||Submission [status](#statuses-and-languages-statuses).||
 |22|`created_at`|datetime||Date and time when submission was created.||
 |23|`finished_at`|datetime||Date and time when submission was processed.|`null` if submission is still in queue or if submission is processing.|
 |24|`token`|string||Unique submission token used for [getting specific submission](#submission-submission-get).||
-|25|`time`|float|second|Runtime of the program after execution.||
-|26|`wall_time`|float|second|Wall time of the program after execution. Should be greather or equal to `time`.||
+|25|`time`|float|second|Program's runtime.||
+|26|`wall_time`|float|second|Program's wall time. Should be greater or equal to `time`.||
 |27|`memory`|float|kilobyte|Memory used by the program after execution.||
 
 <!-- include(create_submission.md) -->

@@ -203,7 +203,7 @@ languages = [
   {
     name: "Octave (4.2.0)",
     source_file: "file.m",
-    run_cmd: "/usr/local/octave-4.2.0/bin/octave-cli -q file.m"
+    run_cmd: "/usr/local/octave-4.2.0/bin/octave-cli -q --no-gui file.m"
   },
 
 
