@@ -1,4 +1,4 @@
-## Group Submission
+## Group Submissions
 ## Submission [/submissions/{token}{?base64_encoded,wait,fields,page,per_page}]
 Submission represents a model for running source code in specific programming language under
 certain runtime constraints.

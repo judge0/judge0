@@ -15,8 +15,8 @@ enabled on all Judge0 API hosts. So before using this feature please check [conf
 of Judge0 API you are using. On a [official Judge0 API](https://api.judge0.com) this feature **is enabled**.
 
 + Parameters
-    + base64_encoded (optional, boolean, `false`) ... Set to `true` if you want to send Base64 encoded data to Judge0 API.
-    + wait (optional, boolean, `false`) ... Set to `true` to immediately get submission result.
+    + base64_encoded = `false` (optional, boolean, `false`) ... Set to `true` if you want to send Base64 encoded data to Judge0 API.
+    + wait = `false` (optional, boolean, `false`) ... Set to `true` to immediately get submission result.
 
 + Request (application/json)
     {

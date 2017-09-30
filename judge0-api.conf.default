@@ -103,10 +103,8 @@ POSTGRES_PASSWORD=YourPasswordHere1234
 ###############################################################################
 # https://raw.githubusercontent.com/ioi/isolate/master/isolate.1.txt
 
-# If enabled user can request to synchronically wait for submission result.
-# By default user should asynchronically check for submission result and he cannot
-# request to synchronically wait for the result.
-# Default: false, i.e. user cannot request to wait for the result
+# If enabled user can request to synchronically wait for submission result on submission create.
+# Default: true, i.e. user can request to wait for the result
 ENABLE_WAIT_RESULT=
 
 # Default runtime limit for every program (in seconds). Decimal numbers are allowed.
@@ -125,7 +123,7 @@ MAX_CPU_TIME_LIMIT=
 CPU_EXTRA_TIME=
 
 # Maximum custom CPU_EXTRA_TIME.
-# Default: 5
+# Default: 2
 MAX_CPU_EXTRA_TIME=
 
 # Limit wall-clock time in seconds. Decimal numbers are allowed.
@@ -134,27 +132,27 @@ MAX_CPU_EXTRA_TIME=
 # for an external event. We recommend to use CPU_TIME_LIMIT as the main limit,
 # but set WALL_TIME_LIMIT to a much higher value as a precaution against
 # sleeping programs.
-# Default: 10
+# Default: 5
 WALL_TIME_LIMIT=
 
 # Maximum custom WALL_TIME_LIMIT.
-# Default: 150
+# Default: 20
 MAX_WALL_TIME_LIMIT=
 
 # Limit address space of the program in kilobytes.
-# Default: 128000
+# Default: 64000
 MEMORY_LIMIT=
 
 # Maximum custom MEMORY_LIMIT.
-# Default: 512000
+# Default: 128000
 MAX_MEMORY_LIMIT=
 
 # Limit process stack in kilobytes.
-# Default: 128000
+# Default: 64000
 STACK_LIMIT=
 
 # Maximum custom STACK_LIMIT.
-# Default: 512000
+# Default: 128000
 MAX_STACK_LIMIT=
 
 # Maximum number of processes and/or threads program can create.
@@ -174,7 +172,7 @@ ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT=
 ALLOW_ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT=
 
 # If true then MEMORY_LIMIT will be used as per process and thread.
-# Default: false, i.e. MEMORY_LIMIT is set as a total limit for all processes and threads.
+# Default: true, i.e. MEMORY_LIMIT is set as per process and thread.
 ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT=
 
 # If false, user won't be able to set ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT.
@@ -189,7 +187,7 @@ MAX_FILE_SIZE=
 # Default: 4096
 MAX_MAX_FILE_SIZE=
 
-# Run each program that many times and take average of time and memory.
+# Run each program this many times and take average of time and memory.
 # Default: 1
 NUMBER_OF_RUNS=
 
