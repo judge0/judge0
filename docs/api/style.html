@@ -1,0 +1,10 @@
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var tables = document.body.getElementsByTagName("table");
+        for (var i = 0; i < tables.length; i++) {
+            var t = tables[i];
+            t.style.marginBottom = 0;
+            t.outerHTML = '<div style="overflow-x: scroll; margin-bottom: 10px;">' + t.outerHTML + "</div>";
+        }
+    });
+</script>

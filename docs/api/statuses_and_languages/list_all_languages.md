@@ -1,5 +1,5 @@
 ## Languages [/languages]
-### List all languages [GET]
+### List All Languages [GET]
 + Response 200 (application/json)
     [
         {
