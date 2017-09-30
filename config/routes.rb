@@ -5,13 +5,11 @@ Rails.application.routes.draw do
   resources :languages, only: [:index]
   resources :statuses, only: [:index]
 
+  get 'system_info', to: 'info#system_info'
+  get 'config_info', to: 'info#config_info'
 
-  get 'system_info', to: 'application#system_info'
-  get 'config_info', to: 'application#config_info'
-
-  post 'authenticate', to: 'application#authenticate'
-  post 'authorize', to: 'application#authorize'
-
+  post 'authenticate', to: 'sessions#authenticate'
+  post 'authorize', to: 'sessions#authorize'
 
   get 'workers', to: 'health#workers'
 end

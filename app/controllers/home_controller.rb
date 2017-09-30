@@ -1,4 +1,4 @@
-class HomeController < ApplicationController
+class HomeController < ActionController::API
   include ActionView::Layouts
 
   skip_before_action :authenticate_request, only: :docs
