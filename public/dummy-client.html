@@ -26,6 +26,10 @@
   <input type="text" name="authnHeader" size="31" placeholder="X-Auth-Token" value="X-Auth-Token"><br><br>
   <strong>AUTHENTICATION TOKEN</strong>&nbsp
   <input type="text" size="31" name="authnToken"><br><br>
+  <strong>AUTHORIZATION HEADER</strong>&nbsp
+  <input type="text" name="authzHeader" size="31" placeholder="X-Auth-User" value="X-Auth-User"><br><br>
+  <strong>AUTHORIZATION TOKEN</strong>&nbsp
+  <input type="text" size="31" name="authzToken"><br><br>
   <strong>Source Code</strong>
   <input type="checkbox" name="sourceCodeIsNull"><code>null</code><br>
   <textarea name="sourceCode" rows="10" cols="50">
@@ -53,19 +57,19 @@ int main(void) {
   <input type="checkbox" name="cpuExtraTimeIsNull"><code>null</code><br><br>
 
   <strong>Wall Time Limit</strong>&nbsp
-  <input type="text" name="wallTimeLimit" value="10">
+  <input type="text" name="wallTimeLimit" value="5">
   <input type="checkbox" name="wallTimeLimitIsNull"><code>null</code><br><br>
 
   <strong>Memory Limit</strong>&nbsp
-  <input type="text" name="memoryLimit" value="128000">
+  <input type="text" name="memoryLimit" value="64000">
   <input type="checkbox" name="memoryLimitIsNull"><code>null</code><br><br>
 
   <strong>Stack Limit</strong>&nbsp
-  <input type="text" name="stackLimit" value="128000">
+  <input type="text" name="stackLimit" value="64000">
   <input type="checkbox" name="stackLimitIsNull"><code>null</code><br><br>
 
   <strong>Max Processes And Or Threads</strong>&nbsp
-  <input type="text" name="maxProcessesAndOrThreads" value="15">
+  <input type="text" name="maxProcessesAndOrThreads" value="30">
   <input type="checkbox" name="maxProcessesAndOrThreadsIsNull"><code>null</code><br><br>
 
   <strong>Enable Per Process And Thread Time Limit</strong>
@@ -74,8 +78,8 @@ int main(void) {
   <input type="radio" name="enablePerProcessAndThreadTimeLimit" value="null"> <code>null</code><br><br>
 
   <strong>Enable Per Process And Thread Memory Limit</strong>
-  <input type="radio" name="enablePerProcessAndThreadMemoryLimit" value="true"> <code>true</code>
-  <input type="radio" name="enablePerProcessAndThreadMemoryLimit" value="false" checked> <code>false</code>
+  <input type="radio" name="enablePerProcessAndThreadMemoryLimit" value="true" checked> <code>true</code>
+  <input type="radio" name="enablePerProcessAndThreadMemoryLimit" value="false"> <code>false</code>
   <input type="radio" name="enablePerProcessAndThreadMemoryLimit" value="null"> <code>null</code><br><br>
 
   <strong>Max File Size</strong>&nbsp
@@ -93,7 +97,7 @@ int main(void) {
   <strong>Fields</strong>&nbsp
   <input type="text" size="50" name="fields"><br><br>
 
-  <input type="checkbox" name="waitResponse">
+  <input type="checkbox" name="waitResponse" checked>
   <strong>Wait for submission</strong><br><br>
 
   <input type="checkbox" name="base64EncodedRequest">
@@ -136,6 +140,12 @@ int main(void) {
       var authnToken = $("input[name=authnToken]").val();
       if (authnToken.length != 0) {
         parameters.push(`${authnHeader}=${authnToken}`);
+      }
+
+      var authzHeader = $("input[name=authzHeader]").val();
+      var authzToken = $("input[name=authzToken]").val();
+      if (authzToken.length != 0) {
+        parameters.push(`${authzHeader}=${authzToken}`);
       }
 
       if ($("input[name=waitResponse]").is(":checked")) {
