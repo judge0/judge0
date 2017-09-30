@@ -10,15 +10,15 @@ insight on some *default configuration values* which are used when their program
 Each of these *configuration variables* have *default values* which we consider as recommended in case you are not sure should you change them.
 
 We will refer to *default values* as values which Judge0 API automatically assigns to each of these *configuration variables*,
-if admin didn't set them. For example default value of *configuration variable* `cpu_time_limit` is `1`.
+if admin didn't set them. For example default value of *configuration variable* `cpu_time_limit` is `2`.
 
 |#    |Name|Type |Unit |Description|Default Value|
 |:---:|:---|:---:|:---:|:----------|:------------|
 |1|`enable_wait_result`|boolean||If enabled user can request to synchronically wait for submission result on submission create.|true|
-|2|`cpu_time_limit`|float|second|Default runtime limit for every program (in seconds). Decimal numbers are allowed. Time in which the OS assigns the processor to different tasks is not counted.|1|
+|2|`cpu_time_limit`|float|second|Default runtime limit for every program (in seconds). Decimal numbers are allowed. Time in which the OS assigns the processor to different tasks is not counted.|2|
 |3|`cpu_extra_time`|float|second|When a time limit is exceeded, wait for extra time, before killing the program. This has the advantage that the real execution time is reported, even though it slightly exceeds the limit.|0.5|
 |4|`wall_time_limit`|float|second|Limit wall-clock time in seconds. Decimal numbers are allowed. This clock measures the time from the start of the program to its exit, for an external event. We recommend to use `cpu_time_limit` as the main limit, but set `wall_time_limit` to a much higher value as a precaution against sleeping programs.|5|
-|5|`memory_limit`|integer|kilobyte|Limit address space of the program in kilobytes.|64000|
+|5|`memory_limit`|integer|kilobyte|Limit address space of the program in kilobytes.|128000|
 |6|`stack_limit`|integer|kilobyte|Limit process stack in kilobytes.|64000|
 |7|`max_processes_and_or_threads`|integer||Maximum number of processes and/or threads program can create.|30|
 |8|`enable_per_process_and_thread_time_limit`|boolean||If `true` then `cpu_time_limit` will be used as per process and thread.|false|
@@ -42,7 +42,7 @@ For this security reason we are introducing *limit configuration variables* for 
 |1|`max_cpu_time_limit`|float|second|Maximum custom `cpu_time_limit`|15|
 |2|`max_cpu_extra_time`|float|second|Maximum custom `cpu_extra_time`|2|
 |3|`max_wall_time_limit`|float|second|Maximum custom `wall_time_limit`|20|
-|4|`max_memory_limit`|integer|kilobyte|Maximum custom `memory_limit`|128000|
+|4|`max_memory_limit`|integer|kilobyte|Maximum custom `memory_limit`|256000|
 |5|`max_stack_limit`|integer|kilobyte|Maximum custom `stack_limit`|128000|
 |6|`max_max_processes_and_or_threads`|integer||Maximum custom `max_processes_and_or_threads`|60|
 |7|`allow_enable_per_process_and_thread_time_limit`|boolean||If `false` user won't be able to set `enable_per_process_and_thread_time_limit` to `true`|true|
@@ -55,14 +55,14 @@ For example, `max_cpu_time_limit` with value `20` means that user cannot create 
 + Response 200 (application/json)
     {
         "enable_wait_result": true,
-        "cpu_time_limit": 1,
+        "cpu_time_limit": 2,
         "max_cpu_time_limit": 15,
         "cpu_extra_time": 0.5,
         "max_cpu_extra_time": 2,
         "wall_time_limit": 5,
         "max_wall_time_limit": 20,
-        "memory_limit": 64000,
-        "max_memory_limit": 128000,
+        "memory_limit": 128000,
+        "max_memory_limit": 256000,
         "stack_limit": 64000,
         "max_stack_limit": 128000,
         "max_processes_and_or_threads": 30,

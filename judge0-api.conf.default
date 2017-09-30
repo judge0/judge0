@@ -109,7 +109,7 @@ ENABLE_WAIT_RESULT=
 
 # Default runtime limit for every program (in seconds). Decimal numbers are allowed.
 # Time in which the OS assigns the processor to different tasks is not counted.
-# Default: 1
+# Default: 2
 CPU_TIME_LIMIT=
 
 # Maximum custom CPU_TIME_LIMIT.
@@ -140,11 +140,11 @@ WALL_TIME_LIMIT=
 MAX_WALL_TIME_LIMIT=
 
 # Limit address space of the program in kilobytes.
-# Default: 64000
+# Default: 128000
 MEMORY_LIMIT=
 
 # Maximum custom MEMORY_LIMIT.
-# Default: 128000
+# Default: 256000
 MAX_MEMORY_LIMIT=
 
 # Limit process stack in kilobytes.
