@@ -1,22 +1,22 @@
 # Judge0 API
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
-[![Donate: PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.me/hermanzdosilovic)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/hermanzdosilovic)
 
 ## About
-*Judge0 API* is an API for code compilation and execution. Complete and detailed API documentation is available
+**Judge0 API** is an web API for code compilation and execution. Complete and detailed API documentation is available
 on https://api.judge0.com.
 
 ## Content
 1. [Project Organization](#project-organization)
 2. [Quick Development Setup](#quick-development-setup)
 3. [Quick Production Setup](#quick-production-setup)
-4. [About Docker Images](#about-docker-image)
+4. [About Docker Images](#about-docker-images)
 5. [Adding New Compiler or Interpreter](#adding-new-compiler-or-interpreter)
 6. [HTTPS In Production](#https-in-production)
-6. [Important Notes](#important-notes)
+6. [Notes](#notes)
 
 ## Project Organization
-*Judge0 API* is a [Rails 5](http://weblog.rubyonrails.org/2016/6/30/Rails-5-0-final/) application organized in two major components:
+Judge0 API is a [Rails 5](http://weblog.rubyonrails.org/2016/6/30/Rails-5-0-final/) application organized in two major components:
 
 * [Rails API](https://github.com/rails-api/rails-api)
   * accepts requests and creates background jobs for Worker.
@@ -31,34 +31,34 @@ Because we are running our development environent in Docker you don't need to ha
     ```
     $ docker pull judge0/api
     ```
-2. Copy `judge0-api.conf.default` to `judge0-api.conf`, open it and change `RAILS_ENV` to `development`.
+2. Copy `judge0-api.conf.default` to `judge0-api.conf`.
 3. Run development shell (it will take a while only first time):
     ```
     $ ./scripts/dev-shell
     ```
 4. Create, migrate and seed the database:
     ```
-    $ rails db:create db:migrate db:seed
+    $ rails db:setup
     ```
 
 `scripts/dev-shell` script will open you new **development shell** always in the same container, and if container doesn't exist it will create one for you.
 
-You need to run Rails API and Worker in order to have *Judge0 API* fully operational:
+You need to run Rails API and Worker in order to have Judge0 API fully operational:
 
 1. Open new development shell and in there run Rails API server:
     ```
-    $ rails s -b 0.0.0.0
+    $ ./scripts/dev-run-server
     ```
 2. Open new development shell again and in there run Worker process:
     ```
-    $ rails resque:work
+    $ ./scripts/dev-run-worker
     ```
 3. Open http://localhost:3000 in your browser.
 
-This is minimal setup for development environment, now you can open your favorite editor in your host and start developing *Judge0 API*.
+This is minimal setup for development environment, now you can open your favorite editor in your host and start developing Judge0 API.
 
 ## Quick Production Setup
-To host your own *Judge0 API* you need to install [Docker](https://docs.docker.com/) and [Docker Compose](https://docs.docker.com/compose/) on your server and after you are done proceed with the following:
+To host your own Judge0 API you need to install [Docker](https://docs.docker.com/) and [Docker Compose](https://docs.docker.com/compose/) on your server and after you are done proceed with the following:
 
 1. Copy [docker-compose.prod.yml](https://github.com/judge0/api/blob/master/docker-compose.prod.yml) on your server and save it as `docker-compose.yml`
     ```
@@ -69,42 +69,41 @@ To host your own *Judge0 API* you need to install [Docker](https://docs.docker.c
     ```
     $ wget https://raw.githubusercontent.com/judge0/api/master/judge0-api.conf.default -O judge0-api.conf
     ```
-
-3. Run database:
+3. In `judge0-api.conf` change `RAILS_ENV` to `production`.
+4. Run database:
     ```
     $ docker-compose up -d db
     ```
 
-4. Run all other services:
+5. Run all other services:
     ```
     $ docker-compose up -d
     ```
 
-5. Open `http://<IP OF YOUR SERVER>:3000` in your browser.
+6. Open `http://<IP OF YOUR SERVER>:3000` in your browser.
 
 ## About Docker Images
 This project has two Dockerfiles:
 1. [Dockerfile](https://github.com/judge0/api/blob/master/Dockerfile)
-  * builds `judge0/api:latest` image
-2. [Dockerfile.dev](https://github.com/judge0/api/blob/master/Dockerfile.dev)
-  * build `judge0/api:dev` image
+   * builds `judge0/api:latest` image
 
-`judge0/api:latest` is built FROM `judge0/api-base:latest` image which contains installed compilers and sandbox environment. This image represents production image of *Judge0 API*.
+2. [Dockerfile.dev](https://github.com/judge0/api/blob/master/Dockerfile.dev)
+   * build `judge0/api:dev` image
+
+`judge0/api:latest` is built FROM `judge0/api-base:latest` image which contains installed compilers and sandbox environment. This image represents production image of Judge0 API.
 
 `judge0/api:dev` is your local development image built FROM `judge0/api:latest`. It is not pushed to Docker Hub. That is why you first need to pull `judge0/api:latest` before building your development environment.
 
 ## Adding New Compiler or Interpreter
-To add new compiler or interpreter you first need to install it into *Judge0 API Base* image. Instructions on how to do that can be found in documentation for [Judge0 API Base](https://github.com/judge0/api-base).
+To add new compiler or interpreter you first need to install it into Judge0 API Base image. Instructions on how to do that can be found in documentation for [Judge0 API Base](https://github.com/judge0/api-base).
 
-After you have added your favorite compiler/interpreter to *Judge0 API Base* image you need to define how this compiler/interpreter is used.
-
-This is done in [`db/seeds.rb`](https://github.com/judge0/api/blob/master/db/seeds.rb) file.
+After you have added your favorite compiler/interpreter to Judge0 API Base image you need to define how this compiler/interpreter is used. This is done in [`db/seeds.rb`](https://github.com/judge0/api/blob/master/db/seeds.rb) file.
 
 You have four attributes:
-* **name** - name of your language you are supporting, include also compiler name and version
-* **source_file** - in what file should user's source code be saved before it is compiled
-* **compile_cmd** - how this file is compiled, interpreted languages won't have this attribute
-* **run_cmd** - how should we run this compiled or interpreted language
+* `name` - name of your language you are supporting, include also compiler name and version
+* `source_file` - in what file should user's source code be saved before it is compiled
+* `compile_cmd` - how this file is compiled, interpreted languages won't have this attribute
+* `run_cmd` - how should we run this compiled or interpreted language
 
 We already provided enough examples for most common languages, be sure to check that out.
 
@@ -115,16 +114,16 @@ You need to have your own domain for this to work. Just use [docker-compose.prod
 
 Everything else you need to do is described in [Quick Production Setup](#quick-production-setup) section.
 
-## Important Notes
-*Judge0 API* is simple to use and develop only if you are comfortable with using Docker and Docker Compose.
+## Notes
+Judge0 API is simple to use and develop only if you are comfortable with using Docker and Docker Compose.
 
 Docker and Docker Compose allow us to get rid of all dependencies, and concentrate on what is important - features, functionality and reliability.
 
-Please before working with *Judge0* project, make yourself comfortable with Docker and Docker Compose, because we are using it extensively.
+Please before working with Judge0 API project, make yourself comfortable with Docker and Docker Compose, because we are using it extensively.
 
 We will add extensive documentation in the future about how and why we are using Docker and Docker Compose here, but this documentation won't substitute your knowledge of this technologies.
 
 Feel free to ask us any questions in [Issues](https://github.com/judge0/api/issues) directly. :)
 
 ## Donate
-If you really liked this project and you would like to help in any way, please consider supporing me with your donation to my [PayPal](https://www.paypal.me/hermanzdosilovic) account. Thanks a lot! 
+If you like Judge0, please consider making a [donation](https://www.paypal.me/hermanzdosilovic) to support this project.
