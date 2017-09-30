@@ -36,7 +36,7 @@ RSpec.describe SubmissionsController, type: :controller do
 
       it "doesn't create new Submission because given Language doesn't exist" do
         attributes = attributes_for(:valid_submission)
-        attributes[:language_id] = 42 # Language with id 42 doesn't exist
+        attributes[:language_id] = 142 # Language with id 142 doesn't exist
         post :create, params: attributes
         expect(response).to have_http_status(422)
       end

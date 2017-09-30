@@ -201,6 +201,14 @@ languages = [
 
 
   {
+    name: "OCaml (4.05.0)",
+    source_file: "main.ml",
+    compile_cmd: "/usr/local/ocaml-4.05.0/bin/ocamlc main.ml",
+    run_cmd: "./a.out"
+  },
+
+
+  {
     name: "Octave (4.2.0)",
     source_file: "file.m",
     run_cmd: "/usr/local/octave-4.2.0/bin/octave-cli -q --no-gui file.m"

@@ -1,4 +1,4 @@
-FROM judge0/api-base:0.2.0
+FROM judge0/api-base:0.2.1
 #LABEL maintainer="Herman Zvonimir Došilović, hermanz.dosilovic@gmail.com" \
 #      version="0.2.0"
 
