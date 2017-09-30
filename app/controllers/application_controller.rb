@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::API
   before_action :authenticate_request
+  before_action :authorize_request, only: [:authorize]
 
   def system_info
     render json: SystemInfo.sys_info
@@ -9,7 +10,7 @@ class ApplicationController < ActionController::API
     render json: Config.config_info
   end
 
-  def status
+  def workers
     queues = Hash.new { |h, k| h[k] = [] }
     Resque.workers.each do |worker|
       worker.queues.each do |queue|
@@ -34,6 +35,14 @@ class ApplicationController < ActionController::API
     end
 
     render json: json, status: status
+  end
+
+  def authenticate
+    head :ok
+  end
+
+  def authorize
+    head :ok
   end
 
   private

@@ -17,7 +17,7 @@ class SubmissionsController < ApplicationController
 
     submissions = Submission.paginate(page: page, per_page: per_page)
     serializable_submissions = ActiveModelSerializers::SerializableResource.new(
-      submissions, { each_serializer: SubmissionSerializer, fields: requested_fields }
+      submissions, { each_serializer: SubmissionSerializer, base64_encoded: params[:base64_encoded] == "true", fields: requested_fields }
     )
 
     render json: {
@@ -34,7 +34,7 @@ class SubmissionsController < ApplicationController
   def create
     wait = params[:wait] == "true"
     if wait && !Config::ENABLE_WAIT_RESULT
-      render json: { error: "wait result not enabled" }, status: :bad_request
+      render json: { error: "wait not allowed" }, status: :bad_request
       return
     end
 
