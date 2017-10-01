@@ -1,7 +1,7 @@
 FORMAT: 1A
 HOST: https://api.judge0.com
 
-# API Documentation for Judge0 API
+# Judge0 API docs
 <!-- include(hostname.html) -->
 <!-- include(style.html) -->
 
