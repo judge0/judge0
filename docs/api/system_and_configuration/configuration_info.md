@@ -10,7 +10,7 @@ insight on some *default configuration values* which are used when their program
 Each of these *configuration variables* have *default values* which we consider as recommended in case you are not sure should you change them.
 
 We will refer to *default values* as values which Judge0 API automatically assigns to each of these *configuration variables*,
-if admin didn't set them. For example default value of *configuration variable* `cpu_time_limit` is `2`.
+if admin didn't set them. For example, default value of *configuration variable* `cpu_time_limit` is `2`.
 
 |#    |Name|Type |Unit |Description|Default Value|
 |:---:|:---|:---:|:---:|:----------|:------------|
@@ -26,7 +26,7 @@ if admin didn't set them. For example default value of *configuration variable* 
 |10|`max_file_size`|integer|kilobyte|Limit size of files created (or modified) by the program.|1024|
 |11|`number_of_runs`|integer||Run each program this many times and take average of time and memory.|1|
 
-*Default configuration value* for each variable is given to you as response of this API call. For example *default configuration value*
+*Default configuration value* for each variable is given to you as response of this API call. For example, *default configuration value*
 for variable `cpu_extra_time` might be `2`, and if admin didn't set this, then it is `0.5` (*default value*).
 This means that admin set `cpu_extra_time` *configuration variable* to value `2` and we say it is now *default configuration value* for this
 variable `cpu_extra_time`.

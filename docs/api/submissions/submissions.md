@@ -3,7 +3,7 @@
 Submission represents a model for running source code in specific programming language under
 certain runtime constraints.
 
-Submission model has **27** atributes. Attributes **1**-**14** (listed below) are used when creating new submissions - you can set them. Out of those 14 attributes only **2** are required - `source_code` and `language_id`. Attributes **15**-**27** represent detailed information about runtime of submission after it's execution.
+Submission model has **27** attributes. Attributes **1**-**14** (listed below) are used when creating new submissions - you can set them. Out of those 14 attributes only **2** are required - `source_code` and `language_id`. Attributes **15**-**27** represent detailed information about runtime of submission after it's execution.
 
 With attributes **5**-**14** you can configure submission runtime constraints. Those attributes are called *configuration attributes* or *configuration variables*. Please read more about them in [configuration](#system-and-configuration-configuration-info) section.
 
@@ -12,7 +12,7 @@ Submission model has following attributes:
 |:---:|:----|:----:|:----:|:-----------|:-------------|
 |1|**`source_code`**|text||Program's source code.|No default. This attribute is **required**.|
 |2|**`language_id`**|integer||[Language](#statuses-and-languages-languages) ID.|No default. This attribute is **required**|
-|3|`stdin`|text||Input for program.|`null`. Program won't recieve anything to standard input.|
+|3|`stdin`|text||Input for program.|`null`. Program won't receive anything to standard input.|
 |4|`expected_output`|text||Expected output of program. Used when you want to compare with `stdout`.|`null`. Program's `stdout` won't be compared with `expected_output`.|
 |5|`cpu_time_limit`|float|second|Default runtime limit for every program. Time in which the OS assigns the processor to different tasks is not counted.|Depends on [configuration](#system-and-configuration-configuration-info).|
 |6|`cpu_extra_time`|float|second|When a time limit is exceeded, wait for extra time, before killing the program. This has the advantage that the real execution time is reported, even though it slightly exceeds the limit.|Depends on [configuration](#system-and-configuration-configuration-info).|

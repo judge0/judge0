@@ -26,7 +26,7 @@ Judge0 API is a [Rails 5](http://weblog.rubyonrails.org/2016/6/30/Rails-5-0-fina
 ## Quick Development Setup
 Setting up your development environment is easy thanks to [Docker](https://docs.docker.com/) and [Docker Compose](https://docs.docker.com/compose/). So please install those before continuing.
 
-Because we are running our development environent in Docker you don't need to have Ruby, Rails, PostgreSQL, Redis, etc. installed on your computer. You just need to:
+Because we are running our development environment in Docker you don't need to have Ruby, Rails, PostgreSQL, Redis, etc. installed on your computer. You just need to:
 1. Pull [judge0/api](https://hub.docker.com/r/judge0/api/) image:
     ```
     $ docker pull judge0/api
@@ -108,7 +108,7 @@ You have four attributes:
 We already provided enough examples for most common languages, be sure to check that out.
 
 ## HTTPS In Production
-To use HTTPS in production you we are going to use https://letsencrypt.org/.
+To use HTTPS in production we are going to use https://letsencrypt.org/.
 
 You need to have your own domain for this to work. Just use [docker-compose.prod.https.yml](https://github.com/judge0/api/blob/master/docker-compose.prod.yml) insted of [docker-compose.prod.yml](https://github.com/judge0/api/blob/master/docker-compose.prod.yml) and change `VIRTUAL_HOST`, `LETSENCRYPT_HOST` and `LETSENCRYPT_EMAIL` variables.
 

@@ -1,7 +1,7 @@
 ### Get Specific Submission [GET]
 Returns details about submission.
 
-Just like in [create submission](/#submission-submission-post) you can recieve Base64 encoded data for every
+Just like in [create submission](/#submission-submission-post) you can receive Base64 encoded data for every
 text type attribute (check the [table](#submission-submission) to see which attributes are text type).
 By default, this parameter is set to `false` and Judge0 API will send you raw data.
 
@@ -11,7 +11,7 @@ you want from Judge0 API.
 
 + Parameters
     + token (required, string, `d85cd024-1548-4165-96c7-7bc88673f194`) ... Token of submission. You got this token when you created submission.
-    + base64_encoded (optional, boolean, `false`) ... Set to `true` if you want to recieve Base64 encoded data from Judge0 API.
+    + base64_encoded (optional, boolean, `false`) ... Set to `true` if you want to receive Base64 encoded data from Judge0 API.
     + fields = `stdout,time,memory,stderr,token,compile_output,message,status` (optional, integer, `stdout,stderr,status_id,language_id`) ... Return only the desired attributes.
 
 + Response 200 (applicatiion/json)
