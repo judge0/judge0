@@ -5,6 +5,7 @@ services:
     env_file: judge0-api.conf
     ports:
       - "3000:3000"
+    privileged: true
     restart: always
 
   worker:

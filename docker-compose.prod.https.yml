@@ -29,6 +29,7 @@ services:
       - VIRTUAL_PORT=3000
       - LETSENCRYPT_HOST=api.judge0.com
       - LETSENCRYPT_EMAIL=hermanz.dosilovic@gmail.com
+    privileged: true
     restart: always
 
   worker:
