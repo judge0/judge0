@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>Judge0 API docs</title><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"><style>@import url('https://fonts.googleapis.com/css?family=Roboto:400,700|Inconsolata|Raleway:200');.hljs-comment,.hljs-title{color:#8e908c}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#c82829}.hljs-number,.hljs-preprocessor,.hljs-pragma,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#f5871f}.ruby .hljs-class .hljs-title,.css .hljs-rules .hljs-attribute{color:#eab700}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#718c00}.css .hljs-hexcolor{color:#3e999f}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#4271ae}.hljs-keyword,.javascript .hljs-function{color:#8959a8}.hljs{display:block;background:white;color:#4d4d4c;padding:.5em}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}.right .hljs-comment{color:#969896}.right .css .hljs-class,.right .css .hljs-id,.right .css .hljs-pseudo,.right .hljs-attribute,.right .hljs-regexp,.right .hljs-tag,.right .hljs-variable,.right .html .hljs-doctype,.right .ruby .hljs-constant,.right .xml .hljs-doctype,.right .xml .hljs-pi,.right .xml .hljs-tag .hljs-title{color:#c66}.right .hljs-built_in,.right .hljs-constant,.right .hljs-literal,.right .hljs-number,.right .hljs-params,.right .hljs-pragma,.right .hljs-preprocessor{color:#de935f}.right .css .hljs-rule .hljs-attribute,.right .ruby .hljs-class .hljs-title{color:#f0c674}.right .hljs-header,.right .hljs-inheritance,.right .hljs-name,.right .hljs-string,.right .hljs-value,.right .ruby .hljs-symbol,.right .xml .hljs-cdata{color:#b5bd68}.right .css .hljs-hexcolor,.right .hljs-title{color:#8abeb7}.right .coffeescript .hljs-title,.right .hljs-function,.right .javascript .hljs-title,.right .perl .hljs-sub,.right .python .hljs-decorator,.right .python .hljs-title,.right .ruby .hljs-function .hljs-title,.right .ruby .hljs-title .hljs-keyword{color:#81a2be}.right .hljs-keyword,.right .javascript .hljs-function{color:#b294bb}.right .hljs{display:block;overflow-x:auto;background:#1d1f21;color:#c5c8c6;padding:.5em;-webkit-text-size-adjust:none}.right .coffeescript .javascript,.right .javascript .xml,.right .tex .hljs-formula,.right .xml .css,.right .xml .hljs-cdata,.right .xml .javascript,.right .xml .vbscript{opacity:.5}body{color:black;background:white;font:400 14px / 1.42 'Roboto',Helvetica,sans-serif}header{border-bottom:1px solid #f2f2f2;margin-bottom:12px}h1,h2,h3,h4,h5{color:black;margin:12px 0}h1 .permalink,h2 .permalink,h3 .permalink,h4 .permalink,h5 .permalink{margin-left:0;opacity:0;transition:opacity .25s ease}h1:hover .permalink,h2:hover .permalink,h3:hover .permalink,h4:hover .permalink,h5:hover .permalink{opacity:1}.triple h1 .permalink,.triple h2 .permalink,.triple h3 .permalink,.triple h4 .permalink,.triple h5 .permalink{opacity:.15}.triple h1:hover .permalink,.triple h2:hover .permalink,.triple h3:hover .permalink,.triple h4:hover .permalink,.triple h5:hover .permalink{opacity:.15}h1{font:200 36px 'Raleway',Helvetica,sans-serif;font-size:36px}h2{font:200 36px 'Raleway',Helvetica,sans-serif;font-size:30px}h3{font-size:100%;text-transform:uppercase}h5{font-size:100%;font-weight:normal}p{margin:0 0 10px}p.choices{line-height:1.6}a{color:#428bca;text-decoration:none}li p{margin:0}hr.split{border:0;height:1px;width:100%;padding-left:6px;margin:12px auto;background-image:linear-gradient(to right, rgba(0,0,0,0) 20%, rgba(0,0,0,0.2) 51.4%, rgba(255,255,255,0.2) 51.4%, rgba(255,255,255,0) 80%)}dl dt{float:left;width:130px;clear:left;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700}dl dd{margin-left:150px}blockquote{color:rgba(0,0,0,0.5);font-size:15.5px;padding:10px 20px;margin:12px 0;border-left:5px solid #e8e8e8}blockquote p:last-child{margin-bottom:0}pre{background-color:#f5f5f5;padding:12px;border:1px solid #cfcfcf;border-radius:6px;overflow:auto}pre code{color:black;background-color:transparent;padding:0;border:none}code{color:#444;background-color:#f5f5f5;font:'Inconsolata',monospace;padding:1px 4px;border:1px solid #cfcfcf;border-radius:3px}ul,ol{padding-left:2em}table{border-collapse:collapse;border-spacing:0;margin-bottom:12px}table tr:nth-child(2n){background-color:#fafafa}table th,table td{padding:6px 12px;border:1px solid #e6e6e6}.text-muted{opacity:.5}.note,.warning{padding:.3em 1em;margin:1em 0;border-radius:2px;font-size:90%}.note h1,.warning h1,.note h2,.warning h2,.note h3,.warning h3,.note h4,.warning h4,.note h5,.warning h5,.note h6,.warning h6{font-family:200 36px 'Raleway',Helvetica,sans-serif;font-size:135%;font-weight:500}.note p,.warning p{margin:.5em 0}.note{color:black;background-color:#f0f6fb;border-left:4px solid #428bca}.note h1,.note h2,.note h3,.note h4,.note h5,.note h6{color:#428bca}.warning{color:black;background-color:#fbf1f0;border-left:4px solid #c9302c}.warning h1,.warning h2,.warning h3,.warning h4,.warning h5,.warning h6{color:#c9302c}header{margin-top:24px}nav{position:fixed;top:24px;bottom:0;overflow-y:auto}nav .resource-group{padding:0}nav .resource-group .heading{position:relative}nav .resource-group .heading .chevron{position:absolute;top:12px;right:12px;opacity:.5}nav .resource-group .heading a{display:block;color:black;opacity:.7;border-left:2px solid transparent;margin:0}nav .resource-group .heading a:hover{text-decoration:none;background-color:bad-color;border-left:2px solid black}nav ul{list-style-type:none;padding-left:0}nav ul a{display:block;font-size:13px;color:rgba(0,0,0,0.7);padding:8px 12px;border-top:1px solid #d9d9d9;border-left:2px solid transparent;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}nav ul a:hover{text-decoration:none;background-color:bad-color;border-left:2px solid black}nav ul>li{margin:0}nav ul>li:first-child{margin-top:-12px}nav ul>li:last-child{margin-bottom:-12px}nav ul ul a{padding-left:24px}nav ul ul li{margin:0}nav ul ul li:first-child{margin-top:0}nav ul ul li:last-child{margin-bottom:0}nav>div>div>ul>li:first-child>a{border-top:none}.preload *{transition:none !important}.pull-left{float:left}.pull-right{float:right}.badge{display:inline-block;float:right;min-width:10px;min-height:14px;padding:3px 7px;font-size:12px;color:#000;background-color:#f2f2f2;border-radius:10px;margin:-2px 0}.badge.get{color:#70bbe1;background-color:#d9edf7}.badge.head{color:#70bbe1;background-color:#d9edf7}.badge.options{color:#70bbe1;background-color:#d9edf7}.badge.put{color:#f0db70;background-color:#fcf8e3}.badge.patch{color:#f0db70;background-color:#fcf8e3}.badge.post{color:#93cd7c;background-color:#dff0d8}.badge.delete{color:#ce8383;background-color:#f2dede}.collapse-button{float:right}.collapse-button .close{display:none;color:#428bca;cursor:pointer}.collapse-button .open{color:#428bca;cursor:pointer}.collapse-button.show .close{display:inline}.collapse-button.show .open{display:none}.collapse-content{max-height:0;overflow:hidden;transition:max-height .3s ease-in-out}nav{width:220px}.container{max-width:940px;margin-left:auto;margin-right:auto}.container .row .content{margin-left:244px;width:696px}.container .row:after{content:'';display:block;clear:both}.container-fluid nav{width:22%}.container-fluid .row .content{margin-left:24%}.container-fluid.triple nav{width:16.5%;padding-right:1px}.container-fluid.triple .row .content{position:relative;margin-left:16.5%;padding-left:24px}.middle:before,.middle:after{content:'';display:table}.middle:after{clear:both}.middle{box-sizing:border-box;width:51.5%;padding-right:12px}.right{box-sizing:border-box;float:right;width:48.5%;padding-left:12px}.right a{color:#428bca}.right h1,.right h2,.right h3,.right h4,.right h5,.right p,.right div{color:white}.right pre{background-color:#1d1f21;border:1px solid #1d1f21}.right pre code{color:#c5c8c6}.right .description{margin-top:12px}.triple .resource-heading{font-size:125%}.definition{margin-top:12px;margin-bottom:12px}.definition .method{font-weight:bold}.definition .method.get{color:#2e8ab8}.definition .method.head{color:#2e8ab8}.definition .method.options{color:#2e8ab8}.definition .method.post{color:#56b82e}.definition .method.put{color:#b8a22e}.definition .method.patch{color:#b8a22e}.definition .method.delete{color:#b82e2e}.definition .uri{word-break:break-all;word-wrap:break-word}.definition .hostname{opacity:.5}.example-names{background-color:#eee;padding:12px;border-radius:6px}.example-names .tab-button{cursor:pointer;color:black;border:1px solid #ddd;padding:6px;margin-left:12px}.example-names .tab-button.active{background-color:#d5d5d5}.right .example-names{background-color:#444}.right .example-names .tab-button{color:white;border:1px solid #666;border-radius:6px}.right .example-names .tab-button.active{background-color:#5e5e5e}#nav-background{position:fixed;left:0;top:0;bottom:0;width:16.5%;padding-right:14.4px;background-color:#fbfbfb;border-right:1px solid #f0f0f0;z-index:-1}#right-panel-background{position:absolute;right:-12px;top:-12px;bottom:-12px;width:48.6%;background-color:#333;z-index:-1}@media (max-width:1200px){nav{width:198px}.container{max-width:840px}.container .row .content{margin-left:224px;width:606px}}@media (max-width:992px){nav{width:169.4px}.container{max-width:720px}.container .row .content{margin-left:194px;width:526px}}@media (max-width:768px){nav{display:none}.container{width:95%;max-width:none}.container .row .content,.container-fluid .row .content,.container-fluid.triple .row .content{margin-left:auto;margin-right:auto;width:95%}#nav-background{display:none}#right-panel-background{width:48.6%}}.back-to-top{position:fixed;z-index:1;bottom:0;right:24px;padding:4px 8px;color:rgba(0,0,0,0.5);background-color:#f2f2f2;text-decoration:none !important;border-top:1px solid #d9d9d9;border-left:1px solid #d9d9d9;border-right:1px solid #d9d9d9;border-top-left-radius:3px;border-top-right-radius:3px}.resource-group{padding:12px;margin-bottom:12px;background-color:white;border:1px solid #d9d9d9;border-radius:6px}.resource-group h2.group-heading,.resource-group .heading a{padding:12px;margin:-12px -12px 12px -12px;background-color:#f2f2f2;border-bottom:1px solid #d9d9d9;border-top-left-radius:6px;border-top-right-radius:6px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.triple .content .resource-group{padding:0;border:none}.triple .content .resource-group h2.group-heading,.triple .content .resource-group .heading a{margin:0 0 12px 0;border:1px solid #d9d9d9}nav .resource-group .heading a{padding:12px;margin-bottom:0}nav .resource-group .collapse-content{padding:0}.action{margin-bottom:12px;padding:12px 12px 0 12px;overflow:hidden;border:1px solid transparent;border-radius:6px}.action h4.action-heading{padding:6px 12px;margin:-12px -12px 12px -12px;border-bottom:1px solid transparent;border-top-left-radius:6px;border-top-right-radius:6px;overflow:hidden}.action h4.action-heading .name{float:right;font-weight:normal;padding:6px 0}.action h4.action-heading .method{padding:6px 12px;margin-right:12px;border-radius:3px;display:inline-block}.action h4.action-heading .method.get{color:#fff;background-color:#337ab7}.action h4.action-heading .method.head{color:#fff;background-color:#337ab7}.action h4.action-heading .method.options{color:#fff;background-color:#337ab7}.action h4.action-heading .method.put{color:#fff;background-color:#ed9c28}.action h4.action-heading .method.patch{color:#fff;background-color:#ed9c28}.action h4.action-heading .method.post{color:#fff;background-color:#5cb85c}.action h4.action-heading .method.delete{color:#fff;background-color:#d9534f}.action h4.action-heading code{color:#444;background-color:#f5f5f5;border-color:#cfcfcf;font-weight:normal;word-break:break-all;display:inline-block;margin-top:2px}.action dl.inner{padding-bottom:2px}.action .title{border-bottom:1px solid white;margin:0 -12px -1px -12px;padding:12px}.action.get{border-color:#bce8f1}.action.get h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.head{border-color:#bce8f1}.action.head h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.options{border-color:#bce8f1}.action.options h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.post{border-color:#d6e9c6}.action.post h4.action-heading{color:#5cb85c;background:#dff0d8;border-bottom-color:#d6e9c6}.action.put{border-color:#faebcc}.action.put h4.action-heading{color:#ed9c28;background:#fcf8e3;border-bottom-color:#faebcc}.action.patch{border-color:#faebcc}.action.patch h4.action-heading{color:#ed9c28;background:#fcf8e3;border-bottom-color:#faebcc}.action.delete{border-color:#ebccd1}.action.delete h4.action-heading{color:#d9534f;background:#f2dede;border-bottom-color:#ebccd1}</style></head><body class="preload"><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container"><div class="row"><nav><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#top">Overview</a></div><div class="collapse-content"><ul><li><a href="#header-about">About</a></li><li><a href="#header-date-and-time-formats">Date and time formats</a></li><li><a href="#header-license">License</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#submissions">Submissions</a></div><div class="collapse-content"><ul><li><a href="#submissions-submission">Submission</a><ul><li><a href="#submissions-submission-post"><span class="badge post"><i class="fa fa-plus"></i></span>Create</a></li><li><a href="#submissions-submission-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Show</a></li></ul></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#statuses-and-languages">Statuses and Languages</a></div><div class="collapse-content"><ul><li><a href="#statuses-and-languages-languages-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>List all languages</a></li><li><a href="#statuses-and-languages-statuses-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>List all statuses</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#system-and-configuration">System and Configuration</a></div><div class="collapse-content"><ul><li><a href="#system-and-configuration-system-info-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>System Info</a></li><li><a href="#system-and-configuration-configuration-info-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Configuration Info</a></li></ul></div></div><p style="text-align: center; word-wrap: break-word;"><a href="https://api.judge0.com">https://api.judge0.com</a></p></nav><div class="content"><header><h1 id="top">Judge0 API docs</h1></header><script type="text/javascript">
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>API Documentation for Judge0 API</title><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"><style>@import url('https://fonts.googleapis.com/css?family=Roboto:400,700|Inconsolata|Raleway:200');.hljs-comment,.hljs-title{color:#8e908c}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#c82829}.hljs-number,.hljs-preprocessor,.hljs-pragma,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#f5871f}.ruby .hljs-class .hljs-title,.css .hljs-rules .hljs-attribute{color:#eab700}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#718c00}.css .hljs-hexcolor{color:#3e999f}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#4271ae}.hljs-keyword,.javascript .hljs-function{color:#8959a8}.hljs{display:block;background:white;color:#4d4d4c;padding:.5em}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}.right .hljs-comment{color:#969896}.right .css .hljs-class,.right .css .hljs-id,.right .css .hljs-pseudo,.right .hljs-attribute,.right .hljs-regexp,.right .hljs-tag,.right .hljs-variable,.right .html .hljs-doctype,.right .ruby .hljs-constant,.right .xml .hljs-doctype,.right .xml .hljs-pi,.right .xml .hljs-tag .hljs-title{color:#c66}.right .hljs-built_in,.right .hljs-constant,.right .hljs-literal,.right .hljs-number,.right .hljs-params,.right .hljs-pragma,.right .hljs-preprocessor{color:#de935f}.right .css .hljs-rule .hljs-attribute,.right .ruby .hljs-class .hljs-title{color:#f0c674}.right .hljs-header,.right .hljs-inheritance,.right .hljs-name,.right .hljs-string,.right .hljs-value,.right .ruby .hljs-symbol,.right .xml .hljs-cdata{color:#b5bd68}.right .css .hljs-hexcolor,.right .hljs-title{color:#8abeb7}.right .coffeescript .hljs-title,.right .hljs-function,.right .javascript .hljs-title,.right .perl .hljs-sub,.right .python .hljs-decorator,.right .python .hljs-title,.right .ruby .hljs-function .hljs-title,.right .ruby .hljs-title .hljs-keyword{color:#81a2be}.right .hljs-keyword,.right .javascript .hljs-function{color:#b294bb}.right .hljs{display:block;overflow-x:auto;background:#1d1f21;color:#c5c8c6;padding:.5em;-webkit-text-size-adjust:none}.right .coffeescript .javascript,.right .javascript .xml,.right .tex .hljs-formula,.right .xml .css,.right .xml .hljs-cdata,.right .xml .javascript,.right .xml .vbscript{opacity:.5}body{color:black;background:white;font:400 14px / 1.42 'Roboto',Helvetica,sans-serif}header{border-bottom:1px solid #f2f2f2;margin-bottom:12px}h1,h2,h3,h4,h5{color:black;margin:12px 0}h1 .permalink,h2 .permalink,h3 .permalink,h4 .permalink,h5 .permalink{margin-left:0;opacity:0;transition:opacity .25s ease}h1:hover .permalink,h2:hover .permalink,h3:hover .permalink,h4:hover .permalink,h5:hover .permalink{opacity:1}.triple h1 .permalink,.triple h2 .permalink,.triple h3 .permalink,.triple h4 .permalink,.triple h5 .permalink{opacity:.15}.triple h1:hover .permalink,.triple h2:hover .permalink,.triple h3:hover .permalink,.triple h4:hover .permalink,.triple h5:hover .permalink{opacity:.15}h1{font:200 36px 'Raleway',Helvetica,sans-serif;font-size:36px}h2{font:200 36px 'Raleway',Helvetica,sans-serif;font-size:30px}h3{font-size:100%;text-transform:uppercase}h5{font-size:100%;font-weight:normal}p{margin:0 0 10px}p.choices{line-height:1.6}a{color:#428bca;text-decoration:none}li p{margin:0}hr.split{border:0;height:1px;width:100%;padding-left:6px;margin:12px auto;background-image:linear-gradient(to right, rgba(0,0,0,0) 20%, rgba(0,0,0,0.2) 51.4%, rgba(255,255,255,0.2) 51.4%, rgba(255,255,255,0) 80%)}dl dt{float:left;width:130px;clear:left;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700}dl dd{margin-left:150px}blockquote{color:rgba(0,0,0,0.5);font-size:15.5px;padding:10px 20px;margin:12px 0;border-left:5px solid #e8e8e8}blockquote p:last-child{margin-bottom:0}pre{background-color:#f5f5f5;padding:12px;border:1px solid #cfcfcf;border-radius:6px;overflow:auto}pre code{color:black;background-color:transparent;padding:0;border:none}code{color:#444;background-color:#f5f5f5;font:'Inconsolata',monospace;padding:1px 4px;border:1px solid #cfcfcf;border-radius:3px}ul,ol{padding-left:2em}table{border-collapse:collapse;border-spacing:0;margin-bottom:12px}table tr:nth-child(2n){background-color:#fafafa}table th,table td{padding:6px 12px;border:1px solid #e6e6e6}.text-muted{opacity:.5}.note,.warning{padding:.3em 1em;margin:1em 0;border-radius:2px;font-size:90%}.note h1,.warning h1,.note h2,.warning h2,.note h3,.warning h3,.note h4,.warning h4,.note h5,.warning h5,.note h6,.warning h6{font-family:200 36px 'Raleway',Helvetica,sans-serif;font-size:135%;font-weight:500}.note p,.warning p{margin:.5em 0}.note{color:black;background-color:#f0f6fb;border-left:4px solid #428bca}.note h1,.note h2,.note h3,.note h4,.note h5,.note h6{color:#428bca}.warning{color:black;background-color:#fbf1f0;border-left:4px solid #c9302c}.warning h1,.warning h2,.warning h3,.warning h4,.warning h5,.warning h6{color:#c9302c}header{margin-top:24px}nav{position:fixed;top:24px;bottom:0;overflow-y:auto}nav .resource-group{padding:0}nav .resource-group .heading{position:relative}nav .resource-group .heading .chevron{position:absolute;top:12px;right:12px;opacity:.5}nav .resource-group .heading a{display:block;color:black;opacity:.7;border-left:2px solid transparent;margin:0}nav .resource-group .heading a:hover{text-decoration:none;background-color:bad-color;border-left:2px solid black}nav ul{list-style-type:none;padding-left:0}nav ul a{display:block;font-size:13px;color:rgba(0,0,0,0.7);padding:8px 12px;border-top:1px solid #d9d9d9;border-left:2px solid transparent;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}nav ul a:hover{text-decoration:none;background-color:bad-color;border-left:2px solid black}nav ul>li{margin:0}nav ul>li:first-child{margin-top:-12px}nav ul>li:last-child{margin-bottom:-12px}nav ul ul a{padding-left:24px}nav ul ul li{margin:0}nav ul ul li:first-child{margin-top:0}nav ul ul li:last-child{margin-bottom:0}nav>div>div>ul>li:first-child>a{border-top:none}.preload *{transition:none !important}.pull-left{float:left}.pull-right{float:right}.badge{display:inline-block;float:right;min-width:10px;min-height:14px;padding:3px 7px;font-size:12px;color:#000;background-color:#f2f2f2;border-radius:10px;margin:-2px 0}.badge.get{color:#70bbe1;background-color:#d9edf7}.badge.head{color:#70bbe1;background-color:#d9edf7}.badge.options{color:#70bbe1;background-color:#d9edf7}.badge.put{color:#f0db70;background-color:#fcf8e3}.badge.patch{color:#f0db70;background-color:#fcf8e3}.badge.post{color:#93cd7c;background-color:#dff0d8}.badge.delete{color:#ce8383;background-color:#f2dede}.collapse-button{float:right}.collapse-button .close{display:none;color:#428bca;cursor:pointer}.collapse-button .open{color:#428bca;cursor:pointer}.collapse-button.show .close{display:inline}.collapse-button.show .open{display:none}.collapse-content{max-height:0;overflow:hidden;transition:max-height .3s ease-in-out}nav{width:220px}.container{max-width:940px;margin-left:auto;margin-right:auto}.container .row .content{margin-left:244px;width:696px}.container .row:after{content:'';display:block;clear:both}.container-fluid nav{width:22%}.container-fluid .row .content{margin-left:24%}.container-fluid.triple nav{width:16.5%;padding-right:1px}.container-fluid.triple .row .content{position:relative;margin-left:16.5%;padding-left:24px}.middle:before,.middle:after{content:'';display:table}.middle:after{clear:both}.middle{box-sizing:border-box;width:51.5%;padding-right:12px}.right{box-sizing:border-box;float:right;width:48.5%;padding-left:12px}.right a{color:#428bca}.right h1,.right h2,.right h3,.right h4,.right h5,.right p,.right div{color:white}.right pre{background-color:#1d1f21;border:1px solid #1d1f21}.right pre code{color:#c5c8c6}.right .description{margin-top:12px}.triple .resource-heading{font-size:125%}.definition{margin-top:12px;margin-bottom:12px}.definition .method{font-weight:bold}.definition .method.get{color:#2e8ab8}.definition .method.head{color:#2e8ab8}.definition .method.options{color:#2e8ab8}.definition .method.post{color:#56b82e}.definition .method.put{color:#b8a22e}.definition .method.patch{color:#b8a22e}.definition .method.delete{color:#b82e2e}.definition .uri{word-break:break-all;word-wrap:break-word}.definition .hostname{opacity:.5}.example-names{background-color:#eee;padding:12px;border-radius:6px}.example-names .tab-button{cursor:pointer;color:black;border:1px solid #ddd;padding:6px;margin-left:12px}.example-names .tab-button.active{background-color:#d5d5d5}.right .example-names{background-color:#444}.right .example-names .tab-button{color:white;border:1px solid #666;border-radius:6px}.right .example-names .tab-button.active{background-color:#5e5e5e}#nav-background{position:fixed;left:0;top:0;bottom:0;width:16.5%;padding-right:14.4px;background-color:#fbfbfb;border-right:1px solid #f0f0f0;z-index:-1}#right-panel-background{position:absolute;right:-12px;top:-12px;bottom:-12px;width:48.6%;background-color:#333;z-index:-1}@media (max-width:1200px){nav{width:198px}.container{max-width:840px}.container .row .content{margin-left:224px;width:606px}}@media (max-width:992px){nav{width:169.4px}.container{max-width:720px}.container .row .content{margin-left:194px;width:526px}}@media (max-width:768px){nav{display:none}.container{width:95%;max-width:none}.container .row .content,.container-fluid .row .content,.container-fluid.triple .row .content{margin-left:auto;margin-right:auto;width:95%}#nav-background{display:none}#right-panel-background{width:48.6%}}.back-to-top{position:fixed;z-index:1;bottom:0;right:24px;padding:4px 8px;color:rgba(0,0,0,0.5);background-color:#f2f2f2;text-decoration:none !important;border-top:1px solid #d9d9d9;border-left:1px solid #d9d9d9;border-right:1px solid #d9d9d9;border-top-left-radius:3px;border-top-right-radius:3px}.resource-group{padding:12px;margin-bottom:12px;background-color:white;border:1px solid #d9d9d9;border-radius:6px}.resource-group h2.group-heading,.resource-group .heading a{padding:12px;margin:-12px -12px 12px -12px;background-color:#f2f2f2;border-bottom:1px solid #d9d9d9;border-top-left-radius:6px;border-top-right-radius:6px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.triple .content .resource-group{padding:0;border:none}.triple .content .resource-group h2.group-heading,.triple .content .resource-group .heading a{margin:0 0 12px 0;border:1px solid #d9d9d9}nav .resource-group .heading a{padding:12px;margin-bottom:0}nav .resource-group .collapse-content{padding:0}.action{margin-bottom:12px;padding:12px 12px 0 12px;overflow:hidden;border:1px solid transparent;border-radius:6px}.action h4.action-heading{padding:6px 12px;margin:-12px -12px 12px -12px;border-bottom:1px solid transparent;border-top-left-radius:6px;border-top-right-radius:6px;overflow:hidden}.action h4.action-heading .name{float:right;font-weight:normal;padding:6px 0}.action h4.action-heading .method{padding:6px 12px;margin-right:12px;border-radius:3px;display:inline-block}.action h4.action-heading .method.get{color:#fff;background-color:#337ab7}.action h4.action-heading .method.head{color:#fff;background-color:#337ab7}.action h4.action-heading .method.options{color:#fff;background-color:#337ab7}.action h4.action-heading .method.put{color:#fff;background-color:#ed9c28}.action h4.action-heading .method.patch{color:#fff;background-color:#ed9c28}.action h4.action-heading .method.post{color:#fff;background-color:#5cb85c}.action h4.action-heading .method.delete{color:#fff;background-color:#d9534f}.action h4.action-heading code{color:#444;background-color:#f5f5f5;border-color:#cfcfcf;font-weight:normal;word-break:break-all;display:inline-block;margin-top:2px}.action dl.inner{padding-bottom:2px}.action .title{border-bottom:1px solid white;margin:0 -12px -1px -12px;padding:12px}.action.get{border-color:#bce8f1}.action.get h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.head{border-color:#bce8f1}.action.head h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.options{border-color:#bce8f1}.action.options h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.post{border-color:#d6e9c6}.action.post h4.action-heading{color:#5cb85c;background:#dff0d8;border-bottom-color:#d6e9c6}.action.put{border-color:#faebcc}.action.put h4.action-heading{color:#ed9c28;background:#fcf8e3;border-bottom-color:#faebcc}.action.patch{border-color:#faebcc}.action.patch h4.action-heading{color:#ed9c28;background:#fcf8e3;border-bottom-color:#faebcc}.action.delete{border-color:#ebccd1}.action.delete h4.action-heading{color:#d9534f;background:#f2dede;border-bottom-color:#ebccd1}</style></head><body class="preload"><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container-fluid"><div class="row"><nav><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#top">Overview</a></div><div class="collapse-content"><ul><li><a href="#header-about">About</a></li><li><a href="#header-version">Version</a></li><li><a href="#header-date-and-time-formats">Date and time formats</a></li><li><a href="#header-license">License</a></li><li><a href="#header-donate">Donate</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#authentication">Authentication</a></div><div class="collapse-content"><ul><li><a href="#authentication-authenticate-post"><span class="badge post"><i class="fa fa-plus"></i></span>Authenticate</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#authorization">Authorization</a></div><div class="collapse-content"><ul><li><a href="#authorization-authorize-post"><span class="badge post"><i class="fa fa-plus"></i></span>Authorize</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#submissions">Submissions</a></div><div class="collapse-content"><ul><li><a href="#submissions-submission">Submission</a><ul><li><a href="#submissions-submission-post"><span class="badge post"><i class="fa fa-plus"></i></span>Create Submission</a></li><li><a href="#submissions-submission-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Get Specific Submission</a></li><li><a href="#submissions-submission-get-1"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Get All Submissions</a></li></ul></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#statuses-and-languages">Statuses and Languages</a></div><div class="collapse-content"><ul><li><a href="#statuses-and-languages-languages-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>List All Languages</a></li><li><a href="#statuses-and-languages-statuses-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>List All Statuses</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#system-and-configuration">System and Configuration</a></div><div class="collapse-content"><ul><li><a href="#system-and-configuration-system-info-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>System Info</a></li><li><a href="#system-and-configuration-configuration-info-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Configuration Info</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#health-check">Health Check</a></div><div class="collapse-content"><ul><li><a href="#health-check-workers-health-check-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Workers Health Check</a></li></ul></div></div><p style="text-align: center; word-wrap: break-word;"><a href="https://api.judge0.com">https://api.judge0.com</a></p></nav><div class="content"><header><h1 id="top">API Documentation for Judge0 API</h1></header><script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function(event) {
     var hostnames = document.body.getElementsByClassName("hostname");
     for (var i = 0; i < hostnames.length; i++) {
@@ -11,356 +11,324 @@
     host.href = window.location.origin;
   });
 </script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var tables = document.body.getElementsByTagName("table");
+        for (var i = 0; i < tables.length; i++) {
+            var t = tables[i];
+            t.style.marginBottom = 0;
+            t.outerHTML = '<div style="overflow-x: scroll; margin-bottom: 10px;">' + t.outerHTML + "</div>";
+        }
+    });
+</script>
 <h1 id="header-about">About <a class="permalink" href="#header-about" aria-hidden="true">¶</a></h1>
-<p><a href="http://api.judge0.com">Judge0 API</a> is an open source API for code compilation and execution.
+<p><a href="https://api.judge0.com">Judge0 API</a> is an open source web API for code compilation and execution.
 Source code is available on <a href="https://github.com/judge0/api">GitHub</a>.</p>
-<p>We have included <a href="/dummy-client.html">dummy client</a> which can be used to try and test features of Judge0 API.</p>
+<p>Dummy client is available <a href="/dummy-client.html">here</a> and can be used to try and test features of Judge0 API.</p>
+<h1 id="header-version">Version <a class="permalink" href="#header-version" aria-hidden="true">¶</a></h1>
+<p>This document describes Judge0 API version <a href="https://github.com/judge0/api/tree/v1.0.0"><code>v1.0.0</code></a>.</p>
 <h1 id="header-date-and-time-formats">Date and time formats <a class="permalink" href="#header-date-and-time-formats" aria-hidden="true">¶</a></h1>
 <p><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> standard is used.</p>
 <p>Example: <code>2016-09-11T10:19:35Z</code></p>
 <h1 id="header-license">License <a class="permalink" href="#header-license" aria-hidden="true">¶</a></h1>
-<p><a href="http://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPL%20v3-blue.svg" alt="License: GPL v3"></a></p>
-<br><section id="submissions" class="resource-group"><h2 class="group-heading">Submissions <a href="#submissions" class="permalink">&para;</a></h2><div id="submissions-submission" class="resource"><h3 class="resource-heading">Submission <a href="#submissions-submission" class="permalink">&nbsp;&para;</a></h3><p>Submission has following attributes:</p>
-<h4 id="header-1.-">1. <code>source_code</code> <a class="permalink" href="#header-1.-" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: string</p>
-</li>
-<li>
-<p><strong>Required/Optional</strong>: required</p>
-</li>
-<li>
-<p><strong>Description</strong>: Source code of submission.</p>
-</li>
-</ul>
-<h4 id="header-2.-">2. <code>language_id</code> <a class="permalink" href="#header-2.-" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: integer</p>
-</li>
-<li>
-<p><strong>Required/Optional</strong>: required</p>
-</li>
-<li>
-<p><strong>Description</strong>: <a href="#statuses-and-languages-languages">Language</a> ID.</p>
-</li>
-</ul>
-<h4 id="header-3.-">3. <code>input</code> <a class="permalink" href="#header-3.-" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: string</p>
-</li>
-<li>
-<p><strong>Required/Optional</strong>: optional</p>
-</li>
-<li>
-<p><strong>Description</strong>: Input for submission.</p>
-</li>
-<li>
-<p><strong>Default Value</strong>: <code>null</code>. Submission won’t recieve anything to standard input.</p>
-</li>
-</ul>
-<h4 id="header-4.-">4. <code>expected_output</code> <a class="permalink" href="#header-4.-" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: string</p>
-</li>
-<li>
-<p><strong>Required/Optional</strong>: optional</p>
-</li>
-<li>
-<p><strong>Description</strong>: Expected output of submission. Used when you want to compare with <code>stdout</code>.</p>
-</li>
-<li>
-<p><strong>Default Value</strong>: <code>null</code>. Submission result <code>stdout</code> won’t be compared with <code>expected_output</code>.</p>
-</li>
-</ul>
-<h4 id="header-5.-">5. <code>cpu_time_limit</code> <a class="permalink" href="#header-5.-" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: float</p>
-</li>
-<li>
-<p><strong>Unit</strong>: second</p>
-</li>
-<li>
-<p><strong>Required/Optional</strong>: optional</p>
-</li>
-<li>
-<p><strong>Description</strong>: Runtime limit for submission.</p>
-</li>
-<li>
-<p><strong>Default Value</strong>: Depends on <a href="#system-and-configuration-configuration-info">configuration</a>.</p>
-</li>
-</ul>
-<h4 id="header-6.-">6. <code>cpu_extra_time</code> <a class="permalink" href="#header-6.-" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: float</p>
-</li>
-<li>
-<p><strong>Unit</strong>: second</p>
-</li>
-<li>
-<p><strong>Required/Optional</strong>: optional</p>
-</li>
-<li>
-<p><strong>Description</strong>: Extra wait time after <code>cpu_time_limit</code> has been exceeded.</p>
-</li>
-<li>
-<p><strong>Default Value</strong>: Depends on <a href="#system-and-configuration-configuration-info">configuration</a>.</p>
-</li>
-</ul>
-<h4 id="header-7.-">7. <code>wall_time_limit</code> <a class="permalink" href="#header-7.-" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: float</p>
-</li>
-<li>
-<p><strong>Unit</strong>: second</p>
-</li>
-<li>
-<p><strong>Required/Optional</strong>: optional</p>
-</li>
-<li>
-<p><strong>Description</strong>: Wall-clock time limit for submission.</p>
-</li>
-<li>
-<p><strong>Default Value</strong>: Depends on <a href="#system-and-configuration-configuration-info">configuration</a>.</p>
-</li>
-</ul>
-<h4 id="header-8.-">8. <code>memory_limit</code> <a class="permalink" href="#header-8.-" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: integer</p>
-</li>
-<li>
-<p><strong>Unit</strong>: kilobyte</p>
-</li>
-<li>
-<p><strong>Required/Optional</strong>: optional</p>
-</li>
-<li>
-<p><strong>Description</strong>: Address space limit for submission.</p>
-</li>
-<li>
-<p><strong>Default Value</strong>: Depends on <a href="#system-and-configuration-configuration-info">configuration</a>.</p>
-</li>
-</ul>
-<h4 id="header-9.-">9. <code>stack_limit</code> <a class="permalink" href="#header-9.-" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: ineger</p>
-</li>
-<li>
-<p><strong>Unit</strong>: kilobyte</p>
-</li>
-<li>
-<p><strong>Required/Optional</strong>: optional</p>
-</li>
-<li>
-<p><strong>Description</strong>: Stack limit for submission.</p>
-</li>
-<li>
-<p><strong>Default Value</strong>: Depends on <a href="#system-and-configuration-configuration-info">configuration</a>.</p>
-</li>
-</ul>
-<h4 id="header-10.-">10. <code>max_processes_and_or_threads</code> <a class="permalink" href="#header-10.-" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: integer</p>
-</li>
-<li>
-<p><strong>Required/Optional</strong>: optional</p>
-</li>
-<li>
-<p><strong>Description</strong>: Maximum number of processes and/or threads submission can create.</p>
-</li>
-<li>
-<p><strong>Default Value</strong>: Depends on <a href="#system-and-configuration-configuration-info">configuration</a>.</p>
-</li>
-</ul>
-<h4 id="header-11.-">11. <code>enable_per_process_and_thread_time_limit</code> <a class="permalink" href="#header-11.-" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: boolean</p>
-</li>
-<li>
-<p><strong>Required/Optional</strong>: optional</p>
-</li>
-<li>
-<p><strong>Description</strong>: If <code>true</code> then <code>cpu_time_limit</code> will be used as per process and thread.</p>
-</li>
-<li>
-<p><strong>Default Value</strong>: Depends on <a href="#system-and-configuration-configuration-info">configuration</a>.</p>
-</li>
-</ul>
-<h4 id="header-12.-">12. <code>enable_per_process_and_thread_memory_limit</code> <a class="permalink" href="#header-12.-" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: boolean</p>
-</li>
-<li>
-<p><strong>Required/Optional</strong>: optional</p>
-</li>
-<li>
-<p><strong>Description</strong>: If <code>true</code> then <code>memory_limit</code> will be used as per process and thread.</p>
-</li>
-<li>
-<p><strong>Default Value</strong>: Depends on <a href="#system-and-configuration-configuration-info">configuration</a>.</p>
-</li>
-</ul>
-<h4 id="header-13.-">13. <code>max_file_size</code> <a class="permalink" href="#header-13.-" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: integer</p>
-</li>
-<li>
-<p><strong>Unit</strong>: kilobyte</p>
-</li>
-<li>
-<p><strong>Required/Optional</strong>: optional</p>
-</li>
-<li>
-<p><strong>Description</strong>: Limit file size created or modified by submission.</p>
-</li>
-<li>
-<p><strong>Default Value</strong>: Depends on <a href="#system-and-configuration-configuration-info">configuration</a>.</p>
-</li>
-</ul>
-<h4 id="header-14.-">14. <code>number_of_runs</code> <a class="permalink" href="#header-14.-" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: integer</p>
-</li>
-<li>
-<p><strong>Required/Optional</strong>: optional</p>
-</li>
-<li>
-<p><strong>Description</strong>: Run each submission <code>number_of_runs</code> times and take average of time and memory.</p>
-</li>
-<li>
-<p><strong>Default Value</strong>: Depends on <a href="#system-and-configuration-configuration-info">configuration</a>.</p>
-</li>
-</ul>
-<h4 id="header-15.-">15. <code>stdout</code> <a class="permalink" href="#header-15.-" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: string</p>
-</li>
-<li>
-<p><strong>Description</strong>: Standard output of submission after execution.</p>
-</li>
-</ul>
-<h4 id="header-16.-">16. <code>stderr</code> <a class="permalink" href="#header-16.-" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: string</p>
-</li>
-<li>
-<p><strong>Description</strong>: Standard error of submission after execution.</p>
-</li>
-</ul>
-<h4 id="header-17.-">17. <code>status</code> <a class="permalink" href="#header-17.-" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: object</p>
-</li>
-<li>
-<p><strong>Description</strong>: <a href="#statuses-and-languages-statuses">Status</a> of submission.</p>
-</li>
-</ul>
-<h4 id="header-18.-">18. <code>created_at</code> <a class="permalink" href="#header-18.-" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: datetime</p>
-</li>
-<li>
-<p><strong>Description</strong>: Date and time when submission was created.</p>
-</li>
-</ul>
-<h4 id="header-19.-">19. <code>finished_at</code> <a class="permalink" href="#header-19.-" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: datetime</p>
-</li>
-<li>
-<p><strong>Description</strong>: Date and time when submission was processed.</p>
-</li>
-<li>
-<p><strong>Default Value</strong>: <code>null</code> if submission is still in queue or if submission is processing.</p>
-</li>
-</ul>
-<h4 id="header-20.-">20. <code>token</code> <a class="permalink" href="#header-20.-" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: string</p>
-</li>
-<li>
-<p><strong>Description</strong>: Unique token of submission. Used to access submission results asynchronically.</p>
-</li>
-</ul>
-<h4 id="header-21.-">21. <code>time</code> <a class="permalink" href="#header-21.-" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: float</p>
-</li>
-<li>
-<p><strong>Unit</strong>: second</p>
-</li>
-<li>
-<p><strong>Description</strong>: Run time of submission.</p>
-</li>
-</ul>
-<h4 id="header-22.-">22. <code>memory</code> <a class="permalink" href="#header-22.-" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: float</p>
-</li>
-<li>
-<p><strong>Unit</strong>: second</p>
-</li>
-<li>
-<p><strong>Description</strong>: Memory used by submission.</p>
-</li>
-</ul>
-<hr>
-<p>Attributes <strong>#1</strong> - <strong>#14</strong> are used when creating new submissions, and attributes <strong>#15</strong> - <strong>#22</strong> represent detailed information about runtime of submission.</p>
-<p>Attributes <strong>#5</strong> - <strong>#14</strong> are called <em>configuration attributes</em> or <em>configuration variables</em>. Please read
-more about them in <a href="#system-and-configuration-configuration-info">configuration</a> section.</p>
-<div id="submissions-submission-post" class="action post"><h4 class="action-heading"><div class="name">Create</div><a href="#submissions-submission-post" class="method post">POST</a><code class="uri">/submissions/{?base64_encoded}</code></h4><p>Creates new submission. Created submission waits in queue to be processed. On successful
+<p>Judge0 API is licensed under the <a href="https://github.com/judge0/api/blob/master/LICENSE">GNU General Public License v3.0</a>.</p>
+<h1 id="header-donate">Donate <a class="permalink" href="#header-donate" aria-hidden="true">¶</a></h1>
+<p>If you like Judge0, please consider making a <a href="https://www.paypal.me/hermanzdosilovic">donation</a> to support this project.</p>
+<br><section id="authentication" class="resource-group"><h2 class="group-heading">Authentication <a href="#authentication" class="permalink">&para;</a></h2><div id="authentication-authenticate" class="resource"><h3 class="resource-heading">Authenticate <a href="#authentication-authenticate" class="permalink">&nbsp;&para;</a></h3><div id="authentication-authenticate-post" class="action post"><h4 class="action-heading"><div class="name">Authenticate</div><a href="#authentication-authenticate-post" class="method post">POST</a><code class="uri">/authenticate{?X-Auth-Token}</code></h4><p>Some Judge0 API hosts can protect their API calls with authentication tokens. If that’s the case then you should
+provide <code>X-Auth-Token</code> for <strong>every</strong> API request.</p>
+<p>Please note that <code>X-Auth-Token</code> is default parameter name that needs to be sent, and that Judge0 API admins
+can change the name of this parameter. Please contact admins of Judge0 API you are using to give you
+correct parameter name and valid authentication tokens for successful authentication.</p>
+<p>With this API call you can check if your authentication token is valid.</p>
+<h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/authenticate?<span class="hljs-attribute">X-Auth-Token=</span><span class="hljs-literal">f6583e60-b13b-4228-b554-2eb332ca64e7</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>X-Auth-Token</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>f6583e60-b13b-4228-b554-2eb332ca64e7</span></span><p>Judge0 API authentication token</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>If your authentication token is valid or authentication is disabled.</p>
+</div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>401</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Authentication failed. Please read about <a href="#authentication">authentication</a> process.</p>
+</div></div></div></div></div></section><section id="authorization" class="resource-group"><h2 class="group-heading">Authorization <a href="#authorization" class="permalink">&para;</a></h2><div id="authorization-authorize" class="resource"><h3 class="resource-heading">Authorize <a href="#authorization-authorize" class="permalink">&nbsp;&para;</a></h3><div id="authorization-authorize-post" class="action post"><h4 class="action-heading"><div class="name">Authorize</div><a href="#authorization-authorize-post" class="method post">POST</a><code class="uri">/authorize{?X-Auth-User}</code></h4><p>To issue some API calls you need to be authorized. For example, you need to be authorized to
+<a href="#submissions-submission-get">list all submissions</a> on Judge0 API.</p>
+<p>Please note that <code>X-Auth-User</code> is default parameter name that needs to be sent, and that Judge0 API admins
+can change the name of this parameter. Please contact admins of Judge0 API you are using to give you
+correct parameter name and valid authorization tokens for successful authorization.</p>
+<p>With this API call you can check if your authorization token is valid. If authentication is enabled you should also
+authenticate in this API call.</p>
+<h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/authorize?<span class="hljs-attribute">X-Auth-User=</span><span class="hljs-literal">a1133bc6-a0f6-46bf-a2d8-6157418c6fe2</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>X-Auth-User</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>a1133bc6-a0f6-46bf-a2d8-6157418c6fe2</span></span><p>User’s authorization token</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>If your authorization token is valid.</p>
+</div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>401</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Authentication failed. Please read about <a href="#authentication">authentication</a> process.</p>
+</div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>403</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Authorization failed. Please read about <a href="#authorization">authorization</a> process.</p>
+</div></div></div></div></div></section><section id="submissions" class="resource-group"><h2 class="group-heading">Submissions <a href="#submissions" class="permalink">&para;</a></h2><div id="submissions-submission" class="resource"><h3 class="resource-heading">Submission <a href="#submissions-submission" class="permalink">&nbsp;&para;</a></h3><p>Submission represents a model for running source code in specific programming language under
+certain runtime constraints.</p>
+<p>Submission model has <strong>27</strong> attributes. Attributes <strong>1</strong>-<strong>14</strong> (listed below) are used when creating new submissions - you can set them. Out of those 14 attributes only <strong>2</strong> are required - <code>source_code</code> and <code>language_id</code>. Attributes <strong>15</strong>-<strong>27</strong> represent detailed information about runtime of submission after it’s execution.</p>
+<p>With attributes <strong>5</strong>-<strong>14</strong> you can configure submission runtime constraints. Those attributes are called <em>configuration attributes</em> or <em>configuration variables</em>. Please read more about them in <a href="#system-and-configuration-configuration-info">configuration</a> section.</p>
+<p>Submission model has following attributes:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:left">Name</th>
+<th style="text-align:center">Type</th>
+<th style="text-align:center">Unit</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:left"><strong><code>source_code</code></strong></td>
+<td style="text-align:center">text</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">Program’s source code.</td>
+<td style="text-align:left">No default. This attribute is <strong>required</strong>.</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:left"><strong><code>language_id</code></strong></td>
+<td style="text-align:center">integer</td>
+<td style="text-align:center"></td>
+<td style="text-align:left"><a href="#statuses-and-languages-languages">Language</a> ID.</td>
+<td style="text-align:left">No default. This attribute is <strong>required</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:left"><code>stdin</code></td>
+<td style="text-align:center">text</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">Input for program.</td>
+<td style="text-align:left"><code>null</code>. Program won’t receive anything to standard input.</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:left"><code>expected_output</code></td>
+<td style="text-align:center">text</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">Expected output of program. Used when you want to compare with <code>stdout</code>.</td>
+<td style="text-align:left"><code>null</code>. Program’s <code>stdout</code> won’t be compared with <code>expected_output</code>.</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:left"><code>cpu_time_limit</code></td>
+<td style="text-align:center">float</td>
+<td style="text-align:center">second</td>
+<td style="text-align:left">Default runtime limit for every program. Time in which the OS assigns the processor to different tasks is not counted.</td>
+<td style="text-align:left">Depends on <a href="#system-and-configuration-configuration-info">configuration</a>.</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:left"><code>cpu_extra_time</code></td>
+<td style="text-align:center">float</td>
+<td style="text-align:center">second</td>
+<td style="text-align:left">When a time limit is exceeded, wait for extra time, before killing the program. This has the advantage that the real execution time is reported, even though it slightly exceeds the limit.</td>
+<td style="text-align:left">Depends on <a href="#system-and-configuration-configuration-info">configuration</a>.</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:left"><code>wall_time_limit</code></td>
+<td style="text-align:center">float</td>
+<td style="text-align:center">second</td>
+<td style="text-align:left">Limit wall-clock time in seconds. Decimal numbers are allowed. This clock measures the time from the start of the program to its exit, so it does not stop when the program has lost the CPU or when it is waiting for an external event. We recommend to use <code>cpu_time_limit</code> as the main limit, but set <code>wall_time_limit</code> to a much higher value as a precaution against sleeping programs.</td>
+<td style="text-align:left">Depends on <a href="#system-and-configuration-configuration-info">configuration</a>.</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:left"><code>memory_limit</code></td>
+<td style="text-align:center">float</td>
+<td style="text-align:center">second</td>
+<td style="text-align:left">Limit address space of the program.</td>
+<td style="text-align:left">Depends on <a href="#system-and-configuration-configuration-info">configuration</a>.</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:left"><code>stack_limit</code></td>
+<td style="text-align:center">integer</td>
+<td style="text-align:center">kilobyte</td>
+<td style="text-align:left">Limit process stack.</td>
+<td style="text-align:left">Depends on <a href="#system-and-configuration-configuration-info">configuration</a>.</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:left"><code>max_processes_and_or_threads</code></td>
+<td style="text-align:center">integer</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">Maximum number of processes and/or threads program can create.</td>
+<td style="text-align:left">Depends on <a href="#system-and-configuration-configuration-info">configuration</a>.</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:left"><code>enable_per_process_and_thread_time_limit</code></td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">If <code>true</code> then <code>cpu_time_limit</code> will be used as per process and thread.</td>
+<td style="text-align:left">Depends on <a href="#system-and-configuration-configuration-info">configuration</a>.</td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:left"><code>enable_per_process_and_thread_memory_limit</code></td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">If <code>true</code> then <code>memory_limit</code> will be used as per process and thread.</td>
+<td style="text-align:left">Depends on <a href="#system-and-configuration-configuration-info">configuration</a>.</td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:left"><code>max_file_size</code></td>
+<td style="text-align:center">integer</td>
+<td style="text-align:center">kilobyte</td>
+<td style="text-align:left">Limit file size created or modified by the program.</td>
+<td style="text-align:left">Depends on <a href="#system-and-configuration-configuration-info">configuration</a>.</td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:left"><code>number_of_runs</code></td>
+<td style="text-align:center">integer</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">Run each program <code>number_of_runs</code> times and take average of <code>time</code> and <code>memory</code>.</td>
+<td style="text-align:left">Depends on <a href="#system-and-configuration-configuration-info">configuration</a>.</td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:left"><code>stdout</code></td>
+<td style="text-align:center">text</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">Standard output of the program after execution.</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">16</td>
+<td style="text-align:left"><code>stderr</code></td>
+<td style="text-align:center">text</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">Standard error of the program after execution.</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">17</td>
+<td style="text-align:left"><code>compile_output</code></td>
+<td style="text-align:center">text</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">Compiler output after compilation.</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">18</td>
+<td style="text-align:left"><code>message</code></td>
+<td style="text-align:center">text</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">Sandbox’s message. Can contain error messages.</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">19</td>
+<td style="text-align:left"><code>exit_code</code></td>
+<td style="text-align:center">integer</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">The program’s exit code.</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">20</td>
+<td style="text-align:left"><code>exit_signal</code></td>
+<td style="text-align:center">integer</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">Signal code that the program recieved before exiting.</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">21</td>
+<td style="text-align:left"><code>status</code></td>
+<td style="text-align:center">object</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">Submission <a href="#statuses-and-languages-statuses">status</a>.</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">22</td>
+<td style="text-align:left"><code>created_at</code></td>
+<td style="text-align:center">datetime</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">Date and time when submission was created.</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">23</td>
+<td style="text-align:left"><code>finished_at</code></td>
+<td style="text-align:center">datetime</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">Date and time when submission was processed.</td>
+<td style="text-align:left"><code>null</code> if submission is still in queue or if submission is processing.</td>
+</tr>
+<tr>
+<td style="text-align:center">24</td>
+<td style="text-align:left"><code>token</code></td>
+<td style="text-align:center">string</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">Unique submission token used for <a href="#submission-submission-get">getting specific submission</a>.</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">25</td>
+<td style="text-align:left"><code>time</code></td>
+<td style="text-align:center">float</td>
+<td style="text-align:center">second</td>
+<td style="text-align:left">Program’s runtime.</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">26</td>
+<td style="text-align:left"><code>wall_time</code></td>
+<td style="text-align:center">float</td>
+<td style="text-align:center">second</td>
+<td style="text-align:left">Program’s wall time. Should be greater or equal to <code>time</code>.</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">27</td>
+<td style="text-align:left"><code>memory</code></td>
+<td style="text-align:center">float</td>
+<td style="text-align:center">kilobyte</td>
+<td style="text-align:left">Memory used by the program after execution.</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<div id="submissions-submission-post" class="action post"><h4 class="action-heading"><div class="name">Create Submission</div><a href="#submissions-submission-post" class="method post">POST</a><code class="uri">/submissions/{?base64_encoded,wait}</code></h4><p>Creates new submission. Created submission waits in queue to be processed. On successful
 creation, you are returned submission token which can be used to check submission status.</p>
-<p>If submission’s <code>source_code</code>, <code>input</code> or <code>expected_output</code> contains non printable characters, or
-characters which cannot be sent with JSON, then set <code>base64_encoded</code> parameter to <code>true</code> and
+<p>If submission’s <code>source_code</code>, <code>stdin</code> or <code>expected_output</code> contains non printable characters, or
+characters which cannot be send with JSON, then set <code>base64_encoded</code> parameter to <code>true</code> and
 send these attributes Base64 encoded. Your responsibility is to encode each of mentioned attributes
-(<code>source_code</code>, <code>input</code> and <code>expected_output</code>) even if just one of them contains non printable
-characters. By default, this parameter is set to <code>false</code> and Judge0 API assumes you are sending raw data (decoded data).</p>
-<h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/submissions/?<span class="hljs-attribute">base64_encoded=</span><span class="hljs-literal">false</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>base64_encoded</dt><dd><code>boolean</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>false</span></span><p>Set to <code>true</code> if you want to send Base64 encoded data to Judge0 API.</p>
+(<code>source_code</code>, <code>stdin</code> and <code>expected_output</code>) even if just one of them contains non printable
+characters. By default, this parameter is set to <code>false</code> and Judge0 API assumes you are sending raw data.</p>
+<p>By default you are returned submission token on successful submission creation. With this token
+you can <a href="#submission-submission-get">check submission status</a>. Instead of checking submission status with second request, you can wait for submission result
+by sending <code>wait</code> query parameter and setting it to <code>true</code>. With this feature you will get submission result immediately after submission has been created. Please note that this feature may or may not be
+enabled on all Judge0 API hosts. So before using this feature please check <a href="#system-and-configuration-configuration-info-get">configuration</a>
+of Judge0 API you are using. On a <a href="https://api.judge0.com">official Judge0 API</a> this feature <strong>is enabled</strong>.</p>
+<h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/submissions/?<span class="hljs-attribute">base64_encoded=</span><span class="hljs-literal">false</span>&<span class="hljs-attribute">wait=</span><span class="hljs-literal">false</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>base64_encoded</dt><dd><code>boolean</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-info default"><strong>Default:&nbsp;</strong><span>false</span></span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>false</span></span><p>Set to <code>true</code> if you want to send Base64 encoded data to Judge0 API.</p>
+</dd><dt>wait</dt><dd><code>boolean</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-info default"><strong>Default:&nbsp;</strong><span>false</span></span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>false</span></span><p>Set to <code>true</code> to immediately get submission result.</p>
 </dd></dl></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
-  "<span class="hljs-attribute">source_code</span>": <span class="hljs-value"><span class="hljs-string">"#include \n\nint main(void) {\n  char name[10];\n  scanf(\"%s\", name);\n  printf(\"hello, %s\n\", name);\n  return 0;\n}"</span></span>,
-  "<span class="hljs-attribute">language_id</span>": <span class="hljs-value"><span class="hljs-number">3</span>
+  "<span class="hljs-attribute">source_code</span>": <span class="hljs-value"><span class="hljs-string">"#include &lt;stdio.h&gt;\n\nint main(void) {\n  char name[10];\n  scanf(\"%s\", name);\n  printf(\"hello, %s\n\", name);\n  return 0;\n}"</span></span>,
+  "<span class="hljs-attribute">language_id</span>": <span class="hljs-value"><span class="hljs-number">4</span></span>,
+  "<span class="hljs-attribute">stdin</span>": <span class="hljs-value"><span class="hljs-string">"world"</span>
 </span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>201</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">token</span>": <span class="hljs-value"><span class="hljs-string">"d85cd024-1548-4165-96c7-7bc88673f194"</span>
 </span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
-  "<span class="hljs-attribute">source_code</span>": <span class="hljs-value"><span class="hljs-string">"#include \n\nint main(void) {\n  char name[10];\n  scanf(\"%s\", name);\n  printf(\"hello, %s\n\", name);\n  return 0;\n}"</span>
+  "<span class="hljs-attribute">source_code</span>": <span class="hljs-value"><span class="hljs-string">"#include &lt;stdio.h&gt;\n\nint main(void) {\n  char name[10];\n  scanf(\"%s\", name);\n  printf(\"hello, %s\n\", name);\n  return 0;\n}"</span>
 </span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>422</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">language_id</span>": <span class="hljs-value">[
     <span class="hljs-string">"can't be blank"</span>
   ]
 </span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
-  "<span class="hljs-attribute">source_code</span>": <span class="hljs-value"><span class="hljs-string">"#include &lt;stdio.h&gt;\n\nint main(void) {\n  char name[10];\n  sc(\"%s\", name);\n  printf(\"hello, %s\n\", name);\n  return 0;\n}"</span></span>,
+  "<span class="hljs-attribute">source_code</span>": <span class="hljs-value"><span class="hljs-string">"#include &lt;stdio.h&gt;\n\nint main(void) {\n  char name[10];\n  scanf(\"%s\", name);\n  printf(\"hello, %s\n\", name);\n  return 0;\n}"</span></span>,
   "<span class="hljs-attribute">language_id</span>": <span class="hljs-value"><span class="hljs-number">150000</span></span>,
-  "<span class="hljs-attribute">input</span>": <span class="hljs-value"><span class="hljs-string">"world"</span></span>,
+  "<span class="hljs-attribute">stdin</span>": <span class="hljs-value"><span class="hljs-string">"world"</span></span>,
   "<span class="hljs-attribute">expected_output</span>": <span class="hljs-value"><span class="hljs-string">"hello, world"</span>
 </span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>422</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">language_id</span>": <span class="hljs-value">[
     <span class="hljs-string">"language with id 150000 doesn't exist"</span>
   ]
 </span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
-  "<span class="hljs-attribute">source_code</span>": <span class="hljs-value"><span class="hljs-string">"#include \n\nint main(void) {\n  char name[10];\n  scanf(\"%s\", name);\n  printf(\"hello, %s\n\", name);\n  return 0;\n}"</span></span>,
-  "<span class="hljs-attribute">language_id</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
+  "<span class="hljs-attribute">source_code</span>": <span class="hljs-value"><span class="hljs-string">"#include &lt;stdio.h&gt;\n\nint main(void) {\n  char name[10];\n  scanf(\"%s\", name);\n  printf(\"hello, %s\n\", name);\n  return 0;\n}"</span></span>,
+  "<span class="hljs-attribute">language_id</span>": <span class="hljs-value"><span class="hljs-number">4</span></span>,
   "<span class="hljs-attribute">number_of_runs</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
-  "<span class="hljs-attribute">input</span>": <span class="hljs-value"><span class="hljs-string">"Judge0"</span></span>,
+  "<span class="hljs-attribute">stdin</span>": <span class="hljs-value"><span class="hljs-string">"Judge0"</span></span>,
   "<span class="hljs-attribute">expected_output</span>": <span class="hljs-value"><span class="hljs-string">"hello, Judge0"</span></span>,
   "<span class="hljs-attribute">cpu_time_limit</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
   "<span class="hljs-attribute">cpu_extra_time</span>": <span class="hljs-value"><span class="hljs-number">0.5</span></span>,
@@ -374,97 +342,169 @@ characters. By default, this parameter is set to <code>false</code> and Judge0 A
   "<span class="hljs-attribute">wall_time_limit</span>": <span class="hljs-value">[
     <span class="hljs-string">"must be less than or equal to 150"</span>
   ]
-</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Sending Base64 encoded <code>source_code</code> and <code>input</code>. Note that in this request <code>base64_encoded</code> query parameter <strong>must</strong> be
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Sending Base64 encoded <code>source_code</code> and <code>stdin</code>. Note that in this request <code>base64_encoded</code> query parameter <strong>must</strong> be
 set to <code>true</code>.</p>
 </div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">appliction/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">source_code</span>": <span class="hljs-value"><span class="hljs-string">"I2luY2x1ZGUgPHN0ZGlvLmg+CgppbnQgbWFpbih2b2lkKSB7CiAgY2hhciBuYW1lWzEwXTsKICBzY2FuZigiJXMiLCBuYW1lKTsKICBwcmludGYoImhlbGxvLCAlc1xuIiwgbmFtZSk7CiAgcmV0dXJuIDA7Cn0="</span></span>,
-  "<span class="hljs-attribute">language_id</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
+  "<span class="hljs-attribute">language_id</span>": <span class="hljs-value"><span class="hljs-number">4</span></span>,
   "<span class="hljs-attribute">input</span>": <span class="hljs-value"><span class="hljs-string">"SnVkZ2Uw"</span>
-</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>201</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">token</span>": <span class="hljs-value"><span class="hljs-string">"f3fe0215-72f3-4fe6-97f5-353df6682db4"</span>
-</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="submissions-submission-get" class="action get"><h4 class="action-heading"><div class="name">Show</div><a href="#submissions-submission-get" class="method get">GET</a><code class="uri">/submissions/{token}{?base64_encoded}</code></h4><p>Returns details about submission execution result.</p>
-<p>If you expect non printable characters in submission’s <code>stdout</code> or <code>stderr</code> after it’s execution, you can
-request Judge0 API to return you Base64 encoded <code>stdout</code> and <code>stderr</code> by setting
-<code>base64_encoded</code> query parametar to <code>true</code>. Your responsibility is to decode each of
-menitioned attributes (<code>stdout</code> and <code>stderr</code>) on client side.
-By default, this parameter is set to <code>false</code> and Judge0 API will send you raw data (decoded data).</p>
-<h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/submissions/<span class="hljs-attribute" title="token">d85cd024-1548-4165-96c7-7bc88673f194</span>?<span class="hljs-attribute">base64_encoded=</span><span class="hljs-literal">false</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>token</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>d85cd024-1548-4165-96c7-7bc88673f194</span></span><p>Token of submission. You got this token when you created submission.</p>
-</dd><dt>base64_encoded</dt><dd><code>boolean</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>false</span></span><p>Set to <code>true</code> if you want to recieve Base64 encoded data from Judge0 API.</p>
-</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
-  "<span class="hljs-attribute">token</span>": <span class="hljs-value"><span class="hljs-string">"d85cd024-1548-4165-96c7-7bc88673f194"</span></span>,
-  "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
-    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"In Queue"</span>
-  </span>}</span>,
-  "<span class="hljs-attribute">stdout</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Waiting for submission to finish. Note that in this request <code>wait</code> query parameter <strong>must</strong> be set to <code>true</code>.</p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">source_code</span>": <span class="hljs-value"><span class="hljs-string">"#include &lt;stdio.h&gt;\n\nint main(void) {\n  char name[10];\n  scanf(\"%s\", name);\n  printf(\"hello, %s\n\", name);\n  return 0;\n}"</span></span>,
+  "<span class="hljs-attribute">language_id</span>": <span class="hljs-value"><span class="hljs-string">"4"</span></span>,
+  "<span class="hljs-attribute">stdin</span>": <span class="hljs-value"><span class="hljs-string">"Judge0"</span></span>,
+  "<span class="hljs-attribute">expected_output</span>": <span class="hljs-value"><span class="hljs-string">"hello, Judge0"</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>201</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">stdout</span>": <span class="hljs-value"><span class="hljs-string">"hello, Judge0\n"</span></span>,
+  "<span class="hljs-attribute">time</span>": <span class="hljs-value"><span class="hljs-string">"0.001"</span></span>,
+  "<span class="hljs-attribute">memory</span>": <span class="hljs-value"><span class="hljs-number">380</span></span>,
   "<span class="hljs-attribute">stderr</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
-  "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2017-02-04T22:11:05.590Z"</span></span>,
-  "<span class="hljs-attribute">finished_at</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
-  "<span class="hljs-attribute">time</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
-  "<span class="hljs-attribute">memory</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
-  "<span class="hljs-attribute">number_of_runs</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
-  "<span class="hljs-attribute">cpu_time_limit</span>": <span class="hljs-value"><span class="hljs-string">"1.0"</span></span>,
-  "<span class="hljs-attribute">cpu_extra_time</span>": <span class="hljs-value"><span class="hljs-string">"0.5"</span></span>,
-  "<span class="hljs-attribute">wall_time_limit</span>": <span class="hljs-value"><span class="hljs-string">"10.0"</span></span>,
-  "<span class="hljs-attribute">memory_limit</span>": <span class="hljs-value"><span class="hljs-number">128000</span></span>,
-  "<span class="hljs-attribute">stack_limit</span>": <span class="hljs-value"><span class="hljs-number">128000</span></span>,
-  "<span class="hljs-attribute">enable_per_process_and_thread_time_limit</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
-  "<span class="hljs-attribute">enable_per_process_and_thread_memory_limit</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
-  "<span class="hljs-attribute">max_file_size</span>": <span class="hljs-value"><span class="hljs-number">1024</span>
-</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
-  "<span class="hljs-attribute">token</span>": <span class="hljs-value"><span class="hljs-string">"d85cd024-1548-4165-96c7-7bc88673f194"</span></span>,
+  "<span class="hljs-attribute">token</span>": <span class="hljs-value"><span class="hljs-string">"eb0dd001-66db-47f4-8a69-b736c9bc23f6"</span></span>,
+  "<span class="hljs-attribute">compile_output</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
   "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
     "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Accepted"</span>
-  </span>}</span>,
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>If wait is not allowed.</p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-string">"wait not allowed"</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>401</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Authentication failed. Please read about <a href="#authentication">authentication</a> process.</p>
+</div></div></div></div><div id="submissions-submission-get" class="action get"><h4 class="action-heading"><div class="name">Get Specific Submission</div><a href="#submissions-submission-get" class="method get">GET</a><code class="uri">/submissions/{token}{?base64_encoded,fields}</code></h4><p>Returns details about submission.</p>
+<p>Just like in <a href="/#submission-submission-post">create submission</a> you can receive Base64 encoded data for every
+text type attribute (check the <a href="#submission-submission">table</a> to see which attributes are text type).
+By default, this parameter is set to <code>false</code> and Judge0 API will send you raw data.</p>
+<p>By default Judge0 API is sending you 8 attributes for submission. As you may read in <a href="#submission-submission">Submission</a>
+section, submission model has 27 attributes. By sending <code>fields</code> query parameter you can specify exactly which attributes
+you want from Judge0 API.</p>
+<h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/submissions/<span class="hljs-attribute" title="token">d85cd024-1548-4165-96c7-7bc88673f194</span>?<span class="hljs-attribute">base64_encoded=</span><span class="hljs-literal">false</span>&<span class="hljs-attribute">fields=</span><span class="hljs-literal">stdout,stderr,status_id,language_id</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>token</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>d85cd024-1548-4165-96c7-7bc88673f194</span></span><p>Token of submission. You got this token when you created submission.</p>
+</dd><dt>base64_encoded</dt><dd><code>boolean</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>false</span></span><p>Set to <code>true</code> if you want to receive Base64 encoded data from Judge0 API.</p>
+</dd><dt>fields</dt><dd><code>integer</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-info default"><strong>Default:&nbsp;</strong><span>stdout,time,memory,stderr,token,compile_output,message,status</span></span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>stdout,stderr,status_id,language_id</span></span><p>Return only the desired attributes.</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">applicatiion/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">stdout</span>": <span class="hljs-value"><span class="hljs-string">"hello, world\n"</span></span>,
+  "<span class="hljs-attribute">status_id</span>": <span class="hljs-value"><span class="hljs-number">5</span></span>,
+  "<span class="hljs-attribute">language_id</span>": <span class="hljs-value"><span class="hljs-number">4</span></span>,
+  "<span class="hljs-attribute">stderr</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>This is the default response. Leave <code>fields</code> parameter empty if you want to get default response.</p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">stdout</span>": <span class="hljs-value"><span class="hljs-string">"hello, Judge0\n"</span></span>,
-  "<span class="hljs-attribute">stderr</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
-  "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2017-02-04T22:11:05.590Z"</span></span>,
-  "<span class="hljs-attribute">finished_at</span>": <span class="hljs-value"><span class="hljs-string">"2017-02-04T22:11:08.564Z"</span></span>,
-  "<span class="hljs-attribute">time</span>": <span class="hljs-value"><span class="hljs-string">"0.002"</span></span>,
-  "<span class="hljs-attribute">memory</span>": <span class="hljs-value"><span class="hljs-number">248</span></span>,
-  "<span class="hljs-attribute">number_of_runs</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
-  "<span class="hljs-attribute">cpu_time_limit</span>": <span class="hljs-value"><span class="hljs-string">"1.0"</span></span>,
-  "<span class="hljs-attribute">cpu_extra_time</span>": <span class="hljs-value"><span class="hljs-string">"0.5"</span></span>,
-  "<span class="hljs-attribute">wall_time_limit</span>": <span class="hljs-value"><span class="hljs-string">"10.0"</span></span>,
-  "<span class="hljs-attribute">memory_limit</span>": <span class="hljs-value"><span class="hljs-number">128000</span></span>,
-  "<span class="hljs-attribute">stack_limit</span>": <span class="hljs-value"><span class="hljs-number">128000</span></span>,
-  "<span class="hljs-attribute">enable_per_process_and_thread_time_limit</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
-  "<span class="hljs-attribute">enable_per_process_and_thread_memory_limit</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
-  "<span class="hljs-attribute">max_file_size</span>": <span class="hljs-value"><span class="hljs-number">1024</span>
-</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Recieving Base64 encoded <code>stdout</code> and <code>stderr</code>. Note that in this request <code>base64_encoded</code> query parameter <strong>must</strong> be
+  "<span class="hljs-attribute">time</span>": <span class="hljs-value"><span class="hljs-string">"0.001"</span></span>,
+  "<span class="hljs-attribute">memory</span>": <span class="hljs-value"><span class="hljs-number">376</span></span>,
+  "<span class="hljs-attribute">stderr</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+  "<span class="hljs-attribute">token</span>": <span class="hljs-value"><span class="hljs-string">"8531f293-1585-4d36-a34c-73726792e6c9"</span></span>,
+  "<span class="hljs-attribute">compile_output</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
+    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Accepted"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Recieving Base64 encoded data for text type attributes. Note that in this request <code>base64_encoded</code> query parameter <strong>must</strong> be
 set to <code>true</code>.</p>
 </div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
-  "<span class="hljs-attribute">token</span>": <span class="hljs-value"><span class="hljs-string">"f3fe0215-72f3-4fe6-97f5-353df6682db4"</span></span>,
+  "<span class="hljs-attribute">stdout</span>": <span class="hljs-value"><span class="hljs-string">"aGVsbG8sIEp1ZGdlMAo=\n"</span></span>,
+  "<span class="hljs-attribute">time</span>": <span class="hljs-value"><span class="hljs-string">"0.002"</span></span>,
+  "<span class="hljs-attribute">memory</span>": <span class="hljs-value"><span class="hljs-number">376</span></span>,
+  "<span class="hljs-attribute">stderr</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+  "<span class="hljs-attribute">token</span>": <span class="hljs-value"><span class="hljs-string">"4e00f214-b8cb-4fcb-977b-429113c81ece"</span></span>,
+  "<span class="hljs-attribute">compile_output</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
   "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
     "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Accepted"</span>
-  </span>}</span>,
-  "<span class="hljs-attribute">stdout</span>": <span class="hljs-value"><span class="hljs-string">"aGVsbG8sIEp1ZGdlMAo=\n"</span></span>,
-  "<span class="hljs-attribute">stderr</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
-  "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2017-04-22T23:42:34.451Z"</span></span>,
-  "<span class="hljs-attribute">finished_at</span>": <span class="hljs-value"><span class="hljs-string">"2017-04-22T23:42:34.770Z"</span></span>,
-  "<span class="hljs-attribute">time</span>": <span class="hljs-value"><span class="hljs-string">"0.002"</span></span>,
-  "<span class="hljs-attribute">memory</span>": <span class="hljs-value"><span class="hljs-number">288</span></span>,
-  "<span class="hljs-attribute">number_of_runs</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
-  "<span class="hljs-attribute">cpu_time_limit</span>": <span class="hljs-value"><span class="hljs-string">"1.0"</span></span>,
-  "<span class="hljs-attribute">cpu_extra_time</span>": <span class="hljs-value"><span class="hljs-string">"0.5"</span></span>,
-  "<span class="hljs-attribute">wall_time_limit</span>": <span class="hljs-value"><span class="hljs-string">"10.0"</span></span>,
-  "<span class="hljs-attribute">memory_limit</span>": <span class="hljs-value"><span class="hljs-number">128000</span></span>,
-  "<span class="hljs-attribute">stack_limit</span>": <span class="hljs-value"><span class="hljs-number">128000</span></span>,
-  "<span class="hljs-attribute">max_processes_and_or_threads</span>": <span class="hljs-value"><span class="hljs-number">30</span></span>,
-  "<span class="hljs-attribute">enable_per_process_and_thread_time_limit</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
-  "<span class="hljs-attribute">enable_per_process_and_thread_memory_limit</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
-  "<span class="hljs-attribute">max_file_size</span>": <span class="hljs-value"><span class="hljs-number">1024</span>
-</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>500</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>If you get status <code>500</code> on this request, it is probably because your submission <code>stdout</code> or <code>stderr</code> contains
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>500</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>If you get status <code>500</code> on this request, it is probably because some text type attribute in submission contains
 some non printable characters which cannot be used in JSON. In that case, set <code>base64_encoded</code> query parameter to <code>true</code>,
 and decode <code>stdout</code> and <code>stderr</code> on client side.</p>
 </div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
-  <span class="hljs-string">"status"</span>: <span class="hljs-number">500</span>,
-  <span class="hljs-string">"error"</span>: <span class="hljs-string">"Internal Server Error"</span>,
-  <span class="hljs-string">"exception"</span>: <span class="hljs-string">"#&lt;Encoding::UndefinedConversionError: \"\x80\" from ASCII-8BIT to UTF-8&gt;"</span>,
-  ...
-}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="statuses-and-languages" class="resource-group"><h2 class="group-heading">Statuses and Languages <a href="#statuses-and-languages" class="permalink">&para;</a></h2><div id="statuses-and-languages-languages" class="resource"><h3 class="resource-heading">Languages <a href="#statuses-and-languages-languages" class="permalink">&nbsp;&para;</a></h3><div id="statuses-and-languages-languages-get" class="action get"><h4 class="action-heading"><div class="name">List all languages</div><a href="#statuses-and-languages-languages-get" class="method get">GET</a><code class="uri">/languages</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/languages</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>[
+    <span class="hljs-string">"status"</span>: <span class="hljs-number">500</span>,
+    <span class="hljs-string">"error"</span>: <span class="hljs-string">"Internal Server Error"</span>,
+    <span class="hljs-string">"exception"</span>: <span class="hljs-string">"#&lt;Encoding::UndefinedConversionError: \"\x80\" from ASCII-8BIT to UTF-8&gt;"</span>,
+    ...
+}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>401</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Authentication failed. Please read about <a href="#authentication">authentication</a> process.</p>
+</div></div></div></div><div id="submissions-submission-get-1" class="action get"><h4 class="action-heading"><div class="name">Get All Submissions</div><a href="#submissions-submission-get-1" class="method get">GET</a><code class="uri">/submissions/{?base64_encoded,fields,page,per_page}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/submissions/?<span class="hljs-attribute">base64_encoded=</span><span class="hljs-literal">false</span>&<span class="hljs-attribute">fields=</span><span class="hljs-literal">status,language,time</span>&<span class="hljs-attribute">page=</span><span class="hljs-literal">4</span>&<span class="hljs-attribute">per_page=</span><span class="hljs-literal">2</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>base64_encoded</dt><dd><code>boolean</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-info default"><strong>Default:&nbsp;</strong><span>false</span></span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>false</span></span><p>Set to <code>true</code> if you want to receive Base64 encoded data from Judge0 API.</p>
+</dd><dt>page</dt><dd><code>integer</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-info default"><strong>Default:&nbsp;</strong><span>1</span></span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>4</span></span><p>Pagination page number.</p>
+</dd><dt>per_page</dt><dd><code>integer</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-info default"><strong>Default:&nbsp;</strong><span>20</span></span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>2</span></span><p>Number of submissions to return per page.</p>
+</dd><dt>fields</dt><dd><code>integer</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-info default"><strong>Default:&nbsp;</strong><span>stdout,time,memory,stderr,token,compile_output,message,status</span></span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>status,language,time</span></span><p>Return only the desired attributes.</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">submissions</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">time</span>": <span class="hljs-value"><span class="hljs-string">"0.001"</span></span>,
+      "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
+        "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Accepted"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">language</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">4</span></span>,
+        "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"C (gcc 7.2.0)"</span>
+      </span>}
+    </span>},
+    {
+      "<span class="hljs-attribute">time</span>": <span class="hljs-value"><span class="hljs-string">"0.001"</span></span>,
+      "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
+        "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Accepted"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">language</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">4</span></span>,
+        "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"C (gcc 7.2.0)"</span>
+      </span>}
+    </span>}
+  ]</span>,
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">current_page</span>": <span class="hljs-value"><span class="hljs-number">4</span></span>,
+    "<span class="hljs-attribute">next_page</span>": <span class="hljs-value"><span class="hljs-number">5</span></span>,
+    "<span class="hljs-attribute">prev_page</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
+    "<span class="hljs-attribute">total_pages</span>": <span class="hljs-value"><span class="hljs-number">31</span></span>,
+    "<span class="hljs-attribute">total_count</span>": <span class="hljs-value"><span class="hljs-number">62</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>When <code>base64_encoded</code> is set to <code>true</code>.</p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">submissions</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">stdout</span>": <span class="hljs-value"><span class="hljs-string">"aGVsbG8sIEp1ZGdlMAo=\n"</span></span>,
+      "<span class="hljs-attribute">time</span>": <span class="hljs-value"><span class="hljs-string">"0.001"</span></span>,
+      "<span class="hljs-attribute">memory</span>": <span class="hljs-value"><span class="hljs-number">376</span></span>,
+      "<span class="hljs-attribute">stderr</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+      "<span class="hljs-attribute">token</span>": <span class="hljs-value"><span class="hljs-string">"a1133bc6-a0f6-46bf-a2d8-6157418c6fe2"</span></span>,
+      "<span class="hljs-attribute">compile_output</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+      "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+      "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
+        "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Accepted"</span>
+      </span>}
+    </span>},
+    {
+      "<span class="hljs-attribute">stdout</span>": <span class="hljs-value"><span class="hljs-string">"aGVsbG8sIEp1ZGdlMAo=\n"</span></span>,
+      "<span class="hljs-attribute">time</span>": <span class="hljs-value"><span class="hljs-string">"0.001"</span></span>,
+      "<span class="hljs-attribute">memory</span>": <span class="hljs-value"><span class="hljs-number">380</span></span>,
+      "<span class="hljs-attribute">stderr</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+      "<span class="hljs-attribute">token</span>": <span class="hljs-value"><span class="hljs-string">"eb0dd001-66db-47f4-8a69-b736c9bc23f6"</span></span>,
+      "<span class="hljs-attribute">compile_output</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+      "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+      "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
+        "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Accepted"</span>
+      </span>}
+    </span>}
+  ]</span>,
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">current_page</span>": <span class="hljs-value"><span class="hljs-number">4</span></span>,
+    "<span class="hljs-attribute">next_page</span>": <span class="hljs-value"><span class="hljs-number">5</span></span>,
+    "<span class="hljs-attribute">prev_page</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
+    "<span class="hljs-attribute">total_pages</span>": <span class="hljs-value"><span class="hljs-number">31</span></span>,
+    "<span class="hljs-attribute">total_count</span>": <span class="hljs-value"><span class="hljs-number">62</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>When <code>page</code> parameter is invalid.</p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-string">"invalid page: -4"</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>When <code>per_page</code> parameter is invalid.</p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-string">"invalid per_page: -2"</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>401</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Authentication failed. Please read about <a href="#authentication">authentication</a> process.</p>
+</div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>403</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Authorization failed. Please read about <a href="#authorization">authorization</a> process.</p>
+</div></div></div></div></div></section><section id="statuses-and-languages" class="resource-group"><h2 class="group-heading">Statuses and Languages <a href="#statuses-and-languages" class="permalink">&para;</a></h2><div id="statuses-and-languages-languages" class="resource"><h3 class="resource-heading">Languages <a href="#statuses-and-languages-languages" class="permalink">&nbsp;&para;</a></h3><div id="statuses-and-languages-languages-get" class="action get"><h4 class="action-heading"><div class="name">List All Languages</div><a href="#statuses-and-languages-languages-get" class="method get">GET</a><code class="uri">/languages</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/languages</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>[
   {
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
     "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Bash (4.4)"</span>
@@ -475,93 +515,169 @@ and decode <code>stdout</code> and <code>stderr</code> on client side.</p>
   </span>},
   {
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
-    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"C (gcc 6.3.0)"</span>
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Basic (fbc 1.05.0)"</span>
   </span>},
   {
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">4</span></span>,
-    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"C (gcc 5.4.0)"</span>
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"C (gcc 7.2.0)"</span>
   </span>},
   {
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">5</span></span>,
-    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"C (gcc 4.9.4)"</span>
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"C (gcc 6.4.0)"</span>
   </span>},
   {
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">6</span></span>,
-    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"C (gcc 4.8.5)"</span>
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"C (gcc 6.3.0)"</span>
   </span>},
   {
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">7</span></span>,
-    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"C++ (g++ 6.3.0)"</span>
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"C (gcc 5.4.0)"</span>
   </span>},
   {
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">8</span></span>,
-    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"C++ (g++ 5.4.0)"</span>
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"C (gcc 4.9.4)"</span>
   </span>},
   {
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">9</span></span>,
-    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"C++ (g++ 4.9.4)"</span>
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"C (gcc 4.8.5)"</span>
   </span>},
   {
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">10</span></span>,
-    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"C++ (g++ 4.8.5)"</span>
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"C++ (g++ 7.2.0)"</span>
   </span>},
   {
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">11</span></span>,
-    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"C# (mono 4.8.0.472)"</span>
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"C++ (g++ 6.4.0)"</span>
   </span>},
   {
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">12</span></span>,
-    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Haskell (ghc 8.0.2)"</span>
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"C++ (g++ 6.3.0)"</span>
   </span>},
   {
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">13</span></span>,
-    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Java (OpenJDK 8)"</span>
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"C++ (g++ 5.4.0)"</span>
   </span>},
   {
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">14</span></span>,
-    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Java (OpenJDK 7)"</span>
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"C++ (g++ 4.9.4)"</span>
   </span>},
   {
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">15</span></span>,
-    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Octave (4.2.0)"</span>
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"C++ (g++ 4.8.5)"</span>
   </span>},
   {
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">16</span></span>,
-    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Pascal (fpc 3.0.0)"</span>
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"C# (mono 5.4.0.167)"</span>
   </span>},
   {
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">17</span></span>,
-    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Python (3.6.0)"</span>
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"C# (mono 5.2.0.224)"</span>
   </span>},
   {
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">18</span></span>,
-    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Python (3.5.3)"</span>
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Clojure (1.8.0)"</span>
   </span>},
   {
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">19</span></span>,
-    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Python (2.7.9)"</span>
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Crystal (0.23.1)"</span>
   </span>},
   {
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">20</span></span>,
-    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Python (2.6.9)"</span>
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Elixir (1.5.1)"</span>
   </span>},
   {
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">21</span></span>,
-    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Ruby (2.4.0)"</span>
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Erlang (OTP 20.0)"</span>
   </span>},
   {
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">22</span></span>,
-    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Ruby (2.3.3)"</span>
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Go (1.9)"</span>
   </span>},
   {
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">23</span></span>,
-    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Ruby (2.2.6)"</span>
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Haskell (ghc 8.2.1)"</span>
   </span>},
   {
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">24</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Haskell (ghc 8.0.2)"</span>
+  </span>},
+  {
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">25</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Insect (5.0.0)"</span>
+  </span>},
+  {
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">26</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Java (OpenJDK 9 with Eclipse OpenJ9)"</span>
+  </span>},
+  {
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">27</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Java (OpenJDK 8)"</span>
+  </span>},
+  {
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">28</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Java (OpenJDK 7)"</span>
+  </span>},
+  {
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">29</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"JavaScript (nodejs 8.5.0)"</span>
+  </span>},
+  {
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">30</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"JavaScript (nodejs 7.10.1)"</span>
+  </span>},
+  {
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">31</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"OCaml (4.05.0)"</span>
+  </span>},
+  {
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">32</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Octave (4.2.0)"</span>
+  </span>},
+  {
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">33</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Pascal (fpc 3.0.0)"</span>
+  </span>},
+  {
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">34</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Python (3.6.0)"</span>
+  </span>},
+  {
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">35</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Python (3.5.3)"</span>
+  </span>},
+  {
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">36</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Python (2.7.9)"</span>
+  </span>},
+  {
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">37</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Python (2.6.9)"</span>
+  </span>},
+  {
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">38</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Ruby (2.4.0)"</span>
+  </span>},
+  {
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">39</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Ruby (2.3.3)"</span>
+  </span>},
+  {
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">40</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Ruby (2.2.6)"</span>
+  </span>},
+  {
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">41</span></span>,
     "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Ruby (2.1.9)"</span>
+  </span>},
+  {
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">42</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Rust (1.20.0)"</span>
+  </span>},
+  {
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">43</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Text (plain text)"</span>
   </span>}
-]</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="statuses-and-languages-statuses" class="resource"><h3 class="resource-heading">Statuses <a href="#statuses-and-languages-statuses" class="permalink">&nbsp;&para;</a></h3><div id="statuses-and-languages-statuses-get" class="action get"><h4 class="action-heading"><div class="name">List all statuses</div><a href="#statuses-and-languages-statuses-get" class="method get">GET</a><code class="uri">/statuses</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/statuses</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>[
+]</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="statuses-and-languages-statuses" class="resource"><h3 class="resource-heading">Statuses <a href="#statuses-and-languages-statuses" class="permalink">&nbsp;&para;</a></h3><div id="statuses-and-languages-statuses-get" class="action get"><h4 class="action-heading"><div class="name">List All Statuses</div><a href="#statuses-and-languages-statuses-get" class="method get">GET</a><code class="uri">/statuses</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/statuses</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>[
   {
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
     "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"In Queue"</span>
@@ -614,7 +730,7 @@ and decode <code>stdout</code> and <code>stderr</code> on client side.</p>
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">13</span></span>,
     "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Internal Error"</span>
   </span>}
-]</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="system-and-configuration" class="resource-group"><h2 class="group-heading">System and Configuration <a href="#system-and-configuration" class="permalink">&para;</a></h2><div id="system-and-configuration-system-info" class="resource"><h3 class="resource-heading">System Info <a href="#system-and-configuration-system-info" class="permalink">&nbsp;&para;</a></h3><p>System information gives you detailed information about system on which Judge0 API is running.</p>
+]</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="system-and-configuration" class="resource-group"><h2 class="group-heading">System and Configuration <a href="#system-and-configuration" class="permalink">&para;</a></h2><div id="system-and-configuration-system-info" class="resource"><h3 class="resource-heading">System Info <a href="#system-and-configuration-system-info" class="permalink">&nbsp;&para;</a></h3><div id="system-and-configuration-system-info-get" class="action get"><h4 class="action-heading"><div class="name">System Info</div><a href="#system-and-configuration-system-info-get" class="method get">GET</a><code class="uri">/system_info</code></h4><p>System information gives you detailed information about system on which Judge0 API is running.</p>
 <p>This information is result of two commands on a host system:</p>
 <ul>
 <li>
@@ -624,12 +740,12 @@ and decode <code>stdout</code> and <code>stderr</code> on client side.</p>
 <p><code>free -h</code></p>
 </li>
 </ul>
-<p>Please note that Judge0 API consists of two systems: <em>web</em> and <em>worker</em>. <em>Web</em> system is the one who
-provides you the API, and <em>Worker</em> is the one who runs (processes) your submissions. They can be placed on two or more
-different hosts with different system configurations. Result of this API request is always from <em>web</em> system.
-This means that this request might be irrelevant to you if you as user don’t know if <em>web</em> and <em>worker</em> are
+<p>Please note that Judge0 API consists of two systems: <strong>web</strong> and <strong>worker</strong>. <strong>Web</strong> system is the one who
+provides you the web API, and <strong>Worker</strong> is the one who processes your submissions. They can be placed on two or more
+different hosts with different system configurations. Result of this API request is always from web system.
+This means that this request might be irrelevant to you if you as user don’t know if web and worker are
 hosted on the same machine. To find that out, please contact admins who host Judge0 API you are using.</p>
-<div id="system-and-configuration-system-info-get" class="action get"><h4 class="action-heading"><div class="name">System Info</div><a href="#system-and-configuration-system-info-get" class="method get">GET</a><code class="uri">/system_info</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/system_info</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+<h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/system_info</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">Architecture</span>": <span class="hljs-value"><span class="hljs-string">"x86_64"</span></span>,
   "<span class="hljs-attribute">CPU op-mode(s)</span>": <span class="hljs-value"><span class="hljs-string">"32-bit, 64-bit"</span></span>,
   "<span class="hljs-attribute">Byte Order</span>": <span class="hljs-value"><span class="hljs-string">"Little Endian"</span></span>,
@@ -656,149 +772,117 @@ hosted on the same machine. To find that out, please contact admins who host Jud
   "<span class="hljs-attribute">NUMA node0 CPU(s)</span>": <span class="hljs-value"><span class="hljs-string">"0-3"</span></span>,
   "<span class="hljs-attribute">Mem</span>": <span class="hljs-value"><span class="hljs-string">"7.7G"</span></span>,
   "<span class="hljs-attribute">Swap</span>": <span class="hljs-value"><span class="hljs-string">"8.0G"</span>
-</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="system-and-configuration-configuration-info" class="resource"><h3 class="resource-heading">Configuration Info <a href="#system-and-configuration-configuration-info" class="permalink">&nbsp;&para;</a></h3><p>Configuration information gives you detailed information about configuration of Judge0 API.
-This configuration can be changed through <a href="https://github.com/judge0/api/blob/master/judge0-api.conf">judge0-api.conf</a> file by admin who hosts Judge0 API instance.</p>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="system-and-configuration-configuration-info" class="resource"><h3 class="resource-heading">Configuration Info <a href="#system-and-configuration-configuration-info" class="permalink">&nbsp;&para;</a></h3><div id="system-and-configuration-configuration-info-get" class="action get"><h4 class="action-heading"><div class="name">Configuration Info</div><a href="#system-and-configuration-configuration-info-get" class="method get">GET</a><code class="uri">/config_info</code></h4><p>Configuration information gives you detailed information about configuration of Judge0 API.
+This configuration can be changed through <a href="https://github.com/judge0/api/blob/master/judge0-api.conf.default">judge0-api.conf</a>
+file by admin who hosts Judge0 API instance.</p>
 <p>This configuration gives every admin a flexibility to configure Judge0 API according to server abilities and needs. It also gives users
-insight on some <em>default configuration values</em> which are used when their submission is run.</p>
+insight on some <em>default configuration values</em> which are used when their programs are run.</p>
 <p>Each of these <em>configuration variables</em> have <em>default values</em> which we consider as recommended in case you are not sure should you change them.</p>
-<p>We will refer to <em>default values</em> as values which Judge0 API automatically assigns to each of these <em>configuration variables</em>, if admin didn’t set them. For example default value of <em>configuration variable</em> <code>cpu_time_limit</code> is <code>1</code>.</p>
-<p>Following configuration variables are available:</p>
-<h4 id="header-1.--1">1. <code>cpu_time_limit</code> <a class="permalink" href="#header-1.--1" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: float</p>
-</li>
-<li>
-<p><strong>Unit</strong>: second</p>
-</li>
-<li>
-<p><strong>Description</strong>: Default runtime limit for every submission. Time in which the OS assigns the processor to different tasks is not counted.</p>
-</li>
-<li>
-<p><strong>Default Value</strong>: 1</p>
-</li>
-</ul>
-<h4 id="header-2.--1">2. <code>cpu_extra_time</code> <a class="permalink" href="#header-2.--1" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: float</p>
-</li>
-<li>
-<p><strong>Unit</strong>: second</p>
-</li>
-<li>
-<p><strong>Description</strong>: Extra wait time after <code>cpu_time_limit</code> has been exceeded. This has the advantage that
-the real execution time is reported, even though it slightly exceeds time limit.</p>
-</li>
-<li>
-<p><strong>Default Value</strong>: 0.5</p>
-</li>
-</ul>
-<h4 id="header-3.--1">3. <code>wall_time_limit</code> <a class="permalink" href="#header-3.--1" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: float</p>
-</li>
-<li>
-<p><strong>Unit</strong>: second</p>
-</li>
-<li>
-<p><strong>Description</strong>: Wall-clock time limit for submission. This clock measures time from the start of the submission to its exit,
-so it does not stop when submission lost the CPU or when it is waiting for an external event. We recommend to use <code>cpu_time_limit</code> as the main
-limit, but set <code>wall_time_limit</code> to a much higher value as a precaution against sleeping programs.</p>
-</li>
-<li>
-<p><strong>Default Value</strong>: 10</p>
-</li>
-</ul>
-<h4 id="header-4.--1">4. <code>memory_limit</code> <a class="permalink" href="#header-4.--1" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: integer</p>
-</li>
-<li>
-<p><strong>Unit</strong>: kilobyte</p>
-</li>
-<li>
-<p><strong>Description</strong>: Address space limit for submission.</p>
-</li>
-<li>
-<p><strong>Default Value</strong>: 128000</p>
-</li>
-</ul>
-<h4 id="header-5.--1">5. <code>stack_limit</code> <a class="permalink" href="#header-5.--1" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: integer</p>
-</li>
-<li>
-<p><strong>Unit</strong>: kilobyte</p>
-</li>
-<li>
-<p><strong>Description</strong>: Stack space limit for submission.</p>
-</li>
-</ul>
-<h4 id="header-6.--1">6. <code>max_processes_and_or_threads</code> <a class="permalink" href="#header-6.--1" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: integer</p>
-</li>
-<li>
-<p><strong>Description</strong>: Maximum number of processes and/or threads submission can create.</p>
-</li>
-<li>
-<p><strong>Default Value</strong>: 15</p>
-</li>
-</ul>
-<h4 id="header-7.--1">7. <code>enable_per_process_and_thread_time_limit</code> <a class="permalink" href="#header-7.--1" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: boolean</p>
-</li>
-<li>
-<p><strong>Description</strong>: If <code>true</code> then <code>cpu_time_limit</code> will be used as per process and thread.</p>
-</li>
-<li>
-<p><strong>Default Value</strong>: false</p>
-</li>
-</ul>
-<h4 id="header-8.--1">8. <code>enable_per_process_and_thread_memory_limit</code> <a class="permalink" href="#header-8.--1" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: boolean</p>
-</li>
-<li>
-<p><strong>Description</strong>: If <code>true</code> then <code>memory_limit</code> will be used as per process and thread.</p>
-</li>
-<li>
-<p><strong>Default Value</strong>: false</p>
-</li>
-</ul>
-<h4 id="header-9.--1">9. <code>max_file_size</code> <a class="permalink" href="#header-9.--1" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: integer</p>
-</li>
-<li>
-<p><strong>Description</strong>: Limit file size created or modified by submission</p>
-</li>
-<li>
-<p><strong>Default Value</strong>: 1024</p>
-</li>
-</ul>
-<h4 id="header-10.--1">10. <code>number_of_runs</code> <a class="permalink" href="#header-10.--1" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: integer</p>
-</li>
-<li>
-<p><strong>Description</strong>: Run each submission <code>number_of_runs</code> times and take average of time and memory.</p>
-</li>
-<li>
-<p><strong>Default Value</strong>: 1</p>
-</li>
-</ul>
-<p><em>Default configuration value</em> for each variable is given to you as response of this API call. For example <em>default configuration value</em>
+<p>We will refer to <em>default values</em> as values which Judge0 API automatically assigns to each of these <em>configuration variables</em>,
+if admin didn’t set them. For example, default value of <em>configuration variable</em> <code>cpu_time_limit</code> is <code>2</code>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:left">Name</th>
+<th style="text-align:center">Type</th>
+<th style="text-align:center">Unit</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:left"><code>enable_wait_result</code></td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">If enabled user can request to synchronically wait for submission result on submission create.</td>
+<td style="text-align:left">true</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:left"><code>cpu_time_limit</code></td>
+<td style="text-align:center">float</td>
+<td style="text-align:center">second</td>
+<td style="text-align:left">Default runtime limit for every program (in seconds). Decimal numbers are allowed. Time in which the OS assigns the processor to different tasks is not counted.</td>
+<td style="text-align:left">2</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:left"><code>cpu_extra_time</code></td>
+<td style="text-align:center">float</td>
+<td style="text-align:center">second</td>
+<td style="text-align:left">When a time limit is exceeded, wait for extra time, before killing the program. This has the advantage that the real execution time is reported, even though it slightly exceeds the limit.</td>
+<td style="text-align:left">0.5</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:left"><code>wall_time_limit</code></td>
+<td style="text-align:center">float</td>
+<td style="text-align:center">second</td>
+<td style="text-align:left">Limit wall-clock time in seconds. Decimal numbers are allowed. This clock measures the time from the start of the program to its exit, for an external event. We recommend to use <code>cpu_time_limit</code> as the main limit, but set <code>wall_time_limit</code> to a much higher value as a precaution against sleeping programs.</td>
+<td style="text-align:left">5</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:left"><code>memory_limit</code></td>
+<td style="text-align:center">integer</td>
+<td style="text-align:center">kilobyte</td>
+<td style="text-align:left">Limit address space of the program in kilobytes.</td>
+<td style="text-align:left">128000</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:left"><code>stack_limit</code></td>
+<td style="text-align:center">integer</td>
+<td style="text-align:center">kilobyte</td>
+<td style="text-align:left">Limit process stack in kilobytes.</td>
+<td style="text-align:left">64000</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:left"><code>max_processes_and_or_threads</code></td>
+<td style="text-align:center">integer</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">Maximum number of processes and/or threads program can create.</td>
+<td style="text-align:left">30</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:left"><code>enable_per_process_and_thread_time_limit</code></td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">If <code>true</code> then <code>cpu_time_limit</code> will be used as per process and thread.</td>
+<td style="text-align:left">false</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:left"><code>enable_per_process_and_thread_memory_limit</code></td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">If <code>true</code> then <code>memory_limit</code> will be used as per process and thread.</td>
+<td style="text-align:left">true</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:left"><code>max_file_size</code></td>
+<td style="text-align:center">integer</td>
+<td style="text-align:center">kilobyte</td>
+<td style="text-align:left">Limit size of files created (or modified) by the program.</td>
+<td style="text-align:left">1024</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:left"><code>number_of_runs</code></td>
+<td style="text-align:center">integer</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">Run each program this many times and take average of time and memory.</td>
+<td style="text-align:left">1</td>
+</tr>
+</tbody>
+</table>
+<p><em>Default configuration value</em> for each variable is given to you as response of this API call. For example, <em>default configuration value</em>
 for variable <code>cpu_extra_time</code> might be <code>2</code>, and if admin didn’t set this, then it is <code>0.5</code> (<em>default value</em>).
 This means that admin set <code>cpu_extra_time</code> <em>configuration variable</em> to value <code>2</code> and we say it is now <em>default configuration value</em> for this
 variable <code>cpu_extra_time</code>.</p>
@@ -806,167 +890,169 @@ variable <code>cpu_extra_time</code>.</p>
 user might create submission which has <code>cpu_time_limit</code> of <code>5</code> seconds. For security reasons we need to limit values of each of these
 configuration variables. For example, we don’t want user to create a submission which has <code>cpu_time_limit</code> of <code>100000</code> seconds.</p>
 <p>For this security reason we are introducing <em>limit configuration variables</em> for each <em>configuration variable</em>.</p>
-<h4 id="header-1.--2">1. <code>max_cpu_time_limit</code> <a class="permalink" href="#header-1.--2" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: float</p>
-</li>
-<li>
-<p><strong>Unit</strong>: second</p>
-</li>
-<li>
-<p><strong>Description</strong>: Maximum custom <code>cpu_time_limit</code>.</p>
-</li>
-<li>
-<p><strong>Default Value</strong>: 15</p>
-</li>
-</ul>
-<h4 id="header-2.--2">2. <code>max_cpu_extra_time</code> <a class="permalink" href="#header-2.--2" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: float</p>
-</li>
-<li>
-<p><strong>Unit</strong>: second</p>
-</li>
-<li>
-<p><strong>Description</strong>: Maximum custom <code>cpu_extra_time</code>.</p>
-</li>
-<li>
-<p><strong>Default Value</strong>: 5</p>
-</li>
-</ul>
-<h4 id="header-3.--2">3. <code>max_wall_time_limit</code> <a class="permalink" href="#header-3.--2" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: float</p>
-</li>
-<li>
-<p><strong>Unit</strong>: second</p>
-</li>
-<li>
-<p><strong>Description</strong>: Maximum custom <code>wall_time_limit</code>.</p>
-</li>
-<li>
-<p><strong>Default Value</strong>: 150</p>
-</li>
-</ul>
-<h4 id="header-4.--2">4. <code>max_memory_limit</code> <a class="permalink" href="#header-4.--2" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: integer</p>
-</li>
-<li>
-<p><strong>Unit</strong>: kilobyte</p>
-</li>
-<li>
-<p><strong>Description</strong>: Maximum custom <code>memory_limit</code>.</p>
-</li>
-<li>
-<p><strong>Default Value</strong>: 512000</p>
-</li>
-</ul>
-<h4 id="header-5.--2">5. <code>max_stack_limit</code> <a class="permalink" href="#header-5.--2" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: integer</p>
-</li>
-<li>
-<p><strong>Unit</strong>: kilobyte</p>
-</li>
-<li>
-<p><strong>Description</strong>: Maximum custom <code>stack_limit</code>.</p>
-</li>
-<li>
-<p><strong>Default Value</strong>: 512000</p>
-</li>
-</ul>
-<h4 id="header-6.--2">6. <code>max_max_processes_and_or_threads</code> <a class="permalink" href="#header-6.--2" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: integer</p>
-</li>
-<li>
-<p><strong>Description</strong>: Maximum custom <code>max_processes_and_or_threads</code>.</p>
-</li>
-<li>
-<p><strong>Default Value</strong>: 30</p>
-</li>
-</ul>
-<h4 id="header-7.--2">7. <code>allow_enable_per_process_and_thread_time_limit</code> <a class="permalink" href="#header-7.--2" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: integer</p>
-</li>
-<li>
-<p><strong>Description</strong>: If <code>false</code>, user won’t be able to set <code>enable_per_process_and_thread_time_limit</code>.</p>
-</li>
-<li>
-<p><strong>Default Value</strong>: <code>true</code></p>
-</li>
-</ul>
-<h4 id="header-8.--2">8. <code>allow_enable_per_process_and_thread_memory_limit</code> <a class="permalink" href="#header-8.--2" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: integer</p>
-</li>
-<li>
-<p><strong>Description</strong>: If <code>false</code>, user won’t be able to set <code>enable_per_process_and_thread_memory_limit</code>.</p>
-</li>
-<li>
-<p><strong>Default Value</strong>: <code>true</code></p>
-</li>
-</ul>
-<h4 id="header-9.--2">9. <code>max_max_file_size</code> <a class="permalink" href="#header-9.--2" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: integer</p>
-</li>
-<li>
-<p><strong>Unit</strong>: kilobyte</p>
-</li>
-<li>
-<p><strong>Description</strong>: Maximum custom <code>max_file_size</code></p>
-</li>
-<li>
-<p><strong>Default Value</strong>: 4096</p>
-</li>
-</ul>
-<h4 id="header-10.--2">10. <code>max_number_of_runs</code> <a class="permalink" href="#header-10.--2" aria-hidden="true">¶</a></h4>
-<ul>
-<li>
-<p><strong>Type</strong>: integer</p>
-</li>
-<li>
-<p><strong>Description</strong>: Maximum custom <code>number_of_runs</code></p>
-</li>
-<li>
-<p><strong>Default Value</strong>: 20</p>
-</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#</th>
+<th style="text-align:left">Name</th>
+<th style="text-align:center">Type</th>
+<th style="text-align:center">Unit</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:left"><code>max_cpu_time_limit</code></td>
+<td style="text-align:center">float</td>
+<td style="text-align:center">second</td>
+<td style="text-align:left">Maximum custom <code>cpu_time_limit</code></td>
+<td style="text-align:left">15</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:left"><code>max_cpu_extra_time</code></td>
+<td style="text-align:center">float</td>
+<td style="text-align:center">second</td>
+<td style="text-align:left">Maximum custom <code>cpu_extra_time</code></td>
+<td style="text-align:left">2</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:left"><code>max_wall_time_limit</code></td>
+<td style="text-align:center">float</td>
+<td style="text-align:center">second</td>
+<td style="text-align:left">Maximum custom <code>wall_time_limit</code></td>
+<td style="text-align:left">20</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:left"><code>max_memory_limit</code></td>
+<td style="text-align:center">integer</td>
+<td style="text-align:center">kilobyte</td>
+<td style="text-align:left">Maximum custom <code>memory_limit</code></td>
+<td style="text-align:left">256000</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:left"><code>max_stack_limit</code></td>
+<td style="text-align:center">integer</td>
+<td style="text-align:center">kilobyte</td>
+<td style="text-align:left">Maximum custom <code>stack_limit</code></td>
+<td style="text-align:left">128000</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:left"><code>max_max_processes_and_or_threads</code></td>
+<td style="text-align:center">integer</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">Maximum custom <code>max_processes_and_or_threads</code></td>
+<td style="text-align:left">60</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:left"><code>allow_enable_per_process_and_thread_time_limit</code></td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">If <code>false</code> user won’t be able to set <code>enable_per_process_and_thread_time_limit</code> to <code>true</code></td>
+<td style="text-align:left">true</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:left"><code>allow_enable_per_process_and_thread_memory_limit</code></td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">If <code>false</code> user won’t be able to set <code>enable_per_process_and_thread_memory_limit</code> to <code>true</code></td>
+<td style="text-align:left">true</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:left"><code>max_max_file_size</code></td>
+<td style="text-align:center">integer</td>
+<td style="text-align:center">kilobyte</td>
+<td style="text-align:left">Maximux custom <code>max_file_size</code></td>
+<td style="text-align:left">4096</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:left"><code>max_number_of_runs</code></td>
+<td style="text-align:center">integer</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">Maximum custom <code>number_of_runs</code></td>
+<td style="text-align:left">20</td>
+</tr>
+</tbody>
+</table>
 <p>For example, <code>max_cpu_time_limit</code> with value <code>20</code> means that user cannot create new submission which has <code>cpu_time_limit</code> greater than <code>20</code>.</p>
-<div id="system-and-configuration-configuration-info-get" class="action get"><h4 class="action-heading"><div class="name">Configuration Info</div><a href="#system-and-configuration-configuration-info-get" class="method get">GET</a><code class="uri">/config_info</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/config_info</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
-  "<span class="hljs-attribute">cpu_time_limit</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+<h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/config_info</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">enable_wait_result</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">cpu_time_limit</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
   "<span class="hljs-attribute">max_cpu_time_limit</span>": <span class="hljs-value"><span class="hljs-number">15</span></span>,
   "<span class="hljs-attribute">cpu_extra_time</span>": <span class="hljs-value"><span class="hljs-number">0.5</span></span>,
-  "<span class="hljs-attribute">max_cpu_extra_time</span>": <span class="hljs-value"><span class="hljs-number">5</span></span>,
-  "<span class="hljs-attribute">wall_time_limit</span>": <span class="hljs-value"><span class="hljs-number">10</span></span>,
-  "<span class="hljs-attribute">max_wall_time_limit</span>": <span class="hljs-value"><span class="hljs-number">150</span></span>,
+  "<span class="hljs-attribute">max_cpu_extra_time</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+  "<span class="hljs-attribute">wall_time_limit</span>": <span class="hljs-value"><span class="hljs-number">5</span></span>,
+  "<span class="hljs-attribute">max_wall_time_limit</span>": <span class="hljs-value"><span class="hljs-number">20</span></span>,
   "<span class="hljs-attribute">memory_limit</span>": <span class="hljs-value"><span class="hljs-number">128000</span></span>,
-  "<span class="hljs-attribute">max_memory_limit</span>": <span class="hljs-value"><span class="hljs-number">512000</span></span>,
-  "<span class="hljs-attribute">stack_limit</span>": <span class="hljs-value"><span class="hljs-number">128000</span></span>,
-  "<span class="hljs-attribute">max_stack_limit</span>": <span class="hljs-value"><span class="hljs-number">512000</span></span>,
-  "<span class="hljs-attribute">max_processes_and_or_threads</span>": <span class="hljs-value"><span class="hljs-number">15</span></span>,
-  "<span class="hljs-attribute">max_max_processes_and_or_threads</span>": <span class="hljs-value"><span class="hljs-number">30</span></span>,
+  "<span class="hljs-attribute">max_memory_limit</span>": <span class="hljs-value"><span class="hljs-number">256000</span></span>,
+  "<span class="hljs-attribute">stack_limit</span>": <span class="hljs-value"><span class="hljs-number">64000</span></span>,
+  "<span class="hljs-attribute">max_stack_limit</span>": <span class="hljs-value"><span class="hljs-number">128000</span></span>,
+  "<span class="hljs-attribute">max_processes_and_or_threads</span>": <span class="hljs-value"><span class="hljs-number">30</span></span>,
+  "<span class="hljs-attribute">max_max_processes_and_or_threads</span>": <span class="hljs-value"><span class="hljs-number">60</span></span>,
   "<span class="hljs-attribute">enable_per_process_and_thread_time_limit</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
   "<span class="hljs-attribute">allow_enable_per_process_and_thread_time_limit</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
-  "<span class="hljs-attribute">enable_per_process_and_thread_memory_limit</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+  "<span class="hljs-attribute">enable_per_process_and_thread_memory_limit</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
   "<span class="hljs-attribute">allow_enable_per_process_and_thread_memory_limit</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
   "<span class="hljs-attribute">max_file_size</span>": <span class="hljs-value"><span class="hljs-number">1024</span></span>,
   "<span class="hljs-attribute">max_max_file_size</span>": <span class="hljs-value"><span class="hljs-number">4096</span></span>,
   "<span class="hljs-attribute">number_of_runs</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
   "<span class="hljs-attribute">max_number_of_runs</span>": <span class="hljs-value"><span class="hljs-number">20</span>
-</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 23 Apr 2017</p><script>/* eslint-env browser */
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="health-check" class="resource-group"><h2 class="group-heading">Health Check <a href="#health-check" class="permalink">&para;</a></h2><div id="health-check-workers-health-check" class="resource"><h3 class="resource-heading">Workers Health Check <a href="#health-check-workers-health-check" class="permalink">&nbsp;&para;</a></h3><div id="health-check-workers-health-check-get" class="action get"><h4 class="action-heading"><div class="name">Workers Health Check</div><a href="#health-check-workers-health-check-get" class="method get">GET</a><code class="uri">/workers</code></h4><p>For each queue you will get:</p>
+<ul>
+<li>
+<p><code>queue</code> name</p>
+</li>
+<li>
+<p><code>total</code> number of workers that has been initially run</p>
+</li>
+<li>
+<p><code>available</code> number of workers</p>
+</li>
+<li>
+<p>how many workers are <code>idle</code></p>
+</li>
+<li>
+<p>how many workers are currently <code>working</code></p>
+</li>
+<li>
+<p>how many workers are <code>paused</code></p>
+</li>
+<li>
+<p>how many jobs <code>failed</code></p>
+</li>
+</ul>
+<h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/workers</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>[
+  {
+    "<span class="hljs-attribute">queue</span>": <span class="hljs-value"><span class="hljs-string">"default"</span></span>,
+    "<span class="hljs-attribute">total</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">available</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">idle</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">working</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">paused</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">failed</span>": <span class="hljs-value"><span class="hljs-number">0</span>
+  </span>}
+]</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>500</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>If <code>total</code> is not equal to <code>available</code>. This means that some workers died.</p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>[
+  {
+    "<span class="hljs-attribute">queue</span>": <span class="hljs-value"><span class="hljs-string">"default"</span></span>,
+    "<span class="hljs-attribute">total</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
+    "<span class="hljs-attribute">available</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">idle</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">working</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">paused</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">failed</span>": <span class="hljs-value"><span class="hljs-number">0</span>
+  </span>}
+]</code></pre><div style="height: 1px;"></div></div></div></div></div></section></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 01 Oct 2017</p><script>/* eslint-env browser */
 /* eslint quotes: [2, "single"] */
 'use strict';
 
