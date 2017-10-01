@@ -7,13 +7,61 @@
 on https://api.judge0.com.
 
 ## Content
-1. [Project Organization](#project-organization)
-2. [Quick Development Setup](#quick-development-setup)
-3. [Quick Production Setup](#quick-production-setup)
-4. [About Docker Images](#about-docker-images)
-5. [Adding New Compiler or Interpreter](#adding-new-compiler-or-interpreter)
-6. [HTTPS In Production](#https-in-production)
-6. [Notes](#notes)
+1. [Supported Languages](#supported-languages)
+2. [Project Organization](#project-organization)
+3. [Quick Development Setup](#quick-development-setup)
+4. [Quick Production Setup](#quick-production-setup)
+5. [About Docker Images](#about-docker-images)
+6. [Adding New Compiler or Interpreter](#adding-new-compiler-or-interpreter)
+7. [HTTPS In Production](#https-in-production)
+8. [Notes](#notes)
+
+## Supported Languages
+|#|Name|
+|:---:|:---:|
+|1 |Bash (4.4)|
+|2 |Bash (4.0)|
+|3 |Basic (fbc 1.05.0)|
+|4 |C (gcc 7.2.0)|
+|5 |C (gcc 6.4.0)|
+|6 |C (gcc 6.3.0)|
+|7 |C (gcc 5.4.0)|
+|8 |C (gcc 4.9.4)|
+|9 |C (gcc 4.8.5)|
+|10|C++ (g++ 7.2.0)|
+|11|C++ (g++ 6.4.0)|
+|12|C++ (g++ 6.3.0)|
+|13|C++ (g++ 5.4.0)|
+|14|C++ (g++ 4.9.4)|
+|15|C++ (g++ 4.8.5)|
+|16|C# (mono 5.4.0.167)|
+|17|C# (mono 5.2.0.224)|
+|18|Clojure (1.8.0)|
+|19|Crystal (0.23.1)|
+|20|Elixir (1.5.1)|
+|21|Erlang (OTP 20.0)|
+|22|Go (1.9)|
+|23|Haskell (ghc 8.2.1)|
+|24|Haskell (ghc 8.0.2)|
+|25|Insect (5.0.0)|
+|26|Java (OpenJDK 9 with Eclipse OpenJ9)|
+|27|Java (OpenJDK 8)|
+|28|Java (OpenJDK 7)|
+|29|JavaScript (nodejs 8.5.0)|
+|30|JavaScript (nodejs 7.10.1)|
+|31|OCaml (4.05.0)|
+|32|Octave (4.2.0)|
+|33|Pascal (fpc 3.0.0)|
+|34|Python (3.6.0)|
+|35|Python (3.5.3)|
+|36|Python (2.7.9)|
+|37|Python (2.6.9)|
+|38|Ruby (2.4.0)|
+|39|Ruby (2.3.3)|
+|40|Ruby (2.2.6)|
+|41|Ruby (2.1.9)|
+|42|Rust (1.20.0)|
+|43|Text (plain text)|
 
 ## Project Organization
 Judge0 API is a [Rails 5](http://weblog.rubyonrails.org/2016/6/30/Rails-5-0-final/) application organized in two major components:
