@@ -1,6 +1,6 @@
 FROM judge0/api-base:0.2.1
 #LABEL maintainer="Herman Zvonimir Došilović, hermanz.dosilovic@gmail.com" \
-#      version="0.2.0"
+#      version="1.0.0"
 
 RUN apt-get update && \
     apt-get install -y \
@@ -33,4 +33,4 @@ CMD rm -f tmp/pids/server.pid && \
     rails s -b 0.0.0.0
 
 LABEL maintainer="Herman Zvonimir Došilović, hermanz.dosilovic@gmail.com" \
-      version="0.2.0"
+      version="1.0.0"
