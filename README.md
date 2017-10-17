@@ -11,57 +11,58 @@ on https://api.judge0.com.
 2. [Project Organization](#project-organization)
 3. [Quick Development Setup](#quick-development-setup)
 4. [Quick Production Setup](#quick-production-setup)
-5. [About Docker Images](#about-docker-images)
-6. [Adding New Compiler or Interpreter](#adding-new-compiler-or-interpreter)
-7. [HTTPS In Production](#https-in-production)
-8. [Notes](#notes)
+5. [Carefully in Windows](#Carefully in Windows)
+6. [About Docker Images](#about-docker-images)
+7. [Adding New Compiler or Interpreter](#adding-new-compiler-or-interpreter)
+8. [HTTPS In Production](#https-in-production)
+9. [Notes](#notes)
 
 ## Supported Languages
-|#|Name|
-|:---:|:---:|
-|1 |Bash (4.4)|
-|2 |Bash (4.0)|
-|3 |Basic (fbc 1.05.0)|
-|4 |C (gcc 7.2.0)|
-|5 |C (gcc 6.4.0)|
-|6 |C (gcc 6.3.0)|
-|7 |C (gcc 5.4.0)|
-|8 |C (gcc 4.9.4)|
-|9 |C (gcc 4.8.5)|
-|10|C++ (g++ 7.2.0)|
-|11|C++ (g++ 6.4.0)|
-|12|C++ (g++ 6.3.0)|
-|13|C++ (g++ 5.4.0)|
-|14|C++ (g++ 4.9.4)|
-|15|C++ (g++ 4.8.5)|
-|16|C# (mono 5.4.0.167)|
-|17|C# (mono 5.2.0.224)|
-|18|Clojure (1.8.0)|
-|19|Crystal (0.23.1)|
-|20|Elixir (1.5.1)|
-|21|Erlang (OTP 20.0)|
-|22|Go (1.9)|
-|23|Haskell (ghc 8.2.1)|
-|24|Haskell (ghc 8.0.2)|
-|25|Insect (5.0.0)|
-|26|Java (OpenJDK 9 with Eclipse OpenJ9)|
-|27|Java (OpenJDK 8)|
-|28|Java (OpenJDK 7)|
-|29|JavaScript (nodejs 8.5.0)|
-|30|JavaScript (nodejs 7.10.1)|
-|31|OCaml (4.05.0)|
-|32|Octave (4.2.0)|
-|33|Pascal (fpc 3.0.0)|
-|34|Python (3.6.0)|
-|35|Python (3.5.3)|
-|36|Python (2.7.9)|
-|37|Python (2.6.9)|
-|38|Ruby (2.4.0)|
-|39|Ruby (2.3.3)|
-|40|Ruby (2.2.6)|
-|41|Ruby (2.1.9)|
-|42|Rust (1.20.0)|
-|43|Text (plain text)|
+|  #   |                 Name                 |
+| :--: | :----------------------------------: |
+|  1   |              Bash (4.4)              |
+|  2   |              Bash (4.0)              |
+|  3   |          Basic (fbc 1.05.0)          |
+|  4   |            C (gcc 7.2.0)             |
+|  5   |            C (gcc 6.4.0)             |
+|  6   |            C (gcc 6.3.0)             |
+|  7   |            C (gcc 5.4.0)             |
+|  8   |            C (gcc 4.9.4)             |
+|  9   |            C (gcc 4.8.5)             |
+|  10  |           C++ (g++ 7.2.0)            |
+|  11  |           C++ (g++ 6.4.0)            |
+|  12  |           C++ (g++ 6.3.0)            |
+|  13  |           C++ (g++ 5.4.0)            |
+|  14  |           C++ (g++ 4.9.4)            |
+|  15  |           C++ (g++ 4.8.5)            |
+|  16  |         C# (mono 5.4.0.167)          |
+|  17  |         C# (mono 5.2.0.224)          |
+|  18  |           Clojure (1.8.0)            |
+|  19  |           Crystal (0.23.1)           |
+|  20  |            Elixir (1.5.1)            |
+|  21  |          Erlang (OTP 20.0)           |
+|  22  |               Go (1.9)               |
+|  23  |         Haskell (ghc 8.2.1)          |
+|  24  |         Haskell (ghc 8.0.2)          |
+|  25  |            Insect (5.0.0)            |
+|  26  | Java (OpenJDK 9 with Eclipse OpenJ9) |
+|  27  |           Java (OpenJDK 8)           |
+|  28  |           Java (OpenJDK 7)           |
+|  29  |      JavaScript (nodejs 8.5.0)       |
+|  30  |      JavaScript (nodejs 7.10.1)      |
+|  31  |            OCaml (4.05.0)            |
+|  32  |            Octave (4.2.0)            |
+|  33  |          Pascal (fpc 3.0.0)          |
+|  34  |            Python (3.6.0)            |
+|  35  |            Python (3.5.3)            |
+|  36  |            Python (2.7.9)            |
+|  37  |            Python (2.6.9)            |
+|  38  |             Ruby (2.4.0)             |
+|  39  |             Ruby (2.3.3)             |
+|  40  |             Ruby (2.2.6)             |
+|  41  |             Ruby (2.1.9)             |
+|  42  |            Rust (1.20.0)             |
+|  43  |          Text (plain text)           |
 
 ## Project Organization
 Judge0 API is a [Rails 5](http://weblog.rubyonrails.org/2016/6/30/Rails-5-0-final/) application organized in two major components:
@@ -117,7 +118,9 @@ To host your own Judge0 API you need to install [Docker](https://docs.docker.com
     ```
     $ wget https://raw.githubusercontent.com/judge0/api/master/judge0-api.conf.default -O judge0-api.conf
     ```
+
 3. In `judge0-api.conf` change `RAILS_ENV` to `production`.
+
 4. Run database:
     ```
     $ docker-compose up -d db
@@ -130,7 +133,42 @@ To host your own Judge0 API you need to install [Docker](https://docs.docker.com
 
 6. Open `http://<IP OF YOUR SERVER>:3000` in your browser.
 
+## Carefully in Windows
+
+If you run Judge0 API on Windows, you have to change `docker-compose.yml` .
+
+This is sample `docker-compose.yml` in Windows.  We had run it on Windows10 via `PowerShell`.
+
+```yaml
+version: '2'
+services:
+  api:
+    image: judge0/api
+    env_file: judge0-api.conf
+    ports:
+      - "3000:3000"
+    privileged: true
+    restart: always
+
+  worker:
+    image: judge0/api
+    env_file: judge0-api.conf
+    command: rails resque:work
+    privileged: true
+    restart: always
+
+  db:
+    image: postgres:9.6.5
+    env_file: judge0-api.conf
+    restart: always
+
+  redis:
+    image: redis
+    restart: always
+```
+
 ## About Docker Images
+
 This project has two Dockerfiles:
 1. [Dockerfile](https://github.com/judge0/api/blob/master/Dockerfile)
    * builds `judge0/api:latest` image
