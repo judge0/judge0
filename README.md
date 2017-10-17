@@ -11,7 +11,7 @@ on https://api.judge0.com.
 2. [Project Organization](#project-organization)
 3. [Quick Development Setup](#quick-development-setup)
 4. [Quick Production Setup](#quick-production-setup)
-5. [Carefully in Windows](#Carefully in Windows)
+5. [Carefully in Windows](#carefully in windows)
 6. [About Docker Images](#about-docker-images)
 7. [Adding New Compiler or Interpreter](#adding-new-compiler-or-interpreter)
 8. [HTTPS In Production](#https-in-production)
@@ -135,9 +135,9 @@ To host your own Judge0 API you need to install [Docker](https://docs.docker.com
 
 ## Carefully in Windows
 
-If you run Judge0 API on Windows, you have to change `docker-compose.yml` .
+If you run Judge0 API on Windows, you have to change file `docker-compose.yml` .
 
-This is sample `docker-compose.yml` in Windows.  We had run it on Windows10 via `PowerShell`.
+This is sample about `docker-compose.yml` in Windows.  We had run it on Windows10 via `PowerShell`.
 
 ```yaml
 version: '2'
