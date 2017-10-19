@@ -135,12 +135,12 @@ To host your own Judge0 API you need to install [Docker](https://docs.docker.com
 
 ## Running on Windows
 
-There is several differences.
+There are several differences about compose file.
 
-1. You should change every compose file to use postgres:9.6.5.
-2. Remove lines from compose files that we discussed in #38. Note that in docker-compose.dev.yml for Windows whole nginx-proxy service should be removed.
+- You should change every compose file to use postgres:9.6.5.
+- Remove lines from compose files that we had discussed in [#38](https://github.com/judge0/api/issues/38). Note that in docker-compose.dev.yml for Windows whole nginx-proxy service should be removed.
 
-There is a sample compose file `docker-compose.windows.yml`. You can use it directly. We had run it succeed on Windows10.
+There is a sample compose file `docker-compose.windows.yml` in project. You can use it directly. We had run it succeed on Windows10.
 
 ## About Docker Images
 
