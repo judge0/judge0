@@ -118,9 +118,7 @@ To host your own Judge0 API you need to install [Docker](https://docs.docker.com
     ```
     $ wget https://raw.githubusercontent.com/judge0/api/master/judge0-api.conf.default -O judge0-api.conf
     ```
-
 3. In `judge0-api.conf` change `RAILS_ENV` to `production`.
-
 4. Run database:
     ```
     $ docker-compose up -d db
@@ -143,7 +141,6 @@ There are several differences about compose file.
 There is a sample compose file `docker-compose.windows.yml` in project. You can use it directly. We had run it succeed on Windows10.
 
 ## About Docker Images
-
 This project has two Dockerfiles:
 1. [Dockerfile](https://github.com/judge0/api/blob/master/Dockerfile)
    * builds `judge0/api:latest` image
