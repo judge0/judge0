@@ -1,0 +1,25 @@
+version: '2'
+services:
+  api:
+    image: judge0/api
+    env_file: judge0-api.conf
+    ports:
+      - "3000:3000"
+    privileged: true
+    restart: always
+
+  worker:
+    image: judge0/api
+    env_file: judge0-api.conf
+    command: rails resque:work
+    privileged: true
+    restart: always
+
+  db:
+    image: postgres:9.6.5
+    env_file: judge0-api.conf
+    restart: always
+
+  redis:
+    image: redis
+    restart: always
