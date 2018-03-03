@@ -1,3 +1,5 @@
+# [NEWS] Please read [this](https://judge0.com/announcement-of-judge0-api-2-0-0/) blog post (1 min read) before continuing. 
+
 # Judge0 API
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://github.com/judge0/api/blob/master/LICENSE)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/hermanzdosilovic)
