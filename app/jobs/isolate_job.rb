@@ -14,7 +14,7 @@ class IsolateJob < ApplicationJob
     time = []
     memory = []
 
-    submission.update(status: Status.process)
+    submission.update(status_id: Status.process)
     submission.number_of_runs.times do
       init
       write
@@ -37,7 +37,7 @@ class IsolateJob < ApplicationJob
     submission.save
 
   rescue Exception => e
-    submission.update(message: e.message, status: Status.boxerr)
+    submission.update(message: e.message, status_id: Status.boxerr)
     clean
   end
 
@@ -67,7 +67,7 @@ class IsolateJob < ApplicationJob
     return :success if $?.success?
 
     submission.update(
-      status: Status.ce,
+      status_id: Status.ce,
       finished_at: DateTime.now
     )
     :failure
@@ -114,7 +114,7 @@ class IsolateJob < ApplicationJob
     submission.exit_code = parsed_meta[:exitcode].try(:to_i) || 0
     submission.exit_signal = parsed_meta[:exitsig].try(:to_i)
     submission.message = parsed_meta[:message]
-    submission.status = determine_status
+    submission.status_id = determine_status
   end
 
   def clean

@@ -1,0 +1,2 @@
+docker-compose -f docker-compose.dev.yml down
+docker volume rm judge0-dev-postgres-data judge0-dev-redis-data
