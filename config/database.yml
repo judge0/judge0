@@ -7,11 +7,11 @@ default: &default
   password: <%= ENV['POSTGRES_PASSWORD'] %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
+production:
+  <<: *default
+
 development:
   <<: *default
 
 test:
-  <<: *default
-
-production:
   <<: *default

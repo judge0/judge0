@@ -54,10 +54,10 @@ class Submission < ApplicationRecord
             numericality: { greater_than: 0, less_than_or_equal_to: Config::MAX_MAX_PROCESSES_AND_OR_THREADS }
   validates :enable_per_process_and_thread_time_limit,
             inclusion: { in: [false], message: "this option cannot be enabled" },
-            unless: "Config::ALLOW_ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT"
+            unless: -> { Config::ALLOW_ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT }
   validates :enable_per_process_and_thread_memory_limit,
             inclusion: { in: [false], message: "this option cannot be enabled" },
-            unless: "Config::ALLOW_ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT"
+            unless: -> { Config::ALLOW_ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT }
   validates :max_file_size,
             numericality: { greater_than: 0, less_than_or_equal_to: Config::MAX_MAX_FILE_SIZE }
   validate :language_existence
@@ -156,7 +156,7 @@ class Submission < ApplicationRecord
   end
 
   def set_defaults
-    self.status ||= Status.queue
+    self.status_id ||= Status.queue
     self.number_of_runs ||= Config::NUMBER_OF_RUNS
     self.cpu_time_limit ||= Config::CPU_TIME_LIMIT
     self.cpu_extra_time ||= Config::CPU_EXTRA_TIME

@@ -1,12 +1,12 @@
-version: '2'
+version: '3.4'
 services:
   nginx-proxy:
-    image: jwilder/nginx-proxy
+    image: jwilder/nginx-proxy:latest
     container_name: judge0-dev-nginx-proxy
-    volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro
     environment:
       - DEFAULT_HOST=api.judge0.local
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
     ports:
       - "8080:80"
     restart: always
@@ -16,8 +16,8 @@ services:
       context: .
       dockerfile: Dockerfile.dev
       args:
-        - DEV_USER=$JUDGE0_DEV_USER
-        - DEV_USER_ID=$JUDGE0_DEV_UID
+        - DEV_USER=${USER:-judge0}
+        - DEV_USER_ID=${UID:-1000}
     image: judge0/api:dev
     container_name: judge0-dev-api
     environment:
@@ -31,7 +31,7 @@ services:
     privileged: true
 
   resque-web:
-    image: ennexa/resque-web
+    image: ennexa/resque-web:latest
     container_name: judge0-dev-resque-web
     command: -r redis://redis:6379
     ports:
@@ -39,18 +39,16 @@ services:
     restart: always
 
   db:
-    image: postgres:9.6.5
-    container_name: judge0-dev-db
+    image: postgres:10.3
     env_file: judge0-api.conf
     volumes:
-      - postgres-data:/var/lib/postgresql/data/
+      - postgres-data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
     restart: always
 
   redis:
-    image: redis:4.0.9
-    container_name: judge0-dev-redis
+    image: redis:3.2.11
     command: redis-server --appendonly yes
     volumes:
       - redis-data:/data

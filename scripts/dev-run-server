@@ -1,4 +1,0 @@
-#!/bin/bash
-source judge0-api.conf
-rails db:setup
-rails s -b 0.0.0.0

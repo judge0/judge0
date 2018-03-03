@@ -1,0 +1,2 @@
+#!/bin/bash
+aglio --theme-full-width -i docs/api/docs.md -o public/docs.html

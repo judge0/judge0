@@ -1,0 +1,1 @@
+aglio --theme-full-width -i docs/api/docs.md -s -h 0.0.0.0 -p 3030

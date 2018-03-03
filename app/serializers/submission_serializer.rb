@@ -33,7 +33,7 @@ class SubmissionSerializer < ActiveModel::Serializer
   end
 
   def status
-    { id: object.status_id, description: object.status.name }
+    { id: object.status_id, description: Status.find_by(id: object.status_id).name }
   end
 
   def language
