@@ -4,6 +4,7 @@ gem 'rails', '~> 5.1'
 gem 'pg', '~> 1.0'
 
 gem 'active_model_serializers', '~> 0.10.7'
+gem 'aws-sdk', '~> 3.0'
 gem 'enumerations', '~> 2.1'
 gem 'puma', '~> 3.11'
 gem 'rack-cors', '~> 1.0'

@@ -3,6 +3,9 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
-.byebug_history
+/data/documents/*
+!/data/documents/.keep
+!/data/.keep
 coverage/
+.byebug_history
 judge0-api.conf

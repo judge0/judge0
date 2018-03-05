@@ -1,6 +1,7 @@
 .*
 log/*
 tmp/*
+data/documents/*
 Dockerfile*
 docker-compose*
 scripts/dev
