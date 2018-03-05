@@ -13,10 +13,11 @@ on https://api.judge0.com.
 2. [Project Organization](#project-organization)
 3. [Quick Development Setup](#quick-development-setup)
 4. [Quick Production Setup](#quick-production-setup)
-5. [About Docker Images](#about-docker-images)
-6. [Adding New Compiler or Interpreter](#adding-new-compiler-or-interpreter)
-7. [HTTPS In Production](#https-in-production)
-8. [Notes](#notes)
+5. [Running on Windows](#running-on-windows)
+6. [About Docker Images](#about-docker-images)
+7. [Adding New Compiler or Interpreter](#adding-new-compiler-or-interpreter)
+8. [HTTPS In Production](#https-in-production)
+9. [Notes](#notes)
 
 ## Supported Languages
 |#|Name|
@@ -131,6 +132,15 @@ To host your own Judge0 API you need to install [Docker](https://docs.docker.com
     ```
 
 6. Open `http://<IP OF YOUR SERVER>:3000` in your browser.
+
+## Running on Windows
+
+There are several differences about compose file.
+
+- You should change every compose file to use postgres:9.6.5.
+- Remove lines from compose files that we had discussed in [#38](https://github.com/judge0/api/issues/38). Note that in docker-compose.dev.yml for Windows whole nginx-proxy service should be removed.
+
+There is a sample compose file `docker-compose.windows.yml` in project. You can use it directly. We had run it succeed on Windows10.
 
 ## About Docker Images
 This project has two Dockerfiles:
