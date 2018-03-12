@@ -1,4 +1,4 @@
-require 'aws-sdk'
+require 'aws-sdk-s3'
 
 Aws.config.update(
   endpoint: ENV.fetch("AWS_ENDPOINT"),
