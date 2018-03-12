@@ -36,8 +36,8 @@ class Document < ApplicationRecord
     @content ||= DocumentService.read(self)
   end
 
-  def content=(new_content)
-    @content = new_content
+  def content=(content)
+    @content = content
     self.digest = Digest::SHA512.hexdigest(@content)
     @file_path = LOCAL_STORAGE + digest
   end
