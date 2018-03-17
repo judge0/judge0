@@ -38,7 +38,7 @@ class IsolateJob < ApplicationJob
 
   rescue Exception => e
     submission.finished_at ||= DataTime.now
-    submission.update(message: e.message, status_id: Status.boxerr)
+    submission.update(message: Document.find_or_create_with_content(e.message), status_id: Status.boxerr)
     clean
   end
 
@@ -61,8 +61,8 @@ class IsolateJob < ApplicationJob
       `sudo touch #{f} && sudo chown $(whoami): #{f}`
     end
 
-    File.open(source, "wb") { |f| f.write(submission.source_code) }
-    File.open(stdin, "wb") { |f| f.write(submission.stdin) }
+    File.open(source, "wb") { |f| f.write(submission.source.content) }
+    File.open(stdin, "wb") { |f| f.write(submission.stdin.try(:content)) }
   end
 
   def compile
@@ -82,7 +82,7 @@ class IsolateJob < ApplicationJob
 
     compile_output = nil if compile_output.empty?
 
-    submission.compile_output = compile_output
+    submission.compile_output = Document.find_or_create_with_content(compile_output)
 
     return :success if process_status.success?
 
@@ -143,14 +143,23 @@ class IsolateJob < ApplicationJob
     program_stdout = nil if program_stdout.empty?
     program_stderr = nil if program_stderr.empty?
 
+    program_stdout = File.read(stdout)
+    program_stderr = File.read(stderr)
+
+    program_stdout = nil if program_stdout.empty?
+    program_stderr = nil if program_stderr.empty?
+
+    sandbox_message = parsed_meta[:message] || ""
+    sandbox_message = nil if sandbox_message.empty?
+
     submission.time = parsed_meta[:time]
     submission.wall_time = parsed_meta[:"time-wall"]
     submission.memory = (cgroups.present? ? parsed_meta[:"cg-mem"] : parsed_meta[:"max-rss"])
-    submission.stdout = program_stdout
-    submission.stderr = program_stderr
+    submission.stdout = Document.find_or_create_with_content(program_stdout)
+    submission.stderr = Document.find_or_create_with_content(program_stderr)
     submission.exit_code = parsed_meta[:exitcode].try(:to_i) || 0
     submission.exit_signal = parsed_meta[:exitsig].try(:to_i)
-    submission.message = parsed_meta[:message]
+    submission.message = Document.find_or_create_with_content(sandbox_message)
     submission.status_id = determine_status
   end
 
@@ -181,7 +190,7 @@ class IsolateJob < ApplicationJob
     elsif parsed_meta[:status] == 'XX'
       return Status.boxerr
     elsif submission.expected_output.nil? ||
-          strip_output(submission.expected_output) == strip_output(submission.stdout)
+          strip_output(submission.expected_output.content) == strip_output(submission.stdout.content)
       return Status.ac
     else
       return Status.wa
