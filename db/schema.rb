@@ -16,12 +16,10 @@ ActiveRecord::Schema.define(version: 20180312213402) do
   enable_extension "plpgsql"
 
   create_table "documents", force: :cascade do |t|
-    t.string "uuid", null: false
     t.string "digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["digest"], name: "index_documents_on_digest", unique: true
-    t.index ["uuid"], name: "index_documents_on_uuid", unique: true
   end
 
   create_table "languages", id: :serial, force: :cascade do |t|

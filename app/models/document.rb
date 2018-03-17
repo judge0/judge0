@@ -3,7 +3,6 @@
 # Table name: documents
 #
 #  id         :integer          not null, primary key
-#  uuid       :string           not null
 #  digest     :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -11,7 +10,6 @@
 # Indexes
 #
 #  index_documents_on_digest  (digest) UNIQUE
-#  index_documents_on_uuid    (uuid) UNIQUE
 #
 
 class Document < ApplicationRecord
@@ -21,7 +19,6 @@ class Document < ApplicationRecord
   validates :digest, uniqueness: true
 
   after_validation  :restore_data
-  before_create :generate_uuid
   after_create :save_to_storage
 
   attr :content
@@ -58,12 +55,6 @@ class Document < ApplicationRecord
 
   def restore_data
     DocumentService.save(self) if !self.errors.empty? && self.new_record?
-  end
-
-  def generate_uuid
-    begin
-      self.uuid = SecureRandom.uuid
-    end while self.class.exists?(uuid: uuid)
   end
 
   def save_to_storage
