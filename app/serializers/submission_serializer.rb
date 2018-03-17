@@ -1,35 +1,36 @@
 class SubmissionSerializer < ActiveModel::Serializer
-  attributes((Submission.column_names + ["status", "language"] - ["id"]).collect(&:to_sym))
+  attributes((Submission.column_names.reject{ |n| /id$/.match(n) } + Submission.column_names.reject{ |n| /.+id$/.match(n).nil? }.collect{ |n| n.gsub(/_id$/, "") } + ["source_code"]).collect(&:to_sym))
 
   def source_code
-    object_decoder(:source_code)
+    source
+  end
+
+  def source
+    object_decoder(object.source)
   end
 
   def stdin
-    object_decoder(:stdin)
+    object_decoder(object.stdin)
   end
 
   def expected_output
-    object_decoder(:expected_output)
+    object_decoder(object.expected_output)
   end
 
   def stdout
-    object_decoder(:stdout)
+    object_decoder(object.stdout)
   end
 
   def stderr
-    object_decoder(:stderr)
+    object_decoder(object.stderr)
   end
 
   def compile_output
-    object_decoder(:compile_output)
+    object_decoder(object.compile_output)
   end
   
   def message
-    if instance_options[:base64_encoded] and object.message
-      return Base64.encode64(object.message)
-    end
-    object.message
+    object_decoder(object.message)
   end
 
   def status
@@ -42,7 +43,8 @@ class SubmissionSerializer < ActiveModel::Serializer
 
   private
 
-  def object_decoder(method)
-    instance_options[:base64_encoded] ? object[method] : object.send(method)
+  def object_decoder(document)
+    return nil unless document
+    instance_options[:base64_encoded] ? Base64Service.encode(document.content) : document.content
   end
 end
