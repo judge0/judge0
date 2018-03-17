@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180304222544) do
+ActiveRecord::Schema.define(version: 20180312213402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,17 +32,12 @@ ActiveRecord::Schema.define(version: 20180304222544) do
   end
 
   create_table "submissions", id: :serial, force: :cascade do |t|
-    t.text "source_code"
     t.integer "language_id"
-    t.text "stdin"
-    t.text "expected_output"
-    t.text "stdout"
     t.integer "status_id"
     t.datetime "created_at"
     t.datetime "finished_at"
     t.decimal "time"
     t.integer "memory"
-    t.text "stderr"
     t.string "token"
     t.integer "number_of_runs"
     t.decimal "cpu_time_limit"
@@ -54,11 +49,16 @@ ActiveRecord::Schema.define(version: 20180304222544) do
     t.boolean "enable_per_process_and_thread_time_limit"
     t.boolean "enable_per_process_and_thread_memory_limit"
     t.integer "max_file_size"
-    t.text "compile_output"
     t.integer "exit_code"
     t.integer "exit_signal"
-    t.text "message"
     t.decimal "wall_time"
+    t.integer "source_id"
+    t.integer "stdin_id"
+    t.integer "stdout_id"
+    t.integer "stderr_id"
+    t.integer "expected_output_id"
+    t.integer "compile_output_id"
+    t.integer "message_id"
     t.index ["token"], name: "index_submissions_on_token"
   end
 

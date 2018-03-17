@@ -15,21 +15,26 @@
 #
 
 class Document < ApplicationRecord
-  LOCAL_STORAGE = Rails.root.to_s + "/data/documents/"
+  LOCAL_STORAGE_PATH = Rails.root.to_s + "/data/documents/"
 
+  validates :digest, presence: true
   validates :digest, uniqueness: true
 
   after_validation  :restore_data
-
   before_create :generate_uuid
-  
   after_create :save_to_storage
 
   attr :content
-  attr_reader :file_path
 
-  def readonly?
-    new_record? ? false : true
+  def self.find_or_create_with_content(content)
+    return nil unless content
+
+    document = Document.new(content: content)
+    if document.save
+      return document
+    end
+
+    Document.find_by(digest: document.digest)
   end
 
   def content
@@ -38,13 +43,15 @@ class Document < ApplicationRecord
 
   def content=(content)
     @content = content
-    self.digest = Digest::SHA512.hexdigest(@content)
-    @file_path = LOCAL_STORAGE + digest
+    self.digest = content ? Digest::SHA512.hexdigest(@content) : nil
   end
 
   def file_path
-    return nil unless digest
-    @file_path ||= LOCAL_STORAGE + digest
+    digest ? "#{LOCAL_STORAGE_PATH}/#{digest}" : nil
+  end
+
+  def readonly?
+    new_record? ? false : true
   end
 
   private

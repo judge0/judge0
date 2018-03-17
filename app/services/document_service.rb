@@ -1,6 +1,6 @@
 module DocumentService
-  @@aws_client = Aws::S3::Client.new
-  @@aws_bucket = ENV.fetch("AWS_BUCKET")
+  @@aws_client ||= Aws::S3::Client.new
+  @@aws_bucket ||= ENV.fetch("AWS_BUCKET")
 
   def self.save(document)
     return unless document.content
