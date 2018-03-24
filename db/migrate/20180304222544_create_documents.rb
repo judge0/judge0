@@ -1,8 +1,7 @@
 class CreateDocuments < ActiveRecord::Migration[5.1]
   def change
-    create_table :documents do |t|
-      t.string :digest, null: false
-
+    create_table :documents, id: false do |t|
+      t.string :digest, primary_key: true
       t.timestamps
     end
 

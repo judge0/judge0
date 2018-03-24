@@ -23,13 +23,13 @@
 #  exit_code                                  :integer
 #  exit_signal                                :integer
 #  wall_time                                  :decimal(, )
-#  source_id                                  :integer
-#  stdin_id                                   :integer
-#  stdout_id                                  :integer
-#  stderr_id                                  :integer
-#  expected_output_id                         :integer
-#  compile_output_id                          :integer
-#  message_id                                 :integer
+#  source_digest                              :string
+#  stdin_digest                               :string
+#  stdout_digest                              :string
+#  stderr_digest                              :string
+#  expected_output_digest                     :string
+#  compile_output_digest                      :string
+#  message_digest                             :string
 #
 # Indexes
 #
@@ -63,14 +63,15 @@ class Submission < ApplicationRecord
   before_create :generate_token
   before_validation :set_defaults
 
-  belongs_to :language
-  belongs_to :source, class_name: "Document"
-  belongs_to :stdin, class_name: "Document", optional: true
-  belongs_to :stdout, class_name: "Document", optional: true
-  belongs_to :stderr, class_name: "Document", optional: true
-  belongs_to :expected_output, class_name: "Document", optional: true
-  belongs_to :compile_output, class_name: "Document", optional: true
-  belongs_to :message, class_name: "Document", optional: true
+  belongs_to :language, optional: false
+
+  belongs_to :source,          class_name: Document.to_s, primary_key: Document.primary_key, foreign_key: "source_"          + Document.primary_key, optional: false
+  belongs_to :stdin,           class_name: Document.to_s, primary_key: Document.primary_key, foreign_key: "stdin_"           + Document.primary_key, optional: true
+  belongs_to :stdout,          class_name: Document.to_s, primary_key: Document.primary_key, foreign_key: "stdout_"          + Document.primary_key, optional: true
+  belongs_to :stderr,          class_name: Document.to_s, primary_key: Document.primary_key, foreign_key: "stderr_"          + Document.primary_key, optional: true
+  belongs_to :expected_output, class_name: Document.to_s, primary_key: Document.primary_key, foreign_key: "expected_output_" + Document.primary_key, optional: true
+  belongs_to :compile_output,  class_name: Document.to_s, primary_key: Document.primary_key, foreign_key: "compile_output_"  + Document.primary_key, optional: true
+  belongs_to :message,         class_name: Document.to_s, primary_key: Document.primary_key, foreign_key: "message_"         + Document.primary_key, optional: true
 
   enumeration :status
 
