@@ -152,15 +152,15 @@ class IsolateJob < ApplicationJob
     sandbox_message = parsed_meta[:message] || ""
     sandbox_message = nil if sandbox_message.empty?
 
-    submission.time = parsed_meta[:time]
-    submission.wall_time = parsed_meta[:"time-wall"]
-    submission.memory = (cgroups.present? ? parsed_meta[:"cg-mem"] : parsed_meta[:"max-rss"])
-    submission.stdout = Document.find_or_create_with_content(program_stdout)
-    submission.stderr = Document.find_or_create_with_content(program_stderr)
-    submission.exit_code = parsed_meta[:exitcode].try(:to_i) || 0
+    submission.time        = parsed_meta[:time]
+    submission.wall_time   = parsed_meta[:"time-wall"]
+    submission.memory      = (cgroups.present? ? parsed_meta[:"cg-mem"] : parsed_meta[:"max-rss"])
+    submission.stdout      = Document.find_or_create_with_content(program_stdout)
+    submission.stderr      = Document.find_or_create_with_content(program_stderr)
+    submission.exit_code   = parsed_meta[:exitcode].try(:to_i) || 0
     submission.exit_signal = parsed_meta[:exitsig].try(:to_i)
-    submission.message = Document.find_or_create_with_content(sandbox_message)
-    submission.status_id = determine_status
+    submission.message     = Document.find_or_create_with_content(sandbox_message)
+    submission.status_id   = determine_status
   end
 
   def clean
@@ -190,7 +190,7 @@ class IsolateJob < ApplicationJob
     elsif parsed_meta[:status] == 'XX'
       return Status.boxerr
     elsif submission.expected_output.nil? ||
-          strip_output(submission.expected_output.content) == strip_output(submission.stdout.content)
+          strip_output(submission.expected_output.content) == strip_output(submission.stdout.try(:content))
       return Status.ac
     else
       return Status.wa

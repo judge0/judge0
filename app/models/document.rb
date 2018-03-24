@@ -2,8 +2,7 @@
 #
 # Table name: documents
 #
-#  id         :integer          not null, primary key
-#  digest     :string           not null
+#  digest     :string           not null, primary key
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -13,6 +12,8 @@
 #
 
 class Document < ApplicationRecord
+  self.primary_key = "digest"
+
   LOCAL_STORAGE_PATH = Rails.root.to_s + "/data/documents/"
 
   validates :digest, presence: true
@@ -31,7 +32,7 @@ class Document < ApplicationRecord
       return document
     end
 
-    Document.find_by(digest: document.digest)
+    Document.find(document.digest)
   end
 
   def content
