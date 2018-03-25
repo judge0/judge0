@@ -19,7 +19,7 @@ class AddDocumentsToSubmission < ActiveRecord::Migration[5.1]
       s.stdout          = Document.find_or_create_with_content(decode(s[:stdout]))
       s.stderr          = Document.find_or_create_with_content(decode(s[:stderr]))
       s.expected_output = Document.find_or_create_with_content(decode(s[:expected_output]))
-      s.compile_output  = Document.find_or_create_with_content(       s[:compile_output])
+      s.compile_output  = Document.find_or_create_with_content(decode(s[:compile_output]))
       s.message         = Document.find_or_create_with_content(       s[:message])
 
       s.save
