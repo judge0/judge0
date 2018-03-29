@@ -1,12 +1,12 @@
 class AddDocumentsToSubmission < ActiveRecord::Migration[5.1]
   def up
-    add_column :submissions, :source_digest,          :string
-    add_column :submissions, :stdin_digest,           :string
-    add_column :submissions, :stdout_digest,          :string
-    add_column :submissions, :stderr_digest,          :string
-    add_column :submissions, :expected_output_digest, :string
-    add_column :submissions, :compile_output_digest,  :string
-    add_column :submissions, :message_digest,         :string
+    add_column :submissions, :source_id,          :integer
+    add_column :submissions, :stdin_id,           :integer
+    add_column :submissions, :stdout_id,          :integer
+    add_column :submissions, :stderr_id,          :integer
+    add_column :submissions, :expected_output_id, :integer
+    add_column :submissions, :compile_output_id,  :integer
+    add_column :submissions, :message_id,         :integer
 
     i = 1
     n = Submission.count

@@ -1,14 +1,13 @@
 class SubmissionSerializer < ActiveModel::Serializer
   attributes(
     (
-      Submission.column_names.reject{ |n| /_digest$/.match(n) } +
       Submission.column_names.reject{ |n| /_id$/.match(n) } +
-      Submission.column_names.reject{ |n| /.+_digest$/.match(n).nil? }.collect{ |n| n.gsub(/_digest$/, "") } +
       Submission.column_names.reject{ |n| /.+_id$/.match(n).nil? }.collect{ |n| n.gsub(/_id$/, "") } +
       ["source_code"]
     ).collect(&:to_sym)
   )
 
+  # For API v1.0.0
   def source_code
     source
   end

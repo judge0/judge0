@@ -3,12 +3,12 @@ module DocumentService
   @@aws_bucket ||= ENV.fetch("AWS_BUCKET")
 
   def self.save(document)
-    return unless document.content
+    return unless document.try(:content)
     local_save(document) unless aws_save(document)
   end
 
   def self.local_save(document)
-    return unless document.content
+    return unless document.try(:content)
     return if exists_locally?(document)
 
     File.open(document.file_path, "w") do |f|
