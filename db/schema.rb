@@ -15,7 +15,8 @@ ActiveRecord::Schema.define(version: 20180312213402) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "documents", primary_key: "digest", id: :string, force: :cascade do |t|
+  create_table "documents", force: :cascade do |t|
+    t.string "digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["digest"], name: "index_documents_on_digest", unique: true
@@ -49,13 +50,13 @@ ActiveRecord::Schema.define(version: 20180312213402) do
     t.integer "exit_code"
     t.integer "exit_signal"
     t.decimal "wall_time"
-    t.string "source_digest"
-    t.string "stdin_digest"
-    t.string "stdout_digest"
-    t.string "stderr_digest"
-    t.string "expected_output_digest"
-    t.string "compile_output_digest"
-    t.string "message_digest"
+    t.integer "source_id"
+    t.integer "stdin_id"
+    t.integer "stdout_id"
+    t.integer "stderr_id"
+    t.integer "expected_output_id"
+    t.integer "compile_output_id"
+    t.integer "message_id"
     t.index ["token"], name: "index_submissions_on_token"
   end
 

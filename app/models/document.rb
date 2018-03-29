@@ -2,7 +2,8 @@
 #
 # Table name: documents
 #
-#  digest     :string           not null, primary key
+#  id         :integer          not null, primary key
+#  digest     :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -12,15 +13,12 @@
 #
 
 class Document < ApplicationRecord
-  self.primary_key = "digest"
+  LOCAL_STORAGE_PATH = "#{Rails.root}/data/documents"
 
-  LOCAL_STORAGE_PATH = Rails.root.to_s + "/data/documents/"
-
-  validates :digest, presence: true
+  validates :digest, presence:   true
   validates :digest, uniqueness: true
 
-  after_validation  :restore_data
-  after_create :save_to_storage
+  after_create -> { DocumentService.save(self) }
 
   attr :content
 
@@ -28,11 +26,9 @@ class Document < ApplicationRecord
     return nil unless content
 
     document = Document.new(content: content)
-    if document.save
-      return document
-    end
+    return document if document.save
 
-    Document.find(document.digest)
+    Document.find_by(digest: document.digest)
   end
 
   def content
@@ -50,15 +46,5 @@ class Document < ApplicationRecord
 
   def readonly?
     new_record? ? false : true
-  end
-
-  private
-
-  def restore_data
-    DocumentService.save(self) if !self.errors.empty? && self.new_record?
-  end
-
-  def save_to_storage
-    DocumentService.save(self)
   end
 end
