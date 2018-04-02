@@ -1,0 +1,31 @@
+default: &default
+  enable_wait_result:                               <%= ENV.fetch("ENABLE_WAIT_RESULT") == "true"                               %>
+  cpu_time_limit:                                   <%= ENV.fetch("CPU_TIME_LIMIT").to_f                                        %>
+  max_cpu_time_limit:                               <%= ENV.fetch("MAX_CPU_TIME_LIMIT").to_f                                    %>
+  cpu_extra_time:                                   <%= ENV.fetch("CPU_EXTRA_TIME").to_f                                        %>
+  max_cpu_extra_time:                               <%= ENV.fetch("MAX_CPU_EXTRA_TIME").to_f                                    %>
+  wall_time_limit:                                  <%= ENV.fetch("WALL_TIME_LIMIT").to_f                                       %>
+  max_wall_time_limit:                              <%= ENV.fetch("MAX_WALL_TIME_LIMIT").to_f                                   %>
+  memory_limit:                                     <%= ENV.fetch("MEMORY_LIMIT").to_i                                          %>
+  max_memory_limit:                                 <%= ENV.fetch("MAX_MEMORY_LIMIT").to_i                                      %>
+  stack_limit:                                      <%= ENV.fetch("STACK_LIMIT").to_i                                           %>
+  max_stack_limit:                                  <%= ENV.fetch("MAX_STACK_LIMIT").to_i                                       %>
+  max_processes_and_or_threads:                     <%= ENV.fetch("MAX_PROCESSES_AND_OR_THREADS").to_i                          %>
+  max_max_processes_and_or_threads:                 <%= ENV.fetch("MAX_MAX_PROCESSES_AND_OR_THREADS").to_i                      %>
+  enable_per_process_and_thread_time_limit:         <%= ENV.fetch("ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT") == "true"         %>
+  allow_enable_per_process_and_thread_time_limit:   <%= ENV.fetch("ALLOW_ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT") == "true"   %>
+  enable_per_process_and_thread_memory_limit:       <%= ENV.fetch("ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT") == "true"       %>
+  allow_enable_per_process_and_thread_memory_limit: <%= ENV.fetch("ALLOW_ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT") == "true" %>
+  max_file_size:                                    <%= ENV.fetch("MAX_FILE_SIZE").to_i                                         %>
+  max_max_file_size:                                <%= ENV.fetch("MAX_MAX_FILE_SIZE").to_i                                     %>
+  number_of_runs:                                   <%= ENV.fetch("NUMBER_OF_RUNS").to_i                                        %>
+  max_number_of_runs:                               <%= ENV.fetch("MAX_NUMBER_OF_RUNS").to_i                                    %>
+
+production:
+  <<: *default
+
+development:
+  <<: *default
+
+test:
+  <<: *default

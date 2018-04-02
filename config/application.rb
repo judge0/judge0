@@ -15,23 +15,24 @@ Bundler.require(*Rails.groups)
 
 module Judge0API
   class Application < Rails::Application
-    config.api_only = true
-    config.generators do |g|
-      g.factory_girl test_framework: :rspec
+    config.before_initialize do
+      config.api = config_for(:configuration).deep_symbolize_keys
     end
+
+    config.api_only = true
 
     config.active_job.queue_adapter = :resque
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins Rails.env.development? ? '*' : (ENV['ALLOW_ORIGIN'].presence || '*').split
-        resource '*', headers: :any, methods: :any
+        origins ENV.fetch("ALLOW_ORIGIN")
+        resource "*", headers: :any, methods: :any
       end
     end
 
     config.after_initialize do
       puts "Running Judge0 API with configuration settings:"
-      puts Config.config_info.collect{ |k, v| "#{k.upcase}: #{v}" }.join("\n")
+      puts Rails.configuration.api.collect{ |k, v| "#{k.upcase}: #{v}" }.join("\n")
     end
   end
 end

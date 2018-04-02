@@ -1,2 +1,1 @@
-uri = URI.parse("redis://#{ENV['REDIS_HOST'].presence || 'localhost'}:6379")
-Resque.redis = Redis.new(:host => uri.host, :port => uri.port, :thread_safe => true)
+Resque.redis = Redis.new(host: ENV.fetch("REDIS_HOST"), port: 6379, thread_safe: true)

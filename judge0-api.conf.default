@@ -5,6 +5,15 @@
 # Default: development
 RAILS_ENV=
 
+# Default: true
+RAILS_LOG_TO_STDOUT=
+
+# Default: 0.0.0.0
+HOST=
+
+# Default: 3000
+PORT=
+
 # Specify maximum number of concurrent Rails threads.
 # Default: 5
 RAILS_MAX_THREADS=

@@ -1,1 +1,1 @@
-rails resque:work
+QUEUE=* rails resque:workers
