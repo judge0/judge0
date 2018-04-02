@@ -33,7 +33,7 @@ class SubmissionsController < ApplicationController
 
   def create
     wait = params[:wait] == "true"
-    if wait && !Config::ENABLE_WAIT_RESULT
+    if wait && !Rails.configuration.api[:enable_wait_result]
       render json: { error: "wait not allowed" }, status: :bad_request
       return
     end

@@ -38,39 +38,39 @@
 
 class Submission < ApplicationRecord
   validates :number_of_runs,
-            numericality: { greater_than: 0, less_than_or_equal_to: Config::MAX_NUMBER_OF_RUNS }
+            numericality: { greater_than: 0, less_than_or_equal_to: Rails.configuration.api[:max_number_of_runs] }
 
   validates :cpu_time_limit,
-            numericality: { greater_than: 0, less_than_or_equal_to: Config::MAX_CPU_TIME_LIMIT }
+            numericality: { greater_than: 0, less_than_or_equal_to: Rails.configuration.api[:max_cpu_time_limit] }
 
   validates :cpu_extra_time,
-           numericality: { greater_than: 0, less_than_or_equal_to: Config::MAX_CPU_EXTRA_TIME }
+           numericality: { greater_than: 0, less_than_or_equal_to: Rails.configuration.api[:max_cpu_extra_time] }
 
   validates :wall_time_limit,
-            numericality: { greater_than: 0, less_than_or_equal_to: Config::MAX_WALL_TIME_LIMIT }
+            numericality: { greater_than: 0, less_than_or_equal_to: Rails.configuration.api[:max_wall_time_limit] }
 
   validates :memory_limit,
-            numericality: { greater_than: 0, less_than_or_equal_to: Config::MAX_MEMORY_LIMIT }
+            numericality: { greater_than: 0, less_than_or_equal_to: Rails.configuration.api[:max_memory_limit] }
 
   validates :stack_limit,
-            numericality: { greater_than: 0, less_than_or_equal_to: Config::MAX_STACK_LIMIT }
+            numericality: { greater_than: 0, less_than_or_equal_to: Rails.configuration.api[:max_stack_limit] }
 
   validates :max_processes_and_or_threads,
-            numericality: { greater_than: 0, less_than_or_equal_to: Config::MAX_MAX_PROCESSES_AND_OR_THREADS }
+            numericality: { greater_than: 0, less_than_or_equal_to: Rails.configuration.api[:max_max_processes_and_or_threads] }
 
   validates :enable_per_process_and_thread_time_limit,
             inclusion: { in: [false], message: "this option cannot be enabled" },
-            unless: -> { Config::ALLOW_ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT }
+            unless: -> { Rails.configuration.api[:allow_enable_per_process_and_thread_time_limit] }
 
   validates :enable_per_process_and_thread_memory_limit,
             inclusion: { in: [false], message: "this option cannot be enabled" },
-            unless: -> { Config::ALLOW_ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT }
+            unless: -> { Rails.configuration.api[:allow_enable_per_process_and_thread_memory_limit] }
 
   validates :max_file_size,
-            numericality: { greater_than: 0, less_than_or_equal_to: Config::MAX_MAX_FILE_SIZE }
+            numericality: { greater_than: 0, less_than_or_equal_to: Rails.configuration.api[:max_max_file_size] }
 
   before_create     :generate_token
-  before_validation :set_defaults
+  before_validation :set_defaults, if: -> { new_record? }
 
   belongs_to :language,                                   optional: false
   belongs_to :source,          class_name: Document.to_s, optional: false
@@ -97,15 +97,15 @@ class Submission < ApplicationRecord
 
   def set_defaults
     self.status_id                                  ||= Status.queue
-    self.number_of_runs                             ||= Config::NUMBER_OF_RUNS
-    self.cpu_time_limit                             ||= Config::CPU_TIME_LIMIT
-    self.cpu_extra_time                             ||= Config::CPU_EXTRA_TIME
-    self.wall_time_limit                            ||= Config::WALL_TIME_LIMIT
-    self.memory_limit                               ||= Config::MEMORY_LIMIT
-    self.stack_limit                                ||= Config::STACK_LIMIT
-    self.max_processes_and_or_threads               ||= Config::MAX_MAX_PROCESSES_AND_OR_THREADS
-    self.enable_per_process_and_thread_time_limit   ||= Config::ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT
-    self.enable_per_process_and_thread_memory_limit ||= Config::ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT
-    self.max_file_size                              ||= Config::MAX_FILE_SIZE
+    self.number_of_runs                             ||= Rails.configuration.api[:number_of_runs]
+    self.cpu_time_limit                             ||= Rails.configuration.api[:cpu_time_limit]
+    self.cpu_extra_time                             ||= Rails.configuration.api[:cpu_extra_time]
+    self.wall_time_limit                            ||= Rails.configuration.api[:wall_time_limit]
+    self.memory_limit                               ||= Rails.configuration.api[:memory_limit] 
+    self.stack_limit                                ||= Rails.configuration.api[:stack_limit] 
+    self.max_processes_and_or_threads               ||= Rails.configuration.api[:max_processes_and_or_threads] 
+    self.enable_per_process_and_thread_time_limit   ||= Rails.configuration.api[:enable_per_process_and_thread_time_limit]
+    self.enable_per_process_and_thread_memory_limit ||= Rails.configuration.api[:enable_per_process_and_thread_memory_limit] 
+    self.max_file_size                              ||= Rails.configuration.api[:max_file_size] 
   end
 end

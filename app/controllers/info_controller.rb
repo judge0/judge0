@@ -4,6 +4,6 @@ class InfoController < ApplicationController
   end
 
   def config_info
-    render json: Config.config_info
+    render json: Rails.configuration.api
   end
 end

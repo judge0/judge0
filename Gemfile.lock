@@ -66,6 +66,10 @@ GEM
     coderay (1.1.2)
     concurrent-ruby (1.0.5)
     crass (1.0.3)
+    dotenv (2.2.1)
+    dotenv-rails (2.2.1)
+      dotenv (= 2.2.1)
+      railties (>= 3.2, < 5.2)
     enumerations (2.3.1)
       activerecord
       activesupport
@@ -178,6 +182,7 @@ DEPENDENCIES
   active_model_serializers (~> 0.10.7)
   annotate (~> 2.7)
   aws-sdk-s3 (~> 1.8)
+  dotenv-rails (~> 2.2)
   enumerations (~> 2.1)
   listen (~> 3.1)
   pg (~> 1.0)
