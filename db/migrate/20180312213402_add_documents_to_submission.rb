@@ -11,7 +11,7 @@ class AddDocumentsToSubmission < ActiveRecord::Migration[5.1]
     i = 1
     n = Submission.count
     Submission.all.each do |s|
-      puts "Submission ID: #{s.id} (#{i}/#{n})"
+      Rails.logger.debug "Submission ID: #{s.id} (#{i}/#{n})"
       i += 1
 
       s.source          = Document.find_or_create_with_content(decode(s[:source_code]))

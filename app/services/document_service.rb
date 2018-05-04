@@ -1,6 +1,20 @@
 module DocumentService
   @@aws_client ||= Aws::S3::Client.new
   @@aws_bucket ||= ENV.fetch("AWS_BUCKET")
+  @@aws_available = -> {
+    begin
+      @@aws_client.head_bucket({
+        bucket: @@aws_bucket
+      })
+      true
+    rescue
+      false
+    end
+  }.call
+
+  def self.aws_available?
+    @@aws_available
+  end
 
   def self.save(document)
     return unless document.try(:content)
@@ -9,7 +23,7 @@ module DocumentService
 
   def self.local_save(document)
     return unless document.try(:content)
-    return if exists_locally?(document)
+    return if     exists_locally?(document)
 
     File.open(document.file_path, "w") do |f|
       begin
@@ -22,12 +36,13 @@ module DocumentService
   end
 
   def self.aws_save(document)
-    return false unless document.content
-    return true if exists_on_aws?(document)
+    return false unless aws_available?
+    return false unless document.try(:content)
+    return true  if     exists_on_aws?(document)
     @@aws_client.put_object(
+      bucket: @@aws_bucket,
       key: document.digest,
       body: document.content,
-      bucket: @@aws_bucket,
       content_type: "text/plain"
     )
     return true
@@ -45,11 +60,12 @@ module DocumentService
   end
 
   def self.exists_on_aws?(document)
-    @@aws_client.get_object(
-        key: document.digest,
+    return false unless aws_available?
+    return false unless document.try(:digest)
+    @@aws_client.head_object({
         bucket: @@aws_bucket,
-        range: "bytes=0-0"
-    )
+        key: document.digest
+    })
     return true
   rescue
     return false
@@ -66,9 +82,10 @@ module DocumentService
   end
 
   def self.read_from_aws(document)
+    return nil unless aws_available?
     @@aws_client.get_object(
-      key: document.digest,
       bucket: @@aws_bucket,
+      key: document.digest,
       response_target: document.file_path 
     )
     read_locally(document)

@@ -1,5 +1,3 @@
-# [NEWS] Please read [this](https://judge0.com/announcement-of-judge0-api-2-0-0/) blog post (1 min read) before continuing. 
-
 # Judge0 API
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://github.com/judge0/api/blob/master/LICENSE)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/hermanzdosilovic)
@@ -84,14 +82,14 @@ Because we are running our development environment in Docker you don't need to h
 2. Copy `judge0-api.conf.default` to `judge0-api.conf`.
 3. Run development shell (it will take a while only first time):
     ```
-    $ ./scripts/dev-shell
+    $ ./scripts/dev/shell
     ```
 4. Create, migrate and seed the database:
     ```
     $ rails db:setup
     ```
 
-`scripts/dev-shell` script will open you new **development shell** always in the same container, and if container doesn't exist it will create one for you.
+`scripts/dev/shell` script will open you new **development shell** always in the same container, and if container doesn't exist it will create one for you.
 
 You need to run Rails API and Worker in order to have Judge0 API fully operational:
 

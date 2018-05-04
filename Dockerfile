@@ -1,6 +1,4 @@
 FROM judge0/api-base:0.2.1
-#LABEL maintainer="Herman Zvonimir Došilović, hermanz.dosilovic@gmail.com" \
-#      version="1.0.0"
 
 RUN apt-get update && \
     apt-get install -y \
@@ -13,10 +11,10 @@ ENV PATH "/usr/local/ruby-2.3.3/bin:/opt/.gem/bin:$PATH"
 ENV GEM_HOME "/opt/.gem/"
 RUN echo "gem: --no-document" > /root/.gemrc && \
     gem install \
-      rails:5.1 \
-      bundler \
-      pg && \
-    npm install -g aglio
+      rails:5.2.0 \
+      bundler:1.16.1 \
+      pg:1.0.0 && \
+    npm install -g aglio@2.3.0
 
 EXPOSE 3000
 
@@ -30,5 +28,6 @@ RUN RAILS_ENV=production bundle && \
 
 CMD ./scripts/server
 
+ENV JUDGE0_API_VERSION "2.0.0-rc"
 LABEL maintainer="Herman Zvonimir Došilović, hermanz.dosilovic@gmail.com" \
-      version="1.0.0"
+      version="2.0.0"

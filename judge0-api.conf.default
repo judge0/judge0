@@ -5,6 +5,9 @@
 # Default: development
 RAILS_ENV=
 
+# When enabled all log will be available through container stdout.
+# If disabled, log will be available in files log/production.log
+# or log/development.log - depends on Rails environment.
 # Default: true
 RAILS_LOG_TO_STDOUT=
 
@@ -19,7 +22,7 @@ PORT=
 RAILS_MAX_THREADS=
 
 # Secret key base for production, if not set it will be randomly generated
-# Default: randomly generated
+# Default: randomly generated on each boot
 SECRET_KEY_BASE=
 
 # Allow only specified origins. In development all origins are allowed and this
@@ -86,33 +89,73 @@ COUNT=
 ###############################################################################
 # Database
 ###############################################################################
-# Specify Redis host
+# Specify Redis host.
 # Default: localhost
 REDIS_HOST=redis
+
+# Specify Redis port.
+# Default: 6379
+REDIS_PORT=
 
 # Specify Postgres host.
 # Default: localhost
 POSTGRES_HOST=db
 
-# Name of the database to use. Used only in production.
+# Specify Postgres port.
+# Default: 5432 
+POSTGRES_PORT=
+
+# Name of the database to use.
 # Default: postgres
 POSTGRES_DB=
 
-# User who can access this database. Used only in production.
+# User who can access this database.
 # Default: postgres
 POSTGRES_USER=
 
-# Password of the user. Cannot be blank. Used only in production.
-# Default: NO DEFAULT, YOU MUST SET YOUR PASSWORD
-POSTGRES_PASSWORD=YourPasswordHere1234
+# Password of the user. Cannot be blank.
+# Default: NO DEFAULT! MUST BE SET!
+POSTGRES_PASSWORD=postgres
 
 
 ###############################################################################
 # AWS S3
 ###############################################################################
+# Allows you to save all Judge0 API Documents (source code, test data, etc.)
+# to remote object storage.
+# You can use any Amazon S3 compatible object storage server:
+#   - Minio (https://minio.io/).
+#   - Google Cloud Storage (https://cloud.google.com/storage/)
+#   - Amazon S3 (https://aws.amazon.com/s3/)
+#
+# If you would like to test this feature but you don't have access to any S3
+# compatible object storage server you could use server that Minio provides
+# for testing and development:
+# AWS_ACCESS_KEY_ID=Q3AM3UQ867SPQQA43P2F
+# AWS_SECRET_ACCESS_KEY=zuf+tfteSlswRu7BJ86wekitnifILbZam1KYY3TG
+# AWS_BUCKET=documents
+# AWS_ENDPOINT=https://play.minio.io:9000
+# 
+# Before using above configuration settings please visit https://docs.minio.io/
+# and make sure that above AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY are still
+# valid. Also, please visit https://play.minio.io:9000 and make sure that
+# bucket with the name "documents" exists. If it doesn't feel free to create one
+# even with the different name for your testing and development purpose.
+#
+# If you decide to use this feature but you provide invalid credentials
+# than Judge0 API will silently fallback and save all your documents
+# to local disc.
+
+# Access Key
 AWS_ACCESS_KEY_ID=
+
+# Secret Access Key
 AWS_SECRET_ACCESS_KEY=
+
+# Bucket Name
 AWS_BUCKET=
+
+# S3 Endpoint
 AWS_ENDPOINT=
 
 
