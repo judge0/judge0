@@ -125,8 +125,8 @@ class IsolateJob < ApplicationJob
     < #{stdin} > #{stdout} 2> #{stderr} \
     "
 
-    puts "[#{DateTime.now}] Running submission #{submission.token} (#{submission.id}):"
-    puts command.gsub(/\s+/, " ")
+    Rails.logger.debug "[#{DateTime.now}] Running submission #{submission.token} (#{submission.id}):"
+    Rails.logger.debug command.gsub(/\s+/, " ")
 
     `#{command}`
   end

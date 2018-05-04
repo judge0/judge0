@@ -2,7 +2,7 @@
 #
 # Table name: documents
 #
-#  id         :integer          not null, primary key
+#  id         :bigint(8)        not null, primary key
 #  digest     :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -18,7 +18,8 @@ class Document < ApplicationRecord
   validates :digest, presence:   true
   validates :digest, uniqueness: true
 
-  after_create -> { DocumentService.save(self) }
+  after_validation -> { DocumentService.save(self) }
+  after_create     -> { DocumentService.save(self) }
 
   attr :content
 
@@ -45,6 +46,6 @@ class Document < ApplicationRecord
   end
 
   def readonly?
-    new_record? ? false : true
+    !new_record?
   end
 end

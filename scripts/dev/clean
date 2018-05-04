@@ -1,4 +1,4 @@
 #!/bin/bash
 docker-compose -f docker-compose.dev.yml down
 docker-compose -f docker-compose.dev.yml down -v
-rm data/documents/*
+rm data/documents/* &> /dev/null

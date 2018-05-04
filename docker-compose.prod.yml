@@ -1,29 +1,33 @@
-version: '2'
+version: '3.6'
 services:
   api:
-    image: judge0/api
-    env_file: judge0-api.conf
+    image: judge0/api:latest
+    volumes:
+      - ./judge0-api.conf:/usr/src/api/judge0-api.conf
+      - ./srv/documents:/usr/src/api/data/documents
     ports:
       - "3000:3000"
     privileged: true
     restart: always
 
-  worker:
-    image: judge0/api
-    env_file: judge0-api.conf
-    command: bash -c "while true; do rails resque:work; done"
+  workers:
+    image: judge0/api:latest
+    command: bash scripts/workers
+    volumes:
+      - ./judge0-api.conf:/usr/src/api/judge0-api.conf
+      - ./srv/documents:/usr/src/api/data/documents
     privileged: true
     restart: always
 
   db:
-    image: postgres:9.6.5
+    image: postgres:10.3
     env_file: judge0-api.conf
     volumes:
       - ./srv/postgres-data:/var/lib/postgresql/data/
     restart: always
 
   redis:
-    image: redis:4.0.9
+    image: redis:3.2.11
     command: redis-server --appendonly yes
     volumes:
       - ./srv/redis-data:/data

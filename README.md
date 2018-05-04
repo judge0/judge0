@@ -82,10 +82,10 @@ Because we are running our development environment in Docker you don't need to h
 2. Copy `judge0-api.conf.default` to `judge0-api.conf`.
 3. Run development shell (it will take a while only first time):
     ```
-    $ ./scripts/dev-shell
+    $ ./scripts/dev/shell
     ```
 
-`scripts/dev-shell` script will open you new **development shell** always in the same container, and if container doesn't exist it will create one for you.
+`scripts/dev/shell` script will open you new **development shell** always in the same container, and if container doesn't exist it will create one for you.
 
 You need to run Rails API and Worker in order to have Judge0 API fully operational:
 
