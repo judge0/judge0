@@ -13,3 +13,4 @@ Rails.application.routes.draw do
 
   get 'workers', to: 'health#workers'
 end
+
