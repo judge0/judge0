@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get 'system_info', to: 'info#system_info'
   get 'config_info', to: 'info#config_info'
+  get 'version',     to: 'info#version'
 
   post 'authenticate', to: 'sessions#authenticate'
   post 'authorize', to: 'sessions#authorize'

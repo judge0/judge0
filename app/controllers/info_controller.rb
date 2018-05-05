@@ -6,4 +6,8 @@ class InfoController < ApplicationController
   def config_info
     render json: Rails.configuration.api
   end
+
+  def version
+    render json: { version: ENV.fetch("JUDGE0_API_VERSION") }
+  end
 end
