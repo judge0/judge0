@@ -22,6 +22,7 @@ DEFAULT_ENV = {
     "COUNT"                                            => 1,
     "REDIS_HOST"                                       => "localhost", # DO NOT PUT YOUR REDIS HOST HERE
     "REDIS_PORT"                                       => 6379,        # DO NOT PUT YOUR REDIS PORT HERE
+    "REDIS_PASSWORD"                                   => "",          # DO NOT PUT YOUR REDIS PASSWORD HERE
     "POSTGRES_HOST"                                    => "localhost", # DO NOT PUT YOUR POSTGRES HOST HERE
     "POSTGRES_PORT"                                    => 5432,        # DO NOT PUT YOUR POSTGRES PORT HERE
     "POSTGRES_DB"                                      => "postgres",  # DO NOT PUT YOUR POSTGRES DATABASE NAME HERE

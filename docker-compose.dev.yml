@@ -28,13 +28,6 @@ services:
       - "3030:3030"
     privileged: true
 
-  resque-web:
-    image: ennexa/resque-web:latest
-    command: -r redis://redis:6379
-    ports:
-      - "5678:5678"
-    restart: always
-
   db:
     image: postgres:10.3
     env_file: judge0-api.conf
@@ -46,7 +39,11 @@ services:
 
   redis:
     image: redis:3.2.11
-    command: redis-server --appendonly yes
+    command: [
+      "bash", "-c",
+      'docker-entrypoint.sh --appendonly yes --requirepass "$$REDIS_PASSWORD"'
+    ]
+    env_file: judge0-api.conf
     volumes:
       - redis-data:/data
     ports:

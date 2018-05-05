@@ -97,6 +97,10 @@ REDIS_HOST=redis
 # Default: 6379
 REDIS_PORT=
 
+# Specify Redis password. Cannot be blank.
+# Default: NO DEFAULT! MUST BE SET!
+REDIS_PASSWORD=redis
+
 # Specify Postgres host.
 # Default: localhost
 POSTGRES_HOST=db
