@@ -12,6 +12,7 @@ gem 'pry-rails', '~> 0.3.6'
 gem 'puma', '~> 3.11'
 gem 'rack-cors', '~> 1.0'
 gem 'resque', '~> 1.27'
+gem 'redis', '~> 3.3'
 gem 'will_paginate', '~> 3.1'
 
 group :development do
