@@ -2,33 +2,43 @@ class SubmissionsController < ApplicationController
   before_action :authorize_request, only: [:index]
 
   def index
-    render_invalid_field_error and return if has_invalid_field
+    submission_fields = Fields::Submission.new(params[:fields])
 
-    page = params[:page].try(:to_i) || 1
-    per_page = params[:per_page].try(:to_i) || Submission.per_page
-
-    if page <= 0
-      render json: { error: "invalid page: #{page}" }, status: :bad_request
-      return
-    elsif per_page < 0
-      render json: { error: "invalid per_page: #{per_page}" }, status: :bad_request
+    if submission_fields.has_invalid_fields?
+      render_invalid_fields_error(submission_fields.invalid_fields)
       return
     end
 
-    submissions = Submission.paginate(page: page, per_page: per_page)
-    serializable_submissions = ActiveModelSerializers::SerializableResource.new(
-      submissions, { each_serializer: SubmissionSerializer, base64_encoded: params[:base64_encoded] == "true", fields: requested_fields }
-    )
+    pagination_service = PaginationService.new(params)
+    if pagination_service.has_invalid_page?
+      render_invalid_page_error(pagination_service.page)
+      return
+    elsif pagination_service.has_invalid_per_page?
+      render_invalid_per_page_error(pagination_service.per_page)
+      return
+    end
 
-    render json: {
-      submissions: serializable_submissions.as_json,
-      meta: pagination_dict(submissions)
-    }
+    render json: pagination_service.paginate(
+                   Submission, 
+                   SubmissionSerializer,
+                   {
+                     base64_encoded: params[:base64_encoded] == "true", 
+                     fields:         submission_fields.fields
+                   }
+                 )
   end
 
   def show
-    render_invalid_field_error and return if has_invalid_field
-    render json: Submission.find_by!(token: params[:token]), base64_encoded: params[:base64_encoded] == "true", fields: requested_fields
+    submission_fields = Fields::Submission.new(params[:fields])
+
+    if submission_fields.has_invalid_fields?
+      render_invalid_fields_error(submission_fields.invalid_fields)
+    else
+      render json:           Submission.find_by!(token: params[:token]),
+             serializer:     SubmissionSerializer,
+             base64_encoded: params[:base64_encoded] == "true",
+             fields:         submission_fields.fields
+    end
   end
 
   def create
@@ -38,16 +48,28 @@ class SubmissionsController < ApplicationController
       return
     end
 
-    submission = SubmissionService.new_submission_from_params(submission_params)
+    submission_params_decoder = ParamsDecoder::Submission.new(submission_params)
+    submission = Builder::Submission.new_submission(submission_params_decoder.params)
 
     if submission.save
       if wait
-        render_invalid_field_error and return if has_invalid_field
+        submission_fields = Fields::Submission.new(params[:fields])
+        if submission_fields.has_invalid_fields?
+          render_invalid_fields_error(submission_fields.invalid_fields)
+          return
+        end
         IsolateJob.perform_now(submission)
-        render json: submission, status: :created, base64_encoded: params[:base64_encoded] == "true", fields: requested_fields
+        render json:           submission,
+               status:         :created, 
+               serializer:     SubmissionSerializer,
+               base64_encoded: params[:base64_encoded] == "true", 
+               fields:         submission_fields.fields
       else
         IsolateJob.perform_later(submission)
-        render json: submission, status: :created, fields: [:token]
+        render json:       submission, 
+               status:     :created, 
+               serializer: SubmissionSerializer,
+               fields:     [:token]
       end
     else
       render json: submission.errors, status: :unprocessable_entity
@@ -57,7 +79,7 @@ class SubmissionsController < ApplicationController
   private
 
   def submission_params
-    submission_params = params.permit(
+    params.permit(
       :source_code,
       :language_id,
       :number_of_runs,
@@ -73,53 +95,5 @@ class SubmissionsController < ApplicationController
       :enable_per_process_and_thread_memory_limit,
       :max_file_size
     )
-
-    params[:base64_encoded] == "true" ? decode_params(submission_params) : submission_params
-  end
-
-  def decode_params(params)
-    params[:source_code] = Base64Service.decode(params[:source_code])
-    params[:stdin] = Base64Service.decode(params[:stdin])
-    params[:expected_output] = Base64Service.decode(params[:expected_output])
-    params
-  end
-
-  def has_invalid_field
-    return true if @invalid_field.present?
-    return false if @requested_fields.present?
-
-    fields = params[:fields].to_s.split(",").collect(&:to_sym)
-    fields.each do |field|
-      unless SubmissionSerializer._attributes.include?(field)
-        @invalid_field = field
-        return true
-      end
-    end
-
-    @requested_fields = fields.presence || self.class.default_fields
-
-    false
-  end
-
-  def requested_fields
-    has_invalid_field
-    @requested_fields
-  end
-
-  def render_invalid_field_error
-    render json: { error: "invalid field #{@invalid_field}" }, status: :bad_request if has_invalid_field
-  end
-
-  def self.default_fields
-    @@default_fields = [
-      :token,
-      :time,
-      :memory,
-      :stdout,
-      :stderr,
-      :compile_output,
-      :message,
-      :status,
-    ]
   end
 end

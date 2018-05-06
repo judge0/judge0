@@ -73,19 +73,17 @@ class Submission < ApplicationRecord
   before_validation :set_defaults, if: -> { new_record? }
 
   belongs_to :language,                                   optional: false
-  belongs_to :source,          class_name: Document.to_s, optional: false
-  belongs_to :stdin,           class_name: Document.to_s, optional: true
-  belongs_to :stdout,          class_name: Document.to_s, optional: true
-  belongs_to :stderr,          class_name: Document.to_s, optional: true
-  belongs_to :expected_output, class_name: Document.to_s, optional: true
-  belongs_to :compile_output,  class_name: Document.to_s, optional: true
-  belongs_to :message,         class_name: Document.to_s, optional: true
+  belongs_to :source,          class_name: Document.name, optional: false
+  belongs_to :stdin,           class_name: Document.name, optional: true
+  belongs_to :stdout,          class_name: Document.name, optional: true
+  belongs_to :stderr,          class_name: Document.name, optional: true
+  belongs_to :expected_output, class_name: Document.name, optional: true
+  belongs_to :compile_output,  class_name: Document.name, optional: true
+  belongs_to :message,         class_name: Document.name, optional: true
 
   enumeration :status
 
   default_scope { order(created_at: :desc) }
-
-  self.per_page = 20
 
   private
 

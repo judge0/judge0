@@ -150,7 +150,7 @@ class IsolateJob < ApplicationJob
       return Status.nzec
     elsif parsed_meta[:status] == 'XX'
       return Status.boxerr
-    elsif submission.expected_output.nil? ||
+    elsif submission.expected_output.try(:id).nil? ||
           strip_output(submission.expected_output.content) == strip_output(submission.stdout.try(:content))
       return Status.ac
     else
