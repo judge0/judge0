@@ -6,7 +6,7 @@ services:
       - ./judge0-api.conf:/usr/src/api/judge0-api.conf
       - ./srv/documents:/usr/src/api/data/documents
     ports:
-      - "3000:3000"
+      - "80:3000"
     privileged: true
     restart: always
 
