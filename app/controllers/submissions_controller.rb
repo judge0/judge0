@@ -3,7 +3,6 @@ class SubmissionsController < ApplicationController
 
   def index
     submission_fields = Fields::Submission.new(params[:fields])
-
     if submission_fields.has_invalid_fields?
       render_invalid_fields_error(submission_fields.invalid_fields)
       return
@@ -30,7 +29,6 @@ class SubmissionsController < ApplicationController
 
   def show
     submission_fields = Fields::Submission.new(params[:fields])
-
     if submission_fields.has_invalid_fields?
       render_invalid_fields_error(submission_fields.invalid_fields)
     else
@@ -48,7 +46,7 @@ class SubmissionsController < ApplicationController
       return
     end
 
-    submission_params_decoder = ParamsDecoder::Submission.new(submission_params)
+    submission_params_decoder = ParamsDecoder::Submission.new(submission_params, params[:base64_encoded] == "true")
     submission = Builder::Submission.new_submission(submission_params_decoder.params)
 
     if submission.save

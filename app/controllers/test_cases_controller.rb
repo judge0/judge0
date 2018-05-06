@@ -3,7 +3,6 @@ class TestCasesController < ApplicationController
 
   def index
     test_case_fields = Fields::TestCase.new(params[:fields])
-
     if test_case_fields.has_invalid_fields?
       render_invalid_fields_error(test_case_fields.invalid_fields)
       return
@@ -30,7 +29,6 @@ class TestCasesController < ApplicationController
 
   def show
     test_case_fields = Fields::TestCase.new(params[:fields])
-
     if test_case_fields.has_invalid_fields?
       render_invalid_fields_error(test_case_fields.invalid_fields)
     else
@@ -42,7 +40,7 @@ class TestCasesController < ApplicationController
   end
 
   def create
-    test_case_params_decoder = ParamsDecoder::TestCase.new(params)
+    test_case_params_decoder = ParamsDecoder::TestCase.new(params, params[:base64_encoded] == "true")
     test_case = Builder::TestCase.find_or_create(test_case_params_decoder.params)
 
     render json:       test_case, 

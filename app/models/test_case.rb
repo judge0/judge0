@@ -25,6 +25,8 @@ class TestCase < ApplicationRecord
 
   before_create :generate_uuid
 
+  attr_accessor :index
+
   private
 
   def generate_uuid
