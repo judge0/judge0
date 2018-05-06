@@ -1,14 +1,16 @@
 class ApplicationController < SessionsController
   private
 
-  def render_invalid_fields_error(fields)
+  def render_invalid_fields_error(fields, subject = nil)
     fields_str = ""
     fields.each do |field|
       fields_str << field.to_s << ", "
     end
 
+    subject_str = " for #{subject}" if subject
+
     render json: { 
-             error: "invalid fields: [#{fields_str[0..-3]}]"
+             error: "invalid fields#{subject_str}: [#{fields_str[0..-3]}]"
            }, 
            status: :bad_request
   end

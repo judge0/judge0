@@ -1,15 +1,15 @@
 module Fields
-  class TestCase < Base
+  class TestSuite < Base
     def initialize(fields_str, override_default_fields = nil)
       super(fields_str, override_default_fields)
     end
 
     def default_fields
-      [:uuid, :input, :output]
+      [:uuid, :test_cases]
     end
 
     def serializer
-      TestCaseSerializer
+      TestSuiteSerializer
     end
   end
 end

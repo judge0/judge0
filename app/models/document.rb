@@ -21,7 +21,7 @@ class Document < ApplicationRecord
   after_validation -> { DocumentService.save(self) }
   after_create     -> { DocumentService.save(self) }
 
-  attr :content
+  attr_accessor :content
 
   def self.find_or_create_with_content(content)
     document = Document.new(content: content)

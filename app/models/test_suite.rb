@@ -20,9 +20,10 @@ class TestSuite < ApplicationRecord
 
   before_create :generate_uuid
 
-  attr :test_cases
+  attr_accessor :test_cases
 
   def test_cases
+    return nil if test_case_ids.nil?
     @test_cases ||= TestCase.find(test_case_ids.split(",").map(&:to_i))
   end
   

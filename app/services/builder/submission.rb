@@ -1,8 +1,6 @@
 module Builder
   class Submission
     def self.new_submission(params)
-      params = params.try(:deep_symbolize_keys) || params.deep_dup
-
       submission = ::Submission.new(
         params.except(
           :source_code,
