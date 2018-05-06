@@ -24,7 +24,7 @@ services:
     volumes:
       - .:/usr/src/api
     ports:
-      - "3000:3000"
+      - "80:3000"
       - "3030:3030"
     privileged: true
 
