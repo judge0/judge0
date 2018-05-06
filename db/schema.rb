@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_03_12_213402) do
+ActiveRecord::Schema.define(version: 2018_05_06_124752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,26 @@ ActiveRecord::Schema.define(version: 2018_03_12_213402) do
     t.integer "compile_output_id"
     t.integer "message_id"
     t.index ["token"], name: "index_submissions_on_token"
+  end
+
+  create_table "test_cases", force: :cascade do |t|
+    t.string "uuid", null: false
+    t.bigint "input_id"
+    t.bigint "output_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["input_id"], name: "index_test_cases_on_input_id"
+    t.index ["output_id"], name: "index_test_cases_on_output_id"
+    t.index ["uuid"], name: "index_test_cases_on_uuid", unique: true
+  end
+
+  create_table "test_suites", force: :cascade do |t|
+    t.string "uuid", null: false
+    t.text "test_case_ids", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["test_case_ids"], name: "index_test_suites_on_test_case_ids", unique: true
+    t.index ["uuid"], name: "index_test_suites_on_uuid", unique: true
   end
 
 end

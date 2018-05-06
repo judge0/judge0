@@ -24,12 +24,14 @@ class Document < ApplicationRecord
   attr :content
 
   def self.find_or_create_with_content(content)
-    return nil unless content
-
     document = Document.new(content: content)
     return document if document.save
+    Document.find_by(digest: document.digest) || document
+  end
 
-    Document.find_by(digest: document.digest)
+  def self.find_or_initialize_with_content(content)
+    document = Document.new(content: content)
+    Document.find_by(digest: document.digest) || document
   end
 
   def content
