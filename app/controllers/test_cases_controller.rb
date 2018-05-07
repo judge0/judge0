@@ -18,10 +18,10 @@ class TestCasesController < ApplicationController
     end
 
     render json: pagination_service.paginate(
-                   TestCase, 
+                   TestCase,
                    TestCaseSerializer,
                    {
-                     base64_encoded: params[:base64_encoded] == "true", 
+                     base64_encoded: params[:base64_encoded] == "true",
                      fields:         test_case_fields.fields
                    }
                  )
@@ -43,9 +43,9 @@ class TestCasesController < ApplicationController
     test_case_params_decoder = ParamsDecoder::TestCase.new(params, params[:base64_encoded] == "true")
     test_case = Builder::TestCase.find_or_create(test_case_params_decoder.params)
 
-    render json:       test_case, 
-           status:     :created, 
-           serializer: TestCaseSerializer, 
+    render json:       test_case,
+           status:     :created,
+           serializer: TestCaseSerializer,
            fields:     [:uuid]
   end
 end
