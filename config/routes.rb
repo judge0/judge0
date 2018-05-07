@@ -8,9 +8,12 @@ Rails.application.routes.draw do
   resources :test_cases,  only: [:index, :show, :create], param: :uuid
   resources :test_suites, only: [:index, :show, :create], param: :uuid
 
+  resources :documents, only: [:index, :show], param: :digest
+
   get 'system_info', to: 'info#system_info'
   get 'config_info', to: 'info#config_info'
   get 'version',     to: 'info#version'
+  get 'statistics',  to: 'info#statistics'
 
   post 'authenticate', to: 'sessions#authenticate'
   post 'authorize',    to: 'sessions#authorize'
