@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_06_124752) do
+ActiveRecord::Schema.define(version: 2018_05_07_005842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,34 @@ ActiveRecord::Schema.define(version: 2018_05_06_124752) do
     t.string "compile_cmd"
     t.string "run_cmd"
     t.string "source_file"
+  end
+
+  create_table "submission_results", force: :cascade do |t|
+    t.bigint "submission_id"
+    t.bigint "test_case_id"
+    t.bigint "stdout_id"
+    t.bigint "stderr_id"
+    t.bigint "compile_output_id"
+    t.bigint "sandbox_message_id"
+    t.bigint "internal_message_id"
+    t.decimal "time"
+    t.decimal "wall_time"
+    t.integer "memory"
+    t.integer "exit_code"
+    t.integer "exit_signal"
+    t.integer "status_id"
+    t.integer "index"
+    t.datetime "finished_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["compile_output_id"], name: "index_submission_results_on_compile_output_id"
+    t.index ["internal_message_id"], name: "index_submission_results_on_internal_message_id"
+    t.index ["sandbox_message_id"], name: "index_submission_results_on_sandbox_message_id"
+    t.index ["stderr_id"], name: "index_submission_results_on_stderr_id"
+    t.index ["stdout_id"], name: "index_submission_results_on_stdout_id"
+    t.index ["submission_id", "test_case_id"], name: "index_submission_results_on_submission_id_and_test_case_id"
+    t.index ["submission_id"], name: "index_submission_results_on_submission_id"
+    t.index ["test_case_id"], name: "index_submission_results_on_test_case_id"
   end
 
   create_table "submissions", id: :serial, force: :cascade do |t|

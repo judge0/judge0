@@ -81,6 +81,8 @@ class Submission < ApplicationRecord
   belongs_to :compile_output,  class_name: Document.name, optional: true
   belongs_to :message,         class_name: Document.name, optional: true
 
+  has_many :submission_results
+
   enumeration :status
 
   default_scope { order(created_at: :desc) }
@@ -99,11 +101,11 @@ class Submission < ApplicationRecord
     self.cpu_time_limit                             ||= Rails.configuration.api[:cpu_time_limit]
     self.cpu_extra_time                             ||= Rails.configuration.api[:cpu_extra_time]
     self.wall_time_limit                            ||= Rails.configuration.api[:wall_time_limit]
-    self.memory_limit                               ||= Rails.configuration.api[:memory_limit] 
-    self.stack_limit                                ||= Rails.configuration.api[:stack_limit] 
-    self.max_processes_and_or_threads               ||= Rails.configuration.api[:max_processes_and_or_threads] 
+    self.memory_limit                               ||= Rails.configuration.api[:memory_limit]
+    self.stack_limit                                ||= Rails.configuration.api[:stack_limit]
+    self.max_processes_and_or_threads               ||= Rails.configuration.api[:max_processes_and_or_threads]
     self.enable_per_process_and_thread_time_limit   ||= Rails.configuration.api[:enable_per_process_and_thread_time_limit]
-    self.enable_per_process_and_thread_memory_limit ||= Rails.configuration.api[:enable_per_process_and_thread_memory_limit] 
-    self.max_file_size                              ||= Rails.configuration.api[:max_file_size] 
+    self.enable_per_process_and_thread_memory_limit ||= Rails.configuration.api[:enable_per_process_and_thread_memory_limit]
+    self.max_file_size                              ||= Rails.configuration.api[:max_file_size]
   end
 end
