@@ -1,51 +1,71 @@
 class IsolateJob < ApplicationJob
   queue_as :default
 
-  STDIN_FILE = 'stdin.txt'
+  STDIN_FILE  = 'stdin.txt'
   STDOUT_FILE = 'stdout.txt'
   STDERR_FILE = 'stderr.txt'
-  META_FILE = 'meta.txt'
+  META_FILE   = 'meta.txt'
 
-  attr_reader :submission, :workdir, :box, :cgroups, :source, :stdin, :stdout, :stderr,
+  attr_reader :submission, :result, :workdir, :box, :cgroups, :source, :stdin, :stdout, :stderr,
               :meta, :parsed_meta, :id
 
   def perform(submission)
     @submission = submission
-    time = []
-    memory = []
 
-    submission.update(status_id: Status.process)
-    submission.number_of_runs.times do
-      init
-      write
-      if compile == :failure
-        clean
-        return
+    init()
+    write_source()
+    compile_status = compile()
+    unless compile_status[0]
+      now = DateTime.now
+      submission.submission_results.each do |result|
+        result.update(
+          finished_at: now,
+          status: Status.ce,
+          compile_output: Document.find_or_create_with_content(compile_status[1])
+        )
       end
-      run
-      verify
-
-      time << submission.time
-      memory << submission.memory
-
-      clean
-      break if submission.status != Status.ac
+      clean()
+      return
     end
 
-    submission.time = time.inject(&:+).to_f / time.size
-    submission.memory = memory.inject(&:+).to_f / memory.size
-    submission.save
+    submission.submission_results.each do |result|
+      @result = result
+
+      result.update(status: Status.process)
+
+      write_input()
+
+      time   = []
+      memory = []
+
+      submission.number_of_runs.times do
+        delete_stdout_stderr_and_meta_files()
+        run()
+        verify()
+
+        time   << result.time
+        memory << result.memory
+
+        break if result.status != Status.ac
+      end
+
+      result.time   = time  .inject(&:+).to_f / time.size
+      result.memory = memory.inject(&:+).to_f / memory.size
+      result.save
+    end
+
+    clean()
 
   rescue Exception => e
-    submission.finished_at ||= DataTime.now
-    submission.update(message: Document.find_or_create_with_content(e.message), status_id: Status.boxerr)
-    clean
+    result.update(internal_message: Document.find_or_create_with_content(e.message), status: Status.boxerr)
+    Rails.logger.debug "[#{DateTime.now}] Internal Error while processing submission #{submission.id} and result #{result.id}: #{e.message}"
+    clean()
   end
 
   private
 
   def init
-    @id = submission.id%2147483647
+    @id      = submission.id%2147483647
     @cgroups = (submission.enable_per_process_and_thread_time_limit | submission.enable_per_process_and_thread_memory_limit ? "--cg" : "")
     @workdir = `isolate #{cgroups} -b #{id} --init`.chomp
     @box = workdir + "/box/"
@@ -56,17 +76,17 @@ class IsolateJob < ApplicationJob
     @meta = workdir + "/" + META_FILE
   end
 
-  def write
-    [stdin, stdout, stderr, meta].each do |f|
-      `sudo touch #{f} && sudo chown $(whoami): #{f}`
-    end
-
+  def write_source
     File.open(source, "wb") { |f| f.write(submission.source.content) }
+  end
+
+  def write_input
+    `sudo touch #{stdin} && sudo chown $(whoami): #{stdin}`
     File.open(stdin, "wb") { |f| f.write(submission.stdin.try(:content)) }
   end
 
   def compile
-    return :success unless submission.language.compile_cmd
+    return [true, nil] unless submission.language.compile_cmd
 
     compile_flags = "".encode("UTF-8", invalid: :replace).shellescape
     compile_flags = nil if compile_flags == "''"
@@ -82,27 +102,13 @@ class IsolateJob < ApplicationJob
 
     compile_output = nil if compile_output.empty?
 
-    submission.compile_output = Document.find_or_create_with_content(compile_output)
-
-    return :success if process_status.success?
+    return [true, compile_output] if process_status.success?
 
     if [124, 137].include? process_status.exitstatus
-      submission.compile_output = "Compilation time limit exceeded."
+      compile_output = "Compilation time limit exceeded."
     end
 
-    submission.finished_at ||= DateTime.now
-    submission.time = nil
-    submission.wall_time = nil
-    submission.memory = nil
-    submission.stdout = nil
-    submission.stderr = nil
-    submission.exit_code = nil
-    submission.exit_signal = nil
-    submission.message = nil
-    submission.status = Status.ce
-    submission.save
-
-    return :failure
+    return [false, compile_output]
   end
 
   def run
@@ -132,7 +138,7 @@ class IsolateJob < ApplicationJob
   end
 
   def verify
-    submission.finished_at ||= DateTime.now
+    result.finished_at ||= DateTime.now
 
     change_permissions()
     parse_meta()
@@ -143,30 +149,35 @@ class IsolateJob < ApplicationJob
     program_stdout = nil if program_stdout.empty?
     program_stderr = nil if program_stderr.empty?
 
-    program_stdout = File.read(stdout)
-    program_stderr = File.read(stderr)
-
-    program_stdout = nil if program_stdout.empty?
-    program_stderr = nil if program_stderr.empty?
-
     sandbox_message = parsed_meta[:message] || ""
     sandbox_message = nil if sandbox_message.empty?
 
-    submission.time        = parsed_meta[:time]
-    submission.wall_time   = parsed_meta[:"time-wall"]
-    submission.memory      = (cgroups.present? ? parsed_meta[:"cg-mem"] : parsed_meta[:"max-rss"])
-    submission.stdout      = Document.find_or_create_with_content(program_stdout)
-    submission.stderr      = Document.find_or_create_with_content(program_stderr)
-    submission.exit_code   = parsed_meta[:exitcode].try(:to_i) || 0
-    submission.exit_signal = parsed_meta[:exitsig].try(:to_i)
-    submission.message     = Document.find_or_create_with_content(sandbox_message)
-    submission.status_id   = determine_status
+    result.time            = parsed_meta[:time]
+    result.wall_time       = parsed_meta[:"time-wall"]
+    result.memory          = (cgroups.present? ? parsed_meta[:"cg-mem"] : parsed_meta[:"max-rss"])
+    result.stdout          = Document.find_or_create_with_content(program_stdout)
+    result.stderr          = Document.find_or_create_with_content(program_stderr)
+    result.exit_code       = parsed_meta[:exitcode].try(:to_i) || 0
+    result.exit_signal     = parsed_meta[:exitsig].try(:to_i)
+    result.sandbox_message = Document.find_or_create_with_content(sandbox_message)
+    result.status          = determine_status
   end
 
   def clean
     `sudo rm -rf #{box}/*` # Remove all files from the box before doing cleanup with isolate.
     `sudo rm -rf #{stdin} #{stdout} #{stderr} #{meta}`
     `isolate #{cgroups} -b #{id} --cleanup`
+  end
+
+  def delete_stdout_stderr_and_meta_files
+    File.delete(stdout)
+    File.delete(stderr)
+    File.delete(meta)
+  rescue Errno::ENOENT => ignorable
+  ensure
+    [stdout, stderr, meta].each do |f|
+      `sudo touch #{f} && sudo chown $(whoami): #{f}`
+    end
   end
 
   def change_permissions
@@ -189,8 +200,8 @@ class IsolateJob < ApplicationJob
       return Status.nzec
     elsif parsed_meta[:status] == 'XX'
       return Status.boxerr
-    elsif submission.expected_output.try(:id).nil? ||
-          strip_output(submission.expected_output.content) == strip_output(submission.stdout.try(:content))
+    elsif result.test_case.output.try(:id).nil? ||
+          strip_output(result.test_case.output.try(:content)) == strip_output(result.stdout.try(:content))
       return Status.ac
     else
       return Status.wa

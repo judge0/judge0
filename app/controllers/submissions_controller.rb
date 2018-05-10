@@ -18,10 +18,10 @@ class SubmissionsController < ApplicationController
     end
 
     render json: pagination_service.paginate(
-                   Submission, 
+                   Submission,
                    SubmissionSerializer,
                    {
-                     base64_encoded: params[:base64_encoded] == "true", 
+                     base64_encoded: params[:base64_encoded] == "true",
                      fields:         submission_fields.fields
                    }
                  )
@@ -58,14 +58,14 @@ class SubmissionsController < ApplicationController
         end
         IsolateJob.perform_now(submission)
         render json:           submission,
-               status:         :created, 
+               status:         :created,
                serializer:     SubmissionSerializer,
-               base64_encoded: params[:base64_encoded] == "true", 
+               base64_encoded: params[:base64_encoded] == "true",
                fields:         submission_fields.fields
       else
         IsolateJob.perform_later(submission)
-        render json:       submission, 
-               status:     :created, 
+        render json:       submission,
+               status:     :created,
                serializer: SubmissionSerializer,
                fields:     [:token]
       end
@@ -78,11 +78,7 @@ class SubmissionsController < ApplicationController
 
   def submission_params
     params.permit(
-      :source_code,
       :language_id,
-      :number_of_runs,
-      :stdin,
-      :expected_output,
       :cpu_time_limit,
       :cpu_extra_time,
       :wall_time_limit,
@@ -91,7 +87,11 @@ class SubmissionsController < ApplicationController
       :max_processes_and_or_threads,
       :enable_per_process_and_thread_time_limit,
       :enable_per_process_and_thread_memory_limit,
-      :max_file_size
+      :max_file_size,
+      :number_of_runs,
+      :source,
+      :test_suite_uuid,
+      test_cases: [ :input, :output, :test_case_uuid ],
     )
   end
 end
