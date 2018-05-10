@@ -81,7 +81,7 @@ class Submission < ApplicationRecord
   belongs_to :compile_output,  class_name: Document.name, optional: true
   belongs_to :message,         class_name: Document.name, optional: true
 
-  has_many :submission_results
+  has_many :submission_results, -> { order(index: :asc) }, inverse_of: :submission
 
   enumeration :status
 
