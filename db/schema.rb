@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_07_005842) do
+ActiveRecord::Schema.define(version: 2018_05_12_174219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 2018_05_07_005842) do
   end
 
   create_table "submission_results", force: :cascade do |t|
-    t.bigint "submission_id"
-    t.bigint "test_case_id"
+    t.bigint "submission_id", null: false
+    t.bigint "test_case_id", null: false
     t.bigint "stdout_id"
     t.bigint "stderr_id"
     t.bigint "compile_output_id"
@@ -44,9 +44,8 @@ ActiveRecord::Schema.define(version: 2018_05_07_005842) do
     t.integer "exit_signal"
     t.integer "status_id"
     t.integer "index"
+    t.datetime "created_at"
     t.datetime "finished_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["compile_output_id"], name: "index_submission_results_on_compile_output_id"
     t.index ["internal_message_id"], name: "index_submission_results_on_internal_message_id"
     t.index ["sandbox_message_id"], name: "index_submission_results_on_sandbox_message_id"
@@ -59,11 +58,8 @@ ActiveRecord::Schema.define(version: 2018_05_07_005842) do
 
   create_table "submissions", id: :serial, force: :cascade do |t|
     t.integer "language_id"
-    t.integer "status_id"
     t.datetime "created_at"
     t.datetime "finished_at"
-    t.decimal "time"
-    t.integer "memory"
     t.string "token"
     t.integer "number_of_runs"
     t.decimal "cpu_time_limit"
@@ -75,16 +71,8 @@ ActiveRecord::Schema.define(version: 2018_05_07_005842) do
     t.boolean "enable_per_process_and_thread_time_limit"
     t.boolean "enable_per_process_and_thread_memory_limit"
     t.integer "max_file_size"
-    t.integer "exit_code"
-    t.integer "exit_signal"
-    t.decimal "wall_time"
-    t.integer "source_id"
-    t.integer "stdin_id"
-    t.integer "stdout_id"
-    t.integer "stderr_id"
-    t.integer "expected_output_id"
-    t.integer "compile_output_id"
-    t.integer "message_id"
+    t.bigint "source_id"
+    t.index ["source_id"], name: "index_submissions_on_source_id"
     t.index ["token"], name: "index_submissions_on_token"
   end
 

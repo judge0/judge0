@@ -3,8 +3,8 @@
 # Table name: submission_results
 #
 #  id                  :bigint(8)        not null, primary key
-#  submission_id       :bigint(8)
-#  test_case_id        :bigint(8)
+#  submission_id       :bigint(8)        not null
+#  test_case_id        :bigint(8)        not null
 #  stdout_id           :bigint(8)
 #  stderr_id           :bigint(8)
 #  compile_output_id   :bigint(8)
@@ -17,9 +17,8 @@
 #  exit_signal         :integer
 #  status_id           :integer
 #  index               :integer
+#  created_at          :datetime
 #  finished_at         :datetime
-#  created_at          :datetime         not null
-#  updated_at          :datetime         not null
 #
 # Indexes
 #
@@ -38,7 +37,7 @@ class SubmissionResult < ApplicationRecord
 
   before_validation :set_defaults, if: -> { new_record? }
 
-  belongs_to :submission, optional: false
+  belongs_to :submission, optional: false, inverse_of: :results
   belongs_to :test_case,  optional: false
 
   belongs_to :stdout,           class_name: Document.name, optional: true

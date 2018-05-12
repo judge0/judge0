@@ -1,7 +1,7 @@
 class CreateTestSuites < ActiveRecord::Migration[5.2]
   def change
     create_table :test_suites do |t|
-      t.string :uuid, null: false
+      t.string :uuid,          null: false
       t.text   :test_case_ids, null: false
       t.timestamps
     end

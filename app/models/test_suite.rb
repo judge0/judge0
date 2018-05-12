@@ -26,10 +26,14 @@ class TestSuite < ApplicationRecord
     return nil if test_case_ids.nil?
     @test_cases ||= TestCase.find(test_case_ids.split(",").map(&:to_i))
   end
-  
+
   def test_cases=(test_cases)
     @test_cases = test_cases
     self.test_case_ids = test_cases.pluck(:id).sort.map(&:to_s).join(",")
+  end
+
+  def readonly?
+    !new_record?
   end
 
   private

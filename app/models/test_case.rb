@@ -27,6 +27,10 @@ class TestCase < ApplicationRecord
 
   attr_accessor :index
 
+  def readonly?
+    !new_record?
+  end
+
   private
 
   def generate_uuid
