@@ -2,8 +2,8 @@ class CreateTestCases < ActiveRecord::Migration[5.2]
   def change
     create_table :test_cases do |t|
       t.string     :uuid,   null: false
-      t.references :input,  references: :documents
-      t.references :output, references: :documents 
+      t.references :input,  null: true
+      t.references :output, null: true
       t.timestamps
     end
 
