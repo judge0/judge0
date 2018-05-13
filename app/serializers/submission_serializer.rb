@@ -6,8 +6,6 @@ class SubmissionSerializer < ActiveModel::Serializer
     ).collect(&:to_sym)
   )
 
-  belongs_to :language, serializer: LanguageSerializer
-
   def source
     encode(object.source)
   end
@@ -21,11 +19,15 @@ class SubmissionSerializer < ActiveModel::Serializer
   end
 
   def status
-    { id: object.status.id, description: object.status.name }
+    ActiveModelSerializers::SerializableResource.new(object.status, { serializer: StatusSerializer })
   end
 
   def test_suite_uuid
     object.test_suite.uuid
+  end
+
+  def language
+    ActiveModelSerializers::SerializableResource.new(object.language, { serializer: LanguageSerializer })
   end
 
   def results

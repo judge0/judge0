@@ -126,11 +126,10 @@ class SubmissionsController < ApplicationController
                test_case_fields: test_case_fields.fields
       else
         IsolateJob.perform_later(submission)
-        render json:          submission,
-               status:        :created,
-               serializer:    SubmissionSerializer,
-               fields:        [:token, :test_suite_uuid],
-               result_fields: [:test_case_uuid, :index]
+        render json:       submission,
+               status:     :created,
+               serializer: SubmissionSerializer,
+               fields:     [:token]
       end
     else
       render json: submission.errors, status: :unprocessable_entity
