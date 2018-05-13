@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_12_174219) do
+ActiveRecord::Schema.define(version: 2018_05_13_093710) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2018_05_12_174219) do
     t.integer "status_id"
     t.datetime "created_at"
     t.datetime "finished_at"
-    t.string "token"
+    t.string "uuid"
     t.integer "number_of_runs"
     t.decimal "cpu_time_limit"
     t.decimal "cpu_extra_time"
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 2018_05_12_174219) do
     t.index ["internal_message_id"], name: "index_submissions_on_internal_message_id"
     t.index ["source_id"], name: "index_submissions_on_source_id"
     t.index ["test_suite_id"], name: "index_submissions_on_test_suite_id"
-    t.index ["token"], name: "index_submissions_on_token"
+    t.index ["uuid"], name: "index_submissions_on_uuid"
   end
 
   create_table "test_cases", force: :cascade do |t|

@@ -6,7 +6,7 @@ module Fields
 
     def default_fields
       [
-        :token,
+        :uuid,
         :status,
         :compile_output,
         :internal_message,

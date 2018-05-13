@@ -7,7 +7,7 @@
 #  status_id                                  :integer
 #  created_at                                 :datetime
 #  finished_at                                :datetime
-#  token                                      :string
+#  uuid                                       :string
 #  number_of_runs                             :integer
 #  cpu_time_limit                             :decimal(, )
 #  cpu_extra_time                             :decimal(, )
@@ -29,7 +29,7 @@
 #  index_submissions_on_internal_message_id  (internal_message_id)
 #  index_submissions_on_source_id            (source_id)
 #  index_submissions_on_test_suite_id        (test_suite_id)
-#  index_submissions_on_token                (token)
+#  index_submissions_on_uuid                 (uuid)
 #
 
 class Submission < ApplicationRecord
@@ -65,7 +65,7 @@ class Submission < ApplicationRecord
   validates :number_of_runs,
             numericality: { greater_than: 0, less_than_or_equal_to: Rails.configuration.api[:max_number_of_runs] }
 
-  before_create     :generate_token
+  before_create     :generate_uuid
   before_validation :set_defaults, if: -> { new_record? }
 
   belongs_to :language,   optional: false
@@ -89,10 +89,10 @@ class Submission < ApplicationRecord
 
   private
 
-  def generate_token
+  def generate_uuid
     begin
-      self.token = SecureRandom.uuid
-    end while self.class.exists?(token: token)
+      self.uuid = SecureRandom.uuid
+    end while self.class.exists?(uuid: uuid)
   end
 
   def set_defaults
