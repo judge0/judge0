@@ -27,7 +27,7 @@ class SubmissionResultSerializer < ActiveModel::Serializer
   end
 
   def status
-    { id: object.status.id, description: object.status.name }
+    ActiveModelSerializers::SerializableResource.new(object.status, { serializer: StatusSerializer })
   end
 
   def test_case_uuid

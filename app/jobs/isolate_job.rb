@@ -160,6 +160,7 @@ class IsolateJob < ApplicationJob
   end
 
   def clean
+    `rm #{box}/*`
     `isolate #{cgroups} -b #{id} --cleanup`
   end
 
