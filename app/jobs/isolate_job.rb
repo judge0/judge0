@@ -127,7 +127,7 @@ class IsolateJob < ApplicationJob
     --run \
     -- #{submission.language.run_cmd}"
 
-    Rails.logger.debug "[#{DateTime.now}] Running submission #{submission.token} (#{submission.id}):"
+    Rails.logger.debug "[#{DateTime.now}] Running submission #{submission.uuid} (#{submission.id}):"
     Rails.logger.debug command.gsub(/\s+/, " ")
 
     `#{command}`

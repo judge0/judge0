@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'home#docs'
 
-  resources :submissions, only: [:index, :show, :create], param: :token
+  resources :submissions, only: [:index, :show, :create], param: :uuid
   resources :languages,   only: [:index]
   resources :statuses,    only: [:index]
 

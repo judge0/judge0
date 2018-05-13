@@ -72,7 +72,7 @@ class SubmissionsController < ApplicationController
       return
     end
 
-    render json:             Submission.find_by!(token: params[:token]),
+    render json:             Submission.find_by!(uuid: params[:uuid]),
            serializer:       SubmissionSerializer,
            base64_encoded:   params[:base64_encoded] == "true",
            fields:           submission_fields.fields,
@@ -129,7 +129,7 @@ class SubmissionsController < ApplicationController
         render json:       submission,
                status:     :created,
                serializer: SubmissionSerializer,
-               fields:     [:token]
+               fields:     [:uuid]
       end
     else
       render json: submission.errors, status: :unprocessable_entity
