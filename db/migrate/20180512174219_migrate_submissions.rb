@@ -1,6 +1,9 @@
 class MigrateSubmissions < ActiveRecord::Migration[5.2]
   def up
-    add_reference :submissions, :source
+    add_reference :submissions, :source,           null: true
+    add_reference :submissions, :test_suite,       null: true
+    add_reference :submissions, :compile_output,   null: true
+    add_reference :submissions, :internal_message, null: true
 
     i = 1
     n = Submission.count
@@ -48,9 +51,18 @@ class MigrateSubmissions < ActiveRecord::Migration[5.2]
         results << result
       end
 
-      s.results = results
+      if s.status != Status.boxerr  &&
+         s.status != Status.ce      &&
+         s.status != Status.queue   &&
+         s.status != Status.process
+         s.status = Status.finished
+      end
 
-      s.save
+      s.compile_output = results.first.compile_output
+      s.test_suite     = test_suite
+      s.results        = results
+
+      s.save!
     end
 
     remove_column :submissions, :source_code
@@ -65,7 +77,6 @@ class MigrateSubmissions < ActiveRecord::Migration[5.2]
     remove_column :submissions, :memory
     remove_column :submissions, :exit_code
     remove_column :submissions, :exit_signal
-    remove_column :submissions, :status_id
   end
 
   def down

@@ -11,7 +11,8 @@ class Status < Enumerations::Base
          sigabrt:   { id: 10, name: 'Runtime Error (SIGABRT)' },
          nzec:      { id: 11, name: 'Runtime Error (NZEC)' },
          other:     { id: 12, name: 'Runtime Error (Other)' },
-         boxerr:    { id: 13, name: 'Internal Error' }
+         boxerr:    { id: 13, name: 'Internal Error' },
+         finished:  { id: 14, name: 'Finished' }
 
   def self.find_runtime_error_by_status_code(status_code)
     case status_code.to_i

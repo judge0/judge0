@@ -4,6 +4,7 @@
 #
 #  id                                         :integer          not null, primary key
 #  language_id                                :integer
+#  status_id                                  :integer
 #  created_at                                 :datetime
 #  finished_at                                :datetime
 #  token                                      :string
@@ -18,11 +19,17 @@
 #  enable_per_process_and_thread_memory_limit :boolean
 #  max_file_size                              :integer
 #  source_id                                  :bigint(8)
+#  test_suite_id                              :bigint(8)
+#  compile_output_id                          :bigint(8)
+#  internal_message_id                        :bigint(8)
 #
 # Indexes
 #
-#  index_submissions_on_source_id  (source_id)
-#  index_submissions_on_token      (token)
+#  index_submissions_on_compile_output_id    (compile_output_id)
+#  index_submissions_on_internal_message_id  (internal_message_id)
+#  index_submissions_on_source_id            (source_id)
+#  index_submissions_on_test_suite_id        (test_suite_id)
+#  index_submissions_on_token                (token)
 #
 
 class Submission < ApplicationRecord
@@ -61,12 +68,24 @@ class Submission < ApplicationRecord
   before_create     :generate_token
   before_validation :set_defaults, if: -> { new_record? }
 
-  belongs_to :language,                            optional: false
-  belongs_to :source,   class_name: Document.name, optional: false
+  belongs_to :language,   optional: false
+  belongs_to :test_suite, optional: false
+
+  belongs_to :source,           class_name: Document.name, optional: false
+  belongs_to :compile_output,   class_name: Document.name, optional: true
+  belongs_to :internal_message, class_name: Document.name, optional: true
 
   has_many :results, -> { order(index: :asc) }, class_name: SubmissionResult.name, inverse_of: :submission
 
   default_scope { order(created_at: :desc) }
+
+  def status
+    Status.find_by(id: status_id)
+  end
+
+  def status=(status)
+    self.status_id = status.try(:integer) ? status : status.id
+  end
 
   private
 
@@ -77,6 +96,7 @@ class Submission < ApplicationRecord
   end
 
   def set_defaults
+    self.status                                     ||= Status.queue
     self.cpu_time_limit                             ||= Rails.configuration.api[:cpu_time_limit]
     self.cpu_extra_time                             ||= Rails.configuration.api[:cpu_extra_time]
     self.wall_time_limit                            ||= Rails.configuration.api[:wall_time_limit]

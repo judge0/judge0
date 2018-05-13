@@ -12,23 +12,28 @@ class IsolateJob < ApplicationJob
   def perform(submission)
     @submission = submission
 
+    submission.update(status: Status.process)
+
     init()
     write_source()
     compile_status = compile()
     unless compile_status[0]
       now = DateTime.now
-      submission.submission_results.each do |result|
+      compile_output = Document.find_or_create_with_content(compile_status[1])
+      submission.results.each do |result|
         result.update(
-          finished_at: now,
-          status: Status.ce,
-          compile_output: Document.find_or_create_with_content(compile_status[1])
+          finished_at:    now,
+          status:         Status.ce,
+          compile_output: compile_output
         )
       end
-      clean()
+      submission.update(status: Status.ce, compile_output: compile_output)
+      # goto ensure block
       return
     end
 
-    submission.submission_results.each do |result|
+    submission.results.each do |result|
+    begin
       @result = result
 
       result.update(status: Status.process)
@@ -52,14 +57,24 @@ class IsolateJob < ApplicationJob
       result.time   = time  .inject(&:+).to_f / time.size
       result.memory = memory.inject(&:+).to_f / memory.size
       result.save
+    rescue Exception => e
+      result.update(internal_message: Document.find_or_create_with_content(e.message), status: Status.boxerr)
+      Rails.logger.debug "[#{DateTime.now}] Internal Error while processing submission #{submission.id} and result #{result.id}: #{e.message}"
+    ensure
+      result.update(finished_at: DateTime.now) unless result.finished_at
+    end
     end
 
-    clean()
-
   rescue Exception => e
-    result.update(internal_message: Document.find_or_create_with_content(e.message), status: Status.boxerr)
-    Rails.logger.debug "[#{DateTime.now}] Internal Error while processing submission #{submission.id} and result #{result.id}: #{e.message}"
+    submission.update(internal_message: Document.find_or_create_with_content(e.message), status: Status.boxerr)
+    Rails.logger.debug "[#{DateTime.now}] Internal Error while processing submission #{submission.id}: #{e.message}"
+  ensure
     clean()
+    if submission.status == Status.process
+      submission.status = Status.finished
+    end
+    submission.finished_at = DateTime.now
+    submission.save
   end
 
   private

@@ -1,23 +1,24 @@
 module Fields
-  class Submission < Base
+  class SubmissionResult < Base
     def initialize(fields_str, override_default_fields = nil)
       super(fields_str, override_default_fields)
     end
 
     def default_fields
       [
-        :token,
+        :test_case_uuid,
         :status,
+        :time,
+        :memory,
+        :stdout,
+        :stderr,
         :compile_output,
-        :internal_message,
-        :language,
-        :finished_at,
-        :results
+        :finished_at
       ]
     end
 
     def serializer
-      SubmissionSerializer
+      SubmissionResultSerializer
     end
   end
 end
