@@ -29,7 +29,7 @@ class PaginationService
 
     {
       model.name.underscore.pluralize.to_sym => serializable_resources.as_json,
-      meta:                           self.class.pagination_dict(paginated_resource)
+      meta:                                     self.class.pagination_dict(paginated_resource)
     }
   end
 

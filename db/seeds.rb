@@ -282,13 +282,6 @@ languages = [
   }
 ]
 
-if Language.count && ENV["DISABLE_DATABASE_ENVIRONMENT_CHECK"] == "1"
-  ActiveRecord::Base.transaction do
-    Language.delete_all
-    ActiveRecord::Base.connection.reset_pk_sequence!('languages')
-  end
-end
-
 ActiveRecord::Base.transaction do
   Language.delete_all
   languages.each_with_index do |language, index|

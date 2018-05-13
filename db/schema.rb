@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2018_05_12_174219) do
 
   create_table "submissions", id: :serial, force: :cascade do |t|
     t.integer "language_id"
+    t.integer "status_id"
     t.datetime "created_at"
     t.datetime "finished_at"
     t.string "token"
@@ -72,7 +73,13 @@ ActiveRecord::Schema.define(version: 2018_05_12_174219) do
     t.boolean "enable_per_process_and_thread_memory_limit"
     t.integer "max_file_size"
     t.bigint "source_id"
+    t.bigint "test_suite_id"
+    t.bigint "compile_output_id"
+    t.bigint "internal_message_id"
+    t.index ["compile_output_id"], name: "index_submissions_on_compile_output_id"
+    t.index ["internal_message_id"], name: "index_submissions_on_internal_message_id"
     t.index ["source_id"], name: "index_submissions_on_source_id"
+    t.index ["test_suite_id"], name: "index_submissions_on_test_suite_id"
     t.index ["token"], name: "index_submissions_on_token"
   end
 

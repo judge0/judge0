@@ -2,9 +2,27 @@ class SubmissionsController < ApplicationController
   before_action :authorize_request, only: [:index]
 
   def index
-    submission_fields = Fields::Submission.new(params[:fields])
+    if params[:fields] == "*"
+      params[:submission_fields] ||= "*"
+      params[:result_fields]     ||= "*"
+      params[:test_case_fields]  ||= "*"
+    end
+
+    submission_fields = Fields::Submission.new(params[:submission_fields])
     if submission_fields.has_invalid_fields?
-      render_invalid_fields_error(submission_fields.invalid_fields)
+      render_invalid_fields_error(submission_fields.invalid_fields, "submission")
+      return
+    end
+
+    result_fields = Fields::SubmissionResult.new(params[:result_fields])
+    if result_fields.has_invalid_fields?
+      render_invalid_fields_error(result_fields.invalid_fields, "result")
+      return
+    end
+
+    test_case_fields = Fields::TestCase.new(params[:test_case_fields], [:uuid])
+    if test_case_fields.has_invalid_fields?
+      render_invalid_fields_error(test_case_fields.invalid_fields, "test case")
       return
     end
 
@@ -21,22 +39,45 @@ class SubmissionsController < ApplicationController
                    Submission,
                    SubmissionSerializer,
                    {
-                     base64_encoded: params[:base64_encoded] == "true",
-                     fields:         submission_fields.fields
+                     base64_encoded:   params[:base64_encoded] == "true",
+                     fields:           submission_fields.fields,
+                     result_fields:    result_fields.fields,
+                     test_case_fields: test_case_fields.fields
                    }
                  )
   end
 
   def show
-    submission_fields = Fields::Submission.new(params[:fields])
-    if submission_fields.has_invalid_fields?
-      render_invalid_fields_error(submission_fields.invalid_fields)
-    else
-      render json:           Submission.find_by!(token: params[:token]),
-             serializer:     SubmissionSerializer,
-             base64_encoded: params[:base64_encoded] == "true",
-             fields:         submission_fields.fields
+    if params[:fields] == "*"
+      params[:submission_fields] ||= "*"
+      params[:result_fields]     ||= "*"
+      params[:test_case_fields]  ||= "*"
     end
+
+    submission_fields = Fields::Submission.new(params[:submission_fields])
+    if submission_fields.has_invalid_fields?
+      render_invalid_fields_error(submission_fields.invalid_fields, "submission")
+      return
+    end
+
+    result_fields = Fields::SubmissionResult.new(params[:result_fields])
+    if result_fields.has_invalid_fields?
+      render_invalid_fields_error(result_fields.invalid_fields, "result")
+      return
+    end
+
+    test_case_fields = Fields::TestCase.new(params[:test_case_fields], [:uuid])
+    if test_case_fields.has_invalid_fields?
+      render_invalid_fields_error(test_case_fields.invalid_fields, "test case")
+      return
+    end
+
+    render json:             Submission.find_by!(token: params[:token]),
+           serializer:       SubmissionSerializer,
+           base64_encoded:   params[:base64_encoded] == "true",
+           fields:           submission_fields.fields,
+           result_fields:    result_fields.fields,
+           test_case_fields: test_case_fields.fields
   end
 
   def create
@@ -46,28 +87,50 @@ class SubmissionsController < ApplicationController
       return
     end
 
+    if params[:fields] == "*"
+      params[:submission_fields] ||= "*"
+      params[:result_fields]     ||= "*"
+      params[:test_case_fields]  ||= "*"
+    end
+
+    submission_fields = Fields::Submission.new(params[:submission_fields])
+    if wait && submission_fields.has_invalid_fields?
+      render_invalid_fields_error(submission_fields.invalid_fields, "submission")
+      return
+    end
+
+    result_fields = Fields::SubmissionResult.new(params[:result_fields])
+    if wait && result_fields.has_invalid_fields?
+      render_invalid_fields_error(result_fields.invalid_fields, "result")
+      return
+    end
+
+    test_case_fields = Fields::TestCase.new(params[:test_case_fields], [:uuid])
+    if wait && test_case_fields.has_invalid_fields?
+      render_invalid_fields_error(test_case_fields.invalid_fields, "test case")
+      return
+    end
+
     submission_params_decoder = ParamsDecoder::Submission.new(submission_params, params[:base64_encoded] == "true")
     submission = Builder::Submission.new_submission(submission_params_decoder.params)
 
     if submission.save
       if wait
-        submission_fields = Fields::Submission.new(params[:fields])
-        if submission_fields.has_invalid_fields?
-          render_invalid_fields_error(submission_fields.invalid_fields)
-          return
-        end
         IsolateJob.perform_now(submission)
-        render json:           submission,
-               status:         :created,
-               serializer:     SubmissionSerializer,
-               base64_encoded: params[:base64_encoded] == "true",
-               fields:         submission_fields.fields
+        render json:             submission,
+               status:           :created,
+               serializer:       SubmissionSerializer,
+               base64_encoded:   params[:base64_encoded] == "true",
+               fields:           submission_fields.fields,
+               result_fields:    result_fields.fields,
+               test_case_fields: test_case_fields.fields
       else
         IsolateJob.perform_later(submission)
-        render json:       submission,
-               status:     :created,
-               serializer: SubmissionSerializer,
-               fields:     [:token]
+        render json:          submission,
+               status:        :created,
+               serializer:    SubmissionSerializer,
+               fields:        [:token, :test_suite_uuid],
+               result_fields: [:test_case_uuid, :index]
       end
     else
       render json: submission.errors, status: :unprocessable_entity
@@ -91,7 +154,7 @@ class SubmissionsController < ApplicationController
       :number_of_runs,
       :source,
       :test_suite_uuid,
-      test_cases: [ :input, :output, :test_case_uuid ],
+      test_cases: [:input, :output, :test_case_uuid],
     )
   end
 end
