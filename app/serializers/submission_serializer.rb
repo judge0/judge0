@@ -2,7 +2,7 @@ class SubmissionSerializer < ActiveModel::Serializer
   attributes(
     (
       Submission.column_names.reject{ |n| /^id$/.match(n) }.collect{ |n| n.gsub(/_id$/, "") } +
-      ["test_suite_uuid", "results", "compile_command", "run_command"] - ["test_suite"]
+      ["test_suite_uuid", "results", "compile_command", "run_command", "tasks_before", "submissions_before"] - ["test_suite"]
     ).collect(&:to_sym)
   )
 
@@ -36,6 +36,22 @@ class SubmissionSerializer < ActiveModel::Serializer
 
   def run_command
     object.language.run_cmd
+  end
+
+  def tasks_before
+    return 0 if object.status != Status.queue
+    SubmissionResult
+      .where(status_id: Status.queue)
+      .where.not(submission: object)
+      .where("submission_results.created_at < ?", object.created_at).count
+  end
+
+  def submissions_before
+    return 0 if object.status != Status.queue
+    Submission
+      .where(status_id: Status.queue)
+      .where.not(id: object)
+      .where("submissions.created_at < ?", object.created_at).count
   end
 
   def results
