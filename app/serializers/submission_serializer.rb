@@ -2,7 +2,7 @@ class SubmissionSerializer < ActiveModel::Serializer
   attributes(
     (
       Submission.column_names.reject{ |n| /^id$/.match(n) }.collect{ |n| n.gsub(/_id$/, "") } +
-      ["test_suite_uuid", "results"] - ["test_suite"]
+      ["test_suite_uuid", "results", "compile_command", "run_command"] - ["test_suite"]
     ).collect(&:to_sym)
   )
 
@@ -28,6 +28,14 @@ class SubmissionSerializer < ActiveModel::Serializer
 
   def language
     ActiveModelSerializers::SerializableResource.new(object.language, { serializer: LanguageSerializer })
+  end
+
+  def compile_command
+    object.language.compile_cmd
+  end
+
+  def run_command
+    object.language.run_cmd
   end
 
   def results
