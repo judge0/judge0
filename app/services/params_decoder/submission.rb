@@ -5,7 +5,7 @@ module ParamsDecoder
     end
 
     def params_to_decode
-      [:source_code, :stdin, :expected_output]
+      [:source]
     end
   end
 end
