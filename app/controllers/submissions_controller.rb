@@ -111,8 +111,11 @@ class SubmissionsController < ApplicationController
       return
     end
 
-    submission_params_decoder = ParamsDecoder::Submission.new(submission_params, params[:base64_encoded] == "true")
-    submission = Builder::Submission.new_submission(submission_params_decoder.params)
+    submission_params = ParamsDecoder::Submission.new(permitted_submission_params, params[:base64_encoded] == "true").params
+    test_suite_params = ParamsDecoder::TestSuite.new(submission_params[:test_cases], params[:base64_encoded] == "true").params
+    submission_params[:test_cases] = test_suite_params
+
+    submission = Builder::Submission.new_submission(submission_params)
 
     if submission.save
       if wait
@@ -138,7 +141,7 @@ class SubmissionsController < ApplicationController
 
   private
 
-  def submission_params
+  def permitted_submission_params
     params.permit(
       :language_id,
       :cpu_time_limit,
