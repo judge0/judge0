@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 2018_05_13_093710) do
     t.index ["internal_message_id"], name: "index_submissions_on_internal_message_id"
     t.index ["source_id"], name: "index_submissions_on_source_id"
     t.index ["test_suite_id"], name: "index_submissions_on_test_suite_id"
-    t.index ["uuid"], name: "index_submissions_on_uuid"
+    t.index ["uuid"], name: "index_submissions_on_uuid", unique: true
   end
 
   create_table "test_cases", force: :cascade do |t|
