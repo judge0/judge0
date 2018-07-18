@@ -14,7 +14,7 @@ module Builder
 
       new_test_suite = ::TestSuite.new(test_cases: test_cases)
 
-      ::TestSuite.transaction do
+      ::TestSuite.with_advisory_lock("test-suite-find-or-create") do
         old_test_suite = ::TestSuite.find_by(test_case_ids: new_test_suite.test_case_ids)
         if old_test_suite
           old_test_suite.test_cases = new_test_suite.test_cases

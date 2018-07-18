@@ -10,7 +10,7 @@ module Builder
       output = ::Document.find_or_create_with_content(params[:output])
 
       new_test_case = ::TestCase.new(input: input, output: output)
-      ::TestCase.transaction do
+      ::TestCase.with_advisory_lock("test-case-find-or-create") do
         old_test_case = ::TestCase.find_by(input: input, output: output)
         return old_test_case if old_test_case
         new_test_case.save(validate: false)

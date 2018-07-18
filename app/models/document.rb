@@ -26,7 +26,7 @@ class Document < ApplicationRecord
   def self.find_or_create_with_content(content)
     return nil unless content
     new_document = Document.new(content: content)
-    Document.transaction do
+    Document.with_advisory_lock("document-find-or-create") do
       old_document = Document.find_by(digest: new_document.digest)
       return old_document if old_document
       new_document.save(validate: false)
