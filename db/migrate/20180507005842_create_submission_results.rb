@@ -1,13 +1,13 @@
 class CreateSubmissionResults < ActiveRecord::Migration[5.2]
   def change
     create_table :submission_results do |t|
-      t.references :submission,       null: false
-      t.references :test_case,        null: false
-      t.references :stdout,           null: true
-      t.references :stderr,           null: true
-      t.references :compile_output,   null: true
-      t.references :sandbox_message,  null: true
-      t.references :internal_message, null: true
+      t.references :submission,       null: false, index: true
+      t.references :test_case,        null: false, index: false
+      t.references :stdout,           null: true,  index: false
+      t.references :stderr,           null: true,  index: false
+      t.references :compile_output,   null: true,  index: false
+      t.references :sandbox_message,  null: true,  index: false
+      t.references :internal_message, null: true,  index: false
       t.decimal    :time
       t.decimal    :wall_time
       t.integer    :memory

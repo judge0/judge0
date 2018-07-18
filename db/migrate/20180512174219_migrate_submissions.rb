@@ -1,9 +1,9 @@
 class MigrateSubmissions < ActiveRecord::Migration[5.2]
   def up
-    add_reference :submissions, :source,           null: true
-    add_reference :submissions, :test_suite,       null: true
-    add_reference :submissions, :compile_output,   null: true
-    add_reference :submissions, :internal_message, null: true
+    add_reference :submissions, :source,           null: true, index: false
+    add_reference :submissions, :test_suite,       null: true, index: false
+    add_reference :submissions, :compile_output,   null: true, index: false
+    add_reference :submissions, :internal_message, null: true, index: false
 
     i = 1
     n = Submission.count

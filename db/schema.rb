@@ -46,14 +46,7 @@ ActiveRecord::Schema.define(version: 2018_05_13_093710) do
     t.integer "index"
     t.datetime "created_at"
     t.datetime "finished_at"
-    t.index ["compile_output_id"], name: "index_submission_results_on_compile_output_id"
-    t.index ["internal_message_id"], name: "index_submission_results_on_internal_message_id"
-    t.index ["sandbox_message_id"], name: "index_submission_results_on_sandbox_message_id"
-    t.index ["stderr_id"], name: "index_submission_results_on_stderr_id"
-    t.index ["stdout_id"], name: "index_submission_results_on_stdout_id"
     t.index ["submission_id", "test_case_id"], name: "index_submission_results_on_submission_id_and_test_case_id"
-    t.index ["submission_id"], name: "index_submission_results_on_submission_id"
-    t.index ["test_case_id"], name: "index_submission_results_on_test_case_id"
   end
 
   create_table "submissions", id: :serial, force: :cascade do |t|
@@ -76,10 +69,6 @@ ActiveRecord::Schema.define(version: 2018_05_13_093710) do
     t.bigint "test_suite_id"
     t.bigint "compile_output_id"
     t.bigint "internal_message_id"
-    t.index ["compile_output_id"], name: "index_submissions_on_compile_output_id"
-    t.index ["internal_message_id"], name: "index_submissions_on_internal_message_id"
-    t.index ["source_id"], name: "index_submissions_on_source_id"
-    t.index ["test_suite_id"], name: "index_submissions_on_test_suite_id"
     t.index ["uuid"], name: "index_submissions_on_uuid", unique: true
   end
 
@@ -89,8 +78,7 @@ ActiveRecord::Schema.define(version: 2018_05_13_093710) do
     t.bigint "output_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["input_id"], name: "index_test_cases_on_input_id"
-    t.index ["output_id"], name: "index_test_cases_on_output_id"
+    t.index ["input_id", "output_id"], name: "index_test_cases_on_input_id_and_output_id", unique: true
     t.index ["uuid"], name: "index_test_cases_on_uuid", unique: true
   end
 
