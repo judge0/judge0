@@ -1,3 +1,3 @@
 + Response 401
-    Authentication failed. Please read about [authentication](#authentication) process.
+    Authentication failed. Please read about [authentication](#authentication).
     + Body
