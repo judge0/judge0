@@ -92,11 +92,11 @@ class IsolateJob < ApplicationJob
   end
 
   def write_source
-    File.open(source, 'w:UTF-8') { |f| f.write(submission.source.content) }
+    File.open(source, "wb") { |f| f.write(submission.source.content) }
   end
 
   def write_input
-    File.open(stdin, 'w:UTF-8') { |f| f.write(result.test_case.input.try(:content)) }
+    File.open(stdin, "wb") { |f| f.write(result.test_case.input.try(:content)) }
   end
 
   def compile
