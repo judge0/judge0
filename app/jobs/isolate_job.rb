@@ -97,7 +97,7 @@ class IsolateJob < ApplicationJob
 
   def write_input
     `sudo touch #{stdin} && sudo chown $(whoami): #{stdin}`
-    File.open(stdin, "wb") { |f| f.write(submission.stdin.try(:content)) }
+    File.open(stdin, "wb") { |f| f.write(result.test_case.input.try(:content)) }
   end
 
   def compile
