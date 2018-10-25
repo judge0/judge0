@@ -26,7 +26,9 @@ Check if your authentication token is valid.
 
 + Request
     + Headers
+        ```
         X-Auth-Token: f6583e60-b13b-4228-b554-2eb332ca64e7
+        ```
 
 + Response 200
 If your authentication token is valid or authentication is disabled.
