@@ -25,7 +25,7 @@ module DocumentService
     return unless document.try(:content)
     return if     exists_locally?(document)
 
-    File.open(document.file_path, "w") do |f|
+    File.open(document.file_path, "wb") do |f|
       begin
         f.flock(File::LOCK_EX)
         f.write(document.content)
@@ -86,7 +86,7 @@ module DocumentService
     @@aws_client.get_object(
       bucket: @@aws_bucket,
       key: document.digest,
-      response_target: document.file_path 
+      response_target: document.file_path
     )
     read_locally(document)
   rescue
