@@ -23,7 +23,7 @@ With Judge0 API you can easly create:
 * e-learning system and
 * etc.
 
-To see Judge0 API in action, try [Judge0 IDE](https://ide.judge0.com) - simple open source code editor that uses Judge0 API as a backend service.
+To see Judge0 API in action, try [Judge0 IDE](https://ide.judge0.com) - simple open source code editor that uses Judge0 API for executing user's source code.
 
 ## Official public API
 Official public API is available at [https://api.judge0.com](https://api.judge0.com) and is maintained by Judge0 [creator](https://github.com/hermanzdosilovic).
@@ -37,7 +37,7 @@ Status page of public Judge0 services is available [here](https://status.judge0.
 :::
 
 ## Version
-This document describes Judge0 API version [`v2.0.0`](https://github.com/judge0/api/tree/v2.0.0).<br>
+This document describes Judge0 API version [`v2.0.0`](https://github.com/judge0/api/tree/v2.0.0).
 Documentation for older versions can be found [here](https://static.judge0.com/api/docs/).
 
 ## Date and time formats
@@ -50,6 +50,9 @@ Judge0 API is licensed under the [GNU General Public License v3.0](https://githu
 
 ## Donate
 If you like Judge0, please consider making a [donation](https://www.paypal.me/hermanzdosilovic) to support this project.
+Your donation will help keep the servers running.
+
+</br>
 
 <!-- include(authentication/authentication.md) -->
 <!-- include(authorization/authorization.md) -->

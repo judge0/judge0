@@ -1,5 +1,5 @@
 # Group Authorization
-## Authorize [/authorize{?X-Auth-User}]
+## Authorize [/authorize]
 ### Authorize [POST]
 To issue some API calls you need to be authorized. For example, you need to be authorized to
 [list all submissions](#submissions-submission-get) on Judge0 API.
@@ -11,8 +11,11 @@ correct parameter name and valid authorization tokens for successful authorizati
 With this API call you can check if your authorization token is valid. If authentication is enabled you should also
 authenticate in this API call.
 
-+ Parameters
-    + X-Auth-User (required, string, `a1133bc6-a0f6-46bf-a2d8-6157418c6fe2`) ... User's authorization token
++ Request
+    + Headers
+        ```
+        X-Auth-User: a1133bc6-a0f6-46bf-a2d8-6157418c6fe2
+        ```
 
 + Response 200
 If your authorization token is valid.
