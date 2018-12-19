@@ -40,14 +40,14 @@ services:
     restart: always
 
   db:
-    image: postgres
+    image: postgres:9.6.5
     env_file: judge0-api.conf
     volumes:
       - ./srv/postgres-data:/var/lib/postgresql/data/
     restart: always
 
   redis:
-    image: redis
+    image: redis:4.0.9
     command: redis-server --appendonly yes
     volumes:
       - ./srv/redis-data:/data
