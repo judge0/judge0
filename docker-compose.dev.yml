@@ -16,8 +16,8 @@ services:
       context: .
       dockerfile: Dockerfile.dev
       args:
-        - DEV_USER=$USER
-        - DEV_USER_ID=$UID
+        - DEV_USER=$JUDGE0_DEV_USER
+        - DEV_USER_ID=$JUDGE0_DEV_UID
     image: judge0/api:dev
     container_name: judge0-dev-api
     environment:
