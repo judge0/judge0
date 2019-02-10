@@ -1,6 +1,4 @@
 FROM judge0/api-base:0.2.1
-#LABEL maintainer="Herman Zvonimir Došilović, hermanz.dosilovic@gmail.com" \
-#      version="1.0.0"
 
 RUN apt-get update && \
     apt-get install -y \
