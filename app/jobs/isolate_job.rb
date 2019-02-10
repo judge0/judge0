@@ -63,14 +63,21 @@ class IsolateJob < ApplicationJob
   def compile
     return :success unless submission.language.compile_cmd
 
-    submission.compile_output = `cd #{box} && #{submission.language.compile_cmd} 2>&1`.presence
-    return :success if $?.success?
+    submission.compile_output = `cd #{box} && timeout -s 15 -k 5s 10s #{submission.language.compile_cmd} 2>&1`.presence
+
+    process_status = $?
+    return :success if process_status.success?
+
+    if [124, 137].include? process_status.exitstatus
+      submission.compile_output = "Compilation time limit exceeded."
+    end
 
     submission.update(
       status: Status.ce,
       finished_at: DateTime.now
     )
-    :failure
+
+    return :failure
   end
 
   def run
@@ -118,6 +125,7 @@ class IsolateJob < ApplicationJob
   end
 
   def clean
+    `rm #{box}/*`
     `isolate #{cgroups} -b #{id} --cleanup`
   end
 
