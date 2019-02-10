@@ -113,11 +113,17 @@ class IsolateJob < ApplicationJob
     change_permissions
     parse_meta
 
+    program_stdout = File.read(stdout)
+    program_stderr = File.read(stderr)
+
+    program_stdout = nil if program_stdout.empty?
+    program_stderr = nil if program_stderr.empty?
+
     submission.time = parsed_meta[:time]
     submission.wall_time = parsed_meta[:"time-wall"]
     submission.memory = (cgroups.present? ? parsed_meta[:"cg-mem"] : parsed_meta[:"max-rss"])
-    submission.stdout = File.read(stdout).presence
-    submission.stderr = File.read(stderr).presence
+    submission.stdout = program_stdout
+    submission.stderr = program_stderr
     submission.exit_code = parsed_meta[:exitcode].try(:to_i) || 0
     submission.exit_signal = parsed_meta[:exitsig].try(:to_i)
     submission.message = parsed_meta[:message]
