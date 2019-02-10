@@ -43,7 +43,7 @@ services:
     container_name: judge0-dev-db
     env_file: judge0-api.conf
     volumes:
-      - ./tmp/postgres-data:/var/lib/postgresql/data/
+      - postgres-data:/var/lib/postgresql/data/
     ports:
       - "5432:5432"
     restart: always
@@ -53,7 +53,11 @@ services:
     container_name: judge0-dev-redis
     command: redis-server --appendonly yes
     volumes:
-      - ./tmp/redis-data:/data
+      - redis-data:/data
     ports:
       - "6379:6379"
     restart: always
+
+volumes:
+  postgres-data:
+  redis-data:
