@@ -283,14 +283,15 @@ languages = [
 ]
 
 
-Language.delete_all
-ActiveRecord::Base.connection.reset_pk_sequence!('languages')
-
-languages.each do |language|
-  Language.create(
-    name: language[:name],
-    compile_cmd: language[:compile_cmd],
-    run_cmd: language[:run_cmd],
-    source_file: language[:source_file]
-  )
+ActiveRecord::Base.transaction do
+  Language.delete_all
+  languages.each_with_index do |language, index|
+    Language.create(
+      id: index + 1,
+      name: language[:name],
+      compile_cmd: language[:compile_cmd],
+      run_cmd: language[:run_cmd],
+      source_file: language[:source_file]
+    )
+  end
 end
