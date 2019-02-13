@@ -72,10 +72,9 @@ class IsolateJob < ApplicationJob
       submission.compile_output = "Compilation time limit exceeded."
     end
 
-    submission.update(
-      status: Status.ce,
-      finished_at: DateTime.now
-    )
+    submission.finished_at ||= DateTime.now
+    submission.status = Status.ce
+    submission.save
 
     return :failure
   end
@@ -108,10 +107,10 @@ class IsolateJob < ApplicationJob
   end
 
   def verify
-    submission.finished_at = DateTime.now
+    submission.finished_at ||= DateTime.now
 
-    change_permissions
-    parse_meta
+    change_permissions()
+    parse_meta()
 
     program_stdout = File.read(stdout)
     program_stderr = File.read(stderr)
@@ -164,6 +163,7 @@ class IsolateJob < ApplicationJob
   end
 
   def strip_output(output)
+    return nil unless output
     output.split("\n").collect(&:rstrip).join("\n").rstrip
   end
 end

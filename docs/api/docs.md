@@ -12,7 +12,7 @@ Source code is available on [GitHub](https://github.com/judge0/api).
 Dummy client is available [here](/dummy-client.html) and can be used to try and test features of Judge0 API.
 
 # Version
-This document describes Judge0 API version [`v1.1.0`](https://github.com/judge0/api/tree/v1.1.0).
+This document describes Judge0 API version [`v1.1.1`](https://github.com/judge0/api/tree/v1.1.1).
 
 # Date and time formats
 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) standard is used.
