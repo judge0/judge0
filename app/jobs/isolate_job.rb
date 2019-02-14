@@ -49,13 +49,17 @@ class IsolateJob < ApplicationJob
     @workdir = `isolate #{cgroups} -b #{id} --init`.chomp
     @box = workdir + "/box/"
     @source = box + submission.language.source_file
-    @stdin = box + STDIN_FILE
-    @stdout = box + STDOUT_FILE
+    @stdin = workdir + "/" + STDIN_FILE
+    @stdout = workdir + "/" + STDOUT_FILE
     @stderr = box + STDERR_FILE
-    @meta = box + META_FILE
+    @meta = workdir + "/" + META_FILE
   end
 
   def write
+    [stdin, stdout, meta].each do |f|
+      `sudo touch #{f} && sudo chown $(whoami): #{f}`
+    end
+
     File.open(source, "wb") { |f| f.write(submission.source_code) }
     File.open(stdin, "wb") { |f| f.write(submission.stdin) }
   end
@@ -81,11 +85,9 @@ class IsolateJob < ApplicationJob
 
   def run
     command = "isolate #{cgroups} \
-    #{Rails.env.development? ? '-v' : ''} \
-    -b #{id} \
-    -i #{STDIN_FILE} \
-    -o #{STDOUT_FILE} \
+    -s \
     -r #{STDERR_FILE} \
+    -b #{id} \
     -M #{meta} \
     -t #{submission.cpu_time_limit} \
     -x #{submission.cpu_extra_time} \
@@ -98,7 +100,9 @@ class IsolateJob < ApplicationJob
     -E HOME=#{workdir} \
     -d '/etc':'noexec' \
     --run \
-    -- #{submission.language.run_cmd}"
+    -- #{submission.language.run_cmd} \
+    < #{stdin} > #{stdout} \
+    "
 
     puts "[#{DateTime.now}] Running submission #{submission.token} (#{submission.id}):"
     puts command.gsub(/\s+/, " ")
@@ -130,7 +134,7 @@ class IsolateJob < ApplicationJob
   end
 
   def clean
-    `rm #{box}/*`
+    `sudo rm -rf #{box}/*` # Remove all files from the box before doing cleanup with isolate.
     `isolate #{cgroups} -b #{id} --cleanup`
   end
 
