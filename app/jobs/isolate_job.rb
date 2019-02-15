@@ -51,12 +51,12 @@ class IsolateJob < ApplicationJob
     @source = box + submission.language.source_file
     @stdin = workdir + "/" + STDIN_FILE
     @stdout = workdir + "/" + STDOUT_FILE
-    @stderr = box + STDERR_FILE
+    @stderr = workdir + "/" + STDERR_FILE
     @meta = workdir + "/" + META_FILE
   end
 
   def write
-    [stdin, stdout, meta].each do |f|
+    [stdin, stdout, stderr, meta].each do |f|
       `sudo touch #{f} && sudo chown $(whoami): #{f}`
     end
 
@@ -86,7 +86,6 @@ class IsolateJob < ApplicationJob
   def run
     command = "isolate #{cgroups} \
     -s \
-    -r #{STDERR_FILE} \
     -b #{id} \
     -M #{meta} \
     -t #{submission.cpu_time_limit} \
@@ -95,13 +94,13 @@ class IsolateJob < ApplicationJob
     -k #{submission.stack_limit} \
     -p#{submission.max_processes_and_or_threads} \
     #{submission.enable_per_process_and_thread_memory_limit ? "--cg-mem=" : "-m "}#{submission.memory_limit} \
-    #{submission.enable_per_process_and_thread_time_limit ? "--cg-timing" : ""} \
+    #{submission.enable_per_process_and_thread_time_limit ? "--cg-timing" : "--no-cg-timing"} \
     -f #{submission.max_file_size} \
     -E HOME=#{workdir} \
     -d '/etc':'noexec' \
     --run \
     -- #{submission.language.run_cmd} \
-    < #{stdin} > #{stdout} \
+    < #{stdin} > #{stdout} 2> #{stderr} \
     "
 
     puts "[#{DateTime.now}] Running submission #{submission.token} (#{submission.id}):"
