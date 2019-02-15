@@ -37,6 +37,7 @@ class IsolateJob < ApplicationJob
     submission.save
 
   rescue Exception => e
+    submission.finished_at ||= DataTime.now
     submission.update(message: e.message, status: Status.boxerr)
     clean
   end
@@ -67,9 +68,11 @@ class IsolateJob < ApplicationJob
   def compile
     return :success unless submission.language.compile_cmd
 
-    submission.compile_output = `cd #{box} && timeout -s 15 -k 5s 10s #{submission.language.compile_cmd} 2>&1`.presence
-
+    compile_output = `cd #{box} && timeout -s 15 -k 5s 10s #{submission.language.compile_cmd} 2>&1`
     process_status = $?
+
+    submission.compile_output = nil if compile_output.empty?
+
     return :success if process_status.success?
 
     if [124, 137].include? process_status.exitstatus
@@ -77,6 +80,14 @@ class IsolateJob < ApplicationJob
     end
 
     submission.finished_at ||= DateTime.now
+    submission.time = nil
+    submission.wall_time = nil
+    submission.memory = nil
+    submission.stdout = nil
+    submission.stderr = nil
+    submission.exit_code = nil
+    submission.exit_signal = nil
+    submission.message = nil
     submission.status = Status.ce
     submission.save
 
