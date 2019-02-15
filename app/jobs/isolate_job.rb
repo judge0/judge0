@@ -168,5 +168,7 @@ class IsolateJob < ApplicationJob
   def strip_output(output)
     return nil unless output
     output.split("\n").collect(&:rstrip).join("\n").rstrip
+  rescue ArgumentError
+    return output
   end
 end
