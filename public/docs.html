@@ -26,7 +26,7 @@
 Source code is available on <a href="https://github.com/judge0/api">GitHub</a>.</p>
 <p>Dummy client is available <a href="/dummy-client.html">here</a> and can be used to try and test features of Judge0 API.</p>
 <h1 id="header-version">Version <a class="permalink" href="#header-version" aria-hidden="true">¶</a></h1>
-<p>This document describes Judge0 API version <a href="https://github.com/judge0/api/tree/v1.1.3"><code>v1.1.3</code></a>.</p>
+<p>This document describes Judge0 API version <a href="https://github.com/judge0/api/tree/v1.1.4"><code>v1.1.4</code></a>.</p>
 <h1 id="header-date-and-time-formats">Date and time formats <a class="permalink" href="#header-date-and-time-formats" aria-hidden="true">¶</a></h1>
 <p><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> standard is used.</p>
 <p>Example: <code>2016-09-11T10:19:35Z</code></p>
@@ -131,7 +131,7 @@ certain runtime constraints.</p>
 <td style="text-align:center">8</td>
 <td style="text-align:left"><code>memory_limit</code></td>
 <td style="text-align:center">float</td>
-<td style="text-align:center">second</td>
+<td style="text-align:center">kilobyte</td>
 <td style="text-align:left">Limit address space of the program.</td>
 <td style="text-align:left">Depends on <a href="#system-and-configuration-configuration-info">configuration</a>.</td>
 </tr>
@@ -212,7 +212,7 @@ certain runtime constraints.</p>
 <td style="text-align:left"><code>message</code></td>
 <td style="text-align:center">text</td>
 <td style="text-align:center"></td>
-<td style="text-align:left">Sandbox’s message. Can contain error messages.</td>
+<td style="text-align:left">If submission status is <code>Internal Error</code> then this message comes from Judge0 API itself, otherwise this is status message from Isolate.</td>
 <td style="text-align:left"></td>
 </tr>
 <tr>
@@ -276,7 +276,7 @@ certain runtime constraints.</p>
 <td style="text-align:left"><code>wall_time</code></td>
 <td style="text-align:center">float</td>
 <td style="text-align:center">second</td>
-<td style="text-align:left">Program’s wall time. Should be greater or equal to <code>time</code>.</td>
+<td style="text-align:left">Program’s wall time. Will be greater or equal to <code>time</code>.</td>
 <td style="text-align:left"></td>
 </tr>
 <tr>
@@ -292,15 +292,17 @@ certain runtime constraints.</p>
 <div id="submissions-submission-post" class="action post"><h4 class="action-heading"><div class="name">Create Submission</div><a href="#submissions-submission-post" class="method post">POST</a><code class="uri">/submissions/{?base64_encoded,wait}</code></h4><p>Creates new submission. Created submission waits in queue to be processed. On successful
 creation, you are returned submission token which can be used to check submission status.</p>
 <p>If submission’s <code>source_code</code>, <code>stdin</code> or <code>expected_output</code> contains non printable characters, or
-characters which cannot be send with JSON, then set <code>base64_encoded</code> parameter to <code>true</code> and
+characters which cannot be sent with JSON, then set <code>base64_encoded</code> parameter to <code>true</code> and
 send these attributes Base64 encoded. Your responsibility is to encode each of mentioned attributes
 (<code>source_code</code>, <code>stdin</code> and <code>expected_output</code>) even if just one of them contains non printable
-characters. By default, this parameter is set to <code>false</code> and Judge0 API assumes you are sending raw data.</p>
+characters. By default, this parameter is set to <code>false</code> and Judge0 API assumes you are sending plain text data.</p>
 <p>By default you are returned submission token on successful submission creation. With this token
-you can <a href="#submission-submission-get">check submission status</a>. Instead of checking submission status with second request, you can wait for submission result
-by sending <code>wait</code> query parameter and setting it to <code>true</code>. With this feature you will get submission result immediately after submission has been created. Please note that this feature may or may not be
+you can <a href="#submission-submission-get">check submission status</a>.
+Instead of checking submission status by making another request, send <code>wait</code> query parameter and set it to <code>true</code>
+which will enable you to get submission status immediately as part of response to the request you made.
+Please note that this feature may or may not be
 enabled on all Judge0 API hosts. So before using this feature please check <a href="#system-and-configuration-configuration-info-get">configuration</a>
-of Judge0 API you are using. On a <a href="https://api.judge0.com">official Judge0 API</a> this feature <strong>is enabled</strong>.</p>
+of Judge0 API you are using. On an <a href="https://api.judge0.com">official Judge0 API</a> this feature <strong>is enabled</strong>.</p>
 <h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/submissions/?<span class="hljs-attribute">base64_encoded=</span><span class="hljs-literal">false</span>&<span class="hljs-attribute">wait=</span><span class="hljs-literal">false</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>base64_encoded</dt><dd><code>boolean</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-info default"><strong>Default:&nbsp;</strong><span>false</span></span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>false</span></span><p>Set to <code>true</code> if you want to send Base64 encoded data to Judge0 API.</p>
 </dd><dt>wait</dt><dd><code>boolean</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-info default"><strong>Default:&nbsp;</strong><span>false</span></span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>false</span></span><p>Set to <code>true</code> to immediately get submission result.</p>
 </dd></dl></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
@@ -381,7 +383,7 @@ section, submission model has 27 attributes. By sending <code>fields</code> quer
 you want from Judge0 API.</p>
 <h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/submissions/<span class="hljs-attribute" title="token">d85cd024-1548-4165-96c7-7bc88673f194</span>?<span class="hljs-attribute">base64_encoded=</span><span class="hljs-literal">false</span>&<span class="hljs-attribute">fields=</span><span class="hljs-literal">stdout,stderr,status_id,language_id</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>token</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>d85cd024-1548-4165-96c7-7bc88673f194</span></span><p>Token of submission. You got this token when you created submission.</p>
 </dd><dt>base64_encoded</dt><dd><code>boolean</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>false</span></span><p>Set to <code>true</code> if you want to receive Base64 encoded data from Judge0 API.</p>
-</dd><dt>fields</dt><dd><code>integer</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-info default"><strong>Default:&nbsp;</strong><span>stdout,time,memory,stderr,token,compile_output,message,status</span></span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>stdout,stderr,status_id,language_id</span></span><p>Return only the desired attributes.</p>
+</dd><dt>fields</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-info default"><strong>Default:&nbsp;</strong><span>stdout,time,memory,stderr,token,compile_output,message,status</span></span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>stdout,stderr,status_id,language_id</span></span><p>Return only the desired attributes.</p>
 </dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">applicatiion/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">stdout</span>": <span class="hljs-value"><span class="hljs-string">"hello, world\n"</span></span>,
   "<span class="hljs-attribute">status_id</span>": <span class="hljs-value"><span class="hljs-number">5</span></span>,
@@ -426,7 +428,7 @@ and decode <code>stdout</code> and <code>stderr</code> on client side.</p>
 </div></div></div></div><div id="submissions-submission-get-1" class="action get"><h4 class="action-heading"><div class="name">Get All Submissions</div><a href="#submissions-submission-get-1" class="method get">GET</a><code class="uri">/submissions/{?base64_encoded,fields,page,per_page}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/submissions/?<span class="hljs-attribute">base64_encoded=</span><span class="hljs-literal">false</span>&<span class="hljs-attribute">fields=</span><span class="hljs-literal">status,language,time</span>&<span class="hljs-attribute">page=</span><span class="hljs-literal">4</span>&<span class="hljs-attribute">per_page=</span><span class="hljs-literal">2</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>base64_encoded</dt><dd><code>boolean</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-info default"><strong>Default:&nbsp;</strong><span>false</span></span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>false</span></span><p>Set to <code>true</code> if you want to receive Base64 encoded data from Judge0 API.</p>
 </dd><dt>page</dt><dd><code>integer</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-info default"><strong>Default:&nbsp;</strong><span>1</span></span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>4</span></span><p>Pagination page number.</p>
 </dd><dt>per_page</dt><dd><code>integer</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-info default"><strong>Default:&nbsp;</strong><span>20</span></span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>2</span></span><p>Number of submissions to return per page.</p>
-</dd><dt>fields</dt><dd><code>integer</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-info default"><strong>Default:&nbsp;</strong><span>stdout,time,memory,stderr,token,compile_output,message,status</span></span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>status,language,time</span></span><p>Return only the desired attributes.</p>
+</dd><dt>fields</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-info default"><strong>Default:&nbsp;</strong><span>stdout,time,memory,stderr,token,compile_output,message,status</span></span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>status,language,time</span></span><p>Return only the desired attributes.</p>
 </dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">submissions</span>": <span class="hljs-value">[
     {
@@ -797,7 +799,7 @@ if admin didn’t set them. For example, default value of <em>configuration vari
 <td style="text-align:left"><code>enable_wait_result</code></td>
 <td style="text-align:center">boolean</td>
 <td style="text-align:center"></td>
-<td style="text-align:left">If enabled user can request to synchronically wait for submission result on submission create.</td>
+<td style="text-align:left">If enabled user can request to synchronously wait for submission result on submission create.</td>
 <td style="text-align:left">true</td>
 </tr>
 <tr>
@@ -1052,7 +1054,7 @@ configuration variables. For example, we don’t want user to create a submissio
     "<span class="hljs-attribute">paused</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
     "<span class="hljs-attribute">failed</span>": <span class="hljs-value"><span class="hljs-number">0</span>
   </span>}
-]</code></pre><div style="height: 1px;"></div></div></div></div></div></section></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 15 Feb 2019</p><script>/* eslint-env browser */
+]</code></pre><div style="height: 1px;"></div></div></div></div></div></section></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 16 Feb 2019</p><script>/* eslint-env browser */
 /* eslint quotes: [2, "single"] */
 'use strict';
 

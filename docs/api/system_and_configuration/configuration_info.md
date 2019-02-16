@@ -14,7 +14,7 @@ if admin didn't set them. For example, default value of *configuration variable*
 
 |#    |Name|Type |Unit |Description|Default Value|
 |:---:|:---|:---:|:---:|:----------|:------------|
-|1|`enable_wait_result`|boolean||If enabled user can request to synchronically wait for submission result on submission create.|true|
+|1|`enable_wait_result`|boolean||If enabled user can request to synchronously wait for submission result on submission create.|true|
 |2|`cpu_time_limit`|float|second|Default runtime limit for every program (in seconds). Decimal numbers are allowed. Time in which the OS assigns the processor to different tasks is not counted.|2|
 |3|`cpu_extra_time`|float|second|When a time limit is exceeded, wait for extra time, before killing the program. This has the advantage that the real execution time is reported, even though it slightly exceeds the limit.|0.5|
 |4|`wall_time_limit`|float|second|Limit wall-clock time in seconds. Decimal numbers are allowed. This clock measures the time from the start of the program to its exit, for an external event. We recommend to use `cpu_time_limit` as the main limit, but set `wall_time_limit` to a much higher value as a precaution against sleeping programs.|5|

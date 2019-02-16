@@ -12,7 +12,7 @@ you want from Judge0 API.
 + Parameters
     + token (required, string, `d85cd024-1548-4165-96c7-7bc88673f194`) ... Token of submission. You got this token when you created submission.
     + base64_encoded (optional, boolean, `false`) ... Set to `true` if you want to receive Base64 encoded data from Judge0 API.
-    + fields = `stdout,time,memory,stderr,token,compile_output,message,status` (optional, integer, `stdout,stderr,status_id,language_id`) ... Return only the desired attributes.
+    + fields = `stdout,time,memory,stderr,token,compile_output,message,status` (optional, string, `stdout,stderr,status_id,language_id`) ... Return only the desired attributes.
 
 + Response 200 (applicatiion/json)
     {

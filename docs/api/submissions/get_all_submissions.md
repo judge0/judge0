@@ -3,7 +3,7 @@
     + base64_encoded = `false` (optional, boolean, `false`) ... Set to `true` if you want to receive Base64 encoded data from Judge0 API.
     + page = `1` (optional, integer, `4`) ... Pagination page number.
     + per_page = `20` (optional, integer, `2`) ... Number of submissions to return per page. 
-    + fields = `stdout,time,memory,stderr,token,compile_output,message,status` (optional, integer, `status,language,time`) ... Return only the desired attributes.
+    + fields = `stdout,time,memory,stderr,token,compile_output,message,status` (optional, string, `status,language,time`) ... Return only the desired attributes.
 
 + Response 200 (application/json)
     {
