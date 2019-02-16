@@ -71,7 +71,7 @@ class IsolateJob < ApplicationJob
     compile_output = `cd #{box} && timeout -s 15 -k 5s 10s #{submission.language.compile_cmd} 2>&1`
     process_status = $?
 
-    submission.compile_output = nil if compile_output.empty?
+    submission.compile_output = compile_output unless compile_output.empty?
 
     return :success if process_status.success?
 
