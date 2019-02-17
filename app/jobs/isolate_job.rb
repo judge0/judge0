@@ -68,10 +68,12 @@ class IsolateJob < ApplicationJob
   def compile
     return :success unless submission.language.compile_cmd
 
-    compile_output = `cd #{box} && timeout -s 15 -k 5s 10s #{submission.language.compile_cmd} 2>&1`
+    compile_output = `cd #{box} && timeout -s 15 -k 5s 10s #{submission.language.compile_cmd} 2>&1`.chomp
     process_status = $?
 
-    submission.compile_output = compile_output unless compile_output.empty?
+    compile_output = nil if compile_output.empty?
+
+    submission.compile_output = compile_output
 
     return :success if process_status.success?
 

@@ -32,4 +32,4 @@ CMD rm -f tmp/pids/server.pid && \
     rails s -b 0.0.0.0
 
 LABEL maintainer="Herman Zvonimir Došilović, hermanz.dosilovic@gmail.com"
-LABEL version="1.1.4"
+LABEL version="1.1.5"
