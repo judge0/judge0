@@ -68,7 +68,16 @@ class IsolateJob < ApplicationJob
   def compile
     return :success unless submission.language.compile_cmd
 
-    compile_output = `cd #{box} && timeout -s 15 -k 5s 10s #{submission.language.compile_cmd} 2>&1`.chomp
+    compile_flags = "".encode("UTF-8", invalid: :replace).shellescape
+    compile_flags = nil if compile_flags == "''"
+
+    compile_command = "cd #{box} && timeout -s 15 -k 5s 10s #{submission.language.compile_cmd} #{compile_flags} 2>&1"
+
+    puts "[#{DateTime.now}] Compiling submission #{submission.token} (#{submission.id}):"
+    puts compile_command
+    puts
+
+    compile_output = `#{compile_command}`.chomp
     process_status = $?
 
     compile_output = nil if compile_output.empty?
