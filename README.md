@@ -9,12 +9,11 @@ on https://api.judge0.com.
 ## Content
 1. [Supported Languages](#supported-languages)
 2. [Project Organization](#project-organization)
-3. [Quick Development Setup](#quick-development-setup)
-4. [Quick Production Setup](#quick-production-setup)
+3. [Production Setup](#production-setup)
+4. [Development Setup](#development-setup)
+5. [Who Uses Judge0 API?](#who-uses-judge0-api)
 5. [About Docker Images](#about-docker-images)
 6. [Adding New Compiler or Interpreter](#adding-new-compiler-or-interpreter)
-7. [HTTPS In Production](#https-in-production)
-8. [Notes](#notes)
 
 ## Supported Languages
 |#|Name|
@@ -71,7 +70,10 @@ Judge0 API is a [Rails 5](http://weblog.rubyonrails.org/2016/6/30/Rails-5-0-fina
 * [Worker](https://github.com/resque/resque)
   * accepts new jobs and process them as they arrive. Worker has only one job - [IsolateJob](https://github.com/judge0/api/blob/master/app/jobs/isolate_job.rb), that job runs untrusted programs in sandboxed environment.
 
-## Quick Development Setup
+## Production Setup 
+Every [release](https://github.com/judge0/api/releases) has it's own deployment procedure that you can follow.
+
+## Development Setup
 Setting up your development environment is easy thanks to [Docker](https://docs.docker.com/) and [Docker Compose](https://docs.docker.com/compose/). So please install those before continuing.
 
 Because we are running our development environment in Docker you don't need to have Ruby, Rails, PostgreSQL, Redis, etc. installed on your computer. You just need to:
@@ -101,30 +103,13 @@ You need to run Rails API and Worker in order to have Judge0 API fully operation
 
 This is minimal setup for development environment, now you can open your favorite editor in your host and start developing Judge0 API.
 
-## Quick Production Setup
-To host your own Judge0 API you need to install [Docker](https://docs.docker.com/) and [Docker Compose](https://docs.docker.com/compose/) on your server and after you are done proceed with the following:
+## Who Uses Judge0 API?
+Following applications successfully use Judge0 API in production:
+- [Chấm Code Online](https://chamcode.net) 
+- [Codify](https://codify.herokuapp.com) 
+- [nGrader](https://ngrader.herokuapp.com)
 
-1. Copy [docker-compose.prod.yml](https://github.com/judge0/api/blob/master/docker-compose.prod.yml) on your server and save it as `docker-compose.yml`
-    ```
-    $ wget https://raw.githubusercontent.com/judge0/api/master/docker-compose.prod.yml -O docker-compose.yml
-    ```
-
-2. Save [judge0-api.conf.default](https://github.com/judge0/api/blob/master/judge0-api.conf.default) to your server as `judge0-api.conf`
-    ```
-    $ wget https://raw.githubusercontent.com/judge0/api/master/judge0-api.conf.default -O judge0-api.conf
-    ```
-3. In `judge0-api.conf` change `RAILS_ENV` to `production`.
-4. Run database:
-    ```
-    $ docker-compose up -d db
-    ```
-
-5. Run all other services:
-    ```
-    $ docker-compose up -d
-    ```
-
-6. Open `http://<IP OF YOUR SERVER>:3000` in your browser.
+Do you use Judge0 API? If so, please let me know so I can add you to the list!
 
 ## About Docker Images
 This project has two Dockerfiles:
@@ -150,24 +135,6 @@ You have four attributes:
 * `run_cmd` - how should we run this compiled or interpreted language
 
 We already provided enough examples for most common languages, be sure to check that out.
-
-## HTTPS In Production
-To use HTTPS in production we are going to use https://letsencrypt.org/.
-
-You need to have your own domain for this to work. Just use [docker-compose.prod.https.yml](https://github.com/judge0/api/blob/master/docker-compose.prod.yml) insted of [docker-compose.prod.yml](https://github.com/judge0/api/blob/master/docker-compose.prod.yml) and change `VIRTUAL_HOST`, `LETSENCRYPT_HOST` and `LETSENCRYPT_EMAIL` variables.
-
-Everything else you need to do is described in [Quick Production Setup](#quick-production-setup) section.
-
-## Notes
-Judge0 API is simple to use and develop only if you are comfortable with using Docker and Docker Compose.
-
-Docker and Docker Compose allow us to get rid of all dependencies, and concentrate on what is important - features, functionality and reliability.
-
-Please before working with Judge0 API project, make yourself comfortable with Docker and Docker Compose, because we are using it extensively.
-
-We will add extensive documentation in the future about how and why we are using Docker and Docker Compose here, but this documentation won't substitute your knowledge of this technologies.
-
-Feel free to ask us any questions in [Issues](https://github.com/judge0/api/issues) directly. :)
 
 ## Donate
 If you like Judge0, please consider making a [donation](https://www.paypal.me/hermanzdosilovic) to support this project.
