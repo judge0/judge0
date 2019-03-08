@@ -1,4 +1,4 @@
-FROM judge0/api-base:0.3.0
+FROM judge0/api-base:0.3.0-python3.6.8
 
 RUN apt-get update && \
     apt-get install --no-install-recommends -y \
@@ -32,4 +32,4 @@ CMD rm -f tmp/pids/server.pid && \
     rails s -b 0.0.0.0
 
 LABEL maintainer="Herman Zvonimir Došilović, hermanz.dosilovic@gmail.com"
-LABEL version="1.1.5"
+LABEL version="1.1.5-python3.6.8"
