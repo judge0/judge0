@@ -107,6 +107,8 @@ This is minimal setup for development environment, now you can open your favorit
 Following applications successfully use Judge0 API in production:
 - [Codify](https://codify.herokuapp.com)
 - [Judge Code Online](http://en.chamcode.net)
+- [Studyfied](https://studyfied.com)
+- [Techie Delight](https://techiedelight.com)
 - [nGrader](https://ngrader.herokuapp.com)
 
 Do you use Judge0 API? If so, please let me know so I can add you to the list!
