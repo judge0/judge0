@@ -56,10 +56,6 @@ GEM
     database_cleaner (1.5.3)
     diff-lcs (1.2.5)
     docile (1.1.5)
-    dotenv (2.2.1)
-    dotenv-rails (2.2.1)
-      dotenv (= 2.2.1)
-      railties (>= 3.2, < 5.2)
     enumerations (2.1.0)
       activerecord
       activesupport
@@ -70,7 +66,7 @@ GEM
     factory_girl_rails (4.7.0)
       factory_girl (~> 4.7.0)
       railties (>= 3.0.0)
-    ffi (1.9.18)
+    ffi (1.11.1)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     i18n (0.8.1)
@@ -199,7 +195,6 @@ DEPENDENCIES
   annotate (~> 2.7)
   codeclimate-test-reporter (~> 0.6.0)
   database_cleaner (~> 1.5)
-  dotenv-rails (~> 2.2)
   enumerations (~> 2.1)
   factory_girl_rails (~> 4.7)
   listen (~> 3.1)
