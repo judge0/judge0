@@ -6,8 +6,8 @@ class IsolateJob < ApplicationJob
   STDERR_FILE = 'stderr.txt'
   META_FILE = 'meta.txt'
 
-  attr_reader :submission, :workdir, :box, :cgroups, :source, :stdin, :stdout, :stderr,
-              :meta, :parsed_meta, :id
+  attr_reader :submission, :workdir, :box, :tmp, :cgroups, :source,
+              :stdin, :stdout, :stderr, :meta, :parsed_meta, :id
 
   def perform(submission)
     @submission = submission
@@ -49,6 +49,7 @@ class IsolateJob < ApplicationJob
     @cgroups = (submission.enable_per_process_and_thread_time_limit | submission.enable_per_process_and_thread_memory_limit ? "--cg" : "")
     @workdir = `isolate #{cgroups} -b #{id} --init`.chomp
     @box = workdir + "/box/"
+    @tmp = workdir + "/tmp/"
     @source = box + submission.language.source_file
     @stdin = workdir + "/" + STDIN_FILE
     @stdout = workdir + "/" + STDOUT_FILE
@@ -155,7 +156,7 @@ class IsolateJob < ApplicationJob
   end
 
   def clean
-    `sudo rm -rf #{box}/*` # Remove all files from the box before doing cleanup with isolate.
+    `sudo rm -rf #{box}/* #{tmp}/*` # Remove all files from the box before doing cleanup with isolate.
     `sudo rm -rf #{stdin} #{stdout} #{stderr} #{meta}`
     `isolate #{cgroups} -b #{id} --cleanup`
   end
