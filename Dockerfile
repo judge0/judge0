@@ -1,7 +1,10 @@
 FROM judge0/api-base:0.3.0
 
-RUN apt-get update && \
-    apt-get install --no-install-recommends -y \
+RUN echo "deb http://deb.debian.org/debian jessie main" > /etc/apt/sources.list && \
+    echo "deb http://security.debian.org/debian-security jessie/updates main" >> /etc/apt/sources.list && \
+    rm -rf /etc/apt/sources.list.d/* && \
+    apt-get update && \
+    apt-get install -y --no-install-recommends \
       libpq-dev \
       nodejs-legacy \
       npm \
