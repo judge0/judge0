@@ -81,9 +81,21 @@ COUNT=
 # Default: localhost
 REDIS_HOST=redis
 
+# Specify Redis port.
+# Default: 6379
+REDIS_PORT=
+
+# Specify Redis password. Cannot be blank.
+# Default: NO DEFAULT! MUST BE SET!
+REDIS_PASSWORD=YourPasswordHere1234
+
 # Specify Postgres host.
 # Default: localhost
 POSTGRES_HOST=db
+
+# Specify Postgres port.
+# Default: 5432
+POSTGRES_PORT=
 
 # Name of the database to use. Used only in production.
 # Default: postgres

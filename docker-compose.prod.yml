@@ -23,8 +23,12 @@ services:
     restart: always
 
   redis:
-    image: redis:4.0.9
-    command: redis-server --appendonly yes
+    image: redis:4.0
+    command: [
+      "bash", "-c",
+      'docker-entrypoint.sh --appendonly yes --requirepass "$$REDIS_PASSWORD"'
+    ]
+    env_file: judge0-api.conf
     volumes:
       - ./srv/redis-data:/data
     restart: always

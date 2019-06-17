@@ -51,7 +51,11 @@ services:
   redis:
     image: redis:4.0
     container_name: judge0-dev-redis
-    command: redis-server --appendonly yes
+    command: [
+      "bash", "-c",
+      'docker-entrypoint.sh --appendonly yes --requirepass "$$REDIS_PASSWORD"'
+    ]
+    env_file: judge0-api.conf
     volumes:
       - redis-data:/data
     ports:
