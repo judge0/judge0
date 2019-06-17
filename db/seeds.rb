@@ -279,6 +279,14 @@ languages = [
     name: "Text (plain text)",
     source_file: "source.txt",
     run_cmd: "/bin/cat source.txt"
+  },
+
+
+  {
+    name: "Executable",
+    source_file: "a.out",
+    compile_cmd: "/bin/chmod +x a.out",
+    run_cmd: "./a.out"
   }
 ]
 

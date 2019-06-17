@@ -173,5 +173,9 @@
         {
             "id": 43,
             "name": "Text (plain text)"
+        },
+        {
+            "id": 44,
+            "name": "Executable"
         }
     ]

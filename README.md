@@ -61,6 +61,7 @@ on https://api.judge0.com.
 |41|Ruby (2.1.9)|
 |42|Rust (1.20.0)|
 |43|Text (plain text)|
+|44|Executable|
 
 ## Project Organization
 Judge0 API is a [Rails 5](http://weblog.rubyonrails.org/2016/6/30/Rails-5-0-final/) application organized in two major components:
@@ -70,7 +71,7 @@ Judge0 API is a [Rails 5](http://weblog.rubyonrails.org/2016/6/30/Rails-5-0-fina
 * [Worker](https://github.com/resque/resque)
   * accepts new jobs and process them as they arrive. Worker has only one job - [IsolateJob](https://github.com/judge0/api/blob/master/app/jobs/isolate_job.rb), that job runs untrusted programs in sandboxed environment.
 
-## Production Setup 
+## Production Setup
 Every [release](https://github.com/judge0/api/releases) has it's own deployment procedure that you can follow.
 
 ## Development Setup
