@@ -1,0 +1,5 @@
+#!/bin/bash
+[[ -f judge0-api.conf ]] && source judge0-api.conf
+while true; do
+    rails resque:work
+done

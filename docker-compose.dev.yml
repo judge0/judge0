@@ -39,7 +39,7 @@ services:
     restart: always
 
   db:
-    image: postgres:9.6.5
+    image: postgres:9.6
     container_name: judge0-dev-db
     env_file: judge0-api.conf
     volumes:
@@ -49,7 +49,7 @@ services:
     restart: always
 
   redis:
-    image: redis:4.0.9
+    image: redis:4.0
     container_name: judge0-dev-redis
     command: redis-server --appendonly yes
     volumes:

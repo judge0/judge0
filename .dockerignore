@@ -5,6 +5,8 @@ Dockerfile*
 docker-compose*
 scripts
 !scripts/prod-gen-api-docs
+!scripts/run-server
+!scripts/run-worker
 README.md
 LICENSE
 judge0-api.conf*

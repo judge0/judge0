@@ -30,9 +30,7 @@ COPY . /usr/src/api
 RUN RAILS_ENV=production bundle && \
     ./scripts/prod-gen-api-docs
 
-CMD rm -f tmp/pids/server.pid && \
-    rails db:create db:migrate db:seed && \
-    rails s -b 0.0.0.0
+CMD ["./scripts/run-server"]
 
 LABEL maintainer="Herman Zvonimir Došilović, hermanz.dosilovic@gmail.com"
 LABEL version="1.1.5"

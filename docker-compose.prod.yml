@@ -11,7 +11,7 @@ services:
   worker:
     image: judge0/api
     env_file: judge0-api.conf
-    command: bash -c "while true; do rails resque:work; done"
+    command: ["./scripts/run-worker"]
     privileged: true
     restart: always
 

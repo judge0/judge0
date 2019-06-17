@@ -80,7 +80,7 @@ class Submission < ApplicationRecord
     super(value)
     self[:source_code] = Base64.encode64(self[:source_code]) if self[:source_code]
   end
-  
+
 
   def stdin
     return nil if super.nil?
@@ -91,18 +91,18 @@ class Submission < ApplicationRecord
     super(value)
     self[:stdin] = Base64.encode64(self[:stdin]) if self[:stdin]
   end
-  
+
 
   def stdout
     return nil if super.nil?
     @decoded_stdout ||= Base64.decode64(self[:stdout]).force_encoding("UTF-8").encode
   end
-  
+
   def stdout=(value)
     super(value)
     self[:stdout] = Base64.encode64(self[:stdout]) if self[:stdout]
   end
-  
+
 
   def expected_output
     return nil if super.nil?
@@ -113,18 +113,18 @@ class Submission < ApplicationRecord
     super(value)
     self[:expected_output] = Base64.encode64(self[:expected_output]) if self[:expected_output]
   end
-  
+
 
   def stderr
     return nil if super.nil?
     @decoded_stderr ||= Base64.decode64(self[:stderr]).force_encoding("UTF-8").encode
   end
-  
+
   def stderr=(value)
     super(value)
     self[:stderr] = Base64.encode64(self[:stderr]) if self[:stderr]
   end
-  
+
 
   def compile_output
     return nil if super.nil?
@@ -136,9 +136,18 @@ class Submission < ApplicationRecord
     self[:compile_output] = Base64.encode64(self[:compile_output]) if self[:compile_output]
   end
 
-  
+
   def language
     @language ||= Language.find(language_id)
+  end
+
+
+  def status
+    Status.find_by(id: status_id)
+  end
+
+  def status=(status)
+    self.status_id = status.id
   end
 
   private
