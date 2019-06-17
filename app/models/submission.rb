@@ -72,68 +72,62 @@ class Submission < ApplicationRecord
   self.per_page = 20
 
   def source_code
-    return nil if super.nil?
-    @decoded_source_code ||= Base64.decode64(self[:source_code]).force_encoding("UTF-8").encode
+    @decoded_source_code ||= Base64Service.decode(self[:source_code])
   end
 
   def source_code=(value)
     super(value)
-    self[:source_code] = Base64.encode64(self[:source_code]) if self[:source_code]
+    self[:source_code] = Base64Service.encode(self[:source_code])
   end
 
 
   def stdin
-    return nil if super.nil?
-    @decoded_stdin ||= Base64.decode64(self[:stdin]).force_encoding("UTF-8").encode
+    @decoded_stdin ||= Base64Service.decode(self[:stdin])
   end
 
   def stdin=(value)
     super(value)
-    self[:stdin] = Base64.encode64(self[:stdin]) if self[:stdin]
+    self[:stdin] = Base64Service.encode(self[:stdin])
   end
 
 
   def stdout
-    return nil if super.nil?
-    @decoded_stdout ||= Base64.decode64(self[:stdout]).force_encoding("UTF-8").encode
+    @decoded_stdout ||= Base64Service.decode(self[:stdout])
   end
 
   def stdout=(value)
     super(value)
-    self[:stdout] = Base64.encode64(self[:stdout]) if self[:stdout]
+    self[:stdout] = Base64Service.encode(self[:stdout])
   end
 
 
   def expected_output
-    return nil if super.nil?
-    @decoded_expected_output ||= Base64.decode64(self[:expected_output]).force_encoding("UTF-8").encode
+    @decoded_expected_output ||= Base64Service.decode(self[:expected_output])
   end
 
   def expected_output=(value)
     super(value)
-    self[:expected_output] = Base64.encode64(self[:expected_output]) if self[:expected_output]
+    self[:expected_output] = Base64Service.encode(self[:expected_output])
   end
 
 
   def stderr
-    return nil if super.nil?
-    @decoded_stderr ||= Base64.decode64(self[:stderr]).force_encoding("UTF-8").encode
+    @decoded_stderr ||= Base64Service.decode(self[:stderr])
   end
 
   def stderr=(value)
     super(value)
-    self[:stderr] = Base64.encode64(self[:stderr]) if self[:stderr]
+    self[:stderr] = Base64Service.encode(self[:stderr])
   end
 
 
   def compile_output
-    return nil if super.nil?
-    @decoded_compile_output ||= Base64.decode64(self[:compile_output]).force_encoding("UTF-8").encode
+    @decoded_compile_output ||= Base64Service.decode(self[:compile_output])
   end
 
   def compile_output=(value)
     super(value)
-    self[:compile_output] = Base64.encode64(self[:compile_output]) if self[:compile_output]
+    self[:compile_output] = Base64Service.encode(self[:compile_output])
   end
 
 

@@ -24,10 +24,10 @@ class SubmissionSerializer < ActiveModel::Serializer
   def compile_output
     object_decoder(:compile_output)
   end
-  
+
   def message
     if instance_options[:base64_encoded] and object.message
-      return Base64.encode64(object.message)
+      return Base64Service.encode(object.message)
     end
     object.message
   end

@@ -78,9 +78,9 @@ class SubmissionsController < ApplicationController
   end
 
   def decode_params(params)
-    params[:source_code] = Base64.decode64(params[:source_code]).force_encoding("UTF-8").encode if params[:source_code]
-    params[:stdin] = Base64.decode64(params[:stdin]).force_encoding("UTF-8").encode if params[:stdin]
-    params[:expected_output] = Base64.decode64(params[:expected_output]).force_encoding("UTF-8").encode if params[:expected_output]
+    params[:source_code] = Base64Service.decode(params[:source_code])
+    params[:stdin] = Base64Service.decode(params[:stdin])
+    params[:expected_output] = Base64Service.decode(params[:expected_output])
     params
   end
 

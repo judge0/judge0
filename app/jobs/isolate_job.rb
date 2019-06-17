@@ -37,7 +37,7 @@ class IsolateJob < ApplicationJob
     submission.save
 
   rescue Exception => e
-    submission.finished_at ||= DataTime.now
+    submission.finished_at ||= DateTime.now
     submission.update(message: e.message, status: Status.boxerr)
     clean
   end
@@ -120,6 +120,7 @@ class IsolateJob < ApplicationJob
     #{submission.enable_per_process_and_thread_time_limit ? "--cg-timing" : "--no-cg-timing"} \
     -f #{submission.max_file_size} \
     -E HOME=#{workdir} \
+    -E LANG -E LANGUAGE -E LC_ALL \
     -d '/etc':'noexec' \
     --run \
     -- #{submission.language.run_cmd} \
