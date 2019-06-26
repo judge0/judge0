@@ -1,24 +1,21 @@
-FROM judge0/api-base:0.3.0
+FROM judge0/api-base:vlang0.1.3
 
-RUN echo "deb http://deb.debian.org/debian jessie main" > /etc/apt/sources.list && \
-    echo "deb http://security.debian.org/debian-security jessie/updates main" >> /etc/apt/sources.list && \
-    rm -rf /etc/apt/sources.list.d/* && \
+RUN curl -fSsL "https://deb.nodesource.com/setup_12.x" | bash - && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
       libpq-dev \
-      nodejs-legacy \
-      npm \
+      nodejs \
       sudo && \
     rm -rf /var/lib/apt/lists/*
 
-ENV PATH "/usr/local/ruby-2.3.3/bin:/opt/.gem/bin:$PATH"
+ENV PATH "/usr/local/ruby-2.6.3/bin:/opt/.gem/bin:$PATH"
 ENV GEM_HOME "/opt/.gem/"
 RUN echo "gem: --no-document" > /root/.gemrc && \
     gem install \
       rails:5.0.0 \
       bundler:1.15.4 \
       pg:0.18 && \
-    npm install -g aglio@2.3.0
+    npm install -g --unsafe-perm aglio@2.3.0
 
 EXPOSE 3000
 
@@ -33,4 +30,4 @@ RUN RAILS_ENV=production bundle && \
 CMD ["./scripts/run-server"]
 
 LABEL maintainer="Herman Zvonimir Došilović, hermanz.dosilovic@gmail.com"
-LABEL version="1.2.0"
+LABEL version="1.2.0-vlang0.1.3"
