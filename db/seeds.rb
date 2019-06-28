@@ -2,9 +2,39 @@ languages = [
   {
     name: "V (0.1.3)",
     source_file: "main.v",
-    compile_cmd: "/usr/local/v-b00a47be/compiler/v main.v",
+    compile_cmd: "/usr/local/v-v0.1.3/v main.v",
     run_cmd: "./main"
   },
+  {
+    name: "V (0.1.4)",
+    source_file: "main.v",
+    compile_cmd: "/usr/local/v-v0.1.4/v main.v",
+    run_cmd: "./main"
+  },
+  {
+    name: "V (0.1.5)",
+    source_file: "main.v",
+    compile_cmd: "/usr/local/v-v0.1.5/v main.v",
+    run_cmd: "./main"
+  },
+  {
+    name: "V (0.1.6)",
+    source_file: "main.v",
+    compile_cmd: "/usr/local/v-v0.1.6/v main.v",
+    run_cmd: "./main"
+  },
+  {
+    name: "V (0.1.7)",
+    source_file: "main.v",
+    compile_cmd: "/usr/local/v-v0.1.7/v main.v",
+    run_cmd: "./main"
+  },
+  {
+    name: "V (0.1.8)",
+    source_file: "main.v",
+    compile_cmd: "/usr/local/v-v0.1.8/v main.v",
+    run_cmd: "./main"
+  }
 ]
 
 

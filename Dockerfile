@@ -1,4 +1,4 @@
-FROM judge0/api-base:vlang0.1.3
+FROM judge0/api-base:vlang0.1.8
 
 RUN curl -fSsL "https://deb.nodesource.com/setup_12.x" | bash - && \
     apt-get update && \
@@ -30,4 +30,4 @@ RUN RAILS_ENV=production bundle && \
 CMD ["./scripts/run-server"]
 
 LABEL maintainer="Herman Zvonimir Došilović, hermanz.dosilovic@gmail.com"
-LABEL version="1.2.0-vlang0.1.3"
+LABEL version="1.2.0-vlang0.1.8"
