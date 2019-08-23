@@ -33,4 +33,4 @@ RUN RAILS_ENV=production bundle && \
 CMD ["./scripts/run-server"]
 
 LABEL maintainer="Herman Zvonimir Došilović, hermanz.dosilovic@gmail.com"
-LABEL version="1.2.0"
+LABEL version="1.2.1"

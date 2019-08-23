@@ -1,0 +1,2 @@
+#!/bin/bash
+[[ -f judge0-api.conf ]] && export $(cat judge0-api.conf | sed '/^\s*$/d;/^#.*/d' | xargs)

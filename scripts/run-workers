@@ -1,0 +1,5 @@
+#!/bin/bash
+source ./scripts/load-config
+while true; do
+    rails resque:workers
+done
