@@ -30,14 +30,6 @@ services:
       - "3030:3030"
     privileged: true
 
-  resque-web:
-    image: ennexa/resque-web
-    container_name: judge0-dev-resque-web
-    command: -r redis://redis:6379
-    ports:
-      - "5678:5678"
-    restart: always
-
   db:
     image: postgres:9.6
     container_name: judge0-dev-db

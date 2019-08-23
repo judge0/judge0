@@ -16,7 +16,7 @@ services:
     restart: always
 
   db:
-    image: postgres:9.6.5
+    image: postgres:9.6
     env_file: judge0-api.conf
     volumes:
       - ./srv/postgres-data:/var/lib/postgresql/data/
