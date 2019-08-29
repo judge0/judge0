@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20190829065543) do
     t.integer "exit_signal"
     t.text "message"
     t.decimal "wall_time"
-    t.json "metadata"
+    t.json "webhooks"
     t.index ["token"], name: "index_submissions_on_token"
   end
 
