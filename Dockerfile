@@ -15,7 +15,7 @@ ENV PATH "/usr/local/ruby-2.3.3/bin:/opt/.gem/bin:$PATH"
 ENV GEM_HOME "/opt/.gem/"
 RUN echo "gem: --no-document" > /root/.gemrc && \
     gem install \
-      rails:5.0.0 \
+      rails:5.1.7 \
       bundler:1.15.4 \
       pg:0.18 && \
     npm install -g aglio@2.3.0
