@@ -30,6 +30,7 @@
 #  exit_signal                                :integer
 #  message                                    :text
 #  wall_time                                  :decimal(, )
+#  metadata                                   :json
 #
 # Indexes
 #
