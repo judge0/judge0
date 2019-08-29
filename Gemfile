@@ -26,3 +26,5 @@ group :development, :test do
   gem 'pry-byebug', '~> 3.4'
   gem 'rspec-rails', '~> 3.5'
 end
+
+gem "httparty", "~> 0.17.0"

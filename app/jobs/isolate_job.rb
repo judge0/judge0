@@ -1,3 +1,5 @@
+require 'httparty'
+
 class IsolateJob < ApplicationJob
   queue_as :default
 
@@ -20,6 +22,7 @@ class IsolateJob < ApplicationJob
       write
       if compile == :failure
         clean
+        call_webhooks(submission)
         return
       end
       run
@@ -29,6 +32,7 @@ class IsolateJob < ApplicationJob
       memory << submission.memory
 
       clean
+      call_webhooks(submission)
       break if submission.status != Status.ac
     end
 
@@ -40,6 +44,7 @@ class IsolateJob < ApplicationJob
     submission.finished_at ||= DateTime.now
     submission.update(message: e.message, status: Status.boxerr)
     clean
+    call_webhooks(submission)
   end
 
   private
@@ -195,5 +200,17 @@ class IsolateJob < ApplicationJob
     output.split("\n").collect(&:rstrip).join("\n").rstrip
   rescue ArgumentError
     return output
+  end
+
+  def call_webhooks(submission)
+    webhooks = submission.webhooks
+    webhooks.each do | item |
+      url = item["url"]
+      data =  {
+        "postdata": item["postdata"],
+        "submission": submission.to_json
+      }
+      response = HTTParty.post(url, body: data)
+    end
   end
 end

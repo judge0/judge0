@@ -6,3 +6,4 @@
 .byebug_history
 coverage/
 judge0-api.conf
+.vscode/
