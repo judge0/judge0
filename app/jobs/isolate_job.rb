@@ -210,10 +210,10 @@ class IsolateJob < ApplicationJob
         "postdata": item["postdata"],
         "submission": submission.to_json
       }
-      HTTParty.post(
+      response = HTTParty.post(
         url,
         headers: {"Content-Type" => "application/json"},
-        body: data.to_json
+        body: submission.to_json
       )
     end
   end
