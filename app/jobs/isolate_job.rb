@@ -212,10 +212,6 @@ class IsolateJob < ApplicationJob
       if url == nil
         next
       end
-      data =  {
-        "postdata": item["postdata"],
-        "submission": submission.to_json
-      }
       response = HTTParty.post(
         url,
         headers: {"Content-Type" => "application/json"},
