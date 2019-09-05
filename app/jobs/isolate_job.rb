@@ -204,6 +204,9 @@ class IsolateJob < ApplicationJob
 
   def call_webhooks(submission)
     webhooks = submission.webhooks
+    if webhooks == nil
+      return
+    end
     webhooks.each do | item |
       url = item["url"]
       if url == nil
