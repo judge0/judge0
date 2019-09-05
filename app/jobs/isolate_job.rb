@@ -206,6 +206,9 @@ class IsolateJob < ApplicationJob
     webhooks = submission.webhooks
     webhooks.each do | item |
       url = item["url"]
+      if url == nil
+        next
+      end
       data =  {
         "postdata": item["postdata"],
         "submission": submission.to_json
