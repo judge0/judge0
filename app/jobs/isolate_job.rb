@@ -122,6 +122,7 @@ class IsolateJob < ApplicationJob
     -E HOME=#{workdir} \
     -E LANG -E LANGUAGE -E LC_ALL \
     -d '/etc':'noexec' \
+    -d '/usr/src/api':'noexec' \
     --run \
     -- #{submission.language.run_cmd} \
     < #{stdin} > #{stdout} 2> #{stderr} \

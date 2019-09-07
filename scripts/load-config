@@ -1,2 +1,10 @@
 #!/bin/bash
-[[ -f judge0-api.conf ]] && export $(cat judge0-api.conf | sed '/^\s*$/d;/^#.*/d' | xargs)
+if [[ -f judge0-api.conf ]]; then
+    CONFIG_FILE=judge0-api.conf
+elif [[ -f /judge0-api.conf ]]; then
+    CONFIG_FILE=/judge0-api.conf
+fi
+
+if [[ -v CONFIG_FILE ]]; then
+    export $(cat $CONFIG_FILE | sed '/^\s*$/d;/^#.*/d' | xargs)
+fi

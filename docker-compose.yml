@@ -3,7 +3,7 @@ services:
   api:
     image: judge0/api
     volumes:
-      - ./judge0-api.conf:/usr/src/api/judge0-api.conf:ro
+      - ./judge0-api.conf:/judge0-api.conf:ro
     ports:
       - "3000:3000"
     privileged: true
@@ -13,7 +13,7 @@ services:
     image: judge0/api
     command: ["./scripts/run-workers"]
     volumes:
-      - ./judge0-api.conf:/usr/src/api/judge0-api.conf:ro
+      - ./judge0-api.conf:/judge0-api.conf:ro
     privileged: true
     restart: always
 
