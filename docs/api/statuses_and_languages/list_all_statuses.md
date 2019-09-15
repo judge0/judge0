@@ -53,5 +53,9 @@
         {
             "id": 13,
             "description": "Internal Error"
+        },
+        {
+            "id": 14,
+            "description": "Exec Format Error"
         }
     ]

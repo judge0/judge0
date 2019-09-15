@@ -155,6 +155,10 @@ class IsolateJob < ApplicationJob
     submission.exit_signal = parsed_meta[:exitsig].try(:to_i)
     submission.message = parsed_meta[:message]
     submission.status = determine_status
+
+    if submission.status == Status.boxerr && submission.message.to_s.match(/^execve\(.+\): Exec format error$/)
+       submission.status = Status.exeerr
+    end
   end
 
   def clean

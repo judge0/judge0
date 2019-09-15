@@ -26,7 +26,7 @@
 Source code is available on <a href="https://github.com/judge0/api">GitHub</a>.</p>
 <p>Dummy client is available <a href="/dummy-client.html">here</a> and can be used to try and test features of Judge0 API.</p>
 <h1 id="header-version">Version <a class="permalink" href="#header-version" aria-hidden="true">¶</a></h1>
-<p>This document describes Judge0 API version <a href="https://github.com/judge0/api/tree/v1.3.0"><code>v1.3.0</code></a>.</p>
+<p>This document describes Judge0 API version <a href="https://github.com/judge0/api/tree/v1.3.1"><code>v1.3.1</code></a>.</p>
 <h1 id="header-date-and-time-formats">Date and time formats <a class="permalink" href="#header-date-and-time-formats" aria-hidden="true">¶</a></h1>
 <p><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> standard is used.</p>
 <p>Example: <code>2016-09-11T10:19:35Z</code></p>
@@ -738,6 +738,10 @@ and decode <code>stdout</code> and <code>stderr</code> on client side.</p>
   {
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">13</span></span>,
     "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Internal Error"</span>
+  </span>},
+  {
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">14</span></span>,
+    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Exec Format Error"</span>
   </span>}
 ]</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="system-and-configuration" class="resource-group"><h2 class="group-heading">System and Configuration <a href="#system-and-configuration" class="permalink">&para;</a></h2><div id="system-and-configuration-system-info" class="resource"><h3 class="resource-heading">System Info <a href="#system-and-configuration-system-info" class="permalink">&nbsp;&para;</a></h3><div id="system-and-configuration-system-info-get" class="action get"><h4 class="action-heading"><div class="name">System Info</div><a href="#system-and-configuration-system-info-get" class="method get">GET</a><code class="uri">/system_info</code></h4><p>System information gives you detailed information about system on which Judge0 API is running.</p>
 <p>This information is result of two commands on a host system:</p>

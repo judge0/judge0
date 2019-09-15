@@ -142,7 +142,7 @@ languages = [
   {
     name: "Go (1.9)",
     source_file: "main.go",
-    compile_cmd: "/usr/local/go-1.9/bin/go build main.go",
+    compile_cmd: "/usr/local/go-1.9/bin/go build -o main main.go && chmod +x main",
     run_cmd: "./main"
   },
 
