@@ -73,6 +73,12 @@ INTERVAL=
 # Default: 1
 COUNT=
 
+# Specify maximum queue size. Represents maximum number of submissions that
+# can wait in the queue at once. If request for new submission comes and the
+# queue if full then submission will be rejected.
+# Default: 100
+MAX_QUEUE_SIZE=
+
 
 ###############################################################################
 # Database

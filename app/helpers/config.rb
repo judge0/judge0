@@ -3,6 +3,7 @@ module Config
   # https://github.com/judge0/api/blob/master/judge0-api.conf.default
 
   ENABLE_WAIT_RESULT = ENV['ENABLE_WAIT_RESULT'] != "false"
+  MAX_QUEUE_SIZE = (ENV['MAX_QUEUE_SIZE'].presence || 100).to_i
   CPU_TIME_LIMIT = (ENV['CPU_TIME_LIMIT'].presence || 2).to_f
   MAX_CPU_TIME_LIMIT = (ENV['MAX_CPU_TIME_LIMIT'].presence || 15).to_f
   CPU_EXTRA_TIME = (ENV['CPU_EXTRA_TIME'].presence || 0.5).to_f
@@ -27,6 +28,7 @@ module Config
   def self.config_info
     @@default_confg ||= {
       "enable_wait_result": ENABLE_WAIT_RESULT,
+      "max_queue_size": MAX_QUEUE_SIZE,
       "cpu_time_limit": CPU_TIME_LIMIT,
       "max_cpu_time_limit": MAX_CPU_TIME_LIMIT,
       "cpu_extra_time": CPU_EXTRA_TIME,
