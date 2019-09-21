@@ -131,8 +131,11 @@ class IsolateJob < ApplicationJob
   end
 
   def run
+    # gsub is mandatory!
+    command_line_arguments = submission.command_line_arguments.to_s.strip.encode("UTF-8", invalid: :replace).gsub(/[$&;<>|`]/, "")
+
     run_script = boxdir + "/" + "run"
-    File.open(run_script, "w") { |f| f.write("#{submission.language.run_cmd} #{submission.command_line_arguments}")}
+    File.open(run_script, "w") { |f| f.write("#{submission.language.run_cmd} #{command_line_arguments}")}
 
     command = "isolate #{cgroups_flag} \
     -s \
