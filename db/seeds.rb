@@ -142,7 +142,7 @@ languages = [
   {
     name: "Go (1.9)",
     source_file: "main.go",
-    compile_cmd: "/usr/local/go-1.9/bin/go build -o main main.go && chmod +x main",
+    compile_cmd: "/usr/local/go-1.9/bin/go build -o main main.go",
     run_cmd: "./main"
   },
 
@@ -211,7 +211,7 @@ languages = [
   {
     name: "Octave (4.2.0)",
     source_file: "file.m",
-    run_cmd: "/usr/local/octave-4.2.0/bin/octave-cli -q --no-gui file.m"
+    run_cmd: "/usr/local/octave-4.2.0/bin/octave-cli -q --no-gui --no-history file.m"
   },
 
 

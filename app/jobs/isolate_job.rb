@@ -86,6 +86,7 @@ class IsolateJob < ApplicationJob
     -E HOME=#{workdir} \
     -E PATH=\"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\" \
     -E LANG -E LANGUAGE -E LC_ALL \
+    -d /etc/alternatives \
     --run \
     -- #{compile_command} 2>&1 \
     "
@@ -141,6 +142,7 @@ class IsolateJob < ApplicationJob
     -E HOME=#{workdir} \
     -E PATH=\"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\" \
     -E LANG -E LANGUAGE -E LC_ALL \
+    -d /etc/alternatives \
     --run \
     -- #{submission.language.run_cmd} \
     < #{stdin_file} > #{stdout_file} 2> #{stderr_file} \
@@ -176,7 +178,8 @@ class IsolateJob < ApplicationJob
     if submission.status == Status.boxerr &&
        (
          submission.message.to_s.match(/^execve\(.+\): Exec format error$/) ||
-         submission.message.to_s.match(/^execve\(.+\): No such file or directory$/)
+         submission.message.to_s.match(/^execve\(.+\): No such file or directory$/) ||
+         submission.message.to_s.match(/^execve\(.+\): Permission denied$/)
        )
        submission.status = Status.exeerr
     end
