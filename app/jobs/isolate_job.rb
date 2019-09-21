@@ -74,10 +74,9 @@ class IsolateJob < ApplicationJob
 
     # gsub can be skipped if compile script is used, but is kept for additional security.
     compiler_options = submission.compiler_options.to_s.strip.encode("UTF-8", invalid: :replace).gsub(/[$&;<>|`]/, "")
-    compile_command = submission.language.compile_cmd % compiler_options
 
     compile_script = boxdir + "/" + "compile"
-    File.open(compile_script, "w") { |f| f.write("#{compile_command}")}
+    File.open(compile_script, "w") { |f| f.write("#{submission.language.compile_cmd % compiler_options}")}
 
     command = "isolate #{cgroups_flag} \
     -s \
@@ -132,6 +131,9 @@ class IsolateJob < ApplicationJob
   end
 
   def run
+    run_script = boxdir + "/" + "run"
+    File.open(run_script, "w") { |f| f.write("#{submission.language.run_cmd}")}
+
     command = "isolate #{cgroups_flag} \
     -s \
     -b #{box_id} \
@@ -149,7 +151,7 @@ class IsolateJob < ApplicationJob
     -E LANG -E LANGUAGE -E LC_ALL \
     -d /etc:noexec \
     --run \
-    -- #{submission.language.run_cmd} \
+    -- /bin/bash run \
     < #{stdin_file} > #{stdout_file} 2> #{stderr_file} \
     "
 
@@ -157,6 +159,8 @@ class IsolateJob < ApplicationJob
     puts command.gsub(/\s+/, " ")
 
     `#{command}`
+
+    `sudo chown $(whoami): #{run_script} && rm #{run_script}`
   end
 
   def verify
