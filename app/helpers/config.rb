@@ -4,6 +4,7 @@ module Config
 
   ENABLE_WAIT_RESULT = ENV['ENABLE_WAIT_RESULT'] != "false"
   ENABLE_COMPILER_OPTIONS = ENV["ENABLE_COMPILER_OPTIONS"] != "false"
+  ALLOWED_LANGUAGES_FOR_COMPILER_OPTIONS = ENV["ALLOWED_LANGUAGES_FOR_COMPILER_OPTIONS"].to_s.strip.split
   MAX_QUEUE_SIZE = (ENV['MAX_QUEUE_SIZE'].presence || 100).to_i
   CPU_TIME_LIMIT = (ENV['CPU_TIME_LIMIT'].presence || 2).to_f
   MAX_CPU_TIME_LIMIT = (ENV['MAX_CPU_TIME_LIMIT'].presence || 15).to_f
@@ -30,6 +31,7 @@ module Config
     @@default_confg ||= {
       "enable_wait_result": ENABLE_WAIT_RESULT,
       "enable_compiler_options": ENABLE_COMPILER_OPTIONS,
+      "allowed_languages_for_compile_options": ALLOWED_LANGUAGES_FOR_COMPILER_OPTIONS,
       "max_queue_size": MAX_QUEUE_SIZE,
       "cpu_time_limit": CPU_TIME_LIMIT,
       "max_cpu_time_limit": MAX_CPU_TIME_LIMIT,
