@@ -72,8 +72,12 @@ class IsolateJob < ApplicationJob
   def compile
     return :success unless submission.language.compile_cmd
 
-    compiler_options = submission.compiler_options.to_s.strip.encode("UTF-8", invalid: :replace)
+    # gsub can be skipped if compile script is used, but is kept for additional security.
+    compiler_options = submission.compiler_options.to_s.strip.encode("UTF-8", invalid: :replace).gsub(/[$&;<>|`]/, "")
     compile_command = submission.language.compile_cmd % compiler_options
+
+    compile_script = boxdir + "/" + "compile"
+    File.open(compile_script, "w") { |f| f.write("#{compile_command}")}
 
     command = "isolate #{cgroups_flag} \
     -s \
@@ -88,7 +92,7 @@ class IsolateJob < ApplicationJob
     -E LANG -E LANGUAGE -E LC_ALL \
     -d /etc:noexec \
     --run \
-    -- #{compile_command} 2>&1 \
+    -- /bin/bash compile 2>&1 \
     "
 
     puts "[#{DateTime.now}] Compiling submission #{submission.token} (#{submission.id}):"
@@ -104,6 +108,7 @@ class IsolateJob < ApplicationJob
     metadata = get_metadata
 
     reset_metadata_file
+    `sudo chown $(whoami): #{compile_script} && rm #{compile_script}`
 
     return :success if process_status.success?
 
