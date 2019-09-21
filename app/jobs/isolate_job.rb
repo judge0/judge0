@@ -187,6 +187,15 @@ class IsolateJob < ApplicationJob
     submission.message = metadata[:message]
     submission.status = determine_status(metadata[:status], submission.exit_signal)
 
+    # After adding support for compiler_options and command_line_arguments
+    # status "Exec Format Error" will no longer occur because compile and run
+    # is done inside a dynamically created bash script, thus isolate doesn't call
+    # execve directily on submission.language.compile_cmd or submission.langauge.run_cmd.
+    # Consequence of running compile and run through bash script is that when
+    # target binary is not found then submission gets status "Runtime Error (NZEC)".
+    #
+    # I think this is for now O.K. behaviour, but I will leave this if block
+    # here until I am 100% sure that "Exec Format Error" can be deprecated.
     if submission.status == Status.boxerr &&
        (
          submission.message.to_s.match(/^execve\(.+\): Exec format error$/) ||
