@@ -24,7 +24,7 @@ services:
       - VIRTUAL_HOST=api.judge0.local
       - VIRTUAL_PORT=3000
     volumes:
-      - .:/usr/src/api
+      - .:/api
     ports:
       - "3000:3000"
       - "3030:3030"
