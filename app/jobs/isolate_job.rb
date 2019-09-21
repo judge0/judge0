@@ -72,7 +72,7 @@ class IsolateJob < ApplicationJob
   def compile
     return :success unless submission.language.compile_cmd
 
-    compiler_options = submission.compiler_options.strip.encode("UTF-8", invalid: :replace)
+    compiler_options = submission.compiler_options.to_s.strip.encode("UTF-8", invalid: :replace)
     compile_command = submission.language.compile_cmd % compiler_options
 
     command = "isolate #{cgroups_flag} \
