@@ -164,6 +164,11 @@ class Submission < ApplicationRecord
       return
     end
 
+    if Language.exists?(language_id) && language.compile_cmd.nil?
+      errors.add(:compiler_options, "setting compiler options is only allowed for compiled languages")
+      return
+    end
+
     @@allowed_languages ||= Config::ALLOWED_LANGUAGES_FOR_COMPILER_OPTIONS.collect{ |s| s + " " }
     if Language.exists?(language_id) && @@allowed_languages.present? && !language.name.starts_with?(*@@allowed_languages)
       @@allowed_languages_message ||= @@allowed_languages.size > 1 ? @@allowed_languages[0..-2].collect{ |s| s.strip }.join(", ") + " and " + @@allowed_languages[-1].strip : @@allowed_languages[0].strip

@@ -130,11 +130,11 @@ ENABLE_WAIT_RESULT=
 ENABLE_COMPILER_OPTIONS=
 
 # List language names, separated by space, for which setting compiler options is allowed.
-# Note that ENABLE_COMPILER_OPTIONS has priority, so this option will be
+# Note that ENABLE_COMPILER_OPTIONS has higher priority, so this option will be
 # ignored if setting compiler options is disabled with ENABLE_COMPILER_OPTIONS.
 # For example, ALLOWED_LANGUAGES_FOR_COMPILER_OPTIONS="C C++ Java" would only
 # allow setting compiler options for languages C, C++ and Java.
-# Default: empty - for every language setting compiler options is allowed.
+# Default: empty - for every compiled language setting compiler options is allowed.
 ALLOWED_LANGUAGES_FOR_COMPILER_OPTIONS=
 
 # If enabled user is allowed to set custom command line arguments.
