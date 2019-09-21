@@ -137,6 +137,10 @@ ENABLE_COMPILER_OPTIONS=
 # Default: empty - for every language setting compiler options is allowed.
 ALLOWED_LANGUAGES_FOR_COMPILER_OPTIONS=
 
+# If enabled user is allowed to set custom command line arguments.
+# Default: true
+ENABLE_COMMAND_LINE_ARGUMENTS=
+
 # Default runtime limit for every program (in seconds). Decimal numbers are allowed.
 # Time in which the OS assigns the processor to different tasks is not counted.
 # Default: 2

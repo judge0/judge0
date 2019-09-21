@@ -31,6 +31,7 @@
 #  message                                    :text
 #  wall_time                                  :decimal(, )
 #  compiler_options                           :string
+#  command_line_arguments                     :string
 #
 # Indexes
 #
@@ -62,7 +63,8 @@ class Submission < ApplicationRecord
   validates :max_file_size,
             numericality: { greater_than: 0, less_than_or_equal_to: Config::MAX_MAX_FILE_SIZE }
   validates :compiler_options, length: { maximum: 128 }
-  validate :language_existence, :compiler_options_allowed
+  validates :command_line_arguments, length: { maximum: 128 }
+  validate :language_existence, :compiler_options_allowed, :command_line_arguments_allowed
 
   before_create :generate_token
   before_validation :set_defaults
@@ -166,6 +168,14 @@ class Submission < ApplicationRecord
     if Language.exists?(language_id) && @@allowed_languages.present? && !language.name.starts_with?(*@@allowed_languages)
       @@allowed_languages_message ||= @@allowed_languages.size > 1 ? @@allowed_languages[0..-2].collect{ |s| s.strip }.join(", ") + " and " + @@allowed_languages[-1].strip : @@allowed_languages[0].strip
       errors.add(:compiler_options, "setting compiler options is only allowed for #{@@allowed_languages_message}")
+    end
+  end
+
+  def command_line_arguments_allowed
+    return if command_line_arguments.blank?
+
+    unless Config::ENABLE_COMMAND_LINE_ARGUMENTS
+      errors.add(:command_line_arguments, "setting command line arguments is not allowed")
     end
   end
 

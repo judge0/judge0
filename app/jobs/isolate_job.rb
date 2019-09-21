@@ -132,7 +132,7 @@ class IsolateJob < ApplicationJob
 
   def run
     run_script = boxdir + "/" + "run"
-    File.open(run_script, "w") { |f| f.write("#{submission.language.run_cmd}")}
+    File.open(run_script, "w") { |f| f.write("#{submission.language.run_cmd} #{submission.command_line_arguments}")}
 
     command = "isolate #{cgroups_flag} \
     -s \
