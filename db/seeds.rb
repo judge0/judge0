@@ -22,37 +22,37 @@ languages = [
   {
     name: "C (gcc 7.2.0)",
     source_file: "main.c",
-    compile_cmd: "/usr/local/gcc-7.2.0/bin/gcc -lm %s main.c",
+    compile_cmd: "/usr/local/gcc-7.2.0/bin/gcc %s main.c",
     run_cmd: "./a.out"
   },
   {
     name: "C (gcc 6.4.0)",
     source_file: "main.c",
-    compile_cmd: "/usr/local/gcc-6.4.0/bin/gcc -lm %s main.c",
+    compile_cmd: "/usr/local/gcc-6.4.0/bin/gcc %s main.c",
     run_cmd: "./a.out"
   },
   {
     name: "C (gcc 6.3.0)",
     source_file: "main.c",
-    compile_cmd: "/usr/local/gcc-6.3.0/bin/gcc -lm %s main.c",
+    compile_cmd: "/usr/local/gcc-6.3.0/bin/gcc %s main.c",
     run_cmd: "./a.out"
   },
   {
     name: "C (gcc 5.4.0)",
     source_file: "main.c",
-    compile_cmd: "/usr/local/gcc-5.4.0/bin/gcc -lm %s main.c",
+    compile_cmd: "/usr/local/gcc-5.4.0/bin/gcc %s main.c",
     run_cmd: "./a.out"
   },
   {
     name: "C (gcc 4.9.4)",
     source_file: "main.c",
-    compile_cmd: "/usr/local/gcc-4.9.4/bin/gcc -lm %s main.c",
+    compile_cmd: "/usr/local/gcc-4.9.4/bin/gcc %s main.c",
     run_cmd: "./a.out"
   },
   {
     name: "C (gcc 4.8.5)",
     source_file: "main.c",
-    compile_cmd: "/usr/local/gcc-4.8.5/bin/gcc -lm %s main.c",
+    compile_cmd: "/usr/local/gcc-4.8.5/bin/gcc %s main.c",
     run_cmd: "./a.out"
   },
 
