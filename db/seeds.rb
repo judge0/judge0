@@ -22,37 +22,37 @@ languages = [
   {
     name: "C (gcc 7.2.0)",
     source_file: "main.c",
-    compile_cmd: "/usr/local/gcc-7.2.0/bin/gcc main.c -lm",
+    compile_cmd: "/usr/local/gcc-7.2.0/bin/gcc -lm %s main.c",
     run_cmd: "./a.out"
   },
   {
     name: "C (gcc 6.4.0)",
     source_file: "main.c",
-    compile_cmd: "/usr/local/gcc-6.4.0/bin/gcc main.c -lm",
+    compile_cmd: "/usr/local/gcc-6.4.0/bin/gcc -lm %s main.c",
     run_cmd: "./a.out"
   },
   {
     name: "C (gcc 6.3.0)",
     source_file: "main.c",
-    compile_cmd: "/usr/local/gcc-6.3.0/bin/gcc main.c -lm",
+    compile_cmd: "/usr/local/gcc-6.3.0/bin/gcc -lm %s main.c",
     run_cmd: "./a.out"
   },
   {
     name: "C (gcc 5.4.0)",
     source_file: "main.c",
-    compile_cmd: "/usr/local/gcc-5.4.0/bin/gcc main.c -lm",
+    compile_cmd: "/usr/local/gcc-5.4.0/bin/gcc -lm %s main.c",
     run_cmd: "./a.out"
   },
   {
     name: "C (gcc 4.9.4)",
     source_file: "main.c",
-    compile_cmd: "/usr/local/gcc-4.9.4/bin/gcc main.c -lm",
+    compile_cmd: "/usr/local/gcc-4.9.4/bin/gcc -lm %s main.c",
     run_cmd: "./a.out"
   },
   {
     name: "C (gcc 4.8.5)",
     source_file: "main.c",
-    compile_cmd: "/usr/local/gcc-4.8.5/bin/gcc main.c -lm",
+    compile_cmd: "/usr/local/gcc-4.8.5/bin/gcc -lm %s main.c",
     run_cmd: "./a.out"
   },
 
@@ -60,37 +60,37 @@ languages = [
   {
     name: "C++ (g++ 7.2.0)",
     source_file: "main.cpp",
-    compile_cmd: "/usr/local/gcc-7.2.0/bin/g++ -Wl,-rpath,/usr/local/gcc-7.2.0/lib64 main.cpp",
+    compile_cmd: "/usr/local/gcc-7.2.0/bin/g++ -Wl,-rpath,/usr/local/gcc-7.2.0/lib64 %s main.cpp",
     run_cmd: "./a.out"
   },
   {
     name: "C++ (g++ 6.4.0)",
     source_file: "main.cpp",
-    compile_cmd: "/usr/local/gcc-6.4.0/bin/g++ -Wl,-rpath,/usr/local/gcc-6.4.0/lib64 main.cpp",
+    compile_cmd: "/usr/local/gcc-6.4.0/bin/g++ -Wl,-rpath,/usr/local/gcc-6.4.0/lib64 %s main.cpp",
     run_cmd: "./a.out"
   },
   {
     name: "C++ (g++ 6.3.0)",
     source_file: "main.cpp",
-    compile_cmd: "/usr/local/gcc-6.3.0/bin/g++ -Wl,-rpath,/usr/local/gcc-6.3.0/lib64 main.cpp",
+    compile_cmd: "/usr/local/gcc-6.3.0/bin/g++ -Wl,-rpath,/usr/local/gcc-6.3.0/lib64 %s main.cpp",
     run_cmd: "./a.out"
   },
   {
     name: "C++ (g++ 5.4.0)",
     source_file: "main.cpp",
-    compile_cmd: "/usr/local/gcc-5.4.0/bin/g++ -Wl,-rpath,/usr/local/gcc-5.4.0/lib64 main.cpp",
+    compile_cmd: "/usr/local/gcc-5.4.0/bin/g++ -Wl,-rpath,/usr/local/gcc-5.4.0/lib64 %s main.cpp",
     run_cmd: "./a.out"
   },
   {
     name: "C++ (g++ 4.9.4)",
     source_file: "main.cpp",
-    compile_cmd: "/usr/local/gcc-4.9.4/bin/g++ -Wl,-rpath,/usr/local/gcc-4.9.4/lib64 main.cpp",
+    compile_cmd: "/usr/local/gcc-4.9.4/bin/g++ -Wl,-rpath,/usr/local/gcc-4.9.4/lib64 %s main.cpp",
     run_cmd: "./a.out"
   },
   {
     name: "C++ (g++ 4.8.5)",
     source_file: "main.cpp",
-    compile_cmd: "/usr/local/gcc-4.8.5/bin/g++ -Wl,-rpath,/usr/local/gcc-4.8.5/lib64 main.cpp",
+    compile_cmd: "/usr/local/gcc-4.8.5/bin/g++ -Wl,-rpath,/usr/local/gcc-4.8.5/lib64 %s main.cpp",
     run_cmd: "./a.out"
   },
 

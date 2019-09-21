@@ -1,25 +1,26 @@
 class IsolateJob < ApplicationJob
   queue_as :default
 
-  STDIN_FILE = 'stdin.txt'
-  STDOUT_FILE = 'stdout.txt'
-  STDERR_FILE = 'stderr.txt'
-  META_FILE = 'meta.txt'
+  STDIN_FILE_NAME = "stdin.txt"
+  STDOUT_FILE_NAME = "stdout.txt"
+  STDERR_FILE_NAME = "stderr.txt"
+  METADATA_FILE_NAME = "metadata.txt"
 
-  attr_reader :submission, :workdir, :box, :tmp, :cgroups, :source,
-              :stdin, :stdout, :stderr, :meta, :parsed_meta, :id
+  attr_reader :submission, :cgroups_flag,
+              :box_id, :workdir, :boxdir, :tmpdir,
+              :source_file, :stdin_file, :stdout_file, :stderr_file, :metadata_file
 
   def perform(submission)
     @submission = submission
+
     time = []
     memory = []
 
     submission.update(status: Status.process)
     submission.number_of_runs.times do
-      init
-      write
+      initialize_workdir
       if compile == :failure
-        clean
+        cleanup
         return
       end
       run
@@ -28,7 +29,7 @@ class IsolateJob < ApplicationJob
       time << submission.time
       memory << submission.memory
 
-      clean
+      cleanup
       break if submission.status != Status.ac
     end
 
@@ -39,55 +40,73 @@ class IsolateJob < ApplicationJob
   rescue Exception => e
     submission.finished_at ||= DateTime.now
     submission.update(message: e.message, status: Status.boxerr)
-    clean
+    cleanup
   end
 
   private
 
-  def init
-    @id = submission.id%2147483647
-    @cgroups = (submission.enable_per_process_and_thread_time_limit | submission.enable_per_process_and_thread_memory_limit ? "--cg" : "")
-    @workdir = `isolate #{cgroups} -b #{id} --init`.chomp
-    @box = workdir + "/box/"
-    @tmp = workdir + "/tmp/"
-    @source = box + submission.language.source_file
-    @stdin = workdir + "/" + STDIN_FILE
-    @stdout = workdir + "/" + STDOUT_FILE
-    @stderr = workdir + "/" + STDERR_FILE
-    @meta = workdir + "/" + META_FILE
-  end
+  def initialize_workdir
+    @box_id = submission.id%2147483647
+    @cgroups_flag = (submission.enable_per_process_and_thread_time_limit | submission.enable_per_process_and_thread_memory_limit ? "--cg" : "")
+    @workdir = `isolate #{cgroups_flag} -b #{box_id} --init`.chomp
+    @boxdir = workdir + "/box"
+    @tmpdir = workdir + "/tmp"
+    @source_file = boxdir + "/" + submission.language.source_file
+    @stdin_file = workdir + "/" + STDIN_FILE_NAME
+    @stdout_file = workdir + "/" + STDOUT_FILE_NAME
+    @stderr_file = workdir + "/" + STDERR_FILE_NAME
+    @metadata_file = workdir + "/" + METADATA_FILE_NAME
 
-  def write
-    [stdin, stdout, stderr, meta].each do |f|
-      `sudo touch #{f} && sudo chown $(whoami): #{f}`
+    [stdin_file, stdout_file, stderr_file, metadata_file].each do |f|
+      initialize_file(f)
     end
 
-    File.open(source, "wb") { |f| f.write(submission.source_code) }
-    File.open(stdin, "wb") { |f| f.write(submission.stdin) }
+    File.open(source_file, "wb") { |f| f.write(submission.source_code) }
+    File.open(stdin_file, "wb") { |f| f.write(submission.stdin) }
+  end
+
+  def initialize_file(file)
+    `sudo touch #{file} && sudo chown $(whoami): #{file}`
   end
 
   def compile
     return :success unless submission.language.compile_cmd
 
-    compile_flags = "".encode("UTF-8", invalid: :replace).shellescape
-    compile_flags = nil if compile_flags == "''"
+    compiler_options = submission.compiler_options.strip.encode("UTF-8", invalid: :replace)
+    compile_command = submission.language.compile_cmd % compiler_options
 
-    compile_command = "cd #{box} && timeout -s 15 -k 5s 10s #{submission.language.compile_cmd} #{compile_flags} 2>&1"
+    command = "isolate #{cgroups_flag} \
+    -s \
+    -b #{box_id} \
+    -M #{metadata_file} \
+    -t 5 \
+    -x 2 \
+    -w 10 \
+    -p \
+    -E HOME=#{workdir} \
+    -E PATH=\"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\" \
+    -E LANG -E LANGUAGE -E LC_ALL \
+    --run \
+    -- #{compile_command} 2>&1 \
+    "
 
     puts "[#{DateTime.now}] Compiling submission #{submission.token} (#{submission.id}):"
-    puts compile_command
+    puts command.gsub(/\s+/, " ")
     puts
 
-    compile_output = `#{compile_command}`.chomp
+    compile_output = `#{command}`.chomp
     process_status = $?
 
     compile_output = nil if compile_output.empty?
-
     submission.compile_output = compile_output
+
+    metadata = get_metadata
+
+    reset_metadata_file
 
     return :success if process_status.success?
 
-    if [124, 137].include? process_status.exitstatus
+    if metadata[:status] == "TO"
       submission.compile_output = "Compilation time limit exceeded."
     end
 
@@ -107,10 +126,10 @@ class IsolateJob < ApplicationJob
   end
 
   def run
-    command = "isolate #{cgroups} \
+    command = "isolate #{cgroups_flag} \
     -s \
-    -b #{id} \
-    -M #{meta} \
+    -b #{box_id} \
+    -M #{metadata_file} \
     -t #{submission.cpu_time_limit} \
     -x #{submission.cpu_extra_time} \
     -w #{submission.wall_time_limit} \
@@ -120,10 +139,11 @@ class IsolateJob < ApplicationJob
     #{submission.enable_per_process_and_thread_time_limit ? "--cg-timing" : "--no-cg-timing"} \
     -f #{submission.max_file_size} \
     -E HOME=#{workdir} \
+    -E PATH=\"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\" \
     -E LANG -E LANGUAGE -E LC_ALL \
     --run \
     -- #{submission.language.run_cmd} \
-    < #{stdin} > #{stdout} 2> #{stderr} \
+    < #{stdin_file} > #{stdout_file} 2> #{stderr_file} \
     "
 
     puts "[#{DateTime.now}] Running submission #{submission.token} (#{submission.id}):"
@@ -135,68 +155,75 @@ class IsolateJob < ApplicationJob
   def verify
     submission.finished_at ||= DateTime.now
 
-    change_permissions()
-    parse_meta()
+    metadata = get_metadata
 
-    program_stdout = File.read(stdout)
-    program_stderr = File.read(stderr)
-
+    program_stdout = File.read(stdout_file)
     program_stdout = nil if program_stdout.empty?
+
+    program_stderr = File.read(stderr_file)
     program_stderr = nil if program_stderr.empty?
 
-    submission.time = parsed_meta[:time]
-    submission.wall_time = parsed_meta[:"time-wall"]
-    submission.memory = (cgroups.present? ? parsed_meta[:"cg-mem"] : parsed_meta[:"max-rss"])
+    submission.time = metadata[:time]
+    submission.wall_time = metadata[:"time-wall"]
+    submission.memory = (cgroups_flag.present? ? metadata[:"cg-mem"] : metadata[:"max-rss"])
     submission.stdout = program_stdout
     submission.stderr = program_stderr
-    submission.exit_code = parsed_meta[:exitcode].try(:to_i) || 0
-    submission.exit_signal = parsed_meta[:exitsig].try(:to_i)
-    submission.message = parsed_meta[:message]
-    submission.status = determine_status
+    submission.exit_code = metadata[:exitcode].try(:to_i) || 0
+    submission.exit_signal = metadata[:exitsig].try(:to_i)
+    submission.message = metadata[:message]
+    submission.status = determine_status(metadata[:status], submission.exit_signal)
 
-    if submission.status == Status.boxerr && submission.message.to_s.match(/^execve\(.+\): Exec format error$/)
+    if submission.status == Status.boxerr &&
+       (
+         submission.message.to_s.match(/^execve\(.+\): Exec format error$/) ||
+         submission.message.to_s.match(/^execve\(.+\): No such file or directory$/)
+       )
        submission.status = Status.exeerr
     end
   end
 
-  def clean
-    `sudo rm -rf #{box}/* #{tmp}/*` # Remove all files from the box before doing cleanup with isolate.
-    `sudo rm -rf #{stdin} #{stdout} #{stderr} #{meta}`
-    `isolate #{cgroups} -b #{id} --cleanup`
+  def cleanup
+    fix_permissions
+    `sudo rm -rf #{boxdir}/* #{tmpdir}/*`
+    `isolate #{cgroups_flag} -b #{box_id} --cleanup`
   end
 
-  def change_permissions
-    `sudo chown $(whoami): #{box} #{meta} #{stdout} #{stderr}`
+  def reset_metadata_file
+    `sudo rm -rf #{metadata_file}`
+    initialize_file(metadata_file)
   end
 
-  def parse_meta
-    meta_content = File.read(meta)
-    @parsed_meta = meta_content.split("\n").collect do |e|
+  def fix_permissions
+    `sudo chown -R $(whoami): #{boxdir}`
+  end
+
+  def get_metadata
+    metadata = File.read(metadata_file).split("\n").collect do |e|
       { e.split(":").first.to_sym => e.split(":")[1..-1].join(":") }
     end.reduce({}, :merge)
+    return metadata
   end
 
-  def determine_status
-    if parsed_meta[:status] == 'TO'
+  def determine_status(status, exit_signal)
+    if status == "TO"
       return Status.tle
-    elsif parsed_meta[:status] == 'SG'
-      return Status.find_runtime_error_by_status_code(parsed_meta[:exitsig])
-    elsif parsed_meta[:status] == 'RE'
+    elsif status == "SG"
+      return Status.find_runtime_error_by_status_code(exit_signal)
+    elsif status == "RE"
       return Status.nzec
-    elsif parsed_meta[:status] == 'XX'
+    elsif status == "XX"
       return Status.boxerr
-    elsif submission.expected_output.nil? ||
-          strip_output(submission.expected_output) == strip_output(submission.stdout)
+    elsif submission.expected_output.nil? || strip(submission.expected_output) == strip(submission.stdout)
       return Status.ac
     else
       return Status.wa
     end
   end
 
-  def strip_output(output)
-    return nil unless output
-    output.split("\n").collect(&:rstrip).join("\n").rstrip
+  def strip(text)
+    return nil unless text
+    text.split("\n").collect(&:rstrip).join("\n").rstrip
   rescue ArgumentError
-    return output
+    return text
   end
 end

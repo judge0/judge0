@@ -125,6 +125,10 @@ POSTGRES_PASSWORD=YourPasswordHere1234
 # Default: true, i.e. user can request to wait for the result
 ENABLE_WAIT_RESULT=
 
+# If enabled user is allowed to set custom compiler options.
+# Default: true
+ENABLE_COMPILER_OPTIONS=
+
 # Default runtime limit for every program (in seconds). Decimal numbers are allowed.
 # Time in which the OS assigns the processor to different tasks is not counted.
 # Default: 2
