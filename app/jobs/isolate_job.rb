@@ -40,7 +40,7 @@ class IsolateJob < ApplicationJob
   rescue Exception => e
     submission.finished_at ||= DateTime.now
     submission.update(message: e.message, status: Status.boxerr)
-    cleanup
+    cleanup(raise_exception = false)
   end
 
   private
@@ -190,10 +190,11 @@ class IsolateJob < ApplicationJob
     end
   end
 
-  def cleanup
+  def cleanup(raise_exception = true)
     fix_permissions
     `sudo rm -rf #{boxdir}/* #{tmpdir}/*`
     `isolate #{cgroups_flag} -b #{box_id} --cleanup`
+    raise "Cleanup of sandbox #{box_id} failed." if raise_exception && Dir.exists?(workdir)
   end
 
   def reset_metadata_file
