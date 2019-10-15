@@ -65,6 +65,8 @@ class SubmissionsController < ApplicationController
     submission_params = params.permit(
       :source_code,
       :language_id,
+      :compiler_options,
+      :command_line_arguments,
       :number_of_runs,
       :stdin,
       :expected_output,
