@@ -85,7 +85,11 @@ class IsolateJob < ApplicationJob
     -t 5 \
     -x 2 \
     -w 10 \
-    -p \
+    -k #{Config::MAX_STACK_LIMIT} \
+    -p#{Config::MAX_MAX_PROCESSES_AND_OR_THREADS} \
+    #{Config::ALLOW_ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT ? "--cg-mem=" : "-m "}#{Config::MAX_MEMORY_LIMIT} \
+    #{Config::ALLOW_ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT ? "--cg-timing" : "--no-cg-timing"} \
+    -f #{Config::MAX_MAX_FILE_SIZE} \
     -E HOME=#{workdir} \
     -E PATH=\"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\" \
     -E LANG -E LANGUAGE -E LC_ALL \
