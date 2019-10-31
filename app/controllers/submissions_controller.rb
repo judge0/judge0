@@ -38,6 +38,11 @@ class SubmissionsController < ApplicationController
       return
     end
 
+    if Resque.size("default") >= Config::MAX_QUEUE_SIZE
+      render json: { error: "queue is full" }, status: :service_unavailable
+      return
+    end
+
     submission = Submission.new(submission_params)
 
     if submission.save
@@ -60,6 +65,8 @@ class SubmissionsController < ApplicationController
     submission_params = params.permit(
       :source_code,
       :language_id,
+      :compiler_options,
+      :command_line_arguments,
       :number_of_runs,
       :stdin,
       :expected_output,

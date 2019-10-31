@@ -73,6 +73,12 @@ INTERVAL=
 # Default: 1
 COUNT=
 
+# Specify maximum queue size. Represents maximum number of submissions that
+# can wait in the queue at once. If request for new submission comes and the
+# queue if full then submission will be rejected.
+# Default: 100
+MAX_QUEUE_SIZE=
+
 
 ###############################################################################
 # Database
@@ -118,6 +124,22 @@ POSTGRES_PASSWORD=YourPasswordHere1234
 # If enabled user can request to synchronically wait for submission result on submission create.
 # Default: true, i.e. user can request to wait for the result
 ENABLE_WAIT_RESULT=
+
+# If enabled user is allowed to set custom compiler options.
+# Default: true
+ENABLE_COMPILER_OPTIONS=
+
+# List language names, separated by space, for which setting compiler options is allowed.
+# Note that ENABLE_COMPILER_OPTIONS has higher priority, so this option will be
+# ignored if setting compiler options is disabled with ENABLE_COMPILER_OPTIONS.
+# For example, ALLOWED_LANGUAGES_FOR_COMPILER_OPTIONS="C C++ Java" would only
+# allow setting compiler options for languages C, C++ and Java.
+# Default: empty - for every compiled language setting compiler options is allowed.
+ALLOWED_LANGUAGES_FOR_COMPILER_OPTIONS=
+
+# If enabled user is allowed to set custom command line arguments.
+# Default: true
+ENABLE_COMMAND_LINE_ARGUMENTS=
 
 # Default runtime limit for every program (in seconds). Decimal numbers are allowed.
 # Time in which the OS assigns the processor to different tasks is not counted.

@@ -26,7 +26,7 @@
 Source code is available on <a href="https://github.com/judge0/api">GitHub</a>.</p>
 <p>Dummy client is available <a href="/dummy-client.html">here</a> and can be used to try and test features of Judge0 API.</p>
 <h1 id="header-version">Version <a class="permalink" href="#header-version" aria-hidden="true">¶</a></h1>
-<p>This document describes Judge0 API version <a href="https://github.com/judge0/api/tree/v1.2.0-vlang0.1.8"><code>v1.2.0-vlang0.1.8</code></a>.</p>
+<p>This document describes Judge0 API version <a href="https://github.com/judge0/api/tree/v1.4.0"><code>v1.4.0</code></a>.</p>
 <h1 id="header-date-and-time-formats">Date and time formats <a class="permalink" href="#header-date-and-time-formats" aria-hidden="true">¶</a></h1>
 <p><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> standard is used.</p>
 <p>Example: <code>2016-09-11T10:19:35Z</code></p>
@@ -56,8 +56,8 @@ authenticate in this API call.</p>
 </div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>403</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Authorization failed. Please read about <a href="#authorization">authorization</a> process.</p>
 </div></div></div></div></div></section><section id="submissions" class="resource-group"><h2 class="group-heading">Submissions <a href="#submissions" class="permalink">&para;</a></h2><div id="submissions-submission" class="resource"><h3 class="resource-heading">Submission <a href="#submissions-submission" class="permalink">&nbsp;&para;</a></h3><p>Submission represents a model for running source code in specific programming language under
 certain runtime constraints.</p>
-<p>Submission model has <strong>27</strong> attributes. Attributes <strong>1</strong>-<strong>14</strong> (listed below) are used when creating new submissions - you can set them. Out of those 14 attributes only <strong>2</strong> are required - <code>source_code</code> and <code>language_id</code>. Attributes <strong>15</strong>-<strong>27</strong> represent detailed information about runtime of submission after it’s execution.</p>
-<p>With attributes <strong>5</strong>-<strong>14</strong> you can configure submission runtime constraints. Those attributes are called <em>configuration attributes</em> or <em>configuration variables</em>. Please read more about them in <a href="#system-and-configuration-configuration-info">configuration</a> section.</p>
+<p>Submission model has <strong>29</strong> attributes. Attributes <strong>1</strong>-<strong>16</strong> (listed below) are used when creating new submissions - you can set them. Out of those 16 attributes only <strong>2</strong> are required - <code>source_code</code> and <code>language_id</code>. Attributes <strong>17</strong>-<strong>29</strong> represent detailed information about runtime of submission after it’s execution.</p>
+<p>With attributes <strong>7</strong>-<strong>16</strong> you can configure submission runtime constraints. Those attributes are called <em>configuration attributes</em> or <em>configuration variables</em>. Please read more about them in <a href="#system-and-configuration-configuration-info">configuration</a> section.</p>
 <p>Submission model has following attributes:</p>
 <table>
 <thead>
@@ -89,6 +89,22 @@ certain runtime constraints.</p>
 </tr>
 <tr>
 <td style="text-align:center">3</td>
+<td style="text-align:left"><code>compiler_options</code></td>
+<td style="text-align:center">string (max. 128 chars)</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">Options for the compiler (i.e. compiler flags).</td>
+<td style="text-align:left"><code>null</code></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:left"><code>command_line_arguments</code></td>
+<td style="text-align:center">string (max. 128 chars)</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">Command line arguments for the program.</td>
+<td style="text-align:left"><code>null</code></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
 <td style="text-align:left"><code>stdin</code></td>
 <td style="text-align:center">text</td>
 <td style="text-align:center"></td>
@@ -96,7 +112,7 @@ certain runtime constraints.</p>
 <td style="text-align:left"><code>null</code>. Program won’t receive anything to standard input.</td>
 </tr>
 <tr>
-<td style="text-align:center">4</td>
+<td style="text-align:center">6</td>
 <td style="text-align:left"><code>expected_output</code></td>
 <td style="text-align:center">text</td>
 <td style="text-align:center"></td>
@@ -104,7 +120,7 @@ certain runtime constraints.</p>
 <td style="text-align:left"><code>null</code>. Program’s <code>stdout</code> won’t be compared with <code>expected_output</code>.</td>
 </tr>
 <tr>
-<td style="text-align:center">5</td>
+<td style="text-align:center">7</td>
 <td style="text-align:left"><code>cpu_time_limit</code></td>
 <td style="text-align:center">float</td>
 <td style="text-align:center">second</td>
@@ -112,7 +128,7 @@ certain runtime constraints.</p>
 <td style="text-align:left">Depends on <a href="#system-and-configuration-configuration-info">configuration</a>.</td>
 </tr>
 <tr>
-<td style="text-align:center">6</td>
+<td style="text-align:center">8</td>
 <td style="text-align:left"><code>cpu_extra_time</code></td>
 <td style="text-align:center">float</td>
 <td style="text-align:center">second</td>
@@ -120,7 +136,7 @@ certain runtime constraints.</p>
 <td style="text-align:left">Depends on <a href="#system-and-configuration-configuration-info">configuration</a>.</td>
 </tr>
 <tr>
-<td style="text-align:center">7</td>
+<td style="text-align:center">9</td>
 <td style="text-align:left"><code>wall_time_limit</code></td>
 <td style="text-align:center">float</td>
 <td style="text-align:center">second</td>
@@ -128,7 +144,7 @@ certain runtime constraints.</p>
 <td style="text-align:left">Depends on <a href="#system-and-configuration-configuration-info">configuration</a>.</td>
 </tr>
 <tr>
-<td style="text-align:center">8</td>
+<td style="text-align:center">10</td>
 <td style="text-align:left"><code>memory_limit</code></td>
 <td style="text-align:center">float</td>
 <td style="text-align:center">kilobyte</td>
@@ -136,7 +152,7 @@ certain runtime constraints.</p>
 <td style="text-align:left">Depends on <a href="#system-and-configuration-configuration-info">configuration</a>.</td>
 </tr>
 <tr>
-<td style="text-align:center">9</td>
+<td style="text-align:center">11</td>
 <td style="text-align:left"><code>stack_limit</code></td>
 <td style="text-align:center">integer</td>
 <td style="text-align:center">kilobyte</td>
@@ -144,7 +160,7 @@ certain runtime constraints.</p>
 <td style="text-align:left">Depends on <a href="#system-and-configuration-configuration-info">configuration</a>.</td>
 </tr>
 <tr>
-<td style="text-align:center">10</td>
+<td style="text-align:center">12</td>
 <td style="text-align:left"><code>max_processes_and_or_threads</code></td>
 <td style="text-align:center">integer</td>
 <td style="text-align:center"></td>
@@ -152,7 +168,7 @@ certain runtime constraints.</p>
 <td style="text-align:left">Depends on <a href="#system-and-configuration-configuration-info">configuration</a>.</td>
 </tr>
 <tr>
-<td style="text-align:center">11</td>
+<td style="text-align:center">13</td>
 <td style="text-align:left"><code>enable_per_process_and_thread_time_limit</code></td>
 <td style="text-align:center">boolean</td>
 <td style="text-align:center"></td>
@@ -160,7 +176,7 @@ certain runtime constraints.</p>
 <td style="text-align:left">Depends on <a href="#system-and-configuration-configuration-info">configuration</a>.</td>
 </tr>
 <tr>
-<td style="text-align:center">12</td>
+<td style="text-align:center">14</td>
 <td style="text-align:left"><code>enable_per_process_and_thread_memory_limit</code></td>
 <td style="text-align:center">boolean</td>
 <td style="text-align:center"></td>
@@ -168,7 +184,7 @@ certain runtime constraints.</p>
 <td style="text-align:left">Depends on <a href="#system-and-configuration-configuration-info">configuration</a>.</td>
 </tr>
 <tr>
-<td style="text-align:center">13</td>
+<td style="text-align:center">15</td>
 <td style="text-align:left"><code>max_file_size</code></td>
 <td style="text-align:center">integer</td>
 <td style="text-align:center">kilobyte</td>
@@ -176,7 +192,7 @@ certain runtime constraints.</p>
 <td style="text-align:left">Depends on <a href="#system-and-configuration-configuration-info">configuration</a>.</td>
 </tr>
 <tr>
-<td style="text-align:center">14</td>
+<td style="text-align:center">16</td>
 <td style="text-align:left"><code>number_of_runs</code></td>
 <td style="text-align:center">integer</td>
 <td style="text-align:center"></td>
@@ -184,7 +200,7 @@ certain runtime constraints.</p>
 <td style="text-align:left">Depends on <a href="#system-and-configuration-configuration-info">configuration</a>.</td>
 </tr>
 <tr>
-<td style="text-align:center">15</td>
+<td style="text-align:center">17</td>
 <td style="text-align:left"><code>stdout</code></td>
 <td style="text-align:center">text</td>
 <td style="text-align:center"></td>
@@ -192,7 +208,7 @@ certain runtime constraints.</p>
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:center">16</td>
+<td style="text-align:center">18</td>
 <td style="text-align:left"><code>stderr</code></td>
 <td style="text-align:center">text</td>
 <td style="text-align:center"></td>
@@ -200,7 +216,7 @@ certain runtime constraints.</p>
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:center">17</td>
+<td style="text-align:center">19</td>
 <td style="text-align:left"><code>compile_output</code></td>
 <td style="text-align:center">text</td>
 <td style="text-align:center"></td>
@@ -208,7 +224,7 @@ certain runtime constraints.</p>
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:center">18</td>
+<td style="text-align:center">20</td>
 <td style="text-align:left"><code>message</code></td>
 <td style="text-align:center">text</td>
 <td style="text-align:center"></td>
@@ -216,7 +232,7 @@ certain runtime constraints.</p>
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:center">19</td>
+<td style="text-align:center">21</td>
 <td style="text-align:left"><code>exit_code</code></td>
 <td style="text-align:center">integer</td>
 <td style="text-align:center"></td>
@@ -224,7 +240,7 @@ certain runtime constraints.</p>
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:center">20</td>
+<td style="text-align:center">22</td>
 <td style="text-align:left"><code>exit_signal</code></td>
 <td style="text-align:center">integer</td>
 <td style="text-align:center"></td>
@@ -232,7 +248,7 @@ certain runtime constraints.</p>
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:center">21</td>
+<td style="text-align:center">23</td>
 <td style="text-align:left"><code>status</code></td>
 <td style="text-align:center">object</td>
 <td style="text-align:center"></td>
@@ -240,7 +256,7 @@ certain runtime constraints.</p>
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:center">22</td>
+<td style="text-align:center">24</td>
 <td style="text-align:left"><code>created_at</code></td>
 <td style="text-align:center">datetime</td>
 <td style="text-align:center"></td>
@@ -248,7 +264,7 @@ certain runtime constraints.</p>
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:center">23</td>
+<td style="text-align:center">25</td>
 <td style="text-align:left"><code>finished_at</code></td>
 <td style="text-align:center">datetime</td>
 <td style="text-align:center"></td>
@@ -256,7 +272,7 @@ certain runtime constraints.</p>
 <td style="text-align:left"><code>null</code> if submission is still in queue or if submission is processing.</td>
 </tr>
 <tr>
-<td style="text-align:center">24</td>
+<td style="text-align:center">26</td>
 <td style="text-align:left"><code>token</code></td>
 <td style="text-align:center">string</td>
 <td style="text-align:center"></td>
@@ -264,7 +280,7 @@ certain runtime constraints.</p>
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:center">25</td>
+<td style="text-align:center">27</td>
 <td style="text-align:left"><code>time</code></td>
 <td style="text-align:center">float</td>
 <td style="text-align:center">second</td>
@@ -272,7 +288,7 @@ certain runtime constraints.</p>
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:center">26</td>
+<td style="text-align:center">28</td>
 <td style="text-align:left"><code>wall_time</code></td>
 <td style="text-align:center">float</td>
 <td style="text-align:center">second</td>
@@ -280,7 +296,7 @@ certain runtime constraints.</p>
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:center">27</td>
+<td style="text-align:center">29</td>
 <td style="text-align:left"><code>memory</code></td>
 <td style="text-align:center">float</td>
 <td style="text-align:center">kilobyte</td>
@@ -373,6 +389,9 @@ set to <code>true</code>.</p>
 </span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>If wait is not allowed.</p>
 </div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-string">"wait not allowed"</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>503</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>If submission queue is full.</p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-string">"queue is full"</span>
 </span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>401</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Authentication failed. Please read about <a href="#authentication">authentication</a> process.</p>
 </div></div></div></div><div id="submissions-submission-get" class="action get"><h4 class="action-heading"><div class="name">Get Specific Submission</div><a href="#submissions-submission-get" class="method get">GET</a><code class="uri">/submissions/{token}{?base64_encoded,fields}</code></h4><p>Returns details about submission.</p>
 <p>Just like in <a href="/#submission-submission-post">create submission</a> you can receive Base64 encoded data for every
@@ -583,6 +602,10 @@ and decode <code>stdout</code> and <code>stderr</code> on client side.</p>
   {
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">13</span></span>,
     "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Internal Error"</span>
+  </span>},
+  {
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">14</span></span>,
+    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Exec Format Error"</span>
   </span>}
 ]</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="system-and-configuration" class="resource-group"><h2 class="group-heading">System and Configuration <a href="#system-and-configuration" class="permalink">&para;</a></h2><div id="system-and-configuration-system-info" class="resource"><h3 class="resource-heading">System Info <a href="#system-and-configuration-system-info" class="permalink">&nbsp;&para;</a></h3><div id="system-and-configuration-system-info-get" class="action get"><h4 class="action-heading"><div class="name">System Info</div><a href="#system-and-configuration-system-info-get" class="method get">GET</a><code class="uri">/system_info</code></h4><p>System information gives you detailed information about system on which Judge0 API is running.</p>
 <p>This information is result of two commands on a host system:</p>
@@ -656,6 +679,38 @@ if admin didn’t set them. For example, default value of <em>configuration vari
 </tr>
 <tr>
 <td style="text-align:center">2</td>
+<td style="text-align:left"><code>enable_compiler_options</code></td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">If enabled user can set <code>compiler_options</code>.</td>
+<td style="text-align:left">true</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:left"><code>allowed_languages_for_compile_options</code></td>
+<td style="text-align:center">list of strings</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">Languages for which setting compiler options is allowed.</td>
+<td style="text-align:left">Empty, i.e. for all languages it is allowed to set compiler options.</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:left"><code>enable_command_line_arguments</code></td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">If enabled user can set <code>command_line_arguments</code>.</td>
+<td style="text-align:left">true</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:left"><code>max_queue_size</code></td>
+<td style="text-align:center">integer</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">Maximum number of submissions that can wait in queue.</td>
+<td style="text-align:left">100</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
 <td style="text-align:left"><code>cpu_time_limit</code></td>
 <td style="text-align:center">float</td>
 <td style="text-align:center">second</td>
@@ -663,7 +718,7 @@ if admin didn’t set them. For example, default value of <em>configuration vari
 <td style="text-align:left">2</td>
 </tr>
 <tr>
-<td style="text-align:center">3</td>
+<td style="text-align:center">7</td>
 <td style="text-align:left"><code>cpu_extra_time</code></td>
 <td style="text-align:center">float</td>
 <td style="text-align:center">second</td>
@@ -671,7 +726,7 @@ if admin didn’t set them. For example, default value of <em>configuration vari
 <td style="text-align:left">0.5</td>
 </tr>
 <tr>
-<td style="text-align:center">4</td>
+<td style="text-align:center">8</td>
 <td style="text-align:left"><code>wall_time_limit</code></td>
 <td style="text-align:center">float</td>
 <td style="text-align:center">second</td>
@@ -679,7 +734,7 @@ if admin didn’t set them. For example, default value of <em>configuration vari
 <td style="text-align:left">5</td>
 </tr>
 <tr>
-<td style="text-align:center">5</td>
+<td style="text-align:center">9</td>
 <td style="text-align:left"><code>memory_limit</code></td>
 <td style="text-align:center">integer</td>
 <td style="text-align:center">kilobyte</td>
@@ -687,7 +742,7 @@ if admin didn’t set them. For example, default value of <em>configuration vari
 <td style="text-align:left">128000</td>
 </tr>
 <tr>
-<td style="text-align:center">6</td>
+<td style="text-align:center">10</td>
 <td style="text-align:left"><code>stack_limit</code></td>
 <td style="text-align:center">integer</td>
 <td style="text-align:center">kilobyte</td>
@@ -695,7 +750,7 @@ if admin didn’t set them. For example, default value of <em>configuration vari
 <td style="text-align:left">64000</td>
 </tr>
 <tr>
-<td style="text-align:center">7</td>
+<td style="text-align:center">11</td>
 <td style="text-align:left"><code>max_processes_and_or_threads</code></td>
 <td style="text-align:center">integer</td>
 <td style="text-align:center"></td>
@@ -703,7 +758,7 @@ if admin didn’t set them. For example, default value of <em>configuration vari
 <td style="text-align:left">30</td>
 </tr>
 <tr>
-<td style="text-align:center">8</td>
+<td style="text-align:center">12</td>
 <td style="text-align:left"><code>enable_per_process_and_thread_time_limit</code></td>
 <td style="text-align:center">boolean</td>
 <td style="text-align:center"></td>
@@ -711,7 +766,7 @@ if admin didn’t set them. For example, default value of <em>configuration vari
 <td style="text-align:left">false</td>
 </tr>
 <tr>
-<td style="text-align:center">9</td>
+<td style="text-align:center">13</td>
 <td style="text-align:left"><code>enable_per_process_and_thread_memory_limit</code></td>
 <td style="text-align:center">boolean</td>
 <td style="text-align:center"></td>
@@ -719,7 +774,7 @@ if admin didn’t set them. For example, default value of <em>configuration vari
 <td style="text-align:left">true</td>
 </tr>
 <tr>
-<td style="text-align:center">10</td>
+<td style="text-align:center">14</td>
 <td style="text-align:left"><code>max_file_size</code></td>
 <td style="text-align:center">integer</td>
 <td style="text-align:center">kilobyte</td>
@@ -727,7 +782,7 @@ if admin didn’t set them. For example, default value of <em>configuration vari
 <td style="text-align:left">1024</td>
 </tr>
 <tr>
-<td style="text-align:center">11</td>
+<td style="text-align:center">15</td>
 <td style="text-align:left"><code>number_of_runs</code></td>
 <td style="text-align:center">integer</td>
 <td style="text-align:center"></td>
@@ -841,6 +896,10 @@ configuration variables. For example, we don’t want user to create a submissio
 <p>For example, <code>max_cpu_time_limit</code> with value <code>20</code> means that user cannot create new submission which has <code>cpu_time_limit</code> greater than <code>20</code>.</p>
 <h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/config_info</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">enable_wait_result</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">enable_compiler_options</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">allowed_languages_for_compile_options</span>": <span class="hljs-value">[]</span>,
+  "<span class="hljs-attribute">enable_command_line_arguments</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">max_queue_size</span>": <span class="hljs-value"><span class="hljs-number">100</span></span>,
   "<span class="hljs-attribute">cpu_time_limit</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
   "<span class="hljs-attribute">max_cpu_time_limit</span>": <span class="hljs-value"><span class="hljs-number">15</span></span>,
   "<span class="hljs-attribute">cpu_extra_time</span>": <span class="hljs-value"><span class="hljs-number">0.5</span></span>,
@@ -906,7 +965,7 @@ configuration variables. For example, we don’t want user to create a submissio
     "<span class="hljs-attribute">paused</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
     "<span class="hljs-attribute">failed</span>": <span class="hljs-value"><span class="hljs-number">0</span>
   </span>}
-]</code></pre><div style="height: 1px;"></div></div></div></div></div></section></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 28 Jun 2019</p><script>/* eslint-env browser */
+]</code></pre><div style="height: 1px;"></div></div></div></div></div></section></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 15 Oct 2019</p><script>/* eslint-env browser */
 /* eslint quotes: [2, "single"] */
 'use strict';
 

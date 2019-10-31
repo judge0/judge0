@@ -19,15 +19,15 @@ RUN echo "gem: --no-document" > /root/.gemrc && \
 
 EXPOSE 3000
 
-WORKDIR /usr/src/api
-COPY Gemfile* /usr/src/api/
+WORKDIR /api
+COPY Gemfile* ./
 RUN RAILS_ENV=production bundle
 
-COPY . /usr/src/api
+COPY . .
 RUN RAILS_ENV=production bundle && \
     ./scripts/prod-gen-api-docs
 
 CMD ["./scripts/run-server"]
 
 LABEL maintainer="Herman Zvonimir Došilović, hermanz.dosilovic@gmail.com"
-LABEL version="1.2.0-vlang0.1.8"
+LABEL version="1.4.0-vlang-latest"

@@ -22,6 +22,8 @@ class SessionsController < ActionController::API
   end
 
   def safe_compare(token, header)
+    token = token.to_s
+    header = header.to_s
     return false unless token.present?
     provided_token = (request.headers[header] || params[header]).to_s
     token.split.each do |value|
