@@ -2,7 +2,7 @@ languages = [
   {
     name: "V (latest)",
     source_file: "main.v",
-    compile_cmd: "/usr/local/bin/v %s main.v",
+    compile_cmd: "/usr/local/v/v %s main.v",
     run_cmd: "./main"
   }
 ]

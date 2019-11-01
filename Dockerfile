@@ -1,4 +1,4 @@
-FROM judge0/api-base:vlang0.1.8
+FROM judge0/api-base:vlang-latest
 
 RUN curl -fSsL "https://deb.nodesource.com/setup_12.x" | bash - && \
     apt-get update && \

@@ -1,4 +1,6 @@
 #!/bin/bash
+sudo cron
+
 source ./scripts/load-config
 
 run_resque=1

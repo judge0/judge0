@@ -1,4 +1,6 @@
 #!/bin/bash
+sudo cron
+
 source ./scripts/load-config
 
 [[ -f tmp/pids/server.pid ]] && rm -f tmp/pids/server.pid
