@@ -2,7 +2,8 @@ version: '2'
 services:
   api:
     image: judge0/api
-    env_file: judge0-api.conf
+    volumes:
+      - ./judge0-api.conf:/judge0-api.conf:ro
     ports:
       - "3000:3000"
     privileged: true
@@ -10,13 +11,14 @@ services:
 
   worker:
     image: judge0/api
-    env_file: judge0-api.conf
-    command: ["./scripts/run-worker"]
+    command: ["./scripts/run-workers"]
+    volumes:
+      - ./judge0-api.conf:/judge0-api.conf:ro
     privileged: true
     restart: always
 
   db:
-    image: postgres:9.6.5
+    image: postgres:9.6
     env_file: judge0-api.conf
     volumes:
       - ./srv/postgres-data:/var/lib/postgresql/data/

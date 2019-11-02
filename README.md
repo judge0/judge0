@@ -94,11 +94,11 @@ You need to run Rails API and Worker in order to have Judge0 API fully operation
 
 1. Open new development shell and in there run Rails API server:
     ```
-    $ ./scripts/dev-run-server
+    $ ./scripts/run-server
     ```
 2. Open new development shell again and in there run Worker process:
     ```
-    $ ./scripts/dev-run-worker
+    $ ./scripts/run-workers
     ```
 3. Open http://localhost:3000 in your browser.
 

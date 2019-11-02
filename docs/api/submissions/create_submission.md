@@ -134,4 +134,11 @@ of Judge0 API you are using. On an [official Judge0 API](https://api.judge0.com)
             "error": "wait not allowed"
         }
 
++ Response 503 (application/json)
+    If submission queue is full.
+    + Body
+        {
+            "error": "queue is full"
+        }
+
 <!-- include(../_unauthenticated.md) -->

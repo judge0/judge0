@@ -1,0 +1,21 @@
+#!/bin/bash
+source ./scripts/load-config
+
+run_resque=1
+resque_pid=0
+
+exit_gracefully() {
+    run_resque=0
+    kill -SIGQUIT $(pgrep -P $resque_pid)
+    kill -SIGTERM $resque_pid
+}
+
+trap exit_gracefully SIGTERM SIGINT
+
+mkdir -p tmp/pids &> /dev/null
+while [[ $run_resque -eq 1 ]]; do
+    rm -rf tmp/pids/resque.pid &> /dev/null
+    COUNT=${COUNT:-1} rails resque:workers &
+    resque_pid=$!
+    while ps -p $resque_pid > /dev/null; do sleep 1s; done
+done

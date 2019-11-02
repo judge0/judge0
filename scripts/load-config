@@ -1,0 +1,12 @@
+#!/bin/bash
+if [[ -f judge0-api.conf ]]; then
+    CONFIG_FILE=judge0-api.conf
+elif [[ -f /judge0-api.conf ]]; then
+    CONFIG_FILE=/judge0-api.conf
+fi
+
+if [[ -v CONFIG_FILE ]]; then
+    set -o allexport
+    source $CONFIG_FILE
+    set +o allexport
+fi

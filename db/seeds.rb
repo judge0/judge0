@@ -1,8 +1,8 @@
 languages = [
   {
-    name: "Nim (0.20.0)",
+    name: "Nim (stable)",
     source_file: "main.nim",
-    compile_cmd: "/usr/local/nim-0.20.0/bin/nim compile main.nim",
+    compile_cmd: "/usr/local/nim/bin/nim compile --nimcache:~ %s main.nim",
     run_cmd: "./main"
   },
 ]
