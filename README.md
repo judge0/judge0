@@ -105,14 +105,23 @@ You need to run Rails API and Worker in order to have Judge0 API fully operation
 This is minimal setup for development environment, now you can open your favorite editor in your host and start developing Judge0 API.
 
 ## Who Uses Judge0 API?
-Following projects successfully use Judge0 API in production:
+Following projects and organizations successfully use Judge0 API in production:
+- [University of Zagreb, Faculty of Electrical Engineering and Computing](https://www.fer.unizg.hr/en)
+- [KPR Institute of Engineering and Technology](https://www.kpriet.ac.in)
+- [Institute of Aeronautical Engineering](https://www.iare.ac.in)
+- [Newton School](https://www.newtonschool.co)
+- [Dilla University](http://www.duvlab.website)
 - [Codify](https://codify.herokuapp.com)
+- [Techie Delight](https://techiedelight.com)
+- [primat.org](http://primat.org)
 - [GeekCoders](http://www.geekcoders.co.in)
 - [Judge Code Online](http://en.chamcode.net)
 - [Studyfied](https://studyfied.com)
-- [Techie Delight](https://techiedelight.com)
+- [ThinkingBell](https://www.thinkingbell.com)
+- [Xiith](https://xiith.com)
 - [judge0api](https://github.com/vCra/judge0api)
 - [nGrader](https://ngrader.herokuapp.com)
+- [wkspace](http://wkspace.herokuapp.com)
 
 Do you use Judge0 API? If so, please let me know so I can add you to the list!
 
