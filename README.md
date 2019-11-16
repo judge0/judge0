@@ -122,6 +122,7 @@ Following projects and organizations successfully use Judge0 API in production:
 - [judge0api](https://github.com/vCra/judge0api)
 - [nGrader](https://ngrader.herokuapp.com)
 - [wkspace](http://wkspace.herokuapp.com)
+- [CodeRunner](https://github.com/codeclassroom/CodeRunner)
 
 Do you use Judge0 API? If so, please let me know so I can add you to the list!
 
