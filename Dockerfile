@@ -13,22 +13,20 @@ RUN echo "deb http://deb.debian.org/debian jessie main" > /etc/apt/sources.list 
 
 ENV PATH "/usr/local/ruby-2.3.3/bin:/opt/.gem/bin:$PATH"
 ENV GEM_HOME "/opt/.gem/"
+
 RUN echo "gem: --no-document" > /root/.gemrc && \
-    gem install \
-      rails:5.0.0 \
-      bundler:1.15.4 \
-      pg:0.18 && \
+    gem install bundler:2.0.2 && \
     npm install -g aglio@2.3.0
 
 EXPOSE 3000
 
 WORKDIR /api
+
 COPY Gemfile* ./
 RUN RAILS_ENV=production bundle
 
 COPY . .
-RUN RAILS_ENV=production bundle && \
-    ./scripts/prod-gen-api-docs
+RUN ./scripts/prod-gen-api-docs
 
 CMD ["./scripts/run-server"]
 
