@@ -102,7 +102,7 @@ GEM
     pry-byebug (3.7.0)
       byebug (~> 11.0)
       pry (~> 0.10)
-    puma (3.12.1)
+    puma (3.12.2)
     rack (2.0.7)
     rack-cors (1.0.3)
     rack-protection (2.0.5)
@@ -207,7 +207,7 @@ DEPENDENCIES
   listen (~> 3.1)
   pg (~> 0.18)
   pry-byebug (~> 3.4)
-  puma (~> 3.0)
+  puma (~> 3.12)
   rack-cors
   rails (~> 5.0.0)
   resque (~> 2.0.0)

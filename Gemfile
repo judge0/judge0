@@ -5,7 +5,7 @@ gem 'pg', '~> 0.18'
 
 gem 'active_model_serializers', '~> 0.10.2'
 gem 'enumerations', '~> 2.1'
-gem 'puma', '~> 3.0'
+gem 'puma', '~> 3.12'
 gem 'rack-cors', require: 'rack/cors'
 gem 'resque', '~> 2.0.0'
 gem 'will_paginate', '~> 3.1'
