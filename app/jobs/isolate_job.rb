@@ -212,8 +212,9 @@ class IsolateJob < ApplicationJob
 
   def cleanup(raise_exception = true)
     fix_permissions
-    `sudo rm -rf #{boxdir}/* #{tmpdir}/*`
+    `sudo rm -rf #{workdir}/* #{tmpdir}/*`
     `isolate #{cgroups_flag} -b #{box_id} --cleanup`
+    `sudo rm -rf #{workdir} #{tmpdir}`
     raise "Cleanup of sandbox #{box_id} failed." if raise_exception && Dir.exists?(workdir)
   end
 
@@ -223,7 +224,7 @@ class IsolateJob < ApplicationJob
   end
 
   def fix_permissions
-    `sudo chown -R $(whoami): #{boxdir}`
+    `sudo chown -R $(whoami): #{workdir}`
   end
 
   def get_metadata
