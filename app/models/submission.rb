@@ -76,7 +76,7 @@ class Submission < ApplicationRecord
   self.per_page = 20
 
   def source_code
-    @decoded_source_code ||= Base64Service.decode(self[:source_code])
+    @decoded_source_code ||= Base64Service.decode(self[:source_code]).to_s.force_encoding('UTF-8')
   end
 
   def source_code=(value)
@@ -86,7 +86,7 @@ class Submission < ApplicationRecord
 
 
   def stdin
-    @decoded_stdin ||= Base64Service.decode(self[:stdin])
+    @decoded_stdin ||= Base64Service.decode(self[:stdin]).to_s.force_encoding('UTF-8')
   end
 
   def stdin=(value)
@@ -96,7 +96,7 @@ class Submission < ApplicationRecord
 
 
   def stdout
-    @decoded_stdout ||= Base64Service.decode(self[:stdout])
+    @decoded_stdout ||= Base64Service.decode(self[:stdout]).to_s.force_encoding('UTF-8')
   end
 
   def stdout=(value)
@@ -106,7 +106,7 @@ class Submission < ApplicationRecord
 
 
   def expected_output
-    @decoded_expected_output ||= Base64Service.decode(self[:expected_output])
+    @decoded_expected_output ||= Base64Service.decode(self[:expected_output]).to_s.force_encoding('UTF-8')
   end
 
   def expected_output=(value)
@@ -116,7 +116,7 @@ class Submission < ApplicationRecord
 
 
   def stderr
-    @decoded_stderr ||= Base64Service.decode(self[:stderr])
+    @decoded_stderr ||= Base64Service.decode(self[:stderr]).to_s.force_encoding('UTF-8')
   end
 
   def stderr=(value)
@@ -126,7 +126,7 @@ class Submission < ApplicationRecord
 
 
   def compile_output
-    @decoded_compile_output ||= Base64Service.decode(self[:compile_output])
+    @decoded_compile_output ||= Base64Service.decode(self[:compile_output]).to_s.force_encoding('UTF-8')
   end
 
   def compile_output=(value)
