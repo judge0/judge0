@@ -151,8 +151,10 @@ class Submission < ApplicationRecord
   private
 
   def language_existence
-    if language_id && !Language.exists?(language_id)
+    if language_id && !Language.unscoped.exists?(language_id)
       errors.add(:language_id, "language with id #{language_id} doesn't exist")
+    elsif language_id && Language.unscoped.find(language_id).try(:is_archived)
+      errors.add(:language_id, "language with id #{language_id} is archived and cannot be used anymore")
     end
   end
 

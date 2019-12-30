@@ -7,9 +7,10 @@ ActiveRecord::Base.transaction do
     Language.create(
       id: language[:id],
       name: language[:name],
+      is_archived: language[:is_archived],
+      source_file: language[:source_file],
       compile_cmd: language[:compile_cmd],
       run_cmd: language[:run_cmd],
-      source_file: language[:source_file]
     )
   end
 end
