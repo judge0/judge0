@@ -361,7 +361,6 @@
 
   {
     id: 43,
-    name: "Rust (1.20.0)",
     name: "Text (plain text)",
     is_archived: false,
     source_file: "source.txt",
