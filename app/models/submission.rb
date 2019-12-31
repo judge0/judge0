@@ -62,8 +62,8 @@ class Submission < ApplicationRecord
             unless: "Config::ALLOW_ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT"
   validates :max_file_size,
             numericality: { greater_than: 0, less_than_or_equal_to: Config::MAX_MAX_FILE_SIZE }
-  validates :compiler_options, length: { maximum: 128 }
-  validates :command_line_arguments, length: { maximum: 128 }
+  validates :compiler_options, length: { maximum: 512 }
+  validates :command_line_arguments, length: { maximum: 512 }
   validate :language_existence, :compiler_options_allowed, :command_line_arguments_allowed
 
   before_create :generate_token
