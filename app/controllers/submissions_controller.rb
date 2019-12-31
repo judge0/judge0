@@ -1,5 +1,5 @@
 class SubmissionsController < ApplicationController
-  before_action :authorize_request, only: [:index]
+  before_action :authorize_request, only: [:index, :destroy]
 
   def index
     render_invalid_field_error and return if has_invalid_field
@@ -28,6 +28,24 @@ class SubmissionsController < ApplicationController
     render json: {
       error: "some attributes for one or more submissions cannot be converted to UTF-8, use base64_encoded=true query parameter"
     }, status: :bad_request
+  end
+
+  def destroy
+    render_invalid_field_error and return if has_invalid_field
+
+    submission = Submission.find_by!(token: params[:token])
+
+    if submission.status == Status.queue || submission.status == Status.process
+      render json: {
+        error: "submission cannot be deleted because its status is #{submission.status.id} (#{submission.status.name})"
+      }, status: :bad_request
+      return
+    end
+
+    submission.delete
+
+    # Forcing base64_encoded=true because it guarantees user will get requested data after delete.
+    render json: submission, base64_encoded: true, fields: requested_fields
   end
 
   def show

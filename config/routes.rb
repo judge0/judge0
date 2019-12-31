@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'home#docs'
 
-  resources :submissions, only: [:index, :show, :create], param: :token
+  resources :submissions, only: [:index, :show, :create, :destroy], param: :token
   resources :languages, only: [:index, :show] do
     get 'all', to: 'languages#all', on: :collection
   end
