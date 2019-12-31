@@ -24,11 +24,19 @@ class SubmissionsController < ApplicationController
       submissions: serializable_submissions.as_json,
       meta: pagination_dict(submissions)
     }
+  rescue Encoding::UndefinedConversionError => e
+    render json: {
+      error: "some attributes for one or more submissions cannot be converted to UTF-8, use base64_encoded=true query parameter"
+    }, status: :bad_request
   end
 
   def show
     render_invalid_field_error and return if has_invalid_field
     render json: Submission.find_by!(token: params[:token]), base64_encoded: params[:base64_encoded] == "true", fields: requested_fields
+  rescue Encoding::UndefinedConversionError => e
+    render json: {
+      error: "some attributes for this submission cannot be converted to UTF-8, use base64_encoded=true query parameter"
+    }, status: :bad_request
   end
 
   def create
@@ -47,9 +55,16 @@ class SubmissionsController < ApplicationController
 
     if submission.save
       if wait
-        render_invalid_field_error and return if has_invalid_field
-        IsolateJob.perform_now(submission)
-        render json: submission, status: :created, base64_encoded: params[:base64_encoded] == "true", fields: requested_fields
+        begin
+          render_invalid_field_error and return if has_invalid_field
+          IsolateJob.perform_now(submission)
+          render json: submission, status: :created, base64_encoded: params[:base64_encoded] == "true", fields: requested_fields
+        rescue Encoding::UndefinedConversionError => e
+          render json: {
+            token: submission.token,
+            error: "some attributes for this submission cannot be converted to UTF-8, use base64_encoded=true query parameter"
+          }, status: :created
+        end
       else
         IsolateJob.perform_later(submission)
         render json: submission, status: :created, fields: [:token]
