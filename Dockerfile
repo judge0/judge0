@@ -1,5 +1,14 @@
 FROM judge0/api-base:0.3.0
 
+ENV JUDGE0_HOMEPAGE="https://judge0.com"
+LABEL homepage=$JUDGE0_HOMEPAGE
+
+ENV JUDGE0_SOURCE_CODE="https://github.com/judge0/api"
+LABEL source_code=$JUDGE0_SOURCE_CODE
+
+ENV JUDGE0_MAINTAINER="Herman Zvonimir Došilović <hermanz.dosilovic@gmail.com>"
+LABEL maintainer=$JUDGE0_MAINTAINER
+
 RUN echo "deb http://deb.debian.org/debian jessie main" > /etc/apt/sources.list && \
     echo "deb http://security.debian.org/debian-security jessie/updates main" >> /etc/apt/sources.list && \
     rm -rf /etc/apt/sources.list.d/* && \
@@ -30,5 +39,5 @@ RUN ./scripts/prod-gen-api-docs
 
 CMD ["./scripts/run-server"]
 
-LABEL maintainer="Herman Zvonimir Došilović, hermanz.dosilovic@gmail.com"
-LABEL version="1.4.0"
+ENV JUDGE0_VERSION="1.4.0"
+LABEL version=$JUDGE0_VERSION
