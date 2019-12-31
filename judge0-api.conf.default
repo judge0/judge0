@@ -17,7 +17,7 @@ SECRET_KEY_BASE=
 # cannot be overwriten. This configuration setting will only be used in
 # production. If left blank, then all origin will be allowed (denoted with '*')
 # Example:
-# ALLOW_ORIGIN=www.judge0.com judge0.com www.example.com blog.example.com
+# ALLOW_ORIGIN="www.judge0.com judge0.com www.example.com blog.example.com"
 ALLOW_ORIGIN=
 
 
