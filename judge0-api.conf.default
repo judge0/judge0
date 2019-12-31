@@ -141,6 +141,10 @@ ALLOWED_LANGUAGES_FOR_COMPILER_OPTIONS=
 # Default: true
 ENABLE_COMMAND_LINE_ARGUMENTS=
 
+# If enabled autorized users can delete a submission.
+# Default: false
+ENABLE_SUBMISSION_DELETE=
+
 # Default runtime limit for every program (in seconds). Decimal numbers are allowed.
 # Time in which the OS assigns the processor to different tasks is not counted.
 # Default: 2
@@ -198,7 +202,7 @@ MAX_PROCESSES_AND_OR_THREADS=
 MAX_MAX_PROCESSES_AND_OR_THREADS=
 
 # If true then CPU_TIME_LIMIT will be used as per process and thread.
-# Default false, i.e. CPU_TIME_LIMIT is set as a total limit for all processes and threads.
+# Default: false, i.e. CPU_TIME_LIMIT is set as a total limit for all processes and threads.
 ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT=
 
 # If false, user won't be able to set ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT.

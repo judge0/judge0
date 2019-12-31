@@ -31,6 +31,11 @@ class SubmissionsController < ApplicationController
   end
 
   def destroy
+    if !Config::ENABLE_SUBMISSION_DELETE
+      render json: { error: "delete not allowed" }, status: :bad_request
+      return
+    end
+
     render_invalid_field_error and return if has_invalid_field
 
     submission = Submission.find_by!(token: params[:token])
