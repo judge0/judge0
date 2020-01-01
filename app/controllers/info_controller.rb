@@ -20,15 +20,15 @@ class InfoController < ApplicationController
   end
 
   def version
-    render text: ENV["JUDGE0_VERSION"]
+    render plain: ENV["JUDGE0_VERSION"]
   end
 
   def license
-    render text: @@license
+    render plain: @@license
   end
 
   def isolate
-    render text: @@isolate
+    render plain: @@isolate
   end
 
 end
