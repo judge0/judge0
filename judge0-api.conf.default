@@ -2,7 +2,7 @@
 # Rails Environment
 ###############################################################################
 # Specify Rails environment: production or development
-# Default: development
+# Default: production
 RAILS_ENV=
 
 # Specify maximum number of concurrent Rails threads.
@@ -66,7 +66,7 @@ AUTHZ_TOKEN=
 # Workers
 ###############################################################################
 # Specify polling frequency in seconds. Decimal numbers are allowed.
-# Default: 2
+# Default: 0.1
 INTERVAL=
 
 # Specify how many parallel workers to run.
