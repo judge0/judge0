@@ -1,6 +1,6 @@
 .*
+CHANGELOG.md
 Dockerfile*
-LICENSE
 README.md
 docker-compose*
 judge0-api.conf*
