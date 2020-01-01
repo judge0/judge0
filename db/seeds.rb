@@ -2,7 +2,7 @@ require_relative 'languages/archived'
 require_relative 'languages/active'
 
 ActiveRecord::Base.transaction do
-  Language.delete_all
+  Language.unscoped.delete_all
   @languages.each_with_index do |language, index|
     Language.create(
       id: language[:id],
