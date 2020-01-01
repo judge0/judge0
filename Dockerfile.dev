@@ -11,5 +11,3 @@ RUN apt-get update && \
 USER $DEV_USER
 
 CMD ["sleep", "infinity"]
-
-LABEL maintainer="Herman Zvonimir Došilović, hermanz.dosilovic@gmail.com"
