@@ -200,7 +200,7 @@ class Submission < ApplicationRecord
     self.wall_time_limit ||= Config::WALL_TIME_LIMIT
     self.memory_limit ||= Config::MEMORY_LIMIT
     self.stack_limit ||= Config::STACK_LIMIT
-    self.max_processes_and_or_threads ||= Config::MAX_MAX_PROCESSES_AND_OR_THREADS
+    self.max_processes_and_or_threads ||= Config::MAX_PROCESSES_AND_OR_THREADS
     self.enable_per_process_and_thread_time_limit ||= Config::ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT
     self.enable_per_process_and_thread_memory_limit ||= Config::ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT
     self.max_file_size ||= Config::MAX_FILE_SIZE
