@@ -1,4 +1,4 @@
-### Get Specific Submission [GET]
+### Get a Submission [GET]
 Returns details about submission.
 
 Just like in [create submission](/#submission-submission-post) you can receive Base64 encoded data for every
@@ -6,7 +6,7 @@ text type attribute (check the [table](#submission-submission) to see which attr
 By default, this parameter is set to `false` and Judge0 API will send you raw data.
 
 By default Judge0 API is sending you 8 attributes for submission. As you may read in [Submission](#submission-submission)
-section, submission model has 27 attributes. By sending `fields` query parameter you can specify exactly which attributes
+section, submission model has 29 attributes. By sending `fields` query parameter you can specify exactly which attributes
 you want from Judge0 API.
 
 + Parameters
@@ -57,16 +57,10 @@ you want from Judge0 API.
             }
         }
 
-+ Response 500 (application/json)
-    If you get status `500` on this request, it is probably because some text type attribute in submission contains
-    some non printable characters which cannot be used in JSON. In that case, set `base64_encoded` query parameter to `true`,
-    and decode `stdout` and `stderr` on client side.
++ Response 400 (application/json)
     + Body
         {
-            "status": 500,
-            "error": "Internal Server Error",
-            "exception": "#<Encoding::UndefinedConversionError: \"\\x80\" from ASCII-8BIT to UTF-8>",
-            ...
+            "error": "some attributes for this submission cannot be converted to UTF-8, use base64_encoded=true query parameter"
         }
 
 <!-- include(../_unauthenticated.md) -->

@@ -1,4 +1,4 @@
-### Create Submission [POST]
+### Create a Submission [POST]
 Creates new submission. Created submission waits in queue to be processed. On successful
 creation, you are returned submission token which can be used to check submission status.
 
@@ -100,6 +100,20 @@ of Judge0 API you are using. On an [official Judge0 API](https://api.judge0.com)
 + Response 201 (application/json)
     {
         "token": "f3fe0215-72f3-4fe6-97f5-353df6682db4"
+    }
+
++ Request (application/json)
+    Creating a submission with `wait=true` that results with one or more attributes that cannot be serialized to JSON without Base64 encoding.
+    + Body
+        {
+            "language_id": 70,
+            "source_code": "print(\"\\xFE\")"
+        }
+
++ Response 201 (application/json)
+    {
+        "token": "fcd0de6d-ee52-4a9d-8a00-6e0d98d394cf",
+        "error": "some attributes for this submission cannot be converted to UTF-8, use base64_encoded=true query parameter"
     }
 
 + Request (application/json)

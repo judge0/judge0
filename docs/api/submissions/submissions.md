@@ -11,7 +11,7 @@ Submission model has following attributes:
 |#    |Name |Type  |Unit  |Description |Default Value |
 |:---:|:----|:----:|:----:|:-----------|:-------------|
 |1|**`source_code`**|text||Program's source code.|No default. This attribute is **required**.|
-|2|**`language_id`**|integer||[Language](#statuses-and-languages-languages) ID.|No default. This attribute is **required**|
+|2|**`language_id`**|integer||[Language](#statuses-and-languages-language) ID.|No default. This attribute is **required**|
 |3|`compiler_options`|string (max. 128 chars)||Options for the compiler (i.e. compiler flags).|`null`|
 |4|`command_line_arguments`|string (max. 128 chars)||Command line arguments for the program.|`null`|
 |5|`stdin`|text||Input for program.|`null`. Program won't receive anything to standard input.|
@@ -32,7 +32,7 @@ Submission model has following attributes:
 |20|`message`|text||If submission status is `Internal Error` then this message comes from Judge0 API itself, otherwise this is status message from Isolate.||
 |21|`exit_code`|integer||The program's exit code.||
 |22|`exit_signal`|integer||Signal code that the program recieved before exiting.||
-|23|`status`|object||Submission [status](#statuses-and-languages-statuses).||
+|23|`status`|object||Submission [status](#statuses-and-languages-status).||
 |24|`created_at`|datetime||Date and time when submission was created.||
 |25|`finished_at`|datetime||Date and time when submission was processed.|`null` if submission is still in queue or if submission is processing.|
 |26|`token`|string||Unique submission token used for [getting specific submission](#submission-submission-get).||
@@ -40,6 +40,7 @@ Submission model has following attributes:
 |28|`wall_time`|float|second|Program's wall time. Will be greater or equal to `time`.||
 |29|`memory`|float|kilobyte|Memory used by the program after execution.||
 
-<!-- include(create_submission.md) -->
-<!-- include(get_specific_submission.md) -->
-<!-- include(get_all_submissions.md) -->
+<!-- include(create_a_submission.md) -->
+<!-- include(get_a_submission.md) -->
+<!-- include(get_submissions.md) -->
+<!-- include(delete_a_submission.md) -->
