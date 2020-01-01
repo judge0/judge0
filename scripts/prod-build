@@ -1,1 +1,1 @@
-docker build -t judge0/api --cache-from judge0/api:1.4.0 .
+docker build -t judge0/api .
