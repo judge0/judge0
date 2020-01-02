@@ -7,8 +7,8 @@
 |ID|Name|Status|
 |---|---|---|
 |1|Bash (4.4)|archived|
-|2|Bash (4.0)|archived|  
-|3|Basic (fbc 1.05.0)|archived|  
+|2|Bash (4.0)|archived|
+|3|Basic (fbc 1.05.0)|archived|
 |4|C (gcc 7.2.0)|archived|
 |5|C (gcc 6.4.0)|archived|
 |6|C (gcc 6.3.0)|archived|
@@ -26,7 +26,7 @@
 |18|Clojure (1.8.0)|archived|
 |19|Crystal (0.23.1)|archived|
 |20|Elixir (1.5.1)|archived|
-|21|Erlang (OTP 20.0)|archived|   
+|21|Erlang (OTP 20.0)|archived|
 |22|Go (1.9)|archived|
 |23|Haskell (ghc 8.2.1)|archived|
 |24|Haskell (ghc 8.0.2)|archived|
@@ -134,8 +134,10 @@ unzip judge0-api-v1.5.0.zip
 3. Run all services and wait few seconds until everything is initialized:
 ```
 cd judge0-api-v1.5.0
-docker-compose up -d
+docker-compose up -d db redis
 sleep 10s
+docker-compose up -d
+sleep 5s
 ```
 
 4. Your instance of Judge0 API v1.5.0 is now available at `http://<IP OF YOUR SERVER>:3000`.
@@ -386,7 +388,7 @@ sleep 10s
 
 # v1.1.5-python3.6.8 (2019-03-08)
 On @guvenim [request](https://github.com/judge0/api/issues/67) I have built an Judge0 API image that contains just Python 3.6.8. This release also shows what changes are necessary in [api-base](https://github.com/judge0/api-base/commit/bfde9426e4a3d44098dab2a2d082e02de2bc5be5) and [api](https://github.com/judge0/api/commit/9f9f5cd0577a724d66be934c11d2e57b2b3fc705) when you only want to use languages that you need.
-  
+
 ## Deployment Procedure
 1. Install [Docker](https://docs.docker.com) and [Docker Compose](https://docs.docker.com/compose).
 2. Download and extract release archive:
@@ -413,7 +415,7 @@ sleep 10s
 ## Other Changes
 - Remove unwanted newlines from compile output.
   - Commits: [@c3cd0232](https://github.com/judge0/api/commit/c3cd023258a4ec48949d4ee2310bc39a2f40cac9)
-  
+
 ## Deployment Procedure
 1. Install [Docker](https://docs.docker.com) and [Docker Compose](https://docs.docker.com/compose).
 2. Download and extract release archive:
@@ -459,7 +461,7 @@ sleep 10s
 ## Improvements
 - Improved cleanup of sandbox by deleting stdin, stdout, stderr and meta file before running isolate cleanup.
   - Commits: [@1dcfaf98](https://github.com/judge0/api/commit/1dcfaf98536fc55fe200c57de10540de64936654)
-  
+
 ## Bug Fixes
 - Fixed problem with compile output that contained invalid byte sequence in UTF-8.
   - Commits: [@37d46b14](https://github.com/judge0/api/commit/37d46b140c75aaafeca35ffc36e53746e0905387)
@@ -551,7 +553,7 @@ sleep 10s
 - Added fixed time limit of 10 seconds for compilation.
   - Issues: [#63](https://github.com/judge0/api/issues/63) [#64](https://github.com/judge0/api/issues/64)
   - Commits: [@2f05ce2c](https://github.com/judge0/api/commit/2f05ce2c9305fccaeb0c08e23d645736593d787e)
-  
+
 ## Improvements
 - Improved procedure of seeding database with languages. Seeding is now idempotent.
   - Commits: [@72cff961](https://github.com/judge0/api/commit/72cff9616db20bed128a38111e3c28dbfc75696e)
@@ -564,7 +566,7 @@ sleep 10s
   - Commits: [@eee340b6](https://github.com/judge0/api/commit/eee340b650aeacc7971ce5e73652a7bfa9e243af)
 - Fixed problem of storing submission's stdout and stderr that contained invalid byte sequence in UTF-8.
   - Commits: [@ff63c1bc](https://github.com/judge0/api/commit/ff63c1bc498a62101d4c074f5aa7b7a971550164)
-  
+
 ## Deployment Procedure
 1. Install [Docker](https://docs.docker.com) and [Docker Compose](https://docs.docker.com/compose).
 2. Download and extract release archive:
