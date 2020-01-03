@@ -1,8 +1,8 @@
-### Get All Submissions [GET]
+### Get Submissions [GET]
 + Parameters
     + base64_encoded = `false` (optional, boolean, `false`) ... Set to `true` if you want to receive Base64 encoded data from Judge0 API.
     + page = `1` (optional, integer, `4`) ... Pagination page number.
-    + per_page = `20` (optional, integer, `2`) ... Number of submissions to return per page. 
+    + per_page = `20` (optional, integer, `2`) ... Number of submissions to return per page.
     + fields = `stdout,time,memory,stderr,token,compile_output,message,status` (optional, string, `status,language,time`) ... Return only the desired attributes.
 
 + Response 200 (application/json)
@@ -93,6 +93,12 @@
     + Body
         {
             "error": "invalid per_page: -2"
+        }
+
++ Response 400 (application/json)
+    + Body
+        {
+            "error": "some attributes for one or more submissions cannot be converted to UTF-8, use base64_encoded=true query parameter"
         }
 
 <!-- include(../_unauthenticated.md) -->

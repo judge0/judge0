@@ -1,5 +1,5 @@
-## Statuses [/statuses]
-### List All Statuses [GET]
+## Status [/statuses]
+### Get Statuses [GET]
 + Response 200 (application/json)
     [
         {

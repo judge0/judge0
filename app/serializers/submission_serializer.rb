@@ -37,7 +37,7 @@ class SubmissionSerializer < ActiveModel::Serializer
   end
 
   def language
-    ActiveModelSerializers::SerializableResource.new(object.language, { serializer: LanguageSerializer })
+    ActiveModelSerializers::SerializableResource.new(object.language, { serializer: LanguageSerializer, fields: [:id, :name] })
   end
 
   private

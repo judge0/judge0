@@ -18,17 +18,18 @@ if admin didn't set them. For example, default value of *configuration variable*
 |2|`enable_compiler_options`|boolean||If enabled user can set `compiler_options`.|true|
 |3|`allowed_languages_for_compile_options`|list of strings||Languages for which setting compiler options is allowed.|Empty, i.e. for all languages it is allowed to set compiler options.|
 |4|`enable_command_line_arguments`|boolean||If enabled user can set `command_line_arguments`.|true|
-|5|`max_queue_size`|integer||Maximum number of submissions that can wait in queue.|100|
-|6|`cpu_time_limit`|float|second|Default runtime limit for every program (in seconds). Decimal numbers are allowed. Time in which the OS assigns the processor to different tasks is not counted.|2|
-|7|`cpu_extra_time`|float|second|When a time limit is exceeded, wait for extra time, before killing the program. This has the advantage that the real execution time is reported, even though it slightly exceeds the limit.|0.5|
-|8|`wall_time_limit`|float|second|Limit wall-clock time in seconds. Decimal numbers are allowed. This clock measures the time from the start of the program to its exit, for an external event. We recommend to use `cpu_time_limit` as the main limit, but set `wall_time_limit` to a much higher value as a precaution against sleeping programs.|5|
-|9|`memory_limit`|integer|kilobyte|Limit address space of the program in kilobytes.|128000|
-|10|`stack_limit`|integer|kilobyte|Limit process stack in kilobytes.|64000|
-|11|`max_processes_and_or_threads`|integer||Maximum number of processes and/or threads program can create.|30|
-|12|`enable_per_process_and_thread_time_limit`|boolean||If `true` then `cpu_time_limit` will be used as per process and thread.|false|
-|13|`enable_per_process_and_thread_memory_limit`|boolean||If `true` then `memory_limit` will be used as per process and thread.|true|
-|14|`max_file_size`|integer|kilobyte|Limit size of files created (or modified) by the program.|1024|
-|15|`number_of_runs`|integer||Run each program this many times and take average of time and memory.|1|
+|5|`enable_submission_delete`|boolean||If enabled authorized user can [delete a submission](#submissions-submission-delete).|false|
+|6|`max_queue_size`|integer||Maximum number of submissions that can wait in queue.|100|
+|7|`cpu_time_limit`|float|second|Default runtime limit for every program (in seconds). Decimal numbers are allowed. Time in which the OS assigns the processor to different tasks is not counted.|2|
+|8|`cpu_extra_time`|float|second|When a time limit is exceeded, wait for extra time, before killing the program. This has the advantage that the real execution time is reported, even though it slightly exceeds the limit.|0.5|
+|9|`wall_time_limit`|float|second|Limit wall-clock time in seconds. Decimal numbers are allowed. This clock measures the time from the start of the program to its exit, for an external event. We recommend to use `cpu_time_limit` as the main limit, but set `wall_time_limit` to a much higher value as a precaution against sleeping programs.|5|
+|10|`memory_limit`|integer|kilobyte|Limit address space of the program in kilobytes.|128000|
+|11|`stack_limit`|integer|kilobyte|Limit process stack in kilobytes.|64000|
+|12|`max_processes_and_or_threads`|integer||Maximum number of processes and/or threads program can create.|60|
+|13|`enable_per_process_and_thread_time_limit`|boolean||If `true` then `cpu_time_limit` will be used as per process and thread.|false|
+|14|`enable_per_process_and_thread_memory_limit`|boolean||If `true` then `memory_limit` will be used as per process and thread.|true|
+|15|`max_file_size`|integer|kilobyte|Limit size of files created (or modified) by the program.|1024|
+|16|`number_of_runs`|integer||Run each program this many times and take average of time and memory.|1|
 
 *Default configuration value* for each variable is given to you as response of this API call. For example, *default configuration value*
 for variable `cpu_extra_time` might be `2`, and if admin didn't set this, then it is `0.5` (*default value*).
@@ -48,7 +49,7 @@ For this security reason we are introducing *limit configuration variables* for 
 |3|`max_wall_time_limit`|float|second|Maximum custom `wall_time_limit`|20|
 |4|`max_memory_limit`|integer|kilobyte|Maximum custom `memory_limit`|256000|
 |5|`max_stack_limit`|integer|kilobyte|Maximum custom `stack_limit`|128000|
-|6|`max_max_processes_and_or_threads`|integer||Maximum custom `max_processes_and_or_threads`|60|
+|6|`max_max_processes_and_or_threads`|integer||Maximum custom `max_processes_and_or_threads`|120|
 |7|`allow_enable_per_process_and_thread_time_limit`|boolean||If `false` user won't be able to set `enable_per_process_and_thread_time_limit` to `true`|true|
 |8|`allow_enable_per_process_and_thread_memory_limit`|boolean||If `false` user won't be able to set `enable_per_process_and_thread_memory_limit` to `true`|true|
 |9|`max_max_file_size`|integer|kilobyte|Maximux custom `max_file_size`|4096|
@@ -62,6 +63,7 @@ For example, `max_cpu_time_limit` with value `20` means that user cannot create 
         "enable_compiler_options": true,
         "allowed_languages_for_compile_options": [],
         "enable_command_line_arguments": true,
+        "enable_submission_delete": false,
         "max_queue_size": 100,
         "cpu_time_limit": 2,
         "max_cpu_time_limit": 15,
@@ -73,8 +75,8 @@ For example, `max_cpu_time_limit` with value `20` means that user cannot create 
         "max_memory_limit": 256000,
         "stack_limit": 64000,
         "max_stack_limit": 128000,
-        "max_processes_and_or_threads": 30,
-        "max_max_processes_and_or_threads": 60,
+        "max_processes_and_or_threads": 60,
+        "max_max_processes_and_or_threads": 120,
         "enable_per_process_and_thread_time_limit": false,
         "allow_enable_per_process_and_thread_time_limit": true,
         "enable_per_process_and_thread_memory_limit": true,

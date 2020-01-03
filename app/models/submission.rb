@@ -62,8 +62,8 @@ class Submission < ApplicationRecord
             unless: "Config::ALLOW_ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT"
   validates :max_file_size,
             numericality: { greater_than: 0, less_than_or_equal_to: Config::MAX_MAX_FILE_SIZE }
-  validates :compiler_options, length: { maximum: 128 }
-  validates :command_line_arguments, length: { maximum: 128 }
+  validates :compiler_options, length: { maximum: 512 }
+  validates :command_line_arguments, length: { maximum: 512 }
   validate :language_existence, :compiler_options_allowed, :command_line_arguments_allowed
 
   before_create :generate_token
@@ -136,7 +136,7 @@ class Submission < ApplicationRecord
 
 
   def language
-    @language ||= Language.find(language_id)
+    @language ||= Language.unscoped.find(language_id)
   end
 
 
@@ -151,8 +151,10 @@ class Submission < ApplicationRecord
   private
 
   def language_existence
-    if language_id && !Language.exists?(language_id)
+    if language_id && !Language.unscoped.exists?(language_id)
       errors.add(:language_id, "language with id #{language_id} doesn't exist")
+    elsif language_id && Language.unscoped.find(language_id).try(:is_archived)
+      errors.add(:language_id, "language with id #{language_id} is archived and cannot be used anymore")
     end
   end
 
@@ -164,13 +166,13 @@ class Submission < ApplicationRecord
       return
     end
 
-    if Language.exists?(language_id) && language.compile_cmd.nil?
+    if Language.unscoped.exists?(language_id) && language.compile_cmd.nil?
       errors.add(:compiler_options, "setting compiler options is only allowed for compiled languages")
       return
     end
 
     @@allowed_languages ||= Config::ALLOWED_LANGUAGES_FOR_COMPILER_OPTIONS.collect{ |s| s + " " }
-    if Language.exists?(language_id) && @@allowed_languages.present? && !language.name.starts_with?(*@@allowed_languages)
+    if Language.unscoped.exists?(language_id) && @@allowed_languages.present? && !language.name.starts_with?(*@@allowed_languages)
       @@allowed_languages_message ||= @@allowed_languages.size > 1 ? @@allowed_languages[0..-2].collect{ |s| s.strip }.join(", ") + " and " + @@allowed_languages[-1].strip : @@allowed_languages[0].strip
       errors.add(:compiler_options, "setting compiler options is only allowed for #{@@allowed_languages_message}")
     end
@@ -198,7 +200,7 @@ class Submission < ApplicationRecord
     self.wall_time_limit ||= Config::WALL_TIME_LIMIT
     self.memory_limit ||= Config::MEMORY_LIMIT
     self.stack_limit ||= Config::STACK_LIMIT
-    self.max_processes_and_or_threads ||= Config::MAX_MAX_PROCESSES_AND_OR_THREADS
+    self.max_processes_and_or_threads ||= Config::MAX_PROCESSES_AND_OR_THREADS
     self.enable_per_process_and_thread_time_limit ||= Config::ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT
     self.enable_per_process_and_thread_memory_limit ||= Config::ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT
     self.max_file_size ||= Config::MAX_FILE_SIZE

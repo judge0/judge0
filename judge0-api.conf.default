@@ -2,7 +2,7 @@
 # Rails Environment
 ###############################################################################
 # Specify Rails environment: production or development
-# Default: development
+# Default: production
 RAILS_ENV=
 
 # Specify maximum number of concurrent Rails threads.
@@ -17,7 +17,7 @@ SECRET_KEY_BASE=
 # cannot be overwriten. This configuration setting will only be used in
 # production. If left blank, then all origin will be allowed (denoted with '*')
 # Example:
-# ALLOW_ORIGIN=www.judge0.com judge0.com www.example.com blog.example.com
+# ALLOW_ORIGIN="www.judge0.com judge0.com www.example.com blog.example.com"
 ALLOW_ORIGIN=
 
 
@@ -66,7 +66,7 @@ AUTHZ_TOKEN=
 # Workers
 ###############################################################################
 # Specify polling frequency in seconds. Decimal numbers are allowed.
-# Default: 2
+# Default: 0.1
 INTERVAL=
 
 # Specify how many parallel workers to run.
@@ -141,6 +141,10 @@ ALLOWED_LANGUAGES_FOR_COMPILER_OPTIONS=
 # Default: true
 ENABLE_COMMAND_LINE_ARGUMENTS=
 
+# If enabled autorized users can delete a submission.
+# Default: false
+ENABLE_SUBMISSION_DELETE=
+
 # Default runtime limit for every program (in seconds). Decimal numbers are allowed.
 # Time in which the OS assigns the processor to different tasks is not counted.
 # Default: 2
@@ -190,15 +194,15 @@ STACK_LIMIT=
 MAX_STACK_LIMIT=
 
 # Maximum number of processes and/or threads program can create.
-# Default: 30
+# Default: 60
 MAX_PROCESSES_AND_OR_THREADS=
 
 # Maximum custom MAX_PROCESSES_AND_OR_THREADS.
-# Default: 60
+# Default: 120
 MAX_MAX_PROCESSES_AND_OR_THREADS=
 
 # If true then CPU_TIME_LIMIT will be used as per process and thread.
-# Default false, i.e. CPU_TIME_LIMIT is set as a total limit for all processes and threads.
+# Default: false, i.e. CPU_TIME_LIMIT is set as a total limit for all processes and threads.
 ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT=
 
 # If false, user won't be able to set ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT.
