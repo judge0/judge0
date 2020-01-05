@@ -1,12 +1,12 @@
 # Judge0 API
-![Judge0 API Wallpaper](https://github.com/judge0/api/blob/master/.github/wallpaper.png?raw=true)
+[![Judge0 API Wallpaper](https://github.com/judge0/api/blob/master/.github/wallpaper.png?raw=true)](https://api.judge0.com)
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://github.com/judge0/api/blob/master/LICENSE)
 [![Become a Patron](https://img.shields.io/badge/Donate-Patreon-orange)](https://www.patreon.com/hermanzdosilovic)
 [![Donate with PayPal](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/hermanzdosilovic)
 
 ## About
-[**Judge0 API**](https://api.judge0.com) is a free, robust and scalable open-source online code execution system made by [Judge0](https://judge0.com).
+[**Judge0 API**](https://api.judge0.com) is a free, robust and scalable open-source online code execution system.
 
 Judge0 API can help you build wide range of applications varying from competitive programming platforms, educational and recruitment platforms, to online code editors and more.
 
@@ -57,7 +57,7 @@ Check out these links:
 
 * [Subscribe to Judge0 news](https://judge0.com/#subscribe)
 * [Join a Discord server](https://discordapp.com/invite/e43pb7B)
-* [Report an issue](https://github.com/judge0/ide/issues/new)
+* [Report an issue](https://github.com/judge0/api/issues/new)
 * [Contact the author](https://github.com/hermanzdosilovic)
 
 ## Author and Contributors
