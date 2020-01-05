@@ -1,9 +1,13 @@
 # Judge0 API
 [![Judge0 API Wallpaper](https://github.com/judge0/api/blob/master/.github/wallpaper.png?raw=true)](https://api.judge0.com)
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://github.com/judge0/api/blob/master/LICENSE)
-[![Become a Patron](https://img.shields.io/badge/Donate-Patreon-orange)](https://www.patreon.com/hermanzdosilovic)
-[![Donate with PayPal](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/hermanzdosilovic)
+[![License](https://img.shields.io/github/license/judge0/api?color=2185d0&style=flat-square)](https://github.com/judge0/api/blob/master/LICENSE)
+[![Release](https://img.shields.io/github/v/release/judge0/api?color=2185d0&style=flat-square)](https://github.com/judge0/api/releases)
+[![Stars](https://img.shields.io/github/stars/judge0/api?color=2185d0&style=flat-square)](https://github.com/judge0/api/stargazers)
+
+<a href="https://www.producthunt.com/posts/judge0-ide" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=179885&theme=light" alt="" height="43px" /></a>
+<a href="https://patreon.com/hermanzdosilovic" target="_blank"><img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" alt="" height="43px" /></a>
+<a href="https://paypal.me/hermanzdosilovic" target="_blank"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" alt="Donate with PayPal" height="43px" /></a>
 
 ## About
 [**Judge0 API**](https://api.judge0.com) is a free, robust and scalable open-source online code execution system.
@@ -56,7 +60,7 @@ Or you just want to follow Judge0 news?
 Check out these links:
 
 * [Subscribe to Judge0 news](https://judge0.com/#subscribe)
-* [Join a Discord server](https://discordapp.com/invite/e43pb7B)
+* [Join a Discord server](https://discord.gg/6dvxeA8)
 * [Report an issue](https://github.com/judge0/api/issues/new)
 * [Contact the author](https://github.com/hermanzdosilovic)
 
@@ -69,10 +73,10 @@ Thanks a lot to all [contributors](https://github.com/judge0/api/graphs/contribu
 Special thanks to these open-source projects without whom Judge0 API probably wouldn't exist: [isolate](https://github.com/ioi/isolate), [Docker](https://github.com/docker), [Ruby on Rails](https://github.com/rails/rails) and others.
 
 ## Supporters
-Thanks a lot to all my [Patrons](https://www.patreon.com/hermanzdosilovic) and [PayPal](https://www.paypal.me/hermanzdosilovic) donors that helped me keep Judge0 API free for everybody around the World. Thank you ♥
+Thanks a lot to all my [Patrons](https://www.patreon.com/hermanzdosilovic) and [PayPal](https://paypal.me/hermanzdosilovic) donors that helped me keep Judge0 API free for everybody around the World. Thank you ♥
 
 ## Donate
-Your are more than welcome to support Judge0 on [Patreon](https://www.patreon.com/hermanzdosilovic) or via [PayPal](https://www.paypal.me/hermanzdosilovic). Your monthly or one-time donation will help pay server costs and will improve future development and maintenance. Thank you ♥
+Your are more than welcome to support Judge0 on [Patreon](https://www.patreon.com/hermanzdosilovic) or via [PayPal](https://paypal.me/hermanzdosilovic). Your monthly or one-time donation will help pay server costs and will improve future development and maintenance. Thank you ♥
 
 ## License
 Judge0 API is licensed under the [GNU General Public License v3.0](https://github.com/judge0/api/blob/master/LICENSE).
