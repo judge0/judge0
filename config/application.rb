@@ -24,7 +24,7 @@ module Judge0API
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins Rails.env.development? ? '*' : (ENV['ALLOW_ORIGIN'].presence || '*').split
+        origins (ENV['ALLOW_ORIGIN'].presence || '*').split
         resource '*', headers: :any, methods: :any
       end
     end
