@@ -1,5 +1,5 @@
 class IsolateJob < ApplicationJob
-  queue_as :default
+  queue_as ENV["JUDGE0_VERSION"].to_sym
 
   STDIN_FILE_NAME = "stdin.txt"
   STDOUT_FILE_NAME = "stdout.txt"

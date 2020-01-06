@@ -17,7 +17,7 @@ trap exit_gracefully SIGTERM SIGINT
 mkdir -p tmp/pids &> /dev/null
 while [[ $run_resque -eq 1 ]]; do
     rm -rf tmp/pids/resque.pid &> /dev/null
-    COUNT=${COUNT:-1} rails resque:workers &
+    COUNT=${COUNT:-1} QUEUE=$JUDGE0_VERSION rails resque:workers &
     resque_pid=$!
     while ps -p $resque_pid > /dev/null; do sleep 1s; done
 done
