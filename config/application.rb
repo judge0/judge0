@@ -28,10 +28,5 @@ module Judge0API
         resource '*', headers: :any, methods: :any
       end
     end
-
-    config.after_initialize do
-      puts "Running Judge0 API with configuration settings:"
-      puts Config.config_info.collect{ |k, v| "#{k.upcase}: #{v}" }.join("\n")
-    end
   end
 end
