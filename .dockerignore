@@ -7,7 +7,6 @@ judge0-api.conf*
 log/*
 scripts
 !scripts/load-config
-!scripts/prod-gen-api-docs
 !scripts/run-server
 !scripts/run-workers
 srv

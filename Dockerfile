@@ -18,7 +18,7 @@ RUN apt-get update && \
       sudo && \
     rm -rf /var/lib/apt/lists/* && \
     echo "gem: --no-document" > /root/.gemrc && \
-    gem install bundler:2.0.2 && \
+    gem install bundler:2.1.4 && \
     npm install -g --unsafe-perm aglio@2.3.0
 
 EXPOSE 3000
@@ -29,7 +29,6 @@ COPY Gemfile* ./
 RUN RAILS_ENV=production bundle
 
 COPY . .
-RUN ./scripts/prod-gen-api-docs
 
 CMD ["./scripts/run-server"]
 
