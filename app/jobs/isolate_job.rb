@@ -47,7 +47,7 @@ class IsolateJob < ApplicationJob
 
   def initialize_workdir
     @box_id = submission.id%2147483647
-    @cgroups_flag = (submission.enable_per_process_and_thread_time_limit | submission.enable_per_process_and_thread_memory_limit ? "--cg" : "")
+    @cgroups_flag = (submission.enable_per_process_and_thread_time_limit || submission.enable_per_process_and_thread_memory_limit) ? "--cg" : ""
     @workdir = `isolate #{cgroups_flag} -b #{box_id} --init`.chomp
     @boxdir = workdir + "/box"
     @tmpdir = workdir + "/tmp"
@@ -87,8 +87,8 @@ class IsolateJob < ApplicationJob
     -w 10 \
     -k #{Config::MAX_STACK_LIMIT} \
     -p#{Config::MAX_MAX_PROCESSES_AND_OR_THREADS} \
-    #{Config::ALLOW_ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT ? "--cg-mem=" : "-m "}#{Config::MAX_MEMORY_LIMIT} \
-    #{Config::ALLOW_ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT ? "--cg-timing" : "--no-cg-timing"} \
+    #{submission.enable_per_process_and_thread_time_limit ? "--cg-timing" : (cgroups_flag.present? ? "--no-cg-timing" : "")} \
+    #{submission.enable_per_process_and_thread_memory_limit ? "--cg-mem=" : "-m "}#{submission.memory_limit} \
     -f #{Config::MAX_MAX_FILE_SIZE} \
     -E HOME=#{workdir} \
     -E PATH=\"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\" \
@@ -150,8 +150,8 @@ class IsolateJob < ApplicationJob
     -w #{submission.wall_time_limit} \
     -k #{submission.stack_limit} \
     -p#{submission.max_processes_and_or_threads} \
+    #{submission.enable_per_process_and_thread_time_limit ? "--cg-timing" : (cgroups_flag.present? ? "--no-cg-timing" : "")} \
     #{submission.enable_per_process_and_thread_memory_limit ? "--cg-mem=" : "-m "}#{submission.memory_limit} \
-    #{submission.enable_per_process_and_thread_time_limit ? "--cg-timing" : "--no-cg-timing"} \
     -f #{submission.max_file_size} \
     -E HOME=#{workdir} \
     -E PATH=\"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\" \
