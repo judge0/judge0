@@ -210,5 +210,9 @@ class Submission < ApplicationRecord
       Config::ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT
     )
     self.max_file_size ||= Config::MAX_FILE_SIZE
+    self.redirect_stderr_to_stdout = NilValue.value_or_default(
+      self.redirect_stderr_to_stdout,
+      Config::REDIRECT_STDERR_TO_STDOUT
+    )
   end
 end

@@ -232,3 +232,7 @@ NUMBER_OF_RUNS=
 # Maximum custom NUMBER_OF_RUNS.
 # Default: 20
 MAX_NUMBER_OF_RUNS=
+
+# Redirect stderr to stdout.
+# Default: false
+REDIRECT_STDERR_TO_STDOUT=
