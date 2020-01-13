@@ -210,7 +210,7 @@ ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT=
 ALLOW_ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT=
 
 # If true then MEMORY_LIMIT will be used as per process and thread.
-# Default: true, i.e. MEMORY_LIMIT is set as per process and thread.
+# Default: false, i.e. MEMORY_LIMIT is set as a total limit for all processes and threads.
 ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT=
 
 # If false, user won't be able to set ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT.

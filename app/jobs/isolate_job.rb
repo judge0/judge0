@@ -6,7 +6,7 @@ class IsolateJob < ApplicationJob
   STDERR_FILE_NAME = "stderr.txt"
   METADATA_FILE_NAME = "metadata.txt"
 
-  attr_reader :submission, :cgroups_flag,
+  attr_reader :submission, :cgroups,
               :box_id, :workdir, :boxdir, :tmpdir,
               :source_file, :stdin_file, :stdout_file, :stderr_file, :metadata_file
 
@@ -47,8 +47,8 @@ class IsolateJob < ApplicationJob
 
   def initialize_workdir
     @box_id = submission.id%2147483647
-    @cgroups_flag = (submission.enable_per_process_and_thread_time_limit || submission.enable_per_process_and_thread_memory_limit) ? "--cg" : ""
-    @workdir = `isolate #{cgroups_flag} -b #{box_id} --init`.chomp
+    @cgroups = (!submission.enable_per_process_and_thread_time_limit || !submission.enable_per_process_and_thread_memory_limit) ? "--cg" : ""
+    @workdir = `isolate #{cgroups} -b #{box_id} --init`.chomp
     @boxdir = workdir + "/box"
     @tmpdir = workdir + "/tmp"
     @source_file = boxdir + "/" + submission.language.source_file
@@ -78,7 +78,7 @@ class IsolateJob < ApplicationJob
     compile_script = boxdir + "/" + "compile"
     File.open(compile_script, "w") { |f| f.write("#{submission.language.compile_cmd % compiler_options}")}
 
-    command = "isolate #{cgroups_flag} \
+    command = "isolate #{cgroups} \
     -s \
     -b #{box_id} \
     -M #{metadata_file} \
@@ -87,8 +87,8 @@ class IsolateJob < ApplicationJob
     -w 10 \
     -k #{Config::MAX_STACK_LIMIT} \
     -p#{Config::MAX_MAX_PROCESSES_AND_OR_THREADS} \
-    #{submission.enable_per_process_and_thread_time_limit ? "--cg-timing" : (cgroups_flag.present? ? "--no-cg-timing" : "")} \
-    #{submission.enable_per_process_and_thread_memory_limit ? "--cg-mem=" : "-m "}#{submission.memory_limit} \
+    #{submission.enable_per_process_and_thread_time_limit ? (cgroups.present? ? "--no-cg-timing" : "") : "--cg-timing"} \
+    #{submission.enable_per_process_and_thread_memory_limit ? "-m " : "--cg-mem="}#{Config::MAX_MEMORY_LIMIT} \
     -f #{Config::MAX_MAX_FILE_SIZE} \
     -E HOME=#{workdir} \
     -E PATH=\"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\" \
@@ -141,7 +141,7 @@ class IsolateJob < ApplicationJob
     run_script = boxdir + "/" + "run"
     File.open(run_script, "w") { |f| f.write("#{submission.language.run_cmd} #{command_line_arguments}")}
 
-    command = "isolate #{cgroups_flag} \
+    command = "isolate #{cgroups} \
     -s \
     -b #{box_id} \
     -M #{metadata_file} \
@@ -150,8 +150,8 @@ class IsolateJob < ApplicationJob
     -w #{submission.wall_time_limit} \
     -k #{submission.stack_limit} \
     -p#{submission.max_processes_and_or_threads} \
-    #{submission.enable_per_process_and_thread_time_limit ? "--cg-timing" : (cgroups_flag.present? ? "--no-cg-timing" : "")} \
-    #{submission.enable_per_process_and_thread_memory_limit ? "--cg-mem=" : "-m "}#{submission.memory_limit} \
+    #{submission.enable_per_process_and_thread_time_limit ? (cgroups.present? ? "--no-cg-timing" : "") : "--cg-timing"} \
+    #{submission.enable_per_process_and_thread_memory_limit ? "-m " : "--cg-mem="}#{submission.memory_limit} \
     -f #{submission.max_file_size} \
     -E HOME=#{workdir} \
     -E PATH=\"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\" \
@@ -183,7 +183,7 @@ class IsolateJob < ApplicationJob
 
     submission.time = metadata[:time]
     submission.wall_time = metadata[:"time-wall"]
-    submission.memory = (cgroups_flag.present? ? metadata[:"cg-mem"] : metadata[:"max-rss"])
+    submission.memory = (cgroups.present? ? metadata[:"cg-mem"] : metadata[:"max-rss"])
     submission.stdout = program_stdout
     submission.stderr = program_stderr
     submission.exit_code = metadata[:exitcode].try(:to_i) || 0
@@ -213,7 +213,7 @@ class IsolateJob < ApplicationJob
   def cleanup(raise_exception = true)
     fix_permissions
     `sudo rm -rf #{boxdir}/* #{tmpdir}/*`
-    `isolate #{cgroups_flag} -b #{box_id} --cleanup`
+    `isolate #{cgroups} -b #{box_id} --cleanup`
     raise "Cleanup of sandbox #{box_id} failed." if raise_exception && Dir.exists?(workdir)
   end
 
