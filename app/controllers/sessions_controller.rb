@@ -1,4 +1,5 @@
 class SessionsController < ActionController::API
+  before_action :verify_ip_address
   before_action :authenticate_request
   before_action :authorize_request, only: [:authorize]
 
@@ -11,6 +12,13 @@ class SessionsController < ActionController::API
   end
 
   private
+
+  def verify_ip_address
+    @@disallowed_ip_addresses ||= ENV['DISALLOW_IP'].to_s.split - ENV['ALLOW_IP'].to_s.split
+    @@allowed_ip_addresses ||= ENV['ALLOW_IP'].to_s.split - ENV['DISALLOW_IP'].to_s.split
+    head :forbidden if @@disallowed_ip_addresses.include?(request.remote_ip)
+    head :forbidden if @@allowed_ip_addresses.present? && !@@allowed_ip_addresses.include?(request.remote_ip)
+  end
 
   def authenticate_request
     head :unauthorized if safe_compare(Rails.application.secrets.authn_token, Rails.application.secrets.authn_header)

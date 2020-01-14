@@ -25,6 +25,18 @@ ALLOW_ORIGIN=
 # DISALLOW_ORIGIN="www.judge0.com judge0.com www.example.com blog.example.com"
 DISALLOW_ORIGIN=
 
+# Allow only specified IP addresses.
+# If left blank, then all IP addresses will be allowed.
+# Example:
+# ALLOW_IP="192.168.10.10 96.239.226.228 208.23.207.242"
+ALLOW_IP=
+
+# Disallow only specified IP addresses.
+# If left blank, then no IP addresses will be disallowed.
+# Example:
+# DISALLOW_IP="192.168.10.10 96.239.226.228 208.23.207.242"
+DISALLOW_IP=
+
 
 ###############################################################################
 # Authentication
