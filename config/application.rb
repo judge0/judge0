@@ -23,8 +23,18 @@ module Judge0API
     config.active_job.queue_adapter = :resque
 
     config.middleware.insert_before 0, Rack::Cors do
+      origins = []
+
+      disallowed_origins = ENV['DISALLOW_ORIGIN'].split.collect{ |s| s.gsub(".", "\\.") }.join("|")
+      if disallowed_origins.present?
+        origins.append(Regexp.new("^(?:(?!#{disallowed_origins}).)*$"))
+      end
+
+      # ALLOW_ORIGIN and DISALLOW_ORIGIN are mutually exclusive so this doesn't have any effect.
+      origins += (ENV['ALLOW_ORIGIN'].presence || (origins.present? ? '' : '*')).split
+
       allow do
-        origins (ENV['ALLOW_ORIGIN'].presence || '*').split
+        origins origins
         resource '*', headers: :any, methods: :any
       end
     end

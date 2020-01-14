@@ -13,12 +13,17 @@ RAILS_MAX_THREADS=
 # Default: randomly generated
 SECRET_KEY_BASE=
 
-# Allow only specified origins. In development all origins are allowed and this
-# cannot be overwriten. This configuration setting will only be used in
-# production. If left blank, then all origin will be allowed (denoted with '*')
+# Allow only specified origins.
+# If left blank, then all origins will be allowed (denoted with '*').
 # Example:
 # ALLOW_ORIGIN="www.judge0.com judge0.com www.example.com blog.example.com"
 ALLOW_ORIGIN=
+
+# Disallow only specified origins.
+# If left blank, then no origin will be disallowed.
+# Example:
+# DISALLOW_ORIGIN="www.judge0.com judge0.com www.example.com blog.example.com"
+DISALLOW_ORIGIN=
 
 
 ###############################################################################
