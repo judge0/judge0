@@ -132,15 +132,21 @@ class SubmissionsController < ApplicationController
   end
 
   def has_invalid_field
+    @@universal_field ||= "*".to_sym
+
     return true if @invalid_field.present?
     return false if @requested_fields.present?
 
     fields = params[:fields].to_s.split(",").collect(&:to_sym)
     fields.each do |field|
-      unless SubmissionSerializer._attributes.include?(field)
+      if field != @@universal_field && !SubmissionSerializer._attributes.include?(field)
         @invalid_field = field
         return true
       end
+    end
+
+    if fields.include?(@@universal_field)
+      fields = SubmissionSerializer._attributes
     end
 
     @requested_fields = fields.presence || self.class.default_fields
