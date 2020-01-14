@@ -31,4 +31,56 @@ class InfoController < ApplicationController
     render plain: @@isolate
   end
 
+  def statistics
+    @@language_name ||= Hash[Language.unscoped.pluck(:id, :name)]
+
+    count_by_language = []
+    Submission.unscoped.group(:language_id).count.each do |language_id, count|
+      count_by_language << {
+        language: {
+          id: language_id,
+          name: @@language_name[language_id]
+        },
+        count: count
+      }
+    end
+    count_by_language = count_by_language.sort_by { |x| x[:count] }.reverse
+
+    count_by_status = []
+    Submission.unscoped.group(:status_id).count.each do |status_id, count|
+      count_by_status << {
+        status: {
+          id: status_id,
+          name: Status.find_by(id: status_id).name # Not a SQL query!
+        },
+        count: count
+      }
+    end
+    count_by_status = count_by_status.sort_by{ |x| x[:count] }.reverse
+
+    now = DateTime.now
+    today = DateTime.now.beginning_of_day.to_date
+    last_30_days = Submission.unscoped.group("created_at::DATE").where("created_at::DATE >= ?", today - 30).count
+    last_30_days_result = {}
+    (today-30...today).each do |day|
+      last_30_days_result[day.to_date] = last_30_days[day] || 0
+    end
+    last_30_days_result = last_30_days_result.sort.reverse.to_h
+
+    database_size = ActiveRecord::Base.connection.execute("SELECT pg_size_pretty(pg_database_size('#{ENV['POSTGRES_DB']}')) AS size").to_a[0]["size"]
+
+    render json: {
+      now: now,
+      submissions: {
+        total: Submission.count,
+        today: last_30_days[today],
+        last_30_days: last_30_days_result
+      },
+      languages: count_by_language,
+      statuses: count_by_status,
+      database: {
+        size: database_size
+      }
+    }
+  end
 end
