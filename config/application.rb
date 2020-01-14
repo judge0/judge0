@@ -25,7 +25,7 @@ module Judge0API
     config.middleware.insert_before 0, Rack::Cors do
       origins = []
 
-      disallowed_origins = ENV['DISALLOW_ORIGIN'].split.collect{ |s| s.gsub(".", "\\.") }.join("|")
+      disallowed_origins = (ENV['DISALLOW_ORIGIN'].to_s.split - ENV['ALLOW_ORIGIN'].to_s.split).collect{ |s| s.gsub(".", "\\.") }.join("|")
       if disallowed_origins.present?
         origins.append(Regexp.new("^(?:(?!#{disallowed_origins}).)*$"))
       end
