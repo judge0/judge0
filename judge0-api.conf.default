@@ -9,6 +9,16 @@ RAILS_ENV=
 # Default: 5
 RAILS_MAX_THREADS=
 
+# Maintenance mode is a mode in which clients cannot
+# create or delete submissions while maintenance is enabled.
+# Default: false
+MAINTENANCE_MODE=
+
+# Set custom maintenance message that will be returned to clients
+# who try to create or delete submisions.
+# Default: Judge0 API is currently in maintenance.
+MAINTENANCE_MESSAGE=
+
 # Secret key base for production, if not set it will be randomly generated
 # Default: randomly generated
 SECRET_KEY_BASE=

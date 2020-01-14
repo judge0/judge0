@@ -29,6 +29,15 @@ class SessionsController < ActionController::API
     head :forbidden if safe_compare(Rails.application.secrets.authz_token, Rails.application.secrets.authz_header)
   end
 
+  def check_maintenance
+    @@maintenance_message ||= ENV['MAINTENANCE_MESSAGE'].to_s.presence || "Judge0 API is currently in maintenance."
+    if Config::MAINTENANCE_MODE
+      render json: {
+        error: @@maintenance_message
+      }, status: :service_unavailable
+    end
+  end
+
   def safe_compare(token, header)
     token = token.to_s
     header = header.to_s

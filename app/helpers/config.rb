@@ -2,6 +2,7 @@ module Config
   # For more info read:
   # https://github.com/judge0/api/blob/master/judge0-api.conf.default
 
+  MAINTENANCE_MODE = ENV['MAINTENANCE_MODE'] == "true"
   ENABLE_WAIT_RESULT = ENV['ENABLE_WAIT_RESULT'] != "false"
   ENABLE_COMPILER_OPTIONS = ENV["ENABLE_COMPILER_OPTIONS"] != "false"
   ALLOWED_LANGUAGES_FOR_COMPILER_OPTIONS = ENV["ALLOWED_LANGUAGES_FOR_COMPILER_OPTIONS"].to_s.strip.split
@@ -32,6 +33,7 @@ module Config
 
   def self.config_info
     @@default_confg ||= {
+      "maintenance_mode": MAINTENANCE_MODE,
       "enable_wait_result": ENABLE_WAIT_RESULT,
       "enable_compiler_options": ENABLE_COMPILER_OPTIONS,
       "allowed_languages_for_compile_options": ALLOWED_LANGUAGES_FOR_COMPILER_OPTIONS,

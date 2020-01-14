@@ -1,5 +1,6 @@
 class SubmissionsController < ApplicationController
   before_action :authorize_request, only: [:index, :destroy]
+  before_action :check_maintenance, only: [:create, :destroy]
 
   def index
     render_invalid_field_error and return if has_invalid_field
