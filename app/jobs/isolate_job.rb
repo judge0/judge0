@@ -69,15 +69,41 @@ class IsolateJob < ApplicationJob
     File.open(source_file, "wb") { |f| f.write(submission.source_code) }
     File.open(stdin_file, "wb") { |f| f.write(submission.stdin) }
 
-    if submission.archive?
-      File.open(archive_file, "wb") { |f| f.write(submission.archive) }
-      `cd #{boxdir} && timeout -s 15 -k 1s 2s unzip -n -qq #{archive_file} 2>&1`
-      File.delete(archive_file)
-    end
+    extract_archive
   end
 
   def initialize_file(file)
     `sudo touch #{file} && sudo chown $(whoami): #{file}`
+  end
+
+  def extract_archive
+    return unless submission.archive?
+
+    File.open(archive_file, "wb") { |f| f.write(submission.archive) }
+
+    command = "isolate #{cgroups} \
+    -s \
+    -b #{box_id} \
+    -t 2 \
+    -x 1 \
+    -w 4 \
+    -k #{Config::MAX_STACK_LIMIT} \
+    -p#{Config::MAX_MAX_PROCESSES_AND_OR_THREADS} \
+    #{submission.enable_per_process_and_thread_time_limit ? (cgroups.present? ? "--no-cg-timing" : "") : "--cg-timing"} \
+    #{submission.enable_per_process_and_thread_memory_limit ? "-m " : "--cg-mem="}#{Config::MAX_MEMORY_LIMIT} \
+    -f #{Config::MAX_EXTRACT_SIZE} \
+    --run \
+    -- /usr/bin/unzip -n -qq #{ARCHIVE_FILE_NAME} 2>&1 \
+    "
+
+    puts "[#{DateTime.now}] Extracting archive for submission #{submission.token} (#{submission.id}):"
+    puts command.gsub(/\s+/, " ")
+    puts
+
+    extract_output = `#{command}`.chomp
+    puts(extract_output)
+
+    File.delete(archive_file)
   end
 
   def compile
@@ -176,6 +202,7 @@ class IsolateJob < ApplicationJob
 
     puts "[#{DateTime.now}] Running submission #{submission.token} (#{submission.id}):"
     puts command.gsub(/\s+/, " ")
+    puts
 
     `#{command}`
 
