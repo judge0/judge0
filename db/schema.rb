@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200114220437) do
+ActiveRecord::Schema.define(version: 20200115205044) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20200114220437) do
     t.string   "command_line_arguments"
     t.boolean  "redirect_stderr_to_stdout"
     t.string   "callback_url"
+    t.binary   "archive"
     t.index ["token"], name: "index_submissions_on_token", using: :btree
   end
 

@@ -55,6 +55,10 @@ class SubmissionSerializer < ActiveModel::Serializer
     ActiveModelSerializers::SerializableResource.new(object.language, { serializer: LanguageSerializer, fields: [:id, :name] })
   end
 
+  def archive
+    Base64Service.encode(object.archive)
+  end
+
   private
 
   def object_decoder(method)

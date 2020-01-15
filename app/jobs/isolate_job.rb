@@ -5,10 +5,12 @@ class IsolateJob < ApplicationJob
   STDOUT_FILE_NAME = "stdout.txt"
   STDERR_FILE_NAME = "stderr.txt"
   METADATA_FILE_NAME = "metadata.txt"
+  ARCHIVE_FILE_NAME = "archive.zip"
 
   attr_reader :submission, :cgroups,
               :box_id, :workdir, :boxdir, :tmpdir,
-              :source_file, :stdin_file, :stdout_file, :stderr_file, :metadata_file
+              :source_file, :stdin_file, :stdout_file,
+              :stderr_file, :metadata_file, :archive_file
 
   def perform(submission)
     @submission = submission
@@ -58,6 +60,7 @@ class IsolateJob < ApplicationJob
     @stdout_file = workdir + "/" + STDOUT_FILE_NAME
     @stderr_file = workdir + "/" + STDERR_FILE_NAME
     @metadata_file = workdir + "/" + METADATA_FILE_NAME
+    @archive_file = boxdir + "/" + ARCHIVE_FILE_NAME
 
     [stdin_file, stdout_file, stderr_file, metadata_file].each do |f|
       initialize_file(f)
@@ -65,6 +68,12 @@ class IsolateJob < ApplicationJob
 
     File.open(source_file, "wb") { |f| f.write(submission.source_code) }
     File.open(stdin_file, "wb") { |f| f.write(submission.stdin) }
+
+    if submission.archive?
+      File.open(archive_file, "wb") { |f| f.write(submission.archive) }
+      `cd #{boxdir} && timeout -s 15 -k 1s 2s unzip -n -qq #{archive_file} 2>&1`
+      File.delete(archive_file)
+    end
   end
 
   def initialize_file(file)

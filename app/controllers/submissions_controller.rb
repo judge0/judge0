@@ -119,8 +119,11 @@ class SubmissionsController < ApplicationController
       :enable_per_process_and_thread_memory_limit,
       :max_file_size,
       :redirect_stderr_to_stdout,
-      :callback_url
+      :callback_url,
+      :archive
     )
+
+    submission_params[:archive] = Base64Service.decode(submission_params[:archive])
 
     params[:base64_encoded] == "true" ? decode_params(submission_params) : submission_params
   end
