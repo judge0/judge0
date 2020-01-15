@@ -118,7 +118,8 @@ class SubmissionsController < ApplicationController
       :enable_per_process_and_thread_time_limit,
       :enable_per_process_and_thread_memory_limit,
       :max_file_size,
-      :redirect_stderr_to_stdout
+      :redirect_stderr_to_stdout,
+      :callback_url
     )
 
     params[:base64_encoded] == "true" ? decode_params(submission_params) : submission_params
@@ -149,7 +150,7 @@ class SubmissionsController < ApplicationController
       fields = SubmissionSerializer._attributes
     end
 
-    @requested_fields = fields.presence || self.class.default_fields
+    @requested_fields = fields.presence || SubmissionSerializer.default_fields
 
     false
   end
@@ -161,18 +162,5 @@ class SubmissionsController < ApplicationController
 
   def render_invalid_field_error
     render json: { error: "invalid field #{@invalid_field}" }, status: :bad_request if has_invalid_field
-  end
-
-  def self.default_fields
-    @@default_fields = [
-      :token,
-      :time,
-      :memory,
-      :stdout,
-      :stderr,
-      :compile_output,
-      :message,
-      :status,
-    ]
   end
 end

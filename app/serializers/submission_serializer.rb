@@ -1,6 +1,21 @@
 class SubmissionSerializer < ActiveModel::Serializer
   attributes((Submission.column_names + ["status", "language"] - ["id"]).collect(&:to_sym))
 
+  @@default_fields = [
+    :token,
+    :time,
+    :memory,
+    :stdout,
+    :stderr,
+    :compile_output,
+    :message,
+    :status,
+  ]
+
+  def self.default_fields
+    return @@default_fields
+  end
+
   def source_code
     object_decoder(:source_code)
   end

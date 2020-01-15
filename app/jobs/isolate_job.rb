@@ -41,6 +41,8 @@ class IsolateJob < ApplicationJob
     submission.finished_at ||= DateTime.now
     submission.update(message: e.message, status: Status.boxerr)
     cleanup(raise_exception = false)
+  ensure
+    call_callback
   end
 
   private
@@ -225,6 +227,29 @@ class IsolateJob < ApplicationJob
 
   def fix_permissions
     `sudo chown -R $(whoami): #{boxdir}`
+  end
+
+  def call_callback
+    return unless submission.callback_url.present?
+
+    serialized_submission = ActiveModelSerializers::SerializableResource.new(
+      submission,
+      {
+        serializer: SubmissionSerializer,
+        base64_encoded: true,
+        fields: SubmissionSerializer.default_fields
+      }
+    )
+
+    response = HTTParty.put(
+      submission.callback_url,
+      body: serialized_submission.to_json,
+      headers: {
+        "Content-Type" => "application/json"
+      },
+      timeout: 2
+    )
+  rescue Exception => e
   end
 
   def get_metadata

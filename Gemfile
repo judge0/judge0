@@ -5,6 +5,7 @@ gem 'pg', '~> 1.2.2'
 
 gem 'active_model_serializers', '~> 0.10.10'
 gem 'enumerations', '~> 2.3.3'
+gem 'httparty', '~> 0.17.3'
 gem 'pry-byebug', '~> 3.7.0'
 gem 'pry-rails', '~> 0.3.9'
 gem 'puma', '~> 4.3.1'
