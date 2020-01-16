@@ -1,7 +1,9 @@
 class SubmissionsController < ApplicationController
   before_action :authorize_request, only: [:index, :destroy]
   before_action :check_maintenance, only: [:create, :destroy]
-  before_action :check_requested_fields
+  before_action :check_wait, only: [:create] # Wait in batch_create is not allowed
+  before_action :check_queue_size, only: [:create, :batch_create]
+  before_action :check_requested_fields, except: [:batch_create] # Fields are ignored in batch_create
   before_action :set_base64_encoded
 
   def index
@@ -58,21 +60,10 @@ class SubmissionsController < ApplicationController
   end
 
   def create
-    wait = params[:wait] == "true"
-    if wait && !Config::ENABLE_WAIT_RESULT
-      render json: { error: "wait not allowed" }, status: :bad_request
-      return
-    end
-
-    if Resque.size(ENV["JUDGE0_VERSION"]) >= Config::MAX_QUEUE_SIZE
-      render json: { error: "queue is full" }, status: :service_unavailable
-      return
-    end
-
-    submission = Submission.new(submission_params)
+    submission = Submission.new(submission_params(params))
 
     if submission.save
-      if wait
+      if @wait
         begin
           IsolateJob.perform_now(submission)
           render json: submission, status: :created, base64_encoded: @base64_encoded, fields: @requested_fields
@@ -88,9 +79,28 @@ class SubmissionsController < ApplicationController
     end
   end
 
+  def batch_create
+    submissions = params[:_json].each.collect { |p| Submission.new(submission_params(p)) }
+
+    response = []
+    has_valid_submission = false
+
+    submissions.each do |submission|
+      if submission.save
+        IsolateJob.perform_later(submission)
+        response << { token: submission.token }
+        has_valid_submission = true
+      else
+        response << submission.errors
+      end
+    end
+
+    render json: response, status: has_valid_submission ? :created : :unprocessable_entity
+  end
+
   private
 
-  def submission_params
+  def submission_params(params)
     submission_params = params.permit(
       :source_code,
       :language_id,
@@ -122,6 +132,19 @@ class SubmissionsController < ApplicationController
     end
 
     submission_params
+  end
+
+  def check_wait
+    @wait = params[:wait] == "true"
+    if @wait && !Config::ENABLE_WAIT_RESULT
+      render json: { error: "wait not allowed" }, status: :bad_request
+    end
+  end
+
+  def check_queue_size
+    if Resque.size(ENV["JUDGE0_VERSION"]) >= Config::MAX_QUEUE_SIZE
+      render json: { error: "queue is full" }, status: :service_unavailable
+    end
   end
 
   def check_requested_fields
