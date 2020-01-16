@@ -70,7 +70,7 @@ class SubmissionsController < ApplicationController
       return
     end
 
-    if Resque.size("default") >= Config::MAX_QUEUE_SIZE
+    if Resque.size(ENV["JUDGE0_VERSION"]) >= Config::MAX_QUEUE_SIZE
       render json: { error: "queue is full" }, status: :service_unavailable
       return
     end
