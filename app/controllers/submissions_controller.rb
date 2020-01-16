@@ -1,10 +1,10 @@
 class SubmissionsController < ApplicationController
   before_action :authorize_request, only: [:index, :destroy]
   before_action :check_maintenance, only: [:create, :destroy]
+  before_action :check_requested_fields
+  before_action :set_base64_encoded
 
   def index
-    render_invalid_field_error and return if has_invalid_field
-
     page = params[:page].try(:to_i) || 1
     per_page = params[:per_page].try(:to_i) || Submission.per_page
 
@@ -18,7 +18,7 @@ class SubmissionsController < ApplicationController
 
     submissions = Submission.paginate(page: page, per_page: per_page)
     serializable_submissions = ActiveModelSerializers::SerializableResource.new(
-      submissions, { each_serializer: SubmissionSerializer, base64_encoded: params[:base64_encoded] == "true", fields: requested_fields }
+      submissions, { each_serializer: SubmissionSerializer, base64_encoded: @base64_encoded, fields: @requested_fields }
     )
 
     render json: {
@@ -37,10 +37,7 @@ class SubmissionsController < ApplicationController
       return
     end
 
-    render_invalid_field_error and return if has_invalid_field
-
     submission = Submission.find_by!(token: params[:token])
-
     if submission.status == Status.queue || submission.status == Status.process
       render json: {
         error: "submission cannot be deleted because its status is #{submission.status.id} (#{submission.status.name})"
@@ -51,16 +48,13 @@ class SubmissionsController < ApplicationController
     submission.delete
 
     # Forcing base64_encoded=true because it guarantees user will get requested data after delete.
-    render json: submission, base64_encoded: true, fields: requested_fields
+    render json: submission, base64_encoded: true, fields: @requested_fields
   end
 
   def show
-    render_invalid_field_error and return if has_invalid_field
-    render json: Submission.find_by!(token: params[:token]), base64_encoded: params[:base64_encoded] == "true", fields: requested_fields
-  rescue Encoding::UndefinedConversionError => e
-    render json: {
-      error: "some attributes for this submission cannot be converted to UTF-8, use base64_encoded=true query parameter"
-    }, status: :bad_request
+    render json: Submission.find_by!(token: params[:token]), base64_encoded: @base64_encoded, fields: @requested_fields
+  rescue Encoding::UndefinedConversionError
+    render_conversion_error(:bad_request)
   end
 
   def create
@@ -80,14 +74,10 @@ class SubmissionsController < ApplicationController
     if submission.save
       if wait
         begin
-          render_invalid_field_error and return if has_invalid_field
           IsolateJob.perform_now(submission)
-          render json: submission, status: :created, base64_encoded: params[:base64_encoded] == "true", fields: requested_fields
+          render json: submission, status: :created, base64_encoded: @base64_encoded, fields: @requested_fields
         rescue Encoding::UndefinedConversionError => e
-          render json: {
-            token: submission.token,
-            error: "some attributes for this submission cannot be converted to UTF-8, use base64_encoded=true query parameter"
-          }, status: :created
+          render_conversion_error(:created, submission.token)
         end
       else
         IsolateJob.perform_later(submission)
@@ -125,45 +115,31 @@ class SubmissionsController < ApplicationController
 
     submission_params[:archive] = Base64Service.decode(submission_params[:archive])
 
-    params[:base64_encoded] == "true" ? decode_params(submission_params) : submission_params
-  end
-
-  def decode_params(params)
-    params[:source_code] = Base64Service.decode(params[:source_code])
-    params[:stdin] = Base64Service.decode(params[:stdin])
-    params[:expected_output] = Base64Service.decode(params[:expected_output])
-    params
-  end
-
-  def has_invalid_field
-    @@universal_field ||= "*".to_sym
-
-    return true if @invalid_field.present?
-    return false if @requested_fields.present?
-
-    fields = params[:fields].to_s.split(",").collect(&:to_sym)
-    fields.each do |field|
-      if field != @@universal_field && !SubmissionSerializer._attributes.include?(field)
-        @invalid_field = field
-        return true
-      end
+    if @base64_encoded
+      submission_params[:source_code] = Base64Service.decode(submission_params[:source_code])
+      submission_params[:stdin] = Base64Service.decode(submission_params[:stdin])
+      submission_params[:expected_output] = Base64Service.decode(submission_params[:expected_output])
     end
 
-    if fields.include?(@@universal_field)
-      fields = SubmissionSerializer._attributes
-    end
-
-    @requested_fields = fields.presence || SubmissionSerializer.default_fields
-
-    false
+    submission_params
   end
 
-  def requested_fields
-    has_invalid_field
-    @requested_fields
+  def check_requested_fields
+    fields_service = Fields::Submission.new(params[:fields])
+    render json: { error: "invalid fields: [#{fields_service.invalid_fields.join(", ")}]" }, status: :bad_request if fields_service.has_invalid_fields?
+    @requested_fields = fields_service.requested_fields
   end
 
-  def render_invalid_field_error
-    render json: { error: "invalid field #{@invalid_field}" }, status: :bad_request if has_invalid_field
+  def set_base64_encoded
+    @base64_encoded = params[:base64_encoded] == "true"
+  end
+
+  def render_conversion_error(status, token = nil)
+    response_json = {
+      error: "some attributes for this submission cannot be converted to UTF-8, use base64_encoded=true query parameter",
+    }
+    response_json[:token] = token if token
+
+    render json: response_json, status: status
   end
 end
