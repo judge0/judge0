@@ -267,3 +267,7 @@ REDIRECT_STDERR_TO_STDOUT=
 # Maximum total size (in kilobytes) of extracted files from archive.
 # Default: 10240, i.e. maximum of 10MB in total can be extracted.
 MAX_EXTRACT_SIZE=
+
+# Maximum number of submissions that can be created with batch create.
+# Default: 20
+MAX_SUBMISSION_BATCH_SIZE=

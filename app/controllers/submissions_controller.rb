@@ -80,6 +80,20 @@ class SubmissionsController < ApplicationController
   end
 
   def batch_create
+    number_of_submissions = params[:_json].try(:size).to_i
+
+    if number_of_submissions > Config::MAX_SUBMISSION_BATCH_SIZE
+      render json: {
+        error: "number of submissions in batch create should be less than or equal to #{Config::MAX_SUBMISSION_BATCH_SIZE}"
+      }, status: :bad_request
+      return
+    elsif number_of_submissions == 0
+      render json: {
+        error: "there should be at least one submission in batch create"
+      }, status: :bad_request
+      return
+    end
+
     submissions = params[:_json].each.collect { |p| Submission.new(submission_params(p)) }
 
     response = []
