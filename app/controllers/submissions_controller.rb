@@ -61,6 +61,19 @@ class SubmissionsController < ApplicationController
 
   def batch_show
     tokens = (request.headers[:tokens] || params[:tokens]).to_s.strip.split(",")
+
+    if tokens.length > Config::MAX_SUBMISSION_BATCH_SIZE
+      render json: {
+        error: "number of submissions in a batch should be less than or equal to #{Config::MAX_SUBMISSION_BATCH_SIZE}"
+      }, status: :bad_request
+      return
+    elsif tokens.length == 0
+      render json: {
+        error: "there should be at least one submission in a batch"
+      }, status: :bad_request
+      return
+    end
+
     existing_submissions = Hash[Submission.where(token: tokens).collect{ |s| [s.token, s] }]
 
     submissions = []
@@ -107,12 +120,12 @@ class SubmissionsController < ApplicationController
 
     if number_of_submissions > Config::MAX_SUBMISSION_BATCH_SIZE
       render json: {
-        error: "number of submissions in batch create should be less than or equal to #{Config::MAX_SUBMISSION_BATCH_SIZE}"
+        error: "number of submissions in a batch should be less than or equal to #{Config::MAX_SUBMISSION_BATCH_SIZE}"
       }, status: :bad_request
       return
     elsif number_of_submissions == 0
       render json: {
-        error: "there should be at least one submission in batch create"
+        error: "there should be at least one submission in a batch"
       }, status: :bad_request
       return
     end
