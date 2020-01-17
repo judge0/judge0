@@ -59,6 +59,29 @@ class SubmissionsController < ApplicationController
     render_conversion_error(:bad_request)
   end
 
+  def batch_show
+    tokens = (request.headers[:tokens] || params[:tokens]).to_s.strip.split(",")
+    existing_submissions = Hash[Submission.where(token: tokens).collect{ |s| [s.token, s] }]
+
+    submissions = []
+    tokens.each do |token|
+      if existing_submissions.has_key?(token)
+        serialized_submission  = ActiveModelSerializers::SerializableResource.new(
+          existing_submissions[token], { serializer: SubmissionSerializer, base64_encoded: @base64_encoded, fields: @requested_fields }
+        )
+        submissions << serialized_submission.as_json
+      else
+        submissions << nil
+      end
+    end
+
+    render json: { submissions: submissions }
+  rescue Encoding::UndefinedConversionError => e
+    render json: {
+      error: "some attributes for one or more submissions cannot be converted to UTF-8, use base64_encoded=true query parameter"
+    }, status: :bad_request
+  end
+
   def create
     submission = Submission.new(submission_params(params))
 
@@ -80,7 +103,7 @@ class SubmissionsController < ApplicationController
   end
 
   def batch_create
-    number_of_submissions = params[:_json].try(:size).to_i
+    number_of_submissions = params[:submissions].try(:size).to_i
 
     if number_of_submissions > Config::MAX_SUBMISSION_BATCH_SIZE
       render json: {
@@ -94,7 +117,7 @@ class SubmissionsController < ApplicationController
       return
     end
 
-    submissions = params[:_json].each.collect { |p| Submission.new(submission_params(p)) }
+    submissions = params[:submissions].each.collect{ |p| Submission.new(submission_params(p)) }
 
     response = []
     has_valid_submission = false
@@ -156,7 +179,7 @@ class SubmissionsController < ApplicationController
   end
 
   def check_queue_size
-    number_of_submissions = params[:_json].try(:size).presence || 1
+    number_of_submissions = params[:submissions].try(:size).presence || 1
     if Resque.size(ENV["JUDGE0_VERSION"]) + number_of_submissions > Config::MAX_QUEUE_SIZE
       render json: { error: "queue is full" }, status: :service_unavailable
     end

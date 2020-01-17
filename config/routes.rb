@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   root 'home#docs'
 
   resources :submissions, only: [:index, :show, :create, :destroy], param: :token do
-    post 'batch_create', to: 'submissions#batch_create', on: :collection
+    post 'batch', to: 'submissions#batch_create', on: :collection
+    get 'batch', to: 'submissions#batch_show', on: :collection
   end
 
   resources :languages, only: [:index, :show] do
