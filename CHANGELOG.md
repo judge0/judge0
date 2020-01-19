@@ -1,3 +1,98 @@
+# v1.6.0 (unreleased)
+## New Features
+- Added support for automatically redirecting stderr to stdout of the running program with the configuration flag `redirect_stderr_to_stdout`. Added configuration variable `REDIRECT_STDERR_TO_STDOUT` that can be used for setting default behaviour for every submission.
+    - Commits: [@8e6617aa](https://github.com/judge0/api/commit/8e6617aae2d4dd9106ab610738dcc5e59633b2f4)
+- Added configuration variable `DISALLOW_ORIGIN` that can be used for disabling CORS only for specific origins.
+    - Commits: [@f61b5496](https://github.com/judge0/api/commit/f61b54965f12a9ccb0d19d3449bc818b12881127) [@a927c9db](https://github.com/judge0/api/commit/a927c9db0f47aa8bd3d2b7dd1774a829a0cbc6f7)
+- Added configuration variables `ALLOW_IP` and `DISALLOW_IP` that can be used for allowing/disallowing only specific IP addresses that can use instance of Judge0 API.
+    - Commits: [@4fd0f34b](https://github.com/judge0/api/commit/4fd0f34b8f08fe808dd6b19ca96bac1e15b2a6f3)
+- Added support for built in maintenance mode that can be enabled with configuration variables `MAINTENANCE_MODE` and `MAINTENANCE_MESSAGE`. In maintenance mode clients cannot create or delete submissions i.e. they cannot create new database changes.
+    - Commits: [@201221e2](https://github.com/judge0/api/commit/201221e22bbe64e960306b2dcf22cc6941892e3f)
+- Added support for universal field `*` which returns all attributes of a submission.
+    - Commits: [@521cc2e2](https://github.com/judge0/api/commit/521cc2e2e94f1b469c084680020953e76af6e2b9)
+- Added route `GET /statistics` which returns some basic and useful information about Judge0 API instance.
+    - Commits: [@a24db632](https://github.com/judge0/api/commit/
+    a24db6326b793e093a64dea877c26402c585c680)
+- Added basic support for callbacks which are called with HTTP verb `PUT`.
+    - Pull Requests: [#98](https://github.com/judge0/api/pull/98)
+    - Issues: [#33](https://github.com/judge0/api/issues/33)
+    - Commits: [@41e846b1](https://github.com/judge0/api/commit/41e846b156bc7c071b9d2827271d87cfaee584f7)
+- Added support for preseting custom files in sandbox.
+    - Issues: [#32](https://github.com/judge0/api/issues/32) [#88](https://github.com/judge0/api/issues/88)
+    - Commits: [@7829db87](https://github.com/judge0/api/commit/7829db878895acdb3adfa063df03204c87cd1589) [@6d1f4293](https://github.com/judge0/api/commit/6d1f4293000a479a0cae0e9c4dc905652297199b)
+- Added routes `GET /submissions/batch` and `POST /submissions/batch` batch create and show or
+submissions.
+    - Issues: [#34](https://github.com/judge0/api/issues/34)
+    - Commits: [@6420156b](https://github.com/judge0/api/commit/6420156b0ad6526bed3d638be3e824c996cd33cd) [@87859b58](https://github.com/judge0/api/commit/87859b58e4c348249237f2a7881c1c26dcb5d785) [@595c7e11](https://github.com/judge0/api/commit/595c7e11d6ede28d6bef7b98c2675f29e1ae2a9a) [@04c900c9](https://github.com/judge0/api/commit/04c900c9d9c325720ed5c807b46272a500c22a97) [@cb676d6c](https://github.com/judge0/api/commit/cb676d6c7fe3a6e9144a9246329c6223e48c6511)
+
+## Improvements
+- Use Redis queue with name that corresponds with the current Judge0 API version. This allows multiple instances of different versions of Judge0 API to use the same Redis instance.
+    - Commits: [@dd6b62d7](https://github.com/judge0/api/commit/dd6b62d73c6ab0ef028711258e2edb141c1ba81a)
+- Refactored submission field checking.
+    - Commits: [@9acefdbc](https://github.com/judge0/api/commit/9acefdbc7959ff88770ea186d12a085158bce521)
+
+## Bug Fixes
+- Fixed a bug that ignored custom setting of configuration variables `enable_per_process_and_thread_time_limit` and `enable_per_process_and_thread_memory_limit`.
+    - Commits: [@a6f693a0](https://github.com/judge0/api/commit/a6f693a0ced221a28a3f4b4815e9d3baf8c2c4c0)
+- Fixed a bug where cgroups flags for isolate were chosen in the wrong conditions.
+    - Commits: [@4116b9cb](https://github.com/judge0/api/commit/4116b9cb988816cad81f6b5c3265da01a8cec120)
+
+## Other Changes
+- Do not implicitly force wide open CORS settings when in development mode. I.e. variable `ALLOW_ORIGIN` can now also be used in development mode.
+    - Commits: [@a3a24c5c](https://github.com/judge0/api/commit/a3a24c5c6fab31ab845905b7120146b18bfe7dbb)
+- Removed output of configuration settings when server or worker starts.
+    - Commits: [@7061de7a](https://github.com/judge0/api/commit/7061de7a69ffb07b335e44f7120619558a6cf79d)
+- Updated all the gems except Rails to the latest versions.
+    - Commits: [@230c7a77](https://github.com/judge0/api/commit/230c7a777edf96d6d8848618c15c239134d1f29b) [@69a9fe11](https://github.com/judge0/api/commit/69a9fe1193fb437e103a56b9691196e3687e5e7e)
+- Changed default value of `enable_per_process_and_thread_memory_limit` to `false`.
+    - Commits: [@4116b9cb](https://github.com/judge0/api/commit/4116b9cb988816cad81f6b5c3265da01a8cec120)
+- Don't show total number of workers in `/workers` that is determined with configuration variable `COUNT` because that number is not relevant.
+    - Commits: [@99939b89](https://github.com/judge0/api/commit/99939b89a58d21fc7c6a43fcec90550f75681e39)
+
+## Deployment Procedure
+### With HTTPS (SSL/TLS)
+1. Install [Docker](https://docs.docker.com) and [Docker Compose](https://docs.docker.com/compose).
+2. Download and extract release archive:
+```
+wget https://github.com/judge0/api/releases/download/v1.6.0/judge0-api-v1.6.0-https.zip
+unzip judge0-api-v1.6.0-https.zip
+```
+
+3. Change directory to `judge0-api-v1.6.0-https`:
+```
+cd judge0-api-v1.6.0-https
+```
+4. Edit `docker-compose.yml` and change variables `VIRTUAL_HOST`, `LETSENCRYPT_HOST` and `LETSENCRYPT_EMAIL`.
+5. Run all services and wait few seconds until everything is initialized:
+```
+docker-compose up -d db redis
+sleep 10s
+docker-compose up -d
+sleep 5s
+```
+
+6. Your instance of Judge0 API v1.6.0 is now available at `https://<YOUR DOMAIN>`.
+
+### With HTTP
+1. Install [Docker](https://docs.docker.com) and [Docker Compose](https://docs.docker.com/compose).
+2. Download and extract release archive:
+```
+wget https://github.com/judge0/api/releases/download/v1.6.0/judge0-api-v1.6.0.zip
+unzip judge0-api-v1.6.0.zip
+```
+
+3. Run all services and wait few seconds until everything is initialized:
+```
+cd judge0-api-v1.6.0
+docker-compose up -d db redis
+sleep 10s
+docker-compose up -d
+sleep 5s
+```
+
+4. Your instance of Judge0 API v1.6.0 is now available at `http://<IP ADDRESS OF YOUR SERVER>`.
+
+
 # v1.5.0 (2020-01-01)
 ## New Features
 - Added **30 new languages**, archived 42 languages and kept active 2 languages from the last release. In total, there are now **32 active languages** that can be used and all are updated to their latest versions as of the date of this release.  Archived languages cannot be used anymore. Following table shows a status of every language that API supports.
