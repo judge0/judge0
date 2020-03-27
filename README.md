@@ -40,9 +40,11 @@ These projects and organizations successfully use Judge0 API:
 - [KPR Institute of Engineering and Technology](https://www.kpriet.ac.in)
 - [KodNest](https://www.kodnest.com)
 - [Newton School](https://www.newtonschool.co)
+- [Picode](https://picode.now.sh) - an online code playground
 - [SparkDatabox](https://sparkdatabox.com)
 - [Studyfied](https://studyfied.com)
 - [Techie Delight](https://techiedelight.com)
+- [Testme](https://github.com/bajpai244/testme) - an open-source IDE
 - [Think exam](https://www.thinkexam.com)
 - [ThinkingBell](https://www.thinkingbell.com)
 - [University of Zagreb, Faculty of Electrical Engineering and Computing](https://www.fer.unizg.hr/en)
@@ -51,6 +53,7 @@ These projects and organizations successfully use Judge0 API:
 - [nGrader](https://ngrader.herokuapp.com)
 - [primat.org](http://primat.org)
 - [wkspace](http://wkspace.herokuapp.com)
+- [yoCode](https://www.yocode.in)
 
 Feel free to add your project or organization to the list.
 
@@ -73,10 +76,10 @@ Thanks a lot to all [contributors](https://github.com/judge0/api/graphs/contribu
 Special thanks to these open-source projects without whom Judge0 API probably wouldn't exist: [isolate](https://github.com/ioi/isolate), [Docker](https://github.com/docker), [Ruby on Rails](https://github.com/rails/rails) and others.
 
 ## Supporters
-Thanks a lot to all my [Patrons](https://www.patreon.com/hermanzdosilovic) and [PayPal](https://paypal.me/hermanzdosilovic) donors that helped me keep Judge0 API free for everybody around the World. Thank you ♥
+Thanks a lot to all my [Patrons](https://www.patreon.com/hermanzdosilovic) and [PayPal](https://paypal.me/hermanzdosilovic) donors that helped me keep Judge0 API free for everybody around the World. Thank you! ♥
 
 ## Donate
-Your are more than welcome to support Judge0 on [Patreon](https://www.patreon.com/hermanzdosilovic) or via [PayPal](https://paypal.me/hermanzdosilovic). Your monthly or one-time donation will help pay server costs and will improve future development and maintenance. Thank you ♥
+Your are more than welcome to support Judge0 on [Patreon](https://www.patreon.com/hermanzdosilovic) or via [PayPal](https://paypal.me/hermanzdosilovic). Your monthly or one-time donation will help pay server costs and will improve future development and maintenance. Thank you! ♥
 
 ## License
 Judge0 API is licensed under the [GNU General Public License v3.0](https://github.com/judge0/api/blob/master/LICENSE).
