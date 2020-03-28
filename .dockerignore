@@ -6,6 +6,7 @@ docker-compose*
 judge0-api.conf*
 log/*
 scripts
+!scripts/entrypoint
 !scripts/load-config
 !scripts/run-server
 !scripts/run-workers

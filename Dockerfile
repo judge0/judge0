@@ -30,6 +30,7 @@ RUN RAILS_ENV=production bundle
 
 COPY . .
 
+ENTRYPOINT ["./scripts/entrypoint"]
 CMD ["./scripts/run-server"]
 
 ENV JUDGE0_VERSION="1.5.0"

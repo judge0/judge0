@@ -1,6 +1,4 @@
 #!/bin/bash
-source ./scripts/load-config
-
 export RUBYOPT=-W:no-deprecated
 
 run_resque=1

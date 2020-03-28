@@ -1,0 +1,3 @@
+#!/bin/bash
+source /api/scripts/load-config
+exec "$@"
