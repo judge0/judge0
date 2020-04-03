@@ -19,29 +19,42 @@ To see Judge0 API in action, try [**Judge0 IDE**](https://ide.judge0.com) - free
 ## Documentation
 Detailed API documentation can be found at https://api.judge0.com.
 
+## Paper
+We wrote a paper about Judge0 API that you can find [here](https://minio.judge0.com/public/paper-in-review.pdf).
+
 ## Supported Languages
 List of supported languages for the latest release can be found [here](https://jsonpp.judge0.com/?https://api.judge0.com/languages).
 
 ## Installation
 To install Judge0 API on your server follow [deployment procedure](https://github.com/judge0/api/blob/master/CHANGELOG.md#deployment-procedure) for the latest release.
 
-## Judge0 API in The World
-These projects and organizations successfully use Judge0 API:
+## References
+These companies, organizations and projects successfully use Judge0 API in production:
 - [Adzetech](https://adzetech.com)
+- [CodeChum](https://www.codechum.com)
+- [CodeClimbers](https://github.com/appsicle/CodeClimbers)
 - [CodeForum.ORG](https://codeforum.org)
 - [CodeInn](https://codeinn.org)
+- [CodeManiacs](https://github.com/KamandPrompt/CodeManiacs) - an online judge for [IIT Mandi](http://www.iitmandi.ac.in)
 - [CodeRunner](https://github.com/codeclassroom/CodeRunner)
+- [Codesites](http://codesites.in)
 - [Codify](https://codify.herokuapp.com)
 - [Dilla University](http://www.duvlab.website)
 - [GeekCoders](http://www.geekcoders.co.in)
 - [Georg-August University of Göttingen](https://www.uni-goettingen.de)
+- [Indian Institute of Technology Mandi](http://www.iitmandi.ac.in)
+- [Instacks](https://instacks.in)
 - [Institute of Aeronautical Engineering](https://www.iare.ac.in)
+- [JavaJudge0Api](https://github.com/bloodnighttw/JavaJudge0Api) - a Java library for interacting with the Judge0 API
 - [Judge Code Online](http://en.chamcode.net)
 - [KPR Institute of Engineering and Technology](https://www.kpriet.ac.in)
 - [KodNest](https://www.kodnest.com)
+- [NewsCad](http://newscad.com)
 - [Newton School](https://www.newtonschool.co)
 - [Picode](https://picode.now.sh) - an online code playground
+- [Soft CodeOn](https://softcodeon.com)
 - [SparkDatabox](https://sparkdatabox.com)
+- [Stemalica](https://stemalica.com)
 - [Studyfied](https://studyfied.com)
 - [Techie Delight](https://techiedelight.com)
 - [Testme](https://github.com/bajpai244/testme) - an open-source IDE
@@ -49,13 +62,15 @@ These projects and organizations successfully use Judge0 API:
 - [ThinkingBell](https://www.thinkingbell.com)
 - [University of Zagreb, Faculty of Electrical Engineering and Computing](https://www.fer.unizg.hr/en)
 - [Xiith](https://xiith.com)
+- [judge0-gem](https://github.com/TopRoupi/judge0-gem) - Ruby Gem for interacting with the Judge0 API
+- [judge0_helm](https://github.com/saikatharryc/judge0_helm) - Helm Chart for Judge0 API
 - [judge0api](https://github.com/vCra/judge0api) - Python library for interacting with Judge0 API
 - [nGrader](https://ngrader.herokuapp.com)
 - [primat.org](http://primat.org)
 - [wkspace](http://wkspace.herokuapp.com)
 - [yoCode](https://www.yocode.in)
 
-Feel free to add your project or organization to the list.
+Feel free to add yours to the list by sending me an [email](mailto:hermanz.dosilovic@gmail.com) or creating an [issue](https://github.com/judge0/api/issues/new).
 
 ## Community
 Do you have a question, feature request or something else on your mind?
@@ -66,6 +81,8 @@ Check out these links:
 * [Join a Discord server](https://discord.gg/6dvxeA8)
 * [Report an issue](https://github.com/judge0/api/issues/new)
 * [Contact the author](https://github.com/hermanzdosilovic)
+* [Get free online support](https://judge0.appointlet.com)
+* [Schedule an online meeting with the author](https://judge0.appointlet.com)
 
 ## Author and Contributors
 Judge0 API was created by [Herman Zvonimir Došilović](https://github.com/hermanzdosilovic).
