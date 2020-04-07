@@ -5,7 +5,7 @@ services:
     volumes:
       - ./judge0-api.conf:/judge0-api.conf:ro
     ports:
-      - "3000:3000"
+      - "80:3000"
     privileged: true
     restart: always
 
