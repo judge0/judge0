@@ -36,6 +36,10 @@ submissions.
     - Commits: [@a6f693a0](https://github.com/judge0/api/commit/a6f693a0ced221a28a3f4b4815e9d3baf8c2c4c0)
 - Fixed a bug where cgroups flags for isolate were chosen in the wrong conditions.
     - Commits: [@4116b9cb](https://github.com/judge0/api/commit/4116b9cb988816cad81f6b5c3265da01a8cec120)
+- Fixed a bug that caused `Internal Error` because sandbox cleanup failed.
+    - Pull Requests: [#126](https://github.com/judge0/api/pull/126)
+    - Issues: [#123](https://github.com/judge0/api/issues/123) [#143](https://github.com/judge0/api/issues/143)
+    - Commits: [@514aec53](https://github.com/judge0/api/commit/514aec53dca8f1fb9f8f153add05c14d263d6624)
 
 ## Other Changes
 - Do not implicitly force wide open CORS settings when in development mode. I.e. variable `ALLOW_ORIGIN` can now also be used in development mode.
@@ -48,6 +52,10 @@ submissions.
     - Commits: [@4116b9cb](https://github.com/judge0/api/commit/4116b9cb988816cad81f6b5c3265da01a8cec120)
 - Don't show total number of workers in `/workers` that is determined with configuration variable `COUNT` because that number is not relevant.
     - Commits: [@99939b89](https://github.com/judge0/api/commit/99939b89a58d21fc7c6a43fcec90550f75681e39)
+- Changed the default port to `80` in Docker Compose file.
+    - Commits: [@6ab67d6b](https://github.com/judge0/api/commit/6ab67d6b1e723ce1e959dd17c899605c340bc6ed)
+- Limited the log size to 100 MB in Docker Compose file.
+    - Commits: [@435c7d79](https://github.com/judge0/api/commit/435c7d792babfda8564dd432d31d4edc5a694ab9)
 
 ## Deployment Procedure
 ### With HTTPS (SSL/TLS)
