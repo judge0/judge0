@@ -252,6 +252,9 @@ class IsolateJob < ApplicationJob
   def cleanup(raise_exception = true)
     fix_permissions
     `sudo rm -rf #{boxdir}/* #{tmpdir}/*`
+    [stdin_file, stdout_file, stderr_file, metadata_file].each do |f|
+      `sudo rm -rf #{f}`
+    end
     `isolate #{cgroups} -b #{box_id} --cleanup`
     raise "Cleanup of sandbox #{box_id} failed." if raise_exception && Dir.exists?(workdir)
   end
