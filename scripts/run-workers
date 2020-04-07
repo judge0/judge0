@@ -2,7 +2,12 @@
 run_resque=1
 resque_pid=0
 
+date_now() {
+    echo -n $(date +"%Y-%m-%d-%H-%M-%S")
+}
+
 exit_gracefully() {
+    echo "[$(date_now)] Killing workers."
     run_resque=0
     kill -SIGQUIT $(pgrep -P $resque_pid)
     kill -SIGTERM $resque_pid
@@ -13,7 +18,9 @@ trap exit_gracefully SIGTERM SIGINT
 mkdir -p tmp/pids &> /dev/null
 while [[ $run_resque -eq 1 ]]; do
     rm -rf tmp/pids/resque.pid &> /dev/null
+    echo "[$(date_now)] Starting workers."
     rails resque:workers &
     resque_pid=$!
     while ps -p $resque_pid > /dev/null; do sleep 1s; done
+    echo "[$(date_now)] Workers are stopped."
 done
