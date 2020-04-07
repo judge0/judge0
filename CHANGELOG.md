@@ -30,6 +30,8 @@ submissions.
     - Commits: [@dd6b62d7](https://github.com/judge0/api/commit/dd6b62d73c6ab0ef028711258e2edb141c1ba81a)
 - Refactored submission field checking.
     - Commits: [@9acefdbc](https://github.com/judge0/api/commit/9acefdbc7959ff88770ea186d12a085158bce521)
+- Refactored setting up of default values.
+    - Commits: [@a14ae5d5](https://github.com/judge0/api/commit/a14ae5d540db75a0ade3a4dbfc12e6120d0c1ee2)
 
 ## Bug Fixes
 - Fixed a bug that ignored custom setting of configuration variables `enable_per_process_and_thread_time_limit` and `enable_per_process_and_thread_memory_limit`.
@@ -56,6 +58,8 @@ submissions.
     - Commits: [@6ab67d6b](https://github.com/judge0/api/commit/6ab67d6b1e723ce1e959dd17c899605c340bc6ed)
 - Limited the log size to 100 MB in Docker Compose file.
     - Commits: [@435c7d79](https://github.com/judge0/api/commit/435c7d792babfda8564dd432d31d4edc5a694ab9)
+- Added logging to `run-workers` script.
+    - Commits: [@381265a2](https://github.com/judge0/api/commit/381265a295c130c54d540641ba071a18447d8223)
 
 ## Deployment Procedure
 ### With HTTPS (SSL/TLS)
