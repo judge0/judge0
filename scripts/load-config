@@ -7,6 +7,39 @@ fi
 
 if [[ -v CONFIG_FILE ]]; then
     set -o allexport
-    source $CONFIG_FILE
+
+    source $CONFIG_FILE # Source the configuration file.
+
+    # Now set defaults if needed...
+
+    # Rails Environment
+    export RAILS_ENV=${RAILS_ENV:-production}
+    export RAILS_MAX_THREADS=${RAILS_MAX_THREADS:-5}
+    export MAINTENANCE_MESSAGE=${MAINTENANCE_MESSAGE:-Judge0 API is currently in maintenance.}
+    export PORT=${PORT:-3000} # This option is not available in judge0-api.conf
+
+    # Authentication
+    export AUTHN_HEADER=${AUTHN_HEADER:-X-Auth-Token}
+
+    # Authorization
+    export AUTHZ_HEADER=${AUTHZ_HEADER:-X-Auth-User}
+
+    # Workers
+    export INTERVAL=${INTERVAL:-0.1}
+    export COUNT=${COUNT:-1}
+    export QUEUE=${JUDGE0_VERSION:-unknown} # This option is not available in judge0-api.conf
+
+    # Database
+    export REDIS_HOST=${REDIS_HOST:-localhost}
+    export REDIS_PORT=${REDIS_PORT:-6379}
+    export POSTGRES_HOST=${POSTGRES_HOST:-localhost}
+    export POSTGRES_PORT=${POSTGRES_PORT:-5432}
+    export POSTGRES_DB=${POSTGRES_DB:-postgres}
+    export POSTGRES_USER=${POSTGRES_USER:-postgres}
+
+    # Other
+    export RUBYOPT=-W:no-deprecated
+    export DISABLE_DATABASE_ENVIRONMENT_CHECK=1
+
     set +o allexport
 fi

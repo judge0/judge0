@@ -30,7 +30,7 @@ class SessionsController < ActionController::API
   end
 
   def check_maintenance
-    @@maintenance_message ||= ENV['MAINTENANCE_MESSAGE'].to_s.presence || "Judge0 API is currently in maintenance."
+    @@maintenance_message ||= ENV['MAINTENANCE_MESSAGE']
     if Config::MAINTENANCE_MODE
       render json: {
         error: @@maintenance_message

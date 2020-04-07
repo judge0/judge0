@@ -1,12 +1,12 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: <%= ENV["POSTGRES_HOST"].presence || "localhost" %>
-  port: <%= ENV["POSTGRES_PORT"].presence || 5432 %>
-  database: <%= ENV["POSTGRES_DB"].presence || "postgres" %>
-  username: <%= ENV["POSTGRES_USER"].presence || "postgres" %>
+  host: <%= ENV["POSTGRES_HOST"] %>
+  port: <%= ENV["POSTGRES_PORT"] %>
+  database: <%= ENV["POSTGRES_DB"] %>
+  username: <%= ENV["POSTGRES_USER"] %>
   password: <%= ENV["POSTGRES_PASSWORD"] %>
-  pool: <%= ENV["RAILS_MAX_THREADS"].presence || 5 %>
+  pool: <%= ENV["RAILS_MAX_THREADS"] %>
 
 development:
   <<: *default

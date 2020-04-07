@@ -1,8 +1,4 @@
 #!/bin/bash
 [[ -f tmp/pids/server.pid ]] && rm -f tmp/pids/server.pid
-
-export DISABLE_DATABASE_ENVIRONMENT_CHECK=1
-export RUBYOPT=-W:no-deprecated
-
 rails db:create db:migrate db:seed
 rails s -b 0.0.0.0

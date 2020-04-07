@@ -33,5 +33,5 @@ COPY . .
 ENTRYPOINT ["./scripts/entrypoint"]
 CMD ["./scripts/run-server"]
 
-ENV JUDGE0_VERSION="1.5.0"
+ENV JUDGE0_VERSION="1.6.0"
 LABEL version=$JUDGE0_VERSION
