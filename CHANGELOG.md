@@ -10,9 +10,8 @@
     - Commits: [@201221e2](https://github.com/judge0/api/commit/201221e22bbe64e960306b2dcf22cc6941892e3f)
 - Added support for universal field `*` which returns all attributes of a submission.
     - Commits: [@521cc2e2](https://github.com/judge0/api/commit/521cc2e2e94f1b469c084680020953e76af6e2b9)
-- Added route `GET /statistics` which returns some basic and useful information about Judge0 API instance.
-    - Commits: [@a24db632](https://github.com/judge0/api/commit/
-    a24db6326b793e093a64dea877c26402c585c680)
+- Added route `GET /statistics` which returns some basic and useful information about Judge0 API instance. Statistic report is cached for 10 minutes.
+    - Commits: [@a24db632](https://github.com/judge0/api/commit/a24db6326b793e093a64dea877c26402c585c680) [@621c50f1](https://github.com/judge0/api/commit/621c50f1f8056e716ff073a404556e51ab3a34c3) [@eead8067](https://github.com/judge0/api/commit/eead806786fac79e13cee9fca0fe7196f116680b)
 - Added basic support for callbacks which are called with HTTP verb `PUT`.
     - Pull Requests: [#98](https://github.com/judge0/api/pull/98)
     - Issues: [#33](https://github.com/judge0/api/issues/33)
@@ -42,6 +41,8 @@ submissions.
     - Pull Requests: [#126](https://github.com/judge0/api/pull/126)
     - Issues: [#123](https://github.com/judge0/api/issues/123) [#143](https://github.com/judge0/api/issues/143)
     - Commits: [@514aec53](https://github.com/judge0/api/commit/514aec53dca8f1fb9f8f153add05c14d263d6624)
+- Fixed a bug where low `memory_limit` would cause `Internal Error`. Minimum required value for `memory_limit` is now 2048.
+    - Commits: [@655ccf27](https://github.com/judge0/api/commit/655ccf277aad2c11371ca223c5386380c0bfc4ba)
 
 ## Other Changes
 - Do not implicitly force wide open CORS settings when in development mode. I.e. variable `ALLOW_ORIGIN` can now also be used in development mode.
@@ -49,7 +50,7 @@ submissions.
 - Removed output of configuration settings when server or worker starts.
     - Commits: [@7061de7a](https://github.com/judge0/api/commit/7061de7a69ffb07b335e44f7120619558a6cf79d)
 - Updated all the gems except Rails to the latest versions.
-    - Commits: [@230c7a77](https://github.com/judge0/api/commit/230c7a777edf96d6d8848618c15c239134d1f29b) [@69a9fe11](https://github.com/judge0/api/commit/69a9fe1193fb437e103a56b9691196e3687e5e7e)
+    - Commits: [@230c7a77](https://github.com/judge0/api/commit/230c7a777edf96d6d8848618c15c239134d1f29b) [@69a9fe11](https://github.com/judge0/api/commit/69a9fe1193fb437e103a56b9691196e3687e5e7e) [@095588e6](https://github.com/judge0/api/commit/095588e6642211a123e5091227271de27fc700d5)
 - Changed default value of `enable_per_process_and_thread_memory_limit` to `false`.
     - Commits: [@4116b9cb](https://github.com/judge0/api/commit/4116b9cb988816cad81f6b5c3265da01a8cec120)
 - Don't show total number of workers in `/workers` that is determined with configuration variable `COUNT` because that number is not relevant.
@@ -60,6 +61,7 @@ submissions.
     - Commits: [@435c7d79](https://github.com/judge0/api/commit/435c7d792babfda8564dd432d31d4edc5a694ab9)
 - Added logging to `run-workers` script.
     - Commits: [@381265a2](https://github.com/judge0/api/commit/381265a295c130c54d540641ba071a18447d8223)
+- Updated dummy client default values.
 
 ## Deployment Procedure
 ### With HTTPS (SSL/TLS)
