@@ -115,10 +115,14 @@ class IsolateJob < ApplicationJob
     compile_script = boxdir + "/" + "compile"
     File.open(compile_script, "w") { |f| f.write("#{submission.language.compile_cmd % compiler_options}")}
 
+    compile_output_file = workdir + "/" + "compile_output.txt"
+    initialize_file(compile_output_file)
+
     command = "isolate #{cgroups} \
     -s \
     -b #{box_id} \
     -M #{metadata_file} \
+    --stderr-to-stdout \
     -t 5 \
     -x 2 \
     -w 10 \
@@ -132,23 +136,26 @@ class IsolateJob < ApplicationJob
     -E LANG -E LANGUAGE -E LC_ALL -E JUDGE0_HOMEPAGE -E JUDGE0_SOURCE_CODE -E JUDGE0_MAINTAINER -E JUDGE0_VERSION \
     -d /etc:noexec \
     --run \
-    -- /bin/bash compile 2>&1 \
+    -- /bin/bash compile > #{compile_output_file} \
     "
 
     puts "[#{DateTime.now}] Compiling submission #{submission.token} (#{submission.id}):"
     puts command.gsub(/\s+/, " ")
     puts
 
-    compile_output = `#{command}`.chomp
+    `#{command}`
     process_status = $?
 
+    compile_output = File.read(compile_output_file)
     compile_output = nil if compile_output.empty?
     submission.compile_output = compile_output
 
     metadata = get_metadata
 
     reset_metadata_file
-    `sudo chown $(whoami): #{compile_script} && rm #{compile_script}`
+    [compile_script, compile_output_file].each do |f|
+      `sudo chown $(whoami): #{f} && sudo rm -rf #{f}`
+    end
 
     return :success if process_status.success?
 
