@@ -16,9 +16,9 @@
     - Pull Requests: [#98](https://github.com/judge0/api/pull/98)
     - Issues: [#33](https://github.com/judge0/api/issues/33)
     - Commits: [@41e846b1](https://github.com/judge0/api/commit/41e846b156bc7c071b9d2827271d87cfaee584f7)
-- Added support for preseting custom files in sandbox.
+- Added support for presetting custom additional files in a sandbox.
     - Issues: [#32](https://github.com/judge0/api/issues/32) [#88](https://github.com/judge0/api/issues/88)
-    - Commits: [@7829db87](https://github.com/judge0/api/commit/7829db878895acdb3adfa063df03204c87cd1589) [@6d1f4293](https://github.com/judge0/api/commit/6d1f4293000a479a0cae0e9c4dc905652297199b)
+    - Commits: [@7829db87](https://github.com/judge0/api/commit/7829db878895acdb3adfa063df03204c87cd1589) [@6d1f4293](https://github.com/judge0/api/commit/6d1f4293000a479a0cae0e9c4dc905652297199b) [@6573c52f](https://github.com/judge0/api/commit/6573c52faccee55e467457ab54742dd189a48a4b)
 - Added routes `GET /submissions/batch` and `POST /submissions/batch` batch create and show or
 submissions.
     - Issues: [#34](https://github.com/judge0/api/issues/34)
@@ -44,6 +44,10 @@ submissions.
 - Fixed a bug where low `memory_limit` would cause `Internal Error`. Minimum required value for `memory_limit` is now 2048.
     - Commits: [@655ccf27](https://github.com/judge0/api/commit/655ccf277aad2c11371ca223c5386380c0bfc4ba)
 
+## Security Fixes
+- Fixed a bug that allowed creation of an arbitrary size of the compile output.
+    - Commits: [@5fc7b823](https://github.com/judge0/api/commit/5fc7b823a7bccecb148c57615da0be9d52f1585a)
+
 ## Other Changes
 - Do not implicitly force wide open CORS settings when in development mode. I.e. variable `ALLOW_ORIGIN` can now also be used in development mode.
     - Commits: [@a3a24c5c](https://github.com/judge0/api/commit/a3a24c5c6fab31ab845905b7120146b18bfe7dbb)
@@ -62,6 +66,7 @@ submissions.
 - Added logging to `run-workers` script.
     - Commits: [@381265a2](https://github.com/judge0/api/commit/381265a295c130c54d540641ba071a18447d8223)
 - Updated dummy client default values.
+- Added Docker Compose file for HTTPS support.
 
 ## Deployment Procedure
 ### With HTTPS (SSL/TLS)
