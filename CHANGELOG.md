@@ -79,7 +79,7 @@ cd judge0-api-v1.6.0-https
 4. Edit `docker-compose.yml` and change variables `VIRTUAL_HOST`, `LETSENCRYPT_HOST` and `LETSENCRYPT_EMAIL`.
 5. Run all services and wait few seconds until everything is initialized:
 ```
-docker-compose up -d db redis
+docker-compose up -d db redis nginx letsencrypt
 sleep 10s
 docker-compose up -d
 sleep 5s

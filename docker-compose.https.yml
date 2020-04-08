@@ -1,0 +1,74 @@
+version: '2'
+
+x-logging:
+  &default-logging
+  logging:
+    driver: json-file
+    options:
+      max-size: 100m
+
+services:
+  nginx:
+    image: judge0/jwilder-nginx-proxy:latest-2020-02-11
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./srv/nginx/vhost.d:/etc/nginx/vhost.d
+      - ./srv/nginx/html:/usr/share/nginx/html
+      - ./srv/ssl_certs:/etc/nginx/certs:ro
+    ports:
+      - "80:80"
+      - "443:443"
+    <<: *default-logging
+    restart: always
+
+  letsencrypt:
+    image: judge0/jrcs-letsencrypt-nginx-proxy-companion:v1.12.1
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./srv/ssl_certs:/etc/nginx/certs:rw
+    volumes_from:
+      - nginx
+    <<: *default-logging
+    restart: always
+
+  api:
+    image: judge0/api
+    environment:
+      - VIRTUAL_HOST=example.com
+      - VIRTUAL_PORT=3000
+      - LETSENCRYPT_HOST=example.com
+      - LETSENCRYPT_EMAIL=john.doe@gmail.com
+    volumes:
+      - ./judge0-api.conf:/judge0-api.conf:ro
+    privileged: true
+    <<: *default-logging
+    restart: always
+
+  worker:
+    image: judge0/api
+    command: ["./scripts/run-workers"]
+    volumes:
+      - ./judge0-api.conf:/judge0-api.conf:ro
+    privileged: true
+    <<: *default-logging
+    restart: always
+
+  db:
+    image: postgres:9.6
+    env_file: judge0-api.conf
+    volumes:
+      - ./srv/postgres-data:/var/lib/postgresql/data/
+    <<: *default-logging
+    restart: always
+
+  redis:
+    image: redis:4.0
+    command: [
+      "bash", "-c",
+      'docker-entrypoint.sh --appendonly yes --requirepass "$$REDIS_PASSWORD"'
+    ]
+    env_file: judge0-api.conf
+    volumes:
+      - ./srv/redis-data:/data
+    <<: *default-logging
+    restart: always
