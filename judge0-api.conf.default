@@ -264,7 +264,7 @@ MAX_NUMBER_OF_RUNS=
 # Default: false
 REDIRECT_STDERR_TO_STDOUT=
 
-# Maximum total size (in kilobytes) of extracted files from archive.
+# Maximum total size (in kilobytes) of extracted files from additional files archive.
 # Default: 10240, i.e. maximum of 10MB in total can be extracted.
 MAX_EXTRACT_SIZE=
 

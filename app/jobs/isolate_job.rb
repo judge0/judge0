@@ -5,12 +5,12 @@ class IsolateJob < ApplicationJob
   STDOUT_FILE_NAME = "stdout.txt"
   STDERR_FILE_NAME = "stderr.txt"
   METADATA_FILE_NAME = "metadata.txt"
-  ARCHIVE_FILE_NAME = "archive.zip"
+  ADDITIONAL_FILES_ARCHIVE_FILE_NAME = "additional_files.zip"
 
   attr_reader :submission, :cgroups,
               :box_id, :workdir, :boxdir, :tmpdir,
               :source_file, :stdin_file, :stdout_file,
-              :stderr_file, :metadata_file, :archive_file
+              :stderr_file, :metadata_file, :additional_files_archive_file
 
   def perform(submission)
     @submission = submission
@@ -60,7 +60,7 @@ class IsolateJob < ApplicationJob
     @stdout_file = workdir + "/" + STDOUT_FILE_NAME
     @stderr_file = workdir + "/" + STDERR_FILE_NAME
     @metadata_file = workdir + "/" + METADATA_FILE_NAME
-    @archive_file = boxdir + "/" + ARCHIVE_FILE_NAME
+    @additional_files_archive_file = boxdir + "/" + ADDITIONAL_FILES_ARCHIVE_FILE_NAME
 
     [stdin_file, stdout_file, stderr_file, metadata_file].each do |f|
       initialize_file(f)
@@ -77,13 +77,14 @@ class IsolateJob < ApplicationJob
   end
 
   def extract_archive
-    return unless submission.archive?
+    return unless submission.additional_files?
 
-    File.open(archive_file, "wb") { |f| f.write(submission.archive) }
+    File.open(additional_files_archive_file, "wb") { |f| f.write(submission.additional_files) }
 
     command = "isolate #{cgroups} \
     -s \
     -b #{box_id} \
+    --stderr-to-stdout \
     -t 2 \
     -x 1 \
     -w 4 \
@@ -93,17 +94,16 @@ class IsolateJob < ApplicationJob
     #{submission.enable_per_process_and_thread_memory_limit ? "-m " : "--cg-mem="}#{Config::MAX_MEMORY_LIMIT} \
     -f #{Config::MAX_EXTRACT_SIZE} \
     --run \
-    -- /usr/bin/unzip -n -qq #{ARCHIVE_FILE_NAME} 2>&1 \
+    -- /usr/bin/unzip -n -qq #{ADDITIONAL_FILES_ARCHIVE_FILE_NAME} \
     "
 
     puts "[#{DateTime.now}] Extracting archive for submission #{submission.token} (#{submission.id}):"
     puts command.gsub(/\s+/, " ")
     puts
 
-    extract_output = `#{command}`.chomp
-    puts(extract_output)
+    `#{command}`
 
-    File.delete(archive_file)
+    File.delete(additional_files_archive_file)
   end
 
   def compile

@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20200327224155) do
     t.string   "command_line_arguments"
     t.boolean  "redirect_stderr_to_stdout"
     t.string   "callback_url"
-    t.binary   "archive"
+    t.binary   "additional_files"
     t.index ["token"], name: "index_submissions_on_token", using: :btree
   end
 

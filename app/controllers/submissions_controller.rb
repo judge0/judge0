@@ -170,10 +170,10 @@ class SubmissionsController < ApplicationController
       :max_file_size,
       :redirect_stderr_to_stdout,
       :callback_url,
-      :archive
+      :additional_files
     )
 
-    submission_params[:archive] = Base64Service.decode(submission_params[:archive])
+    submission_params[:additional_files] = Base64Service.decode(submission_params[:additional_files])
 
     if @base64_encoded
       submission_params[:source_code] = Base64Service.decode(submission_params[:source_code])
