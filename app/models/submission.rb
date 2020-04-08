@@ -49,7 +49,7 @@ class Submission < ApplicationRecord
   validates :wall_time_limit,
             numericality: { greater_than: 0, less_than_or_equal_to: Config::MAX_WALL_TIME_LIMIT }
   validates :memory_limit,
-            numericality: { greater_than: 0, less_than_or_equal_to: Config::MAX_MEMORY_LIMIT }
+            numericality: { greater_than_or_equal_to: 2048, less_than_or_equal_to: Config::MAX_MEMORY_LIMIT }
   validates :stack_limit,
             numericality: { greater_than: 0, less_than_or_equal_to: Config::MAX_STACK_LIMIT }
   validates :max_processes_and_or_threads,
