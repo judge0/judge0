@@ -61,13 +61,19 @@ class InfoController < ApplicationController
     now = DateTime.now
     today = DateTime.now.beginning_of_day.to_date
     last_30_days = Submission.unscoped.group("created_at::DATE").where("created_at::DATE >= ?", today - 30).count
+    last_30_days[today] ||= 0
     last_30_days_result = {}
     (today-30...today).each do |day|
       last_30_days_result[day.to_date] = last_30_days[day] || 0
     end
     last_30_days_result = last_30_days_result.sort.reverse.to_h
 
-    database_size = ActiveRecord::Base.connection.execute("SELECT pg_size_pretty(pg_database_size('#{ENV['POSTGRES_DB']}')) AS size").to_a[0]["size"]
+    database_size = ActiveRecord::Base.connection.execute(
+      "SELECT
+        pg_size_pretty(pg_database_size('#{ENV['POSTGRES_DB']}')) AS size_pretty,
+        pg_database_size('#{ENV['POSTGRES_DB']}') AS size_in_bytes
+      "
+    ).to_a[0]
 
     render json: {
       now: now,
@@ -79,7 +85,8 @@ class InfoController < ApplicationController
       languages: count_by_language,
       statuses: count_by_status,
       database: {
-        size: database_size
+        size_pretty: database_size["size_pretty"],
+        size_in_bytes: database_size["size_in_bytes"]
       }
     }
   end
