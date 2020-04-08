@@ -23,4 +23,8 @@ class Status < Enumerations::Base
       else Status.other
     end
   end
+
+  def self.model_name
+    @@model_name ||= ActiveModel::Name.new(self)
+  end
 end
