@@ -2,6 +2,7 @@
 CHANGELOG.md
 Dockerfile*
 README.md
+RELEASE_NOTES_TEMPLATE.md
 docker-compose*
 judge0-api.conf*
 log/*
