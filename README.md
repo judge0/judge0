@@ -26,7 +26,7 @@ We wrote a paper about Judge0 API that you can find [here](https://minio.judge0.
 List of supported languages for the latest release can be found [here](https://jsonpp.judge0.com/?https://api.judge0.com/languages).
 
 ## Installation
-To install Judge0 API on your server follow [deployment procedure](https://github.com/judge0/api/blob/master/CHANGELOG.md#deployment-procedure) for the latest release.
+To install Judge0 API on your server follow [deployment procedure](https://github.com/judge0/api/releases) for the latest release.
 
 ## References
 These companies, organizations and projects successfully use Judge0 API in production:
@@ -43,7 +43,9 @@ These companies, organizations and projects successfully use Judge0 API in produ
 - [CodeRunner](https://github.com/codeclassroom/CodeRunner)
 - [Codesites](http://codesites.in)
 - [Codify](https://codify.herokuapp.com)
+- [DevCoach](https://www.dev-coach.com)
 - [Dilla University](http://www.duvlab.website)
+- [Filtered](https://www.filtered.ai)
 - [GeekCoders](http://www.geekcoders.co.in)
 - [Georg-August University of Göttingen](https://www.uni-goettingen.de)
 - [Indian Institute of Technology Mandi](http://www.iitmandi.ac.in)
@@ -52,6 +54,7 @@ These companies, organizations and projects successfully use Judge0 API in produ
 - [JavaJudge0Api](https://github.com/bloodnighttw/JavaJudge0Api) - a Java library for interacting with the Judge0 API
 - [Judge Code Online](http://en.chamcode.net)
 - [KPR Institute of Engineering and Technology](https://www.kpriet.ac.in)
+- [KodKarate](http://www.kodkarate.in) - an open-source IDE
 - [KodNest](https://www.kodnest.com)
 - [NewsCad](http://newscad.com)
 - [Newton School](https://www.newtonschool.co)
@@ -61,7 +64,6 @@ These companies, organizations and projects successfully use Judge0 API in produ
 - [Stemalica](https://stemalica.com)
 - [Studyfied](https://studyfied.com)
 - [Techie Delight](https://techiedelight.com)
-- [Testme](https://github.com/bajpai244/testme) - an open-source IDE
 - [Think exam](https://www.thinkexam.com)
 - [ThinkingBell](https://www.thinkingbell.com)
 - [University of Zagreb, Faculty of Electrical Engineering and Computing](https://www.fer.unizg.hr/en)
@@ -93,6 +95,9 @@ Judge0 API was created by [Herman Zvonimir Došilović](https://github.com/herma
 
 Thanks a lot to all [contributors](https://github.com/judge0/api/graphs/contributors) for their contributions in this project.
 
+## Changelog
+Detailed specification of changes between versions can be found in [CHANGELOG.md](https://github.com/judge0/api/blob/master/CHANGELOG.md).
+
 ## Special Thanks
 Special thanks to these open-source projects without whom Judge0 API probably wouldn't exist: [isolate](https://github.com/ioi/isolate), [Docker](https://github.com/docker), [Ruby on Rails](https://github.com/rails/rails) and others.
 
@@ -100,7 +105,7 @@ Special thanks to these open-source projects without whom Judge0 API probably wo
 Thanks a lot to all my [Patrons](https://www.patreon.com/hermanzdosilovic) and [PayPal](https://paypal.me/hermanzdosilovic) donors that helped me keep Judge0 API free for everybody around the World. Thank you! ♥
 
 ## Donate
-Your are more than welcome to support Judge0 on [Patreon](https://www.patreon.com/hermanzdosilovic) or via [PayPal](https://paypal.me/hermanzdosilovic). Your monthly or one-time donation will help pay server costs and will improve future development and maintenance. Thank you! ♥
+Your are more than welcome to support Judge0 on [Patreon](https://www.patreon.com/hermanzdosilovic), via [PayPal](https://paypal.me/hermanzdosilovic) or [Revolut](https://pay.revolut.com/profile/hermancy5). Your monthly or one-time donation will help cover server costs and will allow me to spend more time on development and maintenance. Thank you! ♥
 
 ## License
 Judge0 API is licensed under the [GNU General Public License v3.0](https://github.com/judge0/api/blob/master/LICENSE).
