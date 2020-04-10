@@ -88,6 +88,7 @@ Check out these links:
 
 * [Subscribe to Judge0 news](https://judge0.com/#subscribe)
 * [Join a Discord server](https://discord.gg/6dvxeA8)
+* [Watch asciicasts](https://asciinema.org/~hermanzdosilovic)
 * [Report an issue](https://github.com/judge0/api/issues/new)
 * [Contact the author](https://github.com/hermanzdosilovic)
 * [Get free online support](https://judge0.appointlet.com)
