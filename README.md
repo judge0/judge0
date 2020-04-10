@@ -29,7 +29,7 @@ List of supported languages for the latest release can be found [here](https://j
 To install Judge0 API on your server follow [deployment procedure](https://github.com/judge0/api/releases) for the latest release.
 
 ## Demo
-[![asciicast](https://asciinema.org/a/318445.svg)](https://asciinema.org/a/318445)
+[![asciicast](https://asciinema.org/a/318465.svg)](https://asciinema.org/a/318465)
 
 ## References
 These companies, organizations and projects successfully use Judge0 API in production:
