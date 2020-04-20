@@ -14,6 +14,7 @@ ENV GEM_HOME "/opt/.gem/"
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
+      cron \
       libpq-dev \
       sudo && \
     rm -rf /var/lib/apt/lists/* && \
@@ -28,9 +29,12 @@ WORKDIR /api
 COPY Gemfile* ./
 RUN RAILS_ENV=production bundle
 
+COPY cron /etc/cron.d
+RUN crontab /etc/cron.d/*
+
 COPY . .
 
-ENTRYPOINT ["./scripts/entrypoint"]
+ENTRYPOINT ["./docker-entrypoint.sh"]
 CMD ["./scripts/run-server"]
 
 ENV JUDGE0_VERSION="1.6.0"

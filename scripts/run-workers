@@ -1,4 +1,6 @@
 #!/bin/bash
+source ./scripts/load-config
+
 run_resque=1
 resque_pid=0
 

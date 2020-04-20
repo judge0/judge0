@@ -4,7 +4,6 @@ Dockerfile*
 docker-compose*
 judge0-api.conf*
 scripts/
-!scripts/entrypoint
 !scripts/load-config
 !scripts/run-server
 !scripts/run-workers
