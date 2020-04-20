@@ -1,9 +1,9 @@
-/.bundle
-/log/*
-/tmp/*
-srv
+log/*
+tmp/*
 !/log/.keep
 !/tmp/.keep
+.bundle/
 .byebug_history
 coverage/
 judge0-api.conf
+srv/
