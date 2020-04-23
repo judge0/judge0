@@ -33,6 +33,7 @@ module Config
   MAX_NUMBER_OF_RUNS = (ENV['MAX_NUMBER_OF_RUNS'].presence || 20).to_i
   REDIRECT_STDERR_TO_STDOUT = ENV['REDIRECT_STDERR_TO_STDOUT'] == "true"
   MAX_EXTRACT_SIZE = (ENV['MAX_EXTRACT_SIZE'].presence || 10240).to_i
+  ENABLE_BATCHED_SUBMISSIONS = ENV["ENABLE_BATCHED_SUBMISSIONS"] != "false"
   MAX_SUBMISSION_BATCH_SIZE = (ENV['MAX_SUBMISSION_BATCH_SIZE'].presence || 20).to_i
 
   def self.config_info
@@ -68,6 +69,7 @@ module Config
       "max_number_of_runs": MAX_NUMBER_OF_RUNS,
       "redirect_stderr_to_stdout": REDIRECT_STDERR_TO_STDOUT,
       "max_extract_size": MAX_EXTRACT_SIZE,
+      "enable_batched_submissions": ENABLE_BATCHED_SUBMISSIONS,
       "max_submission_batch_size": MAX_SUBMISSION_BATCH_SIZE
     }
   end

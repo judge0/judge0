@@ -2,6 +2,7 @@ class SubmissionsController < ApplicationController
   before_action :authorize_request, only: [:index, :destroy]
   before_action :check_maintenance, only: [:create, :destroy]
   before_action :check_wait, only: [:create] # Wait in batch_create is not allowed
+  before_action :check_batched_submissions, only: [:batch_create, :batch_show]
   before_action :check_queue_size, only: [:create, :batch_create]
   before_action :check_requested_fields, except: [:batch_create] # Fields are ignored in batch_create
   before_action :set_base64_encoded
@@ -189,6 +190,12 @@ class SubmissionsController < ApplicationController
     @wait = params[:wait] == "true"
     if @wait && !Config::ENABLE_WAIT_RESULT
       render json: { error: "wait not allowed" }, status: :bad_request
+    end
+  end
+
+  def check_batched_submissions
+    unless Config::ENABLE_BATCHED_SUBMISSIONS
+      render json: { error: "batched submissions are not allowed" }, status: :bad_request
     end
   end
 
