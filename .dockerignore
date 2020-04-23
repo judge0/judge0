@@ -2,11 +2,8 @@
 *.md
 Dockerfile*
 docker-compose*
-judge0-api.conf*
-scripts/
-!scripts/load-config
-!scripts/run-server
-!scripts/run-workers
+judge0-api.conf
+scripts/dev/
 log/*
 srv/
 tmp/*

@@ -1,0 +1,7 @@
+#!/bin/bash
+# Script for serving the Judge0 API documentation.
+# Used in "development" mode when documentation is written.
+#
+# Usage: ./scripts/dev/serve-docs
+#
+aglio --theme-full-width -i docs/api/docs.md -s -h 0.0.0.0 -p 3030

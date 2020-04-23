@@ -11,13 +11,7 @@ services:
     restart: always
 
   api:
-    build:
-      context: .
-      dockerfile: Dockerfile.dev
-      args:
-        - DEV_USER=$JUDGE0_DEV_USER
-        - DEV_USER_ID=$JUDGE0_DEV_UID
-    image: judge0/api:dev
+    image: judge0/api:latest-dev
     environment:
       - VIRTUAL_HOST=api.judge0.local
       - VIRTUAL_PORT=3000

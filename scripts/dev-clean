@@ -1,4 +1,0 @@
-#!/bin/bash
-source scripts/env.conf
-docker-compose -f docker-compose.dev.yml down
-docker-compose -f docker-compose.dev.yml down -v

@@ -5,5 +5,4 @@ tmp/*
 .bundle/
 .byebug_history
 coverage/
-judge0-api.conf
 srv/

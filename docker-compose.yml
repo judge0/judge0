@@ -9,7 +9,7 @@ x-logging:
 
 services:
   api:
-    image: judge0/api
+    image: judge0/api:latest
     volumes:
       - ./judge0-api.conf:/judge0-api.conf:ro
     ports:
@@ -19,8 +19,8 @@ services:
     restart: always
 
   worker:
-    image: judge0/api
-    command: ["./scripts/run-workers"]
+    image: judge0/api:latest
+    command: ["./scripts/workers"]
     volumes:
       - ./judge0-api.conf:/judge0-api.conf:ro
     privileged: true

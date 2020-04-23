@@ -46,7 +46,7 @@ services:
 
   worker:
     image: judge0/api
-    command: ["./scripts/run-workers"]
+    command: ["./scripts/workers"]
     volumes:
       - ./judge0-api.conf:/judge0-api.conf:ro
     privileged: true

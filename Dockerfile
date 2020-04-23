@@ -1,4 +1,4 @@
-FROM judge0/api-base:1.0.0
+FROM judge0/api-base:1.0.0 AS production
 
 ENV JUDGE0_HOMEPAGE="https://judge0.com"
 LABEL homepage=$JUDGE0_HOMEPAGE
@@ -35,7 +35,23 @@ RUN crontab /etc/cron.d/*
 COPY . .
 
 ENTRYPOINT ["./docker-entrypoint.sh"]
-CMD ["./scripts/run-server"]
+CMD ["./scripts/server"]
 
 ENV JUDGE0_VERSION="1.6.0"
 LABEL version=$JUDGE0_VERSION
+
+
+FROM production AS development
+
+ARG DEV_USER=judge0
+ARG DEV_USER_ID=1000
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        vim && \
+    useradd -u $DEV_USER_ID -m -r $DEV_USER && \
+    echo "$DEV_USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers
+
+USER $DEV_USER
+
+CMD ["sleep", "infinity"]

@@ -1,4 +1,8 @@
 #!/bin/bash
+# Script for running the Judge0 API server.
+#
+# Usage: ./scripts/server
+#
 source ./scripts/load-config
 
 [[ -f tmp/pids/server.pid ]] && rm -f tmp/pids/server.pid

@@ -1,4 +1,8 @@
 #!/bin/bash
+# Script for running Judge0 API workers.
+#
+# Usage: ./scripts/workers
+#
 source ./scripts/load-config
 
 run_resque=1
