@@ -67,6 +67,8 @@ submissions.
     - Commits: [@381265a2](https://github.com/judge0/api/commit/381265a295c130c54d540641ba071a18447d8223)
 - Updated dummy client default values.
 - Added Docker Compose file for HTTPS support.
+- Refactored all development and production scripts from `scripts` directory.
+- Refactored `judge0-api.conf` file.
 
 ## Deployment Procedure
 ### With HTTPS (SSL/TLS)
