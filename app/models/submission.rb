@@ -64,7 +64,9 @@ class Submission < ApplicationRecord
             numericality: { greater_than: 0, less_than_or_equal_to: Config::MAX_MAX_FILE_SIZE }
   validates :compiler_options, length: { maximum: 512 }
   validates :command_line_arguments, length: { maximum: 512 }
-  validate :language_existence, :compiler_options_allowed, :command_line_arguments_allowed
+  validate :language_existence, :compiler_options_allowed,
+           :command_line_arguments_allowed, :callbacks_allowed,
+           :additional_files_allowed
 
   before_create :generate_token
   before_validation :set_defaults
@@ -183,6 +185,22 @@ class Submission < ApplicationRecord
 
     unless Config::ENABLE_COMMAND_LINE_ARGUMENTS
       errors.add(:command_line_arguments, "setting command line arguments is not allowed")
+    end
+  end
+
+  def callbacks_allowed
+    return if callback_url.blank?
+
+    unless Config::ENABLE_CALLBACKS
+      errors.add(:callback_url, "setting callback is not allowed")
+    end
+  end
+
+  def additional_files_allowed
+    return if additional_files.blank?
+
+    unless Config::ENABLE_ADDITIONAL_FILES
+      errors.add(:additional_files, "setting additional files is not allowed")
     end
   end
 

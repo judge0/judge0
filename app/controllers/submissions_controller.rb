@@ -115,6 +115,7 @@ class SubmissionsController < ApplicationController
     end
   end
 
+  # Batch Create does not support sync (wait=true) mode.
   def batch_create
     number_of_submissions = params[:submissions].try(:size).to_i
 
