@@ -72,13 +72,24 @@ These companies, organizations and projects successfully use Judge0 API in produ
 - [University of Zagreb, Faculty of Electrical Engineering and Computing](https://www.fer.unizg.hr/en)
 - [Xiith](https://xiith.com)
 - [judge0-gem](https://github.com/TopRoupi/judge0-gem) - Ruby Gem for interacting with the Judge0 API
-- [judge0_helm](https://github.com/saikatharryc/judge0_helm) - Helm Chart for Judge0 API
 - [judge0api](https://github.com/vCra/judge0api) - Python library for interacting with Judge0 API
 - [nGrader](https://ngrader.herokuapp.com)
 - [primat.org](http://primat.org)
 - [uDebug Tool](https://www.udebugtool.com)
 - [wkspace](http://wkspace.herokuapp.com)
 - [yoCode](https://www.yocode.in)
+
+### Deploy On Kubernetes (Using HELM)::
+
+```shell
+$ helm repo add saikatharryc https://saikatharryc.github.io/helm/
+$ helm install my-release saikatharryc/judge0
+```
+Helm Repo: https://saikatharryc.github.io/helm/judge0
+
+Also find it in: 
+  - [artifacthub](https://artifacthub.io/package/chart/saikatharryc/judge0)
+  - [Helm Hub](https://hub.helm.sh/charts/saikatharryc/judge0)
 
 Feel free to add yours to the list by sending me an [email](mailto:hermanz.dosilovic@gmail.com) or creating an [issue](https://github.com/judge0/api/issues/new).
 
