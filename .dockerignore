@@ -2,8 +2,9 @@
 *.md
 Dockerfile*
 docker-compose*
+docs/maintainers/
 judge0-api.conf
-scripts/dev/
 log/*
+scripts/dev/
 srv/
 tmp/*
