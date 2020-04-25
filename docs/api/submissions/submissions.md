@@ -1,13 +1,14 @@
 ## Group Submissions
 ## Submission [/submissions/{token}{?base64_encoded,wait,fields,page,per_page}]
-Submission represents a model for running source code in specific programming language under
-certain runtime constraints.
+Submission is used for running arbitrary source code in one of
+the [available programming languages](#statuses-and-languages-language-get) with specified runtime constraints.
 
-Submission model has **29** attributes. Attributes **1**-**16** (listed below) are used when creating new submissions - you can set them. Out of those 16 attributes only **2** are required - `source_code` and `language_id`. Attributes **17**-**29** represent detailed information about runtime of submission after it's execution.
+Submission has 31 attributes. Attributes 1-18 are used for creating a new submissions, whereas
+attributes 19-31 give detailed information of submission after it's execution.
 
-With attributes **7**-**16** you can configure submission runtime constraints. Those attributes are called *configuration attributes* or *configuration variables*. Please read more about them in [configuration](#system-and-configuration-configuration-info) section.
+Attributes 7-17 are called [*configuration variables*](#system-and-configuration-configuration-info)
+and can be used to configure submission runtime constraints such as time and memory limits.
 
-Submission model has following attributes:
 |#    |Name |Type  |Unit  |Description |Default Value |
 |:---:|:----|:----:|:----:|:-----------|:-------------|
 |1|**`source_code`**|text||Program's source code.|No default. This attribute is **required**.|
@@ -25,20 +26,22 @@ Submission model has following attributes:
 |13|`enable_per_process_and_thread_time_limit`|boolean||If `true` then `cpu_time_limit` will be used as per process and thread.|Depends on [configuration](#system-and-configuration-configuration-info).|
 |14|`enable_per_process_and_thread_memory_limit`|boolean||If `true` then `memory_limit` will be used as per process and thread.|Depends on [configuration](#system-and-configuration-configuration-info).|
 |15|`max_file_size`|integer|kilobyte|Limit file size created or modified by the program.|Depends on [configuration](#system-and-configuration-configuration-info).|
-|16|`number_of_runs`|integer||Run each program `number_of_runs` times and take average of `time` and `memory`.|Depends on [configuration](#system-and-configuration-configuration-info).|
-|17|`stdout`|text||Standard output of the program after execution.||
-|18|`stderr`|text||Standard error of the program after execution.||
-|19|`compile_output`|text||Compiler output after compilation.||
-|20|`message`|text||If submission status is `Internal Error` then this message comes from Judge0 API itself, otherwise this is status message from Isolate.||
-|21|`exit_code`|integer||The program's exit code.||
-|22|`exit_signal`|integer||Signal code that the program recieved before exiting.||
-|23|`status`|object||Submission [status](#statuses-and-languages-status).||
-|24|`created_at`|datetime||Date and time when submission was created.||
-|25|`finished_at`|datetime||Date and time when submission was processed.|`null` if submission is still in queue or if submission is processing.|
-|26|`token`|string||Unique submission token used for [getting specific submission](#submission-submission-get).||
-|27|`time`|float|second|Program's runtime.||
-|28|`wall_time`|float|second|Program's wall time. Will be greater or equal to `time`.||
-|29|`memory`|float|kilobyte|Memory used by the program after execution.||
+|16|`redirect_stderr_to_stdout`|boolean||If `true` standard error will be redirected to standard output.|Depends on [configuration](#system-and-configuration-configuration-info).|
+|17|`number_of_runs`|integer||Run each program `number_of_runs` times and take average of `time` and `memory`.|Depends on [configuration](#system-and-configuration-configuration-info).|
+|18|`additional_files`|Base64 Encoded String||Additional files that should be available alongside the source code. Value of this string should represent the content of a `.zip` that contains additional files.|`null`|
+|19|`stdout`|text||Standard output of the program after execution.||
+|20|`stderr`|text||Standard error of the program after execution.||
+|21|`compile_output`|text||Compiler output after compilation.||
+|22|`message`|text||If submission status is `Internal Error` then this message comes from the Judge0 API itself, otherwise this is status message from [isolate](https://github.com/ioi/isolate).||
+|23|`exit_code`|integer||The program's exit code.||
+|24|`exit_signal`|integer||Signal code that the program recieved before exiting.||
+|25|`status`|object||Submission [status](#statuses-and-languages-status).||
+|26|`created_at`|datetime||Date and time when submission was created.||
+|27|`finished_at`|datetime||Date and time when submission was processed.|`null` if submission is still in queue or if submission is processing.|
+|28|`token`|string||Unique submission token which can be used to [get a specific submission](#submissions-submission-get).||
+|29|`time`|float|second|Program's run time.||
+|30|`wall_time`|float|second|Program's wall time. Will be greater or equal to `time`.||
+|31|`memory`|float|kilobyte|Memory used by the program after execution.||
 
 <!-- include(create_a_submission.md) -->
 <!-- include(get_a_submission.md) -->
