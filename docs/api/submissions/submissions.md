@@ -47,3 +47,8 @@ and can be used to configure submission runtime constraints such as time and mem
 <!-- include(get_a_submission.md) -->
 <!-- include(get_submissions.md) -->
 <!-- include(delete_a_submission.md) -->
+
+## Submission Batch [/submissions/batch{?tokens,base64_encoded,fields}]
+
+<!-- include(create_a_submission_batch.md) -->
+<!-- include(get_a_submission_batch.md) -->
