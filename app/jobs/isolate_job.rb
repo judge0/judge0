@@ -123,9 +123,9 @@ class IsolateJob < ApplicationJob
     -b #{box_id} \
     -M #{metadata_file} \
     --stderr-to-stdout \
-    -t 5 \
-    -x 2 \
-    -w 10 \
+    -t #{Config::MAX_CPU_TIME_LIMIT} \
+    -x 0 \
+    -w #{Config::MAX_WALL_TIME_LIMIT} \
     -k #{Config::MAX_STACK_LIMIT} \
     -p#{Config::MAX_MAX_PROCESSES_AND_OR_THREADS} \
     #{submission.enable_per_process_and_thread_time_limit ? (cgroups.present? ? "--no-cg-timing" : "") : "--cg-timing"} \
