@@ -54,5 +54,6 @@ Your are more than welcome to support Judge0 on [Patreon](https://www.patreon.co
 <!-- include(submissions/submissions.md) -->
 <!-- include(statuses_and_languages/statuses_and_languages.md) -->
 <!-- include(system_and_configuration/system_and_configuration.md) -->
+<!-- include(statistics/statistics.md) -->
 <!-- include(health_check/health_check.md) -->
 <!-- include(information/information.md) -->
