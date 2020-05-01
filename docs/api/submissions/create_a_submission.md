@@ -1,6 +1,6 @@
 ### Create a Submission [POST]
 Creates new submission. Created submission waits in queue to be processed. On successful
-creation, you are returned submission token which can be used to check submission status.
+creation, you are returned submission token which can be used to [check submission status](#submissions-submission-get).
 
 If submission's `source_code`, `stdin` or `expected_output` contains non printable characters, or
 characters which cannot be sent with JSON, then set `base64_encoded` parameter to `true` and
@@ -8,13 +8,14 @@ send these attributes Base64 encoded. Your responsibility is to encode each of m
 (`source_code`, `stdin` and `expected_output`) even if just one of them contains non printable
 characters. By default, this parameter is set to `false` and Judge0 API assumes you are sending plain text data.
 
-By default you are returned submission token on successful submission creation. With this token
-you can [check submission status](#submission-submission-get).
-Instead of checking submission status by making another request, send `wait` query parameter and set it to `true`
-which will enable you to get submission status immediately as part of response to the request you made.
-Please note that this feature may or may not be
-enabled on all Judge0 API hosts. So before using this feature please check [configuration](#system-and-configuration-configuration-info-get)
-of Judge0 API you are using. On an [official Judge0 API](https://api.judge0.com) this feature **is enabled**.
+By default you are returned submission token on successful submission creation. With this token you can [check submission status](#submission-submission-get).
+Instead of checking submission status by making another request, you can set the `wait` query parameter to `true` which will enable you to get submission status immediately as part of response to the request you made.
+Please note that this feature may or may not be enabled on all Judge0 API hosts. So before using this feature please check [configuration](#system-and-configuration-configuration-info-get) of Judge0 API you are using. On an [official Judge0 API](https://api.judge0.com) this feature **is not** enabled.
+
+::: note
+<h4>Note</h4>
+* We **do not** recommend the use of `wait=true` feature because it does not scale well.
+:::
 
 + Parameters
     + base64_encoded = `false` (optional, boolean, `false`) ... Set to `true` if you want to send Base64 encoded data to Judge0 API.

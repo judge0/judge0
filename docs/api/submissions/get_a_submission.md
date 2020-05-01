@@ -1,13 +1,9 @@
 ### Get a Submission [GET]
 Returns details about submission.
 
-Just like in [create submission](/#submission-submission-post) you can receive Base64 encoded data for every
-text type attribute (check the [table](#submission-submission) to see which attributes are text type).
-By default, this parameter is set to `false` and Judge0 API will send you raw data.
+Just like in [create submission](/#submission-submission-post) you can receive Base64 encoded data for every text type attribute (check the [table](#submission-submission) to see which attributes are text type). By default, this parameter is set to `false` and Judge0 API will send you raw data.
 
-By default Judge0 API is sending you 8 attributes for submission. As you may read in [Submission](#submission-submission)
-section, submission model has 29 attributes. By sending `fields` query parameter you can specify exactly which attributes
-you want from Judge0 API.
+By default Judge0 API is sending 8 attributes for submission. By sending `fields` query parameter you can specify exactly which attributes you want from Judge0 API. Special value `*` will return all available attributes.
 
 + Parameters
     + token (required, string, `d85cd024-1548-4165-96c7-7bc88673f194`) ... Token of submission. You got this token when you created submission.
@@ -40,8 +36,7 @@ you want from Judge0 API.
         }
 
 + Response 200 (application/json)
-    Recieving Base64 encoded data for text type attributes. Note that in this request `base64_encoded` query parameter **must** be
-    set to `true`.
+    Recieving Base64 encoded data for text type attributes. Note that in this reques `base64_encoded` query parameter **must** be set to `true`.
     + Body
         {
             "stdout": "aGVsbG8sIEp1ZGdlMAo=\n",
