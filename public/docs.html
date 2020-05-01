@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>Judge0 API docs</title><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"><style>@import url('https://fonts.googleapis.com/css?family=Roboto:400,700|Inconsolata|Raleway:200');.hljs-comment,.hljs-title{color:#8e908c}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#c82829}.hljs-number,.hljs-preprocessor,.hljs-pragma,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#f5871f}.ruby .hljs-class .hljs-title,.css .hljs-rules .hljs-attribute{color:#eab700}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#718c00}.css .hljs-hexcolor{color:#3e999f}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#4271ae}.hljs-keyword,.javascript .hljs-function{color:#8959a8}.hljs{display:block;background:white;color:#4d4d4c;padding:.5em}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}.right .hljs-comment{color:#969896}.right .css .hljs-class,.right .css .hljs-id,.right .css .hljs-pseudo,.right .hljs-attribute,.right .hljs-regexp,.right .hljs-tag,.right .hljs-variable,.right .html .hljs-doctype,.right .ruby .hljs-constant,.right .xml .hljs-doctype,.right .xml .hljs-pi,.right .xml .hljs-tag .hljs-title{color:#c66}.right .hljs-built_in,.right .hljs-constant,.right .hljs-literal,.right .hljs-number,.right .hljs-params,.right .hljs-pragma,.right .hljs-preprocessor{color:#de935f}.right .css .hljs-rule .hljs-attribute,.right .ruby .hljs-class .hljs-title{color:#f0c674}.right .hljs-header,.right .hljs-inheritance,.right .hljs-name,.right .hljs-string,.right .hljs-value,.right .ruby .hljs-symbol,.right .xml .hljs-cdata{color:#b5bd68}.right .css .hljs-hexcolor,.right .hljs-title{color:#8abeb7}.right .coffeescript .hljs-title,.right .hljs-function,.right .javascript .hljs-title,.right .perl .hljs-sub,.right .python .hljs-decorator,.right .python .hljs-title,.right .ruby .hljs-function .hljs-title,.right .ruby .hljs-title .hljs-keyword{color:#81a2be}.right .hljs-keyword,.right .javascript .hljs-function{color:#b294bb}.right .hljs{display:block;overflow-x:auto;background:#1d1f21;color:#c5c8c6;padding:.5em;-webkit-text-size-adjust:none}.right .coffeescript .javascript,.right .javascript .xml,.right .tex .hljs-formula,.right .xml .css,.right .xml .hljs-cdata,.right .xml .javascript,.right .xml .vbscript{opacity:.5}body{color:black;background:white;font:400 14px / 1.42 'Roboto',Helvetica,sans-serif}header{border-bottom:1px solid #f2f2f2;margin-bottom:12px}h1,h2,h3,h4,h5{color:black;margin:12px 0}h1 .permalink,h2 .permalink,h3 .permalink,h4 .permalink,h5 .permalink{margin-left:0;opacity:0;transition:opacity .25s ease}h1:hover .permalink,h2:hover .permalink,h3:hover .permalink,h4:hover .permalink,h5:hover .permalink{opacity:1}.triple h1 .permalink,.triple h2 .permalink,.triple h3 .permalink,.triple h4 .permalink,.triple h5 .permalink{opacity:.15}.triple h1:hover .permalink,.triple h2:hover .permalink,.triple h3:hover .permalink,.triple h4:hover .permalink,.triple h5:hover .permalink{opacity:.15}h1{font:200 36px 'Raleway',Helvetica,sans-serif;font-size:36px}h2{font:200 36px 'Raleway',Helvetica,sans-serif;font-size:30px}h3{font-size:100%;text-transform:uppercase}h5{font-size:100%;font-weight:normal}p{margin:0 0 10px}p.choices{line-height:1.6}a{color:#428bca;text-decoration:none}li p{margin:0}hr.split{border:0;height:1px;width:100%;padding-left:6px;margin:12px auto;background-image:linear-gradient(to right, rgba(0,0,0,0) 20%, rgba(0,0,0,0.2) 51.4%, rgba(255,255,255,0.2) 51.4%, rgba(255,255,255,0) 80%)}dl dt{float:left;width:130px;clear:left;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700}dl dd{margin-left:150px}blockquote{color:rgba(0,0,0,0.5);font-size:15.5px;padding:10px 20px;margin:12px 0;border-left:5px solid #e8e8e8}blockquote p:last-child{margin-bottom:0}pre{background-color:#f5f5f5;padding:12px;border:1px solid #cfcfcf;border-radius:6px;overflow:auto}pre code{color:black;background-color:transparent;padding:0;border:none}code{color:#444;background-color:#f5f5f5;font:'Inconsolata',monospace;padding:1px 4px;border:1px solid #cfcfcf;border-radius:3px}ul,ol{padding-left:2em}table{border-collapse:collapse;border-spacing:0;margin-bottom:12px}table tr:nth-child(2n){background-color:#fafafa}table th,table td{padding:6px 12px;border:1px solid #e6e6e6}.text-muted{opacity:.5}.note,.warning{padding:.3em 1em;margin:1em 0;border-radius:2px;font-size:90%}.note h1,.warning h1,.note h2,.warning h2,.note h3,.warning h3,.note h4,.warning h4,.note h5,.warning h5,.note h6,.warning h6{font-family:200 36px 'Raleway',Helvetica,sans-serif;font-size:135%;font-weight:500}.note p,.warning p{margin:.5em 0}.note{color:black;background-color:#f0f6fb;border-left:4px solid #428bca}.note h1,.note h2,.note h3,.note h4,.note h5,.note h6{color:#428bca}.warning{color:black;background-color:#fbf1f0;border-left:4px solid #c9302c}.warning h1,.warning h2,.warning h3,.warning h4,.warning h5,.warning h6{color:#c9302c}header{margin-top:24px}nav{position:fixed;top:24px;bottom:0;overflow-y:auto}nav .resource-group{padding:0}nav .resource-group .heading{position:relative}nav .resource-group .heading .chevron{position:absolute;top:12px;right:12px;opacity:.5}nav .resource-group .heading a{display:block;color:black;opacity:.7;border-left:2px solid transparent;margin:0}nav .resource-group .heading a:hover{text-decoration:none;background-color:bad-color;border-left:2px solid black}nav ul{list-style-type:none;padding-left:0}nav ul a{display:block;font-size:13px;color:rgba(0,0,0,0.7);padding:8px 12px;border-top:1px solid #d9d9d9;border-left:2px solid transparent;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}nav ul a:hover{text-decoration:none;background-color:bad-color;border-left:2px solid black}nav ul>li{margin:0}nav ul>li:first-child{margin-top:-12px}nav ul>li:last-child{margin-bottom:-12px}nav ul ul a{padding-left:24px}nav ul ul li{margin:0}nav ul ul li:first-child{margin-top:0}nav ul ul li:last-child{margin-bottom:0}nav>div>div>ul>li:first-child>a{border-top:none}.preload *{transition:none !important}.pull-left{float:left}.pull-right{float:right}.badge{display:inline-block;float:right;min-width:10px;min-height:14px;padding:3px 7px;font-size:12px;color:#000;background-color:#f2f2f2;border-radius:10px;margin:-2px 0}.badge.get{color:#70bbe1;background-color:#d9edf7}.badge.head{color:#70bbe1;background-color:#d9edf7}.badge.options{color:#70bbe1;background-color:#d9edf7}.badge.put{color:#f0db70;background-color:#fcf8e3}.badge.patch{color:#f0db70;background-color:#fcf8e3}.badge.post{color:#93cd7c;background-color:#dff0d8}.badge.delete{color:#ce8383;background-color:#f2dede}.collapse-button{float:right}.collapse-button .close{display:none;color:#428bca;cursor:pointer}.collapse-button .open{color:#428bca;cursor:pointer}.collapse-button.show .close{display:inline}.collapse-button.show .open{display:none}.collapse-content{max-height:0;overflow:hidden;transition:max-height .3s ease-in-out}nav{width:220px}.container{max-width:940px;margin-left:auto;margin-right:auto}.container .row .content{margin-left:244px;width:696px}.container .row:after{content:'';display:block;clear:both}.container-fluid nav{width:22%}.container-fluid .row .content{margin-left:24%}.container-fluid.triple nav{width:16.5%;padding-right:1px}.container-fluid.triple .row .content{position:relative;margin-left:16.5%;padding-left:24px}.middle:before,.middle:after{content:'';display:table}.middle:after{clear:both}.middle{box-sizing:border-box;width:51.5%;padding-right:12px}.right{box-sizing:border-box;float:right;width:48.5%;padding-left:12px}.right a{color:#428bca}.right h1,.right h2,.right h3,.right h4,.right h5,.right p,.right div{color:white}.right pre{background-color:#1d1f21;border:1px solid #1d1f21}.right pre code{color:#c5c8c6}.right .description{margin-top:12px}.triple .resource-heading{font-size:125%}.definition{margin-top:12px;margin-bottom:12px}.definition .method{font-weight:bold}.definition .method.get{color:#2e8ab8}.definition .method.head{color:#2e8ab8}.definition .method.options{color:#2e8ab8}.definition .method.post{color:#56b82e}.definition .method.put{color:#b8a22e}.definition .method.patch{color:#b8a22e}.definition .method.delete{color:#b82e2e}.definition .uri{word-break:break-all;word-wrap:break-word}.definition .hostname{opacity:.5}.example-names{background-color:#eee;padding:12px;border-radius:6px}.example-names .tab-button{cursor:pointer;color:black;border:1px solid #ddd;padding:6px;margin-left:12px}.example-names .tab-button.active{background-color:#d5d5d5}.right .example-names{background-color:#444}.right .example-names .tab-button{color:white;border:1px solid #666;border-radius:6px}.right .example-names .tab-button.active{background-color:#5e5e5e}#nav-background{position:fixed;left:0;top:0;bottom:0;width:16.5%;padding-right:14.4px;background-color:#fbfbfb;border-right:1px solid #f0f0f0;z-index:-1}#right-panel-background{position:absolute;right:-12px;top:-12px;bottom:-12px;width:48.6%;background-color:#333;z-index:-1}@media (max-width:1200px){nav{width:198px}.container{max-width:840px}.container .row .content{margin-left:224px;width:606px}}@media (max-width:992px){nav{width:169.4px}.container{max-width:720px}.container .row .content{margin-left:194px;width:526px}}@media (max-width:768px){nav{display:none}.container{width:95%;max-width:none}.container .row .content,.container-fluid .row .content,.container-fluid.triple .row .content{margin-left:auto;margin-right:auto;width:95%}#nav-background{display:none}#right-panel-background{width:48.6%}}.back-to-top{position:fixed;z-index:1;bottom:0;right:24px;padding:4px 8px;color:rgba(0,0,0,0.5);background-color:#f2f2f2;text-decoration:none !important;border-top:1px solid #d9d9d9;border-left:1px solid #d9d9d9;border-right:1px solid #d9d9d9;border-top-left-radius:3px;border-top-right-radius:3px}.resource-group{padding:12px;margin-bottom:12px;background-color:white;border:1px solid #d9d9d9;border-radius:6px}.resource-group h2.group-heading,.resource-group .heading a{padding:12px;margin:-12px -12px 12px -12px;background-color:#f2f2f2;border-bottom:1px solid #d9d9d9;border-top-left-radius:6px;border-top-right-radius:6px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.triple .content .resource-group{padding:0;border:none}.triple .content .resource-group h2.group-heading,.triple .content .resource-group .heading a{margin:0 0 12px 0;border:1px solid #d9d9d9}nav .resource-group .heading a{padding:12px;margin-bottom:0}nav .resource-group .collapse-content{padding:0}.action{margin-bottom:12px;padding:12px 12px 0 12px;overflow:hidden;border:1px solid transparent;border-radius:6px}.action h4.action-heading{padding:6px 12px;margin:-12px -12px 12px -12px;border-bottom:1px solid transparent;border-top-left-radius:6px;border-top-right-radius:6px;overflow:hidden}.action h4.action-heading .name{float:right;font-weight:normal;padding:6px 0}.action h4.action-heading .method{padding:6px 12px;margin-right:12px;border-radius:3px;display:inline-block}.action h4.action-heading .method.get{color:#fff;background-color:#337ab7}.action h4.action-heading .method.head{color:#fff;background-color:#337ab7}.action h4.action-heading .method.options{color:#fff;background-color:#337ab7}.action h4.action-heading .method.put{color:#fff;background-color:#ed9c28}.action h4.action-heading .method.patch{color:#fff;background-color:#ed9c28}.action h4.action-heading .method.post{color:#fff;background-color:#5cb85c}.action h4.action-heading .method.delete{color:#fff;background-color:#d9534f}.action h4.action-heading code{color:#444;background-color:#f5f5f5;border-color:#cfcfcf;font-weight:normal;word-break:break-all;display:inline-block;margin-top:2px}.action dl.inner{padding-bottom:2px}.action .title{border-bottom:1px solid white;margin:0 -12px -1px -12px;padding:12px}.action.get{border-color:#bce8f1}.action.get h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.head{border-color:#bce8f1}.action.head h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.options{border-color:#bce8f1}.action.options h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.post{border-color:#d6e9c6}.action.post h4.action-heading{color:#5cb85c;background:#dff0d8;border-bottom-color:#d6e9c6}.action.put{border-color:#faebcc}.action.put h4.action-heading{color:#ed9c28;background:#fcf8e3;border-bottom-color:#faebcc}.action.patch{border-color:#faebcc}.action.patch h4.action-heading{color:#ed9c28;background:#fcf8e3;border-bottom-color:#faebcc}.action.delete{border-color:#ebccd1}.action.delete h4.action-heading{color:#d9534f;background:#f2dede;border-bottom-color:#ebccd1}</style></head><body class="preload"><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container-fluid"><div class="row"><nav><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#top">Overview</a></div><div class="collapse-content"><ul><li><a href="#header-about">About</a></li><li><a href="#header-official-public-api">Official public API</a></li><li><a href="#header-version">Version</a></li><li><a href="#header-date-and-time-formats">Date and time formats</a></li><li><a href="#header-license">License</a></li><li><a href="#header-donate">Donate</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#authentication">Authentication</a></div><div class="collapse-content"><ul><li><a href="#authentication-authenticate-post"><span class="badge post"><i class="fa fa-plus"></i></span>Authenticate</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#authorization">Authorization</a></div><div class="collapse-content"><ul><li><a href="#authorization-authorize-post"><span class="badge post"><i class="fa fa-plus"></i></span>Authorize</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#submissions">Submissions</a></div><div class="collapse-content"><ul><li><a href="#submissions-submission">Submission</a><ul><li><a href="#submissions-submission-post"><span class="badge post"><i class="fa fa-plus"></i></span>Create a Submission</a></li><li><a href="#submissions-submission-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Get a Submission</a></li><li><a href="#submissions-submission-get-1"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Get Submissions</a></li><li><a href="#submissions-submission-delete"><span class="badge delete"><i class="fa fa-times"></i></span>Delete a Submission</a></li></ul></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#statuses-and-languages">Statuses and Languages</a></div><div class="collapse-content"><ul><li><a href="#statuses-and-languages-language">Language</a><ul><li><a href="#statuses-and-languages-language-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Get Languages</a></li><li><a href="#statuses-and-languages-language-get-1"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Get a Language</a></li></ul></li><li><a href="#statuses-and-languages-active-and-archived-languages-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Get Active and Archived Languages</a></li><li><a href="#statuses-and-languages-status-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Get Statuses</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#system-and-configuration">System and Configuration</a></div><div class="collapse-content"><ul><li><a href="#system-and-configuration-system-info-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>System Info</a></li><li><a href="#system-and-configuration-configuration-info-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Configuration Info</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#health-check">Health Check</a></div><div class="collapse-content"><ul><li><a href="#health-check-workers-health-check-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Workers Health Check</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#information">Information</a></div><div class="collapse-content"><ul><li><a href="#information-about-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>About</a></li><li><a href="#information-version-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Version</a></li><li><a href="#information-isolate-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Isolate</a></li><li><a href="#information-license-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>License</a></li></ul></div></div><p style="text-align: center; word-wrap: break-word;"><a href="https://api.judge0.com">https://api.judge0.com</a></p></nav><div class="content"><header><h1 id="top">Judge0 API docs</h1></header><script type="text/javascript">
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Judge0 API</title><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"><style>@import url('https://fonts.googleapis.com/css?family=Roboto:400,700|Inconsolata|Raleway:200');.hljs-comment,.hljs-title{color:#8e908c}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#c82829}.hljs-number,.hljs-preprocessor,.hljs-pragma,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#f5871f}.ruby .hljs-class .hljs-title,.css .hljs-rules .hljs-attribute{color:#eab700}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#718c00}.css .hljs-hexcolor{color:#3e999f}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#4271ae}.hljs-keyword,.javascript .hljs-function{color:#8959a8}.hljs{display:block;background:white;color:#4d4d4c;padding:.5em}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}.right .hljs-comment{color:#969896}.right .css .hljs-class,.right .css .hljs-id,.right .css .hljs-pseudo,.right .hljs-attribute,.right .hljs-regexp,.right .hljs-tag,.right .hljs-variable,.right .html .hljs-doctype,.right .ruby .hljs-constant,.right .xml .hljs-doctype,.right .xml .hljs-pi,.right .xml .hljs-tag .hljs-title{color:#c66}.right .hljs-built_in,.right .hljs-constant,.right .hljs-literal,.right .hljs-number,.right .hljs-params,.right .hljs-pragma,.right .hljs-preprocessor{color:#de935f}.right .css .hljs-rule .hljs-attribute,.right .ruby .hljs-class .hljs-title{color:#f0c674}.right .hljs-header,.right .hljs-inheritance,.right .hljs-name,.right .hljs-string,.right .hljs-value,.right .ruby .hljs-symbol,.right .xml .hljs-cdata{color:#b5bd68}.right .css .hljs-hexcolor,.right .hljs-title{color:#8abeb7}.right .coffeescript .hljs-title,.right .hljs-function,.right .javascript .hljs-title,.right .perl .hljs-sub,.right .python .hljs-decorator,.right .python .hljs-title,.right .ruby .hljs-function .hljs-title,.right .ruby .hljs-title .hljs-keyword{color:#81a2be}.right .hljs-keyword,.right .javascript .hljs-function{color:#b294bb}.right .hljs{display:block;overflow-x:auto;background:#1d1f21;color:#c5c8c6;padding:.5em;-webkit-text-size-adjust:none}.right .coffeescript .javascript,.right .javascript .xml,.right .tex .hljs-formula,.right .xml .css,.right .xml .hljs-cdata,.right .xml .javascript,.right .xml .vbscript{opacity:.5}body{color:black;background:white;font:400 14px / 1.42 'Roboto',Helvetica,sans-serif}header{border-bottom:1px solid #f2f2f2;margin-bottom:12px}h1,h2,h3,h4,h5{color:black;margin:12px 0}h1 .permalink,h2 .permalink,h3 .permalink,h4 .permalink,h5 .permalink{margin-left:0;opacity:0;transition:opacity .25s ease}h1:hover .permalink,h2:hover .permalink,h3:hover .permalink,h4:hover .permalink,h5:hover .permalink{opacity:1}.triple h1 .permalink,.triple h2 .permalink,.triple h3 .permalink,.triple h4 .permalink,.triple h5 .permalink{opacity:.15}.triple h1:hover .permalink,.triple h2:hover .permalink,.triple h3:hover .permalink,.triple h4:hover .permalink,.triple h5:hover .permalink{opacity:.15}h1{font:200 36px 'Raleway',Helvetica,sans-serif;font-size:36px}h2{font:200 36px 'Raleway',Helvetica,sans-serif;font-size:30px}h3{font-size:100%;text-transform:uppercase}h5{font-size:100%;font-weight:normal}p{margin:0 0 10px}p.choices{line-height:1.6}a{color:#428bca;text-decoration:none}li p{margin:0}hr.split{border:0;height:1px;width:100%;padding-left:6px;margin:12px auto;background-image:linear-gradient(to right, rgba(0,0,0,0) 20%, rgba(0,0,0,0.2) 51.4%, rgba(255,255,255,0.2) 51.4%, rgba(255,255,255,0) 80%)}dl dt{float:left;width:130px;clear:left;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700}dl dd{margin-left:150px}blockquote{color:rgba(0,0,0,0.5);font-size:15.5px;padding:10px 20px;margin:12px 0;border-left:5px solid #e8e8e8}blockquote p:last-child{margin-bottom:0}pre{background-color:#f5f5f5;padding:12px;border:1px solid #cfcfcf;border-radius:6px;overflow:auto}pre code{color:black;background-color:transparent;padding:0;border:none}code{color:#444;background-color:#f5f5f5;font:'Inconsolata',monospace;padding:1px 4px;border:1px solid #cfcfcf;border-radius:3px}ul,ol{padding-left:2em}table{border-collapse:collapse;border-spacing:0;margin-bottom:12px}table tr:nth-child(2n){background-color:#fafafa}table th,table td{padding:6px 12px;border:1px solid #e6e6e6}.text-muted{opacity:.5}.note,.warning{padding:.3em 1em;margin:1em 0;border-radius:2px;font-size:90%}.note h1,.warning h1,.note h2,.warning h2,.note h3,.warning h3,.note h4,.warning h4,.note h5,.warning h5,.note h6,.warning h6{font-family:200 36px 'Raleway',Helvetica,sans-serif;font-size:135%;font-weight:500}.note p,.warning p{margin:.5em 0}.note{color:black;background-color:#f0f6fb;border-left:4px solid #428bca}.note h1,.note h2,.note h3,.note h4,.note h5,.note h6{color:#428bca}.warning{color:black;background-color:#fbf1f0;border-left:4px solid #c9302c}.warning h1,.warning h2,.warning h3,.warning h4,.warning h5,.warning h6{color:#c9302c}header{margin-top:24px}nav{position:fixed;top:24px;bottom:0;overflow-y:auto}nav .resource-group{padding:0}nav .resource-group .heading{position:relative}nav .resource-group .heading .chevron{position:absolute;top:12px;right:12px;opacity:.5}nav .resource-group .heading a{display:block;color:black;opacity:.7;border-left:2px solid transparent;margin:0}nav .resource-group .heading a:hover{text-decoration:none;background-color:bad-color;border-left:2px solid black}nav ul{list-style-type:none;padding-left:0}nav ul a{display:block;font-size:13px;color:rgba(0,0,0,0.7);padding:8px 12px;border-top:1px solid #d9d9d9;border-left:2px solid transparent;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}nav ul a:hover{text-decoration:none;background-color:bad-color;border-left:2px solid black}nav ul>li{margin:0}nav ul>li:first-child{margin-top:-12px}nav ul>li:last-child{margin-bottom:-12px}nav ul ul a{padding-left:24px}nav ul ul li{margin:0}nav ul ul li:first-child{margin-top:0}nav ul ul li:last-child{margin-bottom:0}nav>div>div>ul>li:first-child>a{border-top:none}.preload *{transition:none !important}.pull-left{float:left}.pull-right{float:right}.badge{display:inline-block;float:right;min-width:10px;min-height:14px;padding:3px 7px;font-size:12px;color:#000;background-color:#f2f2f2;border-radius:10px;margin:-2px 0}.badge.get{color:#70bbe1;background-color:#d9edf7}.badge.head{color:#70bbe1;background-color:#d9edf7}.badge.options{color:#70bbe1;background-color:#d9edf7}.badge.put{color:#f0db70;background-color:#fcf8e3}.badge.patch{color:#f0db70;background-color:#fcf8e3}.badge.post{color:#93cd7c;background-color:#dff0d8}.badge.delete{color:#ce8383;background-color:#f2dede}.collapse-button{float:right}.collapse-button .close{display:none;color:#428bca;cursor:pointer}.collapse-button .open{color:#428bca;cursor:pointer}.collapse-button.show .close{display:inline}.collapse-button.show .open{display:none}.collapse-content{max-height:0;overflow:hidden;transition:max-height .3s ease-in-out}nav{width:220px}.container{max-width:940px;margin-left:auto;margin-right:auto}.container .row .content{margin-left:244px;width:696px}.container .row:after{content:'';display:block;clear:both}.container-fluid nav{width:22%}.container-fluid .row .content{margin-left:24%}.container-fluid.triple nav{width:16.5%;padding-right:1px}.container-fluid.triple .row .content{position:relative;margin-left:16.5%;padding-left:24px}.middle:before,.middle:after{content:'';display:table}.middle:after{clear:both}.middle{box-sizing:border-box;width:51.5%;padding-right:12px}.right{box-sizing:border-box;float:right;width:48.5%;padding-left:12px}.right a{color:#428bca}.right h1,.right h2,.right h3,.right h4,.right h5,.right p,.right div{color:white}.right pre{background-color:#1d1f21;border:1px solid #1d1f21}.right pre code{color:#c5c8c6}.right .description{margin-top:12px}.triple .resource-heading{font-size:125%}.definition{margin-top:12px;margin-bottom:12px}.definition .method{font-weight:bold}.definition .method.get{color:#2e8ab8}.definition .method.head{color:#2e8ab8}.definition .method.options{color:#2e8ab8}.definition .method.post{color:#56b82e}.definition .method.put{color:#b8a22e}.definition .method.patch{color:#b8a22e}.definition .method.delete{color:#b82e2e}.definition .uri{word-break:break-all;word-wrap:break-word}.definition .hostname{opacity:.5}.example-names{background-color:#eee;padding:12px;border-radius:6px}.example-names .tab-button{cursor:pointer;color:black;border:1px solid #ddd;padding:6px;margin-left:12px}.example-names .tab-button.active{background-color:#d5d5d5}.right .example-names{background-color:#444}.right .example-names .tab-button{color:white;border:1px solid #666;border-radius:6px}.right .example-names .tab-button.active{background-color:#5e5e5e}#nav-background{position:fixed;left:0;top:0;bottom:0;width:16.5%;padding-right:14.4px;background-color:#fbfbfb;border-right:1px solid #f0f0f0;z-index:-1}#right-panel-background{position:absolute;right:-12px;top:-12px;bottom:-12px;width:48.6%;background-color:#333;z-index:-1}@media (max-width:1200px){nav{width:198px}.container{max-width:840px}.container .row .content{margin-left:224px;width:606px}}@media (max-width:992px){nav{width:169.4px}.container{max-width:720px}.container .row .content{margin-left:194px;width:526px}}@media (max-width:768px){nav{display:none}.container{width:95%;max-width:none}.container .row .content,.container-fluid .row .content,.container-fluid.triple .row .content{margin-left:auto;margin-right:auto;width:95%}#nav-background{display:none}#right-panel-background{width:48.6%}}.back-to-top{position:fixed;z-index:1;bottom:0;right:24px;padding:4px 8px;color:rgba(0,0,0,0.5);background-color:#f2f2f2;text-decoration:none !important;border-top:1px solid #d9d9d9;border-left:1px solid #d9d9d9;border-right:1px solid #d9d9d9;border-top-left-radius:3px;border-top-right-radius:3px}.resource-group{padding:12px;margin-bottom:12px;background-color:white;border:1px solid #d9d9d9;border-radius:6px}.resource-group h2.group-heading,.resource-group .heading a{padding:12px;margin:-12px -12px 12px -12px;background-color:#f2f2f2;border-bottom:1px solid #d9d9d9;border-top-left-radius:6px;border-top-right-radius:6px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.triple .content .resource-group{padding:0;border:none}.triple .content .resource-group h2.group-heading,.triple .content .resource-group .heading a{margin:0 0 12px 0;border:1px solid #d9d9d9}nav .resource-group .heading a{padding:12px;margin-bottom:0}nav .resource-group .collapse-content{padding:0}.action{margin-bottom:12px;padding:12px 12px 0 12px;overflow:hidden;border:1px solid transparent;border-radius:6px}.action h4.action-heading{padding:6px 12px;margin:-12px -12px 12px -12px;border-bottom:1px solid transparent;border-top-left-radius:6px;border-top-right-radius:6px;overflow:hidden}.action h4.action-heading .name{float:right;font-weight:normal;padding:6px 0}.action h4.action-heading .method{padding:6px 12px;margin-right:12px;border-radius:3px;display:inline-block}.action h4.action-heading .method.get{color:#fff;background-color:#337ab7}.action h4.action-heading .method.head{color:#fff;background-color:#337ab7}.action h4.action-heading .method.options{color:#fff;background-color:#337ab7}.action h4.action-heading .method.put{color:#fff;background-color:#ed9c28}.action h4.action-heading .method.patch{color:#fff;background-color:#ed9c28}.action h4.action-heading .method.post{color:#fff;background-color:#5cb85c}.action h4.action-heading .method.delete{color:#fff;background-color:#d9534f}.action h4.action-heading code{color:#444;background-color:#f5f5f5;border-color:#cfcfcf;font-weight:normal;word-break:break-all;display:inline-block;margin-top:2px}.action dl.inner{padding-bottom:2px}.action .title{border-bottom:1px solid white;margin:0 -12px -1px -12px;padding:12px}.action.get{border-color:#bce8f1}.action.get h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.head{border-color:#bce8f1}.action.head h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.options{border-color:#bce8f1}.action.options h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.post{border-color:#d6e9c6}.action.post h4.action-heading{color:#5cb85c;background:#dff0d8;border-bottom-color:#d6e9c6}.action.put{border-color:#faebcc}.action.put h4.action-heading{color:#ed9c28;background:#fcf8e3;border-bottom-color:#faebcc}.action.patch{border-color:#faebcc}.action.patch h4.action-heading{color:#ed9c28;background:#fcf8e3;border-bottom-color:#faebcc}.action.delete{border-color:#ebccd1}.action.delete h4.action-heading{color:#d9534f;background:#f2dede;border-bottom-color:#ebccd1}</style></head><body class="preload"><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container-fluid"><div class="row"><nav><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#top">Overview</a></div><div class="collapse-content"><ul><li><a href="#header-about">About</a></li><li><a href="#header-official-public-api">Official public API</a></li><li><a href="#header-version">Version</a></li><li><a href="#header-date-and-time-formats">Date and time formats</a></li><li><a href="#header-license">License</a></li><li><a href="#header-donate">Donate</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#authentication">Authentication</a></div><div class="collapse-content"><ul><li><a href="#authentication-authenticate-post"><span class="badge post"><i class="fa fa-plus"></i></span>Authenticate</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#authorization">Authorization</a></div><div class="collapse-content"><ul><li><a href="#authorization-authorize-post"><span class="badge post"><i class="fa fa-plus"></i></span>Authorize</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#submissions">Submissions</a></div><div class="collapse-content"><ul><li><a href="#submissions-submission">Submission</a><ul><li><a href="#submissions-submission-post"><span class="badge post"><i class="fa fa-plus"></i></span>Create a Submission</a></li><li><a href="#submissions-submission-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Get a Submission</a></li><li><a href="#submissions-submission-get-1"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Get Submissions</a></li><li><a href="#submissions-submission-delete"><span class="badge delete"><i class="fa fa-times"></i></span>Delete a Submission</a></li></ul></li><li><a href="#submissions-submission-batch">Submission Batch</a><ul><li><a href="#submissions-submission-batch-post"><span class="badge post"><i class="fa fa-plus"></i></span>Create a Submission Batch</a></li><li><a href="#submissions-submission-batch-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Get a Submission Batch</a></li></ul></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#statuses-and-languages">Statuses and Languages</a></div><div class="collapse-content"><ul><li><a href="#statuses-and-languages-language">Language</a><ul><li><a href="#statuses-and-languages-language-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Get Languages</a></li><li><a href="#statuses-and-languages-language-get-1"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Get a Language</a></li></ul></li><li><a href="#statuses-and-languages-active-and-archived-languages-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Get Active and Archived Languages</a></li><li><a href="#statuses-and-languages-status-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Get Statuses</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#system-and-configuration">System and Configuration</a></div><div class="collapse-content"><ul><li><a href="#system-and-configuration-system-info-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>System Info</a></li><li><a href="#system-and-configuration-configuration-info-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Configuration Info</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#statistics">Statistics</a></div><div class="collapse-content"><ul><li><a href="#statistics-statistics-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Statistics</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#health-check">Health Check</a></div><div class="collapse-content"><ul><li><a href="#health-check-workers-health-check-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Workers Health Check</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#information">Information</a></div><div class="collapse-content"><ul><li><a href="#information-about-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>About</a></li><li><a href="#information-version-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Version</a></li><li><a href="#information-isolate-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Isolate</a></li><li><a href="#information-license-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>License</a></li></ul></div></div><p style="text-align: center; word-wrap: break-word;"><a href="https://api.judge0.com">https://api.judge0.com</a></p></nav><div class="content"><header><h1 id="top">Judge0 API</h1></header><script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function(event) {
     var hostnames = document.body.getElementsByClassName("hostname");
     for (var i = 0; i < hostnames.length; i++) {
@@ -22,34 +22,41 @@
     });
 </script>
 <h2 id="header-about">About <a class="permalink" href="#header-about" aria-hidden="true">¶</a></h2>
-<p><a href="https://judge0.com">Judge0</a> is a non-profit organization that creates free and open-source tools and services for executing and grading untrusted source code.</p>
-<p><a href="https://api.judge0.com">Judge0 API</a> is a robust and scalable open-source (source code available on <a href="https://github.com/judge0/api">GitHub</a>) online code execution system made by Judge0.</p>
-<p>Judge0 API can help you build wide range of applications varying from competitive programming platforms,
-educational and recruitment platforms, to online code editors and more.</p>
-<p>To see Judge0 API in action, try <a href="https://ide.judge0.com">Judge0 IDE</a> - free and open-source code editor that uses Judge0 API for executing the user’s source code. You can also try using a <a href="/dummy-client.html">dummy client</a>, which can help you explore and test almost all the features of Judge0 API.</p>
+<p><a href="https://judge0.com">Judge0</a> is a <strong>non-profit organization</strong> that creates free and <a href="https://github.com/judge0">open-source</a> tools and services for executing and grading untrusted source code.</p>
+<p><a href="https://api.judge0.com">Judge0 API</a> is a free, robust, and scalable <a href="https://github.com/judge0/api">open-source</a> online code execution system. It can be used to build a wide range of applications varying from competitive programming platforms, educational and recruitment platforms, to online code editors, and more.</p>
+<p>To see Judge0 API in action, try <a href="https://ide.judge0.com">Judge0 IDE</a> - a free and <a href="https://github.com/judge0/ide">open-source</a> online code editor that uses Judge0 API for executing the user’s source code. You can also try using a <a href="/dummy-client.html">dummy client</a> which can help you explore and test most of the features of the Judge0 API.</p>
 <h2 id="header-official-public-api">Official public API <a class="permalink" href="#header-official-public-api" aria-hidden="true">¶</a></h2>
-<p>Official public API is available at <a href="https://api.judge0.com">https://api.judge0.com</a> and is maintained by Judge0 <a href="https://github.com/hermanzdosilovic">creator</a>.</p>
+<p>Official public API is freely available at <a href="https://api.judge0.com">https://api.judge0.com</a> and is maintained by the Judge0 <a href="https://github.com/hermanzdosilovic">creator</a>.</p>
 <p>Status page of all public Judge0 services is available at <a href="https://status.judge0.com">https://status.judge0.com</a>.</p>
 <div class="note">
 <p><h4>Note</h4></p>
 <ul>
 <li>
-<p>You <strong>do not</strong> need an authentication token (a.k.a. API key) for official public API.</p>
+<p>You <strong>do not</strong> need an <a href="#authentication">authentication token</a> (a.k.a. API key) for the official public API.</p>
+</li>
+<li>
+<p>You <strong>do not</strong> need an <a href="#authorization">authorization token</a> for the official public API.</p>
 </li>
 <li>
 <p>Official public API will always be at the latest available version.</p>
 </li>
 </ul>
 </div>
+<div class="warning">
+<p><h4>Warning</h4></p>
+<p>We <strong>do not</strong> guarantee 100% uptime of the official public API.</p>
+<p>Since the official public API is freely available, it is used by many users simultaneously, and it should only be used for small projects and testing purposes. Thus, it <strong>is not</strong> intended for use in a production environment.</p>
+<p>For the production use, consider <a href="https://github.com/judge0/api#installation">deploying your own instance</a> of the Judge0 API.</p>
+</div>
 <h2 id="header-version">Version <a class="permalink" href="#header-version" aria-hidden="true">¶</a></h2>
-<p>This document describes Judge0 API version <a href="https://github.com/judge0/api/tree/v1.5.0"><code>v1.5.0</code></a>.</p>
+<p>This document describes Judge0 API <a href="https://github.com/judge0/api/tree/v1.6.0">v1.6.0</a>.</p>
 <h2 id="header-date-and-time-formats">Date and time formats <a class="permalink" href="#header-date-and-time-formats" aria-hidden="true">¶</a></h2>
 <p><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> standard is used.</p>
 <p>Example: <code>2016-09-11T10:19:35Z</code></p>
 <h2 id="header-license">License <a class="permalink" href="#header-license" aria-hidden="true">¶</a></h2>
 <p>Judge0 API is licensed under the <a href="https://github.com/judge0/api/blob/master/LICENSE">GNU General Public License v3.0</a>.</p>
 <h2 id="header-donate">Donate <a class="permalink" href="#header-donate" aria-hidden="true">¶</a></h2>
-<p>Your are more than welcome to support Judge0 on <a href="https://www.patreon.com/hermanzdosilovic">Patreon</a> or via <a href="https://www.paypal.me/hermanzdosilovic">PayPal</a>. Your monthly or one-time donation will help pay server costs and will improve future development and maintenance. Thank you ♥</p>
+<p>Your are more than welcome to support Judge0 on <a href="https://www.patreon.com/hermanzdosilovic">Patreon</a>, via <a href="https://paypal.me/hermanzdosilovic">PayPal</a> or <a href="https://pay.revolut.com/profile/hermancy5">Revolut</a>. Your monthly or one-time donation will help cover server costs and will support development and maintenance. Thank you! ♥</p>
 <br><section id="authentication" class="resource-group"><h2 class="group-heading">Authentication <a href="#authentication" class="permalink">&para;</a></h2><p>Administrators of Judge0 API can configure Judge0 API to require you to have an authentication token (a.k.a. API key).
 If that is the case with the instance of Judge0 API you are using, then you
 should provide <code>X-Auth-Token</code> header field in <strong>every</strong> API request.</p>
@@ -83,6 +90,12 @@ If authentication is disabled you do not need an authentication token.</p>
 </div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>401</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Authentication failed because your authentication token is invalid.</p>
 </div></div></div></div></div></section><section id="authorization" class="resource-group"><h2 class="group-heading">Authorization <a href="#authorization" class="permalink">&para;</a></h2><p>To issue some API calls you need to be authorized. For example, you need to be authorized to
 <a href="#submissions-submission-get-1">list all submissions</a> on Judge0 API.</p>
+<div class="note">
+<p><h4>Note</h4></p>
+<ul>
+<li>For <a href="#header-official-public-api">official public API</a> you <strong>do not</strong> need an authorization token.</li>
+</ul>
+</div>
 <div id="authorization-authorize" class="resource"><h3 class="resource-heading">Authorize <a href="#authorization-authorize" class="permalink">&nbsp;&para;</a></h3><div id="authorization-authorize-post" class="action post"><h4 class="action-heading"><div class="name">Authorize</div><a href="#authorization-authorize-post" class="method post">POST</a><code class="uri">/authorize</code></h4><p>With this API call you can check if your authorization token is valid. If authentication is enabled you should also
 authenticate in this API call.</p>
 <div class="note">
@@ -106,11 +119,12 @@ can change this default field name.</p>
 <h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/authorize</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">X-Auth-User</span>: <span class="hljs-string">a1133bc6-a0f6-46bf-a2d8-6157418c6fe2</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>If your authorization token is valid.</p>
 </div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>401</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Authentication failed. Please read about <a href="#authentication">authentication</a> process.</p>
 </div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>403</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Authorization failed because your authorization token is invalid.</p>
-</div></div></div></div></div></section><section id="submissions" class="resource-group"><h2 class="group-heading">Submissions <a href="#submissions" class="permalink">&para;</a></h2><div id="submissions-submission" class="resource"><h3 class="resource-heading">Submission <a href="#submissions-submission" class="permalink">&nbsp;&para;</a></h3><p>Submission represents a model for running source code in specific programming language under
-certain runtime constraints.</p>
-<p>Submission model has <strong>29</strong> attributes. Attributes <strong>1</strong>-<strong>16</strong> (listed below) are used when creating new submissions - you can set them. Out of those 16 attributes only <strong>2</strong> are required - <code>source_code</code> and <code>language_id</code>. Attributes <strong>17</strong>-<strong>29</strong> represent detailed information about runtime of submission after it’s execution.</p>
-<p>With attributes <strong>7</strong>-<strong>16</strong> you can configure submission runtime constraints. Those attributes are called <em>configuration attributes</em> or <em>configuration variables</em>. Please read more about them in <a href="#system-and-configuration-configuration-info">configuration</a> section.</p>
-<p>Submission model has following attributes:</p>
+</div></div></div></div></div></section><section id="submissions" class="resource-group"><h2 class="group-heading">Submissions <a href="#submissions" class="permalink">&para;</a></h2><div id="submissions-submission" class="resource"><h3 class="resource-heading">Submission <a href="#submissions-submission" class="permalink">&nbsp;&para;</a></h3><p>Submission is used for running arbitrary source code in one of
+the <a href="#statuses-and-languages-language-get">available programming languages</a> with specified runtime constraints.</p>
+<p>Submission has 32 attributes. Attributes 1-19 are used for creating a new submissions, whereas
+attributes 20-32 give detailed information of submission after it’s execution.</p>
+<p>Attributes 7-17 are called <a href="#system-and-configuration-configuration-info"><em>configuration variables</em></a>
+and can be used to configure submission runtime constraints such as time and memory limits.</p>
 <table>
 <thead>
 <tr>
@@ -142,7 +156,7 @@ certain runtime constraints.</p>
 <tr>
 <td style="text-align:center">3</td>
 <td style="text-align:left"><code>compiler_options</code></td>
-<td style="text-align:center">string (max. 128 chars)</td>
+<td style="text-align:center">string (max. 512 chars)</td>
 <td style="text-align:center"></td>
 <td style="text-align:left">Options for the compiler (i.e. compiler flags).</td>
 <td style="text-align:left"><code>null</code></td>
@@ -150,7 +164,7 @@ certain runtime constraints.</p>
 <tr>
 <td style="text-align:center">4</td>
 <td style="text-align:left"><code>command_line_arguments</code></td>
-<td style="text-align:center">string (max. 128 chars)</td>
+<td style="text-align:center">string (max. 512 chars)</td>
 <td style="text-align:center"></td>
 <td style="text-align:left">Command line arguments for the program.</td>
 <td style="text-align:left"><code>null</code></td>
@@ -245,6 +259,14 @@ certain runtime constraints.</p>
 </tr>
 <tr>
 <td style="text-align:center">16</td>
+<td style="text-align:left"><code>redirect_stderr_to_stdout</code></td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">If <code>true</code> standard error will be redirected to standard output.</td>
+<td style="text-align:left">Depends on <a href="#system-and-configuration-configuration-info">configuration</a>.</td>
+</tr>
+<tr>
+<td style="text-align:center">17</td>
 <td style="text-align:left"><code>number_of_runs</code></td>
 <td style="text-align:center">integer</td>
 <td style="text-align:center"></td>
@@ -252,7 +274,23 @@ certain runtime constraints.</p>
 <td style="text-align:left">Depends on <a href="#system-and-configuration-configuration-info">configuration</a>.</td>
 </tr>
 <tr>
-<td style="text-align:center">17</td>
+<td style="text-align:center">18</td>
+<td style="text-align:left"><code>additional_files</code></td>
+<td style="text-align:center">Base64 Encoded String</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">Additional files that should be available alongside the source code. Value of this string should represent the content of a <code>.zip</code> that contains additional files.</td>
+<td style="text-align:left"><code>null</code></td>
+</tr>
+<tr>
+<td style="text-align:center">19</td>
+<td style="text-align:left"><code>callback_url</code></td>
+<td style="text-align:center">string</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">URL on which Judge0 API will issue <code>PUT</code> request with the submission in a request body after submission has been done.</td>
+<td style="text-align:left"><code>null</code></td>
+</tr>
+<tr>
+<td style="text-align:center">20</td>
 <td style="text-align:left"><code>stdout</code></td>
 <td style="text-align:center">text</td>
 <td style="text-align:center"></td>
@@ -260,7 +298,7 @@ certain runtime constraints.</p>
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:center">18</td>
+<td style="text-align:center">21</td>
 <td style="text-align:left"><code>stderr</code></td>
 <td style="text-align:center">text</td>
 <td style="text-align:center"></td>
@@ -268,7 +306,7 @@ certain runtime constraints.</p>
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:center">19</td>
+<td style="text-align:center">22</td>
 <td style="text-align:left"><code>compile_output</code></td>
 <td style="text-align:center">text</td>
 <td style="text-align:center"></td>
@@ -276,15 +314,15 @@ certain runtime constraints.</p>
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:center">20</td>
+<td style="text-align:center">23</td>
 <td style="text-align:left"><code>message</code></td>
 <td style="text-align:center">text</td>
 <td style="text-align:center"></td>
-<td style="text-align:left">If submission status is <code>Internal Error</code> then this message comes from Judge0 API itself, otherwise this is status message from Isolate.</td>
+<td style="text-align:left">If submission status is <code>Internal Error</code> then this message comes from the Judge0 API itself, otherwise this is status message from <a href="https://github.com/ioi/isolate">isolate</a>.</td>
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:center">21</td>
+<td style="text-align:center">24</td>
 <td style="text-align:left"><code>exit_code</code></td>
 <td style="text-align:center">integer</td>
 <td style="text-align:center"></td>
@@ -292,7 +330,7 @@ certain runtime constraints.</p>
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:center">22</td>
+<td style="text-align:center">25</td>
 <td style="text-align:left"><code>exit_signal</code></td>
 <td style="text-align:center">integer</td>
 <td style="text-align:center"></td>
@@ -300,7 +338,7 @@ certain runtime constraints.</p>
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:center">23</td>
+<td style="text-align:center">26</td>
 <td style="text-align:left"><code>status</code></td>
 <td style="text-align:center">object</td>
 <td style="text-align:center"></td>
@@ -308,7 +346,7 @@ certain runtime constraints.</p>
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:center">24</td>
+<td style="text-align:center">27</td>
 <td style="text-align:left"><code>created_at</code></td>
 <td style="text-align:center">datetime</td>
 <td style="text-align:center"></td>
@@ -316,7 +354,7 @@ certain runtime constraints.</p>
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:center">25</td>
+<td style="text-align:center">28</td>
 <td style="text-align:left"><code>finished_at</code></td>
 <td style="text-align:center">datetime</td>
 <td style="text-align:center"></td>
@@ -324,23 +362,23 @@ certain runtime constraints.</p>
 <td style="text-align:left"><code>null</code> if submission is still in queue or if submission is processing.</td>
 </tr>
 <tr>
-<td style="text-align:center">26</td>
+<td style="text-align:center">29</td>
 <td style="text-align:left"><code>token</code></td>
 <td style="text-align:center">string</td>
 <td style="text-align:center"></td>
-<td style="text-align:left">Unique submission token used for <a href="#submission-submission-get">getting specific submission</a>.</td>
+<td style="text-align:left">Unique submission token which can be used to <a href="#submissions-submission-get">get a specific submission</a>.</td>
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:center">27</td>
+<td style="text-align:center">30</td>
 <td style="text-align:left"><code>time</code></td>
 <td style="text-align:center">float</td>
 <td style="text-align:center">second</td>
-<td style="text-align:left">Program’s runtime.</td>
+<td style="text-align:left">Program’s run time.</td>
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:center">28</td>
+<td style="text-align:center">31</td>
 <td style="text-align:left"><code>wall_time</code></td>
 <td style="text-align:center">float</td>
 <td style="text-align:center">second</td>
@@ -348,7 +386,7 @@ certain runtime constraints.</p>
 <td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:center">29</td>
+<td style="text-align:center">32</td>
 <td style="text-align:left"><code>memory</code></td>
 <td style="text-align:center">float</td>
 <td style="text-align:center">kilobyte</td>
@@ -358,19 +396,21 @@ certain runtime constraints.</p>
 </tbody>
 </table>
 <div id="submissions-submission-post" class="action post"><h4 class="action-heading"><div class="name">Create a Submission</div><a href="#submissions-submission-post" class="method post">POST</a><code class="uri">/submissions/{?base64_encoded,wait}</code></h4><p>Creates new submission. Created submission waits in queue to be processed. On successful
-creation, you are returned submission token which can be used to check submission status.</p>
+creation, you are returned submission token which can be used to <a href="#submissions-submission-get">check submission status</a>.</p>
 <p>If submission’s <code>source_code</code>, <code>stdin</code> or <code>expected_output</code> contains non printable characters, or
 characters which cannot be sent with JSON, then set <code>base64_encoded</code> parameter to <code>true</code> and
 send these attributes Base64 encoded. Your responsibility is to encode each of mentioned attributes
 (<code>source_code</code>, <code>stdin</code> and <code>expected_output</code>) even if just one of them contains non printable
 characters. By default, this parameter is set to <code>false</code> and Judge0 API assumes you are sending plain text data.</p>
-<p>By default you are returned submission token on successful submission creation. With this token
-you can <a href="#submission-submission-get">check submission status</a>.
-Instead of checking submission status by making another request, send <code>wait</code> query parameter and set it to <code>true</code>
-which will enable you to get submission status immediately as part of response to the request you made.
-Please note that this feature may or may not be
-enabled on all Judge0 API hosts. So before using this feature please check <a href="#system-and-configuration-configuration-info-get">configuration</a>
-of Judge0 API you are using. On an <a href="https://api.judge0.com">official Judge0 API</a> this feature <strong>is enabled</strong>.</p>
+<p>By default you are returned submission token on successful submission creation. With this token you can <a href="#submission-submission-get">check submission status</a>.
+Instead of checking submission status by making another request, you can set the <code>wait</code> query parameter to <code>true</code> which will enable you to get submission status immediately as part of response to the request you made.
+Please note that this feature may or may not be enabled on all Judge0 API hosts. So before using this feature please check <a href="#system-and-configuration-configuration-info-get">configuration</a> of Judge0 API you are using. On an <a href="https://api.judge0.com">official Judge0 API</a> this feature <strong>is not</strong> enabled.</p>
+<div class="note">
+<p><h4>Note</h4></p>
+<ul>
+<li>We <strong>do not</strong> recommend the use of <code>wait=true</code> feature because it does not scale well.</li>
+</ul>
+</div>
 <h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/submissions/?<span class="hljs-attribute">base64_encoded=</span><span class="hljs-literal">false</span>&<span class="hljs-attribute">wait=</span><span class="hljs-literal">false</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>base64_encoded</dt><dd><code>boolean</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-info default"><strong>Default:&nbsp;</strong><span>false</span></span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>false</span></span><p>Set to <code>true</code> if you want to send Base64 encoded data to Judge0 API.</p>
 </dd><dt>wait</dt><dd><code>boolean</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-info default"><strong>Default:&nbsp;</strong><span>false</span></span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>false</span></span><p>Set to <code>true</code> to immediately get submission result.</p>
 </dd></dl></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
@@ -453,12 +493,8 @@ set to <code>true</code>.</p>
   "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-string">"queue is full"</span>
 </span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>401</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Authentication failed. Please read about <a href="#authentication">authentication</a> process.</p>
 </div></div></div></div><div id="submissions-submission-get" class="action get"><h4 class="action-heading"><div class="name">Get a Submission</div><a href="#submissions-submission-get" class="method get">GET</a><code class="uri">/submissions/{token}{?base64_encoded,fields}</code></h4><p>Returns details about submission.</p>
-<p>Just like in <a href="/#submission-submission-post">create submission</a> you can receive Base64 encoded data for every
-text type attribute (check the <a href="#submission-submission">table</a> to see which attributes are text type).
-By default, this parameter is set to <code>false</code> and Judge0 API will send you raw data.</p>
-<p>By default Judge0 API is sending you 8 attributes for submission. As you may read in <a href="#submission-submission">Submission</a>
-section, submission model has 29 attributes. By sending <code>fields</code> query parameter you can specify exactly which attributes
-you want from Judge0 API.</p>
+<p>Just like in <a href="/#submission-submission-post">create submission</a> you can receive Base64 encoded data for every text type attribute (check the <a href="#submission-submission">table</a> to see which attributes are text type). By default, this parameter is set to <code>false</code> and Judge0 API will send you raw data.</p>
+<p>By default Judge0 API is sending 8 attributes for submission. By sending <code>fields</code> query parameter you can specify exactly which attributes you want from Judge0 API. Special value <code>*</code> will return all available attributes.</p>
 <h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/submissions/<span class="hljs-attribute" title="token">d85cd024-1548-4165-96c7-7bc88673f194</span>?<span class="hljs-attribute">base64_encoded=</span><span class="hljs-literal">false</span>&<span class="hljs-attribute">fields=</span><span class="hljs-literal">stdout,stderr,status_id,language_id</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>token</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>d85cd024-1548-4165-96c7-7bc88673f194</span></span><p>Token of submission. You got this token when you created submission.</p>
 </dd><dt>base64_encoded</dt><dd><code>boolean</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>false</span></span><p>Set to <code>true</code> if you want to receive Base64 encoded data from Judge0 API.</p>
 </dd><dt>fields</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-info default"><strong>Default:&nbsp;</strong><span>stdout,time,memory,stderr,token,compile_output,message,status</span></span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>stdout,stderr,status_id,language_id</span></span><p>Return only the desired attributes.</p>
@@ -480,8 +516,7 @@ you want from Judge0 API.</p>
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
     "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Accepted"</span>
   </span>}
-</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Recieving Base64 encoded data for text type attributes. Note that in this request <code>base64_encoded</code> query parameter <strong>must</strong> be
-set to <code>true</code>.</p>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Recieving Base64 encoded data for text type attributes. Note that in this reques <code>base64_encoded</code> query parameter <strong>must</strong> be set to <code>true</code>.</p>
 </div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">stdout</span>": <span class="hljs-value"><span class="hljs-string">"aGVsbG8sIEp1ZGdlMAo=\n"</span></span>,
   "<span class="hljs-attribute">time</span>": <span class="hljs-value"><span class="hljs-string">"0.002"</span></span>,
@@ -605,7 +640,91 @@ This guarantees you will successfully get requested submission attributes after 
   "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-string">"submission cannot be deleted because its status is 1 (In Queue)"</span>
 </span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>401</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Authentication failed. Please read about <a href="#authentication">authentication</a> process.</p>
 </div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>403</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Authorization failed. Please read about <a href="#authorization">authorization</a> process.</p>
-</div></div></div></div></div></section><section id="statuses-and-languages" class="resource-group"><h2 class="group-heading">Statuses and Languages <a href="#statuses-and-languages" class="permalink">&para;</a></h2><div id="statuses-and-languages-language" class="resource"><h3 class="resource-heading">Language <a href="#statuses-and-languages-language" class="permalink">&nbsp;&para;</a></h3><div id="statuses-and-languages-language-get" class="action get"><h4 class="action-heading"><div class="name">Get Languages</div><a href="#statuses-and-languages-language-get" class="method get">GET</a><code class="uri">/languages/</code></h4><p>Get active languages.</p>
+</div></div></div></div></div><div id="submissions-submission-batch" class="resource"><h3 class="resource-heading">Submission Batch <a href="#submissions-submission-batch" class="permalink">&nbsp;&para;</a></h3><div id="submissions-submission-batch-post" class="action post"><h4 class="action-heading"><div class="name">Create a Submission Batch</div><a href="#submissions-submission-batch-post" class="method post">POST</a><code class="uri">/submissions/batch{?base64_encoded}</code></h4><p>Create multiple submissions at once.</p>
+<h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/submissions/batch?<span class="hljs-attribute">base64_encoded=</span><span class="hljs-literal">false</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>base64_encoded</dt><dd><code>boolean</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-info default"><strong>Default:&nbsp;</strong><span>false</span></span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>false</span></span><p>Set to <code>true</code> if you are sending Base64 encoded data.</p>
+</dd></dl></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">submissions</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">language_id</span>": <span class="hljs-value"><span class="hljs-number">46</span></span>,
+      "<span class="hljs-attribute">source_code</span>": <span class="hljs-value"><span class="hljs-string">"echo hello from Bash"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">language_id</span>": <span class="hljs-value"><span class="hljs-number">71</span></span>,
+      "<span class="hljs-attribute">source_code</span>": <span class="hljs-value"><span class="hljs-string">"print(\"hello from Python\")"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">language_id</span>": <span class="hljs-value"><span class="hljs-number">72</span></span>,
+      "<span class="hljs-attribute">source_code</span>": <span class="hljs-value"><span class="hljs-string">"puts(\"hello from Ruby\")"</span>
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>201</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>[
+  {
+    "<span class="hljs-attribute">token</span>": <span class="hljs-value"><span class="hljs-string">"db54881d-bcf5-4c7b-a2e3-d33fe7e25de7"</span>
+  </span>},
+  {
+    "<span class="hljs-attribute">token</span>": <span class="hljs-value"><span class="hljs-string">"ecc52a9b-ea80-4a00-ad50-4ab6cc3bb2a1"</span>
+  </span>},
+  {
+    "<span class="hljs-attribute">token</span>": <span class="hljs-value"><span class="hljs-string">"1b35ec3b-5776-48ef-b646-d5522bdeb2cc"</span>
+  </span>}
+]</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">submissions</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">language_id</span>": <span class="hljs-value"><span class="hljs-number">46</span></span>,
+      "<span class="hljs-attribute">source_code</span>": <span class="hljs-value"><span class="hljs-string">"echo hello from Bash"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">language_id</span>": <span class="hljs-value"><span class="hljs-number">123456789</span></span>,
+      "<span class="hljs-attribute">source_code</span>": <span class="hljs-value"><span class="hljs-string">"print(\"hello from Python\")"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">language_id</span>": <span class="hljs-value"><span class="hljs-number">72</span></span>,
+      "<span class="hljs-attribute">source_code</span>": <span class="hljs-value"><span class="hljs-string">""</span>
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>201</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>[
+  {
+    "<span class="hljs-attribute">token</span>": <span class="hljs-value"><span class="hljs-string">"c2dd8881-644b-462d-b1f9-73dd3bb0118a"</span>
+  </span>},
+  {
+    "<span class="hljs-attribute">language_id</span>": <span class="hljs-value">[
+      <span class="hljs-string">"language with id 123456789 doesn't exist"</span>
+    ]
+  </span>},
+  {
+    "<span class="hljs-attribute">source_code</span>": <span class="hljs-value">[
+      <span class="hljs-string">"can't be blank"</span>
+    ]
+  </span>}
+]</code></pre><div style="height: 1px;"></div></div></div></div><div id="submissions-submission-batch-get" class="action get"><h4 class="action-heading"><div class="name">Get a Submission Batch</div><a href="#submissions-submission-batch-get" class="method get">GET</a><code class="uri">/submissions/batch{?tokens,base64_encoded,fields}</code></h4><p>Get multiple submissions at once.</p>
+<h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/submissions/batch?<span class="hljs-attribute">tokens=</span><span class="hljs-literal">db54881d-bcf5-4c7b-a2e3-d33fe7e25de7,ecc52a9b-ea80-4a00-ad50-4ab6cc3bb2a1,1b35ec3b-5776-48ef-b646-d5522bdeb2cc</span>&<span class="hljs-attribute">base64_encoded=</span><span class="hljs-literal">false</span>&<span class="hljs-attribute">fields=</span><span class="hljs-literal">token,stdout,stderr,status_id,language_id</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>tokens</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>db54881d-bcf5-4c7b-a2e3-d33fe7e25de7,ecc52a9b-ea80-4a00-ad50-4ab6cc3bb2a1,1b35ec3b-5776-48ef-b646-d5522bdeb2cc</span></span><p>Submission tokens separeted with <code>,</code>.</p>
+</dd><dt>base64_encoded</dt><dd><code>boolean</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-info default"><strong>Default:&nbsp;</strong><span>false</span></span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>false</span></span><p>Set to <code>true</code> if you want to receive Base64 encoded data.</p>
+</dd><dt>fields</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-info default"><strong>Default:&nbsp;</strong><span>stdout,time,memory,stderr,token,compile_output,message,status</span></span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>token,stdout,stderr,status_id,language_id</span></span><p>Return only the desired attributes.</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">submissions</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">language_id</span>": <span class="hljs-value"><span class="hljs-number">46</span></span>,
+      "<span class="hljs-attribute">stdout</span>": <span class="hljs-value"><span class="hljs-string">"hello from Bash\n"</span></span>,
+      "<span class="hljs-attribute">status_id</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
+      "<span class="hljs-attribute">stderr</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+      "<span class="hljs-attribute">token</span>": <span class="hljs-value"><span class="hljs-string">"db54881d-bcf5-4c7b-a2e3-d33fe7e25de7"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">language_id</span>": <span class="hljs-value"><span class="hljs-number">71</span></span>,
+      "<span class="hljs-attribute">stdout</span>": <span class="hljs-value"><span class="hljs-string">"hello from Python\n"</span></span>,
+      "<span class="hljs-attribute">status_id</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
+      "<span class="hljs-attribute">stderr</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+      "<span class="hljs-attribute">token</span>": <span class="hljs-value"><span class="hljs-string">"ecc52a9b-ea80-4a00-ad50-4ab6cc3bb2a1"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">language_id</span>": <span class="hljs-value"><span class="hljs-number">72</span></span>,
+      "<span class="hljs-attribute">stdout</span>": <span class="hljs-value"><span class="hljs-string">"hello from Ruby\n"</span></span>,
+      "<span class="hljs-attribute">status_id</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
+      "<span class="hljs-attribute">stderr</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+      "<span class="hljs-attribute">token</span>": <span class="hljs-value"><span class="hljs-string">"1b35ec3b-5776-48ef-b646-d5522bdeb2cc"</span>
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="statuses-and-languages" class="resource-group"><h2 class="group-heading">Statuses and Languages <a href="#statuses-and-languages" class="permalink">&para;</a></h2><div id="statuses-and-languages-language" class="resource"><h3 class="resource-heading">Language <a href="#statuses-and-languages-language" class="permalink">&nbsp;&para;</a></h3><div id="statuses-and-languages-language-get" class="action get"><h4 class="action-heading"><div class="name">Get Languages</div><a href="#statuses-and-languages-language-get" class="method get">GET</a><code class="uri">/languages/</code></h4><p>Get active languages.</p>
 <h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/languages/</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>[
   {
     "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">45</span></span>,
@@ -1494,13 +1613,11 @@ configuration variables. For example, we don’t want user to create a submissio
   "<span class="hljs-attribute">max_max_file_size</span>": <span class="hljs-value"><span class="hljs-number">4096</span></span>,
   "<span class="hljs-attribute">number_of_runs</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
   "<span class="hljs-attribute">max_number_of_runs</span>": <span class="hljs-value"><span class="hljs-number">20</span>
-</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="health-check" class="resource-group"><h2 class="group-heading">Health Check <a href="#health-check" class="permalink">&para;</a></h2><div id="health-check-workers-health-check" class="resource"><h3 class="resource-heading">Workers Health Check <a href="#health-check-workers-health-check" class="permalink">&nbsp;&para;</a></h3><div id="health-check-workers-health-check-get" class="action get"><h4 class="action-heading"><div class="name">Workers Health Check</div><a href="#health-check-workers-health-check-get" class="method get">GET</a><code class="uri">/workers</code></h4><p>For each queue you will get:</p>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="statistics" class="resource-group"><h2 class="group-heading">Statistics <a href="#statistics" class="permalink">&para;</a></h2><div id="statistics-statistics" class="resource"><h3 class="resource-heading">Statistics <a href="#statistics-statistics" class="permalink">&nbsp;&para;</a></h3><div id="statistics-statistics-get" class="action get"><h4 class="action-heading"><div class="name">Statistics</div><a href="#statistics-statistics-get" class="method get">GET</a><code class="uri">/statistics</code></h4><p>Get some statistics from current instance. Result is cached for 10 minutes.</p>
+<h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/statistics</span></div></div></div></section><section id="health-check" class="resource-group"><h2 class="group-heading">Health Check <a href="#health-check" class="permalink">&para;</a></h2><div id="health-check-workers-health-check" class="resource"><h3 class="resource-heading">Workers Health Check <a href="#health-check-workers-health-check" class="permalink">&nbsp;&para;</a></h3><div id="health-check-workers-health-check-get" class="action get"><h4 class="action-heading"><div class="name">Workers Health Check</div><a href="#health-check-workers-health-check-get" class="method get">GET</a><code class="uri">/workers</code></h4><p>For each queue you will get:</p>
 <ul>
 <li>
 <p><code>queue</code> name</p>
-</li>
-<li>
-<p><code>total</code> number of workers that has been initially run</p>
 </li>
 <li>
 <p><code>available</code> number of workers</p>
@@ -1519,26 +1636,14 @@ configuration variables. For example, we don’t want user to create a submissio
 </li>
 </ul>
 <h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/workers</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>[
-  {
-    "<span class="hljs-attribute">queue</span>": <span class="hljs-value"><span class="hljs-string">"default"</span></span>,
-    "<span class="hljs-attribute">total</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
-    "<span class="hljs-attribute">available</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
-    "<span class="hljs-attribute">idle</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
-    "<span class="hljs-attribute">working</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
-    "<span class="hljs-attribute">paused</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
-    "<span class="hljs-attribute">failed</span>": <span class="hljs-value"><span class="hljs-number">0</span>
-  </span>}
-]</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>500</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>If <code>total</code> is not equal to <code>available</code>. This means that some workers died.</p>
-</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>[
-  {
-    "<span class="hljs-attribute">queue</span>": <span class="hljs-value"><span class="hljs-string">"default"</span></span>,
-    "<span class="hljs-attribute">total</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
-    "<span class="hljs-attribute">available</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
-    "<span class="hljs-attribute">idle</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
-    "<span class="hljs-attribute">working</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
-    "<span class="hljs-attribute">paused</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
-    "<span class="hljs-attribute">failed</span>": <span class="hljs-value"><span class="hljs-number">0</span>
-  </span>}
+    {
+        "<span class="hljs-attribute">queue</span>": <span class="hljs-value"><span class="hljs-string">"default"</span>
+        <span class="hljs-string">"available"</span>: <span class="hljs-number">1</span></span>,
+        "<span class="hljs-attribute">idle</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+        "<span class="hljs-attribute">working</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">paused</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">failed</span>": <span class="hljs-value"><span class="hljs-number">0</span>
+    </span>}
 ]</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="information" class="resource-group"><h2 class="group-heading">Information <a href="#information" class="permalink">&para;</a></h2><div id="information-about" class="resource"><h3 class="resource-heading">About <a href="#information-about" class="permalink">&nbsp;&para;</a></h3><div id="information-about-get" class="action get"><h4 class="action-heading"><div class="name">About</div><a href="#information-about-get" class="method get">GET</a><code class="uri">/about</code></h4><p>Returns general information.</p>
 <h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/about</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">version</span>": <span class="hljs-value"><span class="hljs-string">"1.5.0"</span></span>,
@@ -1548,7 +1653,7 @@ configuration variables. For example, we don’t want user to create a submissio
 </span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="information-version" class="resource"><h3 class="resource-heading">Version <a href="#information-version" class="permalink">&nbsp;&para;</a></h3><div id="information-version-get" class="action get"><h4 class="action-heading"><div class="name">Version</div><a href="#information-version-get" class="method get">GET</a><code class="uri">/version</code></h4><p>Returns current version.</p>
 <h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/version</span></div></div></div><div id="information-isolate" class="resource"><h3 class="resource-heading">Isolate <a href="#information-isolate" class="permalink">&nbsp;&para;</a></h3><div id="information-isolate-get" class="action get"><h4 class="action-heading"><div class="name">Isolate</div><a href="#information-isolate-get" class="method get">GET</a><code class="uri">/isolate</code></h4><p>Returns result of <a href="https://github.com/ioi/isolate"><code>isolate --version</code></a>.</p>
 <h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/isolate</span></div></div></div><div id="information-license" class="resource"><h3 class="resource-heading">License <a href="#information-license" class="permalink">&nbsp;&para;</a></h3><div id="information-license-get" class="action get"><h4 class="action-heading"><div class="name">License</div><a href="#information-license-get" class="method get">GET</a><code class="uri">/license</code></h4><p>Returns a license.</p>
-<h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/license</span></div></div></div></section></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 01 Jan 2020</p><script>/* eslint-env browser */
+<h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/license</span></div></div></div></section></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 01 May 2020</p><script>/* eslint-env browser */
 /* eslint quotes: [2, "single"] */
 'use strict';
 
