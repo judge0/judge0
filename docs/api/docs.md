@@ -13,7 +13,7 @@ HOST: https://api.judge0.com
 To see Judge0 API in action, try [Judge0 IDE](https://ide.judge0.com) - a free and [open-source](https://github.com/judge0/ide) online code editor that uses Judge0 API for executing the user’s source code. You can also try using a [dummy client](/dummy-client.html) which can help you explore and test most of the features of the Judge0 API.
 
 ## Official public API
-Official public API is freely available at [https://api.judge0.com](https://api.judge0.com) and is maintained by Judge0 [creator](https://github.com/hermanzdosilovic).
+Official public API is freely available at [https://api.judge0.com](https://api.judge0.com) and is maintained by the Judge0 [creator](https://github.com/hermanzdosilovic).
 
 Status page of all public Judge0 services is available at [https://status.judge0.com](https://status.judge0.com).
 
@@ -34,7 +34,7 @@ For the production use, consider [deploying your own instance](https://github.co
 :::
 
 ## Version
-This document describes Judge0 API version [`v1.5.0`](https://github.com/judge0/api/tree/v1.5.0).
+This document describes Judge0 API [v1.6.0](https://github.com/judge0/api/tree/v1.6.0).
 
 ## Date and time formats
 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) standard is used.

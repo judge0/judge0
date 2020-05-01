@@ -2,6 +2,11 @@
 To issue some API calls you need to be authorized. For example, you need to be authorized to
 [list all submissions](#submissions-submission-get-1) on Judge0 API.
 
+::: note
+<h4>Note</h4>
+* For [official public API](#header-official-public-api) you **do not** need an authorization token.
+:::
+
 ## Authorize [/authorize{?X-Auth-User}]
 ### Authorize [POST]
 With this API call you can check if your authorization token is valid. If authentication is enabled you should also
