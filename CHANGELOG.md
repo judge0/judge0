@@ -1,4 +1,4 @@
-# v1.6.0 (unreleased)
+# v1.6.0 (2020-05-01)
 ## New Features
 - Added support for automatically redirecting stderr to stdout of the running program with the configuration flag `redirect_stderr_to_stdout`. Added configuration variable `REDIRECT_STDERR_TO_STDOUT` that can be used for setting default behaviour for every submission.
     - Commits: [@8e6617aa](https://github.com/judge0/api/commit/8e6617aae2d4dd9106ab610738dcc5e59633b2f4)
