@@ -3,8 +3,8 @@
 Submission is used for running arbitrary source code in one of
 the [available programming languages](#statuses-and-languages-language-get) with specified runtime constraints.
 
-Submission has 31 attributes. Attributes 1-18 are used for creating a new submissions, whereas
-attributes 19-31 give detailed information of submission after it's execution.
+Submission has 32 attributes. Attributes 1-19 are used for creating a new submissions, whereas
+attributes 20-32 give detailed information of submission after it's execution.
 
 Attributes 7-17 are called [*configuration variables*](#system-and-configuration-configuration-info)
 and can be used to configure submission runtime constraints such as time and memory limits.
@@ -13,8 +13,8 @@ and can be used to configure submission runtime constraints such as time and mem
 |:---:|:----|:----:|:----:|:-----------|:-------------|
 |1|**`source_code`**|text||Program's source code.|No default. This attribute is **required**.|
 |2|**`language_id`**|integer||[Language](#statuses-and-languages-language) ID.|No default. This attribute is **required**|
-|3|`compiler_options`|string (max. 128 chars)||Options for the compiler (i.e. compiler flags).|`null`|
-|4|`command_line_arguments`|string (max. 128 chars)||Command line arguments for the program.|`null`|
+|3|`compiler_options`|string (max. 512 chars)||Options for the compiler (i.e. compiler flags).|`null`|
+|4|`command_line_arguments`|string (max. 512 chars)||Command line arguments for the program.|`null`|
 |5|`stdin`|text||Input for program.|`null`. Program won't receive anything to standard input.|
 |6|`expected_output`|text||Expected output of program. Used when you want to compare with `stdout`.|`null`. Program's `stdout` won't be compared with `expected_output`.|
 |7|`cpu_time_limit`|float|second|Default runtime limit for every program. Time in which the OS assigns the processor to different tasks is not counted.|Depends on [configuration](#system-and-configuration-configuration-info).|
@@ -29,19 +29,20 @@ and can be used to configure submission runtime constraints such as time and mem
 |16|`redirect_stderr_to_stdout`|boolean||If `true` standard error will be redirected to standard output.|Depends on [configuration](#system-and-configuration-configuration-info).|
 |17|`number_of_runs`|integer||Run each program `number_of_runs` times and take average of `time` and `memory`.|Depends on [configuration](#system-and-configuration-configuration-info).|
 |18|`additional_files`|Base64 Encoded String||Additional files that should be available alongside the source code. Value of this string should represent the content of a `.zip` that contains additional files.|`null`|
-|19|`stdout`|text||Standard output of the program after execution.||
-|20|`stderr`|text||Standard error of the program after execution.||
-|21|`compile_output`|text||Compiler output after compilation.||
-|22|`message`|text||If submission status is `Internal Error` then this message comes from the Judge0 API itself, otherwise this is status message from [isolate](https://github.com/ioi/isolate).||
-|23|`exit_code`|integer||The program's exit code.||
-|24|`exit_signal`|integer||Signal code that the program recieved before exiting.||
-|25|`status`|object||Submission [status](#statuses-and-languages-status).||
-|26|`created_at`|datetime||Date and time when submission was created.||
-|27|`finished_at`|datetime||Date and time when submission was processed.|`null` if submission is still in queue or if submission is processing.|
-|28|`token`|string||Unique submission token which can be used to [get a specific submission](#submissions-submission-get).||
-|29|`time`|float|second|Program's run time.||
-|30|`wall_time`|float|second|Program's wall time. Will be greater or equal to `time`.||
-|31|`memory`|float|kilobyte|Memory used by the program after execution.||
+|19|`callback_url`|string||URL on which Judge0 API will issue `PUT` request with the submission in a request body after submission has been done.|`null`|
+|20|`stdout`|text||Standard output of the program after execution.||
+|21|`stderr`|text||Standard error of the program after execution.||
+|22|`compile_output`|text||Compiler output after compilation.||
+|23|`message`|text||If submission status is `Internal Error` then this message comes from the Judge0 API itself, otherwise this is status message from [isolate](https://github.com/ioi/isolate).||
+|24|`exit_code`|integer||The program's exit code.||
+|25|`exit_signal`|integer||Signal code that the program recieved before exiting.||
+|26|`status`|object||Submission [status](#statuses-and-languages-status).||
+|27|`created_at`|datetime||Date and time when submission was created.||
+|28|`finished_at`|datetime||Date and time when submission was processed.|`null` if submission is still in queue or if submission is processing.|
+|29|`token`|string||Unique submission token which can be used to [get a specific submission](#submissions-submission-get).||
+|30|`time`|float|second|Program's run time.||
+|31|`wall_time`|float|second|Program's wall time. Will be greater or equal to `time`.||
+|32|`memory`|float|kilobyte|Memory used by the program after execution.||
 
 <!-- include(create_a_submission.md) -->
 <!-- include(get_a_submission.md) -->
