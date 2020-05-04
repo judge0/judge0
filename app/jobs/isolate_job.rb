@@ -123,6 +123,7 @@ class IsolateJob < ApplicationJob
     -b #{box_id} \
     -M #{metadata_file} \
     --stderr-to-stdout \
+    -i /dev/null \
     -t #{Config::MAX_CPU_TIME_LIMIT} \
     -x 0 \
     -w #{Config::MAX_WALL_TIME_LIMIT} \
