@@ -244,5 +244,82 @@
     source_file: "script.ts",
     compile_cmd: "/usr/bin/tsc %s script.ts",
     run_cmd: "/usr/local/node-12.14.0/bin/node script.js"
+  },
+  {
+    id: 75,
+    name: "C (Clang 7.0.1)",
+    is_archived: false,
+    source_file: "main.c",
+    compile_cmd: "/usr/bin/clang-7 %s main.c",
+    run_cmd: "./a.out"
+  },
+  {
+    id: 76,
+    name: "C++ (Clang 7.0.1)",
+    is_archived: false,
+    source_file: "main.cpp",
+    compile_cmd: "/usr/bin/clang++-7 %s main.cpp",
+    run_cmd: "./a.out"
+  },
+  {
+    id: 77,
+    name: "COBOL (GnuCOBOL 2.2)",
+    is_archived: false,
+    source_file: "main.cob",
+    compile_cmd: "/usr/local/gnucobol-2.2/bin/cobc -free -x %s main.cob",
+    run_cmd: "LD_LIBRARY_PATH=/usr/local/gnucobol-2.2/lib ./main"
+  },
+  {
+    id: 78,
+    name: "Kotlin (1.3.70)",
+    is_archived: false,
+    source_file: "Main.kt",
+    compile_cmd: "/usr/local/kotlin-1.3.70/bin/kotlinc %s Main.kt",
+    run_cmd: "/usr/local/kotlin-1.3.70/bin/kotlin MainKt"
+  },
+  {
+    id: 79,
+    name: "Objective-C (Clang 7.0.1)",
+    is_archived: false,
+    source_file: "main.m",
+    compile_cmd: "/usr/bin/clang-7 `gnustep-config --objc-flags | sed 's/-W[^ ]* //g'` `gnustep-config --base-libs | sed 's/-shared-libgcc//'` -I/usr/lib/gcc/x86_64-linux-gnu/8/include main.m %s",
+    run_cmd: "./a.out"
+  },
+  {
+    id: 80,
+    name: "R (4.0.0)",
+    is_archived: false,
+    source_file: "script.r",
+    run_cmd: "/usr/local/r-4.0.0/bin/Rscript script.r"
+  },
+  {
+    id: 81,
+    name: "Scala (2.13.2)",
+    is_archived: false,
+    source_file: "Main.scala",
+    compile_cmd: "/usr/local/scala-2.13.2/bin/scalac %s Main.scala",
+    run_cmd: "/usr/local/scala-2.13.2/bin/scala Main"
+  },
+  {
+    id: 82,
+    name: "SQL (SQLite 3.27.2)",
+    is_archived: false,
+    source_file: "script.sql",
+    run_cmd: "/bin/cat script.sql | /usr/bin/sqlite3 db.sqlite"
+  },
+  {
+    id: 83,
+    name: "Swift (5.2.3)",
+    is_archived: false,
+    source_file: "Main.swift",
+    run_cmd: "/usr/local/swift-5.2.3/bin/swift Main.swift"
+  },
+  {
+    id: 84,
+    name: "Visual Basic.Net (vbnc 0.0.0.5943)",
+    is_archived: false,
+    source_file: "Main.vb",
+    compile_cmd: "/usr/bin/vbnc %s Main.vb",
+    run_cmd: "/usr/bin/mono Main.exe"
   }
 ]

@@ -1,3 +1,76 @@
+# v1.7.0 (2020-05-05)
+Huge thanks to sponsors of this release: [**Filtered**](https://www.filtered.ai) and [**Evalart**](https://evalart.com).
+
+## New Features
+- Added **10 new languages**, and in total there are now **42 active languages**.
+
+|ID|Name|Note|
+|---|---|---|
+|75|C (Clang 7.0.1)||
+|76|C++ (Clang 7.0.1)||
+|77|COBOL (GnuCOBOL 2.2)|Sponsored by [Evalart](https://evalart.com)|
+|78|Kotlin (1.3.70)|Sponsored by [Filtered](https://www.filtered.ai)|
+|79|Objective-C (Clang 7.0.1)|Sponsored by [Filtered](https://www.filtered.ai) and [Evalart](https://evalart.com)|
+|80|R (4.0.0)|Sponsored by [Filtered](https://www.filtered.ai)|
+|81|Scala (2.13.2)|Sponsored by [Filtered](https://www.filtered.ai)|
+|82|SQL (SQLite 3.27.2)|Sponsored by [Filtered](https://www.filtered.ai)|
+|83|Swift (5.2.3)|[Filtered](https://www.filtered.ai) and [Evalart](https://evalart.com)|
+|84|Visual Basic.Net (vbnc 0.0.0.5943)|Sponsored by [Filtered](https://www.filtered.ai)|
+
+## Other Changes
+- Increased default `MAX_MEMORY_LIMIT` to 512000.
+    - Commits: [@3dcbfc96](https://github.com/judge0/api/commit/3dcbfc9605a0f81680afd890a239ef2b60739186)
+- Set compile CPU time limit to `MAX_CPU_TIME_LIMIT`.
+    - Commits: [@3dcbfc96](https://github.com/judge0/api/commit/3dcbfc9605a0f81680afd890a239ef2b60739186)
+- Set compile wall time limit to `MAX_WALL_TIME_LIMIT`.
+    - Commits: [@3dcbfc96](https://github.com/judge0/api/commit/3dcbfc9605a0f81680afd890a239ef2b60739186)
+- Redirect input from `/dev/null` when compiling. Thank you @gollux for your [help](https://github.com/ioi/isolate/issues/90).
+    - Commits: [@42b89a7c](https://github.com/judge0/api/commit/42b89a7cdb333253460023fa7bcbf1640329d48b)
+
+## Deployment Procedure
+### With HTTPS (SSL/TLS)
+1. Install [Docker](https://docs.docker.com) and [Docker Compose](https://docs.docker.com/compose).
+2. Download and extract release archive:
+```
+wget https://github.com/judge0/api/releases/download/v1.7.0/judge0-api-v1.7.0-https.zip
+unzip judge0-api-v1.7.0-https.zip
+```
+
+3. Change directory to `judge0-api-v1.7.0-https`:
+```
+cd judge0-api-v1.7.0-https
+```
+4. Edit `docker-compose.yml` and change variables `VIRTUAL_HOST`, `LETSENCRYPT_HOST` and `LETSENCRYPT_EMAIL`.
+5. Run all services and wait few seconds until everything is initialized:
+```
+docker-compose up -d db redis
+sleep 10s
+docker-compose up -d
+sleep 5s
+```
+
+6. Your instance of Judge0 API v1.7.0 is now available at `https://<YOUR DOMAIN>`.
+
+### With HTTP
+1. Install [Docker](https://docs.docker.com) and [Docker Compose](https://docs.docker.com/compose).
+2. Download and extract release archive:
+```
+wget https://github.com/judge0/api/releases/download/v1.7.0/judge0-api-v1.7.0.zip
+unzip judge0-api-v1.7.0.zip
+```
+
+3. Run all services and wait few seconds until everything is initialized:
+```
+cd judge0-api-v1.7.0
+docker-compose up -d db redis
+sleep 10s
+docker-compose up -d
+sleep 5s
+```
+
+4. Your instance of Judge0 API v1.7.0 is now available at `http://<IP ADDRESS OF YOUR SERVER>`.
+
+
 # v1.6.0 (2020-05-01)
 ## New Features
 - Added support for automatically redirecting stderr to stdout of the running program with the configuration flag `redirect_stderr_to_stdout`. Added configuration variable `REDIRECT_STDERR_TO_STDOUT` that can be used for setting default behaviour for every submission.
