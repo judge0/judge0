@@ -8,14 +8,16 @@ Huge thanks to sponsors of this release: [**Filtered**](https://www.filtered.ai)
 |---|---|---|
 |75|C (Clang 7.0.1)||
 |76|C++ (Clang 7.0.1)||
-|77|COBOL (GnuCOBOL 2.2)|Sponsored by [Evalart](https://evalart.com)|
-|78|Kotlin (1.3.70)|Sponsored by [Filtered](https://www.filtered.ai)|
-|79|Objective-C (Clang 7.0.1)|Sponsored by [Filtered](https://www.filtered.ai) and [Evalart](https://evalart.com)|
-|80|R (4.0.0)|Sponsored by [Filtered](https://www.filtered.ai)|
-|81|Scala (2.13.2)|Sponsored by [Filtered](https://www.filtered.ai)|
-|82|SQL (SQLite 3.27.2)|Sponsored by [Filtered](https://www.filtered.ai)|
-|83|Swift (5.2.3)|[Filtered](https://www.filtered.ai) and [Evalart](https://evalart.com)|
-|84|Visual Basic.Net (vbnc 0.0.0.5943)|Sponsored by [Filtered](https://www.filtered.ai)|
+|77|COBOL (GnuCOBOL 2.2)|Sponsored by [Evalart](https://evalart.com).|
+|78|Kotlin (1.3.70)|Sponsored by [Filtered](https://www.filtered.ai).|
+|79|Objective-C (Clang 7.0.1)|Sponsored by [Filtered](https://www.filtered.ai) and [Evalart](https://evalart.com).|
+|80|R (4.0.0)|Sponsored by [Filtered](https://www.filtered.ai).|
+|81|Scala (2.13.2)|Sponsored by [Filtered](https://www.filtered.ai).|
+|82|SQL (SQLite 3.27.2)|Sponsored by [Filtered](https://www.filtered.ai). (*)|
+|83|Swift (5.2.3)|[Filtered](https://www.filtered.ai) and [Evalart](https://evalart.com).|
+|84|Visual Basic.Net (vbnc 0.0.0.5943)|Sponsored by [Filtered](https://www.filtered.ai).|
+
+(*) Watch [this asciicast](https://asciinema.org/a/326975) to learn how to use this language.
 
 ## Other Changes
 - Increased default `MAX_MEMORY_LIMIT` to 512000.
