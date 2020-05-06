@@ -9,6 +9,8 @@
 ## Other Changes
 - Set `VIRTUAL_HOST` environment variable in Dockerfile to value `3000`.
 - Updated Telemetry Client to version `c62fa63d`.
+- Added separated Docker Compose files for server and workers.
+- Renamed service `worker` to `workers` and `api` to `server`.
 
 ## Deployment Procedure
 Judge0 API is collecting telemetry data to help understand how to improve the product and to better understand how the Judge0 API is used in various production environments. Read more about telemetry [here](https://github.com/judge0/api/blob/v1.7.1/TELEMETRY.md).

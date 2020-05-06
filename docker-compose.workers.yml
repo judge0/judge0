@@ -1,0 +1,18 @@
+version: '2'
+
+x-logging:
+  &default-logging
+  logging:
+    driver: json-file
+    options:
+      max-size: 100m
+
+services:
+  workers:
+    image: judge0/api:latest
+    command: ["./scripts/workers"]
+    volumes:
+      - ./judge0-api.conf:/judge0-api.conf:ro
+    privileged: true
+    <<: *default-logging
+    restart: always

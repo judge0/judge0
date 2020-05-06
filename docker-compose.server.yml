@@ -18,20 +18,13 @@ services:
     <<: *default-logging
     restart: always
 
-  workers:
-    image: judge0/api:latest
-    command: ["./scripts/workers"]
-    volumes:
-      - ./judge0-api.conf:/judge0-api.conf:ro
-    privileged: true
-    <<: *default-logging
-    restart: always
-
   db:
     image: postgres:9.6
     env_file: judge0-api.conf
     volumes:
       - ./srv/postgres-data:/var/lib/postgresql/data/
+    ports:
+      - "5432:5432"
     <<: *default-logging
     restart: always
 
@@ -44,5 +37,7 @@ services:
     env_file: judge0-api.conf
     volumes:
       - ./srv/redis-data:/data
+    ports:
+      - "6379:6379"
     <<: *default-logging
     restart: always

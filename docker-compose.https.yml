@@ -31,8 +31,8 @@ services:
     <<: *default-logging
     restart: always
 
-  api:
-    image: judge0/api
+  server:
+    image: judge0/api:latest
     environment:
       - VIRTUAL_HOST=example.com
       - LETSENCRYPT_HOST=example.com
@@ -43,8 +43,8 @@ services:
     <<: *default-logging
     restart: always
 
-  worker:
-    image: judge0/api
+  workers:
+    image: judge0/api:latest
     command: ["./scripts/workers"]
     volumes:
       - ./judge0-api.conf:/judge0-api.conf:ro

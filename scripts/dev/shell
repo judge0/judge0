@@ -6,4 +6,4 @@
 # Usage: ./scripts/dev/shell
 #
 docker-compose -f docker-compose.dev.yml up -d
-docker-compose -f docker-compose.dev.yml exec --privileged api bash
+docker-compose -f docker-compose.dev.yml exec --privileged server bash
