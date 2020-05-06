@@ -1,3 +1,59 @@
+# v1.7.1 (2020-05-06)
+## Bug Fixes
+- Compile Swift before executing since default file size limit of 1MB for execution is not enough for Swift to run successfully. Compilation has a file size limit of 4MB by default which seems to be enough for Swift to compile. Thanks @OliverwengFiltered.
+    - Issues: [#154](https://github.com/judge0/api/issues/154)
+    - Commits: [@371e2463](https://github.com/judge0/api/commit/371e246312a41242033d916f1f4fea3db80015b7)
+- Fixed environment loading for Telemetry Client.
+    - Commits: [@bd16119c](https://github.com/judge0/api/commit/bd16119ccde52798b5d354afdd5e008df6d5b940)
+
+## Other Changes
+- Set `VIRTUAL_HOST` environment variable in Dockerfile to value `3000`.
+- Updated telemetry client to version `c62fa63d`.
+
+## Deployment Procedure
+### With HTTPS (SSL/TLS)
+1. Install [Docker](https://docs.docker.com) and [Docker Compose](https://docs.docker.com/compose).
+2. Download and extract release archive:
+```
+wget https://github.com/judge0/api/releases/download/v1.7.1/judge0-api-v1.7.1-https.zip
+unzip judge0-api-v1.7.1-https.zip
+```
+
+3. Change directory to `judge0-api-v1.7.1-https`:
+```
+cd judge0-api-v1.7.1-https
+```
+4. Edit `docker-compose.yml` and change variables `VIRTUAL_HOST`, `LETSENCRYPT_HOST` and `LETSENCRYPT_EMAIL`.
+5. Run all services and wait few seconds until everything is initialized:
+```
+docker-compose up -d db redis
+sleep 10s
+docker-compose up -d
+sleep 5s
+```
+
+6. Your instance of Judge0 API v1.7.1 is now available at `https://<YOUR DOMAIN>`.
+
+### With HTTP
+1. Install [Docker](https://docs.docker.com) and [Docker Compose](https://docs.docker.com/compose).
+2. Download and extract release archive:
+```
+wget https://github.com/judge0/api/releases/download/v1.7.1/judge0-api-v1.7.1.zip
+unzip judge0-api-v1.7.1.zip
+```
+
+3. Run all services and wait few seconds until everything is initialized:
+```
+cd judge0-api-v1.7.1
+docker-compose up -d db redis
+sleep 10s
+docker-compose up -d
+sleep 5s
+```
+
+4. Your instance of Judge0 API v1.7.1 is now available at `http://<IP ADDRESS OF YOUR SERVER>`.
+
+
 # v1.7.0 (2020-05-05)
 Huge thanks to sponsors of this release: [**Filtered**](https://www.filtered.ai) and [**Evalart**](https://evalart.com).
 
