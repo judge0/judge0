@@ -14,6 +14,8 @@
 ## Other Changes
 
 ## Deployment Procedure
+Judge0 API is collecting telemetry data to help understand how to improve the product and to better understand how the Judge0 API is used in various production environments. Read more about telemetry [here](https://github.com/judge0/api/blob/vX.Y.Z/TELEMETRY.md).
+
 ### With HTTPS (SSL/TLS)
 1. Install [Docker](https://docs.docker.com) and [Docker Compose](https://docs.docker.com/compose).
 2. Download and extract release archive:
