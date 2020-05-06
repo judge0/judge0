@@ -312,7 +312,8 @@
     name: "Swift (5.2.3)",
     is_archived: false,
     source_file: "Main.swift",
-    run_cmd: "/usr/local/swift-5.2.3/bin/swift Main.swift"
+    compile_cmd: "/usr/local/swift-5.2.3/bin/swiftc %s Main.swift",
+    run_cmd: "./Main"
   },
   {
     id: 84,

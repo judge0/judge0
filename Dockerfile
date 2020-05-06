@@ -1,4 +1,4 @@
-FROM judge0/api-base:1.2.0 AS production
+FROM judge0/api-base:1.2.1 AS production
 
 ENV JUDGE0_HOMEPAGE="https://judge0.com"
 LABEL homepage=$JUDGE0_HOMEPAGE
