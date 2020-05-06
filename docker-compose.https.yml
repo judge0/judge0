@@ -35,7 +35,6 @@ services:
     image: judge0/api
     environment:
       - VIRTUAL_HOST=example.com
-      - VIRTUAL_PORT=3000
       - LETSENCRYPT_HOST=example.com
       - LETSENCRYPT_EMAIL=john.doe@gmail.com
     volumes:

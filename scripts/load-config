@@ -43,4 +43,6 @@ if [[ -v CONFIG_FILE ]]; then
     export DISABLE_DATABASE_ENVIRONMENT_CHECK=1
 
     set +o allexport
+
+    export > /api/tmp/environment
 fi

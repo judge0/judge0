@@ -1,12 +1,12 @@
 FROM judge0/api-base:1.2.1 AS production
 
-ENV JUDGE0_HOMEPAGE="https://judge0.com"
+ENV JUDGE0_HOMEPAGE "https://judge0.com"
 LABEL homepage=$JUDGE0_HOMEPAGE
 
-ENV JUDGE0_SOURCE_CODE="https://github.com/judge0/api"
+ENV JUDGE0_SOURCE_CODE "https://github.com/judge0/api"
 LABEL source_code=$JUDGE0_SOURCE_CODE
 
-ENV JUDGE0_MAINTAINER="Herman Zvonimir Došilović <hermanz.dosilovic@gmail.com>"
+ENV JUDGE0_MAINTAINER "Herman Zvonimir Došilović <hermanz.dosilovic@gmail.com>"
 LABEL maintainer=$JUDGE0_MAINTAINER
 
 ENV PATH "/usr/local/ruby-2.7.0/bin:/opt/.gem/bin:$PATH"
@@ -22,7 +22,8 @@ RUN apt-get update && \
     gem install bundler:2.1.4 && \
     npm install -g --unsafe-perm aglio@2.3.0
 
-EXPOSE 3000
+ENV VIRTUAL_PORT 3000
+EXPOSE $VIRTUAL_PORT
 
 WORKDIR /api
 
@@ -37,7 +38,7 @@ COPY . .
 ENTRYPOINT ["./docker-entrypoint.sh"]
 CMD ["./scripts/server"]
 
-ENV JUDGE0_VERSION="1.7.0"
+ENV JUDGE0_VERSION "1.7.1"
 LABEL version=$JUDGE0_VERSION
 
 
