@@ -34,7 +34,7 @@ For the production use, consider [deploying your own instance](https://github.co
 :::
 
 ## Version
-This document describes Judge0 API [v1.7.1-extra](https://github.com/judge0/api/tree/v1.7.1-extra).
+This document describes Judge0 API [v1.8.0-extra](https://github.com/judge0/api/tree/v1.8.0-extra).
 
 ## Date and time formats
 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) standard is used.

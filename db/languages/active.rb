@@ -78,5 +78,13 @@
     is_archived: false,
     source_file: "script.py",
     run_cmd: "/usr/bin/python3 script.py %s"
+  },
+  {
+    id: 11,
+    name: "Bosque (latest)",
+    is_archived: false,
+    source_file: "main.bsq",
+    compile_cmd: "/usr/bin/node /usr/local/BosqueLanguage/impl/bin/runtimes/exegen/exegen.js -c g++-10 %s main.bsq",
+    run_cmd:"./a.out %s"
   }
 ]

@@ -1,6 +1,6 @@
 #!/bin/bash
 # Script for publising release images of the Judge0 API.
-# 
+#
 # Usage: ./scripts/dev/publish
 #
 set -xe
@@ -12,7 +12,7 @@ commit_tag=${commit_tag:1} # Drop the "v" at the beginning.
 ./scripts/dev/tag
 
 docker push $image:$commit_tag
-docker push $image:latest
+docker push $image:latest-extra
 
 docker push $image:$commit_tag-dev
-docker push $image:latest-dev
+docker push $image:latest-extra-dev

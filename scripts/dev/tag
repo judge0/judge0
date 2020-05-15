@@ -1,6 +1,6 @@
 #!/bin/bash
 # Script for creating a new release image of the Judge0 API.
-# 
+#
 # Usage: ./scripts/dev/tag
 #
 set -xe
@@ -19,7 +19,7 @@ fi
 commit_tag=${commit_tag:1} # Drop the "v" at the beginning.
 
 docker tag $image:$commit_hash $image:$commit_tag
-docker tag $image:$commit_hash $image:latest
+docker tag $image:$commit_hash $image:latest-extra
 
 docker tag $image:$commit_hash-dev $image:$commit_tag-dev
-docker tag $image:$commit_hash-dev $image:latest-dev
+docker tag $image:$commit_hash-dev $image:latest-extra-dev

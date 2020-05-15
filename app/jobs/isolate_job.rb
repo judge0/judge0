@@ -136,6 +136,7 @@ class IsolateJob < ApplicationJob
     -E PATH=\"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\" \
     -E LANG -E LANGUAGE -E LC_ALL -E JUDGE0_HOMEPAGE -E JUDGE0_SOURCE_CODE -E JUDGE0_MAINTAINER -E JUDGE0_VERSION \
     -d /etc:noexec \
+    -d /usr/local/BosqueLanguage/impl:rw \
     --run \
     -- /bin/bash compile > #{compile_output_file} \
     "
