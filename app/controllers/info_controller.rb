@@ -77,7 +77,7 @@ class InfoController < ApplicationController
         "
       ).to_a[0]
 
-      render json: {
+      {
         created_at: now,
         cached_until: now + @@cache_duration,
         submissions: {
@@ -93,5 +93,6 @@ class InfoController < ApplicationController
         }
       }
     end
+    render json: Rails.cache.read("statistics")
   end
 end
