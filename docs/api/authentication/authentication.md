@@ -3,11 +3,6 @@ Administrators of Judge0 API can configure Judge0 API to require you to have an 
 If that is the case with the instance of Judge0 API you are using, then you
 should provide `X-Auth-Token` header field in **every** API request.
 
-::: note
-<h4>Note</h4>
-* For [official public API](#header-official-public-api) you **do not** need an authentication token.
-:::
-
 ## Authenticate [/authenticate]
 ### Authenticate [POST]
 Check if your authentication token is valid.
