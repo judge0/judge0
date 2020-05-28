@@ -322,5 +322,34 @@
     source_file: "Main.vb",
     compile_cmd: "/usr/bin/vbnc %s Main.vb",
     run_cmd: "/usr/bin/mono Main.exe"
+  },
+  {
+    id: 85,
+    name: "Perl (5.28.1)",
+    is_archived: false,
+    source_file: "script.pl",
+    run_cmd: "/usr/bin/perl script.pl"
+  },
+  {
+    id: 86,
+    name: "Clojure (1.10.1)",
+    is_archived: false,
+    source_file: "main.clj",
+    run_cmd: "/usr/local/bin/java -jar /usr/local/clojure-1.10.1/clojure.jar main.clj"
+  },
+  {
+    id: 87,
+    name: "F# (.NET Core SDK 3.1.202)",
+    is_archived: false,
+    source_file: "script.fsx",
+    run_cmd: "mkdir -p ~/.dotnet && touch ~/.dotnet/3.1.202.dotnetFirstUseSentinel && /usr/local/dotnet-sdk/dotnet fsi script.fsx"
+  },
+  {
+    id: 88,
+    name: "Groovy (3.0.3)",
+    is_archived: false,
+    source_file: "script.groovy",
+    compile_cmd: "/usr/local/groovy-3.0.3/bin/groovyc %s script.groovy",
+    run_cmd: "/usr/local/bin/java -cp \".:/usr/local/groovy-3.0.3/lib/*\" script"
   }
 ]
