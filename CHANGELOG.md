@@ -1,3 +1,76 @@
+# v1.8.0 (2020-05-28)
+Huge thanks to [**Filtered**](https://www.filtered.ai) for sponsoring this release.
+
+## New Features
+- Added **4 new languages**, and in total there are now **46 active languages**.
+
+|ID|Name|Note|
+|---|---|---|
+|85|Perl (5.28.1)|Sponsored by [Filtered](https://www.filtered.ai).|
+|86|Clojure (1.10.1)|Sponsored by [Filtered](https://www.filtered.ai).|
+|87|F# (.NET Core SDK 3.1.202)|Sponsored by [Filtered](https://www.filtered.ai).|
+|88|Groovy (3.0.3)|Sponsored by [Filtered](https://www.filtered.ai).|
+
+## Bug Fixes
+- Fixed `/statistics` route caching.
+    - Issues: [#184](https://github.com/judge0/api/issues/184)
+    - Commits: [@83c5cfc6](https://github.com/judge0/api/commit/83c5cfc6b4ae95fa8bdef0bba2eee98829207dd0)
+
+## Other Changes
+- Updated gems.
+    - Commits: [@0c766273](https://github.com/judge0/api/commit/0c766273d7cb8009695a3aa1903719c8474a233d) [@700e6582](https://github.com/judge0/api/commit/700e65829910ee860ddfa43254847f564c0d5623)
+- Increased default `CPU_TIME_LIMIT` to 5, `CPU_EXTRA_TIME` to 1, `MAX_CPU_EXTRA_TIME` to 5 and `WALL_TIME_LIMIT` to 10 seconds.
+    - Commits: [@77961ab9](https://github.com/judge0/api/commit/77961ab9f6b1015d5bdb5150e29d8de06478f38c)
+- Changed `HOME` environment variable value for sandbox to `/tmp`.
+    - Commits: [@77961ab9](https://github.com/judge0/api/commit/77961ab9f6b1015d5bdb5150e29d8de06478f38c)
+- Updated *isolate* to [@9be3ff6f](https://github.com/judge0/isolate/commit/9be3ff6ff0670763e564912a6662730e55b69536).
+
+## Deployment Procedure
+Judge0 API is collecting telemetry data to help understand how to improve the product and to better understand how the Judge0 API is used in various production environments. Read more about telemetry [here](https://github.com/judge0/api/blob/v1.8.0/TELEMETRY.md).
+
+### With HTTPS (SSL/TLS)
+1. Install [Docker](https://docs.docker.com) and [Docker Compose](https://docs.docker.com/compose).
+2. Download and extract release archive:
+```
+wget https://github.com/judge0/api/releases/download/v1.8.0/judge0-api-v1.8.0-https.zip
+unzip judge0-api-v1.8.0-https.zip
+```
+
+3. Change directory to `judge0-api-v1.8.0-https`:
+```
+cd judge0-api-v1.8.0-https
+```
+4. Edit `docker-compose.yml` and change variables `VIRTUAL_HOST`, `LETSENCRYPT_HOST` and `LETSENCRYPT_EMAIL`.
+5. Run all services and wait few seconds until everything is initialized:
+```
+docker-compose up -d db redis
+sleep 10s
+docker-compose up -d
+sleep 5s
+```
+
+6. Your instance of Judge0 API v1.8.0 is now available at `https://<YOUR DOMAIN>`.
+
+### With HTTP
+1. Install [Docker](https://docs.docker.com) and [Docker Compose](https://docs.docker.com/compose).
+2. Download and extract release archive:
+```
+wget https://github.com/judge0/api/releases/download/v1.8.0/judge0-api-v1.8.0.zip
+unzip judge0-api-v1.8.0.zip
+```
+
+3. Run all services and wait few seconds until everything is initialized:
+```
+cd judge0-api-v1.8.0
+docker-compose up -d db redis
+sleep 10s
+docker-compose up -d
+sleep 5s
+```
+
+4. Your instance of Judge0 API v1.8.0 is now available at `http://<IP ADDRESS OF YOUR SERVER>`.
+
+
 # v1.7.1 (2020-05-06)
 ## Bug Fixes
 - Compile Swift before executing since default file size limit of 1MB for execution is not enough for Swift to run successfully. Compilation has a file size limit of 4MB by default which seems to be enough for Swift to compile. Thanks @OliverwengFiltered.
