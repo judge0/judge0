@@ -66,7 +66,8 @@ if [[ "$JUDGE0_EDITION" == "standard" ]]; then
 fi
 
 JUDGE0_VERSION_TAG="$(git tag --points-at HEAD)"
-JUDGE0_VERSION="${JUDGE0_VERSION_TAG:1}"
+JUDGE0_VERSION="${JUDGE0_VERSION_TAG:1}" # Remove the "v" the beginning.
+JUDGE0_VERSION="${JUDGE0_VERSION%-*}" # Remove everything else after "-".
 
 JUDGE0_PRODUCTION_IMAGES="$JUDGE0_DOCKER_REPOSITORY:$JUDGE0_COMMIT$JUDGE0_EDITION_SLUG"
 if [[ "$JUDGE0_VERSION" != "" ]]; then
