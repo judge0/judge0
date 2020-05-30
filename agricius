@@ -1,0 +1,122 @@
+#!/bin/bash
+#
+# Agricius - build tool for Judge0.
+#
+# Named after Saint Agricius of Trier - protector of carpenters, builders, confectioners, blacksmiths, tailors and butchers.
+
+_err() {
+    echo >&2 "Error: $*"
+}
+
+_die() {
+    _err "$*"
+    exit 1
+}
+
+__get_argument() {
+    if [[ -n "$2" ]] && [[ ${2:0:1} != "-" ]]; then
+        echo "$2"
+    else
+        _err "Argument for $1 is missing."
+    fi
+}
+
+_positional_params=""
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        --cache-from)
+            _cache="$(__get_argument $1 $2)"; [[ "$_cache" == "" ]] && exit 1
+            shift 2
+            ;;
+        -*|--*)
+            _die "Unknown option $1.
+Usage: $0 [--cache-from image] command
+
+Available commands:
+    build       Build Docker images.
+    publish     Push Docker images to repository. Implies build."
+            ;;
+        *)
+            _positional_params="$_positional_params $1"
+            shift
+            ;;
+    esac
+done
+eval set -- "$_positional_params"
+
+if [[ "$_cache" != "" ]]; then
+    docker pull $_cache
+    _cache="--cache-from $_cache"
+fi
+
+JUDGE0_DOCKER_REPOSITORY=judge0/api
+
+JUDGE0_PROJECT_ROOT="$(git rev-parse --show-toplevel)"
+JUDGE0_COMMIT="$(git log -1 --format=%h --abbrev=8)"
+JUDGE0_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+
+JUDGE0_EDITION="$JUDGE0_BRANCH"
+if [[ "$JUDGE0_BRANCH" == "master" ]]; then
+    JUDGE0_EDITION="standard"
+fi
+
+JUDGE0_EDITION_SLUG="-$JUDGE0_EDITION"
+if [[ "$JUDGE0_EDITION" == "standard" ]]; then
+    JUDGE0_EDITION_SLUG=""
+fi
+
+JUDGE0_VERSION_TAG="$(git tag --points-at HEAD)"
+JUDGE0_VERSION="${JUDGE0_VERSION_TAG:1}"
+
+JUDGE0_PRODUCTION_IMAGES="$JUDGE0_DOCKER_REPOSITORY:$JUDGE0_COMMIT$JUDGE0_EDITION_SLUG"
+if [[ "$JUDGE0_VERSION" != "" ]]; then
+    JUDGE0_PRODUCTION_IMAGES="$JUDGE0_PRODUCTION_IMAGES $JUDGE0_DOCKER_REPOSITORY:latest$JUDGE0_EDITION_SLUG"
+    JUDGE0_PRODUCTION_IMAGES="$JUDGE0_PRODUCTION_IMAGES $JUDGE0_DOCKER_REPOSITORY:$JUDGE0_VERSION$JUDGE0_EDITION_SLUG"
+fi
+
+JUDGE0_DEVELOPMENT_IMAGES="$JUDGE0_DOCKER_REPOSITORY:$JUDGE0_COMMIT-dev$JUDGE0_EDITION_SLUG"
+if [[ "$JUDGE0_VERSION" != "" ]]; then
+    JUDGE0_DEVELOPMENT_IMAGES="$JUDGE0_DEVELOPMENT_IMAGES $JUDGE0_DOCKER_REPOSITORY:latest-dev$JUDGE0_EDITION_SLUG"
+    JUDGE0_DEVELOPMENT_IMAGES="$JUDGE0_DEVELOPMENT_IMAGES $JUDGE0_DOCKER_REPOSITORY:$JUDGE0_VERSION-dev$JUDGE0_EDITION_SLUG"
+fi
+
+env | grep JUDGE0_ | sort
+
+pushd "$JUDGE0_PROJECT_ROOT"
+
+function build_and_tag() {
+    local _target=$1
+    local _images=($2)
+    local _main_image=${_images[0]}
+
+    set -xe
+    docker build -t $_main_image $CACHE --target $_target .
+    set +xe
+
+    for (( i=0; i<${#_images[@]}; i++ )) do
+        docker tag $_main_image ${_images[i]}
+    done
+}
+build_and_tag production "$JUDGE0_PRODUCTION_IMAGES"
+build_and_tag development "$JUDGE0_DEVELOPMENT_IMAGES"
+
+_command="$1"
+if [[ "$_command" == "publish" ]]; then
+    if [[ "$JUDGE0_VERSION" == "" ]]; then
+        _die "Cannot publish untagged version."
+    fi
+    for image in $JUDGE0_PRODUCTION_IMAGES $JUDGE0_DEVELOPMENT_IMAGES; do
+        docker push $image
+    done
+fi
+
+_untag() {
+    local _images=($1)
+    for (( i=0; i<${#_images[@]}-1; i++ )) do
+        docker rmi ${_images[i]}
+    done
+}
+_untag "$JUDGE0_PRODUCTION_IMAGES"
+_untag "$JUDGE0_DEVELOPMENT_IMAGES"
+
+popd
