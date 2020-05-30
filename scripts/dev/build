@@ -1,29 +1,34 @@
 #!/bin/bash
-# Script for building the Judge0 API.
-# Builds both production and development image.
-#
-# Usage: ./scripts/dev/build
-#
-# If you want to use another image as a build cache,
-# then use CACHE_FROM variable:
-#
-# CACHE_FROM=judge0/api:1.5.0 ./scripts/dev/build
-#
-set -xe
+pushd "$(git rev-parse --show-toplevel)"
 
-image=judge0/api
-commit_hash="$(git log -1 --format=%h --abbrev=8)"
-prod_image=$image:$commit_hash
-dev_image=$image:$commit_hash-dev
+source ./scripts/dev/utils/info
 
-cache=""
-if [[ -v CACHE_FROM ]]; then
-    docker pull $CACHE_FROM
-    cache="--cache-from $CACHE_FROM"
+if [[ -v CACHE ]]; then
+    docker pull $CACHE
+    CACHE="--cache-from $CACHE"
 fi
 
-docker build -t $prod_image $cache --target production .
-docker build -t $dev_image $cache --target development .
+function build_and_tag() {
+    target=$1
+    images=($2)
+    main_image=${images[0]}
 
-echo $prod_image
-echo $dev_image
+    echo Main image: $main_image
+    docker build -t $main_image $CACHE --target $target
+
+    i=1
+    while true; do
+        image=${images[i]}
+        if [[ "$image" == "" ]]; then
+            break
+        fi
+        echo $image
+        docker tag $main_image $image
+        i=$((i + 1))
+    done
+}
+
+build_and_tag production "$JUDGE0_PRODUCTION_IMAGES"
+build_and_tag development "$JUDGE0_DEVELOPMENT_IMAGES"
+
+popd
