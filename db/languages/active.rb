@@ -43,7 +43,7 @@
   },
   {
     id: 6,
-    name: "MPI (OpenRTE 3.1.3) with C (GCC 8.3.0)",
+    name: "MPI (OpenRTE 3.1.3) with C (GCC 8.4.0)",
     is_archived: false,
     source_file: "main.c",
     compile_cmd: "/usr/bin/mpicc %s main.c",
@@ -51,7 +51,7 @@
   },
   {
     id: 7,
-    name: "MPI (OpenRTE 3.1.3) with C++ (GCC 8.3.0)",
+    name: "MPI (OpenRTE 3.1.3) with C++ (GCC 8.4.0)",
     is_archived: false,
     source_file: "main.cpp",
     compile_cmd: "/usr/bin/mpicxx %s main.cpp",
@@ -59,7 +59,7 @@
   },
   {
     id: 8,
-    name: "MPI (OpenRTE 3.1.3) with Python (3.7.3)",
+    name: "MPI (OpenRTE 3.1.3) with Python (3.7.7)",
     is_archived: false,
     source_file: "script.py",
     run_cmd: "/usr/bin/mpiexec --allow-run-as-root --oversubscribe %s /usr/bin/python3 script.py"
@@ -74,7 +74,7 @@
   },
   {
     id: 10,
-    name: "Python for ML (3.7.3)",
+    name: "Python for ML (3.7.7)",
     is_archived: false,
     source_file: "script.py",
     run_cmd: "/usr/bin/python3 script.py %s"
