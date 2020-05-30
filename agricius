@@ -109,7 +109,7 @@ if [[ "$_command" == "publish" ]]; then
     _push_images() {
         local _images=($1)
         for (( i=1; i<${#_images[@]}; i++ )) do
-            echo docker push ${_images[i]}
+            docker push ${_images[i]}
         done
     }
     _push_images "$JUDGE0_PRODUCTION_IMAGES"
