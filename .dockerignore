@@ -1,5 +1,6 @@
 .*
 *.md
+agricius
 Dockerfile*
 docker-compose*
 docs/maintainers/
