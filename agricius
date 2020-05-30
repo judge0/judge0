@@ -106,9 +106,14 @@ if [[ "$_command" == "publish" ]]; then
     if [[ "$JUDGE0_VERSION" == "" ]]; then
         _die "Cannot publish untagged version."
     fi
-    for image in $JUDGE0_PRODUCTION_IMAGES $JUDGE0_DEVELOPMENT_IMAGES; do
-        docker push $image
-    done
+    _push_images() {
+        local _images=($1)
+        for (( i=1; i<${#_images[@]}; i++ )) do
+            echo docker push ${_images[i]}
+        done
+    }
+    _push_images "$JUDGE0_PRODUCTION_IMAGES"
+    _push_images "$JUDGE0_DEVELOPMENT_IMAGES"
 fi
 
 _untag() {
