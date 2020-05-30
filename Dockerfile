@@ -12,7 +12,7 @@ LABEL maintainer=$JUDGE0_MAINTAINER
 ENV PATH "/usr/local/ruby-2.7.0/bin:/opt/.gem/bin:$PATH"
 ENV GEM_HOME "/opt/.gem/"
 
-RUN apt-get update && \
+RUN apt-get update -o Acquire::Check-Valid-Until=false && \
     apt-get install -y --no-install-recommends \
       cron \
       libpq-dev \
@@ -47,7 +47,7 @@ FROM production AS development
 ARG DEV_USER=judge0
 ARG DEV_USER_ID=1000
 
-RUN apt-get update && \
+RUN apt-get update -o Acquire::Check-Valid-Until=false && \
     apt-get install -y --no-install-recommends \
         vim && \
     useradd -u $DEV_USER_ID -m -r $DEV_USER && \
