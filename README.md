@@ -45,6 +45,8 @@ These companies, organizations and projects successfully use Judge0 API in produ
 - [Ask To How](https://www.asktohow.com)
 - [Brilliant Hire](https://www.brillianthire.io)
 - [CODE.IN](https://code.in)
+- [Code Compiler Lite](https://play.google.com/store/apps/details?id=com.codefox.code_compiler_lite) - online mobile code compiler for Android
+- [Code4You](https://code4you.org)
 - [CodeChum](https://www.codechum.com)
 - [CodeClimbers](https://github.com/appsicle/CodeClimbers)
 - [CodeForum.ORG](https://codeforum.org)
@@ -77,6 +79,7 @@ These companies, organizations and projects successfully use Judge0 API in produ
 - [Think exam](https://www.thinkexam.com)
 - [ThinkingBell](https://www.thinkingbell.com)
 - [University of Zagreb, Faculty of Electrical Engineering and Computing](https://www.fer.unizg.hr/en)
+- [VS Code App](https://apps.apple.com/US/app/id1512938504) - lightweight universal IDE for iOS / iPadOS with full iCloud Drive support
 - [Xiith](https://xiith.com)
 - [judge0-gem](https://github.com/TopRoupi/judge0-gem) - Ruby Gem for interacting with the Judge0 API
 - [judge0_helm](https://github.com/saikatharryc/judge0_helm) - Helm Chart for Judge0 API
