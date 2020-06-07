@@ -28,7 +28,7 @@ Choose a plan on [RapidAPI](https://rapidapi.com/hermanzdosilovic/api/judge0/pri
 You can read a research paper about Judge0 API [here](https://minio.judge0.com/public/paper-in-review.pdf).
 
 ## Version
-This document describes Judge0 API [v1.8.0](https://github.com/judge0/api/tree/v1.8.0).
+This document describes Judge0 API [v1.9.0](https://github.com/judge0/api/tree/v1.9.0).
 
 ## Date and time formats
 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) standard is used.
