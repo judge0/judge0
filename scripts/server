@@ -1,5 +1,5 @@
 #!/bin/bash
-# Script for running the Judge0 API server.
+# Script for running Judge0 server.
 #
 # Usage: ./scripts/server
 #

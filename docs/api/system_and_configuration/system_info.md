@@ -1,16 +1,16 @@
 ## System Info [/system_info]
 ### System Info [GET]
-System information gives you detailed information about system on which Judge0 API is running.
+System information gives you detailed information about system on which Judge0 is running.
 
 This information is result of two commands on a host system:
 - `lscpu`
 - `free -h`
 
-Please note that Judge0 API consists of two systems: **web** and **worker**. **Web** system is the one who
+Please note that Judge0 consists of two systems: **web** and **worker**. **Web** system is the one who
 provides you the web API, and **Worker** is the one who processes your submissions. They can be placed on two or more
 different hosts with different system configurations. Result of this API request is always from web system.
 This means that this request might be irrelevant to you if you as user don't know if web and worker are
-hosted on the same machine. To find that out, please contact admins who host Judge0 API you are using.
+hosted on the same machine. To find that out, please contact admins who host Judge0 you are using.
 + Response 200 (application/json)
     {
         "Architecture": "x86_64",

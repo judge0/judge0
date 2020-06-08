@@ -2,8 +2,8 @@
 Delete specific submission.
 
 You need to be authorized to issue this request. Although you are
-authorized you might not be able to delete submission because administrator of Judge0 API instance
-you are using disallowed submission deletion. So before using this feature please check [configuration](#system-and-configuration-configuration-info-get) of Judge0 API you are using.
+authorized you might not be able to delete submission because administrator of Judge0 instance
+you are using disallowed submission deletion. So before using this feature please check [configuration](#system-and-configuration-configuration-info-get) of Judge0 you are using.
 
 For this request query parameter `base64_encoded` is implicitly set to `true` and cannot be changed.
 This guarantees you will successfully get requested submission attributes after deletion.

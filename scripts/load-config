@@ -17,7 +17,7 @@ if [[ -v CONFIG_FILE ]]; then
     export RAILS_MAX_THREADS=${RAILS_MAX_THREADS:-5}
     export RAILS_SERVER_PROCESSES=${RAILS_SERVER_PROCESSES:-1}
     export SECRET_KEY_BASE=${SECRET_KEY_BASE:-$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 128 | head -n 1)}
-    export MAINTENANCE_MESSAGE=${MAINTENANCE_MESSAGE:-Judge0 API is currently in maintenance.}
+    export MAINTENANCE_MESSAGE=${MAINTENANCE_MESSAGE:-Judge0 is currently in maintenance.}
     export PORT=${PORT:-3000} # This option is not available in judge0-api.conf
     export RAILS_LOG_TO_STDOUT=true # This options is not available in judge0-api.conf
 

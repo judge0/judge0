@@ -1,7 +1,7 @@
 #!/bin/bash
 # Script for creating a new or using existing
-# Judge0 API development environment and
-# opening new shell inside Judge0 API container.
+# Judge0 development environment and
+# opening new shell inside Judge0 container.
 #
 # Usage: ./scripts/dev/shell
 #

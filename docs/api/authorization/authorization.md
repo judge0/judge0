@@ -1,6 +1,6 @@
 # Group Authorization
 To issue some API calls you need to be authorized. For example, you need to be authorized to
-[list all submissions](#submissions-submission-get-1) on Judge0 API.
+[list all submissions](#submissions-submission-get-1) on Judge0.
 
 ## Authorize [/authorize{?X-Auth-User}]
 ### Authorize [POST]
@@ -9,9 +9,9 @@ authenticate in this API call.
 
 ::: note
 <h4>Note</h4>
-* `X-Auth-User` is default header field name, but administrators of Judge0 API instance you are using
+* `X-Auth-User` is default header field name, but administrators of Judge0 instance you are using
    can change this default field name.
-* Contact administrator of Judge0 API instance you are using to get your authorization token.
+* Contact administrator of Judge0 instance you are using to get your authorization token.
 :::
 
 ::: warning

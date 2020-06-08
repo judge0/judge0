@@ -1,5 +1,5 @@
 #!/bin/bash
-# Script for serving the Judge0 API documentation.
+# Script for serving Judge0 documentation.
 # Used in "development" mode when documentation is written.
 #
 # Usage: ./scripts/dev/serve-docs
