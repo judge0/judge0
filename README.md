@@ -18,7 +18,7 @@ To see Judge0 in action, try [Judge0 IDE](https://ide.judge0.com) - free and ope
 
 ## Features
 - Quick and easy [installation](https://github.com/judge0/api#installation).
-- Supports more than [45 languages](https://api.judge0.com/languages).
+- Supports more than [45 languages](https://github.com/judge0/api-base#supported-languages).
 - Runs source code in a secure and reliable [sandbox](https://github.com/ioi/isolate).
 - Send multiple source code files and any other files. [Demo](https://asciinema.org/a/318548).
 - Set custom compiler options. [Demo](https://ide.judge0.com/?PfcV).
@@ -29,11 +29,14 @@ To see Judge0 in action, try [Judge0 IDE](https://ide.judge0.com) - free and ope
 
 For more information check out  https://api.judge0.com.
 
-## Get Started
-Choose a plan on [RapidAPI](https://rapidapi.com/hermanzdosilovic/api/judge0/pricing) or [install](https://github.com/judge0/api#installation) on your own server.
+## Research Paper
+Read the [research paper](https://minio.judge0.com/public/paper-in-review.pdf) about Judge0.
 
-## Installation
-To install Judge0 on your own server follow [deployment procedure](https://github.com/judge0/api/blob/master/CHANGELOG.md#deployment-procedure) for the latest release.
+## Get Started
+<a href="https://rapidapi.com/hermanzdosilovic/api/judge0" target="_blank"><img src="https://storage.googleapis.com/code-snippets/connect-on-rapidapi-light.png" width="215px" alt="Connect on RapidAPI"></a>
+<span style="margin-left: 20px"></span>
+
+or [deploy](https://github.com/judge0/api/blob/master/CHANGELOG.md#deployment-procedure) on your server.
 
 ## Demo
 [![asciicast](https://asciinema.org/a/318465.svg)](https://asciinema.org/a/318465)
@@ -91,9 +94,6 @@ These companies, organizations and projects successfully use Judge0 in productio
 - [yoCode](https://www.yocode.in)
 
 Feel free to add yours to the list by sending me an [email](mailto:hermanz.dosilovic@gmail.com) or creating an [issue](https://github.com/judge0/api/issues/new).
-
-## Research Paper
-We wrote a research paper about Judge0 that you can find [here](https://minio.judge0.com/public/paper-in-review.pdf).
 
 ## Community
 Do you have a question, feature request or something else on your mind?
