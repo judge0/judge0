@@ -1,18 +1,18 @@
 FORMAT: 1A
 HOST: https://api.judge0.com
 
-# Judge0 API
+# Judge0 - API Documentation
 <!-- include(hostname.html) -->
 <!-- include(style.html) -->
 
 ## About
-[Judge0 API](https://api.judge0.com) is a robust and scalable [open-source](https://github.com/judge0/api) online code execution system. It can be used to build a wide range of applications varying from competitive programming platforms, educational and recruitment platforms, to online code editors, and more.
+[Judge0](https://api.judge0.com) is a robust and scalable [open-source](https://github.com/judge0/api) online code execution system. It can be used to build a wide range of applications varying from competitive programming platforms, educational and recruitment platforms, to online code editors, and more.
 
-To see Judge0 API in action, try [Judge0 IDE](https://ide.judge0.com) - a free and [open-source](https://github.com/judge0/ide) online code editor that uses Judge0 API for executing the user’s source code. You can also try using a [dummy client](/dummy-client.html) which can help you explore and test most of the features of the Judge0 API.
+To see Judge0 in action, try [Judge0 IDE](https://ide.judge0.com) - a free and [open-source](https://github.com/judge0/ide) online code editor that uses Judge0 for executing the user’s source code. You can also try using a [dummy client](/dummy-client.html) which can help you explore and test most of the features of Judge0.
 
 ## Features
 - Quick and easy [installation](https://github.com/judge0/api#installation).
-- Supports more than [45 languages](https://api.judge0.com/languages).
+- Supports more than [45 languages](https://github.com/judge0/api-base#supported-languages).
 - Runs source code in a secure and reliable [sandbox](https://github.com/ioi/isolate).
 - Send multiple source code files and any other files. [Demo](https://asciinema.org/a/318548).
 - Set custom compiler options. [Demo](https://ide.judge0.com/?PfcV).
@@ -25,10 +25,10 @@ To see Judge0 API in action, try [Judge0 IDE](https://ide.judge0.com) - a free a
 Choose a plan on [RapidAPI](https://rapidapi.com/hermanzdosilovic/api/judge0/pricing) or [install](https://github.com/judge0/api#installation) on your own server.
 
 ## Research Paper
-You can read a research paper about Judge0 API [here](https://minio.judge0.com/public/paper-in-review.pdf).
+You can read a research paper about Judge0 [here](https://minio.judge0.com/public/paper-in-review.pdf).
 
 ## Version
-This document describes Judge0 API [v1.8.0-extra](https://github.com/judge0/api/tree/v1.8.0-extra).
+This document describes Judge0 API [v1.9.0-extra](https://github.com/judge0/api/tree/v1.9.0-extra).
 
 ## Date and time formats
 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) standard is used.
@@ -36,7 +36,7 @@ This document describes Judge0 API [v1.8.0-extra](https://github.com/judge0/api/
 Example: `2016-09-11T10:19:35Z`
 
 ## License
-Judge0 API is licensed under the [GNU General Public License v3.0](https://github.com/judge0/api/blob/master/LICENSE).
+Judge0 is licensed under the [GNU General Public License v3.0](https://github.com/judge0/api/blob/master/LICENSE).
 
 ## Donate
 Your are more than welcome to support Judge0 development on [Patreon](https://www.patreon.com/hermanzdosilovic), via [PayPal](https://paypal.me/hermanzdosilovic) or [Revolut](https://pay.revolut.com/profile/hermancy5).

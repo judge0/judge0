@@ -91,7 +91,7 @@ function build_and_tag() {
     local _main_image=${_images[0]}
 
     set -xe
-    docker build -t $_main_image $CACHE --target $_target .
+    docker build -t $_main_image $_cache --target $_target .
     set +xe
 
     for (( i=0; i<${#_images[@]}; i++ )) do

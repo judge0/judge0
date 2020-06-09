@@ -1,5 +1,5 @@
 #!/bin/bash
-# Script for removing the Judge0 API development
+# Script for removing Judge0 development
 # environment (containers and volumes).
 #
 # Usage: ./scripts/dev/clean

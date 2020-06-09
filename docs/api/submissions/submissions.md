@@ -29,11 +29,11 @@ and can be used to configure submission runtime constraints such as time and mem
 |16|`redirect_stderr_to_stdout`|boolean||If `true` standard error will be redirected to standard output.|Depends on [configuration](#system-and-configuration-configuration-info).|
 |17|`number_of_runs`|integer||Run each program `number_of_runs` times and take average of `time` and `memory`.|Depends on [configuration](#system-and-configuration-configuration-info).|
 |18|`additional_files`|Base64 Encoded String||Additional files that should be available alongside the source code. Value of this string should represent the content of a `.zip` that contains additional files.|`null`|
-|19|`callback_url`|string||URL on which Judge0 API will issue `PUT` request with the submission in a request body after submission has been done.|`null`|
+|19|`callback_url`|string||URL on which Judge0 will issue `PUT` request with the submission in a request body after submission has been done.|`null`|
 |20|`stdout`|text||Standard output of the program after execution.||
 |21|`stderr`|text||Standard error of the program after execution.||
 |22|`compile_output`|text||Compiler output after compilation.||
-|23|`message`|text||If submission status is `Internal Error` then this message comes from the Judge0 API itself, otherwise this is status message from [isolate](https://github.com/ioi/isolate).||
+|23|`message`|text||If submission status is `Internal Error` then this message comes from Judge0 itself, otherwise this is status message from [isolate](https://github.com/ioi/isolate).||
 |24|`exit_code`|integer||The program's exit code.||
 |25|`exit_signal`|integer||Signal code that the program recieved before exiting.||
 |26|`status`|object||Submission [status](#statuses-and-languages-status).||

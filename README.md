@@ -1,5 +1,5 @@
-# Judge0 API
-[![Judge0 API Wallpaper](https://github.com/judge0/api/blob/master/.github/wallpaper.png?raw=true)](https://api.judge0.com)
+# Judge0
+[![Judge0 Wallpaper](https://github.com/judge0/api/blob/master/.github/wallpaper.png?raw=true)](https://api.judge0.com)
 
 [![License](https://img.shields.io/github/license/judge0/api?color=2185d0&style=flat-square)](https://github.com/judge0/api/blob/master/LICENSE)
 [![Release](https://img.shields.io/github/v/release/judge0/api?color=2185d0&style=flat-square)](https://github.com/judge0/api/releases)
@@ -10,15 +10,15 @@
 <a href="https://paypal.me/hermanzdosilovic" target="_blank"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" alt="Donate with PayPal" height="43px" /></a>
 
 ## About
-[**Judge0 API**](https://api.judge0.com) is a robust and scalable open-source online code execution system.
+[**Judge0**](https://api.judge0.com) is a robust and scalable open-source online code execution system.
 
-Judge0 API can help you build wide range of applications varying from competitive programming platforms, educational and recruitment platforms, to online code editors and more.
+Judge0 can help you build wide range of applications varying from competitive programming platforms, educational and recruitment platforms, to online code editors and more.
 
-To see Judge0 API in action, try [Judge0 IDE](https://ide.judge0.com) - free and open-source code editor that uses Judge0 API for executing the user’s source code.
+To see Judge0 in action, try [Judge0 IDE](https://ide.judge0.com) - free and open-source code editor that uses Judge0 for executing the user’s source code.
 
 ## Features
 - Quick and easy [installation](https://github.com/judge0/api#installation).
-- Supports more than [45 languages](https://api.judge0.com/languages).
+- Supports more than [45 languages](https://github.com/judge0/api-base#supported-languages).
 - Runs source code in a secure and reliable [sandbox](https://github.com/ioi/isolate).
 - Send multiple source code files and any other files. [Demo](https://asciinema.org/a/318548).
 - Set custom compiler options. [Demo](https://ide.judge0.com/?PfcV).
@@ -29,22 +29,27 @@ To see Judge0 API in action, try [Judge0 IDE](https://ide.judge0.com) - free and
 
 For more information check out  https://api.judge0.com.
 
-## Get Started
-Choose a plan on [RapidAPI](https://rapidapi.com/hermanzdosilovic/api/judge0/pricing) or [install](https://github.com/judge0/api#installation) on your own server.
+## Research Paper
+Read the [research paper](https://minio.judge0.com/public/paper-in-review.pdf) about Judge0.
 
-## Installation
-To install Judge0 API on your own server follow [deployment procedure](https://github.com/judge0/api/blob/master/CHANGELOG.md#deployment-procedure) for the latest release.
+## Get Started
+<a href="https://rapidapi.com/hermanzdosilovic/api/judge0" target="_blank"><img src="https://storage.googleapis.com/code-snippets/connect-on-rapidapi-light.png" width="215px" alt="Connect on RapidAPI"></a>
+<span style="margin-left: 20px"></span>
+
+or [deploy](https://github.com/judge0/api/blob/master/CHANGELOG.md#deployment-procedure) on your server.
 
 ## Demo
 [![asciicast](https://asciinema.org/a/318465.svg)](https://asciinema.org/a/318465)
 
 ## References
-These companies, organizations and projects successfully use Judge0 API in production:
+These companies, organizations and projects successfully use Judge0 in production:
 - [Adzetech](https://adzetech.com)
 - [AlgoLadder](http://algoladder.com)
 - [Ask To How](https://www.asktohow.com)
 - [Brilliant Hire](https://www.brillianthire.io)
 - [CODE.IN](https://code.in)
+- [Code Compiler Lite](https://play.google.com/store/apps/details?id=com.codefox.code_compiler_lite) - online mobile code compiler for Android
+- [Code4You](https://code4you.org)
 - [CodeChum](https://www.codechum.com)
 - [CodeClimbers](https://github.com/appsicle/CodeClimbers)
 - [CodeForum.ORG](https://codeforum.org)
@@ -61,7 +66,7 @@ These companies, organizations and projects successfully use Judge0 API in produ
 - [Indian Institute of Technology Mandi](http://www.iitmandi.ac.in)
 - [Instacks](https://instacks.in)
 - [Institute of Aeronautical Engineering](https://www.iare.ac.in)
-- [JavaJudge0Api](https://github.com/bloodnighttw/JavaJudge0Api) - a Java library for interacting with the Judge0 API
+- [JavaJudge0Api](https://github.com/bloodnighttw/JavaJudge0Api) - a Java library for interacting with Judge0
 - [Judge Code Online](http://en.chamcode.net)
 - [KPR Institute of Engineering and Technology](https://www.kpriet.ac.in)
 - [KodKarate](http://www.kodkarate.in) - an open-source IDE
@@ -77,10 +82,11 @@ These companies, organizations and projects successfully use Judge0 API in produ
 - [Think exam](https://www.thinkexam.com)
 - [ThinkingBell](https://www.thinkingbell.com)
 - [University of Zagreb, Faculty of Electrical Engineering and Computing](https://www.fer.unizg.hr/en)
+- [VS Code App](https://apps.apple.com/US/app/id1512938504) - lightweight universal IDE for iOS / iPadOS with full iCloud Drive support
 - [Xiith](https://xiith.com)
-- [judge0-gem](https://github.com/TopRoupi/judge0-gem) - Ruby Gem for interacting with the Judge0 API
-- [judge0_helm](https://github.com/saikatharryc/judge0_helm) - Helm Chart for Judge0 API
-- [judge0api](https://github.com/vCra/judge0api) - Python library for interacting with Judge0 API
+- [judge0-gem](https://github.com/TopRoupi/judge0-gem) - Ruby Gem for interacting with Judge0
+- [judge0_helm](https://github.com/saikatharryc/judge0_helm) - Helm Chart for Judge0
+- [judge0api](https://github.com/vCra/judge0api) - Python library for interacting with Judge0
 - [nGrader](https://ngrader.herokuapp.com)
 - [primat.org](http://primat.org)
 - [uDebug Tool](https://www.udebugtool.com)
@@ -88,9 +94,6 @@ These companies, organizations and projects successfully use Judge0 API in produ
 - [yoCode](https://www.yocode.in)
 
 Feel free to add yours to the list by sending me an [email](mailto:hermanz.dosilovic@gmail.com) or creating an [issue](https://github.com/judge0/api/issues/new).
-
-## Research Paper
-We wrote a research paper about Judge0 API that you can find [here](https://minio.judge0.com/public/paper-in-review.pdf).
 
 ## Community
 Do you have a question, feature request or something else on your mind?
@@ -106,7 +109,7 @@ Check out these links:
 * [Schedule an online meeting with the author](https://judge0.appointlet.com)
 
 ## Author and Contributors
-Judge0 API was created by [Herman Zvonimir Došilović](https://github.com/hermanzdosilovic).
+Judge0 was created by [Herman Zvonimir Došilović](https://github.com/hermanzdosilovic).
 
 Thanks a lot to all [contributors](https://github.com/judge0/api/graphs/contributors) for their contributions in this project.
 
@@ -114,7 +117,7 @@ Thanks a lot to all [contributors](https://github.com/judge0/api/graphs/contribu
 Detailed specification of changes between versions can be found in [CHANGELOG.md](https://github.com/judge0/api/blob/master/CHANGELOG.md).
 
 ## Special Thanks
-Special thanks to these open-source projects without whom Judge0 API probably wouldn't exist: [isolate](https://github.com/ioi/isolate), [Docker](https://github.com/docker), [Ruby on Rails](https://github.com/rails/rails) and others.
+Special thanks to these open-source projects without whom Judge0 probably wouldn't exist: [isolate](https://github.com/ioi/isolate), [Docker](https://github.com/docker), [Ruby on Rails](https://github.com/rails/rails) and others.
 
 ## Supporters
 Thanks a lot to all my [Patrons](https://www.patreon.com/hermanzdosilovic) and [PayPal](https://paypal.me/hermanzdosilovic) donors that supported Judge0 development. Thank you! ♥
@@ -123,4 +126,4 @@ Thanks a lot to all my [Patrons](https://www.patreon.com/hermanzdosilovic) and [
 Your are more than welcome to support Judge0 development on [Patreon](https://www.patreon.com/hermanzdosilovic), via [PayPal](https://paypal.me/hermanzdosilovic) or [Revolut](https://pay.revolut.com/profile/hermancy5).
 
 ## License
-Judge0 API is licensed under the [GNU General Public License v3.0](https://github.com/judge0/api/blob/master/LICENSE).
+Judge0 is licensed under the [GNU General Public License v3.0](https://github.com/judge0/api/blob/master/LICENSE).

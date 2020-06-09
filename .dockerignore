@@ -4,7 +4,7 @@ agricius
 Dockerfile*
 docker-compose*
 docs/maintainers/
-judge0-api.conf
+judge0.conf
 log/*
 scripts/dev/
 srv/

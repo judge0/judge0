@@ -1,6 +1,6 @@
 module Config
   # For more info read:
-  # https://github.com/judge0/api/blob/master/judge0-api.conf
+  # https://github.com/judge0/api/blob/master/judge0.conf
 
   MAINTENANCE_MODE = ENV['MAINTENANCE_MODE'] == "true"
   ENABLE_WAIT_RESULT = ENV['ENABLE_WAIT_RESULT'] != "false"

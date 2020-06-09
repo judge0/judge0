@@ -1,5 +1,5 @@
 #!/bin/bash
-# Script for generating the Judge0 API documentation.
+# Script for generating Judge0 documentation.
 #
 # Usage: ./scripts/dev/generate-docs
 #

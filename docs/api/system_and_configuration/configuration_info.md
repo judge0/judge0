@@ -1,15 +1,15 @@
 ## Configuration Info [/config_info]
 ## Configuration Info [GET]
-Configuration information gives you detailed information about configuration of Judge0 API.
-This configuration can be changed through [judge0-api.conf](https://github.com/judge0/api/blob/master/judge0-api.conf)
-file by admin who hosts Judge0 API instance.
+Configuration information gives you detailed information about configuration of Judge0.
+This configuration can be changed through [judge0.conf](https://github.com/judge0/api/blob/master/judge0.conf)
+file by admin who hosts Judge0 instance.
 
-This configuration gives every admin a flexibility to configure Judge0 API according to server abilities and needs. It also gives users
+This configuration gives every admin a flexibility to configure Judge0 according to server abilities and needs. It also gives users
 insight on some *default configuration values* which are used when their programs are run.
 
 Each of these *configuration variables* have *default values* which we consider as recommended in case you are not sure should you change them.
 
-We will refer to *default values* as values which Judge0 API automatically assigns to each of these *configuration variables*,
+We will refer to *default values* as values which Judge0 automatically assigns to each of these *configuration variables*,
 if admin didn't set them. For example, default value of *configuration variable* `cpu_time_limit` is `2`.
 
 |#    |Name|Type |Unit |Description|Default Value|

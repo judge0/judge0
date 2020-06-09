@@ -1,5 +1,5 @@
 #!/bin/bash
-# Script for running Judge0 API workers.
+# Script for running Judge0 workers.
 #
 # Usage: ./scripts/workers
 #
