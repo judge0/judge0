@@ -13,7 +13,7 @@ Telemetry reporting is **enabled** by default.
 This document describes how to disable telemetry reporting and what data is collected.
 
 ## Disabling Telemetry Reporting
-To disable telemetry reporting set variable `JUDGE0_TELEMETRY_ENABLE` to `false` in [judge0-api.conf](judge0-api.conf).
+To disable telemetry reporting set variable `JUDGE0_TELEMETRY_ENABLE` to `false` in [judge0.conf](judge0.conf).
 
 ## Collected Data
 Every deployed instance of Judge0 with enabled telemetry reporting has its own ID that is used to identify the instance.

@@ -17,14 +17,14 @@ release_dir=release-$commit_tag
 mkdir -p $release_dir
 
 for ext in "" ".https" ".workers" ".server"; do
-    instance_dir=judge0-api-$commit_tag
+    instance_dir=judge0-$commit_tag
     if [[ $ext != "" ]]; then
         instance_dir=$instance_dir-${ext:1}
     fi
     pushd $release_dir
     mkdir -p $instance_dir
     cp ../docker-compose$ext.yml $instance_dir/docker-compose.yml
-    cp ../judge0-api.conf $instance_dir/
+    cp ../judge0.conf $instance_dir/
     sed -i "s/api:latest/api:$docker_tag/g" $instance_dir/docker-compose.yml
     zip -r $instance_dir.zip $instance_dir
     popd

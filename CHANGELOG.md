@@ -14,13 +14,13 @@ Judge0 is collecting telemetry data to help understand how to improve the produc
 1. Install [Docker](https://docs.docker.com) and [Docker Compose](https://docs.docker.com/compose).
 2. Download and extract release archive:
 ```
-wget https://github.com/judge0/api/releases/download/v1.9.0/judge0-api-v1.9.0-https.zip
-unzip judge0-api-v1.9.0-https.zip
+wget https://github.com/judge0/api/releases/download/v1.9.0/judge0-v1.9.0-https.zip
+unzip judge0-v1.9.0-https.zip
 ```
 
-3. Change directory to `judge0-api-v1.9.0-https`:
+3. Change directory to `judge0-v1.9.0-https`:
 ```
-cd judge0-api-v1.9.0-https
+cd judge0-v1.9.0-https
 ```
 4. Edit `docker-compose.yml` and change variables `VIRTUAL_HOST`, `LETSENCRYPT_HOST` and `LETSENCRYPT_EMAIL`.
 5. Run all services and wait few seconds until everything is initialized:
@@ -37,13 +37,13 @@ sleep 5s
 1. Install [Docker](https://docs.docker.com) and [Docker Compose](https://docs.docker.com/compose).
 2. Download and extract release archive:
 ```
-wget https://github.com/judge0/api/releases/download/v1.9.0/judge0-api-v1.9.0.zip
-unzip judge0-api-v1.9.0.zip
+wget https://github.com/judge0/api/releases/download/v1.9.0/judge0-v1.9.0.zip
+unzip judge0-v1.9.0.zip
 ```
 
 3. Run all services and wait few seconds until everything is initialized:
 ```
-cd judge0-api-v1.9.0
+cd judge0-v1.9.0
 docker-compose up -d db redis
 sleep 10s
 docker-compose up -d
