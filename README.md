@@ -30,7 +30,7 @@ To see Judge0 in action, try [Judge0 IDE](https://ide.judge0.com) - free and ope
 For more information check out  https://api.judge0.com.
 
 ## Research Paper
-Read the [research paper](https://minio.judge0.com/public/paper-in-review.pdf) about Judge0.
+Read the [research paper](https://ieeexplore.ieee.org/) about Judge0.
 
 ## Get Started
 <a href="https://rapidapi.com/hermanzdosilovic/api/judge0" target="_blank"><img src="https://storage.googleapis.com/code-snippets/connect-on-rapidapi-light.png" width="215px" alt="Connect on RapidAPI"></a>
