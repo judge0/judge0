@@ -44,6 +44,7 @@ or [deploy](https://github.com/judge0/api/blob/master/CHANGELOG.md#deployment-pr
 ## References
 These companies, organizations and projects successfully use Judge0 in production:
 - [Adzetech](https://adzetech.com)
+- [AlgoDaily](https://algodaily.com)
 - [AlgoLadder](http://algoladder.com)
 - [Ask To How](https://www.asktohow.com)
 - [Brilliant Hire](https://www.brillianthire.io)
@@ -76,6 +77,7 @@ These companies, organizations and projects successfully use Judge0 in productio
 - [NewsCad](http://newscad.com)
 - [Newton School](https://www.newtonschool.co)
 - [Picode](https://picode.now.sh) - an online code playground
+- [PrepForTech](https://prepfortech.in)
 - [REVA University](https://reva.edu.in)
 - [Soft CodeOn](https://softcodeon.com)
 - [SparkDatabox](https://sparkdatabox.com)
