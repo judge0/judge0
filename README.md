@@ -89,6 +89,7 @@ These companies, organizations and projects successfully use Judge0 in productio
 - [University of Zagreb, Faculty of Electrical Engineering and Computing](https://www.fer.unizg.hr/en)
 - [VS Code App](https://apps.apple.com/US/app/id1512938504) - lightweight universal IDE for iOS / iPadOS with full iCloud Drive support
 - [Xiith](https://xiith.com)
+- [anu0912/online-code-editor](https://github.com/anu0912/online-code-editor)
 - [judge0-gem](https://github.com/TopRoupi/judge0-gem) - Ruby Gem for interacting with Judge0
 - [judge0_helm](https://github.com/saikatharryc/judge0_helm) - Helm Chart for Judge0
 - [judge0api](https://github.com/vCra/judge0api) - Python library for interacting with Judge0
