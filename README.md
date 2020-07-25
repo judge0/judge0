@@ -19,18 +19,19 @@ To see Judge0 in action, try [Judge0 IDE](https://ide.judge0.com) - free and ope
 ## Features
 - Quick and easy [installation](https://github.com/judge0/api#installation).
 - Supports more than [45 languages](https://github.com/judge0/api-base#supported-languages).
-- Runs source code in a secure and reliable [sandbox](https://github.com/ioi/isolate).
-- Send multiple source code files and any other files. [Demo](https://asciinema.org/a/318548).
+- Runs programs in a secure and reliable [sandbox](https://github.com/ioi/isolate).
+- Send additional files alongside your single-file program. [Demo](https://asciinema.org/a/318548).
+- Compile and run multi-file program.
 - Set custom compiler options. [Demo](https://ide.judge0.com/?PfcV).
 - Set custom command line arguments. [Demo](https://ide.judge0.com/?E68R).
 - Set time and memory limits.
 - HTTP callbacks.
 - And [many more](https://api.judge0.com/#submissions-submission).
 
-For more information check out  https://api.judge0.com.
+For more information visit https://api.judge0.com.
 
 ## Research Paper
-Read the [research paper](https://ieeexplore.ieee.org/) about Judge0.
+You can read a research paper about Judge0 [here](https://minio.judge0.com/public/paper.jpg).
 
 ## Get Started
 <a href="https://rapidapi.com/hermanzdosilovic/api/judge0" target="_blank"><img src="https://storage.googleapis.com/code-snippets/connect-on-rapidapi-light.png" width="215px" alt="Connect on RapidAPI"></a>
@@ -74,13 +75,18 @@ These companies, organizations and projects successfully use Judge0 in productio
 - [KPR Institute of Engineering and Technology](https://www.kpriet.ac.in)
 - [KodKarate](http://www.kodkarate.in) - an open-source IDE
 - [KodNest](https://www.kodnest.com)
+- [MartyMiniac/Autorun](https://github.com/MartyMiniac/Autorun)
+- [MyEduKit](https://myedukit.com/coders/online-compiler)
 - [NewsCad](http://newscad.com)
 - [Newton School](https://www.newtonschool.co)
 - [Picode](https://picode.now.sh) - an online code playground
+- [Pravinkanna/codeaholic](https://github.com/Pravinkanna/codeaholic)
 - [PrepForTech](https://prepfortech.in)
 - [REVA University](https://reva.edu.in)
 - [Soft CodeOn](https://softcodeon.com)
 - [SparkDatabox](https://sparkdatabox.com)
+- [StarOJ](https://github.com/StardustDL/StarOJ) - An online judge platform based on Judge0
+- [StardustDL/judge0-dotnet](https://github.com/StardustDL/judge0-dotnet) - Client SDK for Judge0
 - [Stemalica](https://stemalica.com)
 - [Studyfied](https://studyfied.com)
 - [Techie Delight](https://techiedelight.com)
@@ -93,8 +99,10 @@ These companies, organizations and projects successfully use Judge0 in productio
 - [judge0-gem](https://github.com/TopRoupi/judge0-gem) - Ruby Gem for interacting with Judge0
 - [judge0_helm](https://github.com/saikatharryc/judge0_helm) - Helm Chart for Judge0
 - [judge0api](https://github.com/vCra/judge0api) - Python library for interacting with Judge0
+- [muzam1l/ide](https://github.com/muzam1l/ide)
 - [nGrader](https://ngrader.herokuapp.com)
 - [primat.org](http://primat.org)
+- [tracyliu1220/Mini-OJ](https://github.com/tracyliu1220/Mini-OJ)
 - [uDebug Tool](https://www.udebugtool.com)
 - [wkspace](http://wkspace.herokuapp.com)
 - [yoCode](https://www.yocode.in)

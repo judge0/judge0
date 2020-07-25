@@ -16,6 +16,6 @@ class Language < ApplicationRecord
   default_scope { where(is_archived: false).order(name: :asc) }
 
   def is_project
-    name == "Project"
+    name == "Multi-file program"
   end
 end

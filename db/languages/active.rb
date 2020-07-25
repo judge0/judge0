@@ -354,7 +354,7 @@
   },
   {
     id: 89,
-    name: "Project",
+    name: "Multi-file program",
     is_archived: false,
   }
 ]
