@@ -55,7 +55,7 @@ class IsolateJob < ApplicationJob
     @workdir = `isolate #{cgroups} -b #{box_id} --init`.chomp
     @boxdir = workdir + "/box"
     @tmpdir = workdir + "/tmp"
-    @source_file = boxdir + "/" + submission.language.source_file
+    @source_file = boxdir + "/" + submission.language.source_file.to_s
     @stdin_file = workdir + "/" + STDIN_FILE_NAME
     @stdout_file = workdir + "/" + STDOUT_FILE_NAME
     @stderr_file = workdir + "/" + STDERR_FILE_NAME
@@ -66,7 +66,7 @@ class IsolateJob < ApplicationJob
       initialize_file(f)
     end
 
-    File.open(source_file, "wb") { |f| f.write(submission.source_code) }
+    File.open(source_file, "wb") { |f| f.write(submission.source_code) } unless submission.is_project
     File.open(stdin_file, "wb") { |f| f.write(submission.stdin) }
 
     extract_archive
@@ -107,13 +107,20 @@ class IsolateJob < ApplicationJob
   end
 
   def compile
-    return :success unless submission.language.compile_cmd
-
-    # gsub can be skipped if compile script is used, but is kept for additional security.
-    compiler_options = submission.compiler_options.to_s.strip.encode("UTF-8", invalid: :replace).gsub(/[$&;<>|`]/, "")
+    unless submission.is_project
+      return :success unless submission.language.compile_cmd
+    end
 
     compile_script = boxdir + "/" + "compile"
-    File.open(compile_script, "w") { |f| f.write("#{submission.language.compile_cmd % compiler_options}")}
+    if submission.is_project
+      unless File.file?(compile_script)
+        return :success # If compile script does not exist then this project does not need to be compiled.
+      end
+    else
+      # gsub can be skipped if compile script is used, but is kept for additional security.
+      compiler_options = submission.compiler_options.to_s.strip.encode("UTF-8", invalid: :replace).gsub(/[$&;<>|`]/, "")
+      File.open(compile_script, "w") { |f| f.write("#{submission.language.compile_cmd % compiler_options}") }
+    end
 
     compile_output_file = workdir + "/" + "compile_output.txt"
     initialize_file(compile_output_file)
@@ -154,7 +161,10 @@ class IsolateJob < ApplicationJob
     metadata = get_metadata
 
     reset_metadata_file
-    [compile_script, compile_output_file].each do |f|
+
+    files_to_remove = [compile_output_file]
+    files_to_remove << compile_script unless submission.is_project
+    files_to_remove.each do |f|
       `sudo chown $(whoami): #{f} && sudo rm -rf #{f}`
     end
 
@@ -180,11 +190,12 @@ class IsolateJob < ApplicationJob
   end
 
   def run
-    # gsub is mandatory!
-    command_line_arguments = submission.command_line_arguments.to_s.strip.encode("UTF-8", invalid: :replace).gsub(/[$&;<>|`]/, "")
-
     run_script = boxdir + "/" + "run"
-    File.open(run_script, "w") { |f| f.write("#{submission.language.run_cmd} #{command_line_arguments}")}
+    unless submission.is_project
+      # gsub is mandatory!
+      command_line_arguments = submission.command_line_arguments.to_s.strip.encode("UTF-8", invalid: :replace).gsub(/[$&;<>|`]/, "")
+      File.open(run_script, "w") { |f| f.write("#{submission.language.run_cmd} #{command_line_arguments}")}
+    end
 
     command = "isolate #{cgroups} \
     -s \
@@ -214,7 +225,7 @@ class IsolateJob < ApplicationJob
 
     `#{command}`
 
-    `sudo chown $(whoami): #{run_script} && rm #{run_script}`
+    `sudo chown $(whoami): #{run_script} && rm #{run_script}` unless submission.is_project
   end
 
   def verify

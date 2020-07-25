@@ -39,7 +39,10 @@
 #
 
 class Submission < ApplicationRecord
-  validates :source_code, :language_id, presence: true
+  validates :source_code, presence: true, unless: -> { is_project }
+  validates :source_code, absence: true, if: -> { is_project }
+  validates :additional_files, presence: true, if: -> { is_project }
+  validates :language_id, presence: true
   validates :number_of_runs,
             numericality: { greater_than: 0, less_than_or_equal_to: Config::MAX_NUMBER_OF_RUNS }
   validates :cpu_time_limit,
@@ -148,6 +151,11 @@ class Submission < ApplicationRecord
 
   def status=(status)
     self.status_id = status.id
+  end
+
+
+  def is_project
+    language.try(:is_project)
   end
 
   private
