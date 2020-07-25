@@ -1,3 +1,66 @@
+# v1.10.0 (2020-07-26)
+## New Features
+- Added support for multi-file programs in the terms of adding a new special language called **Multi-file program**. In total there are now **47 active languages**.
+
+|ID|Name|Note|
+|---|---|---|
+|89|Multi-file program||
+
+Multi-file programs allow you specify your own compilation and execution scripts that Judge0 will use.
+
+To use multi-file program feature you need to choose a language called *Multi-file program* whoose ID is **89**. Moreover, you need to send all program files with `additional_files` attribute. With multi-file programs attribute `source_code` cannot be used, i.e. all files should be sent with `additional_files` attribute.
+
+For the Judge0 to know how to compile and execute your multi-file program you need to provide two special files that should be available in the root of the `.zip` archive that you are sending with `additional_files` attribute. These files should be named `compile` and `run`, and are expected to be Bash scripts that know how to compile and execute your multi-file program. If your multi-file program does not need compilation step, then you don't need to provide `compile` script. Take a look at [this example](https://github.com/judge0/examples/tree/master/cpp-project-01) to learn how to use this feature to compile and run multi-file C++ project that uses CMake.
+
+## Other Changes
+- Updated gems.
+
+## Deployment Procedure
+Judge0 is collecting telemetry data to help understand how to improve the product and to better understand how Judge0 is used in various production environments. Read more about telemetry [here](https://github.com/judge0/api/blob/v1.10.0/TELEMETRY.md).
+
+### With HTTPS (SSL/TLS)
+1. Install [Docker](https://docs.docker.com) and [Docker Compose](https://docs.docker.com/compose).
+2. Download and extract release archive:
+```
+wget https://github.com/judge0/api/releases/download/v1.10.0/judge0-v1.10.0-https.zip
+unzip judge0-v1.10.0-https.zip
+```
+
+3. Change directory to `judge0-v1.10.0-https`:
+```
+cd judge0-v1.10.0-https
+```
+4. Edit `docker-compose.yml` and change variables `VIRTUAL_HOST`, `LETSENCRYPT_HOST` and `LETSENCRYPT_EMAIL`.
+5. Run all services and wait few seconds until everything is initialized:
+```
+docker-compose up -d db redis
+sleep 10s
+docker-compose up -d
+sleep 5s
+```
+
+6. Your instance of Judge0 v1.10.0 is now available at `https://<YOUR DOMAIN>`.
+
+### With HTTP
+1. Install [Docker](https://docs.docker.com) and [Docker Compose](https://docs.docker.com/compose).
+2. Download and extract release archive:
+```
+wget https://github.com/judge0/api/releases/download/v1.10.0/judge0-v1.10.0.zip
+unzip judge0-v1.10.0.zip
+```
+
+3. Run all services and wait few seconds until everything is initialized:
+```
+cd judge0-v1.10.0
+docker-compose up -d db redis
+sleep 10s
+docker-compose up -d
+sleep 5s
+```
+
+4. Your instance of Judge0 v1.10.0 is now available at `http://<IP ADDRESS OF YOUR SERVER>`.
+
+
 # v1.9.0 (2020-06-10)
 Huge thanks to [**Filtered**](https://www.filtered.ai) for sponsoring this release.
 
