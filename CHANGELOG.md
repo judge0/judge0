@@ -1,4 +1,4 @@
-# v1.10.0 (2020-07-26)
+# v1.10.0 (2020-07-27)
 ## New Features
 - Added support for multi-file programs in the terms of adding a new special language called **Multi-file program**. In total there are now **47 active languages**.
 
