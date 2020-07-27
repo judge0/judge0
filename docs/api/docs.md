@@ -13,8 +13,9 @@ To see Judge0 in action, try [Judge0 IDE](https://ide.judge0.com) - a free and [
 ## Features
 - Quick and easy [installation](https://github.com/judge0/api#installation).
 - Supports more than [45 languages](https://github.com/judge0/api-base#supported-languages).
-- Runs source code in a secure and reliable [sandbox](https://github.com/ioi/isolate).
-- Send multiple source code files and any other files. [Demo](https://asciinema.org/a/318548).
+- Runs programs in a secure and reliable [sandbox](https://github.com/ioi/isolate).
+- Send additional files alongside your single-file program. [Demo](https://asciinema.org/a/318548).
+- Compile and run multi-file program.
 - Set custom compiler options. [Demo](https://ide.judge0.com/?PfcV).
 - Set custom command line arguments. [Demo](https://ide.judge0.com/?E68R).
 - Set time and memory limits.
@@ -25,10 +26,10 @@ To see Judge0 in action, try [Judge0 IDE](https://ide.judge0.com) - a free and [
 Choose a plan on [RapidAPI](https://rapidapi.com/hermanzdosilovic/api/judge0/pricing) or [install](https://github.com/judge0/api#installation) on your own server.
 
 ## Research Paper
-You can read a research paper about Judge0 [here](https://minio.judge0.com/public/paper-in-review.pdf).
+You can read a research paper about Judge0 [here](https://minio.judge0.com/public/paper.jpg).
 
 ## Version
-This document describes Judge0 API [v1.9.0-extra](https://github.com/judge0/api/tree/v1.9.0-extra).
+This document describes Judge0 [v1.10.0-extra](https://github.com/judge0/api/tree/v1.10.0-extra).
 
 ## Date and time formats
 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) standard is used.

@@ -86,5 +86,18 @@
     source_file: "main.bsq",
     compile_cmd: "/usr/bin/node /usr/local/BosqueLanguage/impl/bin/runtimes/exegen/exegen.js -c g++-10 %s main.bsq",
     run_cmd:"./a.out %s"
+  },
+  {
+    id: 12,
+    name: "C++ Test (GCC 8.4.0, Google Test 1.8.1)",
+    is_archived: false,
+    source_file: "main.cpp",
+    compile_cmd: "/usr/bin/g++ %s main.cpp -lgtest -lgtest_main -lpthread",
+    run_cmd: "GTEST_COLOR=no ./a.out %s"
+  },
+  {
+    id: 89,
+    name: "Multi-file program",
+    is_archived: false,
   }
 ]

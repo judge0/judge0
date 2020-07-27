@@ -11,6 +11,11 @@
 #
 
 class Language < ApplicationRecord
-  validates :name, :run_cmd, :source_file, presence: true
+  validates :name, presence: true
+  validates :source_file, :run_cmd, presence: true, unless: -> { is_project }
   default_scope { where(is_archived: false).order(name: :asc) }
+
+  def is_project
+    name == "Multi-file program"
+  end
 end

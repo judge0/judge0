@@ -19,18 +19,19 @@ To see Judge0 in action, try [Judge0 IDE](https://ide.judge0.com) - free and ope
 ## Features
 - Quick and easy [installation](https://github.com/judge0/api#installation).
 - Supports more than [45 languages](https://github.com/judge0/api-base#supported-languages).
-- Runs source code in a secure and reliable [sandbox](https://github.com/ioi/isolate).
-- Send multiple source code files and any other files. [Demo](https://asciinema.org/a/318548).
+- Runs programs in a secure and reliable [sandbox](https://github.com/ioi/isolate).
+- Send additional files alongside your single-file program. [Demo](https://asciinema.org/a/318548).
+- Compile and run multi-file program.
 - Set custom compiler options. [Demo](https://ide.judge0.com/?PfcV).
 - Set custom command line arguments. [Demo](https://ide.judge0.com/?E68R).
 - Set time and memory limits.
 - HTTP callbacks.
 - And [many more](https://api.judge0.com/#submissions-submission).
 
-For more information check out  https://api.judge0.com.
+For more information visit https://api.judge0.com.
 
 ## Research Paper
-Read the [research paper](https://minio.judge0.com/public/paper-in-review.pdf) about Judge0.
+You can read a research paper about Judge0 [here](https://minio.judge0.com/public/paper.jpg).
 
 ## Get Started
 <a href="https://rapidapi.com/hermanzdosilovic/api/judge0" target="_blank"><img src="https://storage.googleapis.com/code-snippets/connect-on-rapidapi-light.png" width="215px" alt="Connect on RapidAPI"></a>
@@ -44,6 +45,7 @@ or [deploy](https://github.com/judge0/api/blob/master/CHANGELOG.md#deployment-pr
 ## References
 These companies, organizations and projects successfully use Judge0 in production:
 - [Adzetech](https://adzetech.com)
+- [AlgoDaily](https://algodaily.com)
 - [AlgoLadder](http://algoladder.com)
 - [Ask To How](https://www.asktohow.com)
 - [Brilliant Hire](https://www.brillianthire.io)
@@ -63,19 +65,28 @@ These companies, organizations and projects successfully use Judge0 in productio
 - [Filtered](https://www.filtered.ai)
 - [GeekCoders](http://www.geekcoders.co.in)
 - [Georg-August University of Göttingen](https://www.uni-goettingen.de)
+- [GoMyCode](https://gomycode.co)
 - [Indian Institute of Technology Mandi](http://www.iitmandi.ac.in)
 - [Instacks](https://instacks.in)
 - [Institute of Aeronautical Engineering](https://www.iare.ac.in)
+- [Interview Sandbox](https://interviewsandbox.com)
 - [JavaJudge0Api](https://github.com/bloodnighttw/JavaJudge0Api) - a Java library for interacting with Judge0
 - [Judge Code Online](http://en.chamcode.net)
 - [KPR Institute of Engineering and Technology](https://www.kpriet.ac.in)
 - [KodKarate](http://www.kodkarate.in) - an open-source IDE
 - [KodNest](https://www.kodnest.com)
+- [MartyMiniac/Autorun](https://github.com/MartyMiniac/Autorun)
+- [MyEduKit](https://myedukit.com/coders/online-compiler)
 - [NewsCad](http://newscad.com)
 - [Newton School](https://www.newtonschool.co)
 - [Picode](https://picode.now.sh) - an online code playground
+- [Pravinkanna/codeaholic](https://github.com/Pravinkanna/codeaholic)
+- [PrepForTech](https://prepfortech.in)
+- [REVA University](https://reva.edu.in)
 - [Soft CodeOn](https://softcodeon.com)
 - [SparkDatabox](https://sparkdatabox.com)
+- [StarOJ](https://github.com/StardustDL/StarOJ) - An online judge platform based on Judge0
+- [StardustDL/judge0-dotnet](https://github.com/StardustDL/judge0-dotnet) - Client SDK for Judge0
 - [Stemalica](https://stemalica.com)
 - [Studyfied](https://studyfied.com)
 - [Techie Delight](https://techiedelight.com)
@@ -84,11 +95,14 @@ These companies, organizations and projects successfully use Judge0 in productio
 - [University of Zagreb, Faculty of Electrical Engineering and Computing](https://www.fer.unizg.hr/en)
 - [VS Code App](https://apps.apple.com/US/app/id1512938504) - lightweight universal IDE for iOS / iPadOS with full iCloud Drive support
 - [Xiith](https://xiith.com)
+- [anu0912/online-code-editor](https://github.com/anu0912/online-code-editor)
 - [judge0-gem](https://github.com/TopRoupi/judge0-gem) - Ruby Gem for interacting with Judge0
 - [judge0_helm](https://github.com/saikatharryc/judge0_helm) - Helm Chart for Judge0
 - [judge0api](https://github.com/vCra/judge0api) - Python library for interacting with Judge0
+- [muzam1l/ide](https://github.com/muzam1l/ide)
 - [nGrader](https://ngrader.herokuapp.com)
 - [primat.org](http://primat.org)
+- [tracyliu1220/Mini-OJ](https://github.com/tracyliu1220/Mini-OJ)
 - [uDebug Tool](https://www.udebugtool.com)
 - [wkspace](http://wkspace.herokuapp.com)
 - [yoCode](https://www.yocode.in)

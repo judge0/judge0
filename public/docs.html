@@ -33,10 +33,13 @@
 <p>Supports more than <a href="https://github.com/judge0/api-base#supported-languages">45 languages</a>.</p>
 </li>
 <li>
-<p>Runs source code in a secure and reliable <a href="https://github.com/ioi/isolate">sandbox</a>.</p>
+<p>Runs programs in a secure and reliable <a href="https://github.com/ioi/isolate">sandbox</a>.</p>
 </li>
 <li>
-<p>Send multiple source code files and any other files. <a href="https://asciinema.org/a/318548">Demo</a>.</p>
+<p>Send additional files alongside your single-file program. <a href="https://asciinema.org/a/318548">Demo</a>.</p>
+</li>
+<li>
+<p>Compile and run multi-file program.</p>
 </li>
 <li>
 <p>Set custom compiler options. <a href="https://ide.judge0.com/?PfcV">Demo</a>.</p>
@@ -57,9 +60,9 @@
 <h2 id="header-get-started">Get Started <a class="permalink" href="#header-get-started" aria-hidden="true">¶</a></h2>
 <p>Choose a plan on <a href="https://rapidapi.com/hermanzdosilovic/api/judge0/pricing">RapidAPI</a> or <a href="https://github.com/judge0/api#installation">install</a> on your own server.</p>
 <h2 id="header-research-paper">Research Paper <a class="permalink" href="#header-research-paper" aria-hidden="true">¶</a></h2>
-<p>You can read a research paper about Judge0 <a href="https://minio.judge0.com/public/paper-in-review.pdf">here</a>.</p>
+<p>You can read a research paper about Judge0 <a href="https://minio.judge0.com/public/paper.jpg">here</a>.</p>
 <h2 id="header-version">Version <a class="permalink" href="#header-version" aria-hidden="true">¶</a></h2>
-<p>This document describes Judge0 API <a href="https://github.com/judge0/api/tree/v1.9.0-extra">v1.9.0-extra</a>.</p>
+<p>This document describes Judge0 <a href="https://github.com/judge0/api/tree/v1.10.0-extra">v1.10.0-extra</a>.</p>
 <h2 id="header-date-and-time-formats">Date and time formats <a class="permalink" href="#header-date-and-time-formats" aria-hidden="true">¶</a></h2>
 <p><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> standard is used.</p>
 <p>Example: <code>2016-09-11T10:19:35Z</code></p>
@@ -141,7 +144,7 @@ and can be used to configure submission runtime constraints such as time and mem
 <td style="text-align:center">text</td>
 <td style="text-align:center"></td>
 <td style="text-align:left">Program’s source code.</td>
-<td style="text-align:left">No default. This attribute is <strong>required</strong>.</td>
+<td style="text-align:left">No default. This attribute is <strong>required</strong> for <a href="#header-single-file-programs-and-multi-file-programs">single-file programs</a>.</td>
 </tr>
 <tr>
 <td style="text-align:center">2</td>
@@ -149,7 +152,7 @@ and can be used to configure submission runtime constraints such as time and mem
 <td style="text-align:center">integer</td>
 <td style="text-align:center"></td>
 <td style="text-align:left"><a href="#statuses-and-languages-language">Language</a> ID.</td>
-<td style="text-align:left">No default. This attribute is <strong>required</strong></td>
+<td style="text-align:left">No default. This attribute is <strong>required</strong>.</td>
 </tr>
 <tr>
 <td style="text-align:center">3</td>
@@ -273,10 +276,10 @@ and can be used to configure submission runtime constraints such as time and mem
 </tr>
 <tr>
 <td style="text-align:center">18</td>
-<td style="text-align:left"><code>additional_files</code></td>
+<td style="text-align:left"><strong><code>additional_files</code></strong></td>
 <td style="text-align:center">Base64 Encoded String</td>
 <td style="text-align:center"></td>
-<td style="text-align:left">Additional files that should be available alongside the source code. Value of this string should represent the content of a <code>.zip</code> that contains additional files.</td>
+<td style="text-align:left">Additional files that should be available alongside the source code. Value of this string should represent the content of a <code>.zip</code> that contains additional files. This attribute is <strong>required</strong> for <a href="#header-single-file-programs-and-multi-file-programs">multi-file programs</a>.</td>
 <td style="text-align:left"><code>null</code></td>
 </tr>
 <tr>
@@ -393,6 +396,18 @@ and can be used to configure submission runtime constraints such as time and mem
 </tr>
 </tbody>
 </table>
+<h3 id="header-single-file-programs-and-multi-file-programs">Single-file programs and multi-file programs <a class="permalink" href="#header-single-file-programs-and-multi-file-programs" aria-hidden="true">¶</a></h3>
+<p>Judge0 can run both single-file and multi-file programs in a sandboxed environment with specified resource limitations.
+The usage of multi-file programs is slightly different from single-file programs and this section explains their differences and when they should be used.</p>
+<h4 id="header-single-file-programs">Single-file programs <a class="permalink" href="#header-single-file-programs" aria-hidden="true">¶</a></h4>
+<p>This is the simplest way to run a program with Judge0. Pick a <a href="#statuses-and-languages-language-get">language</a> with <code>language_id</code>, provide a <code>source_code</code> and Judge0 will use predefined compilation and execution scripts for specified language. Additionally you can set custom compile flags, provide command line arguments and send <code>additional_files</code> that will be available in the sandbox alongside your single-file program.</p>
+<p>With <code>additional_files</code> you can send, for example, Python modules which are imported by your main program that you provided in <code>source_code</code> attribute. For C or C++ programs with <code>additional_files</code> you can send header files which are included by your main program that you provided in <code>source_code</code> attribute.</p>
+<p>Even though you can send and use multiple Python modules or C and C++ header files, we call this <em>single-file programs</em> because for compiled languages only <strong>one</strong> source file is compiled with predefined compilation scripts.</p>
+<h4 id="header-multi-file-programs">Multi-file programs <a class="permalink" href="#header-multi-file-programs" aria-hidden="true">¶</a></h4>
+<p>Multi-file programs are available since <a href="https://github.com/judge0/api/tree/v1.10.0">v1.10.0</a> and they allow you specify your own compilation and execution scripts that Judge0 will use.</p>
+<p>To use multi-file program feature you need to choose a language called <em>Multi-file program</em> whoose ID is <strong>89</strong>. Moreover, you need to send all program files with <code>additional_files</code> attribute. With multi-file programs attribute <code>source_code</code> cannot be used, i.e. all files should be sent with <code>additional_files</code> attribute.</p>
+<p>As mentioned in the table above, <code>additional_files</code> attribute should be a content of a Base64 encoded <code>.zip</code> archive. This archive will be extracted in the sandbox before compilation and execution.</p>
+<p>For the Judge0 to know how to compile and execute your multi-file program you need to provide two special files that should be available in the root of the <code>.zip</code> archive that you are sending with <code>additional_files</code> attribute. These files should be named <code>compile</code> and <code>run</code>, and are expected to be Bash scripts that know how to compile and execute your multi-file program. If your multi-file program does not need compilation step, then you don’t need to provide <code>compile</code> script. Take a look at <a href="https://github.com/judge0/examples/tree/master/cpp-project-01">this example</a> to learn how to use this feature to compile and run multi-file C++ project that uses CMake.</p>
 <div id="submissions-submission-post" class="action post"><h4 class="action-heading"><div class="name">Create a Submission</div><a href="#submissions-submission-post" class="method post">POST</a><code class="uri">/submissions/{?base64_encoded,wait}</code></h4><p>Creates new submission. Created submission waits in queue to be processed. On successful
 creation, you are returned submission token which can be used to <a href="#submissions-submission-get">check submission status</a>.</p>
 <p>If submission’s <code>source_code</code>, <code>stdin</code> or <code>expected_output</code> contains non printable characters, or
@@ -1651,7 +1666,7 @@ configuration variables. For example, we don’t want user to create a submissio
 </span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="information-version" class="resource"><h3 class="resource-heading">Version <a href="#information-version" class="permalink">&nbsp;&para;</a></h3><div id="information-version-get" class="action get"><h4 class="action-heading"><div class="name">Version</div><a href="#information-version-get" class="method get">GET</a><code class="uri">/version</code></h4><p>Returns current version.</p>
 <h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/version</span></div></div></div><div id="information-isolate" class="resource"><h3 class="resource-heading">Isolate <a href="#information-isolate" class="permalink">&nbsp;&para;</a></h3><div id="information-isolate-get" class="action get"><h4 class="action-heading"><div class="name">Isolate</div><a href="#information-isolate-get" class="method get">GET</a><code class="uri">/isolate</code></h4><p>Returns result of <a href="https://github.com/ioi/isolate"><code>isolate --version</code></a>.</p>
 <h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/isolate</span></div></div></div><div id="information-license" class="resource"><h3 class="resource-heading">License <a href="#information-license" class="permalink">&nbsp;&para;</a></h3><div id="information-license-get" class="action get"><h4 class="action-heading"><div class="name">License</div><a href="#information-license-get" class="method get">GET</a><code class="uri">/license</code></h4><p>Returns a license.</p>
-<h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/license</span></div></div></div></section></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 10 Jun 2020</p><script>/* eslint-env browser */
+<h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.judge0.com</span>/license</span></div></div></div></section></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 27 Jul 2020</p><script>/* eslint-env browser */
 /* eslint quotes: [2, "single"] */
 'use strict';
 

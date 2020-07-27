@@ -1,4 +1,4 @@
-FROM judge0/api-base:1.3.0-extra AS production
+FROM judge0/api-base:1.4.0-extra AS production
 
 ENV JUDGE0_HOMEPAGE "https://judge0.com"
 LABEL homepage=$JUDGE0_HOMEPAGE
@@ -38,7 +38,7 @@ COPY . .
 ENTRYPOINT ["./docker-entrypoint.sh"]
 CMD ["./scripts/server"]
 
-ENV JUDGE0_VERSION "1.9.0-extra"
+ENV JUDGE0_VERSION "1.10.0-extra"
 LABEL version=$JUDGE0_VERSION
 
 
