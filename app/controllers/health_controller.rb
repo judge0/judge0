@@ -12,6 +12,7 @@ class HealthController < ApplicationController
       workers = queues[queue]
       json << {
         queue: queue,
+        size: Resque.size(queue),
         available: workers.count,
         idle: workers.count { |w| w.idle? },
         working: workers.count { |w| w.working? },
