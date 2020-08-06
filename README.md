@@ -17,8 +17,8 @@ Judge0 can help you build wide range of applications varying from competitive pr
 To see Judge0 in action, try [Judge0 IDE](https://ide.judge0.com) - free and open-source code editor that uses Judge0 for executing the user’s source code.
 
 ## Features
-- Quick and easy [installation](https://github.com/judge0/api#installation).
-- Supports more than [45 languages](https://github.com/judge0/api-base#supported-languages).
+- Quick and easy [installation](https://github.com/judge0/api#get-started).
+- Supports more than [60 languages](https://github.com/judge0/api-base#supported-languages).
 - Runs programs in a secure and reliable [sandbox](https://github.com/ioi/isolate).
 - Send additional files alongside your single-file program. [Demo](https://asciinema.org/a/318548).
 - Compile and run multi-file program.

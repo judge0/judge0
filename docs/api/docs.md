@@ -11,8 +11,8 @@ HOST: https://api.judge0.com
 To see Judge0 in action, try [Judge0 IDE](https://ide.judge0.com) - a free and [open-source](https://github.com/judge0/ide) online code editor that uses Judge0 for executing the user’s source code. You can also try using a [dummy client](/dummy-client.html) which can help you explore and test most of the features of Judge0.
 
 ## Features
-- Quick and easy [installation](https://github.com/judge0/api#installation).
-- Supports more than [45 languages](https://github.com/judge0/api-base#supported-languages).
+- Quick and easy [installation](https://github.com/judge0/api#get-started).
+- Supports more than [60 languages](https://github.com/judge0/api-base#supported-languages).
 - Runs programs in a secure and reliable [sandbox](https://github.com/ioi/isolate).
 - Send additional files alongside your single-file program. [Demo](https://asciinema.org/a/318548).
 - Compile and run multi-file program.
@@ -23,13 +23,16 @@ To see Judge0 in action, try [Judge0 IDE](https://ide.judge0.com) - a free and [
 - And [many more](https://api.judge0.com/#submissions-submission).
 
 ## Get Started
-Choose a plan on [RapidAPI](https://rapidapi.com/hermanzdosilovic/api/judge0/pricing) or [install](https://github.com/judge0/api#installation) on your own server.
+<a href="https://rapidapi.com/hermanzdosilovic/api/judge0" target="_blank"><img src="https://storage.googleapis.com/code-snippets/connect-on-rapidapi-light.png" width="215px" alt="Connect on RapidAPI"></a>
+<span style="margin-left: 20px"></span>
+
+or [deploy](https://github.com/judge0/api/blob/master/CHANGELOG.md#deployment-procedure) on your server.
 
 ## Research Paper
 You can read a research paper about Judge0 [here](https://minio.judge0.com/public/paper.jpg).
 
 ## Version
-This document describes Judge0 [v1.10.0](https://github.com/judge0/api/tree/v1.10.0).
+This document describes Judge0 [v1.11.0](https://github.com/judge0/api/tree/v1.11.0).
 
 ## Date and time formats
 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) standard is used.
