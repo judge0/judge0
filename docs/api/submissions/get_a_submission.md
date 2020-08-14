@@ -7,7 +7,7 @@ By default Judge0 is sending 8 attributes for submission. By sending `fields` qu
 
 + Parameters
     + token (required, string, `d85cd024-1548-4165-96c7-7bc88673f194`) ... Token of submission. You got this token when you created submission.
-    + base64_encoded (optional, boolean, `false`) ... Set to `true` if you want to receive Base64 encoded data from Judge0.
+    + base64_encoded (optional, boolean, `false`) ... Set to `true` if you want to receive Base64 encoded data from Judge0. You should set this to `true` if you expect the program's stdout to contain non-printable characters or if you expect the compiler to output non-printable characters during a compile error (GCC does this, for instance).
     + fields = `stdout,time,memory,stderr,token,compile_output,message,status` (optional, string, `stdout,stderr,status_id,language_id`) ... Return only the desired attributes.
 
 + Response 200 (applicatiion/json)
@@ -36,7 +36,7 @@ By default Judge0 is sending 8 attributes for submission. By sending `fields` qu
         }
 
 + Response 200 (application/json)
-    Recieving Base64 encoded data for text type attributes. Note that in this reques `base64_encoded` query parameter **must** be set to `true`.
+    Receiving Base64 encoded data for text type attributes. Note that in this request `base64_encoded` query parameter **must** be set to `true`.
     + Body
         {
             "stdout": "aGVsbG8sIEp1ZGdlMAo=\n",
