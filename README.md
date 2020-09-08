@@ -42,6 +42,11 @@ or [deploy](https://github.com/judge0/judge0/blob/master/CHANGELOG.md#deployment
 ## Demo
 [![asciicast](https://asciinema.org/a/318465.svg)](https://asciinema.org/a/318465)
 
+## Editions
+Judge0 has two editions: [**Standard**](https://rapidapi.com/hermanzdosilovic/api/judge0) and [**Extra**](https://rapidapi.com/hermanzdosilovic/api/judge0-extra). They differ just in the [supported languages](https://github.com/judge0/compilers#supported-languages).
+
+You can find the source code for the Standard Edition on the [`master`](https://github.com/judge0/judge0/tree/master) branch, while the source code for the Extra Edition can be found on the [`extra`](https://github.com/judge0/judge0/tree/extra) branch.
+
 ## References
 These companies, organizations and projects successfully use Judge0 in production:
 - [Adzetech](https://adzetech.com)
