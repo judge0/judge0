@@ -49,7 +49,7 @@ if [[ "$_cache" != "" ]]; then
     _cache="--cache-from $_cache"
 fi
 
-JUDGE0_DOCKER_REPOSITORY=judge0/api
+JUDGE0_DOCKER_REPOSITORY=judge0/judge0
 
 JUDGE0_PROJECT_ROOT="$(git rev-parse --show-toplevel)"
 JUDGE0_COMMIT="$(git log -1 --format=%h --abbrev=8)"

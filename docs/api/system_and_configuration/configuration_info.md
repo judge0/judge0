@@ -1,7 +1,7 @@
 ## Configuration Info [/config_info]
 ## Configuration Info [GET]
 Configuration information gives you detailed information about configuration of Judge0.
-This configuration can be changed through [judge0.conf](https://github.com/judge0/api/blob/master/judge0.conf)
+This configuration can be changed through [judge0.conf](https://github.com/judge0/judge0/blob/master/judge0.conf)
 file by admin who hosts Judge0 instance.
 
 This configuration gives every admin a flexibility to configure Judge0 according to server abilities and needs. It also gives users

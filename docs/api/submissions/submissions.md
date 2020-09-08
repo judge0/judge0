@@ -56,7 +56,7 @@ With `additional_files` you can send, for example, Python modules which are impo
 Even though you can send and use multiple Python modules or C and C++ header files, we call this *single-file programs* because for compiled languages only **one** source file is compiled with predefined compilation scripts.
 
 #### Multi-file programs
-Multi-file programs are available since [v1.10.0](https://github.com/judge0/api/tree/v1.10.0) and they allow you specify your own compilation and execution scripts that Judge0 will use.
+Multi-file programs are available since [v1.10.0](https://github.com/judge0/judge0/tree/v1.10.0) and they allow you specify your own compilation and execution scripts that Judge0 will use.
 
 To use multi-file program feature you need to choose a language called *Multi-file program* whoose ID is **89**. Moreover, you need to send all program files with `additional_files` attribute. With multi-file programs attribute `source_code` cannot be used, i.e. all files should be sent with `additional_files` attribute.
 

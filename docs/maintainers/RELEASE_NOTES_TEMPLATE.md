@@ -14,13 +14,13 @@
 ## Other Changes
 
 ## Deployment Procedure
-Judge0 is collecting telemetry data to help understand how to improve the product and to better understand how Judge0 is used in various production environments. Read more about telemetry [here](https://github.com/judge0/api/blob/vX.Y.Z/TELEMETRY.md).
+Judge0 is collecting telemetry data to help understand how to improve the product and to better understand how Judge0 is used in various production environments. Read more about telemetry [here](https://github.com/judge0/judge0/blob/vX.Y.Z/TELEMETRY.md).
 
 ### With HTTPS (SSL/TLS)
 1. Install [Docker](https://docs.docker.com) and [Docker Compose](https://docs.docker.com/compose).
 2. Download and extract release archive:
 ```
-wget https://github.com/judge0/api/releases/download/vX.Y.Z/judge0-vX.Y.Z-https.zip
+wget https://github.com/judge0/judge0/releases/download/vX.Y.Z/judge0-vX.Y.Z-https.zip
 unzip judge0-vX.Y.Z-https.zip
 ```
 
@@ -43,7 +43,7 @@ sleep 5s
 1. Install [Docker](https://docs.docker.com) and [Docker Compose](https://docs.docker.com/compose).
 2. Download and extract release archive:
 ```
-wget https://github.com/judge0/api/releases/download/vX.Y.Z/judge0-vX.Y.Z.zip
+wget https://github.com/judge0/judge0/releases/download/vX.Y.Z/judge0-vX.Y.Z.zip
 unzip judge0-vX.Y.Z.zip
 ```
 

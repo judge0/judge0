@@ -3,7 +3,7 @@ FROM judge0/api-base:1.3.0 AS production
 ENV JUDGE0_HOMEPAGE "https://judge0.com"
 LABEL homepage=$JUDGE0_HOMEPAGE
 
-ENV JUDGE0_SOURCE_CODE "https://github.com/judge0/api"
+ENV JUDGE0_SOURCE_CODE "https://github.com/judge0/judge0"
 LABEL source_code=$JUDGE0_SOURCE_CODE
 
 ENV JUDGE0_MAINTAINER "Herman Zvonimir Došilović <hermanz.dosilovic@gmail.com>"
