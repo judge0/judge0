@@ -12,7 +12,7 @@ To see Judge0 in action, try [Judge0 IDE](https://ide.judge0.com) - a free and [
 
 ## Features
 - Quick and easy [installation](https://github.com/judge0/judge0#get-started).
-- Supports more than [60 languages](https://github.com/judge0/api-base#supported-languages).
+- Supports more than [60 languages](https://github.com/judge0/compilers#supported-languages).
 - Runs programs in a secure and reliable [sandbox](https://github.com/ioi/isolate).
 - Send additional files alongside your single-file program. [Demo](https://asciinema.org/a/318548).
 - Compile and run multi-file program.
