@@ -34,7 +34,7 @@ For more information visit https://api.judge0.com.
 You can read a research paper about Judge0 [here](https://minio.judge0.com/public/paper.jpg).
 
 ## Get Started
-<a href="https://rapidapi.com/hermanzdosilovic/api/judge0" target="_blank"><img src="https://storage.googleapis.com/code-snippets/connect-on-rapidapi-light.png" width="215px" alt="Connect on RapidAPI"></a>
+<a href="https://rapidapi.com/hermanzdosilovic/api/judge0-extra" target="_blank"><img src="https://storage.googleapis.com/code-snippets/connect-on-rapidapi-light.png" width="215px" alt="Connect on RapidAPI"></a>
 <span style="margin-left: 20px"></span>
 
 or [deploy](https://github.com/judge0/judge0/blob/master/CHANGELOG.md#deployment-procedure) on your server.

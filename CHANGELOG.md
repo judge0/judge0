@@ -34,7 +34,7 @@ Huge thanks to [AlgoDaily](https://algodaily.com) for sponsoring this release.
 - Mount additional folders `/files` and `/NuGet/packages` in compilation step.
 
 ## Deployment Procedure
-Judge0 is collecting telemetry data to help understand how to improve the product and to better understand how Judge0 is used in various production environments. Read more about telemetry [here](https://github.com/judge0/judge0/blob/v1.11.0/TELEMETRY.md).
+Judge0 is collecting telemetry data to help understand how to improve the product and to better understand how Judge0 is used in various production environments. Read more about telemetry [here](https://github.com/judge0/judge0/blob/v1.11.0-extra/TELEMETRY.md).
 
 Please note that Judge0 has only been tested on **Linux** and might not work on Windows or macOS, thus we do not provide support for these systems.
 

@@ -23,7 +23,7 @@ To see Judge0 in action, try [Judge0 IDE](https://ide.judge0.com) - a free and [
 - And [many more](https://api.judge0.com/#submissions-submission).
 
 ## Get Started
-<a href="https://rapidapi.com/hermanzdosilovic/api/judge0" target="_blank"><img src="https://storage.googleapis.com/code-snippets/connect-on-rapidapi-light.png" width="215px" alt="Connect on RapidAPI"></a>
+<a href="https://rapidapi.com/hermanzdosilovic/api/judge0-extra" target="_blank"><img src="https://storage.googleapis.com/code-snippets/connect-on-rapidapi-light.png" width="215px" alt="Connect on RapidAPI"></a>
 <span style="margin-left: 20px"></span>
 
 or [deploy](https://github.com/judge0/judge0/blob/master/CHANGELOG.md#deployment-procedure) on your server.
