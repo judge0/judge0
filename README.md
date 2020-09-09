@@ -1,9 +1,9 @@
 # Judge0
-[![Judge0 Wallpaper](https://github.com/judge0/api/blob/master/.github/wallpaper.png?raw=true)](https://api.judge0.com)
+[![Judge0 Wallpaper](https://github.com/judge0/judge0/blob/master/.github/wallpaper.png?raw=true)](https://api.judge0.com)
 
-[![License](https://img.shields.io/github/license/judge0/api?color=2185d0&style=flat-square)](https://github.com/judge0/api/blob/master/LICENSE)
-[![Release](https://img.shields.io/github/v/release/judge0/api?color=2185d0&style=flat-square)](https://github.com/judge0/api/releases)
-[![Stars](https://img.shields.io/github/stars/judge0/api?color=2185d0&style=flat-square)](https://github.com/judge0/api/stargazers)
+[![License](https://img.shields.io/github/license/judge0/judge0?color=2185d0&style=flat-square)](https://github.com/judge0/judge0/blob/master/LICENSE)
+[![Release](https://img.shields.io/github/v/release/judge0/judge0?color=2185d0&style=flat-square)](https://github.com/judge0/judge0/releases)
+[![Stars](https://img.shields.io/github/stars/judge0/judge0?color=2185d0&style=flat-square)](https://github.com/judge0/judge0/stargazers)
 
 <a href="https://www.producthunt.com/posts/judge0-ide" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=179885&theme=light" alt="" height="43px" /></a>
 <a href="https://patreon.com/hermanzdosilovic" target="_blank"><img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" alt="" height="43px" /></a>
@@ -17,8 +17,8 @@ Judge0 can help you build wide range of applications varying from competitive pr
 To see Judge0 in action, try [Judge0 IDE](https://ide.judge0.com) - free and open-source code editor that uses Judge0 for executing the user’s source code.
 
 ## Features
-- Quick and easy [installation](https://github.com/judge0/api#installation).
-- Supports more than [45 languages](https://github.com/judge0/api-base#supported-languages).
+- Quick and easy [installation](https://github.com/judge0/judge0#get-started).
+- Supports more than [60 languages](https://github.com/judge0/compilers#supported-languages).
 - Runs programs in a secure and reliable [sandbox](https://github.com/ioi/isolate).
 - Send additional files alongside your single-file program. [Demo](https://asciinema.org/a/318548).
 - Compile and run multi-file program.
@@ -37,10 +37,15 @@ You can read a research paper about Judge0 [here](https://minio.judge0.com/publi
 <a href="https://rapidapi.com/hermanzdosilovic/api/judge0" target="_blank"><img src="https://storage.googleapis.com/code-snippets/connect-on-rapidapi-light.png" width="215px" alt="Connect on RapidAPI"></a>
 <span style="margin-left: 20px"></span>
 
-or [deploy](https://github.com/judge0/api/blob/master/CHANGELOG.md#deployment-procedure) on your server.
+or [deploy](https://github.com/judge0/judge0/blob/master/CHANGELOG.md#deployment-procedure) on your server.
 
 ## Demo
 [![asciicast](https://asciinema.org/a/318465.svg)](https://asciinema.org/a/318465)
+
+## Editions
+Judge0 has two editions: [**Standard**](https://rapidapi.com/hermanzdosilovic/api/judge0) and [**Extra**](https://rapidapi.com/hermanzdosilovic/api/judge0-extra). They differ just in the [supported languages](https://github.com/judge0/compilers#supported-languages).
+
+You can find the source code for the Standard Edition on the [`master`](https://github.com/judge0/judge0/tree/master) branch, while the source code for the Extra Edition can be found on the [`extra`](https://github.com/judge0/judge0/tree/extra) branch.
 
 ## References
 These companies, organizations and projects successfully use Judge0 in production:
@@ -107,7 +112,7 @@ These companies, organizations and projects successfully use Judge0 in productio
 - [wkspace](http://wkspace.herokuapp.com)
 - [yoCode](https://www.yocode.in)
 
-Feel free to add yours to the list by sending me an [email](mailto:hermanz.dosilovic@gmail.com) or creating an [issue](https://github.com/judge0/api/issues/new).
+Feel free to add yours to the list by sending me an [email](mailto:hermanz.dosilovic@gmail.com) or creating an [issue](https://github.com/judge0/judge0/issues/new).
 
 ## Community
 Do you have a question, feature request or something else on your mind?
@@ -115,9 +120,9 @@ Or you just want to follow Judge0 news?
 Check out these links:
 
 * [Subscribe to Judge0 newsletter](https://subscribe.judge0.com)
-* [Join a Discord server](https://discord.gg/6dvxeA8)
+* [Join a Discord server](https://discord.gg/GRc3v6n)
 * [Watch asciicasts](https://asciinema.org/~hermanzdosilovic)
-* [Report an issue](https://github.com/judge0/api/issues/new)
+* [Report an issue](https://github.com/judge0/judge0/issues/new)
 * [Contact the author](https://github.com/hermanzdosilovic)
 * [Get free online support](https://judge0.appointlet.com)
 * [Schedule an online meeting with the author](https://judge0.appointlet.com)
@@ -125,10 +130,10 @@ Check out these links:
 ## Author and Contributors
 Judge0 was created by [Herman Zvonimir Došilović](https://github.com/hermanzdosilovic).
 
-Thanks a lot to all [contributors](https://github.com/judge0/api/graphs/contributors) for their contributions in this project.
+Thanks a lot to all [contributors](https://github.com/judge0/judge0/graphs/contributors) for their contributions in this project.
 
 ## Changelog
-Detailed specification of changes between versions can be found in [CHANGELOG.md](https://github.com/judge0/api/blob/master/CHANGELOG.md).
+Detailed specification of changes between versions can be found in [CHANGELOG.md](https://github.com/judge0/judge0/blob/master/CHANGELOG.md).
 
 ## Special Thanks
 Special thanks to these open-source projects without whom Judge0 probably wouldn't exist: [isolate](https://github.com/ioi/isolate), [Docker](https://github.com/docker), [Ruby on Rails](https://github.com/rails/rails) and others.
@@ -140,4 +145,4 @@ Thanks a lot to all my [Patrons](https://www.patreon.com/hermanzdosilovic) and [
 Your are more than welcome to support Judge0 development on [Patreon](https://www.patreon.com/hermanzdosilovic), via [PayPal](https://paypal.me/hermanzdosilovic) or [Revolut](https://pay.revolut.com/profile/hermancy5).
 
 ## License
-Judge0 is licensed under the [GNU General Public License v3.0](https://github.com/judge0/api/blob/master/LICENSE).
+Judge0 is licensed under the [GNU General Public License v3.0](https://github.com/judge0/judge0/blob/master/LICENSE).

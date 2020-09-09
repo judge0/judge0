@@ -32,7 +32,7 @@ services:
     restart: always
 
   server:
-    image: judge0/api:latest
+    image: judge0/judge0:latest
     environment:
       - VIRTUAL_HOST=example.com
       - LETSENCRYPT_HOST=example.com
@@ -44,7 +44,7 @@ services:
     restart: always
 
   workers:
-    image: judge0/api:latest
+    image: judge0/judge0:latest
     command: ["./scripts/workers"]
     volumes:
       - ./judge0.conf:/judge0.conf:ro

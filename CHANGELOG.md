@@ -1,3 +1,67 @@
+This is the Changelog for **Standard Edition** of Judge0. The Changelog for Extra Edition can be found [here](https://github.com/judge0/judge0/blob/extra/CHANGELOG.md). Learn more about their difference [here](https://github.com/judge0/judge0#editions).
+
+# v1.11.0 (2020-09-09)
+## New Features
+- Added queue size into response of `/workers`.
+    - Issues: [#210](https://github.com/judge0/judge0/issues/210)
+    - Commits: [@7ee1b10c](https://github.com/judge0/judge0/commit/7ee1b10c79576e745140f02d49446d57a208bcca)
+
+## Improvements
+- Set configuration defaults even if `judge0.conf` is not present. Thank you @vvalchev.
+    - Issues: [#206](https://github.com/judge0/judge0/issues/206)
+    - Commits: [@8c42f7be](https://github.com/judge0/judge0/commit/8c42f7befcdf8d70fa8cb4e3ba549c828c38164d)
+
+## Other Changes
+- Updated documentation with some better explanation on the use of `base64_encoded` query parameter. Thank you @mejibyte.
+
+## Deployment Procedure
+Judge0 is collecting telemetry data to help understand how to improve the product and to better understand how Judge0 is used in various production environments. Read more about telemetry [here](https://github.com/judge0/judge0/blob/v1.11.0/TELEMETRY.md).
+
+Please note that Judge0 has only been tested on **Linux** and might not work on Windows or macOS, thus we do not provide support for these systems.
+
+### With HTTP
+1. Install [Docker](https://docs.docker.com) and [Docker Compose](https://docs.docker.com/compose).
+2. Download and extract release archive:
+```
+wget https://github.com/judge0/judge0/releases/download/v1.11.0/judge0-v1.11.0.zip
+unzip judge0-v1.11.0.zip
+```
+
+3. Run all services and wait few seconds until everything is initialized:
+```
+cd judge0-v1.11.0
+docker-compose up -d db redis
+sleep 10s
+docker-compose up -d
+sleep 5s
+```
+
+4. Your instance of Judge0 v1.11.0 is now available at `http://<IP ADDRESS OF YOUR SERVER>`.
+
+### With HTTPS (SSL/TLS)
+1. Install [Docker](https://docs.docker.com) and [Docker Compose](https://docs.docker.com/compose).
+2. Download and extract release archive:
+```
+wget https://github.com/judge0/judge0/releases/download/v1.11.0/judge0-v1.11.0-https.zip
+unzip judge0-v1.11.0-https.zip
+```
+
+3. Change directory to `judge0-v1.11.0-https`:
+```
+cd judge0-v1.11.0-https
+```
+4. Edit `docker-compose.yml` and change variables `VIRTUAL_HOST`, `LETSENCRYPT_HOST` and `LETSENCRYPT_EMAIL`.
+5. Run all services and wait few seconds until everything is initialized:
+```
+docker-compose up -d db redis
+sleep 10s
+docker-compose up -d
+sleep 5s
+```
+
+6. Your instance of Judge0 v1.11.0 is now available at `https://<YOUR DOMAIN>`.
+
+
 # v1.10.0 (2020-07-27)
 ## New Features
 - Added support for multi-file programs in the terms of adding a new special language called **Multi-file program**. In total there are now **47 active languages**.

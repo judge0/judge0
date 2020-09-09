@@ -13,7 +13,7 @@ Thank you!
 ## Development Sponsorship
 You can directly sponsor the development of the features, bug fixes or anything that is important to you, your organization or company. For the sake of simplicity in the following text I will just reffer to "features", but remember that it can be anything that you want to see in the project.
 
-Sponsored features are put on the top of the [priority list](https://github.com/judge0/api/projects) for one of the next releases and push the development forward by reducing the release cycles.
+Sponsored features are put on the top of the [priority list](https://github.com/judge0/judge0/projects) for one of the next releases and push the development forward by reducing the release cycles.
 
 ### Sponsorship Protocol
 The protocol for development sponsorship is described below. Described protocol is based on two assumptions:
@@ -23,7 +23,7 @@ The protocol for development sponsorship is described below. Described protocol 
 Moreover, with the following protocol I want to keep everything transparent as possible and in the spirit of the open-source values.
 
 #### 1. Issue Creation
-Create a new or choose an existing issue on the [Issues](https://github.com/judge0/api/issues) page. It can be anything from feature request, bug fix or documentation update. It can be anything that you would like to see in one of the next releases as soon as possible.
+Create a new or choose an existing issue on the [Issues](https://github.com/judge0/judge0/issues) page. It can be anything from feature request, bug fix or documentation update. It can be anything that you would like to see in one of the next releases as soon as possible.
 
 #### 2. Declare Sponsorship
 Add a comment that you, your organization or company is willing to sponsor the development of this feature:
@@ -64,7 +64,7 @@ I [accept|reject] your donation request and deadline.
 
 Note that if you reject my donation request it doesn't mean that the issue won't be resolved. It just means that it won't be put on the priority list for the next release. It will be treated as any other issue (non sponsored).
 
-If you accept my donation request I will add a label `sponsored` on the issue and forward it for the next stage on [Projects](https://github.com/judge0/api/projects) page.
+If you accept my donation request I will add a label `sponsored` on the issue and forward it for the next stage on [Projects](https://github.com/judge0/judge0/projects) page.
 
 #### 7. Development and Testing
 In the development and testing phase I will sometimes send you links to where you can try the new feature.

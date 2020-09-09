@@ -3,7 +3,7 @@ services:
   nginx:
     image: judge0/jwilder-nginx-proxy:latest-2020-02-11
     environment:
-      - DEFAULT_HOST=api.judge0.local
+      - DEFAULT_HOST=judge0.local
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
     ports:
@@ -11,9 +11,9 @@ services:
     restart: always
 
   server:
-    image: judge0/api:latest-dev
+    image: judge0/judge0:latest-dev
     environment:
-      - VIRTUAL_HOST=api.judge0.local
+      - VIRTUAL_HOST=judge0.local
     volumes:
       - .:/api
     ports:

@@ -1,9 +1,9 @@
-FROM judge0/api-base:1.4.0-extra AS production
+FROM judge0/compilers:1.5.0-extra AS production
 
 ENV JUDGE0_HOMEPAGE "https://judge0.com"
 LABEL homepage=$JUDGE0_HOMEPAGE
 
-ENV JUDGE0_SOURCE_CODE "https://github.com/judge0/api"
+ENV JUDGE0_SOURCE_CODE "https://github.com/judge0/judge0"
 LABEL source_code=$JUDGE0_SOURCE_CODE
 
 ENV JUDGE0_MAINTAINER "Herman Zvonimir Došilović <hermanz.dosilovic@gmail.com>"
@@ -38,7 +38,7 @@ COPY . .
 ENTRYPOINT ["./docker-entrypoint.sh"]
 CMD ["./scripts/server"]
 
-ENV JUDGE0_VERSION "1.10.0-extra"
+ENV JUDGE0_VERSION "1.11.0-extra"
 LABEL version=$JUDGE0_VERSION
 
 
