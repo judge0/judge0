@@ -144,6 +144,8 @@ class IsolateJob < ApplicationJob
     -E LANG -E LANGUAGE -E LC_ALL -E JUDGE0_HOMEPAGE -E JUDGE0_SOURCE_CODE -E JUDGE0_MAINTAINER -E JUDGE0_VERSION \
     -d /etc:noexec \
     -d /usr/local/BosqueLanguage/impl:rw \
+    -d /files:noexec \
+    -d /NuGet/packages:noexec \
     --run \
     -- /bin/bash compile > #{compile_output_file} \
     "

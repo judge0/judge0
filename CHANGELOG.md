@@ -28,6 +28,10 @@ Huge thanks to [AlgoDaily](https://algodaily.com) for sponsoring this release.
 
 ## Other Changes
 - Updated documentation with some better explanation on the use of `base64_encoded` query parameter. Thank you @mejibyte.
+- Increased default `CPU_TIME_LIMIT` to 15 s, `MAX_CPU_TIME_LIMIT` to 20 s, `WALL_TIME_LIMIT` to 20 s and `MAX_WALL_TIME_LIMIT` to 25 s.
+- Increased default `MAX_MAX_FILE_SIZE` to 20480 KB.
+- Increased default `MAX_PROCESSES_AND_OR_THREADS` to 100.
+- Mount additional folders `/files` and `/NuGet/packages` in compilation step.
 
 ## Deployment Procedure
 Judge0 is collecting telemetry data to help understand how to improve the product and to better understand how Judge0 is used in various production environments. Read more about telemetry [here](https://github.com/judge0/judge0/blob/v1.11.0/TELEMETRY.md).
