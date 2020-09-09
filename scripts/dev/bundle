@@ -25,7 +25,7 @@ for ext in "" ".https" ".workers" ".server"; do
     mkdir -p $instance_dir
     cp ../docker-compose$ext.yml $instance_dir/docker-compose.yml
     cp ../judge0.conf $instance_dir/
-    sed -i "s/api:latest/api:$docker_tag/g" $instance_dir/docker-compose.yml
+    sed -i "s/judge0:latest/judge0:$docker_tag/g" $instance_dir/docker-compose.yml
     zip -r $instance_dir.zip $instance_dir
     popd
 done
