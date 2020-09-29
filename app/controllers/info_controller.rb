@@ -32,6 +32,7 @@ class InfoController < ApplicationController
   end
 
   def statistics
+    Rails.cache.delete("statistics") if params[:invalidate_cache] == "true"
     @@cache_duration ||= 10.minutes
     Rails.cache.fetch("statistics", expires_in: @@cache_duration) do
       @@language_name ||= Hash[Language.unscoped.pluck(:id, :name)]
