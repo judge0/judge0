@@ -19,7 +19,7 @@ services:
     restart: always
 
   db:
-    image: postgres:9.6
+    image: postgres:13.0
     env_file: judge0.conf
     volumes:
       - ./srv/postgres-data:/var/lib/postgresql/data/
@@ -29,7 +29,7 @@ services:
     restart: always
 
   redis:
-    image: redis:4.0
+    image: redis:6.0
     command: [
       "bash", "-c",
       'docker-entrypoint.sh --appendonly yes --requirepass "$$REDIS_PASSWORD"'
