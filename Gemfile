@@ -11,6 +11,7 @@ gem 'pry-rails', '~> 0.3.9'
 gem 'puma', '~> 4.3.5'
 gem 'rack-cors', '~> 1.1.1'
 gem 'resque', '~> 2.0.0'
+gem 'resque-scheduler', '~> 4.4'
 gem 'will_paginate', '~> 3.2.1'
 
 group :development do
