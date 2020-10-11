@@ -56,7 +56,7 @@ services:
     image: postgres:13.0
     env_file: judge0.conf
     volumes:
-      - ./srv/postgres-data:/var/lib/postgresql/data/
+      - postgres-data:/var/lib/postgresql/data/
     <<: *default-logging
     restart: always
 
@@ -68,6 +68,10 @@ services:
     ]
     env_file: judge0.conf
     volumes:
-      - ./srv/redis-data:/data
+      - redis-data:/data
     <<: *default-logging
     restart: always
+
+volumes:
+  postgres-data:
+  redis-data:
