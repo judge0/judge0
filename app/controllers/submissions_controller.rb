@@ -103,6 +103,7 @@ class SubmissionsController < ApplicationController
       if @wait
         begin
           IsolateJob.perform_now(submission.id)
+          submission.reload
           render json: submission, status: :created, base64_encoded: @base64_encoded, fields: @requested_fields
         rescue Encoding::UndefinedConversionError => e
           render_conversion_error(:created, submission.token)
