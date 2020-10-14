@@ -300,16 +300,22 @@ class IsolateJob < ApplicationJob
         base64_encoded: true,
         fields: SubmissionSerializer.default_fields
       }
-    )
+    ).to_json
 
-    response = HTTParty.put(
-      submission.callback_url,
-      body: serialized_submission.to_json,
-      headers: {
-        "Content-Type" => "application/json"
-      },
-      timeout: 2
-    )
+    Config::CALLBACKS_MAX_TRIES.times do
+      begin
+        response = HTTParty.put(
+          submission.callback_url,
+          body: serialized_submission,
+          headers: {
+            "Content-Type" => "application/json"
+          },
+          timeout: Config::CALLBACKS_TIMEOUT
+        )
+        break
+      rescue Exception => e
+      end
+    end
   rescue Exception => e
   end
 

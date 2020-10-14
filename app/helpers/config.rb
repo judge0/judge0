@@ -9,6 +9,8 @@ module Config
   ENABLE_COMMAND_LINE_ARGUMENTS = ENV["ENABLE_COMMAND_LINE_ARGUMENTS"] != "false"
   ENABLE_SUBMISSION_DELETE = ENV["ENABLE_SUBMISSION_DELETE"] == "true"
   ENABLE_CALLBACKS = ENV["ENABLE_CALLBACKS"] != "false"
+  CALLBACKS_MAX_TRIES = (ENV["CALLBACKS_MAX_TRIES"].presence || 3).to_i
+  CALLBACKS_TIMEOUT = (ENV["CALLBACKS_TIMEOUT"].presence || 5).to_f
   ENABLE_ADDITIONAL_FILES = ENV["ENABLE_ADDITIONAL_FILES"] != "false"
   MAX_QUEUE_SIZE = (ENV['MAX_QUEUE_SIZE'].presence || 100).to_i
   CPU_TIME_LIMIT = (ENV['CPU_TIME_LIMIT'].presence || 5).to_f
@@ -45,6 +47,8 @@ module Config
       "enable_command_line_arguments": ENABLE_COMMAND_LINE_ARGUMENTS,
       "enable_submission_delete": ENABLE_SUBMISSION_DELETE,
       "enable_callbacks": ENABLE_CALLBACKS,
+      "callbacks_max_tries": CALLBACKS_MAX_TRIES,
+      "callbacks_timeout": CALLBACKS_TIMEOUT,
       "enable_additional_files": ENABLE_ADDITIONAL_FILES,
       "max_queue_size": MAX_QUEUE_SIZE,
       "cpu_time_limit": CPU_TIME_LIMIT,
