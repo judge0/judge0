@@ -34,7 +34,7 @@ class InfoController < ApplicationController
   def statistics
     Rails.cache.delete("statistics") if params[:invalidate_cache] == "true"
     @@cache_duration ||= 10.minutes
-    Rails.cache.fetch("statistics", expires_in: @@cache_duration) do
+    render json: Rails.cache.fetch("statistics", expires_in: @@cache_duration) {
       @@language_name ||= Hash[Language.unscoped.pluck(:id, :name)]
 
       count_by_language = []
@@ -93,7 +93,6 @@ class InfoController < ApplicationController
           size_in_bytes: database_size["size_in_bytes"]
         }
       }
-    end
-    render json: Rails.cache.read("statistics")
+    }
   end
 end

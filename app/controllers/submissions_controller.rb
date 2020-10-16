@@ -55,7 +55,10 @@ class SubmissionsController < ApplicationController
   end
 
   def show
-    render json: Submission.find_by!(token: params[:token]), base64_encoded: @base64_encoded, fields: @requested_fields
+    token = params[:token]
+    render json: Rails.cache.fetch("#{token}", expires_in: Config::SUBMISSION_CACHE_DURATION, race_condition_ttl: 0.1*Config::SUBMISSION_CACHE_DURATION) {
+      Submission.find_by!(token: token)
+    }, base64_encoded: @base64_encoded, fields: @requested_fields
   rescue Encoding::UndefinedConversionError
     render_conversion_error(:bad_request)
   end
