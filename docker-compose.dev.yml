@@ -28,6 +28,18 @@ services:
       - postgres-data:/var/lib/postgresql/data/
     restart: always
 
+  # Not actually currently used. Just for testing purposes in development.
+  pgbouncer:
+    image: pgbouncer/pgbouncer:1.14.0
+    environment: # DATABASES_* are defaults from judge0.conf
+      - DATABASES_HOST=db
+      - DATABASES_PORT=5432
+      - DATABASES_USER=postgres
+      - DATABASES_PASSWORD=YourPasswordHere1234
+      - DATABASES_DBNAME=postgres
+      - PGBOUNCER_LISTEN_PORT=5432 # Set the same as Postgres
+    restart: always
+
   redis:
     image: redis:6.0
     command: [
