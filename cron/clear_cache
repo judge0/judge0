@@ -1,0 +1,1 @@
+0 0 * * * bash -c "source /api/tmp/environment; cd /api; rake judge0:clear_cache &> /api/log/clear_cache.log"
