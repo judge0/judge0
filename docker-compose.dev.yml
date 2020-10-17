@@ -31,12 +31,12 @@ services:
   # Not actually currently used. Just for testing purposes in development.
   pgbouncer:
     image: pgbouncer/pgbouncer:1.14.0
-    environment: # DATABASES_* are defaults from judge0.conf
+    environment: # DATABASES_* are the same as from judge0.conf
       - DATABASES_HOST=db
       - DATABASES_PORT=5432
-      - DATABASES_USER=postgres
+      - DATABASES_DBNAME=judge0
+      - DATABASES_USER=judge0
       - DATABASES_PASSWORD=YourPasswordHere1234
-      - DATABASES_DBNAME=postgres
       - PGBOUNCER_LISTEN_PORT=5432 # Set the same as Postgres
     restart: always
 
