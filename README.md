@@ -153,7 +153,7 @@ These scientific articles use or mention Judge0.
 </details>
 
 ## Community
-Do you have a question, feature request or something else on your mind? Or you just want to follow Judge0 news?
+Do you have a question, feature request, or something else on your mind? Or you just want to follow Judge0 news?
 
 * [Subscribe to Judge0 newsletter](https://subscribe.judge0.com)
 * [Join our Discord server](https://discord.gg/GRc3v6n)
