@@ -1,7 +1,7 @@
 # Judge0
-[![Judge0 Wallpaper](https://github.com/judge0/judge0/blob/master/.github/wallpaper.png?raw=true)](https://api.judge0.com)
+[![Judge0 Wallpaper](.github/wallpaper.png?raw=true)](https://api.judge0.com)
 
-[![License](https://img.shields.io/github/license/judge0/judge0?color=2185d0&style=flat-square)](https://github.com/judge0/judge0/blob/master/LICENSE)
+[![License](https://img.shields.io/github/license/judge0/judge0?color=2185d0&style=flat-square)](LICENSE)
 [![Release](https://img.shields.io/github/v/release/judge0/judge0?color=2185d0&style=flat-square)](https://github.com/judge0/judge0/releases)
 [![Stars](https://img.shields.io/github/stars/judge0/judge0?color=2185d0&style=flat-square)](https://github.com/judge0/judge0/stargazers)
 
@@ -26,15 +26,14 @@
 * [License](#license)
 
 ## About
-[Judge0](https://api.judge0.com) is a robust, scalable, and open-source **online code execution system** that can be used to build a wide range of use-case specific **online judges**. Some examples include competitive programming platforms, e-learning platforms, candidate assessment and recruitment platforms, online code editors, online IDEs, and many more.
+[Judge0](https://api.judge0.com) is a robust, scalable, and open-source **online code execution system** that can be used to build a wide range of applications that need online code execution features. Some examples include competitive programming platforms, e-learning platforms, candidate assessment and recruitment platforms, online code editors, online IDEs, and many more.
+
+In our research paper [*Robust and Scalable Online Code Execution System*](https://paper.judge0.com) we present Judge0's modern modular architecture that can be easily deployed and scaled. We study its design, comment on the various challenges that arise in building such systems, and compare it with other available online code execution systems and online judge systems.
 
 To see Judge0 in action, try [Judge0 IDE](https://ide.judge0.com) - our free and open-source online code editor.
 
-You can read our research paper [here](https://minio.judge0.com/public/paper.jpg).
-
 ## Features
-The main features of Judge0 are:
-- Quick and easy [installation](https://github.com/judge0/judge0#get-started)
+- Quick and easy [installation](#get-started)
 - Rich and verbose [API documentation](https://api.judge0.com)
 - Scalable architecture
 - Sandboxed compilation and execution
@@ -48,7 +47,7 @@ The main features of Judge0 are:
 For more information about these and other features please [read the documentation](https://api.judge0.com).
 
 ## Get Started
-Start with the **free** [Basic plan](https://rapidapi.com/hermanzdosilovic/api/judge0/pricing) on RapidAPI or [host it yourself](https://github.com/judge0/judge0/blob/master/CHANGELOG.md#deployment-procedure).
+Start with the [**FREE Basic Plan**](https://rapidapi.com/hermanzdosilovic/api/judge0/pricing) on RapidAPI or [host it yourself](CHANGELOG.md#deployment-procedure).
 
 ### Why should you use Judge0 on RapidAPI?
 Our infrastructure behind RapidAPI allows you to focus on building your product and forget about the know-how of maintaining and scaling Judge0.
@@ -66,7 +65,7 @@ Judge0 Extra is also available on [RapidAPI](https://rapidapi.com/hermanzdosilov
 ## References
 
 ### Companies, Organizations, and Projects
-These companies, organizations, and projects successfully use Judge0. Feel free to add yourself.
+These companies, organizations, and projects successfully use Judge0.
 
 <details><summary>Click here to expand the list</summary>
 <ul>
@@ -136,7 +135,7 @@ These companies, organizations, and projects successfully use Judge0. Feel free 
 </details>
 
 ### Scientific Articles
-These scientific articles use or mention Judge0. Feel free to add yourself.
+These scientific articles use or mention Judge0.
 
 <details><summary>Click here to expand the list</summary>
 <ul>
@@ -146,8 +145,6 @@ These scientific articles use or mention Judge0. Feel free to add yourself.
 </details>
 
 ### Other Online References
-Feel free to add yourself.
-
 <details><summary>Click here to expand the list</summary>
 <ul>
 <li><a href="https://tianpan.co/notes/243-designing-online-judge-or-leetcode">Designing Online Judge or Leetcode</a></li>
@@ -167,7 +164,7 @@ Do you have a question, feature request or something else on your mind? Or you j
 * [Schedule an online meeting with us](https://judge0.appointlet.com)
 
 ## Author and Contributors
-Judge0 was created by [Herman Zvonimir Došilović](https://github.com/hermanzdosilovic).
+Judge0 was created and is maintained by [Herman Zvonimir Došilović](https://github.com/hermanzdosilovic).
 
 Thanks a lot to all [contributors](https://github.com/judge0/judge0/graphs/contributors) for their contributions to this project.
 
@@ -176,16 +173,16 @@ Thanks a lot to all [contributors](https://github.com/judge0/judge0/graphs/contr
 </a>
 
 ## Changelog
-The detailed specification of changes between versions can be found in [CHANGELOG.md](https://github.com/judge0/judge0/blob/master/CHANGELOG.md).
+The detailed specification of changes between versions can be found in [CHANGELOG.md](CHANGELOG.md).
 
 ## Special Thanks
-Special thanks to these open-source projects without whom Judge0 probably wouldn't exist: [Isolate](https://github.com/ioi/isolate), [Docker](https://github.com/docker), [Ruby on Rails](https://github.com/rails/rails) and others.
+Special thanks to open-source projects without whom Judge0 probably wouldn't exist: [Isolate](https://github.com/ioi/isolate), [Docker](https://github.com/docker), [Ruby on Rails](https://github.com/rails/rails) and others.
 
 ## Supporters
-Thanks a lot to all my [Patrons](https://www.patreon.com/hermanzdosilovic) and [PayPal](https://paypal.me/hermanzdosilovic) donors that supported Judge0 development. Thank you! ♥
+Thanks a lot to all [Patrons](https://www.patreon.com/hermanzdosilovic) and [PayPal](https://paypal.me/hermanzdosilovic) donors that support Judge0 development. Thank you! ♥
 
 ## Donate
 Your are more than welcome to support Judge0 development on [Patreon](https://www.patreon.com/hermanzdosilovic), via [PayPal](https://paypal.me/hermanzdosilovic) or [Revolut](https://pay.revolut.com/profile/hermancy5).
 
 ## License
-Judge0 is licensed under the [GNU General Public License v3.0](https://github.com/judge0/judge0/blob/master/LICENSE).
+Judge0 is licensed under the [GNU General Public License v3.0](LICENSE).
