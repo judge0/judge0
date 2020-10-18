@@ -55,7 +55,10 @@ class SubmissionsController < ApplicationController
   end
 
   def show
-    render json: Submission.find_by!(token: params[:token]), base64_encoded: @base64_encoded, fields: @requested_fields
+    token = params[:token]
+    render json: Rails.cache.fetch("#{token}", expires_in: Config::SUBMISSION_CACHE_DURATION, race_condition_ttl: 0.1*Config::SUBMISSION_CACHE_DURATION) {
+      Submission.find_by!(token: token)
+    }, base64_encoded: @base64_encoded, fields: @requested_fields
   rescue Encoding::UndefinedConversionError
     render_conversion_error(:bad_request)
   end
@@ -102,13 +105,14 @@ class SubmissionsController < ApplicationController
     if submission.save
       if @wait
         begin
-          IsolateJob.perform_now(submission)
+          IsolateJob.perform_now(submission.id)
+          submission.reload
           render json: submission, status: :created, base64_encoded: @base64_encoded, fields: @requested_fields
         rescue Encoding::UndefinedConversionError => e
           render_conversion_error(:created, submission.token)
         end
       else
-        IsolateJob.perform_later(submission)
+        IsolateJob.perform_later(submission.id)
         render json: submission, status: :created, fields: [:token]
       end
     else
@@ -139,7 +143,7 @@ class SubmissionsController < ApplicationController
 
     submissions.each do |submission|
       if submission.save
-        IsolateJob.perform_later(submission)
+        IsolateJob.perform_later(submission.id)
         response << { token: submission.token }
         has_valid_submission = true
       else

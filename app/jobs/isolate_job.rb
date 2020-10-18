@@ -1,4 +1,6 @@
 class IsolateJob < ApplicationJob
+  retry_on RuntimeError, wait: 0.1.seconds, attempts: 100
+
   queue_as ENV["JUDGE0_VERSION"].to_sym
 
   STDIN_FILE_NAME = "stdin.txt"
@@ -12,8 +14,8 @@ class IsolateJob < ApplicationJob
               :source_file, :stdin_file, :stdout_file,
               :stderr_file, :metadata_file, :additional_files_archive_file
 
-  def perform(submission)
-    @submission = submission
+  def perform(submission_id)
+    @submission = Submission.find(submission_id)
 
     time = []
     memory = []
@@ -40,6 +42,7 @@ class IsolateJob < ApplicationJob
     submission.save
 
   rescue Exception => e
+    raise e.message unless submission
     submission.finished_at ||= DateTime.now
     submission.update(message: e.message, status: Status.boxerr)
     cleanup(raise_exception = false)
@@ -301,16 +304,22 @@ class IsolateJob < ApplicationJob
         base64_encoded: true,
         fields: SubmissionSerializer.default_fields
       }
-    )
+    ).to_json
 
-    response = HTTParty.put(
-      submission.callback_url,
-      body: serialized_submission.to_json,
-      headers: {
-        "Content-Type" => "application/json"
-      },
-      timeout: 2
-    )
+    Config::CALLBACKS_MAX_TRIES.times do
+      begin
+        response = HTTParty.put(
+          submission.callback_url,
+          body: serialized_submission,
+          headers: {
+            "Content-Type" => "application/json"
+          },
+          timeout: Config::CALLBACKS_TIMEOUT
+        )
+        break
+      rescue Exception => e
+      end
+    end
   rescue Exception => e
   end
 

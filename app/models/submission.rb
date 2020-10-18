@@ -141,7 +141,7 @@ class Submission < ApplicationRecord
 
 
   def language
-    @language ||= Language.unscoped.find(language_id)
+    @language ||= Language.unscoped.find_by(id: language_id)
   end
 
 
@@ -155,15 +155,15 @@ class Submission < ApplicationRecord
 
 
   def is_project
-    language.try(:is_project)
+    language.try(:is_project) || false
   end
 
   private
 
   def language_existence
-    if language_id && !Language.unscoped.exists?(language_id)
+    if not language
       errors.add(:language_id, "language with id #{language_id} doesn't exist")
-    elsif language_id && Language.unscoped.find(language_id).try(:is_archived)
+    elsif language.is_archived
       errors.add(:language_id, "language with id #{language_id} is archived and cannot be used anymore")
     end
   end
@@ -176,13 +176,13 @@ class Submission < ApplicationRecord
       return
     end
 
-    if Language.unscoped.exists?(language_id) && language.compile_cmd.nil?
+    if language && language.compile_cmd.nil?
       errors.add(:compiler_options, "setting compiler options is only allowed for compiled languages")
       return
     end
 
     @@allowed_languages ||= Config::ALLOWED_LANGUAGES_FOR_COMPILER_OPTIONS.collect{ |s| s + " " }
-    if Language.unscoped.exists?(language_id) && @@allowed_languages.present? && !language.name.starts_with?(*@@allowed_languages)
+    if language && @@allowed_languages.present? && !language.name.starts_with?(*@@allowed_languages)
       @@allowed_languages_message ||= @@allowed_languages.size > 1 ? @@allowed_languages[0..-2].collect{ |s| s.strip }.join(", ") + " and " + @@allowed_languages[-1].strip : @@allowed_languages[0].strip
       errors.add(:compiler_options, "setting compiler options is only allowed for #{@@allowed_languages_message}")
     end
