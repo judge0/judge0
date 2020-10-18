@@ -17,7 +17,7 @@ To see Judge0 in action, try [Judge0 IDE](https://ide.judge0.com) - our free and
 - Rich and verbose [API documentation](https://api.judge0.com)
 - Scalable architecture
 - Sandboxed compilation and execution
-- Support for [60+ languages](https://github.com/judge0/compilers#supported-languages)
+- Support for [60+ languages](https://github.com/judge0/judge0#supported-languages)
 - Compilation and execution of multi-file programs
 - Support for additional files alongside the user's program
 - Support for custom user-defined compiler options, command-line arguments, and time and memory limits
@@ -36,11 +36,11 @@ Our infrastructure behind RapidAPI allows you to focus on building your product 
 Let's talk. [Contact us](mailto:hermanz.dosilovic@gmail.com).
 
 ## Flavors
-Judge0 comes in two flavors: [Judge0](https://rapidapi.com/hermanzdosilovic/api/judge0) and [Judge0 Extra](https://rapidapi.com/hermanzdosilovic/api/judge0-extra). They differ mostly in the [supported languages](https://github.com/judge0/compilers#supported-languages).
+Judge0 comes in two flavors: [Judge0](https://rapidapi.com/hermanzdosilovic/api/judge0/pricing) and [Judge0 Extra](https://rapidapi.com/hermanzdosilovic/api/judge0-extra/pricing). They differ mostly in the [supported languages](https://github.com/judge0/judge0#supported-languages).
 
 You can find the source code for Judge0 on the [`master`](https://github.com/judge0/judge0/tree/master) branch, while the source code for Judge0 Extra can be found on the [`extra`](https://github.com/judge0/judge0/tree/extra) branch.
 
-Judge0 Extra is also available on [RapidAPI](https://rapidapi.com/hermanzdosilovic/api/judge0-extra).
+Judge0 Extra is also available on [RapidAPI](https://rapidapi.com/hermanzdosilovic/api/judge0-extra/pricing).
 
 ## Version
 This document describes Judge0 [v1.12.0](https://github.com/judge0/judge0/tree/v1.12.0).
