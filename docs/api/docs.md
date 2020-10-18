@@ -25,7 +25,7 @@ To see Judge0 in action, try [Judge0 IDE](https://ide.judge0.com) - our free and
 - Webhooks (HTTP callbacks)
 
 ## Get Started
-Start with the [**FREE Basic Plan**](https://rapidapi.com/hermanzdosilovic/api/judge0/pricing) on RapidAPI or [host it yourself](CHANGELOG.md#deployment-procedure).
+Start with the [**FREE Basic Plan**](https://rapidapi.com/hermanzdosilovic/api/judge0/pricing) on RapidAPI or [host it yourself](https://github.com/judge0/judge0/blob/master/CHANGELOG.md#deployment-procedure).
 
 **Why should you use Judge0 on RapidAPI?**
 
