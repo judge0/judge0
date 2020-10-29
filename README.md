@@ -387,6 +387,7 @@ These companies, organizations, and projects successfully use Judge0.
 <li><a href="http://www.geekcoders.co.in">GeekCoders</a></li>
 <li><a href="https://www.uni-goettingen.de">Georg-August University of Göttingen</a></li>
 <li><a href="https://gomycode.co">GoMyCode</a></li>
+<li><a href="https://www.hackademy.mx">Hackademy</a></li>
 <li><a href="http://www.iitmandi.ac.in">Indian Institute of Technology Mandi</a></li>
 <li><a href="https://instacks.in">Instacks</a></li>
 <li><a href="https://www.iare.ac.in">Institute of Aeronautical Engineering</a></li>
@@ -427,6 +428,7 @@ These companies, organizations, and projects successfully use Judge0.
 <li><a href="https://www.udebugtool.com">uDebug Tool</a></li>
 <li><a href="http://wkspace.herokuapp.com">wkspace</a></li>
 <li><a href="https://www.yocode.in">yoCode</a></li>
+<li><a href="https://zbirka.online">Zbirka Online</a></li>
 </ul>
 </details>
 
@@ -445,6 +447,9 @@ These scientific articles use or mention Judge0.
 <ul>
 <li><a href="https://tianpan.co/notes/243-designing-online-judge-or-leetcode">Designing Online Judge or Leetcode</a></li>
 <li><a href="https://medium.com/@akashgp09/make-your-own-online-compiler-in-react-%EF%B8%8F-b06bc29dd202">Make your own online compiler in React</a></li>
+<li><a href="https://youtu.be/mq18_oSNkHE?t=966">Programski jezik Go - FER 2019./2020. - Prvo predavanje</a></li>
+<li><a href="https://www.fer.unizg.hr/novosti?@=2qzoy#">Sudjelovanje FER-a na Smotri Sveučilišta 2019.</a></li>
+<li><a href="https://www.fer.unizg.hr/novosti?@=2r0st#">Svečana 672. sjednica Fakultetskog vijeća FER-a</a></li>
 </ul>
 </details>
 
