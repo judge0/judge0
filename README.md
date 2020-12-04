@@ -1,5 +1,6 @@
 # Judge0
-[![Judge0 Wallpaper](.github/wallpaper.png?raw=true)](https://api.judge0.com)
+
+[![Judge0 Wallpaper](https://minio.judge0.com/public/web/image.png)](https://ce.judge0.com)
 
 [![License](https://img.shields.io/github/license/judge0/judge0?color=2185d0&style=flat-square)](LICENSE)
 [![Release](https://img.shields.io/github/v/release/judge0/judge0?color=2185d0&style=flat-square)](https://github.com/judge0/judge0/releases)
@@ -27,15 +28,17 @@
 * [License](#license)
 
 ## About
-[Judge0](https://api.judge0.com) is a robust, scalable, and open-source **online code execution system** that can be used to build a wide range of applications that need online code execution features. Some examples include competitive programming platforms, e-learning platforms, candidate assessment and recruitment platforms, online code editors, online IDEs, and many more.
+[Judge0](https://ce.judge0.com) is a robust, scalable, and open-source **online code execution system** that can be used to build a wide range of applications that need online code execution features. Some examples include competitive programming platforms, e-learning platforms, candidate assessment and recruitment platforms, online code editors, online IDEs, and many more.
 
-In our research paper [*Robust and Scalable Online Code Execution System*](https://paper.judge0.com) we present Judge0's modern modular architecture that can be easily deployed and scaled. We study its design, comment on the various challenges that arise in building such systems, and compare it with other available online code execution systems and online judge systems.
+In our research paper [Robust and Scalable Online Code Execution System](https://paper.judge0.com) we present Judge0's modern modular architecture that can be easily deployed and scaled. We study its design, comment on the various challenges that arise in building such systems, and compare it with other available online code execution systems and online judge systems.
 
 To see Judge0 in action, try [Judge0 IDE](https://ide.judge0.com) - our free and open-source online code editor.
 
+Easily integrate online code editor with code execution (a.k.a. online compiler) to your website with our [**embeddable web widgets**](https://judge0.com/#judge0-widgets).
+
 ## Features
 - Quick and easy [installation](#get-started)
-- Rich and verbose [API documentation](https://api.judge0.com)
+- Rich and verbose [API documentation](https://ce.judge0.com)
 - Scalable architecture
 - Sandboxed compilation and execution
 - Support for [60+ languages](#supported-languages)
@@ -45,28 +48,28 @@ To see Judge0 in action, try [Judge0 IDE](https://ide.judge0.com) - our free and
 - Detailed execution results
 - Webhooks (HTTP callbacks)
 
-For more information about these and other features please [read the documentation](https://api.judge0.com).
+For more information about these and other features please [read the documentation](https://ce.judge0.com).
 
 ## Get Started
-Start with the [**FREE Basic Plan**](https://rapidapi.com/hermanzdosilovic/api/judge0/pricing) on RapidAPI or [host it yourself](CHANGELOG.md#deployment-procedure).
+Start with the [**FREE Basic Plan**](https://judge0.com/ce) on RapidAPI or [host it yourself](CHANGELOG.md#deployment-procedure).
 
 ### Why should you use Judge0 on RapidAPI?
 Our infrastructure behind RapidAPI allows you to focus on building your product and forget about the know-how of maintaining and scaling Judge0.
 
 ### RapidAPI plans are not (good) enough for you?
-Let's talk. [Contact us](mailto:hermanz.dosilovic@gmail.com).
+Let's talk. [Contact us](mailto:contact@judge0.com).
 
 ## Flavors
-Judge0 comes in two flavors: [Judge0](https://rapidapi.com/hermanzdosilovic/api/judge0/pricing) and [Judge0 Extra](https://rapidapi.com/hermanzdosilovic/api/judge0-extra/pricing). They differ mostly in the [supported languages](#supported-languages).
+Judge0 comes in two flavors: [Judge0](https://judge0.com/ce) and [Judge0 Extra](https://judge0.com/extra-ce). They differ mostly in the [supported languages](#supported-languages).
 
 You can find the source code for Judge0 on the [`master`](https://github.com/judge0/judge0/tree/master) branch, while the source code for Judge0 Extra can be found on the [`extra`](https://github.com/judge0/judge0/tree/extra) branch.
 
-Judge0 Extra is also available on [RapidAPI](https://rapidapi.com/hermanzdosilovic/api/judge0-extra/pricing).
+Judge0 Extra is also available on [RapidAPI](https://judge0.com/extra-ce).
 
 ## Supported Languages
-Judge0 comes in two flavors: [Judge0](https://rapidapi.com/hermanzdosilovic/api/judge0/pricing) and [Judge0 Extra](https://rapidapi.com/hermanzdosilovic/api/judge0-extra/pricing). They differ mostly in the supported languages.
+Judge0 comes in two flavors: [Judge0](https://judge0.com/ce) and [Judge0 Extra](https://judge0.com/extra-ce). They differ mostly in the supported languages.
 
-### [Judge0](https://rapidapi.com/hermanzdosilovic/api/judge0/pricing)
+### [Judge0](https://judge0.com/ce)
 <details><summary>Click here to expand the list</summary>
 <table>
 <thead>
@@ -264,7 +267,7 @@ Judge0 comes in two flavors: [Judge0](https://rapidapi.com/hermanzdosilovic/api/
 </table>
 </details>
 
-### [Judge0 Extra](https://rapidapi.com/hermanzdosilovic/api/judge0-extra/pricing)
+### [Judge0 Extra](https://judge0.com/extra-ce)
 <details><summary>Click here to expand the list</summary>
 <table>
 <thead>
@@ -460,8 +463,7 @@ Do you have a question, feature request, or something else on your mind? Or you 
 * [Join our Discord server](https://discord.gg/GRc3v6n)
 * [Watch asciicasts](https://asciinema.org/~hermanzdosilovic)
 * [Report an issue](https://github.com/judge0/judge0/issues/new)
-* [Contact us](mailto:hermanz.dosilovic@gmail.com)
-* [Get our free online support](https://judge0.appointlet.com)
+* [Contact us](mailto:contact@judge0.com)
 * [Schedule an online meeting with us](https://judge0.appointlet.com)
 
 ## Author and Contributors
