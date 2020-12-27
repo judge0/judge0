@@ -442,6 +442,7 @@ These scientific articles use or mention Judge0.
 <ul>
 <li><a href="https://dl.acm.org/doi/10.1145/3328778.3372610">A Game-Changing Instructor Tool to Reinforce Coding Concepts</a></li>
 <li><a href="https://ieeexplore.ieee.org/document/9079865">Building a Comprehensive Automated Programming Assessment System</a></li>
+<li><a href="https://link.springer.com/chapter/10.1007/978-981-15-3607-6_5">Voice-Enabled Intelligent IDE in Cloud</a></li>
 </ul>
 </details>
 
@@ -453,6 +454,9 @@ These scientific articles use or mention Judge0.
 <li><a href="https://youtu.be/mq18_oSNkHE?t=966">Programski jezik Go - FER 2019./2020. - Prvo predavanje</a></li>
 <li><a href="https://www.fer.unizg.hr/novosti?@=2qzoy#">Sudjelovanje FER-a na Smotri Sveučilišta 2019.</a></li>
 <li><a href="https://www.fer.unizg.hr/novosti?@=2r0st#">Svečana 672. sjednica Fakultetskog vijeća FER-a</a></li>
+<li><a href="https://usaco.guide/general/running-code-online">USACO Guide - Running Code Online</a></li>
+<li><a href="https://repozitorij.fer.unizg.hr/en/islandora/object/fer%3A3607">Web application for authoring and sharing code snippets in different programming languages
+</a></li>
 </ul>
 </details>
 
