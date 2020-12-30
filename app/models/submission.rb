@@ -46,11 +46,11 @@ class Submission < ApplicationRecord
   validates :number_of_runs,
             numericality: { greater_than: 0, less_than_or_equal_to: Config::MAX_NUMBER_OF_RUNS }
   validates :cpu_time_limit,
-            numericality: { greater_than: 0, less_than_or_equal_to: Config::MAX_CPU_TIME_LIMIT }
+            numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: Config::MAX_CPU_TIME_LIMIT }
   validates :cpu_extra_time,
-            numericality: { greater_than: 0, less_than_or_equal_to: Config::MAX_CPU_EXTRA_TIME }
+            numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: Config::MAX_CPU_EXTRA_TIME }
   validates :wall_time_limit,
-            numericality: { greater_than: 0, less_than_or_equal_to: Config::MAX_WALL_TIME_LIMIT }
+            numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: Config::MAX_WALL_TIME_LIMIT }
   validates :memory_limit,
             numericality: { greater_than_or_equal_to: 2048, less_than_or_equal_to: Config::MAX_MEMORY_LIMIT }
   validates :stack_limit,
