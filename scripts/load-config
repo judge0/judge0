@@ -21,8 +21,8 @@ export RESTART_MAX_TRIES=${RESTART_MAX_TRIES:-10}
 
 # Rails
 export RAILS_ENV=${RAILS_ENV:-production}
-export RAILS_MAX_THREADS=${RAILS_MAX_THREADS:-5}
-export RAILS_SERVER_PROCESSES=${RAILS_SERVER_PROCESSES:-1}
+export RAILS_MAX_THREADS=${RAILS_MAX_THREADS:-$(nproc)}
+export RAILS_SERVER_PROCESSES=${RAILS_SERVER_PROCESSES:-2}
 export SECRET_KEY_BASE=${SECRET_KEY_BASE:-$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 128 | head -n 1)}
 export PORT=${PORT:-2358} # This option is not available in judge0.conf
 export RAILS_LOG_TO_STDOUT=true # This options is not available in judge0.conf
@@ -35,7 +35,7 @@ export AUTHZ_HEADER=${AUTHZ_HEADER:-X-Auth-User}
 
 # Workers
 export INTERVAL=${INTERVAL:-0.1}
-export COUNT=${COUNT:-1}
+export COUNT=${COUNT:-$(( $(nproc) * 2 ))}
 export QUEUE=${JUDGE0_VERSION:-unknown} # This option is not available in judge0.conf
 
 # Database
