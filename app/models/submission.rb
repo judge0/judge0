@@ -64,7 +64,7 @@ class Submission < ApplicationRecord
             inclusion: { in: [false], message: "this option cannot be enabled" },
             unless: -> { Config::ALLOW_ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT }
   validates :max_file_size,
-            numericality: { greater_than: 0, less_than_or_equal_to: Config::MAX_MAX_FILE_SIZE }
+            numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: Config::MAX_MAX_FILE_SIZE }
   validates :compiler_options, length: { maximum: 512 }
   validates :command_line_arguments, length: { maximum: 512 }
   validate :language_existence, :compiler_options_allowed,
