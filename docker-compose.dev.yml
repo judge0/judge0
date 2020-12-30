@@ -17,7 +17,7 @@ services:
     volumes:
       - .:/api
     ports:
-      - "3000:3000"
+      - "2358:2358"
       - "3001:3001" # For ./scripts/dev/serve-docs
     privileged: true
 

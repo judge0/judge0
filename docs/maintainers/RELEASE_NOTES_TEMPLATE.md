@@ -20,7 +20,7 @@ Please note that Judge0 has only been tested on **Linux** and **macOS**, and mig
 
 ### With HTTP
 1. Install [Docker](https://docs.docker.com) and [Docker Compose](https://docs.docker.com/compose).
-2. Download and extract release archive:
+2. Download and extract the release archive:
 ```
 wget https://github.com/judge0/judge0/releases/download/vX.Y.Z/judge0-vX.Y.Z.zip
 unzip judge0-vX.Y.Z.zip
@@ -35,11 +35,11 @@ docker-compose up -d
 sleep 5s
 ```
 
-4. Your instance of Judge0 vX.Y.Z is now available at `http://<IP ADDRESS OF YOUR SERVER>`.
+4. Your instance of Judge0 vX.Y.Z is now available at `http://<IP ADDRESS OF YOUR SERVER>:2358`.
 
 ### With HTTPS (SSL/TLS)
 1. Install [Docker](https://docs.docker.com) and [Docker Compose](https://docs.docker.com/compose).
-2. Download and extract release archive:
+2. Download and extract the release archive:
 ```
 wget https://github.com/judge0/judge0/releases/download/vX.Y.Z/judge0-vX.Y.Z-https.zip
 unzip judge0-vX.Y.Z-https.zip
