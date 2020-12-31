@@ -54,7 +54,7 @@ class Submission < ApplicationRecord
   validates :memory_limit,
             numericality: { greater_than_or_equal_to: 2048, less_than_or_equal_to: Config::MAX_MEMORY_LIMIT }
   validates :stack_limit,
-            numericality: { greater_than: 0, less_than_or_equal_to: Config::MAX_STACK_LIMIT }
+            numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: Config::MAX_STACK_LIMIT }
   validates :max_processes_and_or_threads,
             numericality: { greater_than: 0, less_than_or_equal_to: Config::MAX_MAX_PROCESSES_AND_OR_THREADS }
   validates :enable_per_process_and_thread_time_limit,
