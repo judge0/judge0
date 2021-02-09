@@ -391,6 +391,7 @@ These companies, organizations, and projects successfully use Judge0.
 <li><a href="https://www.uni-goettingen.de">Georg-August University of Göttingen</a></li>
 <li><a href="https://gomycode.co">GoMyCode</a></li>
 <li><a href="https://www.hackademy.mx">Hackademy</a></li>
+<li><a href="https://github.com/YashKumarVerma/rc-heimdall">Heimdall</a></li>
 <li><a href="http://www.iitmandi.ac.in">Indian Institute of Technology Mandi</a></li>
 <li><a href="https://instacks.in">Instacks</a></li>
 <li><a href="https://www.iare.ac.in">Institute of Aeronautical Engineering</a></li>
@@ -457,6 +458,9 @@ These scientific articles use or mention Judge0.
 <li><a href="https://usaco.guide/general/running-code-online">USACO Guide - Running Code Online</a></li>
 <li><a href="https://repozitorij.fer.unizg.hr/en/islandora/object/fer%3A3607">Web application for authoring and sharing code snippets in different programming languages
 </a></li>
+<li><a href="https://medium.com/javarevisited/lets-deploy-our-online-code-executor-in-google-cloud-e76a9fabac57">Let’s Deploy our Online Code Executor in Google Cloud</a></li>
+<li><a href="https://levelup.gitconnected.com/lets-develop-an-online-code-editor-compiler-like-hackerrank-c433d8db060d">Let’s Develop an Online Code Editor & Compiler like HackerRank</a></li>
+<li><a href="https://medium.com/javascript-in-plain-english/lets-develop-an-online-code-editor-compiler-like-hackerrank-702881803eee">Let’s Develop An Online Code Editor/Compiler Like HackerRank</a></li>
 </ul>
 </details>
 
