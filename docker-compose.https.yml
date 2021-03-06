@@ -9,7 +9,7 @@ x-logging:
 
 services:
   nginx:
-    image: judge0/jwilder-nginx-proxy:latest-2020-02-11
+    image: judge0/jwilder-nginx-proxy:latest-2020-10-30
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - ./srv/nginx/vhost.d:/etc/nginx/vhost.d

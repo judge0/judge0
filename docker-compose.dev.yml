@@ -1,7 +1,7 @@
 version: '2'
 services:
   nginx:
-    image: judge0/jwilder-nginx-proxy:latest-2020-02-11
+    image: judge0/jwilder-nginx-proxy:latest-2020-10-30
     environment:
       - DEFAULT_HOST=judge0.local
     volumes:
