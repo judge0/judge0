@@ -29,7 +29,9 @@ if admin didn't set them. For example, default value of *configuration variable*
 |13|`enable_per_process_and_thread_time_limit`|boolean||If `true` then `cpu_time_limit` will be used as per process and thread.|false|
 |14|`enable_per_process_and_thread_memory_limit`|boolean||If `true` then `memory_limit` will be used as per process and thread.|true|
 |15|`max_file_size`|integer|kilobyte|Limit size of files created (or modified) by the program.|1024|
-|16|`number_of_runs`|integer||Run each program this many times and take average of time and memory.|1|
+|16|`allow_enable_network`|boolean||If enabled user can set `enable_network`.|true|
+|17|`enable_network`|boolean||If enabled program will have network access.|true|
+|18|`number_of_runs`|integer||Run each program this many times and take average of time and memory.|1|
 
 *Default configuration value* for each variable is given to you as response of this API call. For example, *default configuration value*
 for variable `cpu_extra_time` might be `2`, and if admin didn't set this, then it is `0.5` (*default value*).

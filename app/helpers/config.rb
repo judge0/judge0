@@ -39,6 +39,8 @@ module Config
   MAX_SUBMISSION_BATCH_SIZE = (ENV["MAX_SUBMISSION_BATCH_SIZE"].presence || 20).to_i
   SUBMISSION_CACHE_DURATION = (ENV["SUBMISSION_CACHE_DURATION"].presence || 1).to_f
   USE_DOCS_AS_HOMEPAGE = ENV["USE_DOCS_AS_HOMEPAGE"] == "true"
+  ALLOW_ENABLE_NETWORK = ENV["ALLOW_ENABLE_NETWORK"] != "false"
+  ENABLE_NETWORK = ENV["ENABLE_NETWORK"] == "true"
 
   def self.config_info
     @@default_confg ||= {
@@ -78,7 +80,9 @@ module Config
       "enable_batched_submissions": ENABLE_BATCHED_SUBMISSIONS,
       "max_submission_batch_size": MAX_SUBMISSION_BATCH_SIZE,
       "submission_cache_duration": SUBMISSION_CACHE_DURATION,
-      "use_docs_as_homepage": USE_DOCS_AS_HOMEPAGE
+      "use_docs_as_homepage": USE_DOCS_AS_HOMEPAGE,
+      "allow_enable_network": ALLOW_ENABLE_NETWORK,
+      "enable_network": ENABLE_NETWORK
     }
   end
 end

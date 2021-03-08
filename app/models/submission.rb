@@ -32,6 +32,10 @@
 #  wall_time                                  :decimal(, )
 #  compiler_options                           :string
 #  command_line_arguments                     :string
+#  redirect_stderr_to_stdout                  :boolean
+#  callback_url                               :string
+#  additional_files                           :binary
+#  enable_network                             :boolean
 #
 # Indexes
 #
@@ -69,7 +73,7 @@ class Submission < ApplicationRecord
   validates :command_line_arguments, length: { maximum: 512 }
   validate :language_existence, :compiler_options_allowed,
            :command_line_arguments_allowed, :callbacks_allowed,
-           :additional_files_allowed
+           :additional_files_allowed, :network_allowed
 
   before_create :generate_token
   before_validation :set_defaults
@@ -212,6 +216,14 @@ class Submission < ApplicationRecord
     end
   end
 
+  def network_allowed
+    return if enable_network.blank?
+
+    unless Config::ALLOW_ENABLE_NETWORK
+      errors.add(:enable_network, "enabling network is not allowed")
+    end
+  end
+
   def generate_token
     begin
       self.token = SecureRandom.uuid
@@ -239,6 +251,10 @@ class Submission < ApplicationRecord
     self.redirect_stderr_to_stdout = NilValue.value_or_default(
       self.redirect_stderr_to_stdout,
       Config::REDIRECT_STDERR_TO_STDOUT
+    )
+    self.enable_network = NilValue.value_or_default(
+      self.enable_network,
+      Config::ENABLE_NETWORK
     )
   end
 end

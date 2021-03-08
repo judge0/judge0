@@ -86,6 +86,11 @@ int main(void) {
   <input type="text" name="maxFileSize" value="1024">
   <input type="checkbox" name="maxFileSizeIsNull" checked><code>null</code><br><br>
 
+  <strong>Enable Network</strong>
+  <input type="radio" name="enableNetwork" value="true"> <code>true</code>
+  <input type="radio" name="enableNetwork" value="false"> <code>false</code>
+  <input type="radio" name="enableNetwork" value="null" checked> <code>null</code><br><br>
+
   <strong>Stdin</strong>
   <input type="checkbox" name="stdinIsNull"><code>null</code><br>
   <textarea name="stdin" rows="5" cols="25">Judge0</textarea><br><br>
@@ -227,6 +232,7 @@ int main(void) {
       var enablePerProcessAndThreadTimeLimit = $("input[name=enablePerProcessAndThreadTimeLimit]:checked").val() === "true";
       var enablePerProcessAndThreadMemoryLimit = $("input[name=enablePerProcessAndThreadMemoryLimit]:checked").val() === "true";
       var maxFileSize = $("input[name=maxFileSize]").val();
+      var enableNetwork = $("input[name=enableNetwork]:checked").val() === "true";
       var wait = $("input[name=waitResponse]").is(":checked");
 
       var queryParameters = createQueryParameters();
@@ -277,6 +283,9 @@ int main(void) {
       if ($("input[name=maxFileSizeIsNull]").is(":checked")) {
         maxFileSize = null;
       }
+      if ($("input[name=enableNetwork]:checked").val() === "null") {
+        enableNetwork = null;
+      }
 
       var data = {
         source_code: sourceCode,
@@ -292,7 +301,8 @@ int main(void) {
         max_processes_and_or_threads: maxProcessesAndOrThreads,
         enable_per_process_and_thread_time_limit: enablePerProcessAndThreadTimeLimit,
         enable_per_process_and_thread_memory_limit: enablePerProcessAndThreadMemoryLimit,
-        max_file_size: maxFileSize
+        max_file_size: maxFileSize,
+        enable_network: enableNetwork
       };
 
       appendToLog(`[Request ${new Date().toLocaleString()}] POST ${apiUrl}/submissions${queryParameters}\n${JSON.stringify(data, null, 4)}`);

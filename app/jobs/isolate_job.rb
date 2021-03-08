@@ -205,6 +205,7 @@ class IsolateJob < ApplicationJob
     -b #{box_id} \
     -M #{metadata_file} \
     #{submission.redirect_stderr_to_stdout ? "--stderr-to-stdout" : ""} \
+    #{submission.enable_network ? "--share-net" : ""} \
     -t #{submission.cpu_time_limit} \
     -x #{submission.cpu_extra_time} \
     -w #{submission.wall_time_limit} \
