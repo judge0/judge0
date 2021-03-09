@@ -9,7 +9,7 @@ x-logging:
 
 services:
   workers:
-    image: judge0/judge0:latest
+    image: judge0/judge0:latest-extra
     command: ["./scripts/workers"]
     volumes:
       - ./judge0.conf:/judge0.conf:ro

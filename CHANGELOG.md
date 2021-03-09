@@ -1,4 +1,4 @@
-This is the Changelog for Judge0 Extra. The Changelog for Judge0 can be found [here](https://github.com/judge0/judge0/blob/master/CHANGELOG.md). Learn more about their difference [here](https://github.com/judge0/judge0#flavors).
+This is the Changelog for Judge0 Extra CE. The Changelog for Judge0 CE can be found [here](https://github.com/judge0/judge0/blob/master/CHANGELOG.md). Learn more about their difference [here](https://github.com/judge0/judge0#flavors).
 
 # v1.12.0-extra (2020-10-18)
 ## New Features
