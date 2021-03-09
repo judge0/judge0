@@ -38,7 +38,7 @@ COPY . .
 ENTRYPOINT ["./docker-entrypoint.sh"]
 CMD ["./scripts/server"]
 
-ENV JUDGE0_VERSION "1.12.0"
+ENV JUDGE0_VERSION "1.13.0"
 LABEL version=$JUDGE0_VERSION
 
 
