@@ -1,4 +1,4 @@
-FROM judge0/compilers:1.5.0-extra AS production
+FROM judge0/compilers:1.6.0-extra AS production
 
 ENV JUDGE0_HOMEPAGE "https://judge0.com"
 LABEL homepage=$JUDGE0_HOMEPAGE
@@ -22,7 +22,7 @@ RUN apt-get update -o Acquire::Check-Valid-Until=false && \
     gem install bundler:2.1.4 && \
     npm install -g --unsafe-perm aglio@2.3.0
 
-ENV VIRTUAL_PORT 3000
+ENV VIRTUAL_PORT 2358
 EXPOSE $VIRTUAL_PORT
 
 WORKDIR /api
@@ -38,7 +38,7 @@ COPY . .
 ENTRYPOINT ["./docker-entrypoint.sh"]
 CMD ["./scripts/server"]
 
-ENV JUDGE0_VERSION "1.12.0-extra"
+ENV JUDGE0_VERSION "1.13.0-extra"
 LABEL version=$JUDGE0_VERSION
 
 

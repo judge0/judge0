@@ -1,7 +1,7 @@
 version: '2'
 services:
   nginx:
-    image: judge0/jwilder-nginx-proxy:latest-2020-02-11
+    image: judge0/jwilder-nginx-proxy:latest-2020-10-30
     environment:
       - DEFAULT_HOST=judge0.local
     volumes:
@@ -11,13 +11,13 @@ services:
     restart: always
 
   server:
-    image: judge0/judge0:latest-dev
+    image: judge0/judge0:latest-extra-dev
     environment:
       - VIRTUAL_HOST=judge0.local
     volumes:
       - .:/api
     ports:
-      - "3000:3000"
+      - "2358:2358"
       - "3001:3001" # For ./scripts/dev/serve-docs
     privileged: true
 

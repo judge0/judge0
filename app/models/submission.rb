@@ -32,6 +32,10 @@
 #  wall_time                                  :decimal(, )
 #  compiler_options                           :string
 #  command_line_arguments                     :string
+#  redirect_stderr_to_stdout                  :boolean
+#  callback_url                               :string
+#  additional_files                           :binary
+#  enable_network                             :boolean
 #
 # Indexes
 #
@@ -46,15 +50,15 @@ class Submission < ApplicationRecord
   validates :number_of_runs,
             numericality: { greater_than: 0, less_than_or_equal_to: Config::MAX_NUMBER_OF_RUNS }
   validates :cpu_time_limit,
-            numericality: { greater_than: 0, less_than_or_equal_to: Config::MAX_CPU_TIME_LIMIT }
+            numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: Config::MAX_CPU_TIME_LIMIT }
   validates :cpu_extra_time,
-            numericality: { greater_than: 0, less_than_or_equal_to: Config::MAX_CPU_EXTRA_TIME }
+            numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: Config::MAX_CPU_EXTRA_TIME }
   validates :wall_time_limit,
-            numericality: { greater_than: 0, less_than_or_equal_to: Config::MAX_WALL_TIME_LIMIT }
+            numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: Config::MAX_WALL_TIME_LIMIT }
   validates :memory_limit,
             numericality: { greater_than_or_equal_to: 2048, less_than_or_equal_to: Config::MAX_MEMORY_LIMIT }
   validates :stack_limit,
-            numericality: { greater_than: 0, less_than_or_equal_to: Config::MAX_STACK_LIMIT }
+            numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: Config::MAX_STACK_LIMIT }
   validates :max_processes_and_or_threads,
             numericality: { greater_than: 0, less_than_or_equal_to: Config::MAX_MAX_PROCESSES_AND_OR_THREADS }
   validates :enable_per_process_and_thread_time_limit,
@@ -64,12 +68,12 @@ class Submission < ApplicationRecord
             inclusion: { in: [false], message: "this option cannot be enabled" },
             unless: -> { Config::ALLOW_ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT }
   validates :max_file_size,
-            numericality: { greater_than: 0, less_than_or_equal_to: Config::MAX_MAX_FILE_SIZE }
+            numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: Config::MAX_MAX_FILE_SIZE }
   validates :compiler_options, length: { maximum: 512 }
   validates :command_line_arguments, length: { maximum: 512 }
   validate :language_existence, :compiler_options_allowed,
            :command_line_arguments_allowed, :callbacks_allowed,
-           :additional_files_allowed
+           :additional_files_allowed, :network_allowed
 
   before_create :generate_token
   before_validation :set_defaults
@@ -212,6 +216,14 @@ class Submission < ApplicationRecord
     end
   end
 
+  def network_allowed
+    return if enable_network.blank?
+
+    unless Config::ALLOW_ENABLE_NETWORK
+      errors.add(:enable_network, "enabling network is not allowed")
+    end
+  end
+
   def generate_token
     begin
       self.token = SecureRandom.uuid
@@ -239,6 +251,10 @@ class Submission < ApplicationRecord
     self.redirect_stderr_to_stdout = NilValue.value_or_default(
       self.redirect_stderr_to_stdout,
       Config::REDIRECT_STDERR_TO_STDOUT
+    )
+    self.enable_network = NilValue.value_or_default(
+      self.enable_network,
+      Config::ENABLE_NETWORK
     )
   end
 end

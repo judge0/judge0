@@ -176,7 +176,8 @@ class SubmissionsController < ApplicationController
       :max_file_size,
       :redirect_stderr_to_stdout,
       :callback_url,
-      :additional_files
+      :additional_files,
+      :enable_network
     )
 
     submission_params[:additional_files] = Base64Service.decode(submission_params[:additional_files])

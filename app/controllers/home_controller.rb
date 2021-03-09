@@ -1,7 +1,11 @@
 class HomeController < ActionController::API
   include ActionView::Layouts
 
-  def docs
-    render file: Rails.root.join('public/docs.html')
+  def index
+    if Config::USE_DOCS_AS_HOMEPAGE
+      render file: Rails.root.join('public/docs.html')
+    else
+      head :ok
+    end
   end
 end

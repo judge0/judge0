@@ -9,11 +9,11 @@ x-logging:
 
 services:
   server:
-    image: judge0/judge0:latest
+    image: judge0/judge0:latest-extra
     volumes:
       - ./judge0.conf:/judge0.conf:ro
     ports:
-      - "80:3000"
+      - "2358:2358"
     privileged: true
     <<: *default-logging
     restart: always

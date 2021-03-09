@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'home#docs'
+  root 'home#index'
 
   resources :submissions, only: [:index, :show, :create, :destroy], param: :token do
     post 'batch', to: 'submissions#batch_create', on: :collection

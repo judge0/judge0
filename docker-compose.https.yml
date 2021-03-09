@@ -9,7 +9,7 @@ x-logging:
 
 services:
   nginx:
-    image: judge0/jwilder-nginx-proxy:latest-2020-02-11
+    image: judge0/jwilder-nginx-proxy:latest-2020-10-30
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - ./srv/nginx/vhost.d:/etc/nginx/vhost.d
@@ -22,7 +22,7 @@ services:
     restart: always
 
   letsencrypt:
-    image: judge0/jrcs-letsencrypt-nginx-proxy-companion:v1.12.1
+    image: judge0/jrcs-letsencrypt-nginx-proxy-companion:2.0
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./srv/ssl_certs:/etc/nginx/certs:rw
@@ -32,7 +32,7 @@ services:
     restart: always
 
   server:
-    image: judge0/judge0:latest
+    image: judge0/judge0:latest-extra
     environment:
       - VIRTUAL_HOST=example.com
       - LETSENCRYPT_HOST=example.com
@@ -44,7 +44,7 @@ services:
     restart: always
 
   workers:
-    image: judge0/judge0:latest
+    image: judge0/judge0:latest-extra
     command: ["./scripts/workers"]
     volumes:
       - ./judge0.conf:/judge0.conf:ro
