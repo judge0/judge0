@@ -15,16 +15,18 @@ To see Judge0 in action, try [Judge0 IDE](https://ide.judge0.com) - our free and
 Easily integrate online code editor with code execution (a.k.a. online compiler) to your website with our [**embeddable web widgets**](https://judge0.com/#judge0-widgets).
 
 ## Features
-- Quick and easy [installation](#header-get-started)
-- Rich and verbose [API documentation](https://ce.judge0.com)
-- Scalable architecture
-- Sandboxed compilation and execution
-- Support for [60+ languages](https://github.com/judge0/judge0#supported-languages)
-- Compilation and execution of multi-file programs
-- Support for additional files alongside the user's program
-- Support for custom user-defined compiler options, command-line arguments, and time and memory limits
-- Detailed execution results
-- Webhooks (HTTP callbacks)
+<ul style="list-style: none; padding-left: 1em;">
+    <li><i style="color: #69DB7C; margin-right: 0.1em;" class="fas fa-check-circle"></i> Quick and easy <a href="https://judge0.com/#pricing">installation</a></li>
+    <li><i style="color: #69DB7C; margin-right: 0.1em;" class="fas fa-check-circle"></i> Rich and verbose <a target="_blank" href="https://ce.judge0.com">API documentation</a></li>
+    <li><i style="color: #69DB7C; margin-right: 0.1em;" class="fas fa-check-circle"></i> Scalable architecture</li>
+    <li><i style="color: #69DB7C; margin-right: 0.1em;" class="fas fa-check-circle"></i> Sandboxed compilation and execution</li>
+    <li><i style="color: #69DB7C; margin-right: 0.1em;" class="fas fa-check-circle"></i> Support for <a target="_blank" href="https://github.com/judge0/judge0#supported-languages">60+ languages</a></li>
+    <li><i style="color: #69DB7C; margin-right: 0.1em;" class="fas fa-check-circle"></i> Compilation and execution of multi-file programs</li>
+    <li><i style="color: #69DB7C; margin-right: 0.1em;" class="fas fa-check-circle"></i> Support for additional files alongside the user's program</li>
+    <li><i style="color: #69DB7C; margin-right: 0.1em;" class="fas fa-check-circle"></i> Support for custom user-defined compiler options, command-line arguments, and time and memory limits</li>
+    <li><i style="color: #69DB7C; margin-right: 0.1em;" class="fas fa-check-circle"></i> Detailed execution results</li>
+    <li><i style="color: #69DB7C; margin-right: 0.1em;" class="fas fa-check-circle"></i> Webhooks (HTTP callbacks)</li>
+</ul>
 
 ## Get Started
 Feel free to start with the [**FREE Basic Plan**](https://judge0.com/ce) on RapidAPI or [host it yourself](https://github.com/judge0/judge0/blob/master/CHANGELOG.md#deployment-procedure).

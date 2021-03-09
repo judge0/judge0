@@ -37,7 +37,7 @@ To see Judge0 in action, try [Judge0 IDE](https://ide.judge0.com) - our free and
 Easily integrate online code editor with code execution (a.k.a. online compiler) to your website with our [**embeddable web widgets**](https://judge0.com/#judge0-widgets).
 
 ## Features
-- Quick and easy [installation](#get-started)
+- Quick and easy [installation](https://judge0.com/#pricing)
 - Rich and verbose [API documentation](https://ce.judge0.com)
 - Scalable architecture
 - Sandboxed compilation and execution
