@@ -1,4 +1,102 @@
 This is the Changelog for Judge0 Extra CE. The Changelog for Judge0 CE can be found [here](https://github.com/judge0/judge0/blob/master/CHANGELOG.md). Learn more about their difference [here](https://github.com/judge0/judge0#flavors).
+# v1.13.0-extra (2021-03-10)
+Huge thanks to [**Filtered**](https://www.filtered.ai) for sponsoring this release.
+
+## New Features
+- Added **4 new languages** and archived 4 languages. In total, there are **21 active languages**.  Archived languages cannot be used anymore.
+
+|ID|Name|Status|
+|---|---|---|
+|16|C# (.NET Core SDK 3.1.302)|archived|
+|17|C# (Mono 6.10.0.104)|archived|
+|18|C# Test (.NET Core SDK 3.1.302, NUnit 3.12.0)|archived|
+|19|F# (.NET Core SDK 3.1.302)|archived|
+|21|C# (.NET Core SDK 3.1.406)|**NEW**|
+|22|C# (Mono 6.12.0.122)|**NEW**|
+|23|C# Test (.NET Core SDK 3.1.406, NUnit 3.12.0)|**NEW**|
+|24|F# (.NET Core SDK 3.1.406)|**NEW**|
+
+- Added support for `enable_network` configuration flag. With the new `ALLOW_ENABLE_NETWORK` configuration variable, usage of this flag can be permitted or denied. Furthermore, with the new `ENABLE_NETWORK` configuration variable the default value of this flag can be set for every submission.
+    - Commits: [@62a00520](https://github.com/judge0/judge0/commit/62a00520692c2b7a8bf0f54528aee8fbbf864f36)
+- Added `USE_DOCS_AS_HOMEPAGE` configuration variable, which allows you to show or hide Judge0 homepage. **Now, by default, Judge0 homepage is empty** and does not show the API documentation. However, you can still access the API documentation via `/docs`.
+    - Issues: [#257](https://github.com/judge0/judge0/issues/257)
+
+## Bug Fixes
+- Fixed the bug where the wrong number of workers would be reported via `/workers`.
+	- Issues: [#256](https://github.com/judge0/judge0/issues/256)
+
+## Security Fixes
+- **HIGH** Fixed a security bug where certain submission configuration settings would allow the user to run a program that would run infinetly long. With this fix `wall_time_limit` **must** be at least 1 second.
+	- Commits: [@fce8d97a](https://github.com/judge0/judge0/commit/fce8d97ae765e87c4584115fcb73bd288d64d815)
+
+## Other Changes
+- Allow setting the `max_file_size` and `stack_limit` to 0 kB.
+	- Issues: [#242](https://github.com/judge0/judge0/issues/242)
+	- Commits: [@bf7c1284](https://github.com/judge0/judge0/commit/bf7c1284fe756d348154546ad8a6280ce3af5eb2) [@5a4b79ab](https://github.com/judge0/judge0/commit/5a4b79abd19c20b7b26ef70cf862da25f5fd8008)
+- Allow setting the `cpu_time_limit` and `cpu_extra_time` to 0 seconds.
+	- Commits: [@fce8d97a](https://github.com/judge0/judge0/commit/fce8d97ae765e87c4584115fcb73bd288d64d815)
+- Updated to a port 2358 as a new **default port for Judge0** as a online code execution service.
+	- Issues: [#205](https://github.com/judge0/judge0/issues/205)
+	- Commits: [@ea9c7c97](https://github.com/judge0/judge0/commit/ea9c7c975e0697d66ada910ec7806d3c28ad4a03)
+- Updated the default number of Judge0 Workers, those that acutally run the user's code, to the 2*[`nproc`](https://linux.die.net/man/1/nproc). This has been shown as a good choice for general purpose use-case.
+	- Commits: [@113d9c74](https://github.com/judge0/judge0/commit/113d9c74b4659cf6707e748eb6e04701ce67d3f0)
+- Updated the default number of Rails threads to `nproc` and Rails processes to 2. This has been shown as a good choice for general purpose use-case.
+	- Commits: [@113d9c74](https://github.com/judge0/judge0/commit/113d9c74b4659cf6707e748eb6e04701ce67d3f0)
+- Updated Let's Encrypt Docker image for deployment with HTTPS.
+	- Commits: [@86b7f8e8](https://github.com/judge0/judge0/commit/86b7f8e8d0154ab5044db91c537872ea8deb7343)
+- Updated Nginx proxy Docker image that is used in development setup and deployment with HTTPS.
+	- Commits: [@83f5b175](https://github.com/judge0/judge0/commit/83f5b175d0925fe21374e9c70d7fbb4e6941fa9c)
+- Fixed documentation typos. Thank you @balababa.
+	- Pull Requests: [#245](https://github.com/judge0/judge0/pull/245)
+- Updated base image to `judge0/compilers:1.4.0` which uses updated Isolate to [@ad39cc4d](https://github.com/judge0/isolate/commit/ad39cc4d0fbb577fb545910095c9da5ef8fc9a1a).
+
+## Deployment Procedure
+Judge0 is collecting telemetry data to help understand how to improve the product and to better understand how Judge0 is used in various production environments. Read more about telemetry [here](https://github.com/judge0/judge0/blob/v1.13.0-extra/TELEMETRY.md).
+
+Please note that Judge0 has only been tested on **Linux** and **macOS**, and might not work on Windows, thus we do not provide support for it.
+
+### With HTTP
+1. Install [Docker](https://docs.docker.com) and [Docker Compose](https://docs.docker.com/compose).
+2. Download and extract the release archive:
+```
+wget https://github.com/judge0/judge0/releases/download/v1.13.0-extra/judge0-v1.13.0-extra.zip
+unzip judge0-v1.13.0-extra.zip
+```
+
+3. Run all services and wait a few seconds until everything is initialized:
+```
+cd judge0-v1.13.0-extra
+docker-compose up -d db redis
+sleep 10s
+docker-compose up -d
+sleep 5s
+```
+
+4. Your instance of Judge0 Extra CE v1.13.0 is now available at `http://<IP ADDRESS OF YOUR SERVER>`.
+
+### With HTTPS (SSL/TLS)
+1. Install [Docker](https://docs.docker.com) and [Docker Compose](https://docs.docker.com/compose).
+2. Download and extract the release archive:
+```
+wget https://github.com/judge0/judge0/releases/download/v1.13.0-extra/judge0-v1.13.0-extra-https.zip
+unzip judge0-v1.13.0-extra-https.zip
+```
+
+3. Change directory to `judge0-v1.13.0-extra-https`:
+```
+cd judge0-v1.13.0-extra-https
+```
+4. Edit `docker-compose.yml` and change variables `VIRTUAL_HOST`, `LETSENCRYPT_HOST` and `LETSENCRYPT_EMAIL`.
+5. Run all services and wait a few seconds until everything is initialized:
+```
+docker-compose up -d db redis
+sleep 10s
+docker-compose up -d
+sleep 5s
+```
+
+6. Your instance of Judge0 Extra CE v1.13.0 is now available at `https://<YOUR DOMAIN>`.
+
 
 # v1.12.0-extra (2020-10-18)
 ## New Features
