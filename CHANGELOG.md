@@ -4,10 +4,10 @@ This is the Changelog for Judge0 CE. The Changelog for Judge0 Extra CE can be fo
 Huge thanks to [**Filtered**](https://www.filtered.ai) for sponsoring this release.
 
 ## New Features
-- Added support for `enable_network` configuration flag. With the new `ALLOW_ENABLE_NETWORK` configuration variable usage of this flag can be permited or denied. Furthermore, with the new `ENABLE_NETWORK` configuration variable the default value of this flag can be set for every submission.
-	- Commits: [@62a00520](https://github.com/judge0/judge0/commit/62a00520692c2b7a8bf0f54528aee8fbbf864f36)
-- Added `USE_DOCS_AS_HOMEPAGE` configuration variable which allows you to show or hide Judge0 homepage. **Now, by default, Judge0 homepage is empty** and does not show the API documentation, but you can still access the API documentation via `/docs`.
-	- Issues: [#257](https://github.com/judge0/judge0/issues/257)
+- Added support for `enable_network` configuration flag. With the new `ALLOW_ENABLE_NETWORK` configuration variable, usage of this flag can be permitted or denied. Furthermore, with the new `ENABLE_NETWORK` configuration variable the default value of this flag can be set for every submission.
+    - Commits: [@62a00520](https://github.com/judge0/judge0/commit/62a00520692c2b7a8bf0f54528aee8fbbf864f36)
+- Added `USE_DOCS_AS_HOMEPAGE` configuration variable, which allows you to show or hide Judge0 homepage. **Now, by default, Judge0 homepage is empty** and does not show the API documentation. However, you can still access the API documentation via `/docs`.
+    - Issues: [#257](https://github.com/judge0/judge0/issues/257)
 
 ## Bug Fixes
 - Fixed the bug where the wrong number of workers would be reported via `/workers`.

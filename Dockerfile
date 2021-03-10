@@ -35,8 +35,8 @@ RUN cat /etc/cron.d/* | crontab -
 
 COPY . .
 
-ENTRYPOINT ["./docker-entrypoint.sh"]
-CMD ["./scripts/server"]
+ENTRYPOINT ["/api/docker-entrypoint.sh"]
+CMD ["/api/scripts/server"]
 
 ENV JUDGE0_VERSION "1.13.0"
 LABEL version=$JUDGE0_VERSION
