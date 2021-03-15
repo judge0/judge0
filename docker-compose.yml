@@ -17,6 +17,9 @@ services:
     privileged: true
     <<: *default-logging
     restart: always
+    depends_on:
+      - db
+      - redis
 
   workers:
     image: judge0/judge0:latest
@@ -26,6 +29,9 @@ services:
     privileged: true
     <<: *default-logging
     restart: always
+    depends_on:
+      - db
+      - redis
 
   db:
     image: postgres:13.0

@@ -17,6 +17,9 @@ services:
     privileged: true
     <<: *default-logging
     restart: always
+    depends_on:
+      - db
+      - redis
 
   db:
     image: postgres:13.0

@@ -20,6 +20,9 @@ services:
       - "2358:2358"
       - "3001:3001" # For ./scripts/dev/serve-docs
     privileged: true
+    depends_on:
+      - db
+      - redis
 
   db:
     image: postgres:13.0
