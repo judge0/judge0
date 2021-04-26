@@ -1,14 +1,14 @@
-version: '2'
+version: "2"
 
 x-logging:
   &default-logging
   logging:
     driver: json-file
     options:
-      max-size: 100m
+      max-size: 100M
 
 services:
-  workers:
+  worker:
     image: judge0/judge0:latest
     command: ["./scripts/workers"]
     volumes:

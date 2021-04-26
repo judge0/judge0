@@ -1,10 +1,10 @@
-version: '2'
+version: "2"
 
 x-logging: &logging
   logging:
     driver: json-file
     options:
-      max-size: 100m
+      max-size: 100M
 
 x-db: &db
   POSTGRES_HOST: db
@@ -34,7 +34,7 @@ services:
     <<: *logging
     restart: always
 
-  workers:
+  worker:
     image: judge0/judge0:latest
     command: ["./scripts/workers"]
     environment:

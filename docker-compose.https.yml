@@ -1,31 +1,39 @@
-version: '2'
+version: "2"
 
 x-logging:
   &default-logging
   logging:
     driver: json-file
     options:
-      max-size: 100m
+      max-size: 100M
 
 services:
   nginx:
-    image: judge0/jwilder-nginx-proxy:latest-2020-10-30
+    image: judge0/nginxproxy-nginx-proxy:latest-2021-04-26
+    environment:
+      HTTPS_METHOD: noredirect
     volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-      - ./srv/nginx/vhost.d:/etc/nginx/vhost.d
+      - ./srv/nginx/certs:/etc/nginx/certs:ro
+      - ./srv/nginx/conf.d:/etc/nginx/conf.d
+      - ./srv/nginx/dhparam:/etc/nginx/dhparam
       - ./srv/nginx/html:/usr/share/nginx/html
-      - ./srv/ssl_certs:/etc/nginx/certs:ro
+      - ./srv/nginx/htpasswd:/etc/nginx/htpasswd
+      - ./srv/nginx/vhost.d:/etc/nginx/vhost.d
+      - /var/run/docker.sock:/tmp/docker.sock:ro
     ports:
       - "80:80"
       - "443:443"
     <<: *default-logging
     restart: always
 
-  letsencrypt:
-    image: judge0/jrcs-letsencrypt-nginx-proxy-companion:2.0
+  acme:
+    image: judge0/nginxproxy-acme-companion:2.1.0
+    environment:
+      DEFAULT_EMAIL: mail@yourdomain.tld
     volumes:
+      - ./srv/acme/acme.sh:/etc/acme.sh
+      - ./srv/nginx/certs:/etc/nginx/certs:rw
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./srv/ssl_certs:/etc/nginx/certs:rw
     volumes_from:
       - nginx
     <<: *default-logging
@@ -34,16 +42,15 @@ services:
   server:
     image: judge0/judge0:latest
     environment:
-      - VIRTUAL_HOST=example.com
-      - LETSENCRYPT_HOST=example.com
-      - LETSENCRYPT_EMAIL=john.doe@gmail.com
+      - VIRTUAL_HOST=subdomain.yourdomain.tld
+      - LETSENCRYPT_HOST=subdomain.yourdomain.tld
     volumes:
       - ./judge0.conf:/judge0.conf:ro
     privileged: true
     <<: *default-logging
     restart: always
 
-  workers:
+  worker:
     image: judge0/judge0:latest
     command: ["./scripts/workers"]
     volumes:

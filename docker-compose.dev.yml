@@ -1,19 +1,19 @@
-version: '2'
+version: "2"
 services:
   nginx:
-    image: judge0/jwilder-nginx-proxy:latest-2020-10-30
+    image: judge0/nginxproxy-nginx-proxy:latest-2021-04-26
     environment:
-      - DEFAULT_HOST=judge0.local
+      DEFAULT_HOST: judge0.local
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
     ports:
       - "80:80"
     restart: always
 
-  server:
+  judge0:
     image: judge0/judge0:latest-dev
     environment:
-      - VIRTUAL_HOST=judge0.local
+      VIRTUAL_HOST: judge0.local
     volumes:
       - .:/api
     ports:
@@ -32,12 +32,12 @@ services:
   pgbouncer:
     image: pgbouncer/pgbouncer:1.14.0
     environment: # DATABASES_* are the same as from judge0.conf
-      - DATABASES_HOST=db
-      - DATABASES_PORT=5432
-      - DATABASES_DBNAME=judge0
-      - DATABASES_USER=judge0
-      - DATABASES_PASSWORD=YourPasswordHere1234
-      - PGBOUNCER_LISTEN_PORT=5432 # Set the same as Postgres
+      DATABASES_HOST: db
+      DATABASES_PORT: 5432
+      DATABASES_DBNAME: judge0
+      DATABASES_USER: judge0
+      DATABASES_PASSWORD: YourPasswordHere1234
+      PGBOUNCER_LISTEN_PORT: 5432 # Set the same as Postgres
     restart: always
 
   redis:
