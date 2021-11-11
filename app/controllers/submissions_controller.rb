@@ -182,22 +182,23 @@ class SubmissionsController < ApplicationController
 
     submission_params[:additional_files] = Base64Service.decode(submission_params[:additional_files])
 
-    if params[:stdin_id]
-      input_code = Code.find(params[:stdin_id]).text
-      if @base64_encoded
-        submission_params[:stdin] = input_code
-      else
-        submission_params[:stdin] = Base64Service.decode(input_code)
+    if Config::FILE_BASE_URL
+      if params[:stdin]
+        input_code = Code.find(params[:stdin_id]).text
+        if @base64_encoded
+          submission_params[:stdin] = input_code
+        else
+          submission_params[:stdin] = Base64Service.decode(input_code)
+        end
       end
-    end
-    if params[:expected_output_id]
-      expected_output_code = Code.find(params[:expected_output_id]).text
-      if @base64_encoded
-        submission_params[:expected_output] = expected_output_code
-      else
-        submission_params[:expected_output] = Base64Service.decode(expected_output_code)
+      if params[:expected_output_id]
+        expected_output_code = Code.find(params[:expected_output_id]).text
+        if @base64_encoded
+          submission_params[:expected_output] = expected_output_code
+        else
+          submission_params[:expected_output] = Base64Service.decode(expected_output_code)
+        end
       end
-    end
     if @base64_encoded
       submission_params[:source_code] = Base64Service.decode(submission_params[:source_code])
       submission_params[:stdin] = Base64Service.decode(submission_params[:stdin])

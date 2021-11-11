@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   end
 
   resources :statuses, only: [:index]
-  resources :codes, except: [:destroy]
 
   get 'system_info', to: 'info#system_info'
   get 'config_info', to: 'info#config_info'
