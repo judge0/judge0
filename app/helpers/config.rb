@@ -41,7 +41,7 @@ module Config
   USE_DOCS_AS_HOMEPAGE = ENV["USE_DOCS_AS_HOMEPAGE"] == "true"
   ALLOW_ENABLE_NETWORK = ENV["ALLOW_ENABLE_NETWORK"] != "false"
   ENABLE_NETWORK = ENV["ENABLE_NETWORK"] == "true"
-  FILE_BASE_URL = ENV["FILE_BASE_URL"]
+  FILE_BASE_URL = ENV["FILE_BASE_URL"].presence
 
   def self.config_info
     @@default_confg ||= {
