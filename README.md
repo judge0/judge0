@@ -465,6 +465,7 @@ These scientific articles use or mention Judge0.
 <li><a href="https://levelup.gitconnected.com/lets-develop-an-online-code-editor-compiler-like-hackerrank-c433d8db060d">Let’s Develop an Online Code Editor & Compiler like HackerRank</a></li>
 <li><a href="https://medium.com/javascript-in-plain-english/lets-develop-an-online-code-editor-compiler-like-hackerrank-702881803eee">Let’s Develop An Online Code Editor/Compiler Like HackerRank</a></li>
 <li><a href="https://www.youtube.com/watch?v=AruJ23XlBps">Build a Live Code Editor & Playground like HackerRank Using Vue</a></li>
+<li><a href="https://geekflare.com/top-java-ide-and-online-compilers">Top 11 Java IDEs and Online Compilers for Productive Development</a></li>
 </ul>
 </details>
 
