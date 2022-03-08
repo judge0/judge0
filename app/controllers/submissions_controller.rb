@@ -181,7 +181,7 @@ class SubmissionsController < ApplicationController
     )
 
     submission_params[:additional_files] = Base64Service.decode(submission_params[:additional_files])
-
+    
     if @base64_encoded
       submission_params[:source_code] = Base64Service.decode(submission_params[:source_code])
       submission_params[:stdin] = Base64Service.decode(submission_params[:stdin])
