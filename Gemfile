@@ -13,6 +13,7 @@ gem 'rack-cors', '~> 1.1.1'
 gem 'resque', '~> 2.0.0'
 gem 'resque-scheduler', '~> 4.4'
 gem 'will_paginate', '~> 3.2.1'
+gem 'dalli', '~> 2.7.6'
 
 group :development do
   gem 'annotate', '~> 3.0.3'

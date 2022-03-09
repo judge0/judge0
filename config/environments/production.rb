@@ -44,7 +44,7 @@ Rails.application.configure do
   config.log_tags = [ :request_id ]
 
   # Use a different cache store in production.
-  config.cache_store = :memory_store, { size: 200.megabytes }
+  config.cache_store = :mem_cache_store, ENV["MEMCACHED_DOMAIN"]
 
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
@@ -70,7 +70,7 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
-  if ENV["RAILS_LOG_TO_STDOUT"].present?
+  if ENV["RAILS_LOG_TO_STDOUT"] == "true"
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
     config.logger = ActiveSupport::TaggedLogging.new(logger)

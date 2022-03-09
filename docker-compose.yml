@@ -1,7 +1,6 @@
 version: "2"
 
-x-logging:
-  &default-logging
+x-logging: &default-logging
   logging:
     driver: json-file
     options:
@@ -37,14 +36,20 @@ services:
 
   redis:
     image: redis:6.0
-    command: [
-      "bash", "-c",
-      'docker-entrypoint.sh --appendonly yes --requirepass "$$REDIS_PASSWORD"'
-    ]
+    command:
+      [
+        "bash",
+        "-c",
+        'docker-entrypoint.sh --appendonly yes --requirepass "$$REDIS_PASSWORD"',
+      ]
     env_file: judge0.conf
     volumes:
       - redis-data:/data
     <<: *default-logging
+    restart: always
+
+  memcached:
+    image: memcached:1.6.14
     restart: always
 
 volumes:

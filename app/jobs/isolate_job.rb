@@ -87,7 +87,7 @@ class IsolateJob < ApplicationJob
         if return_value_from_cache
           return_value = return_value_from_cache
         else
-          return_value = open(incoming_value).read
+          return_value = URI.open(incoming_value).read
           Rails.cache.write(incoming_value, return_value)
         end
       end

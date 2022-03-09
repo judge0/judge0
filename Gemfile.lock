@@ -58,6 +58,7 @@ GEM
     coderay (1.1.2)
     concurrent-ruby (1.1.6)
     crass (1.0.6)
+    dalli (2.7.11)
     enumerations (2.3.3)
       activerecord
       activesupport
@@ -201,6 +202,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers (~> 0.10.10)
   annotate (~> 3.0.3)
+  dalli (~> 2.7.6)
   enumerations (~> 2.3.3)
   httparty (~> 0.17.3)
   listen (~> 3.2.1)
