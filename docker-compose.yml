@@ -48,8 +48,11 @@ services:
     <<: *default-logging
     restart: always
 
-  memcached:
-    image: memcached:1.6.14
+  redis-sidecar:
+    image: redis:6.2.6
+    command: --port 6380
+    volumes:
+      - redis-data:/data-sidecar
     restart: always
 
 volumes:
