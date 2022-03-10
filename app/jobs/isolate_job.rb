@@ -84,6 +84,7 @@ class IsolateJob < ApplicationJob
     if Config::FILE_BASE_URL
       if incoming_value and incoming_value.start_with?(Config::FILE_BASE_URL)
         return_value_from_cache = Rails.cache.read(incoming_value)
+        puts "return_value_from_cache - value read from cache #{incoming_value} - #{return_value_from_cache}"
         if return_value_from_cache
           return_value = return_value_from_cache
         else
