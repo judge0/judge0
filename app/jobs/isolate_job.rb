@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class IsolateJob < ApplicationJob
   retry_on RuntimeError, wait: 0.1.seconds, attempts: 100
 
@@ -70,9 +72,27 @@ class IsolateJob < ApplicationJob
     end
 
     File.open(source_file, "wb") { |f| f.write(submission.source_code) } unless submission.is_project
-    File.open(stdin_file, "wb") { |f| f.write(submission.stdin) }
+    incoming_stdin = get_incoming_value(submission.stdin)
+    
+    File.open(stdin_file, "wb") { |f| f.write(incoming_stdin) }
 
     extract_archive
+  end
+
+  def get_incoming_value(incoming_value)
+    return_value = incoming_value
+    if Config::FILE_BASE_URL
+      if incoming_value and incoming_value.start_with?(Config::FILE_BASE_URL)
+        return_value_from_cache = Rails.cache.read(incoming_value)
+        if return_value_from_cache
+          return_value = return_value_from_cache
+        else
+          return_value = URI.open(incoming_value).read
+          Rails.cache.write(incoming_value, return_value)
+        end
+      end
+    end
+    return return_value
   end
 
   def initialize_file(file)
@@ -336,7 +356,7 @@ class IsolateJob < ApplicationJob
       return Status.nzec
     elsif status == "XX"
       return Status.boxerr
-    elsif submission.expected_output.nil? || strip(submission.expected_output) == strip(submission.stdout)
+    elsif submission.expected_output.nil? || strip(get_incoming_value(submission.expected_output)) == strip(submission.stdout)
       return Status.ac
     else
       return Status.wa

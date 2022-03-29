@@ -42,22 +42,33 @@ services:
 
   redis:
     image: redis:6.0
-    command: [
-      "bash", "-c",
-      'docker-entrypoint.sh --appendonly yes --requirepass "$$REDIS_PASSWORD"'
-    ]
+    command:
+      [
+        "bash",
+        "-c",
+        'docker-entrypoint.sh --appendonly yes --requirepass "$$REDIS_PASSWORD"',
+      ]
     env_file: judge0.conf
     volumes:
       - redis-data:/data
     restart: always
 
+  redis-sidecar:
+    image: redis:6.2.6
+    command: --port 6380
+    volumes:
+      - redis-data:/data-sidecar
+    restart: always
+
   resque:
     image: ennexa/resque-web:latest
     entrypoint: ""
-    command: [
-      "bash", "-c",
-      'resque-web -FL -r redis://:$$REDIS_PASSWORD@$$REDIS_HOST:$$REDIS_PORT'
-    ]
+    command:
+      [
+        "bash",
+        "-c",
+        "resque-web -FL -r redis://:$$REDIS_PASSWORD@$$REDIS_HOST:$$REDIS_PORT",
+      ]
     env_file: judge0.conf
     ports:
       - "5678:5678"
