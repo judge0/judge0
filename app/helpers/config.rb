@@ -42,6 +42,7 @@ module Config
   ALLOW_ENABLE_NETWORK = ENV["ALLOW_ENABLE_NETWORK"] != "false"
   ENABLE_NETWORK = ENV["ENABLE_NETWORK"] == "true"
   FILE_BASE_URL = ENV["FILE_BASE_URL"].presence
+  SAVE_STDOUT_AND_STDERR_IN_DB = ENV["SAVE_STDOUT_AND_STDERR_IN_DB"] == "true"
 
   def self.config_info
     @@default_confg ||= {

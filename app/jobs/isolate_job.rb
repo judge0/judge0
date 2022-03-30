@@ -41,6 +41,10 @@ class IsolateJob < ApplicationJob
 
     submission.time = time.inject(&:+).to_f / time.size
     submission.memory = memory.inject(&:+).to_f / memory.size
+    if !Config::SAVE_STDOUT_AND_STDERR_IN_DB
+      submission.stdout = nil
+      submission.stderr = nil
+    end
     submission.save
 
   rescue Exception => e
