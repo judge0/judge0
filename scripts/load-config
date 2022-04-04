@@ -26,6 +26,7 @@ export RAILS_SERVER_PROCESSES=${RAILS_SERVER_PROCESSES:-2}
 export SECRET_KEY_BASE=${SECRET_KEY_BASE:-$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 128 | head -n 1)}
 export PORT=${PORT:-2358} # This option is not available in judge0.conf
 export RAILS_LOG_TO_STDOUT=${RAILS_LOG_TO_STDOUT:-true}
+export SAVE_STDOUT_AND_STDERR_IN_DB=${SAVE_STDOUT_AND_STDERR_IN_DB:-true}
 export REDIS_SIDECAR_SERVER=${REDIS_SIDECAR_SERVER:-'redis://redis-sidecar:6380/0'}
 
 # Authentication
