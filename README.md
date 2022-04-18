@@ -413,6 +413,7 @@ These companies, organizations, and projects successfully use Judge0.
 <li><a href="https://reva.edu.in">REVA University</a></li>
 <li><a href="https://softcodeon.com">Soft CodeOn</a></li>
 <li><a href="https://sparkdatabox.com">SparkDatabox</a></li>
+<li><a href="https://sparkode.joshsoftware.com">Sparkode</a></li>
 <li><a href="https://github.com/StardustDL/StarOJ">StarOJ</a> - An online judge platform based on Judge0</li>
 <li><a href="https://github.com/StardustDL/judge0-dotnet">StardustDL/judge0-dotnet</a> - Client SDK for Judge0</li>
 <li><a href="https://stemalica.com">Stemalica</a></li>
@@ -463,6 +464,8 @@ These scientific articles use or mention Judge0.
 <li><a href="https://medium.com/javarevisited/lets-deploy-our-online-code-executor-in-google-cloud-e76a9fabac57">Let’s Deploy our Online Code Executor in Google Cloud</a></li>
 <li><a href="https://levelup.gitconnected.com/lets-develop-an-online-code-editor-compiler-like-hackerrank-c433d8db060d">Let’s Develop an Online Code Editor & Compiler like HackerRank</a></li>
 <li><a href="https://medium.com/javascript-in-plain-english/lets-develop-an-online-code-editor-compiler-like-hackerrank-702881803eee">Let’s Develop An Online Code Editor/Compiler Like HackerRank</a></li>
+<li><a href="https://www.youtube.com/watch?v=AruJ23XlBps">Build a Live Code Editor & Playground like HackerRank Using Vue</a></li>
+<li><a href="https://geekflare.com/top-java-ide-and-online-compilers">Top 11 Java IDEs and Online Compilers for Productive Development</a></li>
 </ul>
 </details>
 
