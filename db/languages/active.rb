@@ -356,5 +356,12 @@
     id: 89,
     name: "Multi-file program",
     is_archived: false,
+  },
+  {
+    id: 2000,
+    name: "Python (3.10.4) for ML",
+    is_archived: false,
+    source_file: "script.py",
+    run_cmd: "/usr/local/python-3.10.4/bin/python3 script.py"
   }
 ]
