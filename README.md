@@ -1,14 +1,11 @@
+[![Judge0 Wallpaper](./.github/judge0-colored.png)](https://ce.judge0.com)
 # Judge0 CE
-
-[![Judge0 Wallpaper](https://minio.judge0.com/public/web/image.png)](https://ce.judge0.com)
 
 [![License](https://img.shields.io/github/license/judge0/judge0?color=2185d0&style=flat-square)](LICENSE)
 [![Release](https://img.shields.io/github/v/release/judge0/judge0?color=2185d0&style=flat-square)](https://github.com/judge0/judge0/releases)
 [![Stars](https://img.shields.io/github/stars/judge0/judge0?color=2185d0&style=flat-square)](https://github.com/judge0/judge0/stargazers)
 
 <a href="https://www.producthunt.com/posts/judge0-ide" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=179885&theme=light" alt="" height="43px" /></a>
-<a href="https://patreon.com/hermanzdosilovic" target="_blank"><img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" alt="" height="43px" /></a>
-<a href="https://paypal.me/hermanzdosilovic" target="_blank"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" alt="Donate with PayPal" height="43px" /></a>
 
 🔥 The most advanced open-source online code execution system in the world.
 
@@ -23,8 +20,6 @@
 * [Author and Contributors](#author-and-contributors)
 * [Changelog](#changelog)
 * [Special Thanks](#special-thanks)
-* [Supporters](#supporters)
-* [Donate](#donate)
 * [License](#license)
 
 ## About
@@ -33,8 +28,6 @@
 In our research paper [Robust and Scalable Online Code Execution System](https://paper.judge0.com), we present Judge0's modern modular architecture that can be easily deployed and scaled. We study its design, comment on the various challenges in building such systems, and compare it with other available online code execution systems and online judge systems.
 
 To see Judge0 in action, try [Judge0 IDE](https://ide.judge0.com) - our free and open-source online code editor.
-
-Easily integrate online code editor with code execution (a.k.a. online compiler) to your website with our [**embeddable web widgets**](https://judge0.com/#judge0-widgets).
 
 ## Features
 - Quick and easy [installation](https://judge0.com/#pricing)
@@ -447,6 +440,7 @@ These scientific articles use or mention Judge0.
 <li><a href="https://dl.acm.org/doi/10.1145/3328778.3372610">A Game-Changing Instructor Tool to Reinforce Coding Concepts</a></li>
 <li><a href="https://ieeexplore.ieee.org/document/9079865">Building a Comprehensive Automated Programming Assessment System</a></li>
 <li><a href="https://link.springer.com/chapter/10.1007/978-981-15-3607-6_5">Voice-Enabled Intelligent IDE in Cloud</a></li>
+<li><a href="https://ieeexplore.ieee.org/abstract/document/9489186">Big Data based Advanced Lab Analysis System using Apache Spark</a></li>
 </ul>
 </details>
 
@@ -456,8 +450,8 @@ These scientific articles use or mention Judge0.
 <li><a href="https://tianpan.co/notes/243-designing-online-judge-or-leetcode">Designing Online Judge or Leetcode</a></li>
 <li><a href="https://medium.com/@akashgp09/make-your-own-online-compiler-in-react-%EF%B8%8F-b06bc29dd202">Make your own online compiler in React</a></li>
 <li><a href="https://youtu.be/mq18_oSNkHE?t=966">Programski jezik Go - FER 2019./2020. - Prvo predavanje</a></li>
-<li><a href="https://www.fer.unizg.hr/novosti?@=2qzoy#">Sudjelovanje FER-a na Smotri Sveučilišta 2019.</a></li>
-<li><a href="https://www.fer.unizg.hr/novosti?@=2r0st#">Svečana 672. sjednica Fakultetskog vijeća FER-a</a></li>
+<li><a href="https://web.archive.org/web/20220527143632/https://www.fer.unizg.hr/novosti?%40=2utqx">Sudjelovanje FER-a na Smotri Sveučilišta 2019.</a></li>
+<li><a href="https://web.archive.org/web/20220527143506/https://www.fer.unizg.hr/novosti?%40=2utg3">Svečana 672. sjednica Fakultetskog vijeća FER-a</a></li>
 <li><a href="https://usaco.guide/general/running-code-online">USACO Guide - Running Code Online</a></li>
 <li><a href="https://repozitorij.fer.unizg.hr/en/islandora/object/fer%3A3607">Web application for authoring and sharing code snippets in different programming languages
 </a></li>
@@ -466,6 +460,10 @@ These scientific articles use or mention Judge0.
 <li><a href="https://medium.com/javascript-in-plain-english/lets-develop-an-online-code-editor-compiler-like-hackerrank-702881803eee">Let’s Develop An Online Code Editor/Compiler Like HackerRank</a></li>
 <li><a href="https://www.youtube.com/watch?v=AruJ23XlBps">Build a Live Code Editor & Playground like HackerRank Using Vue</a></li>
 <li><a href="https://geekflare.com/top-java-ide-and-online-compilers">Top 11 Java IDEs and Online Compilers for Productive Development</a></li>
+<li><a href="https://www.freecodecamp.org/news/how-to-build-react-based-code-editor/">How to Build a Code Editor with React that Compiles and Executes in 40+ Languages</a></li>
+<li><a href="https://medium.com/javarevisited/how-to-build-an-online-java-compiler-c3210cca1917">How to Build an Online Java Compiler</a></li>
+<li><a href="https://www.fossguru.com/best-cloud-ide-review/">Top 33 Best Cloud IDE For The Developers (2022 Review)</a></li>
+<li><a href="https://geekflare.com/productivity-apps-for-programmers/">21 Productivity Apps for Programmers</a></li>
 </ul>
 </details>
 
@@ -477,7 +475,7 @@ Do you have a question, feature request, or something else on your mind? Or you 
 * [Watch asciicasts](https://asciinema.org/~hermanzdosilovic)
 * [Report an issue](https://github.com/judge0/judge0/issues/new)
 * [Contact us](mailto:contact@judge0.com)
-* [Schedule an online meeting with us](https://judge0.appointlet.com)
+* [Schedule an online meeting with us](https://meet.judge0.com)
 
 ## Author and Contributors
 Judge0 was created and is maintained by [Herman Zvonimir Došilović](https://github.com/hermanzdosilovic).
@@ -493,12 +491,6 @@ You can find the detailed specification of changes between versions in [CHANGELO
 
 ## Special Thanks
 Special thanks to open-source projects without whom Judge0 probably wouldn't exist: [Isolate](https://github.com/ioi/isolate), [Docker](https://github.com/docker), [Ruby on Rails](https://github.com/rails/rails) and others.
-
-## Supporters
-Thanks a lot to all [Patrons](https://www.patreon.com/hermanzdosilovic) and [PayPal](https://paypal.me/hermanzdosilovic) donors that support Judge0 development. Thank you! ♥
-
-## Donate
-Your are more than welcome to support Judge0 development on [Patreon](https://www.patreon.com/hermanzdosilovic), via [PayPal](https://paypal.me/hermanzdosilovic) or [Revolut](https://pay.revolut.com/profile/hermancy5). Thank you.
 
 ## License
 Judge0 is licensed under the [GNU General Public License v3.0](LICENSE).
