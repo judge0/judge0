@@ -18,8 +18,7 @@ class HealthController < ApplicationController
         available: workers.count,
         idle: workers.count { |w| w.idle? },
         working: workers.count { |w| w.working? },
-        paused: workers.count { |w| w.paused? },
-        failed: workers.sum { |w| w.failed }
+        paused: workers.count { |w| w.paused? }
       }
     end
 
