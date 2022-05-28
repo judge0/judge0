@@ -49,6 +49,7 @@ ARG DEV_USER_ID=1000
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
+        tmux \
         vim && \
     useradd -u $DEV_USER_ID -m -r $DEV_USER && \
     echo "$DEV_USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers
