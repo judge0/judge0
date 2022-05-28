@@ -41,6 +41,7 @@ module Config
   USE_DOCS_AS_HOMEPAGE = ENV["USE_DOCS_AS_HOMEPAGE"] == "true"
   ALLOW_ENABLE_NETWORK = ENV["ALLOW_ENABLE_NETWORK"] != "false"
   ENABLE_NETWORK = ENV["ENABLE_NETWORK"] == "true"
+  DISABLE_IMPLICIT_BASE64_ENCODING = ENV["DISABLE_IMPLICIT_BASE64_ENCODING"] == "true"
 
   def self.config_info
     @@default_confg ||= {
@@ -82,7 +83,8 @@ module Config
       "submission_cache_duration": SUBMISSION_CACHE_DURATION,
       "use_docs_as_homepage": USE_DOCS_AS_HOMEPAGE,
       "allow_enable_network": ALLOW_ENABLE_NETWORK,
-      "enable_network": ENABLE_NETWORK
+      "enable_network": ENABLE_NETWORK,
+      "disable_implicit_base64_encoding": DISABLE_IMPLICIT_BASE64_ENCODING
     }
   end
 end

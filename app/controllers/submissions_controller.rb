@@ -218,7 +218,11 @@ class SubmissionsController < ApplicationController
   end
 
   def set_base64_encoded
-    @base64_encoded = params[:base64_encoded] == "true"
+    if Config::DISABLE_IMPLICIT_BASE64_ENCODING
+      @base64_encoded = params[:base64_encoded] == "true"
+    else
+      @base64_encoded = params[:base64_encoded] != "false"
+    end
   end
 
   def render_conversion_error(status, token = nil)
