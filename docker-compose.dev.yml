@@ -1,19 +1,10 @@
 version: "2"
 services:
-  nginx:
-    image: judge0/nginxproxy-nginx-proxy:latest-2021-04-26
-    environment:
-      DEFAULT_HOST: judge0.local
-    volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-    ports:
-      - "80:80"
-    restart: always
-
   judge0:
     image: judge0/judge0:latest-dev
-    environment:
-      VIRTUAL_HOST: judge0.local
+    build:
+      context: .
+      target: development
     volumes:
       - .:/api
     ports:
@@ -22,7 +13,7 @@ services:
     privileged: true
 
   db:
-    image: postgres:13.0
+    image: postgres:14.3
     env_file: judge0.conf
     volumes:
       - postgres-data:/var/lib/postgresql/data/
@@ -30,7 +21,7 @@ services:
 
   # Not actually currently used. Just for testing purposes in development.
   pgbouncer:
-    image: pgbouncer/pgbouncer:1.14.0
+    image: pgbouncer/pgbouncer:1.15.0
     environment: # DATABASES_* are the same as from judge0.conf
       DATABASES_HOST: db
       DATABASES_PORT: 5432
@@ -41,7 +32,7 @@ services:
     restart: always
 
   redis:
-    image: redis:6.0
+    image: redis:6.2.7
     command: [
       "bash", "-c",
       'docker-entrypoint.sh --appendonly yes --requirepass "$$REDIS_PASSWORD"'
