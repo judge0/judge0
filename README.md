@@ -7,6 +7,8 @@
 
 <a href="https://www.producthunt.com/posts/judge0-ide" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=179885&theme=light" alt="" height="43px" /></a>
 
+[![DigitalOcean Referral Badge](https://web-platforms.sfo2.digitaloceanspaces.com/WWW/Badge%203.svg)](https://www.digitalocean.com/?refcode=b428451eb426&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge)
+
 🔥 The most advanced open-source online code execution system in the world.
 
 ## Table of Contents
