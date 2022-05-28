@@ -16,11 +16,11 @@ class IsolateJob < ApplicationJob
 
   def perform(submission_id)
     @submission = Submission.find(submission_id)
+    submission.update(status: Status.process, started_at: DateTime.now)
 
     time = []
     memory = []
 
-    submission.update(status: Status.process)
     submission.number_of_runs.times do
       initialize_workdir
       if compile == :failure
@@ -43,8 +43,7 @@ class IsolateJob < ApplicationJob
 
   rescue Exception => e
     raise e.message unless submission
-    submission.finished_at ||= DateTime.now
-    submission.update(message: e.message, status: Status.boxerr)
+    submission.update(message: e.message, status: Status.boxerr, finished_at: DateTime.now)
     cleanup(raise_exception = false)
   ensure
     call_callback
@@ -177,7 +176,7 @@ class IsolateJob < ApplicationJob
       submission.compile_output = "Compilation time limit exceeded."
     end
 
-    submission.finished_at ||= DateTime.now
+    submission.finished_at = DateTime.now
     submission.time = nil
     submission.wall_time = nil
     submission.memory = nil
@@ -233,7 +232,7 @@ class IsolateJob < ApplicationJob
   end
 
   def verify
-    submission.finished_at ||= DateTime.now
+    submission.finished_at = DateTime.now
 
     metadata = get_metadata
 
