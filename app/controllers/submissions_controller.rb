@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class SubmissionsController < ApplicationController
   before_action :authorize_request, only: [:index, :destroy]
   before_action :check_maintenance, only: [:create, :destroy]
@@ -181,12 +183,29 @@ class SubmissionsController < ApplicationController
     )
 
     submission_params[:additional_files] = Base64Service.decode(submission_params[:additional_files])
-
+    incoming_stdin = params[:stdin]
+    if @base64_encoded
+      incoming_stdin = Base64Service.decode(params[:stdin])
+    end
+    if Config::FILE_BASE_URL
+      if incoming_stdin and incoming_stdin.start_with?(Config::FILE_BASE_URL)
+        incoming_stdin = open(incoming_stdin).read
+      end
+    end
+    incoming_expected_output = params[:expected_output]
+    if @base64_encoded
+      incoming_expected_output = Base64Service.decode(params[:expected_output])
+    end
+    if Config::FILE_BASE_URL
+      if incoming_expected_output and incoming_expected_output.start_with?(Config::FILE_BASE_URL)
+        incoming_expected_output = open(incoming_expected_output).read
+      end
+    end
     if @base64_encoded
       submission_params[:source_code] = Base64Service.decode(submission_params[:source_code])
-      submission_params[:stdin] = Base64Service.decode(submission_params[:stdin])
-      submission_params[:expected_output] = Base64Service.decode(submission_params[:expected_output])
     end
+    submission_params[:stdin] = incoming_stdin
+    submission_params[:expected_output] = incoming_expected_output
 
     submission_params
   end
