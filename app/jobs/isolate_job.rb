@@ -16,7 +16,7 @@ class IsolateJob < ApplicationJob
 
   def perform(submission_id)
     @submission = Submission.find(submission_id)
-    submission.update(status: Status.process, started_at: DateTime.now)
+    submission.update(status: Status.process, started_at: DateTime.now, execution_host: ENV["HOSTNAME"])
 
     time = []
     memory = []

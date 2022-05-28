@@ -39,6 +39,8 @@
 #  started_at                                 :datetime
 #  queued_at                                  :datetime
 #  updated_at                                 :datetime
+#  queue_host                                 :string
+#  execution_host                             :string
 #
 
 class Submission < ApplicationRecord
