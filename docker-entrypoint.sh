@@ -1,3 +1,5 @@
 #!/bin/bash
-cron
+if [[ "$(which cron)" != "" ]]; then
+    cron
+fi
 exec "$@"

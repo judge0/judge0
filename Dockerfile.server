@@ -1,0 +1,32 @@
+FROM ruby:2.7.0
+
+ENV JUDGE0_HOMEPAGE "https://judge0.com"
+LABEL homepage=$JUDGE0_HOMEPAGE
+
+ENV JUDGE0_SOURCE_CODE "https://github.com/judge0/judge0"
+LABEL source_code=$JUDGE0_SOURCE_CODE
+
+ENV JUDGE0_MAINTAINER "Herman Zvonimir Došilović <hermanz.dosilovic@gmail.com>"
+LABEL maintainer=$JUDGE0_MAINTAINER
+
+RUN apt update && \
+    apt install -y --no-install-recommends \
+      libpq-dev && \
+    rm -rf /var/lib/apt/lists/* && \
+    echo "gem: --no-document" > /root/.gemrc && \
+    gem install bundler:2.3.14
+
+EXPOSE 2358
+
+WORKDIR /api
+
+COPY Gemfile* ./
+RUN RAILS_ENV=production bundle
+
+COPY . .
+
+ENTRYPOINT ["/api/docker-entrypoint.sh"]
+CMD ["/api/scripts/server"]
+
+ENV JUDGE0_VERSION "1.13.0"
+LABEL version=$JUDGE0_VERSION

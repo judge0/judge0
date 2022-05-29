@@ -5,6 +5,7 @@ services:
     build:
       context: .
       target: development
+      dockerfile: Dockerfile.worker
     volumes:
       - .:/api
     ports:

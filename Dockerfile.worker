@@ -12,18 +12,16 @@ LABEL maintainer=$JUDGE0_MAINTAINER
 ENV PATH "/usr/local/ruby-2.7.0/bin:/opt/.gem/bin:$PATH"
 ENV GEM_HOME "/opt/.gem/"
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
+RUN apt update && \
+    apt install -y --no-install-recommends \
       cron \
       libpq-dev \
       sudo && \
     rm -rf /var/lib/apt/lists/* && \
     echo "gem: --no-document" > /root/.gemrc && \
-    gem install bundler:2.1.4 && \
-    npm install -g --unsafe-perm aglio@2.3.0
+    gem install bundler:2.3.14
 
-ENV VIRTUAL_PORT 2358
-EXPOSE $VIRTUAL_PORT
+EXPOSE 2358
 
 WORKDIR /api
 
@@ -36,7 +34,7 @@ RUN cat /etc/cron.d/* | crontab -
 COPY . .
 
 ENTRYPOINT ["/api/docker-entrypoint.sh"]
-CMD ["/api/scripts/server"]
+CMD ["/api/scripts/workers"]
 
 ENV JUDGE0_VERSION "1.13.0"
 LABEL version=$JUDGE0_VERSION
@@ -47,10 +45,13 @@ FROM production AS development
 ARG DEV_USER=judge0
 ARG DEV_USER_ID=1000
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
+EXPOSE 3001
+
+RUN apt update && \
+    apt install -y --no-install-recommends \
         tmux \
         vim && \
+    npm install -g --unsafe-perm aglio@2.3.0 && \
     useradd -u $DEV_USER_ID -m -r $DEV_USER && \
     echo "$DEV_USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers
 
