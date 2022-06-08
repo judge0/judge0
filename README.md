@@ -443,6 +443,7 @@ These scientific articles use or mention Judge0.
 <li><a href="https://ieeexplore.ieee.org/document/9079865">Building a Comprehensive Automated Programming Assessment System</a></li>
 <li><a href="https://link.springer.com/chapter/10.1007/978-981-15-3607-6_5">Voice-Enabled Intelligent IDE in Cloud</a></li>
 <li><a href="https://ieeexplore.ieee.org/abstract/document/9489186">Big Data based Advanced Lab Analysis System using Apache Spark</a></li>
+<li><a href="https://www.researchgate.net/publication/353329318_Online_Automatic_Assessment_System_for_Program_Code_Architecture_and_Experiences">Online Automatic Assessment System for Program Code: Architecture and Experiences</a></li>
 </ul>
 </details>
 
