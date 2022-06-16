@@ -33,6 +33,7 @@ RUN apt-get update && \
         seaborn \
         xgboost \
         Pillow \
+        urllib3 \
         statistics && \
     rm -rf /var/lib/apt/lists/*
 
@@ -79,17 +80,17 @@ ENV JUDGE0_VERSION "1.13.0"
 LABEL version=$JUDGE0_VERSION
 
 
-FROM production AS development
+# FROM production AS development
 
-ARG DEV_USER=judge0
-ARG DEV_USER_ID=1000
+# ARG DEV_USER=judge0
+# ARG DEV_USER_ID=1000
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-        vim && \
-    useradd -u $DEV_USER_ID -m -r $DEV_USER && \
-    echo "$DEV_USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers
+# RUN apt-get update && \
+#     apt-get install -y --no-install-recommends \
+#         vim && \
+#     useradd -u $DEV_USER_ID -m -r $DEV_USER && \
+#     echo "$DEV_USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers
 
-USER $DEV_USER
+# USER $DEV_USER
 
-CMD ["sleep", "infinity"]
+# CMD ["sleep", "infinity"]
