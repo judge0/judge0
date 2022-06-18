@@ -467,6 +467,7 @@ These scientific articles use or mention Judge0.
 <li><a href="https://medium.com/javarevisited/how-to-build-an-online-java-compiler-c3210cca1917">How to Build an Online Java Compiler</a></li>
 <li><a href="https://www.fossguru.com/best-cloud-ide-review/">Top 33 Best Cloud IDE For The Developers (2022 Review)</a></li>
 <li><a href="https://geekflare.com/productivity-apps-for-programmers/">21 Productivity Apps for Programmers</a></li>
+<li><a href="https://manfonly.medium.com/running-sqlite-on-the-browser-45c5a7352fd">Running sqlite on the browser</a></li>
 </ul>
 </details>
 
