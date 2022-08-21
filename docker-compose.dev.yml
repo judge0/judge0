@@ -7,6 +7,9 @@ services:
       target: development
     volumes:
       - .:/api
+    depends_on:
+      - db
+      - redis
     ports:
       - "2358:2358"
       - "3001:3001" # For ./scripts/dev/serve-docs

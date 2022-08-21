@@ -12,6 +12,9 @@ services:
     image: judge0/judge0:latest
     volumes:
       - ./judge0.conf:/judge0.conf:ro
+    depends_on:
+      - db
+      - redis
     ports:
       - "2358:2358"
     privileged: true

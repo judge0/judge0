@@ -20,6 +20,9 @@ services:
       - ./srv/nginx/htpasswd:/etc/nginx/htpasswd
       - ./srv/nginx/vhost.d:/etc/nginx/vhost.d
       - /var/run/docker.sock:/tmp/docker.sock:ro
+    depends_on:
+      - db
+      - redis
     ports:
       - "80:80"
       - "443:443"
