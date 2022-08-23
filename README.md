@@ -361,7 +361,7 @@ Judge0 comes in two flavors: [Judge0 CE](https://judge0.com/ce) and [Judge0 Extr
 ## References
 
 ### Companies, Organizations, and Projects
-[These companies, institutions and organizations use Judge.](https://judge0.com/#clients)
+[These companies, institutions and organizations use Judge0.](https://judge0.com/#clients)
 
 ### Scientific Articles
 These scientific articles mention Judge0.
