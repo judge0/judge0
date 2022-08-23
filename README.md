@@ -48,7 +48,7 @@ For more information about these and other features, please [read the documentat
 ## Get Started
 Feel free to start with the [**FREE Basic Plan**](https://judge0.com/ce) on RapidAPI or [host it yourself](https://github.com/judge0/judge0/blob/master/CHANGELOG.md#deployment-procedure).
 
-You can find our detailed plans and pricing [here](https://judge0.com/#pricing).
+You can find our detailed plans and pricing [here](https://judge0.com/#pricing). So far our clients have run with us more than ![](https://img.shields.io/endpoint?color=2185d0&style=flat-square&url=https%3A%2F%2Fjudge0.com%2Fstatistics-badge) programs.
 
 ### Why should you use Judge0 on RapidAPI?
 Our infrastructure allows you to **focus on building your product** and forget about the know-how of maintaining and scaling Judge0.
