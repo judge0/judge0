@@ -361,81 +361,10 @@ Judge0 comes in two flavors: [Judge0 CE](https://judge0.com/ce) and [Judge0 Extr
 ## References
 
 ### Companies, Organizations, and Projects
-These companies, organizations, and projects successfully use Judge0.
-
-<details><summary>Click here to expand the list</summary>
-<ul>
-<li><a href="https://adzetech.com">Adzetech</a></li>
-<li><a href="https://algodaily.com">AlgoDaily</a></li>
-<li><a href="http://algoladder.com">AlgoLadder</a></li>
-<li><a href="https://www.asktohow.com">Ask To How</a></li>
-<li><a href="https://www.brillianthire.io">Brilliant Hire</a></li>
-<li><a href="https://code.in">CODE.IN</a></li>
-<li><a href="https://play.google.com/store/apps/details?id=com.codefox.code_compiler_lite">Code Compiler Lite</a> - online mobile code compiler for Android</li>
-<li><a href="https://code4you.org">Code4You</a></li>
-<li><a href="https://www.codechum.com">CodeChum</a></li>
-<li><a href="https://github.com/appsicle/CodeClimbers">CodeClimbers</a></li>
-<li><a href="https://codeforum.org">Code Forum</a></li>
-<li><a href="https://codeinn.org">CodeInn</a></li>
-<li><a href="https://github.com/KamandPrompt/CodeManiacs">CodeManiacs</a> - an online judge for <a href="http://www.iitmandi.ac.in">IIT Mandi</a></li>
-<li><a href="https://github.com/codeclassroom/CodeRunner">CodeRunner</a></li>
-<li><a href="http://codesites.in">Codesites</a></li>
-<li><a href="https://codify.herokuapp.com">Codify</a></li>
-<li><a href="https://www.dev-coach.com">DevCoach</a></li>
-<li><a href="http://www.duvlab.website">Dilla University</a></li>
-<li><a href="https://www.filtered.ai">Filtered</a></li>
-<li><a href="http://www.geekcoders.co.in">GeekCoders</a></li>
-<li><a href="https://www.uni-goettingen.de">Georg-August University of Göttingen</a></li>
-<li><a href="https://gomycode.co">GoMyCode</a></li>
-<li><a href="https://www.hackademy.mx">Hackademy</a></li>
-<li><a href="https://github.com/YashKumarVerma/rc-heimdall">Heimdall</a></li>
-<li><a href="http://www.iitmandi.ac.in">Indian Institute of Technology Mandi</a></li>
-<li><a href="https://instacks.in">Instacks</a></li>
-<li><a href="https://www.iare.ac.in">Institute of Aeronautical Engineering</a></li>
-<li><a href="https://interviewsandbox.com">Interview Sandbox</a></li>
-<li><a href="https://github.com/bloodnighttw/JavaJudge0Api">JavaJudge0Api</a> - a Java library for interacting with Judge0</li>
-<li><a href="http://en.chamcode.net">Judge Code Online</a></li>
-<li><a href="https://www.kpriet.ac.in">KPR Institute of Engineering and Technology</a></li>
-<li><a href="http://www.kodkarate.in">KodKarate</a> - an open-source IDE</li>
-<li><a href="https://www.kodnest.com">KodNest</a></li>
-<li><a href="https://github.com/MartyMiniac/Autorun">MartyMiniac/Autorun</a></li>
-<li><a href="https://myedukit.com/coders/online-compiler">MyEduKit</a></li>
-<li><a href="http://newscad.com">NewsCad</a></li>
-<li><a href="https://www.newtonschool.co">Newton School</a></li>
-<li><a href="https://picode.now.sh">Picode</a> - an online code playground</li>
-<li><a href="https://github.com/Pravinkanna/codeaholic">Pravinkanna/codeaholic</a></li>
-<li><a href="https://prepfortech.in">PrepForTech</a></li>
-<li><a href="https://reva.edu.in">REVA University</a></li>
-<li><a href="https://softcodeon.com">Soft CodeOn</a></li>
-<li><a href="https://sparkdatabox.com">SparkDatabox</a></li>
-<li><a href="https://sparkode.joshsoftware.com">Sparkode</a></li>
-<li><a href="https://github.com/StardustDL/StarOJ">StarOJ</a> - An online judge platform based on Judge0</li>
-<li><a href="https://github.com/StardustDL/judge0-dotnet">StardustDL/judge0-dotnet</a> - Client SDK for Judge0</li>
-<li><a href="https://stemalica.com">Stemalica</a></li>
-<li><a href="https://studyfied.com">Studyfied</a></li>
-<li><a href="https://techiedelight.com">Techie Delight</a></li>
-<li><a href="https://www.thinkexam.com">Think exam</a></li>
-<li><a href="https://www.thinkingbell.com">ThinkingBell</a></li>
-<li><a href="https://www.fer.unizg.hr/en">University of Zagreb, Faculty of Electrical Engineering and Computing</a></li>
-<li><a href="https://apps.apple.com/US/app/id1512938504">VS Code App</a> - lightweight universal IDE for iOS / iPadOS with full iCloud Drive support</li>
-<li><a href="https://xiith.com">Xiith</a></li>
-<li><a href="https://github.com/anu0912/online-code-editor">anu0912/online-code-editor</a></li>
-<li><a href="https://github.com/TopRoupi/judge0-gem">judge0-gem</a> - Ruby Gem for interacting with Judge0</li>
-<li><a href="https://github.com/saikatharryc/judge0_helm">judge0_helm</a> - Helm Chart for Judge0</li>
-<li><a href="https://github.com/vCra/judge0api">judge0api</a> - Python library for interacting with Judge0</li>
-<li><a href="https://github.com/muzam1l/ide">muzam1l/ide</a></li>
-<li><a href="https://ngrader.herokuapp.com">nGrader</a></li>
-<li><a href="http://primat.org">primat.org</a></li>
-<li><a href="https://github.com/tracyliu1220/Mini-OJ">tracyliu1220/Mini-OJ</a></li>
-<li><a href="https://www.udebugtool.com">uDebug Tool</a></li>
-<li><a href="http://wkspace.herokuapp.com">wkspace</a></li>
-<li><a href="https://www.yocode.in">yoCode</a></li>
-<li><a href="https://zbirka.online">Zbirka Online</a></li>
-</ul>
-</details>
+[These companies, institutions and organizations use Judge.](https://judge0.com/#clients)
 
 ### Scientific Articles
-These scientific articles use or mention Judge0.
+These scientific articles mention Judge0.
 
 <details><summary>Click here to expand the list</summary>
 <ul>
@@ -444,6 +373,8 @@ These scientific articles use or mention Judge0.
 <li><a href="https://link.springer.com/chapter/10.1007/978-981-15-3607-6_5">Voice-Enabled Intelligent IDE in Cloud</a></li>
 <li><a href="https://ieeexplore.ieee.org/abstract/document/9489186">Big Data based Advanced Lab Analysis System using Apache Spark</a></li>
 <li><a href="https://www.researchgate.net/publication/353329318_Online_Automatic_Assessment_System_for_Program_Code_Architecture_and_Experiences">Online Automatic Assessment System for Program Code: Architecture and Experiences</a></li>
+<li><a href="https://ieeexplore.ieee.org/document/9797096/">A comparison between online compilers: A Case Study</a></li>
+<li><a href="https://www.worldscientific.com/doi/10.1142/S0218194022500346">Online Judge System: Requirements, Architecture, and Experiences</a></li>
 </ul>
 </details>
 
@@ -468,6 +399,7 @@ These scientific articles use or mention Judge0.
 <li><a href="https://www.fossguru.com/best-cloud-ide-review/">Top 33 Best Cloud IDE For The Developers (2022 Review)</a></li>
 <li><a href="https://geekflare.com/productivity-apps-for-programmers/">21 Productivity Apps for Programmers</a></li>
 <li><a href="https://manfonly.medium.com/running-sqlite-on-the-browser-45c5a7352fd">Running sqlite on the browser</a></li>
+<li><a href="https://medium.com/@denishoti/how-to-self-host-judge0-api-on-your-pc-locally-all-you-need-to-know-ad8a2b64fd1">How to self-host Judge0 API on your PC locally | All you need to know</a></li>
 </ul>
 </details>
 
@@ -482,7 +414,7 @@ Do you have a question, feature request, or something else on your mind? Or you 
 * [Schedule an online meeting with us](https://meet.judge0.com)
 
 ## Author and Contributors
-Judge0 was created and is maintained by [Herman Zvonimir Došilović](https://github.com/hermanzdosilovic).
+Judge0 was created and is maintained by [Herman Zvonimir Došilović](https://hermanz.dosilovic.com).
 
 Thanks a lot to all [contributors](https://github.com/judge0/judge0/graphs/contributors) for their contributions to this project.
 
