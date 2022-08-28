@@ -400,6 +400,9 @@ These scientific articles mention Judge0.
 <li><a href="https://geekflare.com/productivity-apps-for-programmers/">21 Productivity Apps for Programmers</a></li>
 <li><a href="https://manfonly.medium.com/running-sqlite-on-the-browser-45c5a7352fd">Running sqlite on the browser</a></li>
 <li><a href="https://medium.com/@denishoti/how-to-self-host-judge0-api-on-your-pc-locally-all-you-need-to-know-ad8a2b64fd1">How to self-host Judge0 API on your PC locally | All you need to know</a></li>
+<li><a href="https://blog.ishandeveloper.com/hackerrank">Summer Internship Experience '21</a></li>
+<li><a href="https://dev.to/envoy_/best-websites-every-programmer-should-visit-540a">Best Websites Every Programmer Should Visit</a></li>
+<li><a href="https://cssauthor.com/best-online-code-editors/">Excellent Online Code Editors</a></li>
 </ul>
 </details>
 
