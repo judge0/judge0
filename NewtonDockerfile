@@ -34,7 +34,8 @@ RUN apt-get update && \
         xgboost \
         Pillow \
         urllib3 \
-        statistics && \
+        statistics \
+        requests && \
     rm -rf /var/lib/apt/lists/*
 
 
