@@ -18,6 +18,7 @@
 * [Flavors](#flavors)
 * [Supported Languages](#supported-languages)
 * [References](#references)
+* [Citation](#citation)
 * [Community](#community)
 * [Author and Contributors](#author-and-contributors)
 * [Changelog](#changelog)
@@ -407,6 +408,21 @@ These scientific articles mention Judge0.
 <li><a href="https://cbrincoveanu.hashnode.dev/10-amazing-free-tools-for-your-blog-posts-and-developer-projects">10 Amazing Free Tools For Your Blog Posts And Developer Projects</a></li>
 </ul>
 </details>
+
+## Citation
+Please [cite us](https://ieeexplore.ieee.org/abstract/document/9245310) if you found the resources in this repository useful.
+
+```
+@INPROCEEDINGS{9245310,
+  author={Došilović, Herman Zvonimir and Mekterović, Igor},
+  booktitle={2020 43rd International Convention on Information, Communication and Electronic Technology (MIPRO)},
+  title={Robust and Scalable Online Code Execution System},
+  year={2020},
+  volume={},
+  number={},
+  pages={1627-1632},
+  doi={10.23919/MIPRO48935.2020.9245310}}
+```
 
 ## Community
 Do you have a question, feature request, or something else on your mind? Or you want to follow Judge0 news?
