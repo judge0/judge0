@@ -406,6 +406,7 @@ These scientific articles mention Judge0.
 <li><a href="https://cssauthor.com/best-online-code-editors/">Excellent Online Code Editors</a></li>
 <li><a href="https://medium.com/codingsquad/a-pair-programming-platform-to-help-you-get-better-at-technical-interviews-building-out-the-14c03762ebf4">A pair programming platform to help you get better at technical interviews: building out the platform</a></li>
 <li><a href="https://cbrincoveanu.hashnode.dev/10-amazing-free-tools-for-your-blog-posts-and-developer-projects">10 Amazing Free Tools For Your Blog Posts And Developer Projects</a></li>
+<li><a href="https://medium.com/the-foss-albatross/the-easiest-way-to-start-coding-30cf99ee039d">The Easiest Way to Start Coding!</a></li>
 </ul>
 </details>
 
