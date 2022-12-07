@@ -6,6 +6,7 @@ class SubmissionsController < ApplicationController
   before_action :check_queue_size, only: [:create, :batch_create]
   before_action :check_requested_fields, except: [:batch_create] # Fields are ignored in batch_create
   before_action :set_base64_encoded
+  before_action :set_return_stdout, only: [:create]
 
   def index
     page = params[:page].try(:to_i) || 1
@@ -219,6 +220,10 @@ class SubmissionsController < ApplicationController
 
   def set_base64_encoded
     @base64_encoded = params[:base64_encoded] == "true"
+  end
+
+  def set_return_stdout
+    @return_stdout = params[:return_stdout] == "true"
   end
 
   def render_conversion_error(status, token = nil)
