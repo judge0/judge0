@@ -106,14 +106,14 @@ class SubmissionsController < ApplicationController
     if submission.save
       if @wait
         begin
-          IsolateJob.perform_now(submission.id)
+          IsolateJob.perform_now(submission.id, @return_stdout)
           submission.reload
           render json: submission, status: :created, base64_encoded: @base64_encoded, fields: @requested_fields
         rescue Encoding::UndefinedConversionError => e
           render_conversion_error(:created, submission.token)
         end
       else
-        IsolateJob.perform_later(submission.id)
+        IsolateJob.perform_later(submission.id, @return_stdout)
         render json: submission, status: :created, fields: [:token]
       end
     else
