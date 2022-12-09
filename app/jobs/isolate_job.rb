@@ -16,7 +16,7 @@ class IsolateJob < ApplicationJob
               :source_file, :stdin_file, :stdout_file,
               :stderr_file, :metadata_file, :additional_files_archive_file
 
-  def perform(submission_id)
+  def perform(submission_id, return_stdout = false)
     @submission = Submission.find(submission_id)
 
     time = []
@@ -41,7 +41,7 @@ class IsolateJob < ApplicationJob
 
     submission.time = time.inject(&:+).to_f / time.size
     submission.memory = memory.inject(&:+).to_f / memory.size
-    if !Config::SAVE_STDOUT_AND_STDERR_IN_DB
+    if !return_stdout and !Config::SAVE_STDOUT_AND_STDERR_IN_DB
       submission.stdout = nil
       submission.stderr = nil
     end

@@ -6,6 +6,7 @@ class SubmissionsController < ApplicationController
   before_action :check_queue_size, only: [:create, :batch_create]
   before_action :check_requested_fields, except: [:batch_create] # Fields are ignored in batch_create
   before_action :set_base64_encoded
+  before_action :set_return_stdout, only: [:create]
 
   def index
     page = params[:page].try(:to_i) || 1
@@ -105,14 +106,14 @@ class SubmissionsController < ApplicationController
     if submission.save
       if @wait
         begin
-          IsolateJob.perform_now(submission.id)
+          IsolateJob.perform_now(submission.id, @return_stdout)
           submission.reload
           render json: submission, status: :created, base64_encoded: @base64_encoded, fields: @requested_fields
         rescue Encoding::UndefinedConversionError => e
           render_conversion_error(:created, submission.token)
         end
       else
-        IsolateJob.perform_later(submission.id)
+        IsolateJob.perform_later(submission.id, @return_stdout)
         render json: submission, status: :created, fields: [:token]
       end
     else
@@ -219,6 +220,10 @@ class SubmissionsController < ApplicationController
 
   def set_base64_encoded
     @base64_encoded = params[:base64_encoded] == "true"
+  end
+
+  def set_return_stdout
+    @return_stdout = params[:return_stdout] == "true"
   end
 
   def render_conversion_error(status, token = nil)
