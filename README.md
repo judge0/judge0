@@ -377,6 +377,21 @@ These scientific articles mention Judge0.
 <li><a href="https://ieeexplore.ieee.org/document/9797096/">A comparison between online compilers: A Case Study</a></li>
 <li><a href="https://www.worldscientific.com/doi/10.1142/S0218194022500346">Online Judge System: Requirements, Architecture, and Experiences</a></li>
 <li><a href="https://zir.nsk.hr/islandora/search/dabar_search_keywords_mt:(%22Judge0%22)">Nacionalni repozitorij završnih i diplomskih radova ZIR</a></li>
+<li><a href="https://journals.upi-yai.ac.id/index.php/ikraith-informatika/article/view/1405"></a>Pengembangan Sistem Manajemen Evaluasi Pembelajaran Terintegrasi Dengan Online Judge</li>
+<li><a href="https://journal.unesa.ac.id/index.php/jieet/article/view/8363"></a>Rancang Bangun Sistem Online Judge dan Pendeteksian Plagiarisme Menggunakan Arsitektur Serverless</li>
+<li><a href="https://ela.kpi.ua/handle/123456789/31297"></a>Платформа для спільної роботи викладача та студента під час іспиту</li>
+<li><a href="https://dl.acm.org/doi/abs/10.1145/3526113.3545620"></a>Grid-Coding: An Accessible, Efficient, and Structured Coding Paradigm for Blind and Low-Vision Programmers</li>
+<li><a href="https://oa.upm.es/63124/"></a>Desarrollo de una plataforma orientada al refuerzo en la evaluación del nivel de programación</li>
+<li><a href="https://repozitorij.etfos.hr/en/islandora/object/etfos:3574"></a>Web aplikacija za provjeru programskog koda</li>
+<li><a href="https://repozitorij.fer.unizg.hr/islandora/object/fer%3A3607"></a>Web-aplikacija za obavljanje i dijeljenje programskih odsječaka u različitim programskim jezicima</li>
+<li><a href="https://repozitorij.fer.unizg.hr/islandora/object/fer%3A10234"></a>Prototip integracije sustava za strojno učenje u sustav Edgar</li>
+<li><a href="https://repozitorij.fer.unizg.hr/islandora/object/fer%3A9899"></a>Web-aplikacija za rješavanje programskih zadataka s elementima društvene mreže</li>
+<li><a href="https://repozitorij.fer.unizg.hr/islandora/object/fer%3A7913"></a>Analiza performansi sustava za udaljeno izvršavanje programskog kôda</li>
+<li><a href="https://repozitorij.fer.unizg.hr/islandora/search/dabar_search_keywords_mt:(%22Judge0%22)"></a>Repozitorij Fakulteta elektrotehnike i računarstva Sveučilišta u Zagrebu</li>
+<li><a href="https://www.usenix.org/conference/soups2022/presentation/rao"></a>Usability and Security of Trusted Platform Module (TPM) Library APIs</li>
+<li><a href="http://repositorio.uft.edu.br/handle/11612/3789"></a>Protótipo de uma ferramenta gamificada para a aplicação de atividades práticas em sala de aula em uma disciplina de introdução à programação</li>
+<li><a href="https://link.springer.com/chapter/10.1007/978-3-319-98998-3_27"></a>A Strategy Based on Technological Maps for the Identification of the State-of-the-Art Techniques in Software Development Projects: Virtual Judge Projects as a Case Study</li>
+<li><a href="http://dspace.puet.edu.ua/handle/123456789/11371"></a>ПОЯСНЮВАЛЬНА ЗАПИСКА ДО БАКАЛАВРСЬКОЇ РОБОТИ на тему ТРЕНАЖЕР З ТЕМИ «ПОБУДОВА БЛОК-СХЕМ АЛГОРИТМІВ ЦИКЛІЧНОЇ СТРУКТУРИ НА ПРИКЛАДІ ЦИКЛУ WHILE» ДИСТАНЦІЙНОГО НАВЧАЛЬНОГО КУРСУ «ПРОГРАМУВАННЯ ІІ» ТА РОЗРОБКА ЙОГО ПРОГРАМНОГО ЗАБЕЗПЕЧЕННЯ</li>
 </ul>
 </details>
 
