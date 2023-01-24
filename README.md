@@ -376,6 +376,7 @@ These scientific articles mention Judge0.
 <li><a href="https://www.researchgate.net/publication/353329318_Online_Automatic_Assessment_System_for_Program_Code_Architecture_and_Experiences">Online Automatic Assessment System for Program Code: Architecture and Experiences</a></li>
 <li><a href="https://ieeexplore.ieee.org/document/9797096/">A comparison between online compilers: A Case Study</a></li>
 <li><a href="https://www.worldscientific.com/doi/10.1142/S0218194022500346">Online Judge System: Requirements, Architecture, and Experiences</a></li>
+<li><a href="https://zir.nsk.hr/islandora/search/dabar_search_keywords_mt:(%22Judge0%22)">Nacionalni repozitorij završnih i diplomskih radova ZIR</a></li>
 </ul>
 </details>
 
