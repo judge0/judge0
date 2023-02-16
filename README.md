@@ -392,6 +392,7 @@ These scientific articles mention Judge0.
 <li><a href="http://repositorio.uft.edu.br/handle/11612/3789">Protótipo de uma ferramenta gamificada para a aplicação de atividades práticas em sala de aula em uma disciplina de introdução à programação</a></li>
 <li><a href="https://link.springer.com/chapter/10.1007/978-3-319-98998-3_27">A Strategy Based on Technological Maps for the Identification of the State-of-the-Art Techniques in Software Development Projects: Virtual Judge Projects as a Case Study</a></li>
 <li><a href="http://dspace.puet.edu.ua/handle/123456789/11371">ПОЯСНЮВАЛЬНА ЗАПИСКА ДО БАКАЛАВРСЬКОЇ РОБОТИ на тему ТРЕНАЖЕР З ТЕМИ «ПОБУДОВА БЛОК-СХЕМ АЛГОРИТМІВ ЦИКЛІЧНОЇ СТРУКТУРИ НА ПРИКЛАДІ ЦИКЛУ WHILE» ДИСТАНЦІЙНОГО НАВЧАЛЬНОГО КУРСУ «ПРОГРАМУВАННЯ ІІ» ТА РОЗРОБКА ЙОГО ПРОГРАМНОГО ЗАБЕЗПЕЧЕННЯ</a></li>
+<li><a href="https://www.researchgate.net/publication/368528043_Scaling_Automated_Programming_Assessment_Systems">Scaling Automated Programming Assessment Systems</a></li>
 </ul>
 </details>
 
