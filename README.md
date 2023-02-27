@@ -393,6 +393,7 @@ These scientific articles mention Judge0.
 <li><a href="https://link.springer.com/chapter/10.1007/978-3-319-98998-3_27">A Strategy Based on Technological Maps for the Identification of the State-of-the-Art Techniques in Software Development Projects: Virtual Judge Projects as a Case Study</a></li>
 <li><a href="http://dspace.puet.edu.ua/handle/123456789/11371">ПОЯСНЮВАЛЬНА ЗАПИСКА ДО БАКАЛАВРСЬКОЇ РОБОТИ на тему ТРЕНАЖЕР З ТЕМИ «ПОБУДОВА БЛОК-СХЕМ АЛГОРИТМІВ ЦИКЛІЧНОЇ СТРУКТУРИ НА ПРИКЛАДІ ЦИКЛУ WHILE» ДИСТАНЦІЙНОГО НАВЧАЛЬНОГО КУРСУ «ПРОГРАМУВАННЯ ІІ» ТА РОЗРОБКА ЙОГО ПРОГРАМНОГО ЗАБЕЗПЕЧЕННЯ</a></li>
 <li><a href="https://www.researchgate.net/publication/368528043_Scaling_Automated_Programming_Assessment_Systems">Scaling Automated Programming Assessment Systems</a></li>
+<li><a href="https://dr.ntu.edu.sg/handle/10356/162927">Full-stack web development for auto-assessment platform</a></li>
 </ul>
 </details>
 
@@ -424,6 +425,7 @@ These scientific articles mention Judge0.
 <li><a href="https://medium.com/codingsquad/a-pair-programming-platform-to-help-you-get-better-at-technical-interviews-building-out-the-14c03762ebf4">A pair programming platform to help you get better at technical interviews: building out the platform</a></li>
 <li><a href="https://cbrincoveanu.hashnode.dev/10-amazing-free-tools-for-your-blog-posts-and-developer-projects">10 Amazing Free Tools For Your Blog Posts And Developer Projects</a></li>
 <li><a href="https://medium.com/the-foss-albatross/the-easiest-way-to-start-coding-30cf99ee039d">The Easiest Way to Start Coding!</a></li>
+<li><a href="https://prog.world/how-to-create-a-code-editor-for-40-languages-with-react/">How to create a code editor for 40+ languages ​​with React</a></li>
 </ul>
 </details>
 
