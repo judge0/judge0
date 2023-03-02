@@ -43,6 +43,7 @@ module Config
   ENABLE_NETWORK = ENV["ENABLE_NETWORK"] == "true"
   FILE_BASE_URL = ENV["FILE_BASE_URL"].presence
   SAVE_STDOUT_AND_STDERR_IN_DB = ENV["SAVE_STDOUT_AND_STDERR_IN_DB"] == "true"
+  DISABLE_IMPLICIT_BASE64_ENCODING = ENV["DISABLE_IMPLICIT_BASE64_ENCODING"] == "true"
 
   def self.config_info
     @@default_confg ||= {
@@ -86,6 +87,7 @@ module Config
       "allow_enable_network": ALLOW_ENABLE_NETWORK,
       "enable_network": ENABLE_NETWORK,
       "file_base_url": FILE_BASE_URL
+      "disable_implicit_base64_encoding": DISABLE_IMPLICIT_BASE64_ENCODING
     }
   end
 end

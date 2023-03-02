@@ -105,13 +105,13 @@ int main(void) {
   <input type="checkbox" name="waitResponse">
   <strong>Wait for submission</strong><br><br>
 
-  <input type="checkbox" name="base64EncodedRequest">
+  <input type="checkbox" name="base64EncodedRequest" checked>
   <strong>Send request with Base64 encoded data</strong><br><br>
 
-  <input type="checkbox" name="base64EncodedResponse">
+  <input type="checkbox" name="base64EncodedResponse" checked>
   <strong>Accept response with Base64 encoded data</strong><br><br>
 
-  <div id="panel" style="position: fixed; bottom: 0px; padding: 20px; background-color: #00F20D; bottom: 20px; right: 20px; border: 1px solid #777">
+  <div id="panel" style="position: fixed; bottom: 0px; padding: 20px; background-color: #69DB7C; bottom: 20px; right: 20px; border: 1px solid #777">
     <button type="button" id="run">Run</button>
     <button type="button" id="stop" disabled>Stop</button>
     <button type="button" id="clearLog">Clear Log</button>
@@ -134,6 +134,8 @@ int main(void) {
       var parameters = [];
       if ($(`input[name=base64Encoded${type}]`).is(":checked")) {
         parameters.push("base64_encoded=true");
+      } else {
+        parameters.push("base64_encoded=false");
       }
 
       var fields = $("input[name=fields]").val();
@@ -173,7 +175,7 @@ int main(void) {
       stopFetch = false;
       $("#run").removeAttr("disabled");
       $("#stop").prop("disabled", true);
-      $("#panel").css('background-color', '#00F20D');
+      $("#panel").css('background-color', '#69DB7C');
     }
 
     function appendToLog(text) {
@@ -215,7 +217,7 @@ int main(void) {
     $("#run").click(function() {
       $(this).prop("disabled", true);
       $("#stop").removeAttr("disabled");
-      $("#panel").css('background-color', '#F2000D');
+      $("#panel").css('background-color', '#FF8787');
 
       var apiUrl = $("input[name=apiUrl]").val();
       var sourceCode = $("textarea[name=sourceCode]").val();
