@@ -36,11 +36,10 @@
 #  callback_url                               :string
 #  additional_files                           :binary
 #  enable_network                             :boolean
-#  started_at                                 :datetime
-#  queued_at                                  :datetime
-#  updated_at                                 :datetime
-#  queue_host                                 :string
-#  execution_host                             :string
+#
+# Indexes
+#
+#  index_submissions_on_token  (token)
 #
 
 class Submission < ApplicationRecord

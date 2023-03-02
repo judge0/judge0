@@ -1,6 +1,6 @@
 class HealthController < ApplicationController
   def workers
-    Resque.workers.first.try(:prune_dead_workers) if params[:prune_dead_workers] == "true"
+    Resque.workers.first.try(:prune_dead_workers)
 
     queues = Hash.new { |h, k| h[k] = [] }
     Resque.workers.each do |worker|
@@ -18,7 +18,8 @@ class HealthController < ApplicationController
         available: workers.count,
         idle: workers.count { |w| w.idle? },
         working: workers.count { |w| w.working? },
-        paused: workers.count { |w| w.paused? }
+        paused: workers.count { |w| w.paused? },
+        failed: workers.sum { |w| w.failed }
       }
     end
 
