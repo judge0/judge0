@@ -6,7 +6,7 @@ default: &default
   database: <%= ENV["POSTGRES_DB"] %>
   username: <%= ENV["POSTGRES_USER"] %>
   password: <%= ENV["POSTGRES_PASSWORD"] %>
-  pool: <%= ENV["RAILS_MAX_THREADS"] %>
+  pool: <%= [1, ENV["RAILS_SERVER_PROCESSES"].to_i * ENV["RAILS_MAX_THREADS"].to_i].max %>
 
 development:
   <<: *default

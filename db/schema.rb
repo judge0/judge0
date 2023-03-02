@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_08_152656) do
+ActiveRecord::Schema.define(version: 2022_05_28_155848) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,11 @@ ActiveRecord::Schema.define(version: 2021_03_08_152656) do
     t.string "callback_url"
     t.binary "additional_files"
     t.boolean "enable_network"
+    t.datetime "started_at"
+    t.datetime "queued_at"
+    t.datetime "updated_at"
+    t.string "queue_host"
+    t.string "execution_host"
     t.index ["token"], name: "index_submissions_on_token"
   end
 
