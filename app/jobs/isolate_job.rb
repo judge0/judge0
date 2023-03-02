@@ -18,11 +18,11 @@ class IsolateJob < ApplicationJob
 
   def perform(submission_id, return_stdout = false)
     @submission = Submission.find(submission_id)
-    submission.update(status: Status.process, started_at: DateTime.now, execution_host: ENV["HOSTNAME"])
 
     time = []
     memory = []
 
+    submission.update(status: Status.process)
     submission.number_of_runs.times do
       initialize_workdir
       if compile == :failure
@@ -49,7 +49,8 @@ class IsolateJob < ApplicationJob
 
   rescue Exception => e
     raise e.message unless submission
-    submission.update(message: e.message, status: Status.boxerr, finished_at: DateTime.now)
+    submission.finished_at ||= DateTime.now
+    submission.update(message: e.message, status: Status.boxerr)
     cleanup(raise_exception = false)
   ensure
     call_callback
@@ -137,20 +138,9 @@ class IsolateJob < ApplicationJob
       return :success unless submission.language.compile_cmd
     end
 
-    compile_script = boxdir + "/" + "compile.sh"
-
-    acceptable_project_compile_scripts = [compile_script, boxdir + "/" + "compile"]
+    compile_script = boxdir + "/" + "compile"
     if submission.is_project
-      compile_file_exists = false
-      acceptable_project_compile_scripts.each do |f|
-        if File.file?(f)
-          compile_script = f
-          compile_file_exists = true
-          break
-        end
-      end
-
-      unless compile_file_exists
+      unless File.file?(compile_script)
         return :success # If compile script does not exist then this project does not need to be compiled.
       end
     else
@@ -181,7 +171,7 @@ class IsolateJob < ApplicationJob
     -E LANG -E LANGUAGE -E LC_ALL -E JUDGE0_HOMEPAGE -E JUDGE0_SOURCE_CODE -E JUDGE0_MAINTAINER -E JUDGE0_VERSION \
     -d /etc:noexec \
     --run \
-    -- /bin/bash $(basename #{compile_script}) > #{compile_output_file} \
+    -- /bin/bash compile > #{compile_output_file} \
     "
 
     puts "[#{DateTime.now}] Compiling submission #{submission.token} (#{submission.id}):"
@@ -211,7 +201,7 @@ class IsolateJob < ApplicationJob
       submission.compile_output = "Compilation time limit exceeded."
     end
 
-    submission.finished_at = DateTime.now
+    submission.finished_at ||= DateTime.now
     submission.time = nil
     submission.wall_time = nil
     submission.memory = nil
@@ -227,16 +217,7 @@ class IsolateJob < ApplicationJob
   end
 
   def run
-    run_script = boxdir + "/" + "run.sh"
-
-    acceptable_project_run_scripts = [run_script, boxdir + "/" + "run"]
-    acceptable_project_run_scripts.each do |f|
-      if File.file?(f)
-        run_script = f
-        break
-      end
-    end
-
+    run_script = boxdir + "/" + "run"
     unless submission.is_project
       # gsub is mandatory!
       command_line_arguments = submission.command_line_arguments.to_s.strip.encode("UTF-8", invalid: :replace).gsub(/[$&;<>|`]/, "")
@@ -262,7 +243,7 @@ class IsolateJob < ApplicationJob
     -E LANG -E LANGUAGE -E LC_ALL -E JUDGE0_HOMEPAGE -E JUDGE0_SOURCE_CODE -E JUDGE0_MAINTAINER -E JUDGE0_VERSION \
     -d /etc:noexec \
     --run \
-    -- /bin/bash $(basename #{run_script}) \
+    -- /bin/bash run \
     < #{stdin_file} > #{stdout_file} 2> #{stderr_file} \
     "
 
@@ -276,7 +257,7 @@ class IsolateJob < ApplicationJob
   end
 
   def verify
-    submission.finished_at = DateTime.now
+    submission.finished_at ||= DateTime.now
 
     metadata = get_metadata
 
