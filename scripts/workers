@@ -18,6 +18,7 @@ exit_gracefully() {
     run_resque=0
     kill -SIGQUIT $(pgrep -P $resque_pid)
     kill -SIGTERM $resque_pid
+    sleep 300
 }
 
 trap exit_gracefully SIGTERM SIGINT
