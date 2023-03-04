@@ -17,6 +17,7 @@ exit_gracefully() {
     echo "[$(date_now)] Killing workers."
     run_resque=0
     kill -SIGQUIT $(pgrep -P $resque_pid)
+    sleep 60s
     kill -SIGTERM $resque_pid
 }
 
