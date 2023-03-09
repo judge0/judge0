@@ -358,10 +358,17 @@
     is_archived: false,
   },
   {
+    id: 1999,
+    name: "JavaScript (Node.js 18.15.0)",
+    is_archived: false,
+    source_file: "script.js",
+    run_cmd: "/usr/local/node-18.15.0/bin/node script.js"
+  },
+  {
     id: 2000,
     name: "Python (3.10.4) for ML",
     is_archived: false,
     source_file: "script.py",
     run_cmd: "/usr/local/python-3.10.4/bin/python3 script.py"
-  }
+  },
 ]
