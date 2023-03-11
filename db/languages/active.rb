@@ -302,10 +302,10 @@
   },
   {
     id: 82,
-    name: "SQL (SQLite 3.27.2)",
+    name: "SQL (SQLite 3.41.1)",
     is_archived: false,
     source_file: "script.sql",
-    run_cmd: "/bin/cat script.sql | /usr/bin/sqlite3 db.sqlite"
+    run_cmd: "/bin/cat script.sql | /usr/local/sqlite-autoconf-3410100/bin/sqlite3 db.sqlite"
   },
   {
     id: 83,
