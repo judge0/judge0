@@ -11,7 +11,7 @@ services:
   server:
     build:
       context: .
-      dockerfile: Dockerfile.update
+      dockerfile: Dockerfile
     volumes:
       - ./judge0.conf:/judge0.conf:ro
     ports:
@@ -23,7 +23,7 @@ services:
   worker:
     build:
       context: .
-      dockerfile: Dockerfile.update
+      dockerfile: Dockerfile
     command: ["./scripts/workers"]
     volumes:
       - ./judge0.conf:/judge0.conf:ro
