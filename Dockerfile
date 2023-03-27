@@ -40,8 +40,6 @@ RUN npm install -g n
 RUN sudo n 18.15.0
 RUN npm install --global typescript
 
-COPY isolate_job.rb /api/app/jobs/isolate_job.rb
-
 RUN chmod -R 777 /api
 
 ENTRYPOINT ["/api/docker-entrypoint.sh"]
