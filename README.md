@@ -395,6 +395,7 @@ These scientific articles mention Judge0.
 <li><a href="https://www.researchgate.net/publication/368528043_Scaling_Automated_Programming_Assessment_Systems">Scaling Automated Programming Assessment Systems</a></li>
 <li><a href="https://dr.ntu.edu.sg/handle/10356/162927">Full-stack web development for auto-assessment platform</a></li>
 <li><a href="https://www.jetir.org/papers/JETIR2302226.pdf">A Secure and Scalable System for Online Code Execution and Evaluation using Containerization and Kubernetes</a></li>
+<li><a href="https://arxiv.org/abs/2304.14342">Thinking beyond chatbots' threat to education: Visualizations to elucidate the writing and coding process</a></li>
 </ul>
 </details>
 
