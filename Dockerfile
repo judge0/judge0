@@ -1,4 +1,4 @@
-FROM judge0/compilers:1.4.0 AS production
+FROM waffledotcom-judge-compilers:latest AS production
 
 ENV JUDGE0_HOMEPAGE "https://judge0.com"
 LABEL homepage=$JUDGE0_HOMEPAGE
@@ -8,9 +8,6 @@ LABEL source_code=$JUDGE0_SOURCE_CODE
 
 ENV JUDGE0_MAINTAINER "Herman Zvonimir Došilović <hermanz.dosilovic@gmail.com>"
 LABEL maintainer=$JUDGE0_MAINTAINER
-
-ENV PATH "/usr/local/ruby-2.7.0/bin:/opt/.gem/bin:$PATH"
-ENV GEM_HOME "/opt/.gem/"
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -40,20 +37,3 @@ CMD ["/api/scripts/server"]
 
 ENV JUDGE0_VERSION "1.13.0"
 LABEL version=$JUDGE0_VERSION
-
-
-FROM production AS development
-
-ARG DEV_USER=judge0
-ARG DEV_USER_ID=1000
-
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-        tmux \
-        vim && \
-    useradd -u $DEV_USER_ID -m -r $DEV_USER && \
-    echo "$DEV_USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers
-
-USER $DEV_USER
-
-CMD ["sleep", "infinity"]

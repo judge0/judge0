@@ -88,11 +88,11 @@
   },
   {
     id: 54,
-    name: "C++ (GCC 9.2.0)",
+    name: "C++ (GCC 11.3.0)",
     is_archived: false,
     source_file: "main.cpp",
-    compile_cmd: "/usr/local/gcc-9.2.0/bin/g++ %s main.cpp",
-    run_cmd: "LD_LIBRARY_PATH=/usr/local/gcc-9.2.0/lib64 ./a.out"
+    compile_cmd: "g++ %s main.cpp",
+    run_cmd: "./a.out"
   },
   {
     id: 55,
@@ -152,15 +152,15 @@
     name: "Java (OpenJDK 13.0.1)",
     is_archived: false,
     source_file: "Main.java",
-    compile_cmd: "/usr/local/openjdk13/bin/javac %s Main.java",
-    run_cmd: "/usr/local/openjdk13/bin/java Main"
+    compile_cmd: "javac %s Main.java",
+    run_cmd: "java Main"
   },
   {
     id: 63,
     name: "JavaScript (Node.js 12.14.0)",
     is_archived: false,
     source_file: "script.js",
-    run_cmd: "/usr/local/node-12.14.0/bin/node script.js"
+    run_cmd: "node script.js"
   },
   {
     id: 64,
@@ -217,17 +217,17 @@
   },
   {
     id: 71,
-    name: "Python (3.8.1)",
+    name: "Python (3.10.6)",
     is_archived: false,
     source_file: "script.py",
-    run_cmd: "/usr/local/python-3.8.1/bin/python3 script.py"
+    run_cmd: "python3 script.py"
   },
   {
     id: 72,
     name: "Ruby (2.7.0)",
     is_archived: false,
     source_file: "script.rb",
-    run_cmd: "/usr/local/ruby-2.7.0/bin/ruby script.rb"
+    run_cmd: "ruby script.rb"
   },
   {
     id: 73,
@@ -242,15 +242,15 @@
     name: "TypeScript (3.7.4)",
     is_archived: false,
     source_file: "script.ts",
-    compile_cmd: "/usr/bin/tsc %s script.ts",
-    run_cmd: "/usr/local/node-12.14.0/bin/node script.js"
+    compile_cmd: "tsc %s script.ts",
+    run_cmd: "node script.js"
   },
   {
     id: 75,
-    name: "C (Clang 7.0.1)",
+    name: "C (GCC 11.3.0)",
     is_archived: false,
     source_file: "main.c",
-    compile_cmd: "/usr/bin/clang-7 %s main.c",
+    compile_cmd: "gcc %s main.c",
     run_cmd: "./a.out"
   },
   {
@@ -312,7 +312,7 @@
     name: "Swift (5.2.3)",
     is_archived: false,
     source_file: "Main.swift",
-    compile_cmd: "/usr/local/swift-5.2.3/bin/swiftc %s Main.swift",
+    compile_cmd: "swiftc %s Main.swift",
     run_cmd: "./Main"
   },
   {
