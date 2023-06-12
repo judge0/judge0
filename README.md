@@ -7,7 +7,7 @@ Make sure you are running linux. In M1 macs, `isolate` won't work.
 
 ```bash
 docker build -t waffledotcom-judge-compilers -f Dockerfile-compilers . && docker build -t waffledotcom-judge -f Dockerfile .
-docker-compose up -d
+docker-compose up -d || docker compose up -d
 ```
 
 ## License
