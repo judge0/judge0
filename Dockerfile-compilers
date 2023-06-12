@@ -9,31 +9,35 @@ RUN apt-get update -y
 RUN apt-get upgrade -y
 
 # Install common tools
-RUN apt-get install -y curl wget git vim unzip zip
+RUN apt-get install -y curl wget git vim unzip zip && \
+    apt-get clean
 
-# Install Kotlin
-RUN curl -s https://get.sdkman.io | bash
-RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && sdk install kotlin"
+# Install Java & Kotlin
+RUN apt-get install -y openjdk-8-jdk && \
+    curl -s https://get.sdkman.io | bash && \
+    bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && sdk install kotlin" && \
+    apt-get clean
 
 # Install Swift 5.7
-RUN apt-get install -y binutils git gnupg2 libc6-dev libcurl4 libedit2 libgcc-9-dev libpython2.7 libsqlite3-0 libstdc++-9-dev libxml2 libz3-dev pkg-config tzdata uuid-dev
-RUN wget https://swift.org/builds/swift-5.7-release/ubuntu2004/swift-5.7-RELEASE/swift-5.7-RELEASE-ubuntu20.04.tar.gz
-RUN tar xzf swift-5.7-RELEASE-ubuntu20.04.tar.gz
-RUN echo 'export PATH=/swift-5.7-RELEASE-ubuntu20.04/usr/bin:"${PATH}"' >> ~/.bashrc
-RUN rm swift-5.7-RELEASE-ubuntu20.04.tar.gz
-
-# Install Java
-RUN apt-get install -y openjdk-17-jdk
+RUN apt-get install -y binutils git gnupg2 libc6-dev libcurl4 libedit2 libgcc-9-dev libpython2.7 libsqlite3-0 libstdc++-9-dev libxml2 libz3-dev pkg-config tzdata uuid-dev && \
+    wget https://swift.org/builds/swift-5.7-release/ubuntu2004/swift-5.7-RELEASE/swift-5.7-RELEASE-ubuntu20.04.tar.gz && \
+    tar xzf swift-5.7-RELEASE-ubuntu20.04.tar.gz && \
+    echo 'export PATH=/swift-5.7-RELEASE-ubuntu20.04/usr/bin:"${PATH}"' >> ~/.bashrc && \
+    rm swift-5.7-RELEASE-ubuntu20.04.tar.gz && \
+    apt-get clean
 
 # Install C and C++
-RUN apt-get install -y gcc g++
+RUN apt-get install -y gcc g++ && \
+    apt-get clean
 
 # Install Python 3 and pip
-RUN apt-get install -y python3 python3-pip
+RUN apt-get install -y python3 python3-pip && \
+    apt-get clean
 
 # Install Node.js for JavaScript and TypeScript
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
-RUN apt-get install -y nodejs
+RUN apt-get install -y nodejs && \
+    apt-get clean
 
 # Install Typescript
 RUN npm install -g typescript
@@ -57,8 +61,7 @@ RUN set -xe && \
     git clone -b cg2 https://github.com/ioi/isolate.git /tmp/isolate && \
     cd /tmp/isolate && \
     make -j$(nproc) install && \
-    rm -rf /tmp/*
-ENV BOX_ROOT /var/local/lib/isolate
+    rm -rf /tmp/* && \
+    apt-get clean
 
-# Clean up
-RUN apt-get clean
+ENV BOX_ROOT /var/local/lib/isolate
