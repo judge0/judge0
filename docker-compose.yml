@@ -27,10 +27,10 @@ services:
     restart: always
 
   db:
-    image: postgres:13.0
+    image: mysql:8.0.29
     env_file: judge0.conf
     volumes:
-      - postgres-data:/var/lib/postgresql/data/
+      - mysql-data:/var/lib/mysql
     <<: *default-logging
     restart: always
 
@@ -49,5 +49,6 @@ services:
     restart: always
 
 volumes:
+  mysql-data:
   postgres-data:
   redis-data:

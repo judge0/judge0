@@ -4,6 +4,7 @@ ruby '2.7.0'
 
 gem 'rails', '~> 5.0'
 gem 'pg', '~> 1.2'
+gem 'mysql2'
 
 gem 'active_model_serializers', '~> 0.10'
 gem 'enumerations', '~> 2.3'

@@ -10,6 +10,7 @@ ENV JUDGE0_MAINTAINER "Herman Zvonimir Došilović <hermanz.dosilovic@gmail.com>
 LABEL maintainer=$JUDGE0_MAINTAINER
 
 RUN apt-get update && \
+    apt-get install -y libmysqlclient-dev && \
     apt-get install -y --no-install-recommends \
       cron \
       libpq-dev \
