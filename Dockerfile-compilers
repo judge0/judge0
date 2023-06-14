@@ -58,7 +58,7 @@ RUN set -xe && \
     apt-get update && \
     apt-get install -y --no-install-recommends git libcap-dev libsystemd-dev && \
     rm -rf /var/lib/apt/lists/* && \
-    git clone -b cg2 https://github.com/ioi/isolate.git /tmp/isolate && \
+    git clone -b master https://github.com/ioi/isolate.git /tmp/isolate && \
     cd /tmp/isolate && \
     make -j$(nproc) install && \
     rm -rf /tmp/* && \
