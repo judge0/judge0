@@ -12,10 +12,10 @@ RUN apt-get upgrade -y
 RUN apt-get install -y curl wget git vim unzip zip && \
     apt-get clean
 
-# Install Java & Kotlin
+# Install Java & Kotlin & Scala
 RUN apt-get install -y openjdk-8-jdk && \
     curl -s https://get.sdkman.io | bash && \
-    bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && sdk install kotlin" && \
+    bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && sdk install kotlin 1.8.0 && sdk install scala 2.13.10" && \
     apt-get clean
 
 # Install Swift 5.7
@@ -41,6 +41,18 @@ RUN apt-get install -y nodejs && \
 
 # Install Typescript
 RUN npm install -g typescript
+
+# Install Sqlite3
+RUN set -xe && \
+    apt-get update && \
+    apt-get install -y --no-install-recommends sqlite3 && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install Go
+RUN set -xe && \
+    wget https://golang.org/dl/go1.17.2.linux-amd64.tar.gz && \
+    tar -C /usr/local -xzf go1.17.2.linux-amd64.tar.gz && \
+    rm go1.17.2.linux-amd64.tar.gz
 
 # Install Ruby
 # RUN apt-get update && apt-get install -y ruby-full ruby-dev
