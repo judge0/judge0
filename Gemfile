@@ -17,6 +17,7 @@ gem 'redis', '< 4.6'
 gem 'resque', '~> 2.0'
 gem 'resque-scheduler', '~> 4.4'
 gem 'will_paginate', '~> 3.2'
+gem 'aws-sdk-secretsmanager', '~> 1.0'
 
 group :development do
   gem 'annotate', '~> 3.0'
