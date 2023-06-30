@@ -30,6 +30,9 @@ def set_aws_managed_secrets
     ENV['DB_USERNAME'] = secret_hash['judge_db_username']
     ENV['DB_PORT'] = secret_hash['judge_db_port']
     ENV['DB_PASSWORD'] = secret_hash['judge_db_password']
+    ENV['REDIS_HOST'] = secret_hash['judge_redis_host']
+    ENV['REDIS_PORT'] = secret_hash['judge_redis_port']
+    ENV['REDIS_DATABASE'] = secret_hash['judge_redis_database']
   end
 end
 
