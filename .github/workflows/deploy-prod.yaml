@@ -1,0 +1,58 @@
+name: Deploy-prod
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    name: deploy prod
+    runs-on: ubuntu-latest
+
+    env:
+      IMAGE_TAG: ${{ github.run_number }}
+      ECR_REPOSITORY: wacruit-prod/wacruit-judge-server
+      IMAGE_TAG_COMPILERS: latest
+      ECR_REPOSITORY_COMPILERS: wacruit-prod/wacruit-judge-compilers
+      RAILS_ENV: production
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-2
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+      
+      - name: Build, tag, and push compilers image
+        id: build-compilers-image
+        uses: docker/build-push-action@v4
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        with:
+          context: .
+          file: Dockerfile-compilers
+          push: true
+          tags: ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY_COMPILERS }}:${{ env.IMAGE_TAG_COMPILERS }}
+
+      - name: Build, tag, and push server image to be deployed to k8s
+        id: build-server-image-k8s
+        uses: docker/build-push-action@v4
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        with:
+          context: .
+          file: Dockerfile-server
+          push: true
+          tags: ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
+          build-args: |
+            COMPILER_IMAGE=${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY_COMPILERS }}:${{ env.IMAGE_TAG_COMPILERS }}
+            RAILS_ENV=${{ env.RAILS_ENV }}
+            

@@ -2,11 +2,11 @@ default: &default
   adapter: mysql2
   encoding: utf8mb4
   collation: utf8mb4_unicode_ci
-  host: <%= ENV["MYSQL_HOST"] %>
-  port: <%= ENV["MYSQL_PORT"] %>
-  database: <%= ENV["MYSQL_DATABASE"] %>
-  username: <%= ENV["MYSQL_USER"] %>
-  password: <%= ENV["MYSQL_PASSWORD"] %>
+  host: <%= ENV["DB_HOST"] %>
+  port: <%= ENV["DB_PORT"] %>
+  database: <%= ENV["DB_NAME"] %>
+  username: <%= ENV["DB_USERNAME"] %>
+  password: <%= ENV["DB_PASSWORD"] %>
   pool: <%= [1, ENV["RAILS_SERVER_PROCESSES"].to_i * ENV["RAILS_MAX_THREADS"].to_i].max %>
 
 development:
