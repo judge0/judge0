@@ -6,8 +6,8 @@
 Make sure you are running linux. In M1 macs, `isolate` won't work.
 
 ```bash
-docker build -t waffledotcom-judge-compilers -f Dockerfile-compilers . && docker build -t waffledotcom-judge -f Dockerfile .
-docker-compose up -d || docker compose up -d
+docker build -t waffledotcom-judge-compilers -f Dockerfile-compilers . && docker build -t waffledotcom-judge -f Dockerfile-server .
+docker-compose up -d # or docker compose up -d
 ```
 
 ### Changing to Cgroup V1 for mac

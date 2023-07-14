@@ -13,11 +13,10 @@ def set_aws_managed_secrets
   # region name
   region_name = 'ap-northeast-2'
 
-  client = Aws::SecretsManager::Client.new(region: region_name)
-
   begin
+    client = Aws::SecretsManager::Client.new(region: region_name)
     get_secret_value_response = client.get_secret_value(secret_id: secret_name)
-  rescue Aws::SecretsManager::Errors::ServiceError => e
+  rescue StandardError => e
     puts "Unable to fetch secrets from AWS: #{e.message}"
     return
   end
