@@ -10,15 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_28_155848) do
+ActiveRecord::Schema.define(version: 2023_05_28_155848) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "clients", id: :string, force: :cascade do |t|
+  create_table "clients", id: :string, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
   end
 
-  create_table "languages", id: :serial, force: :cascade do |t|
+  create_table "languages", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "name"
     t.string "compile_cmd"
     t.string "run_cmd"
@@ -26,7 +23,7 @@ ActiveRecord::Schema.define(version: 2022_05_28_155848) do
     t.boolean "is_archived", default: false
   end
 
-  create_table "submissions", id: :serial, force: :cascade do |t|
+  create_table "submissions", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.text "source_code"
     t.integer "language_id"
     t.text "stdin"
@@ -35,14 +32,14 @@ ActiveRecord::Schema.define(version: 2022_05_28_155848) do
     t.integer "status_id"
     t.datetime "created_at"
     t.datetime "finished_at"
-    t.decimal "time"
+    t.decimal "time", precision: 10, scale: 5
     t.integer "memory"
     t.text "stderr"
     t.string "token"
     t.integer "number_of_runs"
-    t.decimal "cpu_time_limit"
-    t.decimal "cpu_extra_time"
-    t.decimal "wall_time_limit"
+    t.decimal "cpu_time_limit", precision: 10, scale: 5
+    t.decimal "cpu_extra_time", precision: 10, scale: 5
+    t.decimal "wall_time_limit", precision: 10, scale: 5
     t.integer "memory_limit"
     t.integer "stack_limit"
     t.integer "max_processes_and_or_threads"
@@ -53,7 +50,7 @@ ActiveRecord::Schema.define(version: 2022_05_28_155848) do
     t.integer "exit_code"
     t.integer "exit_signal"
     t.text "message"
-    t.decimal "wall_time"
+    t.decimal "wall_time", precision: 10, scale: 5
     t.string "compiler_options"
     t.string "command_line_arguments"
     t.boolean "redirect_stderr_to_stdout"
