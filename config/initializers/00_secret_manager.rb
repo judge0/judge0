@@ -22,7 +22,6 @@ def set_aws_managed_secrets
   end
 
   if get_secret_value_response.secret_string
-    puts get_secret_value_response.secret_string
     secret_hash = JSON.parse(get_secret_value_response.secret_string)
     ENV['DB_HOST'] = secret_hash['judge_db_host']
     ENV['DB_NAME'] = secret_hash['judge_db_name']
