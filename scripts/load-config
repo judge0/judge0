@@ -28,8 +28,8 @@ export PORT=${PORT:-2358} # This option is not available in judge0.conf
 export RAILS_LOG_TO_STDOUT=true # This options is not available in judge0.conf
 
 # Workers
-export INTERVAL=${INTERVAL:-0.1}
-export COUNT=${COUNT:-$(( $(nproc) * 2 ))}
+export INTERVAL=1
+export COUNT=1
 export QUEUE=${JUDGE0_VERSION:-unknown} # This option is not available in judge0.conf
 
 # Other
