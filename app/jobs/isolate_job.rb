@@ -15,23 +15,32 @@ class IsolateJob < ApplicationJob
               :stderr_file, :metadata_file, :additional_files_archive_file
 
   def perform(submission_id)
+    puts "Entering perform method with submission_id: #{submission_id}"
     @submission = Submission.find(submission_id)
+    puts "Found submission: #{@submission.inspect}"
+
     submission.update(status: Status.process, started_at: DateTime.now, execution_host: ENV["HOSTNAME"])
+    puts "Submission updated with status: #{submission.status}"
 
     time = []
     memory = []
 
-    submission.number_of_runs.times do
+    submission.number_of_runs.times do |i|
+      puts "Starting run number: #{i + 1}"
       initialize_workdir
       if compile == :failure
+        puts "Compilation failed during run number: #{i + 1}"
         cleanup
         return
       end
+      puts "Running code..."
       run
+      puts "Verifying..."
       verify
 
       time << submission.time
       memory << submission.memory
+      puts "Time and memory after run #{i + 1}: #{time.inspect}, #{memory.inspect}"
 
       cleanup
       break if submission.status != Status.ac
@@ -39,13 +48,18 @@ class IsolateJob < ApplicationJob
 
     submission.time = time.inject(&:+).to_f / time.size
     submission.memory = memory.inject(&:+).to_f / memory.size
+    puts "Averages: time: #{submission.time}, memory: #{submission.memory}"
+
     submission.save
+    puts "Submission saved"
 
   rescue Exception => e
+    puts "Rescue block entered with exception: #{e.class} #{e.message}"
     raise e.message unless submission
     submission.update(message: e.message, status: Status.boxerr, finished_at: DateTime.now)
     cleanup(raise_exception = false)
   ensure
+    puts "In the ensure block, calling the callback"
     call_callback
   end
 
