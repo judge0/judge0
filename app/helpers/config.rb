@@ -14,11 +14,11 @@ module Config
   ENABLE_ADDITIONAL_FILES = ENV["ENABLE_ADDITIONAL_FILES"] != "false"
   MAX_QUEUE_SIZE = (ENV["MAX_QUEUE_SIZE"].presence || 100).to_i
   CPU_TIME_LIMIT = (ENV["CPU_TIME_LIMIT"].presence || 5).to_f
-  MAX_CPU_TIME_LIMIT = (ENV["MAX_CPU_TIME_LIMIT"].presence || 15).to_f
+  MAX_CPU_TIME_LIMIT = (ENV["MAX_CPU_TIME_LIMIT"].presence || 100).to_f
   CPU_EXTRA_TIME = (ENV["CPU_EXTRA_TIME"].presence || 1).to_f
   MAX_CPU_EXTRA_TIME = (ENV["MAX_CPU_EXTRA_TIME"].presence || 5).to_f
   WALL_TIME_LIMIT = (ENV["WALL_TIME_LIMIT"].presence || 10).to_f
-  MAX_WALL_TIME_LIMIT = (ENV["MAX_WALL_TIME_LIMIT"].presence || 20).to_f
+  MAX_WALL_TIME_LIMIT = (ENV["MAX_WALL_TIME_LIMIT"].presence || 1000).to_f
   MEMORY_LIMIT = (ENV["MEMORY_LIMIT"].presence || 128000).to_i # in KB
   MAX_MEMORY_LIMIT = (ENV["MAX_MEMORY_LIMIT"].presence || 512000).to_i
   STACK_LIMIT = (ENV["STACK_LIMIT"].presence || 64000).to_i # in KB
