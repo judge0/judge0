@@ -287,7 +287,7 @@ class IsolateJob < ApplicationJob
   
     program_stdout = File.read(stdout_file)
     program_stdout = nil if program_stdout.empty?
-    puts "Read program_stdout: #{truncate_middle(program_stdout)}"
+    puts "Read truncated program_stdout: #{truncate_middle(program_stdout)}"
   
     program_stderr = File.read(stderr_file)
     program_stderr = nil if program_stderr.empty?
@@ -300,7 +300,6 @@ class IsolateJob < ApplicationJob
   
     submission.stdout = program_stdout
     submission.stderr = program_stderr
-    puts "Set submission.stdout and stderr: #{submission.stdout}, #{submission.stderr}"
   
     submission.exit_code = metadata[:exitcode].try(:to_i) || 0
     submission.exit_signal = metadata[:exitsig].try(:to_i)
@@ -327,7 +326,6 @@ class IsolateJob < ApplicationJob
     end
     
     puts "Final submission.status: #{submission.status}"
-    puts "Current submission inspect: #{submission.inspect}"
   end
 
   def cleanup(raise_exception = true)
