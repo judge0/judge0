@@ -269,6 +269,13 @@ class IsolateJob < ApplicationJob
     `sudo chown $(whoami): #{run_script} && rm #{run_script}` unless submission.is_project
   end
 
+  def truncate_middle(input, length = 50, replacement = '...')
+    return input if input.length <= length
+  
+    part_length = (length - replacement.length) / 2
+    input[0...part_length] + replacement + input[-part_length..-1]
+  end
+
   def verify
     puts "Entering verify method"
     
@@ -280,7 +287,7 @@ class IsolateJob < ApplicationJob
   
     program_stdout = File.read(stdout_file)
     program_stdout = nil if program_stdout.empty?
-    puts "Read program_stdout: #{program_stdout}"
+    puts "Read program_stdout: #{truncate_middle(program_stdout)}"
   
     program_stderr = File.read(stderr_file)
     program_stderr = nil if program_stderr.empty?
@@ -302,6 +309,13 @@ class IsolateJob < ApplicationJob
     submission.message = metadata[:message]
     submission.status = determine_status(metadata[:status], submission.exit_signal)
     puts "Set submission.message and status: #{submission.message}, #{submission.status}"
+
+    # In case of runtime error, we don't want to show the program's output
+    # for the sake of disk space and bandwidth.
+    runtime_errors = [7, 8, 9, 10, 11, 12]
+    if runtime_errors.include?(submission.status.id)
+      submission.stdout = nil
+    end
   
     if submission.status == Status.boxerr &&
        (
