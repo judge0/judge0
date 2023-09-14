@@ -395,10 +395,11 @@ These scientific articles mention Judge0.
 <li><a href="https://www.researchgate.net/publication/368528043_Scaling_Automated_Programming_Assessment_Systems">Scaling Automated Programming Assessment Systems</a></li>
 <li><a href="https://dr.ntu.edu.sg/handle/10356/162927">Full-stack web development for auto-assessment platform</a></li>
 <li><a href="https://www.jetir.org/papers/JETIR2302226.pdf">A Secure and Scalable System for Online Code Execution and Evaluation using Containerization and Kubernetes</a></li>
-<li><a href="https://arxiv.org/abs/2304.14342">Thinking beyond chatbots' threat to education: Visualizations to elucidate the writing and coding process</a></li>
+<li><a href="https://www.mdpi.com/2474186">Thinking beyond chatbots' threat to education: Visualizations to elucidate the writing and coding process</a></li>
 <li><a href="https://pubs.aip.org/aip/acp/article/2492/1/030016/2892049">Advanced lab analysis system using apache spark</a></li>
 <li><a href="https://ieeexplore.ieee.org/abstract/document/10159897">Programmable Questions in Edgar</a></li>
 <li><a href="https://ieeexplore.ieee.org/document/10159927">Automatic Evaluation of Student Software Solutions in a Virtualized Environment</a></li>
+<li><a href="https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/3088497">Automatic question generation for JavaScript programming courses</a></li>
 </ul>
 </details>
 
