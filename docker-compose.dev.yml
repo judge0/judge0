@@ -11,7 +11,7 @@ services:
     restart: always
 
   judge0:
-    image: newtonschool/newton-judge0:0.29
+    image: newtonschool/newton-judge0:0.30
     environment:
       VIRTUAL_HOST: judge0.local
     volumes:
