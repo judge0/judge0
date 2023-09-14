@@ -367,7 +367,6 @@ Judge0 comes in two flavors: [Judge0 CE](https://judge0.com/ce) and [Judge0 Extr
 ### Scientific Articles
 These scientific articles mention Judge0.
 
-<details><summary>Click here to expand the list</summary>
 <ul>
 <li><a href="https://dl.acm.org/doi/10.1145/3328778.3372610">A Game-Changing Instructor Tool to Reinforce Coding Concepts</a></li>
 <li><a href="https://ieeexplore.ieee.org/document/9079865">Building a Comprehensive Automated Programming Assessment System</a></li>
@@ -401,10 +400,8 @@ These scientific articles mention Judge0.
 <li><a href="https://ieeexplore.ieee.org/document/10159927">Automatic Evaluation of Student Software Solutions in a Virtualized Environment</a></li>
 <li><a href="https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/3088497">Automatic question generation for JavaScript programming courses</a></li>
 </ul>
-</details>
 
 ### Other Online References
-<details><summary>Click here to expand the list</summary>
 <ul>
 <li><a href="https://tianpan.co/notes/243-designing-online-judge-or-leetcode">Designing Online Judge or Leetcode</a></li>
 <li><a href="https://medium.com/@akashgp09/make-your-own-online-compiler-in-react-%EF%B8%8F-b06bc29dd202">Make your own online compiler in React</a></li>
@@ -435,7 +432,6 @@ These scientific articles mention Judge0.
 <li><a href="https://www.youtube.com/watch?v=z1ErJCATLuo">Tutorial isi api key di pc platform
 </a></li>
 </ul>
-</details>
 
 ## Citation
 Please [cite us](https://ieeexplore.ieee.org/abstract/document/9245310) if you found the resources in this repository useful.
