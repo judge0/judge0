@@ -12,7 +12,7 @@ gem 'puma', '~> 5.6'
 gem 'rack-cors', '~> 1.1'
 gem 'redis', '< 4.6'
 gem 'resque', '~> 2.6'
-gem 'resque-scheduler', '~> 4.4'
+gem 'resque-scheduler', '~> 4.10'
 gem 'will_paginate', '~> 3.2'
 
 group :development do
