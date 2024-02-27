@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.0'
+gem 'rails', '~> 6.1'
 gem 'pg', '~> 1.2'
 
 gem 'active_model_serializers', '~> 0.10'
