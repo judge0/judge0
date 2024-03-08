@@ -40,7 +40,7 @@ CMD ["/api/scripts/server"]
 
 RUN useradd -u 1000 -m -r judge0 && \
     echo "judge0 ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers && \
-    chown -R judge0: /api
+    chown judge0: /api/tmp/
 
 USER judge0
 
