@@ -171,7 +171,7 @@ class IsolateJob < ApplicationJob
     files_to_remove = [compile_output_file]
     files_to_remove << compile_script unless submission.is_project
     files_to_remove.each do |f|
-      `sudo chown $(whoami): #{f} && sudo rm -rf #{f}`
+      `sudo rm -rf #{f}`
     end
 
     return :success if process_status.success?
@@ -232,7 +232,7 @@ class IsolateJob < ApplicationJob
 
     `#{command}`
 
-    `sudo chown $(whoami): #{run_script} && rm #{run_script}` unless submission.is_project
+    `sudo rm #{run_script}` unless submission.is_project
   end
 
   def verify
