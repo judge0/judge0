@@ -38,21 +38,20 @@ COPY . .
 ENTRYPOINT ["/api/docker-entrypoint.sh"]
 CMD ["/api/scripts/server"]
 
-ENV JUDGE0_VERSION "1.13.0"
+RUN useradd -u 1000 -m -r judge0 && \
+    echo "judge0 ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers && \
+    chown judge0: /api/tmp/
+
+USER judge0
+
+ENV JUDGE0_VERSION "1.13.1"
 LABEL version=$JUDGE0_VERSION
 
 
 FROM production AS development
 
-ARG DEV_USER=judge0
-ARG DEV_USER_ID=1000
-
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-        vim && \
-    useradd -u $DEV_USER_ID -m -r $DEV_USER && \
-    echo "$DEV_USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers
-
-USER $DEV_USER
+RUN sudo apt-get update && \
+    sudo apt-get install -y --no-install-recommends \
+      vim
 
 CMD ["sleep", "infinity"]
