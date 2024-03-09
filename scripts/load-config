@@ -49,6 +49,3 @@ export POSTGRES_USER=${POSTGRES_USER:-postgres}
 # Other
 export RUBYOPT=-W:no-deprecated
 export DISABLE_DATABASE_ENVIRONMENT_CHECK=1
-
-
-export > /api/tmp/environment
