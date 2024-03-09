@@ -3,9 +3,10 @@
 #
 # Usage: ./scripts/server
 #
-for i in $(seq 1 $RESTART_MAX_TRIES); do
-    source ./scripts/load-config
+source ./scripts/load-config
+export | sudo tee /api/environment
 
+for i in $(seq 1 $RESTART_MAX_TRIES); do
     [[ -f tmp/pids/server.pid ]] && rm -f tmp/pids/server.pid
 
     rails db:create db:migrate db:seed
