@@ -28,6 +28,9 @@ services:
       <<: *config
       <<: *db
       <<: *redis
+    depends_on:
+      - db
+      - redis
     ports:
       - "2358:2358"
     privileged: true
