@@ -9,7 +9,9 @@ x-logging:
 
 services:
   server:
-    image: judge0/judge0:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - ./judge0.conf:/judge0.conf:ro
     ports:
@@ -19,7 +21,9 @@ services:
     restart: always
 
   worker:
-    image: judge0/judge0:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     command: ["./scripts/workers"]
     volumes:
       - ./judge0.conf:/judge0.conf:ro
