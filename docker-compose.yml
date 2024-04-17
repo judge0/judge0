@@ -34,10 +34,10 @@ services:
     restart: always
 
   redis:
-    image: redis:6.2.14
+    image: redis:7.2.4
     command: [
       "bash", "-c",
-      'docker-entrypoint.sh --appendonly yes --requirepass "$$REDIS_PASSWORD"'
+      'docker-entrypoint.sh --appendonly no --requirepass "$$REDIS_PASSWORD"'
     ]
     env_file: judge0.conf
     <<: *default-logging
