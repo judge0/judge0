@@ -6,3 +6,4 @@ tmp/*
 .byebug_history
 coverage/
 srv/
+environment
