@@ -22,8 +22,7 @@ RUN apt-get update -o Acquire::Check-Valid-Until=false && \
     gem install bundler:2.1.4 && \
     npm install -g --unsafe-perm aglio@2.3.0
 
-ENV VIRTUAL_PORT 2358
-EXPOSE $VIRTUAL_PORT
+EXPOSE 2358
 
 WORKDIR /api
 
