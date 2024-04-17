@@ -49,8 +49,4 @@ LABEL version=$JUDGE0_VERSION
 
 FROM production AS development
 
-RUN sudo apt-get update && \
-    sudo apt-get install -y --no-install-recommends \
-      vim
-
 CMD ["sleep", "infinity"]
