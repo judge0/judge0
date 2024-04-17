@@ -1,11 +1,9 @@
-version: '2'
-
 x-logging:
   &default-logging
   logging:
     driver: json-file
     options:
-      max-size: 100m
+      max-size: 100M
 
 services:
   server:

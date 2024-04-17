@@ -63,7 +63,7 @@ To use multi-file program feature you need to choose a language called *Multi-fi
 
 As mentioned in the table above, `additional_files` attribute should be a content of a Base64 encoded `.zip` archive. This archive will be extracted in the sandbox before compilation and execution.
 
-For the Judge0 to know how to compile and execute your multi-file program you need to provide two special files that should be available in the root of the `.zip` archive that you are sending with `additional_files` attribute. These files should be named `compile` and `run`, and are expected to be Bash scripts that know how to compile and execute your multi-file program. If your multi-file program does not need compilation step, then you don't need to provide `compile` script. Take a look at [this example](https://github.com/judge0/examples/tree/master/cpp-project-01) to learn how to use this feature to compile and run multi-file C++ project that uses CMake.
+For the Judge0 to know how to compile and execute your multi-file program you need to provide two special files that should be available in the root of the `.zip` archive that you are sending with `additional_files` attribute. These files should be named `compile` and `run`, and are expected to be Bash scripts that know how to compile and execute your multi-file program. If your multi-file program does not need compilation step, then you don't need to provide `compile` script. Take a look at [this example](https://github.com/judge0/examples/tree/master/cpp-and-cmake-01) to learn how to use this feature to compile and run multi-file C++ project that uses CMake.
 
 <!-- include(create_a_submission.md) -->
 <!-- include(get_a_submission.md) -->

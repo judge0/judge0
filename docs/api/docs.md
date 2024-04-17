@@ -12,8 +12,6 @@ In our research paper [Robust and Scalable Online Code Execution System](https:/
 
 To see Judge0 in action, try [Judge0 IDE](https://ide.judge0.com) - our free and open-source online code editor. You can also try using a [dummy client](/dummy-client.html) that can help you explore and test most of the features of Judge0.
 
-Easily integrate online code editor with code execution (a.k.a. online compiler) to your website with our [**embeddable web widgets**](https://judge0.com/#judge0-widgets).
-
 ## Features
 <ul style="list-style: none; padding-left: 1em;">
     <li><i style="color: #69DB7C; margin-right: 0.1em;" class="fas fa-check-circle"></i> Quick and easy <a href="https://judge0.com/#pricing">installation</a></li>
@@ -49,7 +47,7 @@ You can find the source code for Judge0 CE on the [`master`](https://github.com/
 Judge0 Extra CE is also available on [RapidAPI](https://judge0.com/extra-ce).
 
 ## Version
-This document describes Judge0 CE [v1.13.0](https://github.com/judge0/judge0/tree/v1.13.0).
+This document describes Judge0 CE [v1.13.1](https://github.com/judge0/judge0/tree/v1.13.1).
 
 ## Date and time formats
 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) standard is used.
@@ -58,9 +56,6 @@ Example: `2016-09-11T10:19:35Z`
 
 ## License
 Judge0 is licensed under the [GNU General Public License v3.0](https://github.com/judge0/judge0/blob/master/LICENSE).
-
-## Donate
-Your are more than welcome to support Judge0 development on [Patreon](https://www.patreon.com/hermanzdosilovic), via [PayPal](https://paypal.me/hermanzdosilovic) or [Revolut](https://pay.revolut.com/profile/hermancy5). Thank you.
 
 <br>
 
