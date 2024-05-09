@@ -362,7 +362,7 @@
     name: "JavaScript (Node.js 18.15.0)",
     is_archived: false,
     source_file: "script.js",
-    run_cmd: "/usr/local/node-18.15.0/bin/node script.js"
+    run_cmd: "NODE_PATH='/usr/local/node-18.15.0/lib/node_modules' /usr/local/node-18.15.0/bin/node script.js"
   },
   {
     id: 2000,
