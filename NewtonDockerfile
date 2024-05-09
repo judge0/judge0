@@ -1,13 +1,13 @@
-FROM newtonschool/judge0-newton-compiler:0.7 AS production
+FROM newtonschool/judge0-newton-compiler:0.8 AS production
 
 
-ENV JUDGE0_HOMEPAGE "https://judge0.com"
+ENV JUDGE0_HOMEPAGE "https://judge0-public.newtonschool.co/"
 LABEL homepage=$JUDGE0_HOMEPAGE
 
-ENV JUDGE0_SOURCE_CODE "https://github.com/judge0/judge0"
+ENV JUDGE0_SOURCE_CODE "https://github.com/Newton-School/judge0"
 LABEL source_code=$JUDGE0_SOURCE_CODE
 
-ENV JUDGE0_MAINTAINER "Herman Zvonimir Došilović <hermanz.dosilovic@gmail.com>"
+ENV JUDGE0_MAINTAINER "Gaurav Kapatia <gkapatia@newtonschool.co>"
 LABEL maintainer=$JUDGE0_MAINTAINER
 
 ENV PATH "/usr/local/ruby-2.7.0/bin:/opt/.gem/bin:$PATH"
