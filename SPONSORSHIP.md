@@ -1,4 +1,4 @@
-# Sponsorship
+# Sponsorship demo account 
 Thank you for considering supporting this project and thus [me](https://github.com/hermanzdosilovic) and my work. There are many ways you can support this project and you might have different motivation or reason to do so. Whatever your reason or motivation is, thank you!
 
 Every donation is valuable and helps me keep this project free and open-source for everybody.
