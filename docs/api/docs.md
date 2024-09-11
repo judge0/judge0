@@ -29,15 +29,18 @@ Easily integrate online code editor with code execution (a.k.a. online compiler)
 </ul>
 
 ## Get Started
-Feel free to start with the [**FREE Basic Plan**](https://judge0.com/ce) on RapidAPI or [host it yourself](https://github.com/judge0/judge0/blob/master/CHANGELOG.md#deployment-procedure).
+Get started with Judge0 today on [**Sulu**](https://sparkhub.sulu.sh/apis/judge0/judge0-ce/readme) and get [**20K Free Submissions**](https://sparkhub.sulu.sh/auth/signup) to try it when you sign up.
+
+
+You can also get started with the [**FREE Basic Plan**](https://judge0.com/ce) on RapidAPI or [host it yourself](https://github.com/judge0/judge0/blob/master/CHANGELOG.md#deployment-procedure).
 
 You can find our detailed plans and pricing [here](https://judge0.com/#pricing).
 
-**Why should you use Judge0 on RapidAPI?**
-
+**Why should you use Judge0 on Sulu or RapidAPI?**
+    
 Our infrastructure allows you to **focus on building your product** and forget about the know-how of maintaining and scaling Judge0.
 
-**RapidAPI plans are not (good) enough for you?**
+**Sulu or RapidAPI plans are not (good) enough for you?**
 
 Let's talk. [Contact us](mailto:contact@judge0.com).
 
