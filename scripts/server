@@ -6,6 +6,9 @@
 source ./scripts/load-config
 export | sudo tee /api/environment
 
+./scripts/wait-for-it.sh -t 0 db:5432 -q
+./scripts/wait-for-it.sh -t 0 redis:6379 -q
+
 for i in $(seq 1 $RESTART_MAX_TRIES); do
     [[ -f tmp/pids/server.pid ]] && rm -f tmp/pids/server.pid
 
