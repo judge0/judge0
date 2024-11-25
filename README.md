@@ -433,6 +433,10 @@ These scientific articles mention Judge0.
 <li><a href="https://prog.world/how-to-create-a-code-editor-for-40-languages-with-react/">How to create a code editor for 40+ languages ​​with React</a></li>
 <li><a href="https://www.youtube.com/watch?v=z1ErJCATLuo">Tutorial isi api key di pc platform</a></li>
 <li><a href="https://www.jdoodle.com/blog/guide_choosing_the_best_compiler_api">The ultimate guide to choosing a Compiler API for your workflow</a></li>
+<li><a href="https://thelinuxcode.com/how-to-build-a-code-editor-with-react-that-compiles-and-executes-in-40-languages/">How to Build a Code Editor with React that Compiles and Executes in 40+ Languages</a></li>
+<li><a href="https://devpost.com/software/litcode">LitCode</a></li>
+<li><a href="https://tantosec.com/blog/judge0/">Judge0 Sandbox Escape</a></li>
+<!-- <li><a href=""></a></li> -->
 </ul>
 
 ## Citation
