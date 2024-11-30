@@ -9,7 +9,7 @@
 
 [![DigitalOcean Referral Badge](https://web-platforms.sfo2.digitaloceanspaces.com/WWW/Badge%203.svg)](https://www.digitalocean.com/?refcode=b428451eb426&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge)
 
-🔥 The most advanced open-source online code execution system in the world.
+Robust, scalable, and open-source online code execution system.
 
 ## Table of Contents
 * [About](#about)
@@ -436,6 +436,7 @@ These scientific articles mention Judge0.
 <li><a href="https://thelinuxcode.com/how-to-build-a-code-editor-with-react-that-compiles-and-executes-in-40-languages/">How to Build a Code Editor with React that Compiles and Executes in 40+ Languages</a></li>
 <li><a href="https://devpost.com/software/litcode">LitCode</a></li>
 <li><a href="https://tantosec.com/blog/judge0/">Judge0 Sandbox Escape</a></li>
+<li><a href="https://kibichomurage.medium.com/building-a-leetcode-clone-backend-462fa1084aa5">Building a Leetcode clone backend</a></li>
 <!-- <li><a href=""></a></li> -->
 </ul>
 
