@@ -472,15 +472,16 @@ These scientific article cite Judge0.
 ## Citation
 Please [cite us](https://ieeexplore.ieee.org/abstract/document/9245310) if you found the resources in this repository useful.
 
-```
+```bibtex
 @INPROCEEDINGS{9245310,
   author={Došilović, Herman Zvonimir and Mekterović, Igor},
-  booktitle={2020 43rd International Convention on Information, Communication and Electronic Technology (MIPRO)},
-  title={Robust and Scalable Online Code Execution System},
+  booktitle={2020 43rd International Convention on Information, Communication and Electronic Technology (MIPRO)}, 
+  title={Robust and Scalable Online Code Execution System}, 
   year={2020},
   volume={},
   number={},
   pages={1627-1632},
+  keywords={Production systems;Operating systems;Systems architecture;Computer architecture;Programming profession;Open source software;Recruitment;online code execution system;online judge system;untrusted code execution},
   doi={10.23919/MIPRO48935.2020.9245310}}
 ```
 
