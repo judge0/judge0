@@ -14,6 +14,7 @@ Robust, scalable, and open-source online code execution system.
 * [Flavors](#flavors)
 * [Supported Languages](#supported-languages)
 * [References](#references)
+* [Showcase](#showcase)
 * [Citation](#citation)
 * [Community](#community)
 * [Author and Contributors](#author-and-contributors)
@@ -360,10 +361,10 @@ Judge0 comes in two flavors: [Judge0 CE](https://judge0.com/ce) and [Judge0 Extr
 ## References
 
 ### Industry
-[These companies, institutions and organizations use Judge0.](https://judge0.com/#clients)
+[These companies, institutions, and organizations use Judge0.](https://judge0.com/#clients)
 
 ### Academia
-These scientific article cite Judge0.
+These scientific articles cite Judge0.
 
 * [A Game-Changing Instructor Tool to Reinforce Coding Concepts](https://dl.acm.org/doi/10.1145/3328778.3372610)
 * [A ML-Based Stock Trading Model for Profit Predication](https://www.researchgate.net/publication/353328644_A_ML-Based_Stock_Trading_Model_for_Profit_Predication)
@@ -470,9 +471,9 @@ These scientific article cite Judge0.
 </ul>
 
 ## Showcase
-<ul>
-  <li><a href="https://leetcode-clone-liard.vercel.app/" target="_blank">Leetcode clone using Judge0 API's</a></li>
-</ul>
+These open-source projects are using Judge0. You can add yours as well by creating a PR.
+
+* [LeetCode clone by Kartik Joshi](https://github.com/kdj309/leetcode-clone)
 
 ## Citation
 Please [cite us](https://ieeexplore.ieee.org/abstract/document/9245310) if you found the resources in this repository useful.
@@ -487,11 +488,12 @@ Please [cite us](https://ieeexplore.ieee.org/abstract/document/9245310) if you f
   number={},
   pages={1627-1632},
   keywords={Production systems;Operating systems;Systems architecture;Computer architecture;Programming profession;Open source software;Recruitment;online code execution system;online judge system;untrusted code execution},
-  doi={10.23919/MIPRO48935.2020.9245310}}
+  doi={10.23919/MIPRO48935.2020.9245310}
+}
 ```
 
 ## Community
-Do you have a question, feature request, or something else on your mind? Or you want to follow Judge0 news?
+Do you have a question, feature request, or something else on your mind? Or do you want to follow Judge0 news?
 
 * [Subscribe to Judge0 newsletter](https://subscribe.judge0.com)
 * [Join our Discord server](https://discord.gg/GRc3v6n)
@@ -503,7 +505,7 @@ Do you have a question, feature request, or something else on your mind? Or you 
 ## Author and Contributors
 Judge0 was created and is maintained by [Herman Zvonimir Došilović](https://hermanz.dosilovic.com).
 
-Thanks a lot to all [contributors](https://github.com/judge0/judge0/graphs/contributors) for their contributions to this project.
+Thanks to all [contributors](https://github.com/judge0/judge0/graphs/contributors) for contributing to this project.
 
 <a href="https://github.com/judge0/judge0/graphs/contributors">
   <img src="https://contributors-img.web.app/image?repo=judge0/judge0" />
