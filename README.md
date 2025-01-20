@@ -474,8 +474,8 @@ These scientific articles cite Judge0.
 These open-source projects are using Judge0. You can add yours as well by creating a PR.
 
 * [LeetCode clone by Kartik Joshi](https://github.com/kdj309/leetcode-clone)
-* [Competitive Coding Portal Backend](https://github.com/CodeChefVIT/cookoff-9.0-backend)
-* [Competitive Coding Portal Frontend](https://github.com/CodeChefVIT/cookoff-portal-9.0)
+* [Competitive Coding Portal by CodeChefVIT](https://github.com/CodeChefVIT/cookoff-9.0-backend)
+* [Codeforces Lite by Maanas Sehgal](https://github.com/MaanasSehgal/Codeforces-Lite)
 
 ## Citation
 Please [cite us](https://ieeexplore.ieee.org/abstract/document/9245310) if you found the resources in this repository useful.
