@@ -467,6 +467,7 @@ These scientific articles cite Judge0.
 <li><a href="https://dev.to/nilmadhabmondal/let-s-deploy-our-online-code-executor-in-google-cloud-41b0">Let’s Deploy our Online Code Executor in Google Cloud</a></li>
 <li><a href="https://github.com/MelloB1989/judge0.k8s">Judge0 on AKS Cluster Setup</a></li>
 <li><a href="https://integratedcybersecurity.ai/excellent-online-code-editors/">Excellent Online Code Editors</a></li>
+<li><a href="https://scriptedsynapses.substack.com/p/weak-control">Weak Control - Measuring the performance gap in Trusted Editing</a></li>
 <!-- <li><a href=""></a></li> -->
 </ul>
 
