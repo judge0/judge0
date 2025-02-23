@@ -47,14 +47,16 @@ To see Judge0 in action, try [Judge0 IDE](https://ide.judge0.com) - our free and
 For more information about these and other features, please [read the documentation](https://ce.judge0.com).
 
 ## Get Started
-Feel free to start with the [**FREE Basic Plan**](https://judge0.com/ce) on RapidAPI or [host it yourself](https://github.com/judge0/judge0/blob/master/CHANGELOG.md#deployment-procedure).
+Get started with Judge0 today on [**Sulu**](https://sparkhub.sulu.sh/apis/judge0/judge0-ce/readme) and get [**20K Free Submissions**](https://sparkhub.sulu.sh/auth/signup) to try it when you sign up.
+
+You can also get started with the [**FREE Basic Plan**](https://judge0.com/ce) on RapidAPI or [host it yourself](https://github.com/judge0/judge0/blob/master/CHANGELOG.md#deployment-procedure).
 
 You can find our detailed plans and pricing [here](https://judge0.com/#pricing). So far our clients have run with us more than ![](https://img.shields.io/endpoint?color=2185d0&style=flat-square&url=https%3A%2F%2Fjudge0.com%2Fstatistics-badge) programs.
 
-### Why should you use Judge0 on RapidAPI?
+### Why should you use Judge0 on Sulu or RapidAPI?
 Our infrastructure allows you to **focus on building your product** and forget about the know-how of maintaining and scaling Judge0.
 
-### RapidAPI plans are not (good) enough for you?
+### Sulu or RapidAPI plans are not (good) enough for you?
 Let's talk. [Contact us](mailto:contact@judge0.com).
 
 ## Flavors
@@ -62,7 +64,7 @@ Judge0 comes in two flavors: [Judge0 CE](https://judge0.com/ce) and [Judge0 Extr
 
 You can find the source code for Judge0 CE on the [`master`](https://github.com/judge0/judge0/tree/master) branch, while you can find the source code for Judge0 Extra CE on the [`extra`](https://github.com/judge0/judge0/tree/extra) branch.
 
-Judge0 Extra CE is also available on [RapidAPI](https://judge0.com/extra-ce).
+Judge0 Extra CE is also available on [Sulu](https://judge0.com/extra-ce) and [RapidAPI](https://judge0.com/extra-ce).
 
 ## Supported Languages
 Judge0 comes in two flavors: [Judge0 CE](https://judge0.com/ce) and [Judge0 Extra CE](https://judge0.com/extra-ce). They differ mostly in the [supported languages](#supported-languages).
