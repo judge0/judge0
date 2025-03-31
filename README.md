@@ -428,6 +428,7 @@ These scientific articles cite Judge0.
 * [ПОЯСНЮВАЛЬНА ЗАПИСКА ДО БАКАЛАВРСЬКОЇ РОБОТИ на тему ТРЕНАЖЕР З ТЕМИ «ПОБУДОВА БЛОК-СХЕМ АЛГОРИТМІВ ЦИКЛІЧНОЇ СТРУКТУРИ НА ПРИКЛАДІ ЦИКЛУ WHILE» ДИСТАНЦІЙНОГО НАВЧАЛЬНОГО КУРСУ «ПРОГРАМУВАННЯ ІІ» ТА РОЗРОБКА ЙОГО ПРОГРАМНОГО ЗАБЕЗПЕЧЕННЯ](http://dspace.puet.edu.ua/handle/123456789/11371)
 * [Платформа для спільної роботи викладача та студента під час іспиту](https://ela.kpi.ua/handle/123456789/31297)
 * [Розробка структури та програмна реалізація інтерфейсу WEB-редактора](http://dp.knute.edu.ua/jspui/bitstream/123456789/8142/1/%D0%92%D0%9A%D0%A0_%D0%9A%D0%BE%D0%B2%D1%82%D1%83%D0%BD_%D0%A4%D0%86%D0%A2%20%204-10.pdf)
+* [Designing a Platform to Train Secure Programming Skills With Attack-and-Defend Exercises](https://people.cs.vt.edu/tilevich/papers/educon2025.pdf)
 
 ### Other Online References
 <ul>
@@ -484,8 +485,8 @@ Please [cite us](https://ieeexplore.ieee.org/abstract/document/9245310) if you f
 ```bibtex
 @INPROCEEDINGS{9245310,
   author={Došilović, Herman Zvonimir and Mekterović, Igor},
-  booktitle={2020 43rd International Convention on Information, Communication and Electronic Technology (MIPRO)}, 
-  title={Robust and Scalable Online Code Execution System}, 
+  booktitle={2020 43rd International Convention on Information, Communication and Electronic Technology (MIPRO)},
+  title={Robust and Scalable Online Code Execution System},
   year={2020},
   volume={},
   number={},
