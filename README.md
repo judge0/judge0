@@ -389,6 +389,7 @@ These scientific articles cite Judge0.
 * [Dataset for Validation and Performance Testing of Online Judges](https://revistas.setrem.com.br/index.php/reabtic/article/view/462/225)
 * [Desarrollo de una plataforma orientada al refuerzo en la evaluación del nivel de programación](https://oa.upm.es/63124/)
 * [Desenvolvimento de um software Web para auxiliar o processo de ensino-aprendizagem da disciplina de Introdução à Ciência da Computação (ICC) da UNESP - Instituto de Ciência e Tecnologia de Sorocaba](https://repositorio.unesp.br/items/145d27dd-354b-45ee-b465-ef9e9b25d03f)
+* [Designing a Platform to Train Secure Programming Skills With Attack-and-Defend Exercises](https://people.cs.vt.edu/tilevich/papers/educon2025.pdf)
 * [Development of a System for Automated Testing of Program Code for the Educational Process in the Discipline "Programming Languages](https://geosib.sgugit.ru/upload/geosibir/sborniki/2023/tom-7-1/164-171.pdf)
 * [ECCO: Can We Improve Model-Generated Code Efficiency Without Sacrificing Functional Correctness?](https://arxiv.org/abs/2407.14044)
 * [Evaluation of an Online Judge for Concurrent Programming Learning](https://ieeexplore.ieee.org/abstract/document/10346201)
@@ -403,6 +404,7 @@ These scientific articles cite Judge0.
 * [Nacionalni repozitorij završnih i diplomskih radova ZIR](https://zir.nsk.hr/islandora/search/dabar_search_keywords_mt:(%22Judge0%22))
 * [Online Automatic Assessment System for Program Code: Architecture and Experiences](https://www.researchgate.net/publication/353329318_Online_Automatic_Assessment_System_for_Program_Code_Architecture_and_Experiences)
 * [Online Judge System: Requirements, Architecture, and Experiences](https://www.worldscientific.com/doi/10.1142/S0218194022500346)
+* [PEERLINK: A Comprehensive Collaborative Platform](https://ijsrset.com/index.php/home/article/view/IJSRSET25122209)
 * [PERSSISTANT: A Progress Estimation System to Personalize Learning Trajectories](https://documentserver.uhasselt.be/handle/1942/44162)
 * [Pengembangan Sistem Manajemen Evaluasi Pembelajaran Terintegrasi Dengan Online Judge](https://journals.upi-yai.ac.id/index.php/ikraith-informatika/article/view/1405)
 * [Predviđanje uspjeha studenata u sustavu za automatsko ocjenjivanje programskog kôda Edgar](https://repozitorij.unizg.hr/islandora/object/fer:12103)
@@ -428,7 +430,6 @@ These scientific articles cite Judge0.
 * [ПОЯСНЮВАЛЬНА ЗАПИСКА ДО БАКАЛАВРСЬКОЇ РОБОТИ на тему ТРЕНАЖЕР З ТЕМИ «ПОБУДОВА БЛОК-СХЕМ АЛГОРИТМІВ ЦИКЛІЧНОЇ СТРУКТУРИ НА ПРИКЛАДІ ЦИКЛУ WHILE» ДИСТАНЦІЙНОГО НАВЧАЛЬНОГО КУРСУ «ПРОГРАМУВАННЯ ІІ» ТА РОЗРОБКА ЙОГО ПРОГРАМНОГО ЗАБЕЗПЕЧЕННЯ](http://dspace.puet.edu.ua/handle/123456789/11371)
 * [Платформа для спільної роботи викладача та студента під час іспиту](https://ela.kpi.ua/handle/123456789/31297)
 * [Розробка структури та програмна реалізація інтерфейсу WEB-редактора](http://dp.knute.edu.ua/jspui/bitstream/123456789/8142/1/%D0%92%D0%9A%D0%A0_%D0%9A%D0%BE%D0%B2%D1%82%D1%83%D0%BD_%D0%A4%D0%86%D0%A2%20%204-10.pdf)
-* [Designing a Platform to Train Secure Programming Skills With Attack-and-Defend Exercises](https://people.cs.vt.edu/tilevich/papers/educon2025.pdf)
 
 ### Other Online References
 <ul>
