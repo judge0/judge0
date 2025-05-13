@@ -386,6 +386,7 @@ These scientific articles cite Judge0.
 * [Code Verse](https://www.researchgate.net/publication/381988455_Code_Verse)
 * [CodeCoach: An Interactive ProgrammingAssistance Tool](https://www.researchgate.net/publication/376610279_CodeCoach_An_Interactive_ProgrammingAssistance_Tool)
 * [Computing students’ design preferences and barriers when solving short programming problems](https://peer.asee.org/computing-students-design-preferences-and-barriers-when-solving-short-programming-problems)
+* [Creating a Platform for Competitive Programming Training with Integration of Automatic Decision Checking System](https://www.researchgate.net/publication/391464412_Creating_a_Platform_for_Competitive_Programming_Training_with_Integration_of_Automatic_Decision_Checking_System)
 * [Dataset for Validation and Performance Testing of Online Judges](https://revistas.setrem.com.br/index.php/reabtic/article/view/462/225)
 * [Desarrollo de una plataforma orientada al refuerzo en la evaluación del nivel de programación](https://oa.upm.es/63124/)
 * [Desenvolvimento de um software Web para auxiliar o processo de ensino-aprendizagem da disciplina de Introdução à Ciência da Computação (ICC) da UNESP - Instituto de Ciência e Tecnologia de Sorocaba](https://repositorio.unesp.br/items/145d27dd-354b-45ee-b465-ef9e9b25d03f)
