@@ -371,4 +371,11 @@
     source_file: "script.py",
     run_cmd: "/usr/local/python-3.10.4/bin/python3 script.py"
   },
+  {
+    id: 3000,
+    name: "HDL (Nand2Tetris)",
+    is_archived: false,
+    source_file: "main.hdl",
+    run_cmd: "nand2tetris run main.hdl"
+  }
 ]
