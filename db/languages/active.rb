@@ -156,13 +156,6 @@
     run_cmd: "/usr/local/openjdk13/bin/java Main"
   },
   {
-    id: 63,
-    name: "JavaScript (Node.js 12.14.0)",
-    is_archived: false,
-    source_file: "script.js",
-    run_cmd: "/usr/local/node-12.14.0/bin/node script.js"
-  },
-  {
     id: 64,
     name: "Lua (5.3.5)",
     is_archived: false,
@@ -359,10 +352,10 @@
   },
   {
     id: 1999,
-    name: "JavaScript (Node.js 18.15.0)",
+    name: "JavaScript (Node.js 20.9.0)",
     is_archived: false,
     source_file: "script.js",
-    run_cmd: "NODE_PATH='/usr/local/node-18.15.0/lib/node_modules' /usr/local/node-18.15.0/bin/node script.js"
+    run_cmd: "NODE_PATH='/usr/local/node-20.9.0/lib/node_modules' /usr/local/node-20.9.0/bin/node script.js"
   },
   {
     id: 2000,
