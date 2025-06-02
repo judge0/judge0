@@ -369,6 +369,6 @@
     name: "HDL (Nand2Tetris)",
     is_archived: false,
     source_file: "main.hdl",
-    run_cmd: "/usr/local/bin/nand2tetris run main.hdl"
+    run_cmd: "/usr/local/node-20.9.0/bin/nand2tetris run main.hdl"
   }
 ]
