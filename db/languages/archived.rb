@@ -320,5 +320,12 @@
     source_file: "main.rs",
     compile_cmd: "/usr/local/rust-1.20.0/bin/rustc %s main.rs",
     run_cmd: "./main"
+  },
+  {
+    id: 63,
+    name: "JavaScript (Node.js 12.14.0)",
+    is_archived: false,
+    source_file: "script.js",
+    run_cmd: "/usr/local/node-12.14.0/bin/node script.js"
   }
 ]

@@ -156,13 +156,6 @@
     run_cmd: "/usr/local/openjdk13/bin/java Main"
   },
   {
-    id: 63,
-    name: "JavaScript (Node.js 12.14.0)",
-    is_archived: false,
-    source_file: "script.js",
-    run_cmd: "/usr/local/node-12.14.0/bin/node script.js"
-  },
-  {
     id: 64,
     name: "Lua (5.3.5)",
     is_archived: false,
@@ -239,11 +232,11 @@
   },
   {
     id: 74,
-    name: "TypeScript (3.7.4)",
+    name: "TypeScript (5.8.3)",
     is_archived: false,
     source_file: "script.ts",
     compile_cmd: "/usr/bin/tsc %s script.ts",
-    run_cmd: "/usr/local/node-12.14.0/bin/node script.js"
+    run_cmd: "/usr/local/node-20.9.0/bin/node script.js"
   },
   {
     id: 75,
@@ -359,10 +352,10 @@
   },
   {
     id: 1999,
-    name: "JavaScript (Node.js 18.15.0)",
+    name: "JavaScript (Node.js 20.9.0)",
     is_archived: false,
     source_file: "script.js",
-    run_cmd: "NODE_PATH='/usr/local/node-18.15.0/lib/node_modules' /usr/local/node-18.15.0/bin/node script.js"
+    run_cmd: "NODE_PATH='/usr/local/node-20.9.0/lib/node_modules' /usr/local/node-20.9.0/bin/node script.js"
   },
   {
     id: 2000,
@@ -371,4 +364,11 @@
     source_file: "script.py",
     run_cmd: "/usr/local/python-3.10.4/bin/python3 script.py"
   },
+  {
+    id: 3000,
+    name: "HDL (Nand2Tetris)",
+    is_archived: false,
+    source_file: "main.hdl",
+    run_cmd: "nand2tetris run main.hdl"
+  }
 ]
