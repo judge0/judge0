@@ -370,5 +370,12 @@
     is_archived: false,
     source_file: "main.hdl",
     run_cmd: "nand2tetris run main.hdl"
+  },
+  {
+    id: 3001,
+    name: "MIPS (Mars 4.5)",
+    is_archived: false,
+    source_file: "main.s",
+    run_cmd: "/usr/local/bin/java -jar /usr/local/mars/mars.jar nc main.s"
   }
 ]
