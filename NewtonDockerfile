@@ -1,4 +1,4 @@
-FROM newtonschool/judge0-newton-compiler:0.15 AS production
+FROM newtonschool/judge0-newton-compiler:0.16 AS production
 
 
 ENV JUDGE0_HOMEPAGE "https://judge0-public.newtonschool.co/"
