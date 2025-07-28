@@ -1,4 +1,5 @@
 [![Judge0 Wallpaper](./.github/judge0-colored.png)](https://ce.judge0.com)
+
 # Judge0
 
 [![License](https://img.shields.io/github/license/judge0/judge0?color=2185d0&style=flat-square)](LICENSE)
@@ -8,6 +9,7 @@
 Robust, scalable, and open-source online code execution system.
 
 ## Table of Contents
+
 * [About](#about)
 * [Features](#features)
 * [Get Started](#get-started)
@@ -23,6 +25,7 @@ Robust, scalable, and open-source online code execution system.
 * [License](#license)
 
 ## About
+
 [Judge0](https://judge0.com) (pronounced like "judge zero") is a robust, scalable, and [open-source](https://github.com/judge0/judge0) **online code execution system**. You can use it to build a wide range of applications that need online code execution features. Some examples include competitive programming platforms, e-learning platforms, candidate assessment and recruitment platforms, online code editors, online IDEs, and many more.
 
 In our research paper [Robust and Scalable Online Code Execution System](https://paper.judge0.com), we present Judge0's modern modular architecture that can be easily deployed and scaled. We study its design, comment on the various challenges in building such systems, and compare it with other available online code execution systems and online judge systems.
@@ -30,20 +33,22 @@ In our research paper [Robust and Scalable Online Code Execution System](https:/
 To see Judge0 in action, try [Judge0 IDE](https://ide.judge0.com) - our free and open-source online code editor.
 
 ## Features
-- Quick and easy [installation](https://judge0.com/#pricing)
-- Rich and verbose [API documentation](https://ce.judge0.com)
-- Scalable architecture
-- Sandboxed compilation and execution
-- Support for [60+ languages](#supported-languages)
-- Compilation and execution of multi-file programs
-- Support for additional files alongside the user's program
-- Support for custom user-defined compiler options, command-line arguments, and time and memory limits
-- Detailed execution results
-- Webhooks (HTTP callbacks)
+
+* Quick and easy [installation](https://judge0.com/#pricing)
+* Rich and verbose [API documentation](https://ce.judge0.com)
+* Scalable architecture
+* Sandboxed compilation and execution
+* Support for [60+ languages](#supported-languages)
+* Compilation and execution of multi-file programs
+* Support for additional files alongside the user's program
+* Support for custom user-defined compiler options, command-line arguments, and time and memory limits
+* Detailed execution results
+* Webhooks (HTTP callbacks)
 
 For more information about these and other features, please [read the documentation](https://ce.judge0.com).
 
 ## Get Started
+
 Get started with Judge0 today on [**Sulu**](https://sparkhub.sulu.sh/apis/judge0/judge0-ce/readme) and get [**20K Free Submissions**](https://sparkhub.sulu.sh/auth/signup) to try it when you sign up.
 
 You can also get started with the [**FREE Basic Plan**](https://judge0.com/ce) on RapidAPI or [host it yourself](https://github.com/judge0/judge0/blob/master/CHANGELOG.md#deployment-procedure).
@@ -51,12 +56,15 @@ You can also get started with the [**FREE Basic Plan**](https://judge0.com/ce) o
 You can find our detailed plans and pricing [here](https://judge0.com/#pricing). So far our clients have run with us more than ![](https://img.shields.io/endpoint?color=2185d0&style=flat-square&url=https%3A%2F%2Fjudge0.com%2Fstatistics-badge) programs.
 
 ### Why should you use Judge0 on Sulu or RapidAPI?
+
 Our infrastructure allows you to **focus on building your product** and forget about the know-how of maintaining and scaling Judge0.
 
 ### Sulu or RapidAPI plans are not (good) enough for you?
+
 Let's talk. [Contact us](mailto:contact@judge0.com).
 
 ## Flavors
+
 Judge0 comes in two flavors: [Judge0 CE](https://judge0.com/ce) and [Judge0 Extra CE](https://judge0.com/extra-ce). They differ mostly in the [supported languages](#supported-languages).
 
 You can find the source code for Judge0 CE on the [`master`](https://github.com/judge0/judge0/tree/master) branch, while you can find the source code for Judge0 Extra CE on the [`extra`](https://github.com/judge0/judge0/tree/extra) branch.
@@ -64,9 +72,11 @@ You can find the source code for Judge0 CE on the [`master`](https://github.com/
 Judge0 Extra CE is also available on [Sulu](https://judge0.com/extra-ce) and [RapidAPI](https://judge0.com/extra-ce).
 
 ## Supported Languages
+
 Judge0 comes in two flavors: [Judge0 CE](https://judge0.com/ce) and [Judge0 Extra CE](https://judge0.com/extra-ce). They differ mostly in the [supported languages](#supported-languages).
 
 ### [Judge0 CE](https://judge0.com/ce)
+
 <details><summary>Click here to expand the list</summary>
 <table>
 <thead>
@@ -265,6 +275,7 @@ Judge0 comes in two flavors: [Judge0 CE](https://judge0.com/ce) and [Judge0 Extr
 </details>
 
 ### [Judge0 Extra CE](https://judge0.com/extra-ce)
+
 <details><summary>Click here to expand the list</summary>
 <table>
 <thead>
@@ -361,9 +372,11 @@ Judge0 comes in two flavors: [Judge0 CE](https://judge0.com/ce) and [Judge0 Extr
 ## References
 
 ### Industry
+
 [These companies, institutions, and organizations use Judge0.](https://judge0.com/#clients)
 
 ### Academia
+
 These scientific articles cite Judge0.
 
 * [A Game-Changing Instructor Tool to Reinforce Coding Concepts](https://dl.acm.org/doi/10.1145/3328778.3372610)
@@ -433,6 +446,7 @@ These scientific articles cite Judge0.
 * [Розробка структури та програмна реалізація інтерфейсу WEB-редактора](http://dp.knute.edu.ua/jspui/bitstream/123456789/8142/1/%D0%92%D0%9A%D0%A0_%D0%9A%D0%BE%D0%B2%D1%82%D1%83%D0%BD_%D0%A4%D0%86%D0%A2%20%204-10.pdf)
 
 ### Other Online References
+
 <ul>
 <li><a href="https://tianpan.co/notes/243-designing-online-judge-or-leetcode">Designing Online Judge or Leetcode</a></li>
 <li><a href="https://medium.com/@akashgp09/make-your-own-online-compiler-in-react-%EF%B8%8F-b06bc29dd202">Make your own online compiler in React</a></li>
@@ -475,6 +489,7 @@ These scientific articles cite Judge0.
 </ul>
 
 ## Showcase
+
 These open-source projects are using Judge0. You can add yours as well by creating a PR.
 
 * [LeetCode clone by Kartik Joshi](https://github.com/kdj309/leetcode-clone)
@@ -482,6 +497,7 @@ These open-source projects are using Judge0. You can add yours as well by creati
 * [Codeforces Lite by Maanas Sehgal](https://github.com/MaanasSehgal/Codeforces-Lite)
 
 ## Citation
+
 Please [cite us](https://ieeexplore.ieee.org/abstract/document/9245310) if you found the resources in this repository useful.
 
 ```bibtex
@@ -499,6 +515,7 @@ Please [cite us](https://ieeexplore.ieee.org/abstract/document/9245310) if you f
 ```
 
 ## Community
+
 Do you have a question, feature request, or something else on your mind? Or do you want to follow Judge0 news?
 
 * [Subscribe to Judge0 newsletter](https://subscribe.judge0.com)
@@ -509,6 +526,7 @@ Do you have a question, feature request, or something else on your mind? Or do y
 * [Schedule an online meeting with us](https://meet.judge0.com)
 
 ## Author and Contributors
+
 Judge0 was created and is maintained by [Herman Zvonimir Došilović](https://hermanz.dosilovic.com).
 
 Thanks to all [contributors](https://github.com/judge0/judge0/graphs/contributors) for contributing to this project.
@@ -518,10 +536,13 @@ Thanks to all [contributors](https://github.com/judge0/judge0/graphs/contributor
 </a>
 
 ## Changelog
+
 You can find the detailed specification of changes between versions in [CHANGELOG.md](CHANGELOG.md).
 
 ## Special Thanks
+
 Special thanks to open-source projects without whom Judge0 probably wouldn't exist: [Isolate](https://github.com/ioi/isolate), [Docker](https://github.com/docker), [Ruby on Rails](https://github.com/rails/rails) and others.
 
 ## License
+
 Judge0 is licensed under the [GNU General Public License v3.0](LICENSE).
