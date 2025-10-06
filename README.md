@@ -1,12 +1,11 @@
-[![Judge0 Wallpaper](./.github/judge0-colored.png)](https://ce.judge0.com)
+[![Judge0 Wallpaper](./.github/Judge0%20Wallpaper%2002%20Center%20White%208192x4609.png)](https://judge0.com)
 
 # Judge0
-
 [![License](https://img.shields.io/github/license/judge0/judge0?color=2185d0&style=flat-square)](LICENSE)
 [![Release](https://img.shields.io/github/v/release/judge0/judge0?color=2185d0&style=flat-square)](https://github.com/judge0/judge0/releases)
 [![Stars](https://img.shields.io/github/stars/judge0/judge0?color=2185d0&style=flat-square)](https://github.com/judge0/judge0/stargazers)
 
-Robust, scalable, and open-source online code execution system.
+Code execution made simple for every business. Robust, scalable, and open-source online code execution system.
 
 ## Table of Contents
 
@@ -14,7 +13,6 @@ Robust, scalable, and open-source online code execution system.
 * [Features](#features)
 * [Get Started](#get-started)
 * [Flavors](#flavors)
-* [Supported Languages](#supported-languages)
 * [References](#references)
 * [Showcase](#showcase)
 * [Citation](#citation)
@@ -26,7 +24,7 @@ Robust, scalable, and open-source online code execution system.
 
 ## About
 
-[Judge0](https://judge0.com) (pronounced like "judge zero") is a robust, scalable, and [open-source](https://github.com/judge0/judge0) **online code execution system**. You can use it to build a wide range of applications that need online code execution features. Some examples include competitive programming platforms, e-learning platforms, candidate assessment and recruitment platforms, online code editors, online IDEs, and many more.
+[Judge0](https://judge0.com) (pronounced like "judge zero") is a robust, scalable, and [open-source](https://github.com/judge0/judge0) **online code execution system**. You can use it to build a wide range of applications that need online code execution features. Some examples include AI agents, competitive programming platforms, e-learning platforms, candidate assessment and recruitment platforms, online code editors, online IDEs, and many more.
 
 In our research paper [Robust and Scalable Online Code Execution System](https://paper.judge0.com), we present Judge0's modern modular architecture that can be easily deployed and scaled. We study its design, comment on the various challenges in building such systems, and compare it with other available online code execution systems and online judge systems.
 
@@ -38,7 +36,7 @@ To see Judge0 in action, try [Judge0 IDE](https://ide.judge0.com) - our free and
 * Rich and verbose [API documentation](https://ce.judge0.com)
 * Scalable architecture
 * Sandboxed compilation and execution
-* Support for [60+ languages](#supported-languages)
+* Support for 60+ languages
 * Compilation and execution of multi-file programs
 * Support for additional files alongside the user's program
 * Support for custom user-defined compiler options, command-line arguments, and time and memory limits
@@ -49,325 +47,27 @@ For more information about these and other features, please [read the documentat
 
 ## Get Started
 
-Get started with Judge0 today on [**Sulu**](https://sparkhub.sulu.sh/apis/judge0/judge0-ce/readme) and get [**20K Free Submissions**](https://sparkhub.sulu.sh/auth/signup) to try it when you sign up.
+Get started with Judge0 on [**Sulu**](https://platform.sulu.sh/apis/judge0).
 
-You can also get started with the [**FREE Basic Plan**](https://judge0.com/ce) on RapidAPI or [host it yourself](https://github.com/judge0/judge0/blob/master/CHANGELOG.md#deployment-procedure).
+You can also get started with the [**FREE Basic Plan**](https://rapidapi.com/organization/judge0) on Rapid or [host it yourself](https://github.com/judge0/judge0/blob/master/CHANGELOG.md#deployment-procedure).
 
-You can find our detailed plans and pricing [here](https://judge0.com/#pricing). So far our clients have run with us more than ![](https://img.shields.io/endpoint?color=2185d0&style=flat-square&url=https%3A%2F%2Fjudge0.com%2Fstatistics-badge) programs.
+You can find our detailed plans and pricing [here](https://judge0.com/#pricing).
 
 ### Why should you use Judge0 on Sulu or RapidAPI?
 
 Our infrastructure allows you to **focus on building your product** and forget about the know-how of maintaining and scaling Judge0.
 
-### Sulu or RapidAPI plans are not (good) enough for you?
+### Sulu or Rapid plans are not (good) enough for you?
 
 Let's talk. [Contact us](mailto:contact@judge0.com).
 
 ## Flavors
 
-Judge0 comes in two flavors: [Judge0 CE](https://judge0.com/ce) and [Judge0 Extra CE](https://judge0.com/extra-ce). They differ mostly in the [supported languages](#supported-languages).
+Judge0 comes in two flavors: [Judge0 CE](https://rapidapi.com/judge0-official/api/judge0-ce) and [Judge0 Extra CE](https://rapidapi.com/judge0-official/api/judge0-extra-ce). They differ mostly in the supported languages.
 
-You can find the source code for Judge0 CE on the [`master`](https://github.com/judge0/judge0/tree/master) branch, while you can find the source code for Judge0 Extra CE on the [`extra`](https://github.com/judge0/judge0/tree/extra) branch.
+You can find the source code for Judge0 CE on the `master` branch, while you can find the source code for Judge0 Extra CE on the `extra` branch.
 
-Judge0 Extra CE is also available on [Sulu](https://judge0.com/extra-ce) and [RapidAPI](https://judge0.com/extra-ce).
-
-## Supported Languages
-
-Judge0 comes in two flavors: [Judge0 CE](https://judge0.com/ce) and [Judge0 Extra CE](https://judge0.com/extra-ce). They differ mostly in the [supported languages](#supported-languages).
-
-### [Judge0 CE](https://judge0.com/ce)
-
-<details><summary>Click here to expand the list</summary>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">#</th>
-<th style="text-align:center">Name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">Assembly (NASM 2.14.02)</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">Bash (5.0.0)</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">Basic (FBC 1.07.1)</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">C (Clang 7.0.1)</td>
-</tr>
-<tr>
-<td style="text-align:center">5</td>
-<td style="text-align:center">C (GCC 7.4.0)</td>
-</tr>
-<tr>
-<td style="text-align:center">6</td>
-<td style="text-align:center">C (GCC 8.3.0)</td>
-</tr>
-<tr>
-<td style="text-align:center">7</td>
-<td style="text-align:center">C (GCC 9.2.0)</td>
-</tr>
-<tr>
-<td style="text-align:center">8</td>
-<td style="text-align:center">C# (Mono 6.6.0.161)</td>
-</tr>
-<tr>
-<td style="text-align:center">9</td>
-<td style="text-align:center">C++ (Clang 7.0.1)</td>
-</tr>
-<tr>
-<td style="text-align:center">10</td>
-<td style="text-align:center">C++ (GCC 7.4.0)</td>
-</tr>
-<tr>
-<td style="text-align:center">11</td>
-<td style="text-align:center">C++ (GCC 8.3.0)</td>
-</tr>
-<tr>
-<td style="text-align:center">12</td>
-<td style="text-align:center">C++ (GCC 9.2.0)</td>
-</tr>
-<tr>
-<td style="text-align:center">13</td>
-<td style="text-align:center">Clojure (1.10.1)</td>
-</tr>
-<tr>
-<td style="text-align:center">14</td>
-<td style="text-align:center">COBOL (GnuCOBOL 2.2)</td>
-</tr>
-<tr>
-<td style="text-align:center">15</td>
-<td style="text-align:center">Common Lisp (SBCL 2.0.0)</td>
-</tr>
-<tr>
-<td style="text-align:center">16</td>
-<td style="text-align:center">D (DMD 2.089.1)</td>
-</tr>
-<tr>
-<td style="text-align:center">17</td>
-<td style="text-align:center">Elixir (1.9.4)</td>
-</tr>
-<tr>
-<td style="text-align:center">18</td>
-<td style="text-align:center">Erlang (OTP 22.2)</td>
-</tr>
-<tr>
-<td style="text-align:center">19</td>
-<td style="text-align:center">Executable</td>
-</tr>
-<tr>
-<td style="text-align:center">20</td>
-<td style="text-align:center">F# (.NET Core SDK 3.1.202)</td>
-</tr>
-<tr>
-<td style="text-align:center">21</td>
-<td style="text-align:center">Fortran (GFortran 9.2.0)</td>
-</tr>
-<tr>
-<td style="text-align:center">22</td>
-<td style="text-align:center">Go (1.13.5)</td>
-</tr>
-<tr>
-<td style="text-align:center">23</td>
-<td style="text-align:center">Groovy (3.0.3)</td>
-</tr>
-<tr>
-<td style="text-align:center">24</td>
-<td style="text-align:center">Haskell (GHC 8.8.1)</td>
-</tr>
-<tr>
-<td style="text-align:center">25</td>
-<td style="text-align:center">Java (OpenJDK 13.0.1)</td>
-</tr>
-<tr>
-<td style="text-align:center">26</td>
-<td style="text-align:center">JavaScript (Node.js 12.14.0)</td>
-</tr>
-<tr>
-<td style="text-align:center">27</td>
-<td style="text-align:center">Kotlin (1.3.70)</td>
-</tr>
-<tr>
-<td style="text-align:center">28</td>
-<td style="text-align:center">Lua (5.3.5)</td>
-</tr>
-<tr>
-<td style="text-align:center">29</td>
-<td style="text-align:center">Objective-C (Clang 7.0.1)</td>
-</tr>
-<tr>
-<td style="text-align:center">30</td>
-<td style="text-align:center">OCaml (4.09.0)</td>
-</tr>
-<tr>
-<td style="text-align:center">31</td>
-<td style="text-align:center">Octave (5.1.0)</td>
-</tr>
-<tr>
-<td style="text-align:center">32</td>
-<td style="text-align:center">Pascal (FPC 3.0.4)</td>
-</tr>
-<tr>
-<td style="text-align:center">33</td>
-<td style="text-align:center">Perl (5.28.1)</td>
-</tr>
-<tr>
-<td style="text-align:center">34</td>
-<td style="text-align:center">PHP (7.4.1)</td>
-</tr>
-<tr>
-<td style="text-align:center">35</td>
-<td style="text-align:center">Plain Text</td>
-</tr>
-<tr>
-<td style="text-align:center">36</td>
-<td style="text-align:center">Prolog (GNU Prolog 1.4.5)</td>
-</tr>
-<tr>
-<td style="text-align:center">37</td>
-<td style="text-align:center">Python (2.7.17)</td>
-</tr>
-<tr>
-<td style="text-align:center">38</td>
-<td style="text-align:center">Python (3.8.1)</td>
-</tr>
-<tr>
-<td style="text-align:center">39</td>
-<td style="text-align:center">R (4.0.0)</td>
-</tr>
-<tr>
-<td style="text-align:center">40</td>
-<td style="text-align:center">Ruby (2.7.0)</td>
-</tr>
-<tr>
-<td style="text-align:center">41</td>
-<td style="text-align:center">Rust (1.40.0)</td>
-</tr>
-<tr>
-<td style="text-align:center">42</td>
-<td style="text-align:center">Scala (2.13.2)</td>
-</tr>
-<tr>
-<td style="text-align:center">43</td>
-<td style="text-align:center">SQL (SQLite 3.27.2)</td>
-</tr>
-<tr>
-<td style="text-align:center">44</td>
-<td style="text-align:center">Swift (5.2.3)</td>
-</tr>
-<tr>
-<td style="text-align:center">45</td>
-<td style="text-align:center">TypeScript (3.7.4)</td>
-</tr>
-<tr>
-<td style="text-align:center">46</td>
-<td style="text-align:center">Visual Basic<span>.</span>Net (vbnc 0.0.0.5943)</td>
-</tr>
-</tbody>
-</table>
-</details>
-
-### [Judge0 Extra CE](https://judge0.com/extra-ce)
-
-<details><summary>Click here to expand the list</summary>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">#</th>
-<th style="text-align:center">Name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">Bosque (latest)</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">C (Clang 10.0.1)</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">C (Clang 9.0.1)</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">C# (.NET Core SDK 3.1.302)</td>
-</tr>
-<tr>
-<td style="text-align:center">5</td>
-<td style="text-align:center">C# (Mono 6.10.0.104)</td>
-</tr>
-<tr>
-<td style="text-align:center">6</td>
-<td style="text-align:center">C# Test (.NET Core SDK 3.1.302, NUnit 3.12.0)</td>
-</tr>
-<tr>
-<td style="text-align:center">7</td>
-<td style="text-align:center">C++ (Clang 10.0.1)</td>
-</tr>
-<tr>
-<td style="text-align:center">8</td>
-<td style="text-align:center">C++ (Clang 9.0.1)</td>
-</tr>
-<tr>
-<td style="text-align:center">9</td>
-<td style="text-align:center">C++ Test (Clang 10.0.1, Google Test 1.8.1)</td>
-</tr>
-<tr>
-<td style="text-align:center">10</td>
-<td style="text-align:center">C++ Test (GCC 8.4.0, Google Test 1.8.1)</td>
-</tr>
-<tr>
-<td style="text-align:center">11</td>
-<td style="text-align:center">C3 (latest)</td>
-</tr>
-<tr>
-<td style="text-align:center">12</td>
-<td style="text-align:center">F# (.NET Core SDK 3.1.302)</td>
-</tr>
-<tr>
-<td style="text-align:center">13</td>
-<td style="text-align:center">Java (OpenJDK 14.0.1)</td>
-</tr>
-<tr>
-<td style="text-align:center">14</td>
-<td style="text-align:center">Java Test (OpenJDK 14.0.1, JUnit Platform Console Standalone 1.6.2)</td>
-</tr>
-<tr>
-<td style="text-align:center">15</td>
-<td style="text-align:center">MPI (OpenRTE 3.1.3) with C (GCC 8.4.0)</td>
-</tr>
-<tr>
-<td style="text-align:center">16</td>
-<td style="text-align:center">MPI (OpenRTE 3.1.3) with C++ (GCC 8.4.0)</td>
-</tr>
-<tr>
-<td style="text-align:center">17</td>
-<td style="text-align:center">MPI (OpenRTE 3.1.3) with Python (3.7.7)</td>
-</tr>
-<tr>
-<td style="text-align:center">18</td>
-<td style="text-align:center">Nim (stable)</td>
-</tr>
-<tr>
-<td style="text-align:center">19</td>
-<td style="text-align:center">Python for ML (3.7.7)</td>
-</tr>
-<tr>
-<td style="text-align:center">20</td>
-<td style="text-align:center">Visual Basic<span>.</span>Net (vbnc 0.0.0.5943)</td>
-</tr>
-</tbody>
-</table>
-</details>
+Judge0 Extra CE is also available on [Sulu](https://platform.sulu.sh/apis/judge0/judge0-extra-ce/readme) and [Rapid](https://rapidapi.com/judge0-official/api/judge0-extra-ce).
 
 ## References
 
@@ -387,6 +87,7 @@ These scientific articles cite Judge0.
 * [A comparison between online compilers: A Case Study](https://ieeexplore.ieee.org/document/9797096/)
 * [ADAPTIVE MENTORING WITH IMMEDIATE FEEDBACK FOR THE DEVELOPMENT OF PROGRAMMING SKILLS](https://library.iated.org/view/PEREZROJAS2024ADA)
 * [Advanced lab analysis system using apache spark](https://pubs.aip.org/aip/acp/article/2492/1/030016/2892049)
+* [An Online Judge System in Learning Management System](https://books.google.hr/books?id=KxyLEQAAQBAJ&lpg=PA327&ots=f0nMFB8KtH&lr=lang_en&pg=PA327#v=onepage&q&f=false)
 * [Analiza performansi sustava za udaljeno izvršavanje programskog kôda](https://repozitorij.fer.unizg.hr/islandora/object/fer%3A7913)
 * [Artificial Intelligence and Computer-Supported Collaborative Learning in Programming: A Systematic Mapping Study](http://ref.scielo.org/bmd4hy)
 * [Automatic Evaluation of Student Software Solutions in a Virtualized Environment](https://ieeexplore.ieee.org/document/10159927)
@@ -410,6 +111,7 @@ These scientific articles cite Judge0.
 * [Exploiter le Language Server Protocol pour créer un éditeur de code nomade et ergonomique](https://pure.unamur.be/ws/portalfiles/portal/98847091/2024_LoirS_Memoire.pdf)
 * [Exploring Automated Code Evaluation Systems and Resources for Code Analysis: A Comprehensive Survey](https://arxiv.org/abs/2307.08705)
 * [Full-stack web development for auto-assessment platform](https://dr.ntu.edu.sg/handle/10356/162927)
+* [Future-Proofing Programmers: Optimal Knowledge Tracing for AI-Assisted Personalized Education](https://arxiv.org/abs/2509.23996)
 * [Grid-Coding: An Accessible, Efficient, and Structured Coding Paradigm for Blind and Low-Vision Programmers](https://dl.acm.org/doi/abs/10.1145/3526113.3545620)
 * [JediCode -- A Gamefied Approach to Competitive Coding](https://arxiv.org/abs/2311.10244)
 * [Large Language Models in der Berufsausbildung von IT-Fachkräften]()
@@ -485,6 +187,7 @@ These scientific articles cite Judge0.
 <li><a href="https://github.com/MelloB1989/judge0.k8s">Judge0 on AKS Cluster Setup</a></li>
 <li><a href="https://integratedcybersecurity.ai/excellent-online-code-editors/">Excellent Online Code Editors</a></li>
 <li><a href="https://scriptedsynapses.substack.com/p/weak-control">Weak Control - Measuring the performance gap in Trusted Editing</a></li>
+<li><a href="https://medium.com/@techrox/judge0-deployment-on-aws-elastic-beanstalk-linux-2-a-developers-lifesaver-3b7aaf4662b8">Judge0 Deployment on AWS Elastic Beanstalk Linux 2: A Developer’s Lifesaver</a></li>
 <!-- <li><a href=""></a></li> -->
 </ul>
 
@@ -492,9 +195,10 @@ These scientific articles cite Judge0.
 
 These open-source projects are using Judge0. You can add yours as well by creating a PR.
 
-* [LeetCode clone by Kartik Joshi](https://github.com/kdj309/leetcode-clone)
-* [Competitive Coding Portal by CodeChefVIT](https://github.com/CodeChefVIT/cookoff-9.0-backend)
 * [Codeforces Lite by Maanas Sehgal](https://github.com/MaanasSehgal/Codeforces-Lite)
+* [Competitive Coding Portal by CodeChefVIT](https://github.com/CodeChefVIT/cookoff-9.0-backend)
+* [LeetCode clone by Kartik Joshi](https://github.com/kdj309/leetcode-clone)
+* [PyGuide.ai](https://devpost.com/software/pyguide-ai)
 
 ## Citation
 
