@@ -13,6 +13,23 @@ services:
     ports:
       - "2358:2358"
     privileged: true
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=redispass123
+      - POSTGRES_HOST=db
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=judge0
+      - POSTGRES_USER=judge0
+      - POSTGRES_PASSWORD=postgrespass123
+      - SECRET_KEY_BASE=supersecretkey123
+      - RAILS_ENV=production
+      - USE_DOCS_AS_HOMEPAGE=true
+      - ENABLE_WAIT_RESULT=true
+      - AUTHN_HEADER=X-Auth-Token
+      - AUTHN_TOKEN=secret123
+      - AUTHZ_HEADER=X-Auth-User
+      - AUTHZ_TOKEN=admin123
     <<: *default-logging
     restart: always
 
@@ -22,12 +39,26 @@ services:
     volumes:
       - ./judge0.conf:/judge0.conf:ro
     privileged: true
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=redispass123
+      - POSTGRES_HOST=db
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=judge0
+      - POSTGRES_USER=judge0
+      - POSTGRES_PASSWORD=postgrespass123
+      - SECRET_KEY_BASE=supersecretkey123
+      - RAILS_ENV=production
     <<: *default-logging
     restart: always
 
   db:
     image: postgres:16.2
-    env_file: judge0.conf
+    environment:
+      - POSTGRES_DB=judge0
+      - POSTGRES_USER=judge0
+      - POSTGRES_PASSWORD=postgrespass123
     volumes:
       - data:/var/lib/postgresql/data/
     <<: *default-logging
@@ -35,11 +66,7 @@ services:
 
   redis:
     image: redis:7.2.4
-    command: [
-      "bash", "-c",
-      'docker-entrypoint.sh --appendonly no --requirepass "$$REDIS_PASSWORD"'
-    ]
-    env_file: judge0.conf
+    command: ["redis-server", "--requirepass", "redispass123"]
     <<: *default-logging
     restart: always
 
