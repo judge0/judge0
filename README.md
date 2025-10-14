@@ -96,6 +96,7 @@ These scientific articles cite Judge0.
 * [Big Data based Advanced Lab Analysis System using Apache Spark](https://ieeexplore.ieee.org/abstract/document/9489186)
 * [Building a Comprehensive Automated Programming Assessment System](https://ieeexplore.ieee.org/document/9079865)
 * [CODEGEN: A React-Based Online Coding Workspace with Advanced Features and Real-Time Execution](https://www.researchgate.net/publication/386243931_CODEGEN_A_React-Based_Online_Coding_Workspace_with_Advanced_Features_and_Real-Time_Execution)
+* [CURIOSMAZE: plataforma web educativa diseñada como herramienta de refuerzo para evaluar el pensamiento lógico y las competencias en programación, utilizando Judge0 como sistema de ejecución de código, para la Unidad Educativa Juan Pablo II](https://repositorio.puce.edu.ec/items/da89d5a6-6485-4cb9-b87d-e1fd236043f3)
 * [Canvas Coding: una piattaforma di gioco per studenti basata sulla programmazione creativa = Canvas Coding: a gaming platform for students based on creative programming](https://webthesis.biblio.polito.it/29496/)
 * [Code Verse](https://www.researchgate.net/publication/381988455_Code_Verse)
 * [CodeCoach: An Interactive ProgrammingAssistance Tool](https://www.researchgate.net/publication/376610279_CodeCoach_An_Interactive_ProgrammingAssistance_Tool)
