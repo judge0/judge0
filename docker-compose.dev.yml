@@ -6,6 +6,7 @@ services:
       target: development
     volumes:
       - .:/api
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
     ports:
       - "2358:2358"
       - "3001:3001" # For ./scripts/dev/serve-docs
