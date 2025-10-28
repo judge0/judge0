@@ -84,6 +84,7 @@ These scientific articles cite Judge0.
 * [A Secure and Scalable System for Online Code Execution and Evaluation using Containerization and Kubernetes](https://www.jetir.org/papers/JETIR2302226.pdf)
 * [A Secure, Scalable, and Integrated Smart Platform for Teaching and Coding](https://www.taylorfrancis.com/chapters/edit/10.1201/9781032673479-20/secure-scalable-integrated-smart-platform-teaching-coding-mohit-dua-giri-sainath-reddy-ramesh-vishnoi-satyam-tomar-shelza-dua)
 * [A Strategy Based on Technological Maps for the Identification of the State-of-the-Art Techniques in Software Development Projects: Virtual Judge Projects as a Case Study](https://link.springer.com/chapter/10.1007/978-3-319-98998-3_27)
+* [A Survey of Vibe Coding with Large Language Models](https://arxiv.org/abs/2510.12399)
 * [A comparison between online compilers: A Case Study](https://ieeexplore.ieee.org/document/9797096/)
 * [ADAPTIVE MENTORING WITH IMMEDIATE FEEDBACK FOR THE DEVELOPMENT OF PROGRAMMING SKILLS](https://library.iated.org/view/PEREZROJAS2024ADA)
 * [Advanced lab analysis system using apache spark](https://pubs.aip.org/aip/acp/article/2492/1/030016/2892049)
@@ -189,6 +190,7 @@ These scientific articles cite Judge0.
 <li><a href="https://integratedcybersecurity.ai/excellent-online-code-editors/">Excellent Online Code Editors</a></li>
 <li><a href="https://scriptedsynapses.substack.com/p/weak-control">Weak Control - Measuring the performance gap in Trusted Editing</a></li>
 <li><a href="https://medium.com/@techrox/judge0-deployment-on-aws-elastic-beanstalk-linux-2-a-developers-lifesaver-3b7aaf4662b8">Judge0 Deployment on AWS Elastic Beanstalk Linux 2: A Developer’s Lifesaver</a></li>
+<li><a href="https://skywork.ai/skypage/en/judge0-code-execution-ai-agent/1980518601593573376">Judge0 Code Execution MCP Server: Your AI Agent's New Superpower</a></li>
 <!-- <li><a href=""></a></li> -->
 </ul>
 
