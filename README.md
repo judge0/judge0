@@ -90,6 +90,7 @@ These scientific articles cite Judge0.
 * [Advanced lab analysis system using apache spark](https://pubs.aip.org/aip/acp/article/2492/1/030016/2892049)
 * [An Online Judge System in Learning Management System](https://books.google.hr/books?id=KxyLEQAAQBAJ&lpg=PA327&ots=f0nMFB8KtH&lr=lang_en&pg=PA327#v=onepage&q&f=false)
 * [Analiza performansi sustava za udaljeno izvršavanje programskog kôda](https://repozitorij.fer.unizg.hr/islandora/object/fer%3A7913)
+* [Arena Acadnet - An Educational Platform for Practicing and Solving Coding Challenges](https://www.researchgate.net/publication/397088048_Arena_Acadnet_-_An_Educational_Platform_for_Practicing_and_Solving_Coding_Challenges)
 * [Artificial Intelligence and Computer-Supported Collaborative Learning in Programming: A Systematic Mapping Study](http://ref.scielo.org/bmd4hy)
 * [Automatic Evaluation of Student Software Solutions in a Virtualized Environment](https://ieeexplore.ieee.org/document/10159927)
 * [Automatic marking system for programming subject](http://eprints.utar.edu.my/5990/)
