@@ -1,3 +1,8 @@
+# This 'x-logging' block defines a reusable logging configuration.
+# It uses a YAML anchor (&default-logging) so that all services
+# (which use '<<: *default-logging') can share the same settings
+# without repeating the same code.
+
 x-logging:
   &default-logging
   logging:
