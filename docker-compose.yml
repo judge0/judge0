@@ -1,5 +1,4 @@
-x-logging:
-  &default-logging
+x-logging: &default-logging
   logging:
     driver: json-file
     options:
@@ -7,7 +6,7 @@ x-logging:
 
 services:
   server:
-    image: judge0/judge0:latest
+    image: mechaadi/judge0:1.0.0-aarch64
     volumes:
       - ./judge0.conf:/judge0.conf:ro
     ports:
@@ -17,7 +16,7 @@ services:
     restart: always
 
   worker:
-    image: judge0/judge0:latest
+    image: mechaadi/judge0:1.0.0-aarch64
     command: ["./scripts/workers"]
     volumes:
       - ./judge0.conf:/judge0.conf:ro
@@ -35,10 +34,12 @@ services:
 
   redis:
     image: redis:7.2.4
-    command: [
-      "bash", "-c",
-      'docker-entrypoint.sh --appendonly no --requirepass "$$REDIS_PASSWORD"'
-    ]
+    command:
+      [
+        "bash",
+        "-c",
+        'docker-entrypoint.sh --appendonly no --requirepass "$$REDIS_PASSWORD"',
+      ]
     env_file: judge0.conf
     <<: *default-logging
     restart: always
