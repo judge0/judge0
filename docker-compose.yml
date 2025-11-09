@@ -6,7 +6,7 @@ x-logging: &default-logging
 
 services:
   server:
-    image: mechaadi/judge0:1.0.0-aarch64
+    image: mechaadi/judge0:1.4.1-amd64
     volumes:
       - ./judge0.conf:/judge0.conf:ro
     ports:
@@ -16,7 +16,7 @@ services:
     restart: always
 
   worker:
-    image: mechaadi/judge0:1.0.0-aarch64
+    image: mechaadi/judge0:1.4.1-amd64
     command: ["./scripts/workers"]
     volumes:
       - ./judge0.conf:/judge0.conf:ro

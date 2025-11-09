@@ -1,4 +1,4 @@
-FROM mechaadi/judge0-compilers:1.0.0-aarch64 AS production
+FROM mechaadi/judge0-compilers:1.4.1-amd64 AS production
 
 ENV JUDGE0_HOMEPAGE="https://judge0.com"
 LABEL homepage=$JUDGE0_HOMEPAGE
@@ -6,7 +6,7 @@ LABEL homepage=$JUDGE0_HOMEPAGE
 ENV JUDGE0_SOURCE_CODE="https://github.com/judge0/judge0"
 LABEL source_code=$JUDGE0_SOURCE_CODE
 
-ENV JUDGE0_MAINTAINER="Aditya Singh <contact@mechaadi.com>"
+ENV JUDGE0_MAINTAINER="Herman Zvonimir Došilović <hermanz.dosilovic@gmail.com>"
 LABEL maintainer=$JUDGE0_MAINTAINER
 
 ENV PATH="/usr/local/ruby-2.7.0/bin:/opt/.gem/bin:$PATH"
