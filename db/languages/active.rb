@@ -377,5 +377,12 @@
     is_archived: false,
     source_file: "main.s",
     run_cmd: "/usr/local/bin/java -Djava.util.logging.config.file=/usr/local/mars/logging.properties -jar /usr/local/mars/mars.jar nc main.s"
+  },
+  {
+    id: 3002,
+    name: "Jack",
+    is_archived: false,
+    source_file: "main.jack",
+    run_cmd: "nand2tetris run main.jack"
   }
 ]
