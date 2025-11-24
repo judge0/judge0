@@ -192,6 +192,7 @@ These scientific articles cite Judge0.
 <li><a href="https://scriptedsynapses.substack.com/p/weak-control">Weak Control - Measuring the performance gap in Trusted Editing</a></li>
 <li><a href="https://medium.com/@techrox/judge0-deployment-on-aws-elastic-beanstalk-linux-2-a-developers-lifesaver-3b7aaf4662b8">Judge0 Deployment on AWS Elastic Beanstalk Linux 2: A Developer’s Lifesaver</a></li>
 <li><a href="https://skywork.ai/skypage/en/judge0-code-execution-ai-agent/1980518601593573376">Judge0 Code Execution MCP Server: Your AI Agent's New Superpower</a></li>
+<li><a href="https://kestra.io/blogs/introducing-ai-agents">Introducing AI Agents: Autonomous Orchestration with Declarative Workflows</a></li>
 <!-- <li><a href=""></a></li> -->
 </ul>
 
