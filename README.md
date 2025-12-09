@@ -194,6 +194,13 @@ These scientific articles cite Judge0.
 <li><a href="https://medium.com/@techrox/judge0-deployment-on-aws-elastic-beanstalk-linux-2-a-developers-lifesaver-3b7aaf4662b8">Judge0 Deployment on AWS Elastic Beanstalk Linux 2: A Developer’s Lifesaver</a></li>
 <li><a href="https://skywork.ai/skypage/en/judge0-code-execution-ai-agent/1980518601593573376">Judge0 Code Execution MCP Server: Your AI Agent's New Superpower</a></li>
 <li><a href="https://kestra.io/blogs/introducing-ai-agents">Introducing AI Agents: Autonomous Orchestration with Declarative Workflows</a></li>
+<li><a href="https://judge0.com/blog/leo-your-24-7-mock-coding-interviewer">Leo: Your 24/7 Mock Coding Interviewer</a></li>
+<li><a href="https://judge0.com/blog/ai-cheating-in-coding-interviews-rounds-anti-cheat-solution">AI Cheating in Coding Interviews: Rounds' Anti-Cheat Solution</a></li>
+<li><a href="https://judge0.com/blog/introducing-feenyx-technical-skill-assessments-that-feel-like-real-work">Introducing Feenyx: Technical Skill Assessments that Feel Like Real Work</a></li>
+<li><a href="https://judge0.com/blog/code-execution-in-kestras-ai-agents-powered-by-judge0">Code Execution in Kestra’s AI Agents Powered by Judge0</a></li>
+<li><a href="https://skywork.ai/skypage/en/go-playground-mcp-server-ai-engineers-guide/1981583589895106560">Go Playground MCP Server: The Ultimate Guide for AI Engineers</a></li>
+<li><a href="https://skywork.ai/skypage/en/judge0-code-execution-ai-agent/1980518601593573376">Judge0 Code Execution MCP Server: Your AI Agent's New Superpower</a></li>
+<li><a href="https://medium.com/@gauravkmaurya09/setting-up-ubuntu-and-judge0-on-windows-a-complete-guide-for-developers-%EF%B8%8F-45f7e3e8bc0b">Setting Up Ubuntu and Judge0 on Windows: A Complete Guide for Developers</a></li>
 <!-- <li><a href=""></a></li> -->
 </ul>
 
@@ -201,10 +208,16 @@ These scientific articles cite Judge0.
 
 These open-source projects are using Judge0. You can add yours as well by creating a PR.
 
+* [Judge0 IDE](https://ide.judge0.com)
+* [Judge0 Python SDK](https://github.com/judge0/judge0-python)
+* [Code Training with GRPO using Judge0](https://swift.readthedocs.io/en/v3.10/BestPractices/GRPO-Code-Training.html)
 * [Codeforces Lite by Maanas Sehgal](https://github.com/MaanasSehgal/Codeforces-Lite)
 * [Competitive Coding Portal by CodeChefVIT](https://github.com/CodeChefVIT/cookoff-9.0-backend)
 * [LeetCode clone by Kartik Joshi](https://github.com/kdj309/leetcode-clone)
 * [PyGuide.ai](https://devpost.com/software/pyguide-ai)
+* [Unofficial Judge0 Python Client by Aaron Walker](https://github.com/vCra/judge0api)
+* [Unofficial Judge0 Python Client by Roslovets](https://github.com/Roslovets-Inc/judge0-client)
+* [Using Judge0 with LangChain4j](https://github.com/langchain4j/langchain4j-examples/blob/main/other-examples/src/main/java/ServiceWithDynamicToolsExample.java)
 
 ## Citation
 
