@@ -233,6 +233,7 @@ These scientific articles cite Judge0.
 * [How to Install Judge0 on WSL and Linux – Step-by-Step Guide for Developers](https://www.youtube.com/watch?v=mvNgqrx2cfA)
 * [How to self-host Judge0 API on your PC locally | All you need to know](https://medium.com/@denishoti/how-to-self-host-judge0-api-on-your-pc-locally-all-you-need-to-know-ad8a2b64fd1)
 * [I coded Codeforces.com in under 4 hours](https://www.youtube.com/watch?v=vABb1y4fmwE)
+* [Implementation Documentation: Judge0 in Frontend Projects](https://medium.com/@victor.c.okoye/implementation-documentation-judge0-in-frontend-projects-58a14a68e3fa)
 * [Interactive Shell Demonstration Video | Get instant terminals and IDE | interactiveshell.com](https://www.youtube.com/watch?v=bCQtK70ovmM)
 * [Introducing AI Agents: Autonomous Orchestration with Declarative Workflows](https://kestra.io/blogs/introducing-ai-agents)
 * [Introducing Feenyx: Technical Skill Assessments that Feel Like Real Work](https://judge0.com/blog/introducing-feenyx-technical-skill-assessments-that-feel-like-real-work)
