@@ -1,11 +1,18 @@
-[![Judge0 Wallpaper](./.github/Judge0%20Wallpaper%2002%20Center%20White%208192x4609.png)](https://judge0.com)
+[![Judge0 Wallpaper](./.github/Judge0%20Wallpaper%2002%20Center%20White%208192x4608.png)](https://judge0.com)
 
 # Judge0
+[![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/Judge0HQ)](https://x.com/Judge0HQ)
+[![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/hermanzvonimir)](https://x.com/hermanzvonimir)
+
 [![License](https://img.shields.io/github/license/judge0/judge0?color=2185d0&style=flat-square)](LICENSE)
 [![Release](https://img.shields.io/github/v/release/judge0/judge0?color=2185d0&style=flat-square)](https://github.com/judge0/judge0/releases)
 [![Stars](https://img.shields.io/github/stars/judge0/judge0?color=2185d0&style=flat-square)](https://github.com/judge0/judge0/stargazers)
 
-Code execution made simple for every business. Robust, scalable, and open-source online code execution system.
+Established in August 2016.
+
+Code execution made simple for every business.
+
+Robust, fast, scalable, sandboxed, and open-source online code execution system for humans and AI.
 
 ## Table of Contents
 
@@ -13,9 +20,9 @@ Code execution made simple for every business. Robust, scalable, and open-source
 * [Features](#features)
 * [Get Started](#get-started)
 * [Flavors](#flavors)
+* [Citation](#citation)
 * [References](#references)
 * [Showcase](#showcase)
-* [Citation](#citation)
 * [Community](#community)
 * [Author and Contributors](#author-and-contributors)
 * [Changelog](#changelog)
@@ -26,19 +33,24 @@ Code execution made simple for every business. Robust, scalable, and open-source
 
 [Judge0](https://judge0.com) (pronounced like "judge zero") is a robust, scalable, and [open-source](https://github.com/judge0/judge0) **online code execution system**. You can use it to build a wide range of applications that need online code execution features. Some examples include AI agents, competitive programming platforms, e-learning platforms, candidate assessment and recruitment platforms, online code editors, online IDEs, and many more.
 
+Judge0 is an open-source online code execution system that enables the robust, fast, scalable, and sandboxed execution of AI-generated code, with support for multiple languages and frameworks.
+
 In our research paper [Robust and Scalable Online Code Execution System](https://paper.judge0.com), we present Judge0's modern modular architecture that can be easily deployed and scaled. We study its design, comment on the various challenges in building such systems, and compare it with other available online code execution systems and online judge systems.
 
 To see Judge0 in action, try [Judge0 IDE](https://ide.judge0.com) - our free and open-source online code editor.
 
 ## Features
 
-* Quick and easy [installation](https://judge0.com/#pricing)
+* [Self-hostable](https://github.com/judge0/judge0/blob/master/CHANGELOG.md#deployment-procedure) or [fully managed (SaaS)](https://judge0.com#pricing)
+* Quick and easy self-hosting [installation](https://github.com/judge0/judge0/blob/master/CHANGELOG.md#deployment-procedure)
 * Rich and verbose [API documentation](https://ce.judge0.com)
-* Scalable architecture
-* Sandboxed compilation and execution
-* Support for 60+ languages
-* Compilation and execution of multi-file programs
-* Support for additional files alongside the user's program
+* Simple HTTP JSON API for easy integration
+* [Official Python SDK](https://github.com/judge0/judge0-python) for easy integration
+* Scalable architecture for handling high loads
+* Sandboxed compilation and execution of untrusted code
+* Support for 90+ languages (see the full [list of supported languages](https://ide.judge0.com))
+* Compilation and execution of multi-file programs (i.e. projects)
+* Support for additional files alongside the single-file user's program
 * Support for custom user-defined compiler options, command-line arguments, and time and memory limits
 * Detailed execution results
 * Webhooks (HTTP callbacks)
@@ -47,19 +59,32 @@ For more information about these and other features, please [read the documentat
 
 ## Get Started
 
-Get started with Judge0 on [**Sulu**](https://platform.sulu.sh/apis/judge0).
+You have plenty of options to get started with Judge0:
+1. [Use our Judge0 Cloud via Rapid](https://rapidapi.com/organization/judge0)
+2. [Use our Judge0 Cloud by directly working with us](https://judge0.com/#pricing)
+3. [Self-host Judge0 on your own infrastructure](https://github.com/judge0/judge0/blob/master/CHANGELOG.md#deployment-procedure)
 
-You can also get started with the [**FREE Basic Plan**](https://rapidapi.com/organization/judge0) on Rapid or [host it yourself](https://github.com/judge0/judge0/blob/master/CHANGELOG.md#deployment-procedure).
+Integrating Judge0 into your application is easy. You can either use our simple HTTP JSON API or use our [official Python SDK](https://github.com/judge0/judge0-python).
 
-You can find our detailed plans and pricing [here](https://judge0.com/#pricing).
+### HTTP JSON API
+```bash
+curl \
+  -H "Content-Type: application/json" \
+  -d '{
+      "language_id": 109,
+      "source_code": "print(f\"hello, {input()}\")",
+      "stdin": "Alice"
+  }' \
+  "https://ce.judge0.com/submissions?wait=true"
+```
 
-### Why should you use Judge0 on Sulu or RapidAPI?
-
-Our infrastructure allows you to **focus on building your product** and forget about the know-how of maintaining and scaling Judge0.
-
-### Sulu or Rapid plans are not (good) enough for you?
-
-Let's talk. [Contact us](mailto:contact@judge0.com).
+### Python SDK
+```python
+# pip install judge0
+import judge0
+result = judge0.run(source_code="print(f'hello, {input()}')", stdin="Alice", language=judge0.PYTHON)
+print(result.stdout)
+```
 
 ## Flavors
 
@@ -67,13 +92,29 @@ Judge0 comes in two flavors: [Judge0 CE](https://rapidapi.com/judge0-official/ap
 
 You can find the source code for Judge0 CE on the `master` branch, while you can find the source code for Judge0 Extra CE on the `extra` branch.
 
-Judge0 Extra CE is also available on [Sulu](https://platform.sulu.sh/apis/judge0/judge0-extra-ce/readme) and [Rapid](https://rapidapi.com/judge0-official/api/judge0-extra-ce).
+## Citation
+
+Please [cite us](https://ieeexplore.ieee.org/abstract/document/9245310) if you use Judge0 in your research:
+
+```bibtex
+@INPROCEEDINGS{9245310,
+  author={Došilović, Herman Zvonimir and Mekterović, Igor},
+  booktitle={2020 43rd International Convention on Information, Communication and Electronic Technology (MIPRO)},
+  title={Robust and Scalable Online Code Execution System},
+  year={2020},
+  volume={},
+  number={},
+  pages={1627-1632},
+  keywords={Production systems;Operating systems;Systems architecture;Computer architecture;Programming profession;Open source software;Recruitment;online code execution system;online judge system;untrusted code execution},
+  doi={10.23919/MIPRO48935.2020.9245310}
+}
+```
 
 ## References
 
 ### Industry
 
-[These companies, institutions, and organizations use Judge0.](https://judge0.com/#clients)
+[These companies, institutions, and organizations use Judge0.](https://judge0.com)
 
 ### Academia
 
@@ -162,25 +203,44 @@ These scientific articles cite Judge0.
 * [21 Productivity Apps for Programmers](https://geekflare.com/productivity-apps-for-programmers/)
 * [A pair programming platform to help you get better at technical interviews: building out the platform](https://medium.com/codingsquad/a-pair-programming-platform-to-help-you-get-better-at-technical-interviews-building-out-the-14c03762ebf4)
 * [AI Cheating in Coding Interviews: Rounds' Anti-Cheat Solution](https://judge0.com/blog/ai-cheating-in-coding-interviews-rounds-anti-cheat-solution)
+* [AI Code editor - Judge0 + Chatbot](https://www.youtube.com/watch?v=2EW6mHsxVhA)
+* [AI Code Editor - Judge0 Integration | AI-Powered Coding Experience](https://www.youtube.com/watch?v=INFFmvbVkbQ)
+* [AI Code Editor](https://www.youtube.com/watch?v=E0zB9aBJ-tw)
+* [AI Code Editor](https://www.youtube.com/watch?v=mXIXKoOXcNQ)
+* [AI Craft IDE - The Future of AI-Powered Coding & Debugging! 🔥](https://www.youtube.com/watch?v=ZEqAhNko-HY)
 * [Best Websites Every Programmer Should Visit](https://dev.to/envoy_/best-websites-every-programmer-should-visit-540a)
 * [Build a Live Code Editor & Playground like HackerRank Using Vue](https://www.youtube.com/watch?v=AruJ23XlBps)
+* [Build an Online Code Compiler with Next.js 15 (JavaScript, Python, C++, Java, more..) Source Code](https://www.youtube.com/watch?v=oziCi_5aYsk)
+* [Build Your Own Code Editor using React, CodeMirror and Judge0 | Unique React API Project I AccioJob](https://www.youtube.com/watch?v=Tg4_Zyyx-QA)
+* [Build your own LeetCode | Online Code Execution Engiene | Judge0](https://www.youtube.com/watch?v=uOlP7njiaCg)
 * [Building a Leetcode clone backend](https://kibichomurage.medium.com/building-a-leetcode-clone-backend-462fa1084aa5)
+* [C Code Runner with Monaco Editor | Judge0 API Integration Fetching Github repo](https://www.youtube.com/watch?v=OIfhZ5gA_L0)
 * [Code Execution in Kestra’s AI Agents Powered by Judge0](https://judge0.com/blog/code-execution-in-kestras-ai-agents-powered-by-judge0)
+* [CodeAIDE Walkthrough | Online AI IDE Project](https://www.youtube.com/watch?v=Z7fe3DVCqWo)
+* [CodeX | IDE + AI | Judge0 | OpenRouter | Tailwind CSS](https://www.youtube.com/watch?v=VLwhqqEm2L8)
 * [Deployment on Google Cloud](https://hackmd.io/@hIUpwGqPS4asgJ4ccgfoMw/SJ3ClK63K)
 * [Designing Online Judge or Leetcode](https://tianpan.co/notes/243-designing-online-judge-or-leetcode)
 * [Excellent Online Code Editors](https://cssauthor.com/best-online-code-editors/)
 * [Excellent Online Code Editors](https://integratedcybersecurity.ai/excellent-online-code-editors/)
 * [Go Playground MCP Server: The Ultimate Guide for AI Engineers](https://skywork.ai/skypage/en/go-playground-mcp-server-ai-engineers-guide/1981583589895106560)
+* [How I fully compromised the “most advanced code execution system in the world”, Daniel Cooper](https://www.youtube.com/watch?v=aW-w0c3v7Mw)
 * [How to Build a Code Editor with React that Compiles and Executes in 40+ Languages](https://thelinuxcode.com/how-to-build-a-code-editor-with-react-that-compiles-and-executes-in-40-languages/)
 * [How to Build a Code Editor with React that Compiles and Executes in 40+ Languages](https://www.freecodecamp.org/news/how-to-build-react-based-code-editor/)
+* [How to build an online compiler! RCE - remote code execution engine](https://www.youtube.com/watch?v=Cm2J9ew8oVw)
 * [How to Build an Online Java Compiler](https://medium.com/javarevisited/how-to-build-an-online-java-compiler-c3210cca1917)
 * [How to create a code editor for 40+ languages ​​with React](https://prog.world/how-to-create-a-code-editor-for-40-languages-with-react/)
+* [How to deploy judge0 compiler on AWS EC2 | Deploying compiler engine | Judge0 CE](https://www.youtube.com/watch?v=lw1XCvHEO6Y)
+* [How to Install Judge0 on WSL and Linux – Step-by-Step Guide for Developers](https://www.youtube.com/watch?v=mvNgqrx2cfA)
 * [How to self-host Judge0 API on your PC locally | All you need to know](https://medium.com/@denishoti/how-to-self-host-judge0-api-on-your-pc-locally-all-you-need-to-know-ad8a2b64fd1)
+* [I coded Codeforces.com in under 4 hours](https://www.youtube.com/watch?v=vABb1y4fmwE)
+* [Interactive Shell Demonstration Video | Get instant terminals and IDE | interactiveshell.com](https://www.youtube.com/watch?v=bCQtK70ovmM)
 * [Introducing AI Agents: Autonomous Orchestration with Declarative Workflows](https://kestra.io/blogs/introducing-ai-agents)
 * [Introducing Feenyx: Technical Skill Assessments that Feel Like Real Work](https://judge0.com/blog/introducing-feenyx-technical-skill-assessments-that-feel-like-real-work)
+* [Judge0 • Online Code Execution System • Synchronous & Asynchronous Code Execution Demo](https://www.youtube.com/watch?v=jCu5pUYMih0)
 * [Judge0 Code Execution MCP Server: Your AI Agent's New Superpower](https://skywork.ai/skypage/en/judge0-code-execution-ai-agent/1980518601593573376)
 * [Judge0 Code Execution MCP Server: Your AI Agent's New Superpower](https://skywork.ai/skypage/en/judge0-code-execution-ai-agent/1980518601593573376)
 * [Judge0 Deployment on AWS Elastic Beanstalk Linux 2: A Developer’s Lifesaver](https://medium.com/@techrox/judge0-deployment-on-aws-elastic-beanstalk-linux-2-a-developers-lifesaver-3b7aaf4662b8)
+* [Judge0 Extension Demo - 1st Project || Headstarter.co || Software engineer in residency](https://www.youtube.com/watch?v=6cewVaYKNyA)
 * [Judge0 on AKS Cluster Setup](https://github.com/MelloB1989/judge0.k8s)
 * [Judge0 Sandbox Escape](https://tantosec.com/blog/judge0/)
 * [Leo: Your 24/7 Mock Coding Interviewer](https://judge0.com/blog/leo-your-24-7-mock-coding-interviewer)
@@ -190,82 +250,74 @@ These scientific articles cite Judge0.
 * [Let’s Develop An Online Code Editor/Compiler Like HackerRank](https://medium.com/javascript-in-plain-english/lets-develop-an-online-code-editor-compiler-like-hackerrank-702881803eee)
 * [LitCode](https://devpost.com/software/litcode)
 * [Make your own online compiler in React](https://medium.com/@akashgp09/make-your-own-online-compiler-in-react-%EF%B8%8F-b06bc29dd202)
+* [Online IDE | React | Monaco Editor | Judge0 API | Mini Project](https://www.youtube.com/watch?v=w29FWBRJ-EQ)
 * [Programski jezik Go - FER 2019./2020. - Prvo predavanje](https://youtu.be/mq18_oSNkHE?t=966)
 * [Running sqlite on the browser](https://manfonly.medium.com/running-sqlite-on-the-browser-45c5a7352fd)
 * [Setting Up Ubuntu and Judge0 on Windows: A Complete Guide for Developers](https://medium.com/@gauravkmaurya09/setting-up-ubuntu-and-judge0-on-windows-a-complete-guide-for-developers-%EF%B8%8F-45f7e3e8bc0b)
+* [SocraticAI: Adding AI capabilities to the Judge0 IDE](https://www.youtube.com/watch?v=98xezoHYNtU)
 * [Sudjelovanje FER-a na Smotri Sveučilišta 2019.](https://web.archive.org/web/20220527143632/https://www.fer.unizg.hr/novosti?%40=2utqx)
 * [Summer Internship Experience '21](https://blog.ishandeveloper.com/hackerrank)
 * [Svečana 672. sjednica Fakultetskog vijeća FER-a](https://web.archive.org/web/20220527143506/https://www.fer.unizg.hr/novosti?%40=2utg3)
+* [Tech Stack I used to Build neetcode.io](https://www.youtube.com/watch?v=KAYny6V1rB0)
 * [The Easiest Way to Start Coding!](https://medium.com/the-foss-albatross/the-easiest-way-to-start-coding-30cf99ee039d)
 * [The ultimate guide to choosing a Compiler API for your workflow](https://www.jdoodle.com/blog/guide_choosing_the_best_compiler_api)
 * [Top 11 Java IDEs and Online Compilers for Productive Development](https://geekflare.com/top-java-ide-and-online-compilers)
 * [Top 33 Best Cloud IDE For The Developers (2022 Review)](https://www.fossguru.com/best-cloud-ide-review/)
 * [Tutorial isi api key di pc platform](https://www.youtube.com/watch?v=z1ErJCATLuo)
+* [Tutorial isi api key di pc platform](https://www.youtube.com/watch?v=z1ErJCATLuo)
 * [USACO Guide - Running Code Online](https://usaco.guide/general/running-code-online)
+* [Virginia Science Olympiad Code Testing Environment Demo](https://www.youtube.com/watch?v=FQ2HTml3WS8)
 * [Weak Control - Measuring the performance gap in Trusted Editing](https://scriptedsynapses.substack.com/p/weak-control)
 * [Web application for authoring and sharing code snippets in different programming languages](https://repozitorij.fer.unizg.hr/en/islandora/object/fer%3A3607)
+* [Why I Stopped Self-Hosting](https://www.youtube.com/watch?v=TkysPcpK0aQ)
+* [Your own Leetcode with Deployment](https://www.youtube.com/watch?v=6nkNUDNhSYI)
 
 ## Showcase
 
 These open-source projects are using Judge0. You can add yours as well by creating a PR.
 
-* [Judge0 IDE](https://ide.judge0.com)
-* [Judge0 Python SDK](https://github.com/judge0/judge0-python)
-* [Code Training with GRPO using Judge0](https://swift.readthedocs.io/en/v3.10/BestPractices/GRPO-Code-Training.html)
+* [Official Judge0 IDE by Judge0](https://ide.judge0.com)
+* [Official Judge0 Python SDK by Judge0](https://github.com/judge0/judge0-python)
+* [Code Training with GRPO by Alibaba ModelScope](https://swift.readthedocs.io/en/v3.10/BestPractices/GRPO-Code-Training.html)
 * [Codeforces Lite by Maanas Sehgal](https://github.com/MaanasSehgal/Codeforces-Lite)
 * [Competitive Coding Portal by CodeChefVIT](https://github.com/CodeChefVIT/cookoff-9.0-backend)
 * [LeetCode clone by Kartik Joshi](https://github.com/kdj309/leetcode-clone)
-* [PyGuide.ai](https://devpost.com/software/pyguide-ai)
+* [PyGuide.ai by Daevik Jain and Jeremy Siu](https://devpost.com/software/pyguide-ai)
 * [Unofficial Judge0 Python Client by Aaron Walker](https://github.com/vCra/judge0api)
 * [Unofficial Judge0 Python Client by Roslovets](https://github.com/Roslovets-Inc/judge0-client)
-* [Using Judge0 with LangChain4j](https://github.com/langchain4j/langchain4j-examples/blob/main/other-examples/src/main/java/ServiceWithDynamicToolsExample.java)
-
-## Citation
-
-Please [cite us](https://ieeexplore.ieee.org/abstract/document/9245310) if you found the resources in this repository useful.
-
-```bibtex
-@INPROCEEDINGS{9245310,
-  author={Došilović, Herman Zvonimir and Mekterović, Igor},
-  booktitle={2020 43rd International Convention on Information, Communication and Electronic Technology (MIPRO)},
-  title={Robust and Scalable Online Code Execution System},
-  year={2020},
-  volume={},
-  number={},
-  pages={1627-1632},
-  keywords={Production systems;Operating systems;Systems architecture;Computer architecture;Programming profession;Open source software;Recruitment;online code execution system;online judge system;untrusted code execution},
-  doi={10.23919/MIPRO48935.2020.9245310}
-}
-```
+* [Using Judge0 as Code Execution Engine in LangChain4j](https://docs.langchain4j.dev/integrations/code-execution-engines/judge0)
 
 ## Community
 
-Do you have a question, feature request, or something else on your mind? Or do you want to follow Judge0 news?
+Join our community - get help, share feedback, and contribute. Whether you're integrating Judge0, building with the API, or reporting bugs, your participation helps improve the project for everyone.
 
+* [Visit Judge0 website](https://judge0.com)
+* [Read Judge0 blog](https://blog.judge0.com)
 * [Subscribe to Judge0 newsletter](https://subscribe.judge0.com)
-* [Join our Discord server](https://discord.gg/GRc3v6n)
-* [Watch asciicasts](https://asciinema.org/~hermanzdosilovic)
+* [Join Judge0 Discord server](https://discord.judge0.com)
+* [Follow Judge0 on X](https://x.com/Judge0HQ)
+* [Follow Judge0 on LinkedIn](https://www.linkedin.com/company/judge0)
+* [Read Judge0 research paper](https://paper.judge0.com)
+* [Watch Judge0 asciicasts](https://asciinema.org/~hermanzdosilovic)
 * [Report an issue](https://github.com/judge0/judge0/issues/new)
-* [Contact us](mailto:contact@judge0.com)
-* [Schedule an online meeting with us](https://meet.judge0.com)
+* [Contact Judge0 team via email](mailto:contact@judge0.com)
+* [Schedule a meeting with Judge0 team](https://meet.judge0.com)
 
 ## Author and Contributors
 
-Judge0 was created and is maintained by [Herman Zvonimir Došilović](https://hermanz.dosilovic.com).
+Judge0 was created by [Herman Zvonimir Došilović](https://hermanz.dosilovic.com) in August 2016.
 
 Thanks to all [contributors](https://github.com/judge0/judge0/graphs/contributors) for contributing to this project.
 
-<a href="https://github.com/judge0/judge0/graphs/contributors">
-  <img src="https://contributors-img.web.app/image?repo=judge0/judge0" />
-</a>
+[![](https://contributors-img.web.app/image?repo=judge0/judge0)](https://github.com/judge0/judge0/graphs/contributors)
 
 ## Changelog
 
-You can find the detailed specification of changes between versions in [CHANGELOG.md](CHANGELOG.md).
+You can find the detailed specification of changes between versions in the [CHANGELOG.md](CHANGELOG.md).
 
 ## Special Thanks
 
-Special thanks to open-source projects without whom Judge0 probably wouldn't exist: [Isolate](https://github.com/ioi/isolate), [Docker](https://github.com/docker), [Ruby on Rails](https://github.com/rails/rails) and others.
+Special thanks to open-source projects without whom Judge0 wouldn't exist: [Isolate](https://github.com/ioi/isolate), [Docker](https://github.com/docker), and [Ruby on Rails](https://github.com/rails/rails).
 
 ## License
 
