@@ -79,13 +79,14 @@ Judge0 Extra CE is also available on [Sulu](https://platform.sulu.sh/apis/judge0
 
 These scientific articles cite Judge0.
 
+* [«SYNCODING» - COLLABORATIVE CODE WRITING](https://ikee.lib.auth.gr/record/359400)
+* [A comparison between online compilers: A Case Study](https://ieeexplore.ieee.org/document/9797096/)
 * [A Game-Changing Instructor Tool to Reinforce Coding Concepts](https://dl.acm.org/doi/10.1145/3328778.3372610)
 * [A ML-Based Stock Trading Model for Profit Predication](https://www.researchgate.net/publication/353328644_A_ML-Based_Stock_Trading_Model_for_Profit_Predication)
 * [A Secure and Scalable System for Online Code Execution and Evaluation using Containerization and Kubernetes](https://www.jetir.org/papers/JETIR2302226.pdf)
 * [A Secure, Scalable, and Integrated Smart Platform for Teaching and Coding](https://www.taylorfrancis.com/chapters/edit/10.1201/9781032673479-20/secure-scalable-integrated-smart-platform-teaching-coding-mohit-dua-giri-sainath-reddy-ramesh-vishnoi-satyam-tomar-shelza-dua)
 * [A Strategy Based on Technological Maps for the Identification of the State-of-the-Art Techniques in Software Development Projects: Virtual Judge Projects as a Case Study](https://link.springer.com/chapter/10.1007/978-3-319-98998-3_27)
 * [A Survey of Vibe Coding with Large Language Models](https://arxiv.org/abs/2510.12399)
-* [A comparison between online compilers: A Case Study](https://ieeexplore.ieee.org/document/9797096/)
 * [ADAPTIVE MENTORING WITH IMMEDIATE FEEDBACK FOR THE DEVELOPMENT OF PROGRAMMING SKILLS](https://library.iated.org/view/PEREZROJAS2024ADA)
 * [Advanced lab analysis system using apache spark](https://pubs.aip.org/aip/acp/article/2492/1/030016/2892049)
 * [An Online Judge System in Learning Management System](https://books.google.hr/books?id=KxyLEQAAQBAJ&lpg=PA327&ots=f0nMFB8KtH&lr=lang_en&pg=PA327#v=onepage&q&f=false)
@@ -96,17 +97,22 @@ These scientific articles cite Judge0.
 * [Automatic marking system for programming subject](http://eprints.utar.edu.my/5990/)
 * [Automatic question generation for JavaScript programming courses](https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/3088497)
 * [Big Data based Advanced Lab Analysis System using Apache Spark](https://ieeexplore.ieee.org/abstract/document/9489186)
+* [Bridging code and timely feedback: integrating generative AI into a programming platform](https://peerj.com/articles/cs-3070/)
 * [Building a Comprehensive Automated Programming Assessment System](https://ieeexplore.ieee.org/document/9079865)
-* [CODEGEN: A React-Based Online Coding Workspace with Advanced Features and Real-Time Execution](https://www.researchgate.net/publication/386243931_CODEGEN_A_React-Based_Online_Coding_Workspace_with_Advanced_Features_and_Real-Time_Execution)
-* [CURIOSMAZE: plataforma web educativa diseñada como herramienta de refuerzo para evaluar el pensamiento lógico y las competencias en programación, utilizando Judge0 como sistema de ejecución de código, para la Unidad Educativa Juan Pablo II](https://repositorio.puce.edu.ec/items/da89d5a6-6485-4cb9-b87d-e1fd236043f3)
 * [Canvas Coding: una piattaforma di gioco per studenti basata sulla programmazione creativa = Canvas Coding: a gaming platform for students based on creative programming](https://webthesis.biblio.polito.it/29496/)
+* [Code Master: A Web-Based Competitive Programming Practice Platform](https://www.ijsreat.com/archiver/archives/code_master_a_web_based_competitive_programming_practice_platform.pdf)
 * [Code Verse](https://www.researchgate.net/publication/381988455_Code_Verse)
 * [CodeCoach: An Interactive ProgrammingAssistance Tool](https://www.researchgate.net/publication/376610279_CodeCoach_An_Interactive_ProgrammingAssistance_Tool)
+* [CODEGEEK: A NEXT-GENERATION CODING PLATFORM WITH AI- DRIVEN FEEDBACK](https://elibrary.ru/item.asp?id=82002080)
+* [CODEGEN: A React-Based Online Coding Workspace with Advanced Features and Real-Time Execution](https://www.researchgate.net/publication/386243931_CODEGEN_A_React-Based_Online_Coding_Workspace_with_Advanced_Features_and_Real-Time_Execution)
 * [Computing students’ design preferences and barriers when solving short programming problems](https://peer.asee.org/computing-students-design-preferences-and-barriers-when-solving-short-programming-problems)
 * [Creating a Platform for Competitive Programming Training with Integration of Automatic Decision Checking System](https://www.researchgate.net/publication/391464412_Creating_a_Platform_for_Competitive_Programming_Training_with_Integration_of_Automatic_Decision_Checking_System)
+* [CURIOSMAZE: plataforma web educativa diseñada como herramienta de refuerzo para evaluar el pensamiento lógico y las competencias en programación, utilizando Judge0 como sistema de ejecución de código, para la Unidad Educativa Juan Pablo II](https://repositorio.puce.edu.ec/items/da89d5a6-6485-4cb9-b87d-e1fd236043f3)
+* [Data science in Java/JavaScript programming environment for AI-assisted programming](https://dr.ntu.edu.sg/entities/publication/98e3138a-c5e5-4b11-a3d0-fa6cab679d67)
 * [Dataset for Validation and Performance Testing of Online Judges](https://revistas.setrem.com.br/index.php/reabtic/article/view/462/225)
 * [Desarrollo de una plataforma orientada al refuerzo en la evaluación del nivel de programación](https://oa.upm.es/63124/)
 * [Desenvolvimento de um software Web para auxiliar o processo de ensino-aprendizagem da disciplina de Introdução à Ciência da Computação (ICC) da UNESP - Instituto de Ciência e Tecnologia de Sorocaba](https://repositorio.unesp.br/items/145d27dd-354b-45ee-b465-ef9e9b25d03f)
+* [DESIGN-BASED DEVELOPMENT OF A MULTI-TYPE QUIZ AUTHORING TOOL FOR ACTIVE LEARNING](https://library.iated.org/view/PHAM2025DES)
 * [Designing a Platform to Train Secure Programming Skills With Attack-and-Defend Exercises](https://people.cs.vt.edu/tilevich/papers/educon2025.pdf)
 * [Development of a System for Automated Testing of Program Code for the Educational Process in the Discipline "Programming Languages](https://geosib.sgugit.ru/upload/geosibir/sborniki/2023/tom-7-1/164-171.pdf)
 * [ECCO: Can We Improve Model-Generated Code Efficiency Without Sacrificing Functional Correctness?](https://arxiv.org/abs/2407.14044)
@@ -124,13 +130,14 @@ These scientific articles cite Judge0.
 * [Online Automatic Assessment System for Program Code: Architecture and Experiences](https://www.researchgate.net/publication/353329318_Online_Automatic_Assessment_System_for_Program_Code_Architecture_and_Experiences)
 * [Online Judge System: Requirements, Architecture, and Experiences](https://www.worldscientific.com/doi/10.1142/S0218194022500346)
 * [PEERLINK: A Comprehensive Collaborative Platform](https://ijsrset.com/index.php/home/article/view/IJSRSET25122209)
-* [PERSSISTANT: A Progress Estimation System to Personalize Learning Trajectories](https://documentserver.uhasselt.be/handle/1942/44162)
 * [Pengembangan Sistem Manajemen Evaluasi Pembelajaran Terintegrasi Dengan Online Judge](https://journals.upi-yai.ac.id/index.php/ikraith-informatika/article/view/1405)
+* [PERSSISTANT: A Progress Estimation System to Personalize Learning Trajectories](https://documentserver.uhasselt.be/handle/1942/44162)
 * [Predviđanje uspjeha studenata u sustavu za automatsko ocjenjivanje programskog kôda Edgar](https://repozitorij.unizg.hr/islandora/object/fer:12103)
 * [Programmable Questions in Edgar](https://ieeexplore.ieee.org/abstract/document/10159897)
 * [Prototip integracije sustava za strojno učenje u sustav Edgar](https://repozitorij.fer.unizg.hr/islandora/object/fer%3A10234)
 * [Protótipo de uma ferramenta gamificada para a aplicação de atividades práticas em sala de aula em uma disciplina de introdução à programação](http://repositorio.uft.edu.br/handle/11612/3789)
 * [Rancang Bangun Sistem Online Judge dan Pendeteksian Plagiarisme Menggunakan Arsitektur Serverless](https://journal.unesa.ac.id/index.php/jieet/article/view/8363)
+* [Real Time Code Collaboration and Interview Platform](https://ijsrset.com/index.php/home/article/view/IJSRSET2513849/IJSRSET2513849)
 * [Repozitorij Fakulteta elektrotehnike i računarstva Sveučilišta u Zagrebu](https://repozitorij.fer.unizg.hr/islandora/search/dabar_search_keywords_mt:(%22Judge0%22))
 * [Requirements for an Online Integrated Development Environment for Automated Programming Assessment Systems](https://www.eduardfrankford.com/pdfs/CSEDU2024.pdf)
 * [Robust and Scalable Online Code Execution System](https://www.researchgate.net/publication/346751837_Robust_and_Scalable_Online_Code_Execution_System)
@@ -144,65 +151,59 @@ These scientific articles cite Judge0.
 * [Web-aplikacija za obavljanje i dijeljenje programskih odsječaka u različitim programskim jezicima](https://repozitorij.fer.unizg.hr/islandora/object/fer%3A3607)
 * [Web-aplikacija za rješavanje programskih zadataka s elementima društvene mreže](https://repozitorij.fer.unizg.hr/islandora/object/fer%3A9899)
 * [Yet Another Coding Platform (YACP)](https://research.engr.oregonstate.edu/si-lab/archive/2023_rohit.pdf)
-* [«SYNCODING» - COLLABORATIVE CODE WRITING](https://ikee.lib.auth.gr/record/359400)
 * [Видеомессенджер для совместной работой над кодом](https://elar.urfu.ru/handle/10995/135781)
-* [ПОЯСНЮВАЛЬНА ЗАПИСКА ДО БАКАЛАВРСЬКОЇ РОБОТИ на тему ТРЕНАЖЕР З ТЕМИ «ПОБУДОВА БЛОК-СХЕМ АЛГОРИТМІВ ЦИКЛІЧНОЇ СТРУКТУРИ НА ПРИКЛАДІ ЦИКЛУ WHILE» ДИСТАНЦІЙНОГО НАВЧАЛЬНОГО КУРСУ «ПРОГРАМУВАННЯ ІІ» ТА РОЗРОБКА ЙОГО ПРОГРАМНОГО ЗАБЕЗПЕЧЕННЯ](http://dspace.puet.edu.ua/handle/123456789/11371)
 * [Платформа для спільної роботи викладача та студента під час іспиту](https://ela.kpi.ua/handle/123456789/31297)
+* [ПОЯСНЮВАЛЬНА ЗАПИСКА ДО БАКАЛАВРСЬКОЇ РОБОТИ на тему ТРЕНАЖЕР З ТЕМИ «ПОБУДОВА БЛОК-СХЕМ АЛГОРИТМІВ ЦИКЛІЧНОЇ СТРУКТУРИ НА ПРИКЛАДІ ЦИКЛУ WHILE» ДИСТАНЦІЙНОГО НАВЧАЛЬНОГО КУРСУ «ПРОГРАМУВАННЯ ІІ» ТА РОЗРОБКА ЙОГО ПРОГРАМНОГО ЗАБЕЗПЕЧЕННЯ](http://dspace.puet.edu.ua/handle/123456789/11371)
 * [Розробка структури та програмна реалізація інтерфейсу WEB-редактора](http://dp.knute.edu.ua/jspui/bitstream/123456789/8142/1/%D0%92%D0%9A%D0%A0_%D0%9A%D0%BE%D0%B2%D1%82%D1%83%D0%BD_%D0%A4%D0%86%D0%A2%20%204-10.pdf)
-* [Real Time Code Collaboration and Interview Platform](https://ijsrset.com/index.php/home/article/view/IJSRSET2513849/IJSRSET2513849)
 
 ### Other Online References
 
-<ul>
-<li><a href="https://tianpan.co/notes/243-designing-online-judge-or-leetcode">Designing Online Judge or Leetcode</a></li>
-<li><a href="https://medium.com/@akashgp09/make-your-own-online-compiler-in-react-%EF%B8%8F-b06bc29dd202">Make your own online compiler in React</a></li>
-<li><a href="https://youtu.be/mq18_oSNkHE?t=966">Programski jezik Go - FER 2019./2020. - Prvo predavanje</a></li>
-<li><a href="https://web.archive.org/web/20220527143632/https://www.fer.unizg.hr/novosti?%40=2utqx">Sudjelovanje FER-a na Smotri Sveučilišta 2019.</a></li>
-<li><a href="https://web.archive.org/web/20220527143506/https://www.fer.unizg.hr/novosti?%40=2utg3">Svečana 672. sjednica Fakultetskog vijeća FER-a</a></li>
-<li><a href="https://usaco.guide/general/running-code-online">USACO Guide - Running Code Online</a></li>
-<li><a href="https://repozitorij.fer.unizg.hr/en/islandora/object/fer%3A3607">Web application for authoring and sharing code snippets in different programming languages
-</a></li>
-<li><a href="https://medium.com/javarevisited/lets-deploy-our-online-code-executor-in-google-cloud-e76a9fabac57">Let’s Deploy our Online Code Executor in Google Cloud</a></li>
-<li><a href="https://levelup.gitconnected.com/lets-develop-an-online-code-editor-compiler-like-hackerrank-c433d8db060d">Let’s Develop an Online Code Editor & Compiler like HackerRank</a></li>
-<li><a href="https://medium.com/javascript-in-plain-english/lets-develop-an-online-code-editor-compiler-like-hackerrank-702881803eee">Let’s Develop An Online Code Editor/Compiler Like HackerRank</a></li>
-<li><a href="https://www.youtube.com/watch?v=AruJ23XlBps">Build a Live Code Editor & Playground like HackerRank Using Vue</a></li>
-<li><a href="https://geekflare.com/top-java-ide-and-online-compilers">Top 11 Java IDEs and Online Compilers for Productive Development</a></li>
-<li><a href="https://www.freecodecamp.org/news/how-to-build-react-based-code-editor/">How to Build a Code Editor with React that Compiles and Executes in 40+ Languages</a></li>
-<li><a href="https://medium.com/javarevisited/how-to-build-an-online-java-compiler-c3210cca1917">How to Build an Online Java Compiler</a></li>
-<li><a href="https://www.fossguru.com/best-cloud-ide-review/">Top 33 Best Cloud IDE For The Developers (2022 Review)</a></li>
-<li><a href="https://geekflare.com/productivity-apps-for-programmers/">21 Productivity Apps for Programmers</a></li>
-<li><a href="https://manfonly.medium.com/running-sqlite-on-the-browser-45c5a7352fd">Running sqlite on the browser</a></li>
-<li><a href="https://medium.com/@denishoti/how-to-self-host-judge0-api-on-your-pc-locally-all-you-need-to-know-ad8a2b64fd1">How to self-host Judge0 API on your PC locally | All you need to know</a></li>
-<li><a href="https://blog.ishandeveloper.com/hackerrank">Summer Internship Experience '21</a></li>
-<li><a href="https://dev.to/envoy_/best-websites-every-programmer-should-visit-540a">Best Websites Every Programmer Should Visit</a></li>
-<li><a href="https://cssauthor.com/best-online-code-editors/">Excellent Online Code Editors</a></li>
-<li><a href="https://medium.com/codingsquad/a-pair-programming-platform-to-help-you-get-better-at-technical-interviews-building-out-the-14c03762ebf4">A pair programming platform to help you get better at technical interviews: building out the platform</a></li>
-<li><a href="https://cbrincoveanu.hashnode.dev/10-amazing-free-tools-for-your-blog-posts-and-developer-projects">10 Amazing Free Tools For Your Blog Posts And Developer Projects</a></li>
-<li><a href="https://medium.com/the-foss-albatross/the-easiest-way-to-start-coding-30cf99ee039d">The Easiest Way to Start Coding!</a></li>
-<li><a href="https://prog.world/how-to-create-a-code-editor-for-40-languages-with-react/">How to create a code editor for 40+ languages ​​with React</a></li>
-<li><a href="https://www.youtube.com/watch?v=z1ErJCATLuo">Tutorial isi api key di pc platform</a></li>
-<li><a href="https://www.jdoodle.com/blog/guide_choosing_the_best_compiler_api">The ultimate guide to choosing a Compiler API for your workflow</a></li>
-<li><a href="https://thelinuxcode.com/how-to-build-a-code-editor-with-react-that-compiles-and-executes-in-40-languages/">How to Build a Code Editor with React that Compiles and Executes in 40+ Languages</a></li>
-<li><a href="https://devpost.com/software/litcode">LitCode</a></li>
-<li><a href="https://tantosec.com/blog/judge0/">Judge0 Sandbox Escape</a></li>
-<li><a href="https://kibichomurage.medium.com/building-a-leetcode-clone-backend-462fa1084aa5">Building a Leetcode clone backend</a></li>
-<li><a href="https://hackmd.io/@hIUpwGqPS4asgJ4ccgfoMw/SJ3ClK63K">Deployment on Google Cloud</a></li>
-<li><a href="https://dev.to/nilmadhabmondal/let-s-deploy-our-online-code-executor-in-google-cloud-41b0">Let’s Deploy our Online Code Executor in Google Cloud</a></li>
-<li><a href="https://github.com/MelloB1989/judge0.k8s">Judge0 on AKS Cluster Setup</a></li>
-<li><a href="https://integratedcybersecurity.ai/excellent-online-code-editors/">Excellent Online Code Editors</a></li>
-<li><a href="https://scriptedsynapses.substack.com/p/weak-control">Weak Control - Measuring the performance gap in Trusted Editing</a></li>
-<li><a href="https://medium.com/@techrox/judge0-deployment-on-aws-elastic-beanstalk-linux-2-a-developers-lifesaver-3b7aaf4662b8">Judge0 Deployment on AWS Elastic Beanstalk Linux 2: A Developer’s Lifesaver</a></li>
-<li><a href="https://skywork.ai/skypage/en/judge0-code-execution-ai-agent/1980518601593573376">Judge0 Code Execution MCP Server: Your AI Agent's New Superpower</a></li>
-<li><a href="https://kestra.io/blogs/introducing-ai-agents">Introducing AI Agents: Autonomous Orchestration with Declarative Workflows</a></li>
-<li><a href="https://judge0.com/blog/leo-your-24-7-mock-coding-interviewer">Leo: Your 24/7 Mock Coding Interviewer</a></li>
-<li><a href="https://judge0.com/blog/ai-cheating-in-coding-interviews-rounds-anti-cheat-solution">AI Cheating in Coding Interviews: Rounds' Anti-Cheat Solution</a></li>
-<li><a href="https://judge0.com/blog/introducing-feenyx-technical-skill-assessments-that-feel-like-real-work">Introducing Feenyx: Technical Skill Assessments that Feel Like Real Work</a></li>
-<li><a href="https://judge0.com/blog/code-execution-in-kestras-ai-agents-powered-by-judge0">Code Execution in Kestra’s AI Agents Powered by Judge0</a></li>
-<li><a href="https://skywork.ai/skypage/en/go-playground-mcp-server-ai-engineers-guide/1981583589895106560">Go Playground MCP Server: The Ultimate Guide for AI Engineers</a></li>
-<li><a href="https://skywork.ai/skypage/en/judge0-code-execution-ai-agent/1980518601593573376">Judge0 Code Execution MCP Server: Your AI Agent's New Superpower</a></li>
-<li><a href="https://medium.com/@gauravkmaurya09/setting-up-ubuntu-and-judge0-on-windows-a-complete-guide-for-developers-%EF%B8%8F-45f7e3e8bc0b">Setting Up Ubuntu and Judge0 on Windows: A Complete Guide for Developers</a></li>
-<!-- <li><a href=""></a></li> -->
-</ul>
+* [10 Amazing Free Tools For Your Blog Posts And Developer Projects](https://cbrincoveanu.hashnode.dev/10-amazing-free-tools-for-your-blog-posts-and-developer-projects)
+* [21 Productivity Apps for Programmers](https://geekflare.com/productivity-apps-for-programmers/)
+* [A pair programming platform to help you get better at technical interviews: building out the platform](https://medium.com/codingsquad/a-pair-programming-platform-to-help-you-get-better-at-technical-interviews-building-out-the-14c03762ebf4)
+* [AI Cheating in Coding Interviews: Rounds' Anti-Cheat Solution](https://judge0.com/blog/ai-cheating-in-coding-interviews-rounds-anti-cheat-solution)
+* [Best Websites Every Programmer Should Visit](https://dev.to/envoy_/best-websites-every-programmer-should-visit-540a)
+* [Build a Live Code Editor & Playground like HackerRank Using Vue](https://www.youtube.com/watch?v=AruJ23XlBps)
+* [Building a Leetcode clone backend](https://kibichomurage.medium.com/building-a-leetcode-clone-backend-462fa1084aa5)
+* [Code Execution in Kestra’s AI Agents Powered by Judge0](https://judge0.com/blog/code-execution-in-kestras-ai-agents-powered-by-judge0)
+* [Deployment on Google Cloud](https://hackmd.io/@hIUpwGqPS4asgJ4ccgfoMw/SJ3ClK63K)
+* [Designing Online Judge or Leetcode](https://tianpan.co/notes/243-designing-online-judge-or-leetcode)
+* [Excellent Online Code Editors](https://cssauthor.com/best-online-code-editors/)
+* [Excellent Online Code Editors](https://integratedcybersecurity.ai/excellent-online-code-editors/)
+* [Go Playground MCP Server: The Ultimate Guide for AI Engineers](https://skywork.ai/skypage/en/go-playground-mcp-server-ai-engineers-guide/1981583589895106560)
+* [How to Build a Code Editor with React that Compiles and Executes in 40+ Languages](https://thelinuxcode.com/how-to-build-a-code-editor-with-react-that-compiles-and-executes-in-40-languages/)
+* [How to Build a Code Editor with React that Compiles and Executes in 40+ Languages](https://www.freecodecamp.org/news/how-to-build-react-based-code-editor/)
+* [How to Build an Online Java Compiler](https://medium.com/javarevisited/how-to-build-an-online-java-compiler-c3210cca1917)
+* [How to create a code editor for 40+ languages ​​with React](https://prog.world/how-to-create-a-code-editor-for-40-languages-with-react/)
+* [How to self-host Judge0 API on your PC locally | All you need to know](https://medium.com/@denishoti/how-to-self-host-judge0-api-on-your-pc-locally-all-you-need-to-know-ad8a2b64fd1)
+* [Introducing AI Agents: Autonomous Orchestration with Declarative Workflows](https://kestra.io/blogs/introducing-ai-agents)
+* [Introducing Feenyx: Technical Skill Assessments that Feel Like Real Work](https://judge0.com/blog/introducing-feenyx-technical-skill-assessments-that-feel-like-real-work)
+* [Judge0 Code Execution MCP Server: Your AI Agent's New Superpower](https://skywork.ai/skypage/en/judge0-code-execution-ai-agent/1980518601593573376)
+* [Judge0 Code Execution MCP Server: Your AI Agent's New Superpower](https://skywork.ai/skypage/en/judge0-code-execution-ai-agent/1980518601593573376)
+* [Judge0 Deployment on AWS Elastic Beanstalk Linux 2: A Developer’s Lifesaver](https://medium.com/@techrox/judge0-deployment-on-aws-elastic-beanstalk-linux-2-a-developers-lifesaver-3b7aaf4662b8)
+* [Judge0 on AKS Cluster Setup](https://github.com/MelloB1989/judge0.k8s)
+* [Judge0 Sandbox Escape](https://tantosec.com/blog/judge0/)
+* [Leo: Your 24/7 Mock Coding Interviewer](https://judge0.com/blog/leo-your-24-7-mock-coding-interviewer)
+* [Let’s Deploy our Online Code Executor in Google Cloud](https://dev.to/nilmadhabmondal/let-s-deploy-our-online-code-executor-in-google-cloud-41b0)
+* [Let’s Deploy our Online Code Executor in Google Cloud](https://medium.com/javarevisited/lets-deploy-our-online-code-executor-in-google-cloud-e76a9fabac57)
+* [Let’s Develop an Online Code Editor & Compiler like HackerRank](https://levelup.gitconnected.com/lets-develop-an-online-code-editor-compiler-like-hackerrank-c433d8db060d)
+* [Let’s Develop An Online Code Editor/Compiler Like HackerRank](https://medium.com/javascript-in-plain-english/lets-develop-an-online-code-editor-compiler-like-hackerrank-702881803eee)
+* [LitCode](https://devpost.com/software/litcode)
+* [Make your own online compiler in React](https://medium.com/@akashgp09/make-your-own-online-compiler-in-react-%EF%B8%8F-b06bc29dd202)
+* [Programski jezik Go - FER 2019./2020. - Prvo predavanje](https://youtu.be/mq18_oSNkHE?t=966)
+* [Running sqlite on the browser](https://manfonly.medium.com/running-sqlite-on-the-browser-45c5a7352fd)
+* [Setting Up Ubuntu and Judge0 on Windows: A Complete Guide for Developers](https://medium.com/@gauravkmaurya09/setting-up-ubuntu-and-judge0-on-windows-a-complete-guide-for-developers-%EF%B8%8F-45f7e3e8bc0b)
+* [Sudjelovanje FER-a na Smotri Sveučilišta 2019.](https://web.archive.org/web/20220527143632/https://www.fer.unizg.hr/novosti?%40=2utqx)
+* [Summer Internship Experience '21](https://blog.ishandeveloper.com/hackerrank)
+* [Svečana 672. sjednica Fakultetskog vijeća FER-a](https://web.archive.org/web/20220527143506/https://www.fer.unizg.hr/novosti?%40=2utg3)
+* [The Easiest Way to Start Coding!](https://medium.com/the-foss-albatross/the-easiest-way-to-start-coding-30cf99ee039d)
+* [The ultimate guide to choosing a Compiler API for your workflow](https://www.jdoodle.com/blog/guide_choosing_the_best_compiler_api)
+* [Top 11 Java IDEs and Online Compilers for Productive Development](https://geekflare.com/top-java-ide-and-online-compilers)
+* [Top 33 Best Cloud IDE For The Developers (2022 Review)](https://www.fossguru.com/best-cloud-ide-review/)
+* [Tutorial isi api key di pc platform](https://www.youtube.com/watch?v=z1ErJCATLuo)
+* [USACO Guide - Running Code Online](https://usaco.guide/general/running-code-online)
+* [Weak Control - Measuring the performance gap in Trusted Editing](https://scriptedsynapses.substack.com/p/weak-control)
+* [Web application for authoring and sharing code snippets in different programming languages](https://repozitorij.fer.unizg.hr/en/islandora/object/fer%3A3607)
 
 ## Showcase
 
