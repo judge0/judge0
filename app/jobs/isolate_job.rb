@@ -55,6 +55,10 @@ class IsolateJob < ApplicationJob
     @box_id = submission.id%2147483647
     @cgroups = (!submission.enable_per_process_and_thread_time_limit || !submission.enable_per_process_and_thread_memory_limit) ? "--cg" : ""
     @workdir = `isolate #{cgroups} -b #{box_id} --init`.chomp
+
+    if @workdir.blank?
+      raise "Isolate initialization failed (empty workdir). Check isolate configuration."
+    end
     @boxdir = workdir + "/box"
     @tmpdir = workdir + "/tmp"
     @source_file = boxdir + "/" + submission.language.source_file.to_s
