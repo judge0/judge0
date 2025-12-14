@@ -12,7 +12,7 @@ Established in August 2016.
 
 Code execution made simple for every business.
 
-Robust, fast, scalable, sandboxed, and open-source online code execution system for humans and AI.
+Robust, fast, scalable, and sandboxed open-source online code execution system for humans and AI.
 
 ## Table of Contents
 
