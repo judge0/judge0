@@ -291,6 +291,7 @@ These open-source projects are using Judge0. You can add yours as well by creati
 * [Chat completion with AI models (Judge0 as the code execution tool the LLM may use to augment its response) by Kestra](https://kestra.io/plugins/plugin-ai/completion/io.kestra.plugin.ai.completion.chatcompletion)
 * [Code Training with GRPO by Alibaba ModelScope](https://swift.readthedocs.io/en/v3.10/BestPractices/GRPO-Code-Training.html)
 * [Codeforces Lite by Maanas Sehgal](https://github.com/MaanasSehgal/Codeforces-Lite)
+* [CodeWarz by Philkhana Sidharth](https://www.youtube.com/watch?v=mAE7Fdyrkgc)
 * [Competitive Coding Portal by CodeChefVIT](https://github.com/CodeChefVIT/cookoff-9.0-backend)
 * [DraftCode.io by Rotonda](https://dev.to/mulelur/i-built-draftcodeio-a-modern-open-leetcode-style-platform-for-coding-challenges-p9a)
 * [Edura - AI Powered Study & Learning Companion by apurva k](https://devpost.com/software/eduniverse-ai-powered-learning-platform)
