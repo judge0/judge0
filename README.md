@@ -298,6 +298,7 @@ These open-source projects are using Judge0. You can add yours as well by creati
 * [LeetBattles by levelingpotato Ma, Shyam Patel, and Ericeric422](https://devpost.com/software/leetbattles)
 * [LeetCode clone by Kartik Joshi](https://github.com/kdj309/leetcode-clone)
 * [PyGuide.ai by Daevik Jain and Jeremy Siu](https://devpost.com/software/pyguide-ai)
+* [Robust Design by Joshua](https://robustdesign.io)
 * [Unofficial Judge0 Python Client by Aaron Walker](https://github.com/vCra/judge0api)
 * [Unofficial Judge0 Python Client by Roslovets](https://github.com/Roslovets-Inc/judge0-client)
 * [Using Judge0 as Code Execution Engine in LangChain4j](https://docs.langchain4j.dev/integrations/code-execution-engines/judge0)
