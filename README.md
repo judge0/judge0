@@ -288,6 +288,7 @@ These open-source projects are using Judge0. You can add yours as well by creati
 
 * [Official Judge0 IDE by Judge0](https://ide.judge0.com)
 * [Official Judge0 Python SDK by Judge0](https://github.com/judge0/judge0-python)
+* [AtalJudge by Eli Pedro](https://github.com/elipcs/AtalJudge)
 * [Chat completion with AI models (Judge0 as the code execution tool the LLM may use to augment its response) by Kestra](https://kestra.io/plugins/plugin-ai/completion/io.kestra.plugin.ai.completion.chatcompletion)
 * [Code Training with GRPO by Alibaba ModelScope](https://swift.readthedocs.io/en/v3.10/BestPractices/GRPO-Code-Training.html)
 * [Codeforces Lite by Maanas Sehgal](https://github.com/MaanasSehgal/Codeforces-Lite)
