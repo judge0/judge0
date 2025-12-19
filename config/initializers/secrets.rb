@@ -3,7 +3,7 @@
 require 'yaml'
 require 'erb'
 
-class Rails::Application
+module SecretsCompatibility
   def secrets
     @secrets ||= begin
       secrets_file = Rails.root.join('config', 'secrets.yml')
@@ -20,3 +20,6 @@ class Rails::Application
     end
   end
 end
+
+# Prepend to the application class to ensure the method is available
+Rails.application.class.prepend(SecretsCompatibility)
