@@ -304,6 +304,7 @@ These open-source projects are using Judge0. You can add yours as well by creati
 * [Judge0 MCP Server by javaguru via npmjs](https://www.npmjs.com/package/@javaguru/server-judge0)
 * [LeetBattles by levelingpotato Ma, Shyam Patel, and Ericeric422](https://devpost.com/software/leetbattles)
 * [LeetCode clone by Kartik Joshi](https://github.com/kdj309/leetcode-clone)
+* [LibreChat Code Interpreter Bridge for Judge0 by leondape](https://github.com/leondape/librechat-code-interpreter-judge0-bridge)
 * [PyGuide.ai by Daevik Jain and Jeremy Siu](https://devpost.com/software/pyguide-ai)
 * [Robust Design by Joshua](https://robustdesign.io)
 * [Slashcoder by Jatin Sahu](https://devpost.com/software/slashcoder)
