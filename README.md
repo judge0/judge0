@@ -242,6 +242,7 @@ These scientific articles cite Judge0.
 * [I coded Codeforces.com in under 4 hours](https://www.youtube.com/watch?v=vABb1y4fmwE)
 * [Implementation Documentation: Judge0 in Frontend Projects](https://medium.com/@victor.c.okoye/implementation-documentation-judge0-in-frontend-projects-58a14a68e3fa)
 * [In a Defense of Reinventing the Wheel: Coding to Stay Sane in a Legacy Hell](https://frombadge.medium.com/in-a-defense-of-reinventing-the-wheel-coding-to-stay-sane-in-a-legacy-hell-3c7e0b7e585b)
+* [Installing Judge0 in MacOS(Silicon)](https://karan5772.hashnode.dev/installing-judge0-in-macossilicon)
 * [Interactive Shell Demonstration Video | Get instant terminals and IDE | interactiveshell.com](https://www.youtube.com/watch?v=bCQtK70ovmM)
 * [Introducing AI Agents: Autonomous Orchestration with Declarative Workflows](https://kestra.io/blogs/introducing-ai-agents)
 * [Introducing Feenyx: Technical Skill Assessments that Feel Like Real Work](https://judge0.com/blog/introducing-feenyx-technical-skill-assessments-that-feel-like-real-work)
