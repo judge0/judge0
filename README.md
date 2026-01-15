@@ -322,7 +322,7 @@ Join our community - get help, share feedback, and contribute. Whether you're in
 
 * [Visit Judge0 website](https://judge0.com)
 * [Read Judge0 blog](https://blog.judge0.com)
-* [Subscribe to Judge0 newsletter](https://subscribe.judge0.com)
+* [Subscribe to Judge0 newsletter](https://newsletter.judge0.com)
 * [Join Judge0 Discord server](https://discord.judge0.com)
 * [Follow Judge0 on X](https://x.com/Judge0HQ)
 * [Follow Judge0 on LinkedIn](https://www.linkedin.com/company/judge0)
