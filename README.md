@@ -166,6 +166,7 @@ These scientific articles cite Judge0.
 * [JediCode -- A Gamefied Approach to Competitive Coding](https://arxiv.org/abs/2311.10244)
 * [KOA: An AI-Integrated Productivity Intelligence Platform for Coding Skill Development and Real-Time Performance Analytics](https://www.researchgate.net/publication/399160152_KOA_An_AI-Integrated_Productivity_Intelligence_Platform_for_Coding_Skill_Development_and_Real-Time_Performance_Analytics)
 * [Large Language Models in der Berufsausbildung von IT-Fachkräften]()
+* [Learn To Code Fast](https://www.ijert.org/learn-to-code-fast)
 * [MAGECODE: Machine-Generated Code Detection Method Using Large Language Models](https://ieeexplore.ieee.org/abstract/document/10772217)
 * [Modul za obavljanje korisnički definiranih programa u sustavu za automatsko ocjenjivanje programskog kôda Edgar](https://repozitorij.fer.unizg.hr/en/islandora/object/fer%3A12816)
 * [Nacionalni repozitorij završnih i diplomskih radova ZIR](https://zir.nsk.hr/islandora/search/dabar_search_keywords_mt:(%22Judge0%22))
