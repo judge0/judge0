@@ -248,6 +248,7 @@ These scientific articles cite Judge0.
 * [Introducing AI Agents: Autonomous Orchestration with Declarative Workflows](https://kestra.io/blogs/introducing-ai-agents)
 * [Introducing Feenyx: Technical Skill Assessments that Feel Like Real Work](https://judge0.com/blog/introducing-feenyx-technical-skill-assessments-that-feel-like-real-work)
 * [Judge0 • Online Code Execution System • Synchronous & Asynchronous Code Execution Demo](https://www.youtube.com/watch?v=jCu5pUYMih0)
+* [Judge0 CE on Exit-Saas.io](https://exit-saas.io/alternatives/judge0-ce)
 * [Judge0 Code Execution MCP Server: Your AI Agent's New Superpower](https://skywork.ai/skypage/en/judge0-code-execution-ai-agent/1980518601593573376)
 * [Judge0 Deployment on AWS Elastic Beanstalk Linux 2: A Developer’s Lifesaver](https://medium.com/@techrox/judge0-deployment-on-aws-elastic-beanstalk-linux-2-a-developers-lifesaver-3b7aaf4662b8)
 * [Judge0 Extension Demo - 1st Project || Headstarter.co || Software engineer in residency](https://www.youtube.com/watch?v=6cewVaYKNyA)
