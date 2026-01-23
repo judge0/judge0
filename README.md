@@ -225,6 +225,7 @@ These scientific articles cite Judge0.
 * [CodeAIDE Walkthrough | Online AI IDE Project](https://www.youtube.com/watch?v=Z7fe3DVCqWo)
 * [CodeX | IDE + AI | Judge0 | OpenRouter | Tailwind CSS](https://www.youtube.com/watch?v=VLwhqqEm2L8)
 * [Deployment on Google Cloud](https://hackmd.io/@hIUpwGqPS4asgJ4ccgfoMw/SJ3ClK63K)
+* [Designing a Race-ready Backend for our Competitive coding portal with Golang, Echo & Redis : Part one](https://blogs.codechefvit.com/pitlane-to-production-p1)
 * [Designing Online Judge or Leetcode](https://tianpan.co/notes/243-designing-online-judge-or-leetcode)
 * [Excellent Online Code Editors](https://cssauthor.com/best-online-code-editors/)
 * [Excellent Online Code Editors](https://integratedcybersecurity.ai/excellent-online-code-editors/)
