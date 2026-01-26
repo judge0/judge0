@@ -44,6 +44,23 @@ sleep 5s
 ```
 7. Your instance of Judge0 CE v1.13.1 is now up and running; visit docs at `http://<IP ADDRESS OF YOUR SERVER>:2358/docs`.
 
+### Juge0 Setup For MacOS(Apple Silicon)
+1. Follow all the steps till the step 5 from the above deployment steps.
+2. Rune this command to open the docker settings-store file:
+```
+vim ~/Library/Group\Containers/group.com.docker/settings-store.json 
+#setting-store is not present then use settings.json
+```
+3. Add the following lines to the file:
+```
+{
+    “DeprecatedCgroupv1”: true
+}
+```
+4. Save the file and exit.
+5. Restart the docker service.
+6. follow the step 6 and 7 from the above deployment steps.
+
 
 # v1.13.0 (2021-03-10)
 Huge thanks to [**Filtered**](https://www.filtered.ai) for sponsoring this release.
