@@ -153,6 +153,7 @@ These scientific articles cite Judge0.
 * [Dataset for Validation and Performance Testing of Online Judges](https://revistas.setrem.com.br/index.php/reabtic/article/view/462/225)
 * [Desarrollo de una plataforma orientada al refuerzo en la evaluación del nivel de programación](https://oa.upm.es/63124/)
 * [Desenvolvimento de um software Web para auxiliar o processo de ensino-aprendizagem da disciplina de Introdução à Ciência da Computação (ICC) da UNESP - Instituto de Ciência e Tecnologia de Sorocaba](https://repositorio.unesp.br/items/145d27dd-354b-45ee-b465-ef9e9b25d03f)
+* [Design and Implementation of a Real-Time Feedback System for Enhancing College-Level Coding Proficiency](https://isjem.com/download/design-and-implementation-of-a-real-time-feedback-system-for-enhancing-college-level-coding-proficiency-2/)
 * [DESIGN-BASED DEVELOPMENT OF A MULTI-TYPE QUIZ AUTHORING TOOL FOR ACTIVE LEARNING](https://library.iated.org/view/PHAM2025DES)
 * [Designing a Platform to Train Secure Programming Skills With Attack-and-Defend Exercises](https://people.cs.vt.edu/tilevich/papers/educon2025.pdf)
 * [Development of a System for Automated Testing of Program Code for the Educational Process in the Discipline "Programming Languages](https://geosib.sgugit.ru/upload/geosibir/sborniki/2023/tom-7-1/164-171.pdf)
