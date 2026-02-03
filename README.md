@@ -231,6 +231,7 @@ These scientific articles cite Judge0.
 * [Excellent Online Code Editors](https://cssauthor.com/best-online-code-editors/)
 * [Excellent Online Code Editors](https://integratedcybersecurity.ai/excellent-online-code-editors/)
 * [Exploiting Symlinks: A Deep Dive into CVE-2024–28185 and CVE-2024–28189 of Judge0 Sandboxes](https://infosecwriteups.com/exploiting-symlinks-a-deep-dive-into-cve-2024-28185-and-cve-2024-28189-of-judge0-sandboxes-36bd471cfc4d)
+* [From Zero to Production: Building a Feishu AI Assistant with Clawdbot on AWS EC2](https://www.linkedin.com/pulse/from-zero-production-building-feishu-ai-assistant-clawdbot-zhang-r8oye/)
 * [Go Playground MCP Server: The Ultimate Guide for AI Engineers](https://skywork.ai/skypage/en/go-playground-mcp-server-ai-engineers-guide/1981583589895106560)
 * [How I Built a Code Judge That Serves 1M+ Users](https://web.archive.org/web/20260201131823/https://www.linkedin.com/posts/neetcodeio_%F0%9D%97%9B%F0%9D%97%BC%F0%9D%98%84-%F0%9D%97%9C-%F0%9D%97%95%F0%9D%98%82%F0%9D%97%B6%F0%9D%97%B9%F0%9D%98%81-%F0%9D%97%AE-%F0%9D%97%96%F0%9D%97%BC%F0%9D%97%B1%F0%9D%97%B2-%F0%9D%97%9D%F0%9D%98%82%F0%9D%97%B1%F0%9D%97%B4-activity-7323003422079700992-GV3l)
 * [How I fully compromised the “most advanced code execution system in the world”, Daniel Cooper](https://www.youtube.com/watch?v=aW-w0c3v7Mw)
