@@ -313,6 +313,8 @@ These open-source projects are using Judge0. You can add yours as well by creati
 * [Codeforces Lite by Maanas Sehgal](https://github.com/MaanasSehgal/Codeforces-Lite)
 * [CodeWarz by Philkhana Sidharth](https://www.youtube.com/watch?v=mAE7Fdyrkgc)
 * [Competitive Coding Portal by CodeChefVIT](https://github.com/CodeChefVIT/cookoff-9.0-backend)
+* [Deadlock - Competitive Programming Battle Arena by warun7](https://github.com/warun7/deadlock)
+* [Dev Arsenal by Akhmad Khudri](https://devpost.com/software/dev-arsenal)
 * [DraftCode.io by Rotonda](https://dev.to/mulelur/i-built-draftcodeio-a-modern-open-leetcode-style-platform-for-coding-challenges-p9a)
 * [Edura - AI Powered Study & Learning Companion by apurva k](https://devpost.com/software/eduniverse-ai-powered-learning-platform)
 * [Judge0 CE MCP Server by BACH-AI-Tools](https://glama.ai/mcp/servers/@BACH-AI-Tools/judge0_ce)
