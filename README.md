@@ -130,6 +130,7 @@ These scientific articles cite Judge0.
 * [A Survey of Vibe Coding with Large Language Models](https://arxiv.org/abs/2510.12399)
 * [ADAPTIVE MENTORING WITH IMMEDIATE FEEDBACK FOR THE DEVELOPMENT OF PROGRAMMING SKILLS](https://library.iated.org/view/PEREZROJAS2024ADA)
 * [Advanced lab analysis system using apache spark](https://pubs.aip.org/aip/acp/article/2492/1/030016/2892049)
+* [AI-Powered Code Evaluation and Learning Assessment Platform](https://www.researchgate.net/publication/400479340_AI-Powered_Code_Evaluation_and_Learning_Assessment_Platform)
 * [An Online Judge System in Learning Management System](https://books.google.hr/books?id=KxyLEQAAQBAJ&lpg=PA327&ots=f0nMFB8KtH&lr=lang_en&pg=PA327#v=onepage&q&f=false)
 * [Analiza performansi sustava za udaljeno izvršavanje programskog kôda](https://repozitorij.fer.unizg.hr/islandora/object/fer%3A7913)
 * [Arena Acadnet - An Educational Platform for Practicing and Solving Coding Challenges](https://www.researchgate.net/publication/397088048_Arena_Acadnet_-_An_Educational_Platform_for_Practicing_and_Solving_Coding_Challenges)
