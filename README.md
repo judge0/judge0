@@ -328,6 +328,7 @@ These open-source projects are using Judge0. You can add yours as well by creati
 * [LibreChat Code Interpreter Bridge for Judge0 by leondape](https://github.com/leondape/librechat-code-interpreter-judge0-bridge)
 * [Pomelo by SOSC](https://sosc.org.in/projects/pomelo)
 * [PyGuide.ai by Daevik Jain and Jeremy Siu](https://devpost.com/software/pyguide-ai)
+* [QuizMaster by Sagar Saini](https://dev.to/sagar_saini/quizmaster-learn-create-and-play-41jg)
 * [Robust Design by Joshua](https://robustdesign.io)
 * [Slashcoder by Jatin Sahu](https://devpost.com/software/slashcoder)
 * [Unofficial Judge0 PHP Client by Xefreh](https://github.com/Xefreh/judge0-php-client)
