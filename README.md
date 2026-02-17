@@ -149,6 +149,7 @@ These scientific articles cite Judge0.
 * [CODEGEN: A React-Based Online Coding Workspace with Advanced Features and Real-Time Execution](https://www.researchgate.net/publication/386243931_CODEGEN_A_React-Based_Online_Coding_Workspace_with_Advanced_Features_and_Real-Time_Execution)
 * [Computing students’ design preferences and barriers when solving short programming problems](https://peer.asee.org/computing-students-design-preferences-and-barriers-when-solving-short-programming-problems)
 * [Creating a Platform for Competitive Programming Training with Integration of Automatic Decision Checking System](https://www.researchgate.net/publication/391464412_Creating_a_Platform_for_Competitive_Programming_Training_with_Integration_of_Automatic_Decision_Checking_System)
+* [Creating Exercises with Generative AI for Teaching Introductory Secure Programming: Are We There Yet?](https://dl.acm.org/doi/abs/10.1145/3770762.3772572)
 * [CURIOSMAZE: plataforma web educativa diseñada como herramienta de refuerzo para evaluar el pensamiento lógico y las competencias en programación, utilizando Judge0 como sistema de ejecución de código, para la Unidad Educativa Juan Pablo II](https://repositorio.puce.edu.ec/items/da89d5a6-6485-4cb9-b87d-e1fd236043f3)
 * [Data science in Java/JavaScript programming environment for AI-assisted programming](https://dr.ntu.edu.sg/entities/publication/98e3138a-c5e5-4b11-a3d0-fa6cab679d67)
 * [Dataset for Validation and Performance Testing of Online Judges](https://revistas.setrem.com.br/index.php/reabtic/article/view/462/225)
