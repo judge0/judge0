@@ -165,6 +165,7 @@ These scientific articles cite Judge0.
 * [Exploring Automated Code Evaluation Systems and Resources for Code Analysis: A Comprehensive Survey](https://arxiv.org/abs/2307.08705)
 * [Full-stack web development for auto-assessment platform](https://dr.ntu.edu.sg/handle/10356/162927)
 * [Future-Proofing Programmers: Optimal Knowledge Tracing for AI-Assisted Personalized Education](https://arxiv.org/abs/2509.23996)
+* [Future-Proofing Programmers: Optimal knowledge tracing for artificial intelligence-assisted personalized education [Special Issue on Artificial Intelligence for Education: A Signal Processing Perspective]](https://www.researchgate.net/publication/400928531_Future-Proofing_Programmers_Optimal_knowledge_tracing_for_artificial_intelligence-assisted_personalized_education_Special_Issue_on_Artificial_Intelligence_for_Education_A_Signal_Processing_Perspective)
 * [Grid-Coding: An Accessible, Efficient, and Structured Coding Paradigm for Blind and Low-Vision Programmers](https://dl.acm.org/doi/abs/10.1145/3526113.3545620)
 * [JediCode -- A Gamefied Approach to Competitive Coding](https://arxiv.org/abs/2311.10244)
 * [KOA: An AI-Integrated Productivity Intelligence Platform for Coding Skill Development and Real-Time Performance Analytics](https://www.researchgate.net/publication/399160152_KOA_An_AI-Integrated_Productivity_Intelligence_Platform_for_Coding_Skill_Development_and_Real-Time_Performance_Analytics)
