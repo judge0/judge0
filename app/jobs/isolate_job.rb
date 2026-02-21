@@ -139,6 +139,7 @@ class IsolateJob < ApplicationJob
     initialize_file(compile_output_file)
 
     command = "isolate #{cgroups} \
+    --share-net \
     -s \
     -b #{box_id} \
     -M #{metadata_file} \

@@ -105,14 +105,14 @@ class SubmissionsController < ApplicationController
     if submission.save
       if @wait
         begin
-          IsolateRunner.perform_now(submission)
+          IsolateJob.perform_now(submission)
           submission.reload
           render json: submission, status: :created, base64_encoded: @base64_encoded, fields: @requested_fields
         rescue Encoding::UndefinedConversionError => e
           render_conversion_error(:created, submission.token)
         end
       else
-        IsolateRunner.perform_later(submission)
+        IsolateJob.perform_later(submission)
         render json: submission, status: :created, fields: [:token]
       end
     else
@@ -143,7 +143,7 @@ class SubmissionsController < ApplicationController
 
     submissions.each do |submission|
       if submission.save
-        IsolateRunner.perform_later(submission)
+        IsolateJob.perform_later(submission)
         response << { token: submission.token }
         has_valid_submission = true
       else
