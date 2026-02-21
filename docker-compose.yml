@@ -8,6 +8,7 @@ x-logging:
 services:
   server:
     image: judge0/judge0:latest
+    env_file: judge0.conf
     volumes:
       - ./judge0.conf:/judge0.conf:ro
     ports:
