@@ -10,7 +10,7 @@ By default Judge0 is sending 8 attributes for submission. By sending `fields` qu
     + base64_encoded (optional, boolean, `false`) ... Set to `true` if you want to receive Base64 encoded data from Judge0. You should set this to `true` if you expect the program's stdout to contain non-printable characters or if you expect the compiler to output non-printable characters during a compile error (GCC does this, for instance).
     + fields = `stdout,time,memory,stderr,token,compile_output,message,status` (optional, string, `stdout,stderr,status_id,language_id`) ... Return only the desired attributes.
 
-+ Response 200 (applicatiion/json)
++ Response 200 (application/json)
     {
         "stdout": "hello, world\n",
         "status_id": 5,
