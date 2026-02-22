@@ -278,6 +278,7 @@ These scientific articles cite Judge0.
 * [ML Pub Club #25: The Secret Tool of AI Agents](https://luma.com/lwkmqkut)
 * [Online IDE | React | Monaco Editor | Judge0 API | Mini Project](https://www.youtube.com/watch?v=w29FWBRJ-EQ)
 * [Programski jezik Go - FER 2019./2020. - Prvo predavanje](https://youtu.be/mq18_oSNkHE?t=966)
+* [Reliable, reproducible code execution for scalable coding assessments](https://judge0.com/blog/reliable-reproducible-code-execution-for-scalable-coding-assessments)
 * [Running sqlite on the browser](https://manfonly.medium.com/running-sqlite-on-the-browser-45c5a7352fd)
 * [Self-Hosting Judge0 from Scratch on Windows 11 (Beginner-Friendly, No Docker Knowledge Required)](https://medium.com/@vanshikakriika/self-hosting-judge0-from-scratch-on-windows-11-beginner-friendly-no-docker-knowledge-required-a8fc93ce0a86)
 * [Self-Hosting Judge0: A Step-by-Step Guide Using Amazon EC2, Lambda, and S3](https://tutorialsdojo.com/self-hosting-judge0-a-step-by-step-guide-using-aws-ec2-lambda-and-s3)
