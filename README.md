@@ -231,6 +231,7 @@ These scientific articles cite Judge0.
 * [Deployment on Google Cloud](https://hackmd.io/@hIUpwGqPS4asgJ4ccgfoMw/SJ3ClK63K)
 * [Designing a Race-ready Backend for our Competitive coding portal with Golang, Echo & Redis : Part one](https://blogs.codechefvit.com/pitlane-to-production-p1)
 * [Designing Online Judge or Leetcode](https://tianpan.co/notes/243-designing-online-judge-or-leetcode)
+* [Devlog #1: Designing a Scalable Coding Interview System](https://www.youtube.com/watch?v=5tq2egyKTEk)
 * [Excellent Online Code Editors](https://cssauthor.com/best-online-code-editors/)
 * [Excellent Online Code Editors](https://integratedcybersecurity.ai/excellent-online-code-editors/)
 * [Exploiting Symlinks: A Deep Dive into CVE-2024–28185 and CVE-2024–28189 of Judge0 Sandboxes](https://infosecwriteups.com/exploiting-symlinks-a-deep-dive-into-cve-2024-28185-and-cve-2024-28189-of-judge0-sandboxes-36bd471cfc4d)
