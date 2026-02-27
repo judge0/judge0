@@ -250,6 +250,7 @@ These scientific articles cite Judge0.
 * [How to Install Judge0 on WSL and Linux – Step-by-Step Guide for Developers](https://www.youtube.com/watch?v=mvNgqrx2cfA)
 * [How to self-host Judge0 API on your PC locally | All you need to know](https://medium.com/@denishoti/how-to-self-host-judge0-api-on-your-pc-locally-all-you-need-to-know-ad8a2b64fd1)
 * [How we designed a code evaluation pipeline using Judge0 with Golang, Echo & Redis.](https://blogs.codechefvit.com/pitlane-to-production-p2)
+* [I Built a Competitive Coding Platform from Scratch — Here’s How It Works](https://medium.com/@jsubhra502/i-built-a-competitive-coding-platform-from-scratch-heres-how-it-works-390814f334ee)
 * [I Built a Real-Time 1v1 Coding Battle Platform in Days Using Kiro](https://dev.to/aieradev/i-built-a-real-time-1v1-coding-battle-platform-in-days-using-kiro-25de)
 * [I coded Codeforces.com in under 4 hours](https://www.youtube.com/watch?v=vABb1y4fmwE)
 * [Implementation Documentation: Judge0 in Frontend Projects](https://medium.com/@victor.c.okoye/implementation-documentation-judge0-in-frontend-projects-58a14a68e3fa)
