@@ -227,6 +227,7 @@ These scientific articles cite Judge0.
 * [C Code Runner with Monaco Editor | Judge0 API Integration Fetching Github repo](https://www.youtube.com/watch?v=OIfhZ5gA_L0)
 * [Code Execution in Kestra’s AI Agents Powered by Judge0](https://judge0.com/blog/code-execution-in-kestras-ai-agents-powered-by-judge0)
 * [CodeAIDE Walkthrough | Online AI IDE Project](https://www.youtube.com/watch?v=Z7fe3DVCqWo)
+* [Codeforces Lite Version 1.1.0 is out! Run codes directly in an inbuilt code editor!](https://codeforces.com/blog/entry/136529)
 * [CodeX | IDE + AI | Judge0 | OpenRouter | Tailwind CSS](https://www.youtube.com/watch?v=VLwhqqEm2L8)
 * [Deployment on Google Cloud](https://hackmd.io/@hIUpwGqPS4asgJ4ccgfoMw/SJ3ClK63K)
 * [Designing a Race-ready Backend for our Competitive coding portal with Golang, Echo & Redis : Part one](https://blogs.codechefvit.com/pitlane-to-production-p1)
@@ -252,6 +253,7 @@ These scientific articles cite Judge0.
 * [How we designed a code evaluation pipeline using Judge0 with Golang, Echo & Redis.](https://blogs.codechefvit.com/pitlane-to-production-p2)
 * [I Built a Competitive Coding Platform from Scratch — Here’s How It Works](https://medium.com/@jsubhra502/i-built-a-competitive-coding-platform-from-scratch-heres-how-it-works-390814f334ee)
 * [I Built a Real-Time 1v1 Coding Battle Platform in Days Using Kiro](https://dev.to/aieradev/i-built-a-real-time-1v1-coding-battle-platform-in-days-using-kiro-25de)
+* [I Built My Own Automated Coding Judge (Like LeetCode) | Full System Breakdown](https://www.youtube.com/watch?v=wf5U_gcn6Do)
 * [I coded Codeforces.com in under 4 hours](https://www.youtube.com/watch?v=vABb1y4fmwE)
 * [Implementation Documentation: Judge0 in Frontend Projects](https://medium.com/@victor.c.okoye/implementation-documentation-judge0-in-frontend-projects-58a14a68e3fa)
 * [In a Defense of Reinventing the Wheel: Coding to Stay Sane in a Legacy Hell](https://frombadge.medium.com/in-a-defense-of-reinventing-the-wheel-coding-to-stay-sane-in-a-legacy-hell-3c7e0b7e585b)
@@ -270,6 +272,8 @@ These scientific articles cite Judge0.
 * [Judge0 on PeerPush](https://peerpush.net/p/judge0)
 * [Judge0 Python API: Online Compiler Judge Sandbox Executions Languages Metrics 2026](https://www.johal.in/judge0-python-api-online-compiler-judge-sandbox-executions-languages-metrics-2026)
 * [Judge0 Sandbox Escape](https://tantosec.com/blog/judge0/)
+* [Judge0在线代码执行系统：从沙箱安全到多语言支持的深度解析](https://blog.csdn.net/jam55/article/details/153546749)
+* [Judge0让代码执行变得这么简单 | 开源API系统](https://www.youtube.com/watch?v=qnm0Xh2ZjjM)
 * [Leo: Your 24/7 Mock Coding Interviewer](https://judge0.com/blog/leo-your-24-7-mock-coding-interviewer)
 * [Let’s Deploy our Online Code Executor in Google Cloud](https://dev.to/nilmadhabmondal/let-s-deploy-our-online-code-executor-in-google-cloud-41b0)
 * [Let’s Deploy our Online Code Executor in Google Cloud](https://medium.com/javarevisited/lets-deploy-our-online-code-executor-in-google-cloud-e76a9fabac57)
@@ -280,6 +284,7 @@ These scientific articles cite Judge0.
 * [ML Pub Club #25: The Secret Tool of AI Agents](https://luma.com/lwkmqkut)
 * [Online IDE | React | Monaco Editor | Judge0 API | Mini Project](https://www.youtube.com/watch?v=w29FWBRJ-EQ)
 * [Programski jezik Go - FER 2019./2020. - Prvo predavanje](https://youtu.be/mq18_oSNkHE?t=966)
+* [Racing Against Time: How We Built a Fair, Server-Synchronized Contest Timer at Scale](https://blogs.codechefvit.com/pitlane-to-production-p3)
 * [Reliable, reproducible code execution for scalable coding assessments](https://judge0.com/blog/reliable-reproducible-code-execution-for-scalable-coding-assessments)
 * [Running sqlite on the browser](https://manfonly.medium.com/running-sqlite-on-the-browser-45c5a7352fd)
 * [Self-Hosting Judge0 from Scratch on Windows 11 (Beginner-Friendly, No Docker Knowledge Required)](https://medium.com/@vanshikakriika/self-hosting-judge0-from-scratch-on-windows-11-beginner-friendly-no-docker-knowledge-required-a8fc93ce0a86)
@@ -305,6 +310,8 @@ These scientific articles cite Judge0.
 * [Web application for authoring and sharing code snippets in different programming languages](https://repozitorij.fer.unizg.hr/en/islandora/object/fer%3A3607)
 * [Why I Stopped Self-Hosting](https://www.youtube.com/watch?v=TkysPcpK0aQ)
 * [Your own Leetcode with Deployment](https://www.youtube.com/watch?v=6nkNUDNhSYI)
+* [开源在线评测系统（OJ）沙盒解决方案对比分析](https://blog.csdn.net/bhl120/article/details/158467526)
+* [手把手教你用Docker部署Judge0：打造自己的在线代码评测系统](https://blog.csdn.net/ggg99/article/details/153605598)
 
 ## Showcase
 
