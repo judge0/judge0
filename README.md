@@ -290,6 +290,7 @@ These scientific articles cite Judge0.
 * [Self-Hosting Judge0 from Scratch on Windows 11 (Beginner-Friendly, No Docker Knowledge Required)](https://medium.com/@vanshikakriika/self-hosting-judge0-from-scratch-on-windows-11-beginner-friendly-no-docker-knowledge-required-a8fc93ce0a86)
 * [Self-Hosting Judge0: A Step-by-Step Guide Using Amazon EC2, Lambda, and S3](https://tutorialsdojo.com/self-hosting-judge0-a-step-by-step-guide-using-aws-ec2-lambda-and-s3)
 * [Setting Up Ubuntu and Judge0 on Windows: A Complete Guide for Developers](https://medium.com/@gauravkmaurya09/setting-up-ubuntu-and-judge0-on-windows-a-complete-guide-for-developers-%EF%B8%8F-45f7e3e8bc0b)
+* [Snorkel AI: How Judge0 Transformed Our Code Preference Analysis Pipeline](https://judge0.com/blog/snorkel-ai-how-judge0-transformed-our-code-preference-analysis-pipeline)
 * [SocraticAI: Adding AI capabilities to the Judge0 IDE](https://www.youtube.com/watch?v=98xezoHYNtU)
 * [Sudjelovanje FER-a na Smotri Sveučilišta 2019.](https://web.archive.org/web/20220527143632/https://www.fer.unizg.hr/novosti?%40=2utqx)
 * [Summer Internship Experience '21](https://blog.ishandeveloper.com/hackerrank)
