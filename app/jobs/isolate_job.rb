@@ -131,7 +131,7 @@ class IsolateJob < ApplicationJob
       end
     else
       # gsub can be skipped if compile script is used, but is kept for additional security.
-      compiler_options = submission.compiler_options.to_s.strip.encode("UTF-8", invalid: :replace).gsub(/[$&;<>|`]/, "")
+      compiler_options = submission.compiler_options.to_s.strip.encode("UTF-8", invalid: :replace).gsub(/[$&;<>|`\n\r]/, "")
       File.open(compile_script, "w") { |f| f.write("#{submission.language.compile_cmd % compiler_options}") }
     end
 
@@ -215,7 +215,7 @@ class IsolateJob < ApplicationJob
 
     unless submission.is_project
       # gsub is mandatory!
-      command_line_arguments = submission.command_line_arguments.to_s.strip.encode("UTF-8", invalid: :replace).gsub(/[$&;<>|`]/, "")
+      command_line_arguments = submission.command_line_arguments.to_s.strip.encode("UTF-8", invalid: :replace).gsub(/[$&;<>|`\n\r]/, "")
       File.open(run_script, "w") { |f| f.write("#{submission.language.run_cmd} #{command_line_arguments}")}
     end
 
