@@ -241,6 +241,7 @@ These scientific articles cite Judge0.
 * [Excellent Online Code Editors](https://cssauthor.com/best-online-code-editors/)
 * [Excellent Online Code Editors](https://integratedcybersecurity.ai/excellent-online-code-editors/)
 * [Exploiting Symlinks: A Deep Dive into CVE-2024–28185 and CVE-2024–28189 of Judge0 Sandboxes](https://infosecwriteups.com/exploiting-symlinks-a-deep-dive-into-cve-2024-28185-and-cve-2024-28189-of-judge0-sandboxes-36bd471cfc4d)
+* [From AWS Credits to Running Code in the Cloud - What I Learned Deploying Judge0 on EC2](https://peerlist.io/adityadhanraj/articles/aws-judge0-free-credit)
 * [From Zero to Production: Building a Feishu AI Assistant with Clawdbot on AWS EC2](https://www.linkedin.com/pulse/from-zero-production-building-feishu-ai-assistant-clawdbot-zhang-r8oye/)
 * [get an exhaustive list of solutions for sandboxed execution of python (local, remote)](https://github.com/Arize-ai/phoenix/issues/11756)
 * [Go Playground MCP Server: The Ultimate Guide for AI Engineers](https://skywork.ai/skypage/en/go-playground-mcp-server-ai-engineers-guide/1981583589895106560)
