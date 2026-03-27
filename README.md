@@ -278,6 +278,7 @@ These scientific articles cite Judge0.
 * [Judge0 IDE on Product Hunt](https://www.producthunt.com/products/judge0-ide)
 * [Judge0 on AKS Cluster Setup](https://github.com/MelloB1989/judge0.k8s)
 * [Judge0 on Awesome Docker Compose](https://awesome-docker-compose.com/judge0)
+* [Judge0 on AWS Lightsail - Complete Setup Guide](https://github.com/bharattpawar/judge0vps/blob/main/install.md)
 * [judge0 on Mac M3 macOS Sequoia](https://girishkr.medium.com/judge0-on-mac-m3-macos-sequoia-26946b85d67c)
 * [Judge0 on PeerPush](https://peerpush.net/p/judge0)
 * [Judge0 Python API: Online Compiler Judge Sandbox Executions Languages Metrics 2026](https://www.johal.in/judge0-python-api-online-compiler-judge-sandbox-executions-languages-metrics-2026)
