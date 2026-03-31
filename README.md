@@ -298,6 +298,7 @@ These scientific articles cite Judge0.
 * [Monky - AI Coding Assistant](https://devpost.com/software/monky-ai-coding-assistant)
 * [Online IDE | React | Monaco Editor | Judge0 API | Mini Project](https://www.youtube.com/watch?v=w29FWBRJ-EQ)
 * [Online OJ项目](https://blog.csdn.net/2403_88365785/article/details/159351850)
+* [OWASP TOP 10 FOR AI — LLM02: INSECURE OUTPUT HANDLING](https://medium.com/@shivayadav2820/owasp-top-10-for-ai-llm02-insecure-output-handling-aa65a45f16b5)
 * [Programski jezik Go - FER 2019./2020. - Prvo predavanje](https://youtu.be/mq18_oSNkHE?t=966)
 * [Racing Against Time: How We Built a Fair, Server-Synchronized Contest Timer at Scale](https://blogs.codechefvit.com/pitlane-to-production-p3)
 * [Reliable, reproducible code execution for scalable coding assessments](https://judge0.com/blog/reliable-reproducible-code-execution-for-scalable-coding-assessments)
