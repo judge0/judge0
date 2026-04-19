@@ -191,6 +191,7 @@ These scientific articles cite Judge0.
 * [Robust and Scalable Online Code Execution System](https://www.researchgate.net/publication/346751837_Robust_and_Scalable_Online_Code_Execution_System)
 * [Scaling Automated Programming Assessment Systems](https://www.researchgate.net/publication/368528043_Scaling_Automated_Programming_Assessment_Systems)
 * [Software de retos de programación](https://repositorio.tdea.edu.co/handle/tdea/3593)
+* [The Development of an Interactive Programming Learning Platform with AI-Driven Feedback and Online Code Execution for the Java Language](https://www.researchgate.net/publication/403899607_The_Development_of_an_Interactive_Programming_Learning_Platform_with_AI-Driven_Feedback_and_Online_Code_Execution_for_the_Java_Language)
 * [Thinking beyond chatbots' threat to education: Visualizations to elucidate the writing and coding process](https://www.mdpi.com/2474186)
 * [Usability and Security of Trusted Platform Module (TPM) Library APIs](https://www.usenix.org/conference/soups2022/presentation/rao)
 * [Voice-Enabled Intelligent IDE in Cloud](https://link.springer.com/chapter/10.1007/978-981-15-3607-6_5)
