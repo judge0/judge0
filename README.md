@@ -264,6 +264,7 @@ These scientific articles cite Judge0.
 * [How we designed a code evaluation pipeline using Judge0 with Golang, Echo & Redis.](https://blogs.codechefvit.com/pitlane-to-production-p2)
 * [I added video calls inside a real-time coding editor (CodeKaro)](https://dev.to/akhilesh_singhmaurya_1c2/i-added-video-calls-inside-a-real-time-coding-editor-codekaro-5ccc)
 * [I Built a Competitive Coding Platform from Scratch — Here’s How It Works](https://medium.com/@jsubhra502/i-built-a-competitive-coding-platform-from-scratch-heres-how-it-works-390814f334ee)
+* [I built a free Java practice playground with a built-in compiler — here's what I learned (and what's inside)](https://dev.to/priyanshu_rauth/i-built-a-free-java-practice-playground-with-a-built-in-compiler-heres-what-i-learned-and-1be0)
 * [I Built a Real-Time 1v1 Coding Battle Platform in Days Using Kiro](https://dev.to/aieradev/i-built-a-real-time-1v1-coding-battle-platform-in-days-using-kiro-25de)
 * [I Built My Own Automated Coding Judge (Like LeetCode) | Full System Breakdown](https://www.youtube.com/watch?v=wf5U_gcn6Do)
 * [I coded Codeforces.com in under 4 hours](https://www.youtube.com/watch?v=vABb1y4fmwE)
