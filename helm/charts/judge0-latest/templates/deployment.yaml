@@ -1,0 +1,367 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Namespace }}-{{ .Chart.Name }}-api
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: {{ .Chart.Name }}
+    kubernetes.io.name: {{ .Chart.Name }}-api
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service | quote }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}
+      release:  {{ .Release.Name | quote }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        kubernetes.io.name: {{ .Chart.Name }}-api
+        app: {{ .Chart.Name }}
+        chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+        release: {{ .Release.Name }}
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: {{ .Chart.Name }}-api
+          securityContext:
+            privileged: true
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 2358
+              protocol: TCP
+        # {{- if .Values.readinessProbe.enable }}
+        #   readinessProbe:
+        #     httpGet:
+        #       path: /system_info
+        #       port: http-port
+        #       scheme: HTTP
+        #     initialDelaySeconds: {{ .Values.readinessProbe.initialDelay }}
+        #     timeoutSeconds: {{ .Values.readinessProbe.timeout }}
+        #     {{- end }}
+          env:
+            - name: RAILS_ENV
+              value:  {{  .Values.RAILS_ENV | quote }}
+            - name: RAILS_MAX_THREADS
+              value:  {{ .Values.RAILS_MAX_THREADS | quote }}
+            - name: SECRET_KEY_BASE
+              value:  {{ .Values.SECRET_KEY_BASE | quote }}
+            - name: ALLOW_ORIGIN
+              value:  {{ .Values.ALLOW_ORIGIN | quote }}
+            - name: AUTHN_HEADER
+              value:  {{ .Values.AUTHN_HEADER | quote }}
+            - name: AUTHN_TOKEN
+              value:  {{ .Values.AUTHN_TOKEN | quote }}
+            - name: AUTHZ_HEADER
+              value:  {{ .Values.AUTHZ_HEADER | quote }}
+            - name: AUTHZ_TOKEN
+              value:  {{ .Values.AUTHZ_TOKEN | quote }}
+            - name: INTERVAL
+              value:  {{ .Values.INTERVAL | quote }}
+            - name: COUNT
+              value:  {{ .Values.COUNT | quote }}
+            {{- if .Values.redis.enabled }}
+            - name: REDIS_HOST
+              value: {{ template "judge0.redis.fullname" . }}-master
+            - name: REDIS_PASSWORD
+              value: {{ .Values.redis.password | quote }}
+            - name: REDIS_PORT
+              value: {{ .Values.redis.redisPort | quote }}
+            {{- else }}
+            - name: REDIS_HOST
+              value:  {{ .Values.external.redis.host | quote }}
+            - name: REDIS_PASSWORD
+              value: {{ .Values.external.redis.password | quote }}
+            - name: REDIS_PORT
+              value: {{  .Values.external.redis.port | quote }}
+            {{- end }}
+            {{- if .Values.postgresql.enabled }}
+            - name: POSTGRES_HOST
+              value: {{ template "judge0.postgresql.fullname" . }}
+            - name: POSTGRES_DB
+              value: {{ .Values.postgresql.postgresqlDatabase | quote }}
+            - name: POSTGRES_USER
+              value: {{ .Values.postgresql.postgresqlUsername | quote }}
+            - name: POSTGRES_PASSWORD
+              value: {{ .Values.postgresql.postgresqlPassword | quote }}
+            - name: POSTGRES_PORT
+              value:  {{.Values.postgresql.service.port | quote }}
+            {{- else }}
+            - name: POSTGRES_HOST
+              value: {{ .Values.external.postgresql.host | quote }}
+            - name: POSTGRES_DB
+              value: {{ .Values.external.postgresql.postgresqlDatabase | quote }}
+            - name: POSTGRES_USER
+              value: {{ .Values.external.postgresql.postgresqlUsername | quote }}
+            - name: POSTGRES_PASSWORD
+              value: {{ .Values.external.postgresql.postgresqlPassword | quote }}
+            - name: POSTGRES_PORT
+              value:  {{.Values.external.postgresql.port | quote }}
+            {{- end }}
+            - name: ENABLE_WAIT_RESULT
+              value:  {{ .Values.ENABLE_WAIT_RESULT | quote }}
+            - name: CPU_TIME_LIMIT
+              value:  {{ .Values.CPU_TIME_LIMIT | quote }}
+            - name: MAX_CPU_TIME_LIMIT
+              value:  {{ .Values.MAX_CPU_TIME_LIMIT | quote }}
+            - name: CPU_EXTRA_TIME
+              value:  {{ .Values.CPU_EXTRA_TIME | quote }}
+            - name: MAX_CPU_EXTRA_TIME
+              value:  {{ .Values.MAX_CPU_EXTRA_TIME | quote }}
+            - name: WALL_TIME_LIMIT
+              value:  {{ .Values.WALL_TIME_LIMIT | quote }}
+            - name: MAX_WALL_TIME_LIMIT
+              value:  {{ .Values.MAX_WALL_TIME_LIMIT | quote }}
+            - name: MEMORY_LIMIT
+              value:  {{ .Values.MEMORY_LIMIT | quote }}
+            - name: MAX_MEMORY_LIMIT
+              value:  {{ .Values.MAX_MEMORY_LIMIT | quote }}
+            - name: MAX_STACK_LIMIT
+              value:  {{ .Values.MAX_STACK_LIMIT | quote }}
+            - name: MAX_PROCESSES_AND_OR_THREADS
+              value:  {{ .Values.MAX_PROCESSES_AND_OR_THREADS | quote }}
+            - name: MAX_MAX_PROCESSES_AND_OR_THREADS
+              value:  {{ .Values.MAX_MAX_PROCESSES_AND_OR_THREADS | quote }}
+            - name: ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT
+              value:  {{ .Values.ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT | quote }}
+            - name: ALLOW_ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT
+              value:  {{ .Values.ALLOW_ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT | quote }}
+            - name: ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT
+              value: {{ .Values.ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT | quote }}
+            - name: ALLOW_ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT
+              value:  {{ .Values.ALLOW_ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT | quote }}
+            - name: MAX_FILE_SIZE
+              value: {{ .Values.MAX_FILE_SIZE | quote }}
+            - name: MAX_MAX_FILE_SIZE
+              value:  {{ .Values.MAX_MAX_FILE_SIZE | quote }}
+            - name: NUMBER_OF_RUNS
+              value:  {{ .Values.NUMBER_OF_RUNS | quote }}
+            - name: MAX_NUMBER_OF_RUNS
+              value:  {{ .Values.MAX_NUMBER_OF_RUNS | quote }}
+            - name: MAX_QUEUE_SIZE
+              value:  {{ .Values.MAX_QUEUE_SIZE | quote }}
+            - name: DISALLOW_IP
+              value:  {{ .Values.DISALLOW_IP | quote }}
+            - name: ALLOW_IP
+              value:  {{ .Values.ALLOW_IP | quote }}
+            - name: DISALLOW_ORIGIN
+              value:  {{ .Values.DISALLOW_ORIGIN | quote }}
+            - name: MAINTENANCE_MESSAGE
+              value:  {{ .Values.MAINTENANCE_MESSAGE | quote }}
+            - name: MAINTENANCE_MODE
+              value:  {{ .Values.MAINTENANCE_MODE | quote }}
+          resources:
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+            requests:
+              cpu: "250m"
+              memory: "256Mi"
+          {{- if .Values.livenessProbe.enable }}    
+          livenessProbe:
+            httpGet:
+            path: /config_info
+            port: http-port
+            scheme: HTTP
+            initialDelaySeconds: {{ add .Values.livenessProbe.initialDelay .Values.readinessProbe.initialDelay }}
+            periodSeconds: 60
+            timeoutSeconds: {{ .Values.livenessProbe.timeout }}
+          {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      
+---         
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Namespace }}-{{ .Chart.Name }}-worker
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: {{ .Chart.Name }}
+    kubernetes.io.name: {{ .Chart.Name }}-api
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service | quote }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}
+      release:  {{ .Release.Name | quote }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        app: {{ .Chart.Name }}
+        chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+        release: {{ .Release.Name }}
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: {{ .Chart.Name }}-worker
+          securityContext:
+            privileged: true
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: IfNotPresent
+          command: ["./scripts/workers"]
+          {{- if .Values.livenessProbe.enable }}
+          livenessProbe:
+            httpGet:
+              path: /config_info
+              port: http-port
+              scheme: HTTP
+            initialDelaySeconds: {{ add .Values.livenessProbe.initialDelay .Values.readinessProbe.initialDelay }}
+            periodSeconds: 60
+            timeoutSeconds: {{ .Values.livenessProbe.timeout }}
+          {{- end }}
+          env:
+            - name: RAILS_ENV
+              value:  {{  .Values.RAILS_ENV | quote }}
+            - name: RAILS_MAX_THREADS
+              value:  {{ .Values.RAILS_MAX_THREADS | quote }}
+            - name: SECRET_KEY_BASE
+              value:  {{ .Values.SECRET_KEY_BASE | quote }}
+            - name: ALLOW_ORIGIN
+              value:  {{ .Values.ALLOW_ORIGIN | quote }}
+            - name: AUTHN_HEADER
+              value:  {{ .Values.AUTHN_HEADER | quote }}
+            - name: AUTHN_TOKEN
+              value:  {{ .Values.AUTHN_TOKEN | quote }}
+            - name: AUTHZ_HEADER
+              value:  {{ .Values.AUTHZ_HEADER | quote }}
+            - name: AUTHZ_TOKEN
+              value:  {{ .Values.AUTHZ_TOKEN | quote }}
+            - name: INTERVAL
+              value:  {{ .Values.INTERVAL | quote }}
+            - name: COUNT
+              value:  {{ .Values.COUNT | quote }}
+            {{- if .Values.redis.enabled }}
+            - name: REDIS_HOST
+              value: {{ template "judge0.redis.fullname" . }}-master
+            - name: REDIS_PASSWORD
+              value: {{ .Values.redis.password | quote }}
+            - name: REDIS_PORT
+              value: {{ .Values.redis.redisPort | quote }}
+            {{- else }}
+            - name: REDIS_HOST
+              value:  {{ .Values.external.redis.host | quote }}
+            - name: REDIS_PASSWORD
+              value: {{ .Values.external.redis.password | quote }}
+            - name: REDIS_PORT
+              value: {{  .Values.external.redis.port | quote }}
+            {{- end }}
+            {{- if .Values.postgresql.enabled }}
+            - name: POSTGRES_HOST
+              value: {{ template "judge0.postgresql.fullname" . }}
+            - name: POSTGRES_DB
+              value: {{ .Values.postgresql.postgresqlDatabase | quote }}
+            - name: POSTGRES_USER
+              value: {{ .Values.postgresql.postgresqlUsername | quote }}
+            - name: POSTGRES_PASSWORD
+              value: {{ .Values.postgresql.postgresqlPassword | quote }}
+            - name: POSTGRES_PORT
+              value:  {{.Values.postgresql.service.port | quote }}
+            {{- else }}
+            - name: POSTGRES_HOST
+              value: {{ .Values.external.postgresql.host | quote }}
+            - name: POSTGRES_DB
+              value: {{ .Values.external.postgresql.postgresqlDatabase | quote }}
+            - name: POSTGRES_USER
+              value: {{ .Values.external.postgresql.postgresqlUsername | quote }}
+            - name: POSTGRES_PASSWORD
+              value: {{ .Values.external.postgresql.postgresqlPassword | quote }}
+            - name: POSTGRES_PORT
+              value:  {{.Values.external.postgresql.port | quote }}
+            {{- end }}
+            - name: ENABLE_WAIT_RESULT
+              value:  {{ .Values.ENABLE_WAIT_RESULT | quote }}
+            - name: CPU_TIME_LIMIT
+              value:  {{ .Values.CPU_TIME_LIMIT | quote }}
+            - name: MAX_CPU_TIME_LIMIT
+              value:  {{ .Values.MAX_CPU_TIME_LIMIT | quote }}
+            - name: CPU_EXTRA_TIME
+              value:  {{ .Values.CPU_EXTRA_TIME | quote }}
+            - name: MAX_CPU_EXTRA_TIME
+              value:  {{ .Values.MAX_CPU_EXTRA_TIME | quote }}
+            - name: WALL_TIME_LIMIT
+              value:  {{ .Values.WALL_TIME_LIMIT | quote }}
+            - name: MAX_WALL_TIME_LIMIT
+              value:  {{ .Values.MAX_WALL_TIME_LIMIT | quote }}
+            - name: MEMORY_LIMIT
+              value:  {{ .Values.MEMORY_LIMIT | quote }}
+            - name: MAX_MEMORY_LIMIT
+              value:  {{ .Values.MAX_MEMORY_LIMIT | quote }}
+            - name: MAX_STACK_LIMIT
+              value:  {{ .Values.MAX_STACK_LIMIT | quote }}
+            - name: MAX_PROCESSES_AND_OR_THREADS
+              value:  {{ .Values.MAX_PROCESSES_AND_OR_THREADS | quote }}
+            - name: MAX_MAX_PROCESSES_AND_OR_THREADS
+              value:  {{ .Values.MAX_MAX_PROCESSES_AND_OR_THREADS | quote }}
+            - name: ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT
+              value:  {{ .Values.ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT | quote }}
+            - name: ALLOW_ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT
+              value:  {{ .Values.ALLOW_ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT | quote }}
+            - name: ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT
+              value: {{ .Values.ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT | quote }}
+            - name: ALLOW_ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT
+              value:  {{ .Values.ALLOW_ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT | quote }}
+            - name: MAX_FILE_SIZE
+              value: {{ .Values.MAX_FILE_SIZE | quote }}
+            - name: MAX_MAX_FILE_SIZE
+              value:  {{ .Values.MAX_MAX_FILE_SIZE | quote }}
+            - name: NUMBER_OF_RUNS
+              value:  {{ .Values.NUMBER_OF_RUNS | quote }}
+            - name: MAX_NUMBER_OF_RUNS
+              value:  {{ .Values.MAX_NUMBER_OF_RUNS | quote }}
+            - name: MAX_QUEUE_SIZE
+              value:  {{ .Values.MAX_QUEUE_SIZE | quote }}
+            - name: DISALLOW_IP
+              value:  {{ .Values.DISALLOW_IP | quote }}
+            - name: ALLOW_IP
+              value:  {{ .Values.ALLOW_IP | quote }}
+            - name: DISALLOW_ORIGIN
+              value:  {{ .Values.DISALLOW_ORIGIN | quote }}
+            - name: MAINTENANCE_MESSAGE
+              value:  {{ .Values.MAINTENANCE_MESSAGE | quote }}
+            - name: MAINTENANCE_MODE
+              value:  {{ .Values.MAINTENANCE_MODE | quote }}
+          resources:
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+            requests:
+              cpu: "250m"
+              memory: "256Mi"
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
