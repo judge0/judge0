@@ -298,7 +298,7 @@ class IsolateJob < ApplicationJob
       `sudo rm -rf #{f}`
     end
     `isolate #{cgroups} -b #{box_id} --cleanup`
-    raise "Cleanup of sandbox #{box_id} failed." if raise_exception && Dir.exists?(workdir)
+    raise "Cleanup of sandbox #{box_id} failed." if raise_exception && Dir.exist?(workdir)
   end
 
   def reset_metadata_file
