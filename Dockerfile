@@ -1,3 +1,6 @@
+# ==========================================
+# Base image for compilers
+# ==========================================
 FROM judge0/compilers:1.4.0 AS production
 
 ENV JUDGE0_HOMEPAGE "https://judge0.com"
@@ -12,6 +15,9 @@ LABEL maintainer=$JUDGE0_MAINTAINER
 ENV PATH "/usr/local/ruby-2.7.0/bin:/opt/.gem/bin:$PATH"
 ENV GEM_HOME "/opt/.gem/"
 
+# ==========================================
+# Install dependencies (NO CHOWN or USERADD)
+# ==========================================
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
       cron \
@@ -22,6 +28,9 @@ RUN apt-get update && \
     gem install bundler:2.1.4 && \
     npm install -g --unsafe-perm aglio@2.3.0
 
+# ==========================================
+# Expose API port
+# ==========================================
 EXPOSE 2358
 
 WORKDIR /api
@@ -34,19 +43,29 @@ RUN cat /etc/cron.d/* | crontab -
 
 COPY . .
 
+# ==========================================
+# Render fix: remove useradd and chown
+# ==========================================
+# ❌ Remove this block:
+# RUN useradd -u 1000 -m -r judge0 && \
+#     echo "judge0 ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers && \
+#     chown judge0: /api/tmp/
+#
+# USER judge0
+# ==========================================
+
+# ✅ Instead, stay as root (Render is rootless anyway)
+USER root
+
 ENTRYPOINT ["/api/docker-entrypoint.sh"]
 CMD ["/api/scripts/server"]
-
-RUN useradd -u 1000 -m -r judge0 && \
-    echo "judge0 ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers && \
-    chown judge0: /api/tmp/
-
-USER judge0
 
 ENV JUDGE0_VERSION "1.13.1"
 LABEL version=$JUDGE0_VERSION
 
 
+# ==========================================
+# Development mode (for debugging only)
+# ==========================================
 FROM production AS development
-
 CMD ["sleep", "infinity"]
