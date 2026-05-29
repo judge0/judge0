@@ -92,7 +92,7 @@ class IsolateJob < ApplicationJob
     -w 4 \
     -k #{Config::MAX_STACK_LIMIT} \
     -p#{Config::MAX_MAX_PROCESSES_AND_OR_THREADS} \
-    #{submission.enable_per_process_and_thread_time_limit ? (cgroups.present? ? "--no-cg-timing" : "") : "--cg-timing"} \
+    -n 512 \
     #{submission.enable_per_process_and_thread_memory_limit ? "-m " : "--cg-mem="}#{Config::MAX_MEMORY_LIMIT} \
     -f #{Config::MAX_EXTRACT_SIZE} \
     --run \
@@ -149,7 +149,7 @@ class IsolateJob < ApplicationJob
     -w #{Config::MAX_WALL_TIME_LIMIT} \
     -k #{Config::MAX_STACK_LIMIT} \
     -p#{Config::MAX_MAX_PROCESSES_AND_OR_THREADS} \
-    #{submission.enable_per_process_and_thread_time_limit ? (cgroups.present? ? "--no-cg-timing" : "") : "--cg-timing"} \
+    -n 512 \
     #{submission.enable_per_process_and_thread_memory_limit ? "-m " : "--cg-mem="}#{Config::MAX_MEMORY_LIMIT} \
     -f #{Config::MAX_MAX_FILE_SIZE} \
     -E HOME=/tmp \
@@ -230,7 +230,7 @@ class IsolateJob < ApplicationJob
     -w #{submission.wall_time_limit} \
     -k #{submission.stack_limit} \
     -p#{submission.max_processes_and_or_threads} \
-    #{submission.enable_per_process_and_thread_time_limit ? (cgroups.present? ? "--no-cg-timing" : "") : "--cg-timing"} \
+    -n 512 \
     #{submission.enable_per_process_and_thread_memory_limit ? "-m " : "--cg-mem="}#{submission.memory_limit} \
     -f #{submission.max_file_size} \
     -E HOME=/tmp \
@@ -264,7 +264,13 @@ class IsolateJob < ApplicationJob
 
     submission.time = metadata[:time]
     submission.wall_time = metadata[:"time-wall"]
-    submission.memory = (cgroups.present? ? metadata[:"cg-mem"] : metadata[:"max-rss"])
+    # isolate v2 reads memory peak from cgroupv2's memory.peak (kernel 5.19+).
+    # On older kernels (e.g. AKS Ubuntu 22.04 still ships kernel 5.15)
+    # memory.peak does not exist, so isolate silently omits the cg-mem line
+    # from metadata and submission.memory ends up as 0 for every submission.
+    # Fall back to max-rss (always emitted via getrusage) so MLE detection
+    # keeps working until the host kernel is new enough.
+    submission.memory = (cgroups.present? ? (metadata[:"cg-mem"] || metadata[:"max-rss"]) : metadata[:"max-rss"])
     submission.stdout = program_stdout
     submission.stderr = program_stderr
     submission.exit_code = metadata[:exitcode].try(:to_i) || 0
