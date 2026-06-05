@@ -140,6 +140,7 @@ These scientific articles cite Judge0.
 * [Automatic marking system for programming subject](http://eprints.utar.edu.my/5990/)
 * [Automatic question generation for JavaScript programming courses](https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/3088497)
 * [Big Data based Advanced Lab Analysis System using Apache Spark](https://ieeexplore.ieee.org/abstract/document/9489186)
+* [BrainCode: A Coding Practice Platform with AI-Assisted Learning andReal-Time Code Execution](https://ijrpr.com/uploads/V7ISSUE5/IJRPR64488.pdf)
 * [Bridging code and timely feedback: integrating generative AI into a programming platform](https://peerj.com/articles/cs-3070/)
 * [Building a Comprehensive Automated Programming Assessment System](https://ieeexplore.ieee.org/document/9079865)
 * [Canvas Coding: una piattaforma di gioco per studenti basata sulla programmazione creativa = Canvas Coding: a gaming platform for students based on creative programming](https://webthesis.biblio.polito.it/29496/)
