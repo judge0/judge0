@@ -49,6 +49,7 @@ class SubmissionsController < ApplicationController
     end
 
     submission.delete
+    Rails.cache.delete(params[:token])
 
     # Forcing base64_encoded=true because it guarantees user will get requested data after delete.
     render json: submission, base64_encoded: true, fields: @requested_fields
