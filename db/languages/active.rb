@@ -59,7 +59,7 @@
     name: "C (GCC 9.2.0)",
     is_archived: false,
     source_file: "main.c",
-    compile_cmd: "/usr/local/gcc-9.2.0/bin/gcc %s main.c",
+    compile_cmd: "/usr/local/gcc-9.2.0/bin/gcc %s main.c -lm",
     run_cmd: "./a.out"
   },
   {
