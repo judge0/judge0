@@ -130,9 +130,8 @@ class IsolateJob < ApplicationJob
         return :success # If compile script does not exist then this project does not need to be compiled.
       end
     else
-      # gsub can be skipped if compile script is used, but is kept for additional security.
-      compiler_options = submission.compiler_options.to_s.strip.encode("UTF-8", invalid: :replace).gsub(/[$&;<>|`]/, "")
-      File.open(compile_script, "w") { |f| f.write("#{submission.language.compile_cmd % compiler_options}") }
+      compiler_options = CommandArguments.sanitize(submission.compiler_options)
+      create_file(compile_script) { |f| f.write("#{submission.language.compile_cmd % compiler_options}") }
     end
 
     compile_output_file = workdir + "/" + "compile_output.txt"
@@ -214,9 +213,8 @@ class IsolateJob < ApplicationJob
     end
 
     unless submission.is_project
-      # gsub is mandatory!
-      command_line_arguments = submission.command_line_arguments.to_s.strip.encode("UTF-8", invalid: :replace).gsub(/[$&;<>|`]/, "")
-      File.open(run_script, "w") { |f| f.write("#{submission.language.run_cmd} #{command_line_arguments}")}
+      command_line_arguments = CommandArguments.sanitize(submission.command_line_arguments)
+      create_file(run_script) { |f| f.write("#{submission.language.run_cmd} #{command_line_arguments}") }
     end
 
     command = "isolate #{cgroups} \
@@ -367,5 +365,13 @@ class IsolateJob < ApplicationJob
     text.split("\n").collect(&:rstrip).join("\n").rstrip
   rescue ArgumentError
     return text
+  end
+
+  # Creates a new file securely, failing if the file already exists or is a symlink.
+  def create_file(path)
+    flags = File::CREAT | File::EXCL | File::WRONLY | File::NOFOLLOW
+    File.open(path, flags) do |file|
+      yield file
+    end
   end
 end
