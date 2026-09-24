@@ -4,12 +4,16 @@ services:
     build:
       context: .
       target: development
+    env_file: judge0.conf
     volumes:
       - .:/api
     ports:
       - "2358:2358"
       - "3001:3001" # For ./scripts/dev/serve-docs
     privileged: true
+    depends_on:
+      - db
+      - redis
 
   db:
     image: postgres:16.2
