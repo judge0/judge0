@@ -360,6 +360,7 @@ These scientific articles cite Judge0.
 * [Web application for authoring and sharing code snippets in different programming languages](https://repozitorij.fer.unizg.hr/en/islandora/object/fer%3A3607)
 * [When Your Infrastructure Becomes Your Moat: What SlaveCode's Judge0 Integration Taught Me](https://www.adilsher.pro/blog/slavecode-featured-in-the-official-judge0-repository)
 * [Why I Stopped Self-Hosting](https://www.youtube.com/watch?v=TkysPcpK0aQ)
+* [Why Judge0 Doesn't Just Run on ARM64: What I Discovered While Investigating Compiler Infrastructure](https://blog.nife.io/post/why-judge0-doesnt-just-run-on-arm64/)
 * [Your own Leetcode with Deployment](https://www.youtube.com/watch?v=6nkNUDNhSYI)
 * [get an exhaustive list of solutions for sandboxed execution of python (local, remote)](https://github.com/Arize-ai/phoenix/issues/11756)
 * [judge0 on Mac M3 macOS Sequoia](https://girishkr.medium.com/judge0-on-mac-m3-macos-sequoia-26946b85d67c)
