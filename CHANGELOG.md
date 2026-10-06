@@ -18,8 +18,19 @@ Please note that Judge0 has only been tested on **Linux** and might not work on 
 We recommend using Ubuntu 22.04, on which you need to do the following update of GRUB:
 1. Use `sudo` to open file `/etc/default/grub`
 2. Add `systemd.unified_cgroup_hierarchy=0` in the value of `GRUB_CMDLINE_LINUX` variable.
-4. Apply the changes: `sudo update-grub`
-5. Restart your server: `sudo reboot`
+   
+	*Example `/etc/default/grub` file*
+	```
+	GRUB_DEFAULT=0
+	GRUB_TIMEOUT_STYLE=hidden
+	GRUB_TIMEOUT=0
+	GRUB_DISTRIBUTOR=`lsb_release -i -s 2> /dev/null || echo Debian`
+	GRUB_CMDLINE_LINUX_DEFAULT="quite splash"
+	GRUB_CMDLINE_LINUX="systemd.unified_cgroup_hierarchy=0"
+	```
+
+3. Apply the changes: `sudo update-grub`
+4. Restart your server: `sudo reboot`
 
 Additionally, make sure you have [Docker](https://docs.docker.com) and [Docker Compose](https://docs.docker.com/compose) installed.
 
