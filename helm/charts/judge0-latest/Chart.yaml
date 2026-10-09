@@ -1,0 +1,22 @@
+apiVersion: v2
+name: judge0
+description:   Helm implementation of Judge0 | Free,robust and scalable open-source online code execution system.
+type: application
+version: 0.1.0
+appVersion: "1.16.0"
+dependencies:
+  - condition: postgresql.enabled
+    name: postgresql
+    repository: https://kubernetes-charts.storage.googleapis.com/
+    tags:
+      - judge0-database
+    version: 7.7.2
+  - condition: redis.enabled
+    name: redis
+    repository: https://kubernetes-charts.storage.googleapis.com/
+    tags:
+      - judge0-redis
+    version: 10.2.0
+maintainers:
+- email: aayush.bajaj@cawstudios.com
+  name: Aayush Bajaj
