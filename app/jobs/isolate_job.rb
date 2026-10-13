@@ -332,7 +332,7 @@ class IsolateJob < ApplicationJob
           },
           timeout: Config::CALLBACKS_TIMEOUT
         )
-        break
+        break if response.success?
       rescue Exception => e
       end
     end
