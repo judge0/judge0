@@ -421,6 +421,7 @@ These open-source projects are using Judge0. You can add yours as well by creati
 * [SensAI by dalmia](https://github.com/dalmia/sensai-frontend)
 * [Slashcoder by Jatin Sahu](https://devpost.com/software/slashcoder)
 * [SlaveCode by @phero20](https://github.com/phero20/slavecode)
+* [StackDuel by @admclamb and @ZhiZheng0889](https://www.stackduel.dev)
 * [SyncR by Heshan Nethmina](https://github.com/heshannethmina/SyncR)
 * [Unofficial Judge0 PHP Client by Xefreh](https://github.com/Xefreh/judge0-php-client)
 * [Unofficial Judge0 Python Client by Aaron Walker](https://github.com/vCra/judge0api)
