@@ -4,7 +4,7 @@
 # Usage: ./scripts/workers
 #
 source ./scripts/load-config
-export | sudo tee /api/environment
+export | sudo tee /api/environment >/dev/null
 
 run_resque=1
 resque_pid=0

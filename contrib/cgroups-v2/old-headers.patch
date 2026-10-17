@@ -1,0 +1,18 @@
+diff --git a/rules.c b/rules.c
+index 0ff6ccd..6341d71 100644
+--- a/rules.c
++++ b/rules.c
+@@ -496,8 +496,13 @@ set_quota(void)
+   if (cwd_fd < 0)
+     die("open: %m");
+ 
++#ifdef SYS_quotactl_fd
+   if (syscall(SYS_quotactl_fd, cwd_fd, quota_op, box_uid, dq_ptr) < 0)
+     quotactl_error();
++#else
++  // Old compiler images lack this syscall definition. Never ignore requested quotas.
++  die("Disk quotas require newer Linux build headers (quotactl_fd)");
++#endif
+ 
+   close(cwd_fd);
+ 
