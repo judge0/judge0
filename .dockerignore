@@ -9,3 +9,6 @@ log/*
 scripts/dev/
 srv/
 tmp/*
+contrib/cgroups-v2/judge0.conf
+contrib/cgroups-v2/*-results.json
+contrib/cgroups-v2/__pycache__/

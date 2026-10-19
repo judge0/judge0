@@ -4,7 +4,7 @@
 # Usage: ./scripts/server
 #
 source ./scripts/load-config
-export | sudo tee /api/environment
+export | sudo tee /api/environment >/dev/null
 
 for i in $(seq 1 $RESTART_MAX_TRIES); do
     [[ -f tmp/pids/server.pid ]] && rm -f tmp/pids/server.pid
