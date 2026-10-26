@@ -1,0 +1,16 @@
+#!/bin/bash
+set -euo pipefail
+# Only the container's private cgroup subtree may be changed.
+test -f /.dockerenv
+test "$(cat /proc/self/cgroup)" = '0::/' || { echo 'Private cgroup namespace required' >&2; exit 1; }
+test "$(stat -fc %T /sys/fs/cgroup)" = cgroup2fs
+mount -o remount,rw /sys/fs/cgroup
+cd /sys/fs/cgroup
+mkdir -p service sandboxes
+mapfile -t service_pids < cgroup.procs
+for pid in "${service_pids[@]}"; do
+  echo "$pid" > service/cgroup.procs || { test ! -d "/proc/$pid"; }
+done
+echo '+cpu +memory +pids' > cgroup.subtree_control
+echo '+cpu +memory +pids' > sandboxes/cgroup.subtree_control
+mkdir -p /run/isolate/locks

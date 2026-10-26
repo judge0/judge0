@@ -1,0 +1,50 @@
+name: judge0-cgroups-v2
+services:
+  server:
+    image: judge0:cgroups-v2-experimental
+    platform: linux/amd64
+    build:
+      context: ../..
+      dockerfile: contrib/cgroups-v2/Dockerfile
+    env_file: judge0.conf
+    ports:
+      - '127.0.0.1:2358:2358'
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+  workers:
+    image: judge0:cgroups-v2-experimental
+    platform: linux/amd64
+    env_file: judge0.conf
+    environment:
+      JUDGE0_CGROUPS_WORKER: '1'
+    command: ['/api/scripts/workers']
+    privileged: true
+    cgroup: private
+    depends_on:
+      - server
+    restart: unless-stopped
+  db:
+    image: postgres:16.2
+    env_file: judge0.conf
+    volumes:
+      - data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U "$${POSTGRES_USER}"']
+      interval: 5s
+      retries: 20
+    restart: unless-stopped
+  redis:
+    image: redis:7.2.4
+    env_file: judge0.conf
+    command: ['sh', '-c', 'exec redis-server --appendonly no --requirepass "$${REDIS_PASSWORD}"']
+    healthcheck:
+      test: ['CMD-SHELL', 'REDISCLI_AUTH="$${REDIS_PASSWORD}" redis-cli ping | grep -q PONG']
+      interval: 5s
+      retries: 20
+    restart: unless-stopped
+volumes:
+  data:

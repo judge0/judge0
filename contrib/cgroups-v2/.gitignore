@@ -1,0 +1,4 @@
+judge0.conf
+*-results.json
+*.log
+__pycache__/

@@ -1,3 +1,5 @@
+require "open3"
+
 class IsolateJob < ApplicationJob
   retry_on RuntimeError, wait: 0.1.seconds, attempts: 100
 
@@ -51,10 +53,42 @@ class IsolateJob < ApplicationJob
 
   private
 
+  def cgroup_v2?
+    ENV["JUDGE0_CGROUPS_VERSION"] == "2"
+  end
+
+  def cgroup_timing_option
+    return "" if cgroup_v2?
+    submission.enable_per_process_and_thread_time_limit ? (cgroups.present? ? "--no-cg-timing" : "") : "--cg-timing"
+  end
+
   def initialize_workdir
-    @box_id = submission.id%2147483647
+    @workdir = nil
+    @sandbox_initialized = false
+    # A held lock prevents different workers from reusing a live sandbox.
+    @box_lock = nil
+    if cgroup_v2?
+      1000.times do |offset|
+        candidate = (submission.id + offset) % 1000
+        lock = File.open("/api/tmp/isolate-slot-#{candidate}.lock", File::RDWR | File::CREAT, 0600)
+        if lock.flock(File::LOCK_EX | File::LOCK_NB)
+          @box_lock = lock
+          @box_id = candidate
+          break
+        end
+        lock.close
+      end
+      raise "No sandbox slots available" unless @box_lock
+      raise "Per-process CPU timing is unsupported by Isolate 2" if submission.enable_per_process_and_thread_time_limit
+    else
+      @box_id = submission.id % 2147483647
+    end
     @cgroups = (!submission.enable_per_process_and_thread_time_limit || !submission.enable_per_process_and_thread_memory_limit) ? "--cg" : ""
-    @workdir = `isolate #{cgroups} -b #{box_id} --init`.chomp
+    output, error, result = Open3.capture3("isolate", *cgroups.split, "-b", box_id.to_s, "--init")
+    expected = "/var/local/lib/isolate/#{box_id}"
+    raise "Sandbox initialization failed: #{error.strip}" unless result.success? && output.strip == expected
+    @workdir = expected
+    @sandbox_initialized = true
     @boxdir = workdir + "/box"
     @tmpdir = workdir + "/tmp"
     @source_file = boxdir + "/" + submission.language.source_file.to_s
@@ -92,7 +126,7 @@ class IsolateJob < ApplicationJob
     -w 4 \
     -k #{Config::MAX_STACK_LIMIT} \
     -p#{Config::MAX_MAX_PROCESSES_AND_OR_THREADS} \
-    #{submission.enable_per_process_and_thread_time_limit ? (cgroups.present? ? "--no-cg-timing" : "") : "--cg-timing"} \
+    #{cgroup_timing_option} \
     #{submission.enable_per_process_and_thread_memory_limit ? "-m " : "--cg-mem="}#{Config::MAX_MEMORY_LIMIT} \
     -f #{Config::MAX_EXTRACT_SIZE} \
     --run \
@@ -149,7 +183,7 @@ class IsolateJob < ApplicationJob
     -w #{Config::MAX_WALL_TIME_LIMIT} \
     -k #{Config::MAX_STACK_LIMIT} \
     -p#{Config::MAX_MAX_PROCESSES_AND_OR_THREADS} \
-    #{submission.enable_per_process_and_thread_time_limit ? (cgroups.present? ? "--no-cg-timing" : "") : "--cg-timing"} \
+    #{cgroup_timing_option} \
     #{submission.enable_per_process_and_thread_memory_limit ? "-m " : "--cg-mem="}#{Config::MAX_MEMORY_LIMIT} \
     -f #{Config::MAX_MAX_FILE_SIZE} \
     -E HOME=/tmp \
@@ -230,7 +264,7 @@ class IsolateJob < ApplicationJob
     -w #{submission.wall_time_limit} \
     -k #{submission.stack_limit} \
     -p#{submission.max_processes_and_or_threads} \
-    #{submission.enable_per_process_and_thread_time_limit ? (cgroups.present? ? "--no-cg-timing" : "") : "--cg-timing"} \
+    #{cgroup_timing_option} \
     #{submission.enable_per_process_and_thread_memory_limit ? "-m " : "--cg-mem="}#{submission.memory_limit} \
     -f #{submission.max_file_size} \
     -E HOME=/tmp \
@@ -292,13 +326,15 @@ class IsolateJob < ApplicationJob
   end
 
   def cleanup(raise_exception = true)
-    fix_permissions
-    `sudo rm -rf #{boxdir}/* #{tmpdir}/*`
-    [stdin_file, stdout_file, stderr_file, metadata_file].each do |f|
-      `sudo rm -rf #{f}`
+    return unless @sandbox_initialized
+    _, error, result = Open3.capture3("isolate", *cgroups.split, "-b", box_id.to_s, "--cleanup")
+    if raise_exception && (!result.success? || Dir.exists?(workdir))
+      raise "Cleanup of sandbox #{box_id} failed: #{error.strip}"
     end
-    `isolate #{cgroups} -b #{box_id} --cleanup`
-    raise "Cleanup of sandbox #{box_id} failed." if raise_exception && Dir.exists?(workdir)
+  ensure
+    @sandbox_initialized = false
+    @box_lock.close if @box_lock && !@box_lock.closed?
+    @box_lock = nil
   end
 
   def reset_metadata_file
