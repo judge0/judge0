@@ -166,6 +166,7 @@ These scientific articles cite Judge0.
 * [Development of a Centralized Competitive Coding Platform for College Students](https://www.ijert.org/development-of-a-centralized-competitive-coding-platform-for-college-students-ijertconv14is040064)
 * [Development of a System for Automated Testing of Program Code for the Educational Process in the Discipline "Programming Languages](https://geosib.sgugit.ru/upload/geosibir/sborniki/2023/tom-7-1/164-171.pdf)
 * [ECCO: Can We Improve Model-Generated Code Efficiency Without Sacrificing Functional Correctness?](https://arxiv.org/abs/2407.14044)
+* [EEVEE: Uma Arquitetura Extensível Baseada em Workers para Avaliação Automatizada de Programação](https://cbsoft.sbc.org.br/2026/data/papers/workshops/EEVEE%20Uma%20Arquitetura%20Extens%C3%ADvel%20Baseada%20em%20Workers%20para%20Avalia%C3%A7%C3%A3o%20Automatizada%20de%20Programa%C3%A7%C3%A3o.pdf)
 * [Evaluation of an Online Judge for Concurrent Programming Learning](https://ieeexplore.ieee.org/abstract/document/10346201)
 * [Exploiter le Language Server Protocol pour créer un éditeur de code nomade et ergonomique](https://pure.unamur.be/ws/portalfiles/portal/98847091/2024_LoirS_Memoire.pdf)
 * [Exploring Automated Code Evaluation Systems and Resources for Code Analysis: A Comprehensive Survey](https://arxiv.org/abs/2307.08705)
