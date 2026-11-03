@@ -10,7 +10,7 @@
 #
 # Layout we want at startup:
 #
-#   /sys/fs/cgroup/                    container's root cgroup (delegated by K8s/Docker)
+#   <container cgroup>/                from /proc/self/cgroup (the pod's limits apply here)
 #     ├── api.scope/                   Rails / Resque workers move here (PID 1's new home)
 #     └── isolate.slice/               isolate v2 creates per-box children under this
 #         ├── box-0/
@@ -37,7 +37,12 @@
 
 set -uo pipefail
 
-CG_ROOT="/sys/fs/cgroup"
+# Use the container's own cgroup as the root, not the cgroupfs root: when the
+# container shares the host cgroup namespace, /sys/fs/cgroup is not ours.
+# /proc/self/cgroup reads "0::/" with a private namespace (unchanged behaviour)
+# and "0::/<path-to-this-container>" with a shared one.
+CG_SELF="$(awk -F: '$1 == "0" {print $3}' /proc/self/cgroup 2>/dev/null)"
+CG_ROOT="/sys/fs/cgroup${CG_SELF%/}"
 CG_PARENT_PROCS="$CG_ROOT/cgroup.procs"
 CG_PARENT_SUBTREE="$CG_ROOT/cgroup.subtree_control"
 CG_API_SCOPE="$CG_ROOT/api.scope"
