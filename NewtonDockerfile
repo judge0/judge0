@@ -1,10 +1,9 @@
 # Compiler base is pinned to the commit SHA the compilers CI actually pushes;
-# the 0.3x numbers in that repo are a doc convention, not published tags.
-# f8f215e = Newton-School/compilers#23 (label 0.39): Tier 15 flex/bison +
-# libfl/liby for the C + Lex/Yacc lane 3010, on top of #22's CircuitRun
-# arduino-cli cap and #21's man-db Tier 14. Built from that PR head and
-# pushed as :<sha> and :0.39 (digest sha256:e7ffeab5…).
-FROM newtonschool/judge0-newton-compiler:f8f215eac832b9a34223302e7322c1e37b588bbc AS production
+# the 0.x numbers in that repo are a doc convention, not published tags.
+# c51f91f = Newton-School/compilers#26 (label 0.40): CircuitRun ESP32-S3 for
+# lane 3011, on top of #23's Tier 15 flex/bison for lane 3010. Pushed by the
+# compilers workflow as :<sha> and :latest (digest sha256:526537d7…).
+FROM newtonschool/judge0-newton-compiler:c51f91f531a575827231b61f0148a7a5d36d451a AS production
 
 
 ENV JUDGE0_HOMEPAGE "https://judge0-public.newtonschool.co/"

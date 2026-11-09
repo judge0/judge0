@@ -429,6 +429,64 @@ STDIN_CIRCUITRUN_ARDUINO='{
   }
 }'
 
+SRC_CIRCUITRUN_ESP32_S3='void setup() {
+  Serial.begin(115200);
+  pinMode(48, OUTPUT);
+  Serial.println("ready");
+}
+
+void loop() {
+  digitalWrite(48, HIGH);
+  delay(100);
+  digitalWrite(48, LOW);
+  delay(100);
+}'
+
+# compilers' bin/newton-test sends this payload, question_id aside; keep the two in step.
+STDIN_CIRCUITRUN_ESP32_S3='{
+  "schema_version": "2026-05-01",
+  "mode": "evaluate",
+  "embedded_system": {
+    "schema_version": "2026-05-01",
+    "parts": [],
+    "nets": []
+  },
+  "scenario": {
+    "duration_ms": 1000,
+    "stimuli": []
+  },
+  "checks": [
+    {
+      "type": "pin-toggled",
+      "id": "led-blinks",
+      "pin": "GPIO48",
+      "min_count": 2
+    },
+    {
+      "type": "serial-contains",
+      "id": "ready-printed",
+      "port": "Serial",
+      "text": "ready"
+    }
+  ],
+  "artifacts": {
+    "enabled": ["result.json", "waveform.json", "serial.log"]
+  },
+  "limits": {
+    "max_wall_ms": 20000
+  },
+  "context": {
+    "question_id": "judge0-smoke",
+    "test_case_id": "esp32-s3-arduino-cpp"
+  }
+}'
+
+SRC_CIRCUITRUN_ESP32_S3_BAD='void setup() {
+  pinMode(48, OUTPUT)
+}
+
+void loop() {}'
+
 # C + Lex/Yacc 3010 — source_code is a bundle of files, each starting with a
 # "/* ==== FILE: name ==== */" marker line; no marker = one lex spec. The
 # bundles below start with the one leading newline the build drops.
@@ -601,6 +659,10 @@ t_stdin_with_asset "Verilog 3005 with wave.vcd" 3005 \
 t_stdin_with_asset "CircuitRun Arduino Uno Arduino C++ (3009)" 3009 \
     "$SRC_CIRCUITRUN_ARDUINO" "$STDIN_CIRCUITRUN_ARDUINO" \
     "CIRCUITRUN_EVALUATE_ACCEPTED" "result.json" 256000
+t_stdin_with_asset "CircuitRun ESP32-S3 DevKitC-1 Arduino C++ (3011)" 3011 \
+    "$SRC_CIRCUITRUN_ESP32_S3" "$STDIN_CIRCUITRUN_ESP32_S3" \
+    "CIRCUITRUN_EVALUATE_ACCEPTED" "result.json" 256000
+t_ce "Sketch error -> Compilation Error (3011)" 3011 "$SRC_CIRCUITRUN_ESP32_S3_BAD" "main.ino:2:"
 
 # ────────────────────────────────────────────────────────────────────────
 section "Compiler-design lab (3010)"

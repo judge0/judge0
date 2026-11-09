@@ -10,7 +10,7 @@
 #   - hello world (default limits)         → expect Accepted
 #   - busy loop (cpu_time_limit=1)         → expect Time Limit Exceeded
 #   - 200 MB alloc (memory_limit=65536 KB) → expect Runtime Error (cgroup-v2 OOM kill)
-#   - CircuitRun under 64 MB               → expect runtime/memory failure; this is a
+#   - 3009 CircuitRun under 64 MB          → expect runtime/memory failure; this is a
 #                                             low-memory floor probe, not emulated MCU OOM
 #
 # Coverage: every active language that has natural busy-loop / alloc semantics.
@@ -21,6 +21,10 @@
 #   - 3009 CircuitRun — uses a valid scenario payload for HELLO/TLE and low-memory
 #                       probes. TLE/low-memory validate Judge0 enforcement around the
 #                       CircuitRun runner, not arbitrary firmware looping or MCU SRAM OOM.
+#   - 3011 CircuitRun ESP32-S3 — HELLO + TLE. It builds in the compile step, which runs
+#                       under judge0's MAX_* limits, so its TLE probe polls millis() for
+#                       a 10 s scenario (about 8 s of CPU) instead of reusing the blink.
+#                       No low-memory probe: the run step alone passes under a 64 MB cgroup.
 #   - 3010 C + Lex/Yacc — HELLO is a marked lex spec (bundle split + flex + libfl's
 #                         main); TLE/OOM are C_TLE/C_OOM as one-file .c bundles, so
 #                         they bound the built a.out like id 50, not bison/flex/gcc
@@ -328,6 +332,65 @@ CIRCUITRUN_ARDUINO_STDIN='{
   }
 }'
 
+CIRCUITRUN_ESP32_S3_HELLO='void setup() {
+  pinMode(48, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(48, HIGH);
+  delay(100);
+  digitalWrite(48, LOW);
+  delay(100);
+}'
+
+CIRCUITRUN_ESP32_S3_POLL='unsigned long last = 0;
+bool on = false;
+
+void setup() {
+  pinMode(48, OUTPUT);
+}
+
+void loop() {
+  if (millis() - last >= 100) {
+    last = millis();
+    on = !on;
+    digitalWrite(48, on);
+  }
+}'
+
+CIRCUITRUN_ESP32_S3_STDIN='{
+  "schema_version": "2026-05-01",
+  "mode": "evaluate",
+  "embedded_system": {
+    "schema_version": "2026-05-01",
+    "parts": [],
+    "nets": []
+  },
+  "scenario": {
+    "duration_ms": 1000,
+    "stimuli": []
+  },
+  "checks": [
+    {
+      "type": "pin-toggled",
+      "id": "led-blinks",
+      "pin": "GPIO48",
+      "min_count": 2
+    }
+  ],
+  "artifacts": {
+    "enabled": ["result.json"]
+  },
+  "limits": {
+    "max_wall_ms": 20000
+  },
+  "context": {
+    "question_id": "judge0-bounds",
+    "test_case_id": "esp32-s3-arduino-cpp"
+  }
+}'
+CIRCUITRUN_ESP32_S3_POLL_STDIN="${CIRCUITRUN_ESP32_S3_STDIN/\"duration_ms\": 1000/\"duration_ms\": 10000}"
+
 # C + Lex/Yacc 3010 — source_code is a bundle of files, each starting with a
 # "/* ==== FILE: name ==== */" marker line; each bundle starts with the one
 # leading newline the build drops. TLE/OOM are
@@ -350,11 +413,11 @@ $C_OOM"
 # ── plan ──
 TLE_OPTS='{"cpu_time_limit":1,"wall_time_limit":5}'
 OOM_OPTS='{"memory_limit":65536}'   # 64 MB cap; programs alloc 200 MB
-CIRCUITRUN_LOW_MEMORY_OPTS='{"memory_limit":65536}'   # 64 MB cap; valid CircuitRun should not fit
+CIRCUITRUN_LOW_MEMORY_OPTS='{"memory_limit":65536}'   # 64 MB cap; a valid 3009 run should not fit
 
 echo "Target: $URL"
 echo "Bounds: cpu_time_limit=1 (TLE probe), memory_limit=65536KB / alloc 200MB (OOM probe)"
-echo "CircuitRun: memory_limit=65536KB is a low-memory floor probe, not student-code OOM"
+echo "CircuitRun 3009: memory_limit=65536KB is a low-memory floor probe, not student-code OOM"
 echo
 
 for mode in sync async; do
@@ -384,6 +447,7 @@ for mode in sync async; do
   run "Python ML 2000"   "$mode" 'Accepted' 2000 "$PY_HELLO"
   run "MIPS 3001"        "$mode" 'Accepted' 3001 "$MIPS_HELLO"
   run "CircuitRun 3009" "$mode" 'Accepted' 3009 "$CIRCUITRUN_ARDUINO_HELLO" '{}' "$CIRCUITRUN_ARDUINO_STDIN" 'CIRCUITRUN_EVALUATE_ACCEPTED'
+  run "CircuitRun S3 3011" "$mode" 'Accepted' 3011 "$CIRCUITRUN_ESP32_S3_HELLO" '{}' "$CIRCUITRUN_ESP32_S3_STDIN" 'CIRCUITRUN_EVALUATE_ACCEPTED'
   run "C+Lex/Yacc 3010"  "$mode" 'Accepted' 3010 "$CDLAB_HELLO" '{}' "$CDLAB_HELLO_STDIN" 'Hello, Newton!'
 
   echo "── TLE: cpu_time_limit=1, busy loop ──"
@@ -409,6 +473,7 @@ for mode in sync async; do
   run "Python ML TLE"    "$mode" 'Time Limit'  2000 "$PY_TLE"      "$TLE_OPTS"
   run "MIPS TLE"         "$mode" 'Time Limit'  3001 "$MIPS_TLE"    "$TLE_OPTS"
   run "CircuitRun TLE" "$mode" 'Time Limit' 3009 "$CIRCUITRUN_ARDUINO_HELLO" "$TLE_OPTS" "$CIRCUITRUN_ARDUINO_STDIN"
+  run "CircuitRun S3 TLE" "$mode" 'Time Limit' 3011 "$CIRCUITRUN_ESP32_S3_POLL" "$TLE_OPTS" "$CIRCUITRUN_ESP32_S3_POLL_STDIN"
   run "C+Lex/Yacc TLE"   "$mode" 'Time Limit'  3010 "$CDLAB_TLE"   "$TLE_OPTS"
 
   echo "── OOM: memory_limit=65536 (64 MB), alloc 200 MB ──"

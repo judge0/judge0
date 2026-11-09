@@ -299,5 +299,21 @@
     source_file: "main.bundle",
     compile_cmd: "/usr/local/bin/newton-cdlab-build %s",
     run_cmd: "./a.out"
+  },
+  # The firmware doesn't depend on the testcase, so the compile step builds it
+  {
+    id: 3011,
+    name: "CircuitRun ESP32-S3 DevKitC-1 Arduino C++",
+    is_archived: false,
+    source_file: "main.ino",
+    compile_cmd: "circuitrun-judge0-runner judge0-compile --board esp32-s3 --language arduino-cpp --source main.ino",
+    run_cmd: "exec circuitrun-judge0-runner judge0-run --board esp32-s3 --language arduino-cpp --source main.ino --firmware build/firmware.bin --firmware-format bin --asset-dir artifacts",
+    assets: [
+      { name: "result.json", identification: '\Aartifacts/result\.json\z', max_size: 1_048_576 },
+      { name: "waveform.json", identification: '\Aartifacts/waveform\.json\z', max_size: 1_048_576 },
+      { name: "serial.log", identification: '\Aartifacts/serial\.log\z', max_size: 1_048_576 },
+      { name: "devices.json", identification: '\Aartifacts/devices\.json\z', max_size: 1_048_576 },
+      { name: "timing.json", identification: '\Aartifacts/timing\.json\z', max_size: 1_048_576 }
+    ]
   }
 ]

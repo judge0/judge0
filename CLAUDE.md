@@ -14,7 +14,7 @@ plus the `isolate` sandbox.
 | Postgres | 13 (dev) | Production uses managed Postgres |
 | Redis | 6.0 + 6.2.6 sidecar | sidecar = secondary cache (separate db) |
 | Resque + Resque-scheduler | 2.0 / 4.4 | submission queue |
-| Compiler base | `newtonschool/judge0-newton-compiler:f8f215eac832…` (label 0.39) | what we layer on; compilers CI tags by commit SHA, not semver |
+| Compiler base | `newtonschool/judge0-newton-compiler:c51f91f531a5…` (label 0.40) | what we layer on; compilers CI tags by commit SHA, not semver |
 | Sandbox | `isolate` v2.0 in **cgroup v2 mode** (`docker-entrypoint.sh` sets up the hierarchy at startup) | from compilers image |
 
 The Rails app's Ruby (`/usr/local/ruby-2.7.8`, installed in
@@ -37,7 +37,7 @@ compilers image). Don't conflate them.
 │   ├── load-config                  # sources judge0.conf, sets RAILS env
 │   └── dev/{shell,bundle,clean,...} # dev helpers
 ├── bin/
-│   ├── newton-smoke-test            # end-to-end smoke, every active language id (36 checks on amd64)
+│   ├── newton-smoke-test            # end-to-end smoke, every active language id (39 checks on amd64)
 │   ├── newton-postman.json          # Postman mirror of newton-smoke-test (same sections + case names)
 │   ├── newton-bounds-test           # HELLO / TLE / OOM enforcement probes, sync + async
 │   ├── lint-active-rb               # active.rb + archived.rb lint (also runs at image build)
@@ -191,6 +191,22 @@ language ids exist and what they invoke. Editing it requires a
   `bin/lint-active-rb` checks it (it runs at image build; CI has no PR
   job, so run it locally before merging).
 
+- **CircuitRun ESP32-S3 DevKitC-1 id 3011.** Same stdin payload and asset
+  names as 3009, each asset with a 1 MiB `max_size` (production's
+  `MAX_MAX_ASSET_SIZE` of 40960 bytes caps it). `compile_cmd` builds
+  the firmware (`build/firmware.bin`, a 4 MiB flash image) under judge0's
+  `MAX_*` limits with no stdin, and `run_cmd` boots it in the CircuitRun
+  dist's patched QEMU (`qemu-system-xtensa`) and grades it. A sketch error
+  is a Compilation Error with gcc's `main.ino:<line>:` text. Needs a
+  compilers image whose Tier 13 pins the Uno + ESP32-S3 dist (label 0.40+).
+  The compile needs `MAX_MAX_FILE_SIZE` of at least 8192 KB (blink fails
+  at 4096 KB). Under `MAX_MEMORY_LIMIT` (512000 KB on the public prod
+  stack) blink, a `<bits/stdc++.h>` sketch with a few containers and a
+  `std::regex` sketch compile; one combining `<bits/stdc++.h>`,
+  `std::regex`, `std::wregex` and about ten containers goes over and fails
+  as a Compilation Error (`Killed signal terminated program cc1plus`).
+  Measured on arm64.
+
 ## Build commands
 
 ```bash
@@ -239,8 +255,9 @@ JUDGE0_URL=http://localhost:2358 ./bin/newton-smoke-test
 ```
 
 Submits a hello-world or equivalent behavioral smoke for every active language
-id. Expected after `man` support on top of 0.76, plus the four 3010 cases:
-**36 PASS / 0 FAIL / 0 SKIP** on amd64; **34 PASS / 0 FAIL / 2 SKIP** on
+id. Expected after `man` support on top of 0.76, plus the four 3010 cases
+and 3011's three (accepted, its result asset, a compile error):
+**39 PASS / 0 FAIL / 0 SKIP** on amd64; **37 PASS / 0 FAIL / 2 SKIP** on
 arm64 (NASM and FreeBASIC are amd64-only upstream). Verilog waveforms and
 CircuitRun result artifacts each add an asset-metadata PASS; the Bash lane
 contributes three (hello-world, `man`, `whatis`).
@@ -249,8 +266,8 @@ Two companions move with the smoke test when a language is added:
 `bin/newton-postman.json` mirrors its cases as importable Postman requests
 (folders follow the smoke sections, same case names), and
 `bin/newton-bounds-test` probes HELLO / TLE (`cpu_time_limit=1`) / OOM
-(64 MB cap, 200 MB alloc) per language in sync and async mode — 66 probes
-per mode with 3010 (24 HELLO + 23 TLE + 18 OOM + 1 CircuitRun low-memory).
+(64 MB cap, 200 MB alloc) per language in sync and async mode — 68 probes
+per mode with 3011 (25 HELLO + 24 TLE + 18 OOM + 1 CircuitRun 3009 low-memory).
 
 **Plain-text API mode cannot return non-ASCII output.** judge0 stores
 stdout/stderr/compile_output base64-encoded and decodes them as binary,
@@ -288,7 +305,7 @@ in `judge0.conf` explain each. Summary:
 | `MAX_MAX_PROCESSES_AND_OR_THREADS` | 120 | **4096** | compile-time max |
 | `MAX_FILE_SIZE` | 1 MB | **1 GiB** | Go 1.23 binaries + Java class+jar bundles can exceed 1 MB |
 | `MAX_MAX_FILE_SIZE` | 4 MB | **2 GiB** | per-submission max |
-| `MAX_MAX_ASSET_SIZE` | – (new in 0.67) | **1048576** (1 MiB) | Phase 3 asset cap; clamps any per-language `max_size`; keeps first-pass CircuitRun artifact capture bounded |
+| `MAX_MAX_ASSET_SIZE` | – (new in 0.67) | **20480** (20 KB) | Phase 3 asset cap; clamps any per-language `max_size` |
 
 ## Common pitfalls
 
@@ -337,19 +354,20 @@ in `judge0.conf` explain each. Summary:
   bumped 0.29 → 0.33 (which carries `DOTNET_EnableWriteXorExecute=0`
   for the W^X / RLIMIT_FSIZE workaround), propagated into isolate via
   `-E DOTNET_EnableWriteXorExecute` in `IsolateJob`. Smoke target
-  was 28/0/0 at 0.76; it is 36/0/0 on amd64 with lane 3010 (see
+  was 28/0/0 at 0.76; it is 39/0/0 on amd64 with lanes 3010 and 3011 (see
   "End-to-end smoke test").
 - **The compiler base is pinned by commit SHA, not semver.** The compilers
   workflow pushes `judge0-newton-compiler:<git-sha>` and `:latest` only; the
   `0.35`/`0.36` tags on Docker Hub were hand-pushed months ago, and the
-  `0.3x` numbering now lives solely in that repo's
+  `0.x` numbering lives solely in that repo's
   `org.opencontainers.image.version` label — a semver tag for a new build
-  will not exist. `NewtonDockerfile` currently pins
-  `f8f215eac832b9a34223302e7322c1e37b588bbc` (Newton-School/compilers#23,
-  label 0.39: Tier 15 flex/bison/libfl/liby for lane 3010). That image was
-  built by hand from the PR head on the build box and pushed as `:<sha>`
-  and `:0.39` (same digest, `sha256:e7ffeab5…`), not by the compilers
-  workflow. It sits on #22, which caps CircuitRun's arduino-cli at
+  will not exist. `NewtonDockerfile` pins
+  `c51f91f531a575827231b61f0148a7a5d36d451a` (Newton-School/compilers#26,
+  label 0.40: CircuitRun ESP32-S3 for lane 3011), pushed by the compilers
+  workflow as `:<sha>` and `:latest` (digest `sha256:526537d7…`). It sits
+  on #23 (label 0.39: Tier 15 flex/bison/libfl/liby for lane 3010, built by
+  hand on the build box as `:f8f215eac832…` and `:0.39`, digest
+  `sha256:e7ffeab5…`), on #22, which caps CircuitRun's arduino-cli at
   `--jobs 4` / `GOMAXPROCS=4` so Arduino builds fit isolate's
   RLIMIT_NPROC, and #21, which added man-db for the Bash lane. CI here
   likewise tags by SHA (CodeBuild pushes ECR `judge0:<git-sha>`, the staging
