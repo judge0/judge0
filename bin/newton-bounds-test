@@ -21,6 +21,8 @@
 #   - 3009 CircuitRun — uses a valid scenario payload for HELLO/TLE and low-memory
 #                       probes. TLE/low-memory validate Judge0 enforcement around the
 #                       CircuitRun runner, not arbitrary firmware looping or MCU SRAM OOM.
+#                       HELLO/TLE send memory_limit=256000, as the smoke test does: the
+#                       sketch compiles in the run step, and 128000 KB kills arduino-cli.
 #   - 3011 CircuitRun ESP32-S3 — HELLO + TLE. It builds in the compile step, which runs
 #                       under judge0's MAX_* limits, so its TLE probe polls millis() for
 #                       a 10 s scenario (about 8 s of CPU) instead of reusing the blink.
@@ -412,6 +414,8 @@ $C_OOM"
 
 # ── plan ──
 TLE_OPTS='{"cpu_time_limit":1,"wall_time_limit":5}'
+CIRCUITRUN_OPTS='{"memory_limit":256000}'   # 3009 compiles in its run step
+CIRCUITRUN_TLE_OPTS='{"cpu_time_limit":1,"wall_time_limit":5,"memory_limit":256000}'
 OOM_OPTS='{"memory_limit":65536}'   # 64 MB cap; programs alloc 200 MB
 CIRCUITRUN_LOW_MEMORY_OPTS='{"memory_limit":65536}'   # 64 MB cap; a valid 3009 run should not fit
 
@@ -446,7 +450,7 @@ for mode in sync async; do
   run "Node.js 1999"     "$mode" 'Accepted' 1999 "$NODE_HELLO"
   run "Python ML 2000"   "$mode" 'Accepted' 2000 "$PY_HELLO"
   run "MIPS 3001"        "$mode" 'Accepted' 3001 "$MIPS_HELLO"
-  run "CircuitRun 3009" "$mode" 'Accepted' 3009 "$CIRCUITRUN_ARDUINO_HELLO" '{}' "$CIRCUITRUN_ARDUINO_STDIN" 'CIRCUITRUN_EVALUATE_ACCEPTED'
+  run "CircuitRun 3009" "$mode" 'Accepted' 3009 "$CIRCUITRUN_ARDUINO_HELLO" "$CIRCUITRUN_OPTS" "$CIRCUITRUN_ARDUINO_STDIN" 'CIRCUITRUN_EVALUATE_ACCEPTED'
   run "CircuitRun S3 3011" "$mode" 'Accepted' 3011 "$CIRCUITRUN_ESP32_S3_HELLO" '{}' "$CIRCUITRUN_ESP32_S3_STDIN" 'CIRCUITRUN_EVALUATE_ACCEPTED'
   run "C+Lex/Yacc 3010"  "$mode" 'Accepted' 3010 "$CDLAB_HELLO" '{}' "$CDLAB_HELLO_STDIN" 'Hello, Newton!'
 
@@ -472,7 +476,7 @@ for mode in sync async; do
   run "Node TLE"         "$mode" 'Time Limit'  1999 "$NODE_TLE"    "$TLE_OPTS"
   run "Python ML TLE"    "$mode" 'Time Limit'  2000 "$PY_TLE"      "$TLE_OPTS"
   run "MIPS TLE"         "$mode" 'Time Limit'  3001 "$MIPS_TLE"    "$TLE_OPTS"
-  run "CircuitRun TLE" "$mode" 'Time Limit' 3009 "$CIRCUITRUN_ARDUINO_HELLO" "$TLE_OPTS" "$CIRCUITRUN_ARDUINO_STDIN"
+  run "CircuitRun TLE" "$mode" 'Time Limit' 3009 "$CIRCUITRUN_ARDUINO_HELLO" "$CIRCUITRUN_TLE_OPTS" "$CIRCUITRUN_ARDUINO_STDIN"
   run "CircuitRun S3 TLE" "$mode" 'Time Limit' 3011 "$CIRCUITRUN_ESP32_S3_POLL" "$TLE_OPTS" "$CIRCUITRUN_ESP32_S3_POLL_STDIN"
   run "C+Lex/Yacc TLE"   "$mode" 'Time Limit'  3010 "$CDLAB_TLE"   "$TLE_OPTS"
 
