@@ -1,0 +1,313 @@
+# Default values for caw-judge0.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  registry: docker.io
+  repository: judge0/judge0
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "1.13.0"
+
+service:
+  type: ClusterIP
+  port: 80
+  targetport: 2358
+
+###############################################################################
+# Rails Environment
+###############################################################################
+# Specify Rails environment: production or development
+# Default: production
+# RAILS_ENV:  production
+
+# Specify maximum number of concurrent Rails threads.
+# Default: 5
+RAILS_MAX_THREADS: 10
+
+# Maintenance mode is a mode in which clients cannot
+# create or delete submissions while maintenance is enabled.
+# Default: false
+MAINTENANCE_MODE: false
+
+# Set custom maintenance message that will be returned to clients
+# who try to create or delete submisions.
+# Default: Judge0 API is currently in maintenance.
+# MAINTENANCE_MESSAGE:
+
+# Secret key base for production, if not set it will be randomly generated
+# Default: randomly generated
+# SECRET_KEY_BASE:
+
+# Allow only specified origins.
+# If left blank, then all origins will be allowed (denoted with '*').
+# Example:
+# ALLOW_ORIGIN:"www.judge0.com judge0.com www.example.com blog.example.com"
+# ALLOW_ORIGIN:
+
+# Disallow only specified origins.
+# If left blank, then no origin will be disallowed.
+# Example:
+# DISALLOW_ORIGIN:"www.judge0.com judge0.com www.example.com blog.example.com"
+# DISALLOW_ORIGIN:
+
+# Allow only specified IP addresses.
+# If left blank, then all IP addresses will be allowed.
+# Example:
+# ALLOW_IP:"192.168.10.10 96.239.226.228 208.23.207.242"
+# ALLOW_IP:
+
+# Disallow only specified IP addresses.
+# If left blank, then no IP addresses will be disallowed.
+# Example:
+# DISALLOW_IP:"192.168.10.10 96.239.226.228 208.23.207.242"
+# DISALLOW_IP:
+
+###############################################################################
+# Authentication
+###############################################################################
+# You can protect your API with (AUTHN_HEADER, AUTHN_TOKEN) pair.
+# Each request then needs to have this pair either in headers or
+# query parameters. For example let AUTHN_HEADER:X-Judge0-Token and
+# AUTHN_TOKEN:mySecretToken. Then user should authenticate by sending this
+# in headers or query parameters in each request, e.g.:
+# https://api.judge0.com/system_info?X-Judge0-Token:mySecretToken
+
+# Specify authentication header name.
+# Default: X-Auth-Token
+# AUTHN_HEADER:
+
+# Specify valid authentication tokens.
+# Default: empty - authentication is disabled
+# AUTHN_TOKEN:
+
+###############################################################################
+# Authorization
+###############################################################################
+# Protected API calls can be issued with (AUTHZ_HEADER, AUTHZ_TOKEN) pair.
+# To see exactly which API calls are protected with authorization tokens
+# please read the docs at https://api.judge0.com.
+# API authorization ensures that only specified users call protected API calls.
+# For example let AUTHZ_HEADER:X-Judge0-User and AUTHZ_TOKEN:mySecretToken.
+# Then user should authorize be sending this in headers or query parameters in
+# each request, e.g.: https://api.judge0.com/system_info?X-Judge0-User:mySecretToken
+# Note that if you enabled authentication, then user should also send valid
+# authentication token.
+
+# Specify authorization header name.
+# Default: X-Auth-User
+# AUTHZ_HEADER:
+
+# Specify valid authorization tokens.
+# Default: empty - authorization is disabled, protected API calls cannot be issued
+# AUTHZ_TOKEN:
+
+###############################################################################
+# Workers
+###############################################################################
+# Specify polling frequency in seconds. Decimal numbers are allowed.
+# Default: 0.1
+# INTERVAL:
+
+# Specify how many parallel workers to run.
+# Default: 1
+COUNT: 1
+
+# Specify maximum queue size. Represents maximum number of submissions that
+# can wait in the queue at once. If request for new submission comes and the
+# queue if full then submission will be rejected.
+# Default: 100
+# MAX_QUEUE_SIZE:
+
+readinessProbe:
+  # readinessProbe.enable -- Enabling Readiness Probe
+  enable: true
+  # readinessProbe.interval -- Readiness check interval
+  interval: 60
+  # readinessProbe.timeout --  Define custom timeout
+  timeout: 3
+  # readinessProbe.initialDelay -- Intial Delay to take in account
+  initialDelay: 30
+
+livenessProbe:
+  # livenessProbe.enable -- Enabling Readiness Probe
+  enable: false
+  # livenessProbe.initialDelay -- Intial Delay to take in account
+  initialDelay: 30
+  # livenessProbe.timeout --  Define custom timeout
+  timeout: 1
+
+###############################################################################
+# Database
+###############################################################################
+
+postgresql:
+  ## Whether to deploy a postgresql server to satisfy the applications database requirements. To use an external database set this to false and configure the external.postgresql parameters
+  ## if you are using enabled true, for further configuration you can look at https://github.com/helm/charts/tree/master/stable/postgresql#parameters
+  enabled: false
+  image:
+    tag: 9.6 # default version for the postgres.
+  postgresqlUsername: judgemaster
+  postgresqlPassword: uaeyjbzuyq
+  postgresqlDatabase: judge
+  service:
+    # port is defaulting to 5432
+    port: 5432
+  persistence:
+    enabled: false
+
+# if you are using enabled true, for further configuration you can look at https://github.com/helm/charts/tree/master/stable/redis#parameters
+redis:
+  ## Whether to deploy a redis server to satisfy the applications requirements. To use an external redis instance set this to false and configure the external.redis parameters
+  enabled: true
+  cluster:
+    enabled: false
+  password: a8iuw23iuizy
+  # redisPort is bydefault set to 6379, change if needed in below line.
+  redisPort: 6379
+  master:
+    persistence:
+      enabled: true
+
+# Set this incase the above services are disabled.
+external:
+  postgresql:
+    host: localhost
+    postgresqlUsername: postgres
+    postgresqlPassword: ""
+    postgresqlDatabase: judge
+    port: 5432 # default value is 5432
+  redis:
+    host: localhost
+    password: ""
+    port: 6379 # default value is 6379
+###############################################################################
+# Configuration
+###############################################################################
+# https://raw.githubusercontent.com/ioi/isolate/master/isolate.1.txt
+
+# If enabled user can request to synchronically wait for submission result on submission create.
+# Default: true, i.e. user can request to wait for the result
+# ENABLE_WAIT_RESULT:
+
+# If enabled user is allowed to set custom compiler options.
+# Default: true
+# ENABLE_COMPILER_OPTIONS:
+
+# List language names, separated by space, for which setting compiler options is allowed.
+# Note that ENABLE_COMPILER_OPTIONS has higher priority, so this option will be
+# ignored if setting compiler options is disabled with ENABLE_COMPILER_OPTIONS.
+# For example, ALLOWED_LANGUAGES_FOR_COMPILER_OPTIONS:"C C++ Java" would only
+# allow setting compiler options for languages C, C++ and Java.
+# Default: empty - for every compiled language setting compiler options is allowed.
+# ALLOWED_LANGUAGES_FOR_COMPILER_OPTIONS:
+
+# If enabled user is allowed to set custom command line arguments.
+# Default: true
+# ENABLE_COMMAND_LINE_ARGUMENTS:
+
+# If enabled autorized users can delete a submission.
+# Default: false
+# ENABLE_SUBMISSION_DELETE:
+
+# Default runtime limit for every program (in seconds). Decimal numbers are allowed.
+# Time in which the OS assigns the processor to different tasks is not counted.
+# Default: 2
+# CPU_TIME_LIMIT:
+
+# Maximum custom CPU_TIME_LIMIT.
+# Default: 15
+# MAX_CPU_TIME_LIMIT:
+
+# When a time limit is exceeded, wait for extra time (in seconds), before
+# killing the program. This has the advantage that the real execution time
+# is reported, even though it slightly exceeds the limit.
+# Default: 0.5
+# CPU_EXTRA_TIME:
+
+# Maximum custom CPU_EXTRA_TIME.
+# Default: 2
+# MAX_CPU_EXTRA_TIME:
+
+# Limit wall-clock time in seconds. Decimal numbers are allowed.
+# This clock measures the time from the start of the program to its exit,
+# so it does not stop when the program has lost the CPU or when it is waiting
+# for an external event. We recommend to use CPU_TIME_LIMIT as the main limit,
+# but set WALL_TIME_LIMIT to a much higher value as a precaution against
+# sleeping programs.
+# Default: 5
+# WALL_TIME_LIMIT:
+
+# Maximum custom WALL_TIME_LIMIT.
+# Default: 20
+# MAX_WALL_TIME_LIMIT:
+
+# Limit address space of the program in kilobytes.
+# Default: 128000
+# MEMORY_LIMIT:
+
+# Maximum custom MEMORY_LIMIT.
+# Default: 256000
+# MAX_MEMORY_LIMIT:
+
+# Limit process stack in kilobytes.
+# Default: 64000
+# STACK_LIMIT:
+
+# Maximum custom STACK_LIMIT.
+# Default: 128000
+# MAX_STACK_LIMIT:
+
+# Maximum number of processes and/or threads program can create.
+# Default: 60
+# MAX_PROCESSES_AND_OR_THREADS:
+
+# Maximum custom MAX_PROCESSES_AND_OR_THREADS.
+# Default: 120
+# MAX_MAX_PROCESSES_AND_OR_THREADS:
+
+# If true then CPU_TIME_LIMIT will be used as per process and thread.
+# Default: false, i.e. CPU_TIME_LIMIT is set as a total limit for all processes and threads.
+# ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT:
+
+# If false, user won't be able to set ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT.
+# Default: true
+# ALLOW_ENABLE_PER_PROCESS_AND_THREAD_TIME_LIMIT:
+
+# If true then MEMORY_LIMIT will be used as per process and thread.
+# Default: false, i.e. MEMORY_LIMIT is set as a total limit for all processes and threads.
+# ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT:
+
+# If false, user won't be able to set ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT.
+# Default: true
+# ALLOW_ENABLE_PER_PROCESS_AND_THREAD_MEMORY_LIMIT:
+
+# Limit size of files created (or modified) by the program in kilobytes.
+# Default: 1024
+# MAX_FILE_SIZE:
+
+# Maximum custom MAX_FILE_SIZE.
+# Default: 4096
+# MAX_MAX_FILE_SIZE:
+
+# Run each program this many times and take average of time and memory.
+# Default: 1
+# NUMBER_OF_RUNS:
+
+# Maximum custom NUMBER_OF_RUNS.
+# Default: 20
+# MAX_NUMBER_OF_RUNS:
+
+# Redirect stderr to stdout.
+# Default: false
+# REDIRECT_STDERR_TO_STDOUT:
+
+# Maximum total size (in kilobytes) of extracted files from archive.
+# Default: 10240, i.e. maximum of 10MB in total can be extracted.
+# MAX_EXTRACT_SIZE:
+
+# Maximum number of submissions that can be created or get in a batch.
+# Default: 20
+# MAX_SUBMISSION_BATCH_SIZE:
+
