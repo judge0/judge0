@@ -1,0 +1,24 @@
+# Isolate 2.x configuration for Judge0 (cgroup v2)
+#
+# This file is installed to /usr/local/etc/isolate inside the Docker image.
+# For more details see: https://github.com/ioi/isolate
+
+# All sandboxes are created under this directory.
+# Must be writeable only to root (no symlink attacks).
+box_root = /var/local/lib/isolate
+
+# Directory for lock files.
+lock_root = /run/isolate/locks
+
+# Control group root for sandbox resource isolation.
+# "auto:/run/isolate/cgroup" reads the cgroup path from /run/isolate/cgroup,
+# which is written by the setup-cgroups.sh entrypoint script.
+cg_root = auto:/run/isolate/cgroup
+
+# UID/GID range for sandbox processes.
+# Each box_id gets UID = first_uid + box_id.
+# Judge0 uses box_id = submission.id % 100000, so we need num_boxes >= 100000.
+# Max UID = 60000 + 99999 = 159999 (safe within 32-bit range).
+first_uid = 60000
+first_gid = 60000
+num_boxes = 100000
