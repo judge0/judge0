@@ -356,5 +356,13 @@
     id: 89,
     name: "Multi-file program",
     is_archived: false,
+  },
+  {
+    id: 90,
+    name: "Salam (0.4.3)",
+    is_archived: false,
+    source_file: "main.salam",
+    compile_cmd: "/usr/local/salam-glibc/ld-linux-x86-64.so.2 --library-path /usr/local/salam-glibc /usr/local/salam-0.4.3/salam llvm %s --stdlib-path=/usr/local/salam-0.4.3/std --emit-exec --log-level=error --output=main main.salam",
+    run_cmd: "/usr/local/salam-glibc/ld-linux-x86-64.so.2 --library-path /usr/local/salam-glibc ./main"
   }
 ]
