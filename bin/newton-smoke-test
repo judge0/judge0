@@ -85,23 +85,23 @@ t_stdin() {
     _check_resp "$name" "$lid" "$expected" "$resp"
 }
 
-# t_stdin_with_asset <name> <language_id> <source_code> <stdin> <expected_substring> <asset_logical_name> [<memory_limit_kb>]
+# t_stdin_with_asset <name> <language_id> <source_code> <stdin> <expected_substring> <asset_logical_name> [<memory_limit_kb>] [<command_line_arguments>]
 # Phase 3 — same as t_stdin, but also asserts the named asset is captured:
-#   1. submission GET (with fields=...,assets) returns metadata with size_bytes>0 and error=null
+#   1. submission response (with fields=...,assets) returns metadata with size_bytes>0 and error=null
 #   2. dedicated bytes endpoint returns HTTP 200
 # Adds an additional PASS/FAIL row beyond the stdout grading check, so a
 # Verilog problem with $dumpfile contributes 2 entries to the smoke summary.
 t_stdin_with_asset() {
     local name="$1" lid="$2" src="$3" stdin="$4" expected="$5" asset_name="$6"
-    local mem="${7:-}"
+    local mem="${7:-}" args="${8:-}"
     local payload resp token assets_json size err bytes_status
 
     if [[ -n "$mem" ]]; then
-        payload="$(jq -nc --arg sc "$src" --arg si "$stdin" --argjson lid "$lid" --argjson mem "$mem" \
-            '{language_id:$lid, source_code:$sc, stdin:$si, memory_limit:$mem}')"
+        payload="$(jq -nc --arg sc "$src" --arg si "$stdin" --argjson lid "$lid" --argjson mem "$mem" --arg args "$args" \
+            '{language_id:$lid, source_code:$sc, stdin:$si, memory_limit:$mem} | if $args != "" then .command_line_arguments = $args else . end')"
     else
-        payload="$(jq -nc --arg sc "$src" --arg si "$stdin" --argjson lid "$lid" \
-            '{language_id:$lid, source_code:$sc, stdin:$si}')"
+        payload="$(jq -nc --arg sc "$src" --arg si "$stdin" --argjson lid "$lid" --arg args "$args" \
+            '{language_id:$lid, source_code:$sc, stdin:$si} | if $args != "" then .command_line_arguments = $args else . end')"
     fi
     resp="$(curl -s -X POST "${URL}/submissions?wait=true&fields=token,stdout,stderr,status,message,compile_output,assets" \
         -H 'Content-Type: application/json' -d "$payload")"
@@ -133,6 +133,19 @@ t_stdin_with_asset() {
         FAIL=$((FAIL+1))
         FAILED+=("$name asset bytes (http $bytes_status)")
         return
+    fi
+
+    if [[ "$asset_name" == "mars-state.txt" ]]; then
+        local state_text
+        state_text="$(curl -s "${URL}/submissions/$token/assets/$asset_name" | jq -r '.data | @base64d')"
+        if [[ "$(echo "$resp" | jq -r '.stderr // empty')" != "" ]] || \
+           [[ "$state_text" != *'$0 ($zero)'* ]] || \
+           [[ "$state_text" != *'Mem[0x10010000]'* ]]; then
+            printf "  \033[31mFAIL\033[0m  %s state (stderr, numbered register or memory missing)\n" "$name"
+            FAIL=$((FAIL+1))
+            FAILED+=("$name state")
+            return
+        fi
     fi
 
     printf "  \033[32mPASS\033[0m  %s asset (size=%s)\n" "$name" "$size"
@@ -625,6 +638,9 @@ esac
 section "Newton extras"
 # ────────────────────────────────────────────────────────────────────────
 t "MIPS Mars 4.5 (3001)"        3001 "$SRC_MIPS"
+t_stdin_with_asset "MIPS 3001 with mars-state.txt" 3001 \
+    "$SRC_MIPS" "" "$EXPECTED" "mars-state.txt" "" \
+    "me dec zero at v0 v1 a0 a1 a2 a3 t0 t1 t2 t3 t4 t5 t6 t7 s0 s1 s2 s3 s4 s5 s6 s7 t8 t9 k0 k1 gp sp fp ra f0 f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f11 f12 f13 f14 f15 f16 f17 f18 f19 f20 f21 f22 f23 f24 f25 f26 f27 f28 f29 f30 f31 0x10010000-0x1001003c"
 
 # HDL drives the chip via a .tst-style script in stdin and prints a
 # truth-table to stdout. With a=1 b=0 sel=0 → out=1 (selecting a).

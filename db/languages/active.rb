@@ -177,7 +177,10 @@
     name: "MIPS (Mars 4.5)",
     is_archived: false,
     source_file: "main.s",
-    run_cmd: "/usr/local/bin/java -Djava.util.logging.config.file=/usr/local/mars/logging.properties -jar /usr/local/mars/mars.jar nc main.s"
+    run_cmd: "/usr/local/bin/newton-mars-run",
+    assets: [
+      { name: "mars-state.txt", identification: '\Amars-state\.txt\z', max_size: 40960 }
+    ]
   },
   {
     id: 3002,

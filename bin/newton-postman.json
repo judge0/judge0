@@ -330,6 +330,57 @@
           }
         },
         {
+          "name": "MIPS 3001 with mars-state.txt",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const body = pm.response.json();",
+                  "pm.test(\"Accepted\", () => pm.expect(body.status.description).to.eql(\"Accepted\"));",
+                  "pm.test(\"stdout\", () => pm.expect(body.stdout).to.include(\"Hello, Newton!\"));",
+                  "pm.test(\"stderr is empty\", () => pm.expect(body.stderr || \"\").to.eql(\"\"));",
+                  "pm.test(\"state asset\", () => { const asset = (body.assets || []).find((a) => a.logical_name === \"mars-state.txt\"); pm.expect(asset).to.exist; pm.expect(asset.error).to.be.oneOf([null, undefined, \"\"]); pm.expect(asset.size_bytes).to.be.above(0); });",
+                  "pm.sendRequest(`${pm.collectionVariables.get(\"base_url\")}/submissions/${body.token}/assets/mars-state.txt`, (error, response) => { pm.test(\"state file has numbered registers and memory\", () => { pm.expect(error).to.be.null; pm.expect(response.code).to.eql(200); const state = atob(response.json().data); pm.expect(state).to.include(\"$0 ($zero)\"); pm.expect(state).to.include(\"Mem[0x10010000]\"); }); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/submissions?wait=true&fields=token,stdout,stderr,status,message,compile_output,assets",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "submissions"
+              ],
+              "query": [
+                {
+                  "key": "wait",
+                  "value": "true"
+                },
+                {
+                  "key": "fields",
+                  "value": "token,stdout,stderr,status,message,compile_output,assets"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"language_id\": 3001,\n  \"source_code\": \"        .data\\nmsg:    .asciiz \\\"Hello, Newton!\\\\n\\\"\\n        .text\\nmain:\\n        li      $v0, 4\\n        la      $a0, msg\\n        syscall\\n        li      $v0, 10\\n        syscall\",\n  \"command_line_arguments\": \"me dec zero at v0 v1 a0 a1 a2 a3 t0 t1 t2 t3 t4 t5 t6 t7 s0 s1 s2 s3 s4 s5 s6 s7 t8 t9 k0 k1 gp sp fp ra f0 f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f11 f12 f13 f14 f15 f16 f17 f18 f19 f20 f21 f22 f23 f24 f25 f26 f27 f28 f29 f30 f31 0x10010000-0x1001003c\"\n}"
+            }
+          }
+        },
+        {
           "name": "HDL Nand2Tetris (3000)",
           "event": [{"listen": "test", "script": {"type": "text/javascript", "exec": ["pm.test(\"Accepted\", () => pm.expect(pm.response.json().status.description).to.eql(\"Accepted\"));", "pm.test(\"truth table row\", () => pm.expect(pm.response.json().stdout).to.include(\"|   1   |   0   |   0   |   1   |\"));"]}}],
           "request": {

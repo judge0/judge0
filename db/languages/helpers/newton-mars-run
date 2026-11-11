@@ -1,0 +1,51 @@
+#!/usr/local/python-3.13.1/bin/python3
+"""Run MARS and capture its optional end-of-run state as a Judge0 asset."""
+
+import re
+import subprocess
+import sys
+from pathlib import Path
+
+REGISTERS = (
+    "zero at v0 v1 a0 a1 a2 a3 t0 t1 t2 t3 t4 t5 t6 t7 "
+    "s0 s1 s2 s3 s4 s5 s6 s7 t8 t9 k0 k1 gp sp fp ra"
+).split()
+REGISTER_NUMBERS = {name.encode(): index for index, name in enumerate(REGISTERS)}
+STATE_LINE = re.compile(rb"^(?:\$[a-z][a-z0-9]*|Mem\[0x[0-9a-fA-F]+\])\t")
+MARS = [
+    "/usr/local/bin/java",
+    "-Djava.util.logging.config.file=/usr/local/mars/logging.properties",
+    "-jar",
+    "/usr/local/mars/mars.jar",
+    "nc",
+]
+
+arguments = sys.argv[1:]
+if "me" not in arguments:
+    # Preserve the existing lane's command and exit behavior without a dump.
+    sys.exit(subprocess.run([*MARS, "main.s", *arguments]).returncode)
+
+# MARS sends the post-mortem dump and its error messages to stderr with `me`.
+# ae1/se1 make assembly and runtime failures nonzero instead of Accepted.
+command = [*MARS, *arguments, "ae1", "se1", "main.s"]
+result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+state = []
+errors = []
+for line in result.stderr.splitlines(keepends=True):
+    if STATE_LINE.match(line):
+        name, _, value = line.partition(b"\t")
+        if name.startswith(b"$") and name[1:] in REGISTER_NUMBERS:
+            name = f"${REGISTER_NUMBERS[name[1:]]} (".encode() + name + b")"
+        state.append(name + b"\t" + value)
+    elif line.strip():
+        errors.append(line)
+
+if state:
+    Path("mars-state.txt").write_bytes(b"".join(state))
+else:
+    Path("mars-state.txt").unlink(missing_ok=True)
+
+sys.stdout.buffer.write(result.stdout)
+sys.stderr.buffer.write(b"".join(errors))
+
+sys.exit(result.returncode)
