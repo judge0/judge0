@@ -1,0 +1,13 @@
+# Isolate 2.x configuration for running Judge0 inside a Docker container on a
+# cgroup v2 host. The cgroup subtree at cg_root is created and delegated by
+# scripts/setup-cgroup-v2 when the container starts.
+
+box_root = /var/local/lib/isolate
+lock_root = /run/isolate/locks
+cg_root = /sys/fs/cgroup/isolate
+
+# Sandboxed programs run as uid/gid first_uid + box_id.
+# num_boxes must match ISOLATE_NUM_BOXES in app/jobs/isolate_job.rb.
+first_uid = 100000
+first_gid = 100000
+num_boxes = 100000

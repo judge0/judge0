@@ -13,6 +13,8 @@ services:
     ports:
       - "2358:2358"
     privileged: true
+    # Isolate needs its own writable cgroup v2 namespace (see scripts/setup-cgroup-v2).
+    cgroup: private
     <<: *default-logging
     restart: always
 
@@ -22,6 +24,8 @@ services:
     volumes:
       - ./judge0.conf:/judge0.conf:ro
     privileged: true
+    # Isolate needs its own writable cgroup v2 namespace (see scripts/setup-cgroup-v2).
+    cgroup: private
     <<: *default-logging
     restart: always
 
