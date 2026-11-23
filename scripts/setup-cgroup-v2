@@ -1,0 +1,55 @@
+#!/bin/bash
+# Delegates a cgroup v2 subtree to Isolate inside a privileged container.
+#
+# Usage: sudo ./scripts/setup-cgroup-v2
+#
+# cgroup v2 forbids enabling controllers for children of a cgroup that still
+# contains processes ("no internal processes" rule). The container starts with
+# every process in the root of its cgroup namespace, so we first move them all
+# into an "init" leaf, then enable controllers and create the "isolate" subtree
+# that Isolate uses as its cg_root (see docker/isolate.cf).
+set -euo pipefail
+
+CG=/sys/fs/cgroup
+WANTED_CONTROLLERS="cpu cpuset memory pids"
+
+fail() {
+    echo "[setup-cgroup-v2] ERROR: $*" >&2
+    exit 1
+}
+
+[[ "$(stat -fc %T "$CG")" == "cgroup2fs" ]] || \
+    fail "$CG is not a cgroup v2 filesystem. This image requires a cgroup v2 host."
+
+[[ -w "$CG/cgroup.subtree_control" ]] || \
+    fail "$CG is read-only. Run the container with 'privileged: true'."
+
+if [[ -d "$CG/isolate" ]] && grep -qw memory "$CG/isolate/cgroup.subtree_control"; then
+    echo "[setup-cgroup-v2] Already configured."
+    exit 0
+fi
+
+mkdir -p "$CG/init"
+
+# Processes may be forked while we move them, so retry until the root is empty.
+for _ in $(seq 1 20); do
+    procs=$(cat "$CG/cgroup.procs")
+    [[ -z "$procs" ]] && break
+    for pid in $procs; do
+        echo "$pid" > "$CG/init/cgroup.procs" 2> /dev/null || true
+    done
+done
+[[ -z "$(cat "$CG/cgroup.procs")" ]] || fail "Could not move all processes out of the root cgroup."
+
+available=" $(cat "$CG/cgroup.controllers") "
+enable=""
+for c in $WANTED_CONTROLLERS; do
+    [[ "$available" == *" $c "* ]] && enable+=" +$c"
+done
+[[ "$enable" == *"+memory"* ]] || fail "The memory controller is not available to this container."
+
+echo "$enable" > "$CG/cgroup.subtree_control"
+mkdir -p "$CG/isolate"
+echo "$enable" > "$CG/isolate/cgroup.subtree_control"
+
+echo "[setup-cgroup-v2] Delegated $CG/isolate with controllers:$enable"
